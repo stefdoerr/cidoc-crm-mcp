@@ -22,12 +22,6 @@ than rendering it.
 docker run -d -p 127.0.0.1:8000:8000 ghcr.io/stefdoerr/cidoc-crm-mcp:latest
 ```
 
-That is the whole install: no clone, no `uv`, no corpus to fetch. The
-ontology, the full archive, the full-text indexes, the vector stores and the
-embedding model are baked into the image, and the stores are loaded before
-the port opens, so the first search is as quick as the hundredth. About
-1.3GB to pull, and healthy about half a minute after `docker run`.
-
 Then point a client at `http://127.0.0.1:8000/mcp` and nothing else — no
 project path, no venv:
 
