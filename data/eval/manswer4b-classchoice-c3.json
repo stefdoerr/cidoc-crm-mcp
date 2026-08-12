@@ -1,0 +1,48 @@
+{
+  "case_id": "classchoice-c3",
+  "answer": "Record the household's women as a single E74 Group, linked as maker of the basket via P14 carried out by on the E12 Production event (which also P108 has produced the basket). This is not a compromise for lack of a better option -- E74 Group's own scope note gives 'family' as a named example of the class and lists 'creating some common artifact' among the qualifying forms of collective action, which is exactly what the diary reports: the women of one named household working together in a communal session. Do not name the three later-identified women as the makers (P14 to three E21 Persons): the consultation itself says it could not confirm whether any of them handled this particular basket, so asserting a person-level P14 link would claim a precision the evidence does not support -- it would be recording the participants of the day's broader work session as if they were this object's makers. Nor should the record fall back to the bare, unspecified E39 Actor superclass: that move is for when you don't even know whether a person or a group is responsible, and here the diary is positive and specific that it was a group (the household's women) that acted collectively, so using the abstract superclass would throw away evidence you actually have. The CRM-SIG has looked at exactly this shape of problem: Issue 542 ('Groups and carried out by', raised in thread t1477) is about groups such as a 'workshop of' or 'circle of' where the group as a whole is reasonably attributed with an activity even though not every member took part and the specific individual(s) involved are not known -- Robert Sanderson's post gives 'Scriptorium of, Workshop of, Circle of, Studio of' as the paradigm case, which is structurally the same problem as the household here. That issue was closed in 2025 by discontinuing the associated CRMsoc work rather than adding a refining property, so plain P14 from the Production to the E74 Group remains the model's mechanism for this and the residual uncertainty about which women actually handled this basket is not further resolvable in the current CRM. If it matters to the record, the senior weaver's distinct guiding role could be marked with P14.1 in the role of, and the three named women could separately be documented as P107 members of the household group or P11 participants in that day's activity -- but neither of those is the same claim as being this basket's maker, so I have left both out of the core recommendation.",
+  "classes_proposed": ["E74", "E12"],
+  "properties_proposed": ["P14", "P108"],
+  "rejected_alternatives": [
+    {
+      "option": "E21 (naming the three later-identified women as the makers via P14)",
+      "why_not": "The case states the community consultation could not confirm which of the three, if any, handled this particular basket. A person-level P14 carried_out_by link would assert a specific individual attribution the source explicitly does not support -- conflating 'present and working that day' with 'made this object'."
+    },
+    {
+      "option": "E39 (recording only the unspecified Actor superclass)",
+      "why_not": "E39 Actor is the right umbrella when you don't know if a person or a group is responsible. Here the field diary is positive that a group -- the household's women -- collectively did the work, which is exactly what E74 Group's own scope note (family; 'creating some common artifact') covers. Retreating to the bare superclass would discard evidence-supported specificity that is actually available, and the CRM-SIG's own discussion of the analogous 'workshop of'/'circle of' case (Issue 542, thread t1477) treats naming the group itself, not stepping back to E39, as the correct move even when individual participation inside the group is uncertain."
+    }
+  ],
+  "citations": ["E39", "E74", "E21", "E12", "P14", "Issue 542", "t1477",
+    {"id": "t1477", "quote": "Scriptorium of, Workshop of, Circle of, Studio of"}],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E39",
+    "concept E74",
+    "concept E21",
+    "concept E12",
+    "docs \"uncertain identity of actor\" --kind narrative",
+    "docs \"group of persons acting collectively\" --kind narrative",
+    "docs \"unknown or unspecified actor\" --kind declaration",
+    "connect E12 E74",
+    "connect E12 E21",
+    "connect E12 E39",
+    "\"recording a group of makers when individuals are not known\"",
+    "threads \"household or family as maker of an object\"",
+    "issues \"uncertain attribution of actor\"",
+    "thread t1477",
+    "issues \"carried out by member or members of group\"",
+    "docs \"assertions not supported by evidence\" --kind narrative",
+    "concept P14",
+    "issue 542",
+    "issue 2",
+    "quote t1477 \"Scriptorium of, Workshop of, Circle of, Studio of\"",
+    "quote E74 \"creating some common artifact\" (failed: E74 is not a quotable source id)",
+    "docs \"creating some common artifact\" --kind declaration",
+    "quote 2 \"Individual people should be documented as instances of E21 Person\" (failed: issue register text is not a quotable source id)",
+    "quote \"Issue 2\" \"Individual people should be documented as instances of E21 Person\" (failed: same reason)"
+  ],
+  "confidence": "high",
+  "notes": "The E74 Group scope note's own worked examples (family; 'creating some common artifact') map onto this case almost directly, and Issue 542/thread t1477 shows the SIG treating the identical ambiguity (named/constructed group known to have produced something, individual members' involvement uncertain) as resolved by attributing to the group via plain P14, not by a special property -- that issue was closed in 2025 without adding one. I could not verify a quotable line for Issue 2's outcome text via search.py quote (issue-register prose is not in the quote tool's indexed source types), so I left that citation out of the quoted form and did not rely on it as a direct quotation."
+}

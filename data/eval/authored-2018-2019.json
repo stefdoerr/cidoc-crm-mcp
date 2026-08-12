@@ -1,0 +1,50 @@
+[
+  {
+    "question": "The CIDOC CRM used to have a dedicated class for naming a specific section of a physical object (for example, 'the poop deck' of a ship). What happened to this class and the properties built on it, and how does the CRM now recommend recording such named sections?",
+    "gold_answer": "The class used to represent a named section of a physical object (e.g. 'the poop deck of HMS Victory') was deprecated by the CRM SIG. As a direct consequence, the property that linked a Physical Thing to that class was also deprecated, in a vote the SIG passed unanimously in November 2018. The surviving property for locating sections, which links a Physical Thing directly to a Place, had its scope note rewritten at the same time: a named or geometrically-defined section of an object is now represented simply as a Place, identified either by a name (such as 'the poop deck of H.M.S. Victory') or by a geometry/coordinate system, rather than through a separate section-definition entity.",
+    "key_facts": [
+      "E46 Section Definition was deprecated",
+      "P58 has section definition, which depended on E46, was deprecated by a unanimous SIG vote in November 2018",
+      "P59 has section (is located on or within)'s scope note was rewritten so sections are now represented directly as E53 Place instances identified by a name or a geometry, without a separate Section Definition entity"
+    ],
+    "gold_threads": ["t1137", "t1139"],
+    "difficulty": "easy",
+    "why_this_is_hard": "It is mostly a lookup, but the full picture (what was deprecated, and what replaced it) only emerges from combining two companion items: the property deprecation vote and the separate scope-note rewrite of the surviving property."
+  },
+  {
+    "question": "The community debated removing the word 'Man' from class labels such as 'Man-Made Object'. What options were on the table, what objections were raised, and which option did the standards body actually adopt?",
+    "gold_answer": "In April 2019 a proposal was made to rename the CRM's 'Man-Made' classes (covering man-made objects, features, and things) by dropping 'Man-' entirely, e.g. turning 'Man-Made Object' into 'Made Object'; replacing 'Man-' with 'Human-' was offered only as a fallback second choice. Several members objected that 'Made X' on its own was too broad and ambiguous -- it could be read as covering marks or things produced by non-human agents (one member's example was a cat's claw scratch on a painting), and 'Made Object'/'Made Thing' carried unwanted slang connotations. Others raised the cost of breaking existing URIs and labels in deployed data, and some questioned whether 'man' was really gender-biased in English at all. The SIG then put the fallback option to a formal vote, and it passed essentially unanimously, so the labels were changed to 'Human-Made Object', 'Human-Made Feature', and 'Human-Made Thing' -- the fallback option, not the original first choice of simply dropping 'Man-'.",
+    "key_facts": [
+      "The original first-choice proposal was to drop 'Man-' entirely (e.g. 'Man-Made Object' to 'Made Object'), with 'Human-Made' offered only as a fallback",
+      "Objections to 'Made X' included that it was too broad/ambiguous (could include non-human-made marks) and carried unwanted connotations",
+      "The formal vote was on the fallback 'Human-Made' wording specifically, and it passed unanimously, so CRM adopted 'Human-Made Object/Feature/Thing' rather than the original 'Made X' proposal"
+    ],
+    "gold_threads": ["t1194", "t1196"],
+    "difficulty": "hard",
+    "why_this_is_hard": "The outcome can only be recovered by connecting the original two-option proposal in one thread (where the preferred choice was to drop the word entirely) to a separate vote thread that quietly voted on the fallback option instead -- the vote thread alone does not mention that a different first choice existed or was passed over."
+  },
+  {
+    "question": "The CRM community discussed how to handle the fact that both a dedicated appellation entity and a plain RDF text label can be used to name the same thing. Why did the group resist simply treating the RDF text-label mechanism as directly equivalent to (a super- or sub-property of) the appellation-identification property, and what alternative did they move toward instead?",
+    "gold_answer": "Martin Doerr proposed technically declaring the CRM's 'is identified by' property (P1) to be a superproperty of rdfs:label, so that a single query for P1 would also pick up names expressed as plain rdfs:label literals, and tested this in Virtuoso. Richard Light objected on technical grounds: because CRM data commonly coexists in the same triple store with unrelated RDF data that also happens to use rdfs:label, asserting that all rdfs:label statements are also P1 relationships would produce incorrect or spurious inferences over that unrelated data; he argued CRM should only define sub-classes/sub-properties of standard RDFS constructs, never super-classes/super-properties of them. Rather than resolve the P1/rdfs:label relationship by punning the two together, the discussion moved toward defining a new, separate CRM property ('has symbolic content', domain E90 Symbolic Object, range E62 String, related to rdfs:value) so that simple appellations could be given a literal value directly within the CRM's own model, without conflating CRM's identification property with the generic RDF labelling mechanism.",
+    "key_facts": [
+      "Martin Doerr's proposal was to make P1 is identified by a superproperty of rdfs:label so that querying for P1 would also return rdfs:label-based names",
+      "Richard Light's objection was that this could cause spurious P1 inferences over unrelated RDF data elsewhere in the same triple store that also uses rdfs:label, and that CRM should only define sub-properties of RDFS constructs, not super-properties",
+      "Instead of linking P1 and rdfs:label directly, the SIG moved toward proposing a new property, 'has symbolic content' (domain E90 Symbolic Object, range E62 String), to represent simple appellation values as literals"
+    ],
+    "gold_threads": ["t1123"],
+    "difficulty": "hard",
+    "why_this_is_hard": "The reasoning is spread across a long back-and-forth involving a technical RDF experiment, a self-corrected mistake by the proposer, and a rejection on grounds specific to how CRM data interacts with unrelated RDF data in the same store -- it is not a single quotable objection, and the eventual pivot to a differently-named property is easy to miss."
+  },
+  {
+    "question": "The community considered adding a property to let two instances of the general Type class be ranked relative to each other (for example, to say a condition-report value like 'Good' outranks 'Average'). Did the group settle on this property, and if so, in what final form?",
+    "gold_answer": "No, this was never settled. The idea was raised in January 2019 as a new property on E55 Type, and its proposed name changed repeatedly during discussion: first 'is conceptually greater than', then 'conceptually follows/precedes', then a suggestion of 'ranked higher than/ranked lower than'. Martin Doerr repeatedly questioned, on methodological grounds, whether such a property belonged in CRM base at all rather than being left to SKOS's existing broader/narrower relation or its OrderedCollection mechanism, and this scope question was never resolved. By June 2019 the property (again called 'is conceptually greater than') had been shifted out of CRM base into the CRMsci extension, with homework assigned to add concept-scheme context to its scope note, but the discussion ends with Martin raising further open mathematical questions about whether the relation is a partial or total order and how transitivity and part-of relations interact with it. No vote was ever taken.",
+    "key_facts": [
+      "The proposed ranking property for E55 Type went through several candidate names ('is conceptually greater than', 'conceptually follows/precedes', 'ranked higher than/lower than', then back to 'is conceptually greater than')",
+      "Martin Doerr repeatedly questioned whether the property belonged in CRM base versus being left to SKOS, and this was never resolved",
+      "By mid-2019 the property had been moved from CRM base to the CRMsci extension, but no vote adopted it and open questions about its precise mathematical nature (partial vs. total order) remained unanswered"
+    ],
+    "gold_threads": ["t1156", "t1219"],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "Several plausible-sounding 'final' names and a reassignment to a different sub-model appear along the way, any of which could be mistaken for a settled outcome; the archive never records a vote or final adoption, only continued evolution and open questions."
+  }
+]

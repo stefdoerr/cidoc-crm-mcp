@@ -1,0 +1,352 @@
+@prefix crm:  <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix ex:   <http://example.org/uffington-white-horse/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# =====================================================================
+# The object itself
+# =====================================================================
+
+ex:UffingtonWhiteHorse a crm:E25_Human-Made_Feature ;
+    rdfs:label "Uffington White Horse" ;
+    crm:P1_is_identified_by ex:NameAppellation ;
+    crm:P2_has_type ex:Type_HillFigure, ex:Type_ScheduledMonument ;
+    crm:P3_has_note "A chalk hill figure formed from deep trenches cut into the hillside and filled with crushed white chalk. No maker, patron or building community is named by the source; only contested, later, and mutually inconsistent attributions exist (see the E13 Attribute Assignments below), none of which the source endorses as fact." ;
+    crm:P45_consists_of ex:Chalk ;
+    crm:P43_has_dimension ex:LengthDimension ;
+    crm:P53_has_former_or_current_location ex:WhitehorseHill ;
+    crm:P62_depicts ex:Type_Horse ;
+    crm:P3_has_note "The figure has been called a horse since at least the 11th century: a cartulary of Abingdon Abbey (1072-1084) refers to 'mons albi equi' ('the White Horse Hill'). Whether it was originally intended as a horse, a dog, or a sabre-toothed cat 'has long been debated', per the article, but that debate is not attributed to any named party there, so it is recorded here as a note rather than as a further hedged E13 Attribute Assignment alongside the ones below, which do name a claimant." ;
+    crm:P52_has_current_owner ex:NationalTrust ;
+    crm:P50_has_current_keeper ex:NationalTrust ;
+    crm:P108i_was_produced_by ex:Production ;
+    crm:P31i_was_modified_by ex:WWIICovering, ex:WWIIUncovering, ex:ScouringFestivals_1755_1857,
+        ex:Scouring2009Revival, ex:Vandalism2002, ex:JockeyAddition2012, ex:Restoration2024 .
+
+ex:NameAppellation a crm:E41_Appellation ;
+    rdfs:label "Uffington White Horse" ;
+    crm:P190_has_symbolic_content "Uffington White Horse" .
+
+ex:Type_HillFigure a crm:E55_Type ;
+    rdfs:label "chalk hill figure" .
+
+ex:Type_ScheduledMonument a crm:E55_Type ;
+    rdfs:label "scheduled monument (UK)" ;
+    crm:P3_has_note "Modelled as a classification (P2 has type), not as an E30 Right: the article states the status ('is a scheduled monument') as a plain fact about the object, not as a right transaction, and E30 Right's own examples (copyright, ownership) point at transactable legal privileges rather than a statutory listing grade." .
+
+ex:Chalk a crm:E57_Material ;
+    rdfs:label "crushed white chalk" .
+
+ex:LengthDimension a crm:E54_Dimension ;
+    crm:P2_has_type ex:Type_Length ;
+    crm:P90_has_value 110 ;
+    crm:P91_has_unit ex:Metre .
+
+ex:Type_Length a crm:E55_Type ;
+    rdfs:label "length" .
+
+ex:Metre a crm:E58_Measurement_Unit ;
+    rdfs:label "metre" .
+
+ex:Type_Horse a crm:E55_Type ;
+    rdfs:label "horse" .
+
+# =====================================================================
+# Location
+# =====================================================================
+
+ex:WhitehorseHill a crm:E53_Place ;
+    rdfs:label "Whitehorse Hill" ;
+    crm:P89_falls_within ex:UffingtonParish .
+
+ex:UffingtonParish a crm:E53_Place ;
+    rdfs:label "Uffington (civil parish)" ;
+    crm:P89_falls_within ex:Oxfordshire .
+
+ex:Oxfordshire a crm:E53_Place ;
+    rdfs:label "Oxfordshire" ;
+    crm:P89_falls_within ex:England ;
+    crm:P3_has_note "The article never writes 'Oxfordshire, England' as one phrase; it calls Uffington 'the English civil parish of Uffington in Oxfordshire'. Placing Oxfordshire within England is a one-step inference from that adjective, not a verbatim statement -- flagged per the brief as going slightly beyond the text." .
+
+ex:England a crm:E53_Place ;
+    rdfs:label "England" .
+
+# =====================================================================
+# Production (the making of the figure)
+# =====================================================================
+
+ex:Production a crm:E12_Production ;
+    rdfs:label "creation of the Uffington White Horse" ;
+    crm:P108_has_produced ex:UffingtonWhiteHorse ;
+    crm:P4_has_time-span ex:ProductionTimeSpan ;
+    crm:P32_used_general_technique ex:Type_Trenching ;
+    crm:P3_has_note "No agent is asserted here (no P14 carried out by): the article names no maker, patron, or community with confidence. It only reports the tribal-symbol theory ('thought to represent a tribal symbol, perhaps connected with the builders of Uffington Castle') in hedged, unattributed language, so that reading is left as this note rather than as a formal P14 or P103 assignment -- see the rejected-options discussion in the report for why." .
+
+ex:ProductionTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "1380 BC - 550 BC (Late Bronze Age to Early Iron Age)" ;
+    crm:P3_has_note "Range given by optically stimulated luminescence (OSL) dating of silt deposits, Palmer and Miles, 1990 (see ex:OSLMeasurement). The article treats this range as the settled answer ('finally settled'), unlike the earlier proposals below, so it is asserted directly here rather than through an E13 Attribute Assignment. No P82a/P82b begin/end literals are given for it: encoding a vague millennium-wide BC range as exact ISO dates would manufacture false precision the source does not offer, and BC/astronomical year-numbering is itself a needless source of off-by-one error at this scale." .
+
+ex:Type_Trenching a crm:E55_Type ;
+    rdfs:label "cutting trenches and infilling with crushed chalk" .
+
+# =====================================================================
+# The 1990 excavation and OSL dating -- the closest analogue in this
+# source to a "finding" event
+# =====================================================================
+
+ex:OSLMeasurement a crm:E16_Measurement ;
+    rdfs:label "1990 optically stimulated luminescence (OSL) dating" ;
+    crm:P14_carried_out_by ex:SimonPalmer, ex:DavidMiles, ex:OxfordArchaeologicalUnit ;
+    crm:P39_measured ex:SiltDeposits ;
+    crm:P4_has_time-span ex:OSLTimeSpan ;
+    crm:P140_assigned_attribute_to ex:Production ;
+    crm:P141_assigned ex:ProductionTimeSpan ;
+    crm:P177_assigned_property_of_type crm:P4_has_time-span ;
+    crm:P3_has_note "Followed a 1990 excavation ('following an excavation in 1990...'). The excavation itself is not given its own event node here: the article supplies nothing about it beyond the year and that it produced the dated silt, so a separate, near-empty CRMarchaeo A9 Archaeological Excavation node would be a second wrapper around the same single fact this Measurement's own P4 has time-span already carries -- padding, not depth." .
+
+ex:OSLTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "1990" ;
+    crm:P82a_begin_of_the_begin "1990-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1990-12-31"^^xsd:date .
+
+ex:SiltDeposits a crm:E18_Physical_Thing ;
+    rdfs:label "silt deposits (trench fill, recovered 1990)" ;
+    crm:P46i_forms_part_of ex:UffingtonWhiteHorse .
+
+ex:SimonPalmer a crm:E21_Person ; rdfs:label "Simon Palmer" .
+ex:DavidMiles a crm:E21_Person ; rdfs:label "David Miles" .
+ex:OxfordArchaeologicalUnit a crm:E74_Group ; rdfs:label "Oxford Archaeological Unit" .
+
+# =====================================================================
+# Superseded / competing attributions of maker and date -- each an
+# E13 Attribute Assignment because the article itself hedges these as
+# someone's claim, not as fact
+# =====================================================================
+
+ex:AubreyAttribution a crm:E13_Attribute_Assignment ;
+    rdfs:label "John Aubrey's 17th-century attribution to Hengist and Horsa" ;
+    crm:P14_carried_out_by ex:JohnAubrey ;
+    crm:P140_assigned_attribute_to ex:Production ;
+    crm:P141_assigned ex:Hengist, ex:Horsa ;
+    crm:P177_assigned_property_of_type crm:P14_carried_out_by ;
+    crm:P4_has_time-span ex:Aubrey17thCenturyTimeSpan ;
+    crm:P3_has_note "'In the 17th century, John Aubrey attributed the figure to Hengist and Horsa.' Superseded by the 1990 OSL date, which places the figure over a thousand years before Hengist and Horsa's traditional 5th-century AD floruit." .
+
+ex:Aubrey17thCenturyTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "17th century" ;
+    crm:P82a_begin_of_the_begin "1600-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1699-12-31"^^xsd:date ;
+    crm:P3_has_note "The article only says 'in the 17th century'; the begin/end literals here formalise that century as a year range. This is the brief's own example of a choice that goes beyond strict source support, done deliberately and flagged here." .
+
+ex:JohnAubrey a crm:E21_Person ; rdfs:label "John Aubrey" .
+
+ex:Hengist a crm:E21_Person ;
+    rdfs:label "Hengist" ;
+    crm:P3_has_note "Legendary/traditional Anglo-Saxon leader; modelled as E21 Person on the same basis CRM datasets commonly use for other legendary named figures (e.g. King Arthur), not as a claim of settled historicity." .
+
+ex:Horsa a crm:E21_Person ;
+    rdfs:label "Horsa" ;
+    crm:P3_has_note "See note on Hengist." .
+
+ex:WiseAttribution a crm:E13_Attribute_Assignment ;
+    rdfs:label "Francis Wise's attribution to Alfred the Great" ;
+    crm:P14_carried_out_by ex:FrancisWise ;
+    crm:P140_assigned_attribute_to ex:Production ;
+    crm:P141_assigned ex:AlfredTheGreat ;
+    crm:P177_assigned_property_of_type crm:P14_carried_out_by ;
+    crm:P3_has_note "'Francis Wise speculated that the image may have been created by Alfred the Great to celebrate his victory at the Battle of Edington.' No date is given in the article for this specific speculation (Wise's dated 1736 quotation elsewhere in the article is about the scouring custom, not this claim), so no P4 has time-span is asserted here rather than reusing an unrelated date. Also superseded by the OSL date, which predates Alfred the Great (9th century AD) by well over a thousand years." .
+
+ex:FrancisWise a crm:E21_Person ; rdfs:label "Francis Wise" .
+ex:AlfredTheGreat a crm:E21_Person ; rdfs:label "Alfred the Great" .
+
+ex:PiggottAttribution a crm:E13_Attribute_Assignment ;
+    rdfs:label "Stuart Piggott's 1931 circa-100-BC dating proposal" ;
+    crm:P14_carried_out_by ex:StuartPiggott ;
+    crm:P140_assigned_attribute_to ex:Production ;
+    crm:P141_assigned ex:Piggott100BCTimeSpan ;
+    crm:P177_assigned_property_of_type crm:P4_has_time-span ;
+    crm:P4_has_time-span ex:PiggottAssignmentTimeSpan ;
+    crm:P3_has_note "'Comparative analysis of the design with numismatic and archeological finds was conducted by Stuart Piggott in 1931... with Piggott suggesting circa 100 BC as a possible date of origin.' Chosen as the one representative example of the pre-OSL comparative-dating literature; the article also mentions Ann Ross (1967) and Morris Marples (1949, proposing a Bronze Age date that the 1990 OSL result later bore out), which are not given their own E13 nodes here to avoid multiplying near-identical assignments -- see the report." .
+
+ex:Piggott100BCTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "circa 100 BC" .
+
+ex:PiggottAssignmentTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "1931" ;
+    crm:P82a_begin_of_the_begin "1931-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1931-12-31"^^xsd:date .
+
+ex:StuartPiggott a crm:E21_Person ; rdfs:label "Stuart Piggott" .
+
+# =====================================================================
+# A competing reading of what the figure means (as opposed to who made
+# it) -- same E13 pattern, applied to P103 was intended for
+# =====================================================================
+
+ex:PollardAttribution a crm:E13_Attribute_Assignment ;
+    rdfs:label "Joshua Pollard's solar-horse theory" ;
+    crm:P14_carried_out_by ex:JoshuaPollard ;
+    crm:P140_assigned_attribute_to ex:UffingtonWhiteHorse ;
+    crm:P141_assigned ex:Type_SolarHorse ;
+    crm:P177_assigned_property_of_type crm:P103_was_intended_for ;
+    crm:P3_has_note "'Another theory proposed by University of Southampton archaeologist Joshua Pollard points to the horse's alignment with the sun... to indicate that it was created as a depiction of a solar horse.' Modelled against P103 was intended for (purpose/significance) rather than against P62 depicts (visual subject), because the claim is about why/what-it-signifies, not what shape it shows." .
+
+ex:JoshuaPollard a crm:E21_Person ;
+    rdfs:label "Joshua Pollard" ;
+    crm:P3_has_note "Described in the article as a University of Southampton archaeologist." .
+
+ex:Type_SolarHorse a crm:E55_Type ;
+    rdfs:label "solar horse (astronomically-aligned solar symbol)" .
+
+# =====================================================================
+# Ownership and current custodian
+# =====================================================================
+
+ex:NationalTrust a crm:E74_Group ;
+    rdfs:label "National Trust" .
+
+# No E8 Acquisition is modelled: the article gives no date or prior
+# owner for how the National Trust came to own/manage the site, so
+# ownership is asserted only as a current, undated fact (P52/P50)
+# rather than as a transfer with an invented date. No E9 Move is
+# modelled either: the figure is an immovable landscape feature, and
+# the article records no relocation, only maintenance and alteration.
+
+# =====================================================================
+# Earliest textual attestations
+# =====================================================================
+
+ex:CartularyDocument a crm:E31_Document ;
+    rdfs:label "Abingdon Abbey cartulary" ;
+    crm:P70_documents ex:UffingtonWhiteHorse ;
+    crm:P3_has_note "Compiled between 1072 and 1084; refers to 'mons albi equi' at Uffington ('the White Horse Hill'). The compilation date is given here only as a note, not as P4 has time-span: P4's domain is E2 Temporal Entity, and E31 Document is not a temporal entity in CRM -- a document's date belongs on the (unmodelled, for the same reason as Hughes' book above) creation event that produced it, not on the document itself." .
+
+ex:RedBookOfHergestDocument a crm:E31_Document ;
+    rdfs:label "Llyfr Coch Hergest (Red Book of Hergest)" ;
+    crm:P70_documents ex:UffingtonWhiteHorse ;
+    crm:P3_has_note "Medieval Welsh literature, compiled 1375-1425: 'Near to the town of Abinton there is a mountain with a figure of a stallion upon it, and it is white. Nothing grows upon it.' The earliest reference to the site named in the article. See the note on the Abingdon Abbey cartulary for why the compilation date is given as text rather than as P4 has time-span." .
+
+# =====================================================================
+# Second World War: concealment and reveal
+# =====================================================================
+
+ex:WWIICovering a crm:E11_Modification ;
+    rdfs:label "wartime camouflage of the White Horse" ;
+    crm:P31_has_modified ex:UffingtonWhiteHorse ;
+    crm:P21_had_general_purpose ex:Type_Concealment ;
+    crm:P3_has_note "'During the Second World War the figure, easily recognisable from the air, was covered over with turf and hedge trimmings so that Luftwaffe pilots could not use it for navigation during bombing raids.' No specific date is given beyond 'during the Second World War'; no P82a/P82b bounds are asserted rather than importing the general historical WWII calendar dates, which the article itself does not state for this specific act." .
+
+ex:WWIIUncovering a crm:E11_Modification ;
+    rdfs:label "post-war uncovering of the White Horse" ;
+    crm:P31_has_modified ex:UffingtonWhiteHorse ;
+    crm:P14_carried_out_by ex:WilliamFrancisGrimes ;
+    crm:P3_has_note "'It was uncovered after the war by Welsh archaeology professor William Francis Grimes.' No date given beyond 'after the war'." .
+
+ex:Type_Concealment a crm:E55_Type ;
+    rdfs:label "concealment from aerial navigation" .
+
+ex:WilliamFrancisGrimes a crm:E21_Person ;
+    rdfs:label "William Francis Grimes" ;
+    crm:P3_has_note "Described in the article as a Welsh archaeology professor." .
+
+# =====================================================================
+# The scouring custom (recurring maintenance, modelled as E11
+# Modification typed by a shared E55 Type rather than as one event
+# per occurrence, since the article gives only endpoints and a
+# general rule, not a list of individual scourings)
+# =====================================================================
+
+ex:Type_Scouring a crm:E55_Type ;
+    rdfs:label "Scouring of the White Horse" ;
+    crm:P3_has_note "Traditional periodic clearing of vegetation and re-chalking. Francis Wise wrote in 1736 that the ceremony had been 'solemnized... from time immemorial'; this antiquity claim is recorded here as a note rather than as its own dated event, since it describes the custom in general, not one occurrence of it." .
+
+ex:ScouringFestivals_1755_1857 a crm:E11_Modification ;
+    rdfs:label "recorded run of Scouring festivals, 1755-1857" ;
+    crm:P31_has_modified ex:UffingtonWhiteHorse ;
+    crm:P2_has_type ex:Type_Scouring ;
+    crm:P4_has_time-span ex:ScouringFestivals1755to1857TimeSpan ;
+    crm:P70i_is_documented_in ex:HughesBook ;
+    crm:P3_has_note "'The first of such festivals known took place in 1755 and they lasted until 1857, when 30,000 people turned up for the event and were \"too rowdy.\"' Modelled as one event spanning the known run rather than one event per seven-year occurrence, because the article gives only the two endpoints and the general seven-year rule, not a list of individual dates." .
+
+ex:ScouringFestivals1755to1857TimeSpan a crm:E52_Time-Span ;
+    rdfs:label "1755-1857" ;
+    crm:P82a_begin_of_the_begin "1755-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1857-12-31"^^xsd:date .
+
+ex:HughesBook a crm:E31_Document ;
+    rdfs:label "The Scouring of the White Horse (Thomas Hughes, 1859)" ;
+    crm:P70_documents ex:ScouringFestivals_1755_1857 ;
+    crm:P3_has_note "Author: Thomas Hughes; published 1859; 'a semi-fictionalised recounting of his visit to the 1857 event.' Authorship is given as free text rather than through a full E65 Creation event, which would be ceremony disproportionate to this secondary, bibliographic fact." .
+
+ex:Scouring2009Revival a crm:E11_Modification ;
+    rdfs:label "2009 revival of the Scouring custom" ;
+    crm:P31_has_modified ex:UffingtonWhiteHorse ;
+    crm:P14_carried_out_by ex:NationalTrust ;
+    crm:P2_has_type ex:Type_Scouring ;
+    crm:P4_has_time-span ex:Scouring2009TimeSpan ;
+    crm:P3_has_note "'The tradition was revived in 2009 by the National Trust, with local volunteers replacing a layer of freshly quarried chalk on the Spring Bank Holiday weekend.' 'Revived' implies the custom had lapsed between 1857 and 2009; the article does not say when it lapsed, so no claim is made about that gap." .
+
+ex:Scouring2009TimeSpan a crm:E52_Time-Span ;
+    rdfs:label "2009" ;
+    crm:P82a_begin_of_the_begin "2009-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "2009-12-31"^^xsd:date .
+
+# =====================================================================
+# Twenty-first century alterations to the figure itself
+# (the 2003 Big Brother advertisement is deliberately excluded: the
+# article places it "near the figure", not on it, so it is not a
+# modification of this object)
+# =====================================================================
+
+ex:Vandalism2002 a crm:E11_Modification ;
+    rdfs:label "2002 addition of a rider and three dogs" ;
+    crm:P31_has_modified ex:UffingtonWhiteHorse ;
+    crm:P14_carried_out_by ex:RealCountrysideAlliance ;
+    crm:P4_has_time-span ex:Vandalism2002TimeSpan ;
+    crm:P3_has_note "'In August 2002, the figure was defaced with the addition of a rider and three dogs by members of the \"Real Countryside Alliance\" (Real CA). The act was denounced by the Countryside Alliance.' No removal/reversal event is modelled: the article does not state when or how this addition was undone, only that the horse is 'annually re-chalked and restored by volunteers' in general." .
+
+ex:Vandalism2002TimeSpan a crm:E52_Time-Span ;
+    rdfs:label "August 2002" ;
+    crm:P82a_begin_of_the_begin "2002-08-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "2002-08-31"^^xsd:date .
+
+ex:RealCountrysideAlliance a crm:E74_Group ;
+    rdfs:label "Real Countryside Alliance" ;
+    crm:P3_has_note "Named in the article as distinct from, and denounced by, the (mainstream) Countryside Alliance." .
+
+ex:JockeyAddition2012 a crm:E11_Modification ;
+    rdfs:label "2012 addition of a jockey" ;
+    crm:P31_has_modified ex:UffingtonWhiteHorse ;
+    crm:P4_has_time-span ex:JockeyAddition2012TimeSpan ;
+    crm:P3_has_note "'In March 2012, as part of a pre-Cheltenham Festival publicity stunt, a bookmaker added a large jockey to the figure.' No P14 carried out by is asserted: the article names the agent only as 'a bookmaker', not a proper name, so no named-actor resource is created for it." .
+
+ex:JockeyAddition2012TimeSpan a crm:E52_Time-Span ;
+    rdfs:label "March 2012" ;
+    crm:P82a_begin_of_the_begin "2012-03-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "2012-03-31"^^xsd:date .
+
+# =====================================================================
+# The 2023-2024 restoration project
+# =====================================================================
+
+ex:Restoration2024 a crm:E11_Modification ;
+    rdfs:label "2024 restoration project" ;
+    crm:P31_has_modified ex:UffingtonWhiteHorse ;
+    crm:P14_carried_out_by ex:OxfordArchaeology, ex:NationalTrust, ex:EnglishHeritage ;
+    crm:P21_had_general_purpose ex:Type_Restoration ;
+    crm:P4_has_time-span ex:Restoration2024TimeSpan ;
+    crm:P3_has_note "'In the summer of 2024, Oxford Archaeology, in partnership with the National Trust and English Heritage, began the project to restore the horse to its original position and shape with the help of many volunteers.' Preceded by an August 2023 planning announcement naming the National Trust and archaeologist Adrian Cox ('to quantify and reverse the gradual shrinking of the horse since the 1980s'); that announcement is recorded here as background rather than as its own event, and Adrian Cox is not given P14 carried out by on this 2024 execution, since the article names him only in connection with the 2023 plan, not the 2024 work itself. 'Oxford Archaeology' (2024) and the 'Oxford Archaeological Unit' (1990) are kept as two separate E74 Group resources: the article never states they are the same organisation, so no identity is asserted between them even though it happens to be true in the real world." .
+
+ex:Type_Restoration a crm:E55_Type ;
+    rdfs:label "restoration of original position and shape" .
+
+ex:Restoration2024TimeSpan a crm:E52_Time-Span ;
+    rdfs:label "summer 2024 (no completion date stated)" ;
+    crm:P82a_begin_of_the_begin "2024-06-01"^^xsd:date ;
+    crm:P3_has_note "'Summer' is mapped here to a 1 June begin bound as a reasonable but not literally stated reading; no end bound is given because the article records no completion date, so none is invented." .
+
+ex:OxfordArchaeology a crm:E74_Group ; rdfs:label "Oxford Archaeology" .
+ex:EnglishHeritage a crm:E74_Group ; rdfs:label "English Heritage" .
+ex:AdrianCox a crm:E21_Person ;
+    rdfs:label "Adrian Cox" ;
+    crm:P3_has_note "Named in the article as the archaeologist involved in planning the 2024 restoration, announced August 2023." .

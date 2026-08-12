@@ -1,0 +1,36 @@
+{
+  "case_id": "intangible-c3",
+  "answer": "Yes, this is in scope, but not via 'Right' (E30) — model the office itself. E74 Group's own scope note says a Group 'in the wider sense also comprises official positions ... such as the president of a country' and that 'it may happen that the group never had more than one member.' So treat 'Fire-Keeper of [village]' as a singleton-membership E74 Group. Each succession is one E86 Leaving (the outgoing fire-keeper's P145 separated / P146 separated from the office-group) paired with one E85 Joining (the incoming fire-keeper's P143 joined / P144 joined with). Both classes' own scope notes explicitly cover exactly this: E85's examples include 'the inauguration of somebody into an official position,' and E86's examples include 'George Washington's leaving office' and 'the end of tenure of somebody in an official position' — this is not a metaphorical stretch, it is the documented use case. The informal/undated/unwitnessed character of the handover is not a blocker: P4 has time-span points to an E52 Time-Span whose own scope note allows 'unknown beginning, end and duration,' and P81/P82 give fuzzy inner/outer bounds — so 'sometime in the year or two the community took to recognise the new fire-keeper' is a normal, supported time-span, not a special case. Lack of witnesses is likewise not required: P12 occurred in the presence of is optional on E7 Activity, never mandatory. Optionally, P107.1 kind of member (visible in P107's dossier) can type the membership as 'fire-keeper' to distinguish it from other roles in the group, though if the group IS the fire-keeper office this is redundant. I rejected modelling the 'right to strike the first flame' directly as E30 Right possessed via P75/P105: the mailing list shows this is a known, still-open gap in the standard — Christian-Emil states outright 'There is no separate class and properties for giving somebody a right (privilege)... is not a shortcut' (t1022), Right Holding was proposed precisely to fix the missing temporal/transfer semantics of E30 and was never adopted into the core classes (t0976), and a multi-year thread (t0507, t1019) never resolved whether/how a Right transfers between holders at all. Using E30 would require importing an unadopted extension; using E74/E85/E86 uses only current, decided classes with scope notes written for this exact scenario.",
+  "classes_proposed": ["E74", "E85", "E86", "E21", "E52"],
+  "properties_proposed": ["P143", "P144", "P145", "P146", "P107", "P4", "P81", "P82", "P107.1"],
+  "rejected_alternatives": [
+    {
+      "option": "E30 Right possessed (P75) by the fire-keeper, transferred via P105/P104",
+      "why_not": "P75/P105 only assert a static snapshot of who currently holds the right. The archive (t1022) states explicitly there is no CRM property for 'giving somebody a right' -- P75 is not a shortcut for a transfer event. The 2017 'Right Holding' proposal (t0976) exists precisely because E30 lacks timespan/transfer semantics, and it was never folded into the 241 current classes/properties, so relying on it would mean stretching to an unadopted extension rather than the standard."
+    }
+  ],
+  "citations": [
+    "E74", "E85", "E86", "E52", "P107", "P4", "P81", "P82", "P75", "P105", "P104",
+    "t0507", "t0976", "t1019", "t1022", "t0431"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E30",
+    "docs \"succession of office or role\" --kind narrative",
+    "thread t0507",
+    "thread t0976",
+    "thread t1019",
+    "thread t1022",
+    "docs \"customary right without legal codification\" --kind narrative",
+    "threads \"succession of a hereditary office or role\"",
+    "concept P107",
+    "concept E85",
+    "thread t0431",
+    "concept E74",
+    "concept E86",
+    "concept E52"
+  ],
+  "confidence": "high",
+  "notes": "The 'concept' dossier's siblings/citations made the office pattern easy to find once E30 (the obvious literal-sounding class) turned out to be a dead end -- E74's own scope note volunteered the 'president of a country' / singleton-office reading unprompted. The 'threads' search on 'succession of a hereditary office or role' surfaced the exact right episodes (t0431, t0426) on the first try. What was hard: distinguishing a genuinely decided, current pattern (E74-as-office, baked into the live scope note) from a debated-but-rejected one (Right Holding, P107.1's own contentiousness) required reading full thread bodies -- the episode summary's [decided]/[unresolved] tag alone wasn't enough to tell which side of the E30 debate 'won'."
+}

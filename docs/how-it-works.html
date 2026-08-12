@@ -1,0 +1,1542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cidoc-crm-mcp — what it does, for people who model in CIDOC CRM</title>
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --ink: #1c1a17;
+    --muted: #6f6862;
+    --rule: #d8d2c9;
+    --card: #ffffff;
+    --norm: #1d5473;
+    --norm-bg: #ecf3f7;
+    --evid: #8a4a17;
+    --evid-bg: #f8f0e7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171a;
+      --ink: #e9e5df;
+      --muted: #9a938a;
+      --rule: #3b4046;
+      --card: #1c1f23;
+      --norm: #86bcdd;
+      --norm-bg: #14252f;
+      --evid: #dda36a;
+      --evid-bg: #2a2118;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.5rem 5rem;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  }
+  /* minmax(0, 1fr) rather than 1fr: wide <pre> and figures must scroll inside
+     the content column, not widen the grid track and push the page sideways. */
+  main {
+    max-width: 1520px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 224px minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* section navigation */
+  .toc {
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    font-size: .86rem;
+    line-height: 1.45;
+  }
+  .toc .toc-title {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .78rem;
+    letter-spacing: .02em;
+    color: var(--ink);
+    padding-bottom: .5rem;
+    margin-bottom: .6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .toc ol { list-style: none; margin: 0; padding: 0; }
+  .toc li { margin: 0; }
+  .toc a {
+    display: block;
+    padding: .28rem 0 .28rem .6rem;
+    color: var(--muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+  }
+  .toc a:hover { color: var(--ink); }
+  .toc a.here {
+    color: var(--ink);
+    border-left-color: var(--ink);
+  }
+  .toc .sub a { padding-left: 1.5rem; font-size: .82rem; }
+  .toc .tools { margin: .1rem 0 .5rem; }
+  .toc .tools a {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .74rem;
+    padding: .16rem 0 .16rem 1.1rem;
+  }
+  .toc .tools a.norm:hover, .toc .tools a.norm.here { border-left-color: var(--norm); }
+  .toc .tools a.evid:hover, .toc .tools a.evid.here { border-left-color: var(--evid); }
+  h2[id], .tool-entry[id] { scroll-margin-top: 1.5rem; }
+
+  @media (max-width: 1080px) {
+    main { display: block; }
+    .toc {
+      position: static;
+      max-height: none;
+      margin-bottom: 2.5rem;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc ol { display: flex; flex-wrap: wrap; gap: 0 1rem; }
+    .toc a { border-left: none; padding-left: 0; }
+    .toc a.here { border-left: none; text-decoration: underline; }
+    .toc .tools a { padding-left: 0; }
+  }
+  @media print { .toc { display: none; } }
+  h1 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin: 0 0 .4rem;
+    letter-spacing: -0.01em;
+  }
+  .standfirst { color: var(--muted); font-size: 1.05rem; margin: 0 0 2.5rem; max-width: 62ch; }
+  h2 {
+    font-size: 1.15rem;
+    margin: 3rem 0 .8rem;
+    padding-bottom: .35rem;
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: .01em;
+  }
+  p { max-width: 76ch; }
+  figure { margin: 2rem 0 1rem; }
+  figure svg { display: block; width: 100%; max-width: 100%; height: auto; }
+  figcaption {
+    color: var(--muted);
+    font-size: .88rem;
+    line-height: 1.5;
+    margin-top: .9rem;
+    max-width: 92ch;
+  }
+  code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  code { font-size: .86em; }
+  .fig-scroll { overflow-x: auto; }
+  .fig-scroll svg { min-width: 900px; }
+
+  /* SVG shared styling */
+  svg text { fill: var(--ink); font-family: Georgia, serif; }
+  svg text.m { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  svg .card-box { fill: var(--card); stroke: var(--rule); stroke-width: 1; }
+  svg .n-box { fill: var(--norm-bg); stroke: var(--norm); stroke-width: 1.2; }
+  svg .e-box { fill: var(--evid-bg); stroke: var(--evid); stroke-width: 1.2; }
+  svg .q-box { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+  svg .flow { fill: none; stroke: var(--ink); stroke-width: 1.2; }
+  svg .flow-n { fill: none; stroke: var(--norm); stroke-width: 1.4; }
+  svg .flow-e { fill: none; stroke: var(--evid); stroke-width: 1.4; }
+  svg .divide { fill: none; stroke: var(--rule); stroke-width: 1.2; stroke-dasharray: 6 6; }
+  svg .rule { stroke: var(--rule); stroke-width: 1; }
+  svg .head { font-size: 12.5px; font-weight: 700; letter-spacing: .07em; }
+  svg .sub { font-size: 11px; font-style: italic; fill: var(--muted); }
+  svg .name { font-size: 12.5px; }
+  svg .desc { font-size: 10.8px; fill: var(--muted); }
+  svg .body { font-size: 11.4px; }
+  svg .lbl { font-size: 10.5px; fill: var(--muted); letter-spacing: .04em; }
+  svg .tag { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; }
+  svg .n-tag { fill: var(--norm); }
+  svg .e-tag { fill: var(--evid); }
+  svg .title { font-size: 12px; font-weight: 700; }
+  svg .arrow-n { fill: var(--norm); }
+  svg .arrow-e { fill: var(--evid); }
+  svg .arrow-k { fill: var(--ink); }
+
+  /* clickable tool cards inside figure 1 */
+  svg g.tool { cursor: pointer; }
+  svg g.tool:focus { outline: none; }
+  svg g.tool .card-box { transition: stroke .12s ease, stroke-width .12s ease; }
+  svg g.tool:hover .card-box,
+  svg g.tool:focus .card-box { stroke-width: 2; }
+  svg g.tool.n:hover .card-box,
+  svg g.tool.n:focus .card-box,
+  svg g.tool.n.active .card-box { stroke: var(--norm); stroke-width: 2.2; }
+  svg g.tool.e:hover .card-box,
+  svg g.tool.e:focus .card-box,
+  svg g.tool.e.active .card-box { stroke: var(--evid); stroke-width: 2.2; }
+  svg g.tool .hit { fill: transparent; stroke: none; }
+  svg g.tool:hover .hit,
+  svg g.tool:focus .hit,
+  svg g.tool.active .hit { fill: rgba(128, 128, 128, .12); }
+  svg .plus { font-size: 15px; fill: var(--muted); }
+  svg g.tool:hover .plus,
+  svg g.tool:focus .plus,
+  svg g.tool.active .plus { fill: var(--ink); }
+
+  .hint {
+    font-size: .88rem;
+    color: var(--muted);
+    margin: .6rem 0 0;
+  }
+  .hint strong { color: var(--ink); }
+
+  /* the twelve reference entries */
+  /* Direct children only: the group headings inside .ref keep their own style. */
+  .content > h3 {
+    font-size: 1.02rem;
+    margin: 2.4rem 0 .6rem;
+    letter-spacing: -0.005em;
+  }
+  .ref h3 {
+    font-size: .74rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+    margin: 2.2rem 0 .7rem;
+    font-weight: 700;
+  }
+  .ref h3:first-child { margin-top: 1.2rem; }
+  details.tool-entry {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--card);
+    margin-bottom: .45rem;
+  }
+  details.tool-entry[data-layer="norm"] { border-left: 3px solid var(--norm); }
+  details.tool-entry[data-layer="evid"] { border-left: 3px solid var(--evid); }
+  details.tool-entry > summary {
+    cursor: pointer;
+    padding: .65rem .9rem;
+    list-style: none;
+    display: flex;
+    gap: .65rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  details.tool-entry > summary::-webkit-details-marker { display: none; }
+  details.tool-entry > summary::before {
+    content: "+";
+    font-family: ui-monospace, monospace;
+    color: var(--muted);
+    font-size: .9rem;
+  }
+  details.tool-entry[open] > summary::before { content: "\2212"; }
+  summary .tname {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .86rem;
+  }
+  summary .tpurpose { color: var(--muted); font-size: .9rem; }
+  .entry-body { padding: .2rem .9rem 1.1rem; border-top: 1px solid var(--rule); }
+  .entry-body p { margin: .9rem 0; font-size: .95rem; max-width: 80ch; }
+  .io-label {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .68rem;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    color: var(--muted);
+    margin: 1.1rem 0 .35rem;
+  }
+  /* Inside an entry the layer is already carried by the entry's own left border,
+     so the code blocks stay neutral rather than repeating the colour. */
+  .entry-body pre { margin: 0; border-left-color: var(--rule); }
+  .entry-body .note { font-size: .88rem; color: var(--muted); margin-top: .8rem; }
+  details.tool-entry.flash { animation: pulse 1.5s ease-out 1; }
+  @keyframes pulse {
+    from { box-shadow: 0 0 0 4px rgba(128, 128, 128, .40); }
+    to   { box-shadow: 0 0 0 4px rgba(128, 128, 128, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    details.tool-entry.flash { animation: none; }
+  }
+
+  table { border-collapse: collapse; width: 100%; margin: 1.4rem 0; font-size: .92rem; }
+  th, td { text-align: left; vertical-align: top; padding: .6rem .8rem; border-bottom: 1px solid var(--rule); }
+  th { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+  td.tool { white-space: nowrap; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .84rem; }
+  pre {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--evid);
+    padding: .9rem 1.1rem;
+    overflow-x: auto;
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+  blockquote {
+    margin: 1rem 0 1rem 0;
+    padding-left: 1.1rem;
+    border-left: 3px solid var(--rule);
+    color: var(--ink);
+    font-style: italic;
+    max-width: 74ch;
+  }
+  ul { max-width: 76ch; }
+  li { margin-bottom: .5rem; }
+  .foot { color: var(--muted); font-size: .85rem; margin-top: 3.5rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+</style>
+</head>
+<body>
+<main>
+
+<nav class="toc" aria-label="Sections">
+  <div class="toc-title">cidoc-crm-mcp</div>
+  <ol>
+    <li><a href="#picture" data-section="picture">The picture</a></li>
+    <li><a href="#tools" data-section="tools">The twelve tools</a></li>
+    <li>
+      <ol class="tools">
+        <li><a href="#t-crm_concept" data-tool="crm_concept" class="norm">crm_concept</a></li>
+        <li><a href="#t-crm_list" data-tool="crm_list" class="norm">crm_list</a></li>
+        <li><a href="#t-crm_connect" data-tool="crm_connect" class="norm">crm_connect</a></li>
+        <li><a href="#t-crm_validate_link" data-tool="crm_validate_link" class="norm">crm_validate_link</a></li>
+        <li><a href="#t-crm_validate_rdf" data-tool="crm_validate_rdf" class="norm">crm_validate_rdf</a></li>
+        <li><a href="#t-crm_validate_xml" data-tool="crm_validate_xml" class="norm">crm_validate_xml</a></li>
+        <li><a href="#t-crm_search" data-tool="crm_search" class="evid">crm_search</a></li>
+        <li><a href="#t-crm_docs" data-tool="crm_docs" class="evid">crm_docs</a></li>
+        <li><a href="#t-crm_issue" data-tool="crm_issue" class="evid">crm_issue</a></li>
+        <li><a href="#t-crm_thread" data-tool="crm_thread" class="evid">crm_thread</a></li>
+        <li><a href="#t-crm_show" data-tool="crm_show" class="evid">crm_show</a></li>
+        <li><a href="#t-crm_quote" data-tool="crm_quote" class="evid">crm_quote</a></li>
+      </ol>
+    </li>
+    <li><a href="#worked" data-section="worked">The question, actually asked</a></li>
+    <li><a href="#answers" data-section="answers">How an answer is made</a></li>
+    <li class="sub"><a href="#engines" data-section="engines">BM25 and Chroma</a></li>
+    <li><a href="#sources" data-section="sources">Where the material comes from</a></li>
+    <li><a href="#caveats" data-section="caveats">Before you trust it</a></li>
+    <li><a href="#reached" data-section="reached">How it is reached</a></li>
+  </ol>
+</nav>
+
+<div class="content">
+
+<h1>What this is, for people who model in CIDOC CRM</h1>
+<p class="standfirst">A modelling assistant is only as good as what authorises its answers. This
+repository gives an assistant twelve tools and wires every one of them to a source you can go
+and read: the normative RDFS on one side, twenty-six years of what the SIG actually said on
+the other.</p>
+
+<h2 id="picture">The picture</h2>
+
+<figure class="fig-scroll">
+<svg viewBox="0 0 1240 880" role="img"
+     aria-label="A modelling question at the top fans out into four kinds of question — what is it, may I write it, what is it for, was it settled — each answered by named tools. The left two kinds are checked against the vendored normative RDFS and specification XML; the right two are quoted from the SIG mailing list, specification text, issue register and meeting minutes.">
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="arrow-k"/>
+    </marker>
+    <marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="arrow-n"/>
+    </marker>
+    <marker id="ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="arrow-e"/>
+    </marker>
+  </defs>
+
+  <!-- the question -->
+  <rect x="270" y="16" width="700" height="80" rx="6" class="q-box"/>
+  <text x="620" y="42" text-anchor="middle" class="body">“The 1724 linen backing cloth was sewn onto the Bayeux Tapestry.</text>
+  <text x="620" y="62" text-anchor="middle" class="body">Is that an E79 Part Addition, or an E11 Modification?”</text>
+  <text x="620" y="84" text-anchor="middle" class="lbl">a real decision, from models/crm_bayeux_notes.md</text>
+
+  <!-- fan-out bus -->
+  <path d="M 620 96 L 620 114" class="flow"/>
+  <path d="M 185 114 L 1055 114" class="flow"/>
+  <path d="M 185 114 L 185 146" class="flow" marker-end="url(#ak)"/>
+  <path d="M 475 114 L 475 146" class="flow" marker-end="url(#ak)"/>
+  <path d="M 765 114 L 765 146" class="flow" marker-end="url(#ak)"/>
+  <path d="M 1055 114 L 1055 146" class="flow" marker-end="url(#ak)"/>
+
+  <!-- the divide -->
+  <path d="M 620 130 L 620 846" class="divide"/>
+  <text x="600" y="136" text-anchor="end" class="tag n-tag">NORMATIVE · WHAT IS LEGAL</text>
+  <text x="640" y="136" text-anchor="start" class="tag e-tag">EVIDENTIARY · WHAT IS MEANT</text>
+
+  <!-- column headers -->
+  <rect x="50" y="148" width="270" height="48" rx="4" class="n-box"/>
+  <text x="62" y="169" class="head">WHAT IS IT?</text>
+  <text x="62" y="187" class="sub">“what does E79 actually say?”</text>
+
+  <rect x="340" y="148" width="270" height="48" rx="4" class="n-box"/>
+  <text x="352" y="169" class="head">MAY I WRITE IT?</text>
+  <text x="352" y="187" class="sub">“is E79 → E22 a legal link?”</text>
+
+  <rect x="630" y="148" width="270" height="48" rx="4" class="e-box"/>
+  <text x="642" y="169" class="head">WHAT IS IT FOR?</text>
+  <text x="642" y="187" class="sub">“which of the two does the SIG mean?”</text>
+
+  <rect x="920" y="148" width="270" height="48" rx="4" class="e-box"/>
+  <text x="932" y="169" class="head">WAS IT SETTLED?</text>
+  <text x="932" y="187" class="sub">“did they ever formally decide?”</text>
+
+  <!-- column 1 cards -->
+  <g class="tool n" data-tool="crm_concept" tabindex="0" role="button"
+     aria-label="crm_concept — open its description, example call and output">
+    <rect x="50" y="210" width="270" height="64" rx="4" class="card-box"/>
+    <text x="62" y="229" class="m name">crm_concept</text>
+    <text x="62" y="245" class="desc">Scope note, hierarchy, domain and range,</text>
+    <text x="62" y="257" class="desc">siblings, every applicable property with</text>
+    <text x="62" y="269" class="desc">the necessary ones marked.</text>
+    <text x="308" y="229" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <g class="tool n" data-tool="crm_list" tabindex="0" role="button"
+     aria-label="crm_list — open its description, example call and output">
+    <rect x="50" y="284" width="270" height="64" rx="4" class="card-box"/>
+    <text x="62" y="303" class="m name">crm_list</text>
+    <text x="62" y="319" class="desc">Every identifier in one model, with the</text>
+    <text x="62" y="331" class="desc">exact RDF local name to write —</text>
+    <text x="62" y="343" class="desc">E22_Human-Made_Object, P4i_is_time-span_of.</text>
+    <text x="308" y="303" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <!-- column 2 cards -->
+  <g class="tool n" data-tool="crm_connect" tabindex="0" role="button"
+     aria-label="crm_connect — open its description, example call and output">
+    <rect x="340" y="210" width="270" height="64" rx="4" class="card-box"/>
+    <text x="352" y="229" class="m name">crm_connect</text>
+    <text x="352" y="245" class="desc">Every property that can legally join two</text>
+    <text x="352" y="257" class="desc">classes, both directions, with the CRM’s</text>
+    <text x="352" y="269" class="desc">own full-path expansion where declared.</text>
+    <text x="598" y="229" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <g class="tool n" data-tool="crm_validate_link" tabindex="0" role="button"
+     aria-label="crm_validate_link — open its description, example call and output">
+    <rect x="340" y="284" width="270" height="64" rx="4" class="card-box"/>
+    <text x="352" y="303" class="m name">crm_validate_link</text>
+    <text x="352" y="319" class="desc">One subject–property–object triple: legal</text>
+    <text x="352" y="331" class="desc">or not, and every reading of an ambiguous</text>
+    <text x="352" y="343" class="desc">property label.</text>
+    <text x="598" y="303" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <g class="tool n" data-tool="crm_validate_rdf" tabindex="0" role="button"
+     aria-label="crm_validate_rdf — open its description, example call and output">
+    <rect x="340" y="358" width="270" height="64" rx="4" class="card-box"/>
+    <text x="352" y="377" class="m name">crm_validate_rdf</text>
+    <text x="352" y="393" class="desc">A whole model in Turtle, RDF/XML,</text>
+    <text x="352" y="405" class="desc">N-Triples or JSON-LD: every domain, range,</text>
+    <text x="352" y="417" class="desc">rdf:type and owl:inverseOf claim.</text>
+    <text x="598" y="377" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <g class="tool n" data-tool="crm_validate_xml" tabindex="0" role="button"
+     aria-label="crm_validate_xml — open its description, example call and output">
+    <rect x="340" y="432" width="270" height="64" rx="4" class="card-box"/>
+    <text x="352" y="451" class="m name">crm_validate_xml</text>
+    <text x="352" y="467" class="desc">A whole document in the published CRM</text>
+    <text x="352" y="479" class="desc">example XML format: every property element</text>
+    <text x="352" y="491" class="desc">and every in_class label, as written.</text>
+    <text x="598" y="451" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <!-- column 3 cards -->
+  <g class="tool e" data-tool="crm_search" tabindex="0" role="button"
+     aria-label="crm_search — open its description, example call and output">
+    <rect x="630" y="210" width="270" height="64" rx="4" class="card-box"/>
+    <text x="642" y="229" class="m name">crm_search</text>
+    <text x="642" y="245" class="desc">26 years of CRM-SIG discussion — which of</text>
+    <text x="642" y="257" class="desc">two plausible classes the SIG actually</text>
+    <text x="642" y="269" class="desc">intends, and why a property exists.</text>
+    <text x="888" y="229" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <g class="tool e" data-tool="crm_docs" tabindex="0" role="button"
+     aria-label="crm_docs — open its description, example call and output">
+    <rect x="630" y="284" width="270" height="64" rx="4" class="card-box"/>
+    <text x="642" y="303" class="m name">crm_docs</text>
+    <text x="642" y="319" class="desc">The specification itself, declarations and</text>
+    <text x="642" y="331" class="desc">narrative both — or, by kind, the issue</text>
+    <text x="642" y="343" class="desc">register, the minutes, the Principles.</text>
+    <text x="888" y="303" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <!-- column 4 cards -->
+  <g class="tool e" data-tool="crm_issue" tabindex="0" role="button"
+     aria-label="crm_issue — open its description, example call and output">
+    <rect x="920" y="210" width="270" height="64" rx="4" class="card-box"/>
+    <text x="932" y="229" class="m name">crm_issue</text>
+    <text x="932" y="245" class="desc">One issue by number: register status, the</text>
+    <text x="932" y="257" class="desc">SIG’s own statement of the outcome, every</text>
+    <text x="932" y="269" class="desc">thread and meeting that discussed it.</text>
+    <text x="1178" y="229" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <g class="tool e" data-tool="crm_thread" tabindex="0" role="button"
+     aria-label="crm_thread — open its description, example call and output">
+    <rect x="920" y="284" width="270" height="64" rx="4" class="card-box"/>
+    <text x="932" y="303" class="m name">crm_thread</text>
+    <text x="932" y="319" class="desc">A whole thread in date order — where the</text>
+    <text x="932" y="331" class="desc">list argued out a choice the specification</text>
+    <text x="932" y="343" class="desc">leaves open.</text>
+    <text x="1178" y="303" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <!-- verification strip -->
+  <path d="M 765 348 L 765 372" class="flow-e" marker-end="url(#ae)"/>
+  <path d="M 1055 348 L 1055 372" class="flow-e" marker-end="url(#ae)"/>
+  <rect x="630" y="372" width="560" height="88" rx="4" class="e-box"/>
+  <text x="642" y="390" class="tag e-tag">AND BEFORE YOU CITE ANY OF IT —</text>
+  <g class="tool e" data-tool="crm_show" tabindex="0" role="button"
+     aria-label="crm_show — open its description, example call and output">
+    <rect x="638" y="396" width="258" height="56" rx="3" class="hit"/>
+    <text x="642" y="412" class="m name">crm_show</text>
+    <text x="642" y="428" class="desc">One message or document chunk,</text>
+    <text x="642" y="440" class="desc">in full, by id.</text>
+    <text x="884" y="412" text-anchor="middle" class="plus">+</text>
+  </g>
+  <g class="tool e" data-tool="crm_quote" tabindex="0" role="button"
+     aria-label="crm_quote — open its description, example call and output">
+    <rect x="908" y="396" width="274" height="56" rx="3" class="hit"/>
+    <text x="912" y="412" class="m name">crm_quote</text>
+    <text x="912" y="428" class="desc">Whether the phrase really occurs</text>
+    <text x="912" y="440" class="desc">there, shown in context.</text>
+    <text x="1170" y="412" text-anchor="middle" class="plus">+</text>
+  </g>
+
+  <!-- left collector -->
+  <path d="M 185 348 L 185 520" class="flow-n"/>
+  <path d="M 475 496 L 475 520" class="flow-n"/>
+  <path d="M 185 520 L 475 520" class="flow-n"/>
+  <path d="M 330 520 L 330 584" class="flow-n" marker-end="url(#an)"/>
+  <text x="342" y="556" class="lbl">checked against</text>
+
+  <!-- right collector -->
+  <path d="M 910 460 L 910 584" class="flow-e" marker-end="url(#ae)"/>
+  <text x="922" y="556" class="lbl">quoted from</text>
+
+  <!-- left sources -->
+  <rect x="50" y="586" width="550" height="250" rx="5" class="n-box"/>
+  <text x="64" y="608" class="title">sources/ — vendored upstream, tracked, and never edited by hand</text>
+  <text x="64" y="634" class="body">· cidoc_crm_v7.1.3.rdf — CIDOC’s normative RDFS encoding</text>
+  <text x="64" y="654" class="body">· cidoc_crm_v7.1.3.xml — the specification’s own presentation XML</text>
+  <text x="64" y="674" class="body">· rdfs/extensions/ — the eleven family models’ own RDFS</text>
+  <text x="64" y="694" class="body">· crm_family.json — the family declarations, from cidoc-crm.org</text>
+  <path d="M 64 712 L 586 712" class="rule"/>
+  <text x="64" y="736" class="m name">→ data/ontology.json</text>
+  <text x="64" y="756" class="desc">CRMbase: 82 classes and 166 properties, with every domain, range, inverse</text>
+  <text x="64" y="770" class="desc">and “necessary” quantifier — plus the 533 declared identifiers of CRMarchaeo,</text>
+  <text x="64" y="784" class="desc">CRMdig, CRMinf, CRMsci, CRMtex, CRMgeo, CRMact, CRMba, FRBRoo, LRMoo, PRESSoo.</text>
+  <text x="64" y="812" class="desc">Deprecated and archive-only identifiers are known only from the mailing list,</text>
+  <text x="64" y="826" class="desc">so they arrive from the record on the right, not from sources/.</text>
+
+  <!-- right sources -->
+  <rect x="630" y="586" width="560" height="250" rx="5" class="e-box"/>
+  <text x="644" y="608" class="title">the record of what the SIG actually said</text>
+  <text x="644" y="634" class="body">· crm-sig.mbox — 5,400 messages, Aug 1999 → Jan 2026, in 1,878 threads</text>
+  <text x="644" y="654" class="body">· the v7.3.2 specification text — 244 declarations, 130 narrative chunks</text>
+  <text x="644" y="674" class="body">· Conceptual Modelling Principles v0.1.2 — 66 chunks, held as its own kind</text>
+  <text x="644" y="688" class="desc">   so a working draft never reads as normative</text>
+  <text x="644" y="708" class="body">· the SIG issue register — 716 issues with their outcomes, 3,002 chunks</text>
+  <text x="644" y="728" class="body">· SIG meeting minutes — 71 meetings, 3,644 chunks, linked to their issues</text>
+  <path d="M 644 746 L 1176 746" class="rule"/>
+  <text x="644" y="770" class="m name">→ data/clean.jsonl · threads.json · documents.jsonl · stores/</text>
+  <text x="644" y="790" class="desc">BM25 over every word and vectors over every chunk, fused — because CRM talk is</text>
+  <text x="644" y="804" class="desc">full of exact identifiers (P2, E55, S19), which BM25 matches best and an</text>
+  <text x="644" y="818" class="desc">embedding model handles worst, while the vectors carry the conceptual paraphrase.</text>
+
+  <!-- what each half cannot do -->
+  <text x="50" y="862" class="sub">It cannot tell you which of two legal classes the SIG intends.</text>
+  <text x="630" y="862" class="sub">It cannot tell you whether your file validates.</text>
+</svg>
+<figcaption><strong>Figure 1.</strong> One question, four kinds of answer, and the source
+that authorises each. The dashed line is the distinction the whole design turns on: to the
+left, what the specification <em>permits</em>, computed from the normative RDFS; to the right,
+what the SIG <em>meant</em>, quoted from the record. Neither half substitutes for the other,
+which is why the tools do not pretend to be one set. Counts are from this build.</figcaption>
+</figure>
+
+<h2 id="tools">The twelve tools</h2>
+
+<p class="hint"><strong>Click any tool in the diagram</strong> — or any entry below — for what it
+does, a real call, and the output that call returns. Every output quoted here came out of
+<code>mcp_server.py</code> on this build; nothing is illustrative.</p>
+
+<div class="ref">
+
+<h3>What is it? — the normative layer</h3>
+
+<details id="t-crm_concept" class="tool-entry" data-layer="norm">
+  <summary><span class="tname">crm_concept</span><span class="tpurpose">one identifier, in full</span></summary>
+  <div class="entry-body">
+    <p>Everything the specification says about one class or property, assembled from the
+    normative RDFS and the presentation XML: scope note, place in the hierarchy, domain and
+    range, the CRM’s own examples, siblings, and every applicable property with the necessary
+    ones marked. Then, from the archive, where the SIG argued about it — which is the one place
+    the two halves of the system meet in a single answer.</p>
+    <p class="io-label">How it works</p>
+    <p>A dictionary lookup in <code>data/ontology.json</code> — the file
+    <code>xml.etree.ElementTree</code> produced from the specification XML, with CIDOC’s RDFS
+    folded in — then three structural walks over it: siblings from the parent’s subclass list,
+    applicable properties from the domain and range closure, and the archive count by counting
+    the messages tagged with that identifier. Nothing is embedded, scored or ranked. The episode
+    list at the end is the one model-written thing on this page; see figure 3.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"identifier": "E11"}          // an id, or a label: {"identifier": "Modification"}</pre>
+    <p class="io-label">Output — abridged</p>
+<pre>E11 Modification   [v7.1.3 (current)]
+
+URI:            http://www.cidoc-crm.org/cidoc-crm/E11_Modification
+
+Subclass of:    E7
+
+This class comprises instances of E7 Activity that are undertaken to create, alter
+or change instances of E24 Physical Human-Made Thing. … Since the distinction
+between modification and production is not always clear, modification is regarded
+as the more generally applicable concept. …
+  e.g. the construction of the SS Great Britain (E12) (Gregor, 1971)
+  e.g. the impregnation of the Vasa warship in Stockholm for preservation after
+       1956 (Håfors, 2010)
+
+Siblings (other subclasses of E7):
+  E10    Transfer of Custody      -- This class comprises transfers of the physi…
+  E13    Attribute Assignment     -- This class comprises the actions of making …
+  E65    Creation                 -- This class comprises events that result in …
+  …
+
+Debated in 10 episodes, oldest first ([outcome] is a summary's reading, not a
+verified fact):
+  2001-11-16  [unresolved]  Renaming event classes using gerund forms to resolve …
+       search.py thread t0037
+  2015-02-24  [informational]  Whether P126 employed should be a shortcut of a lo…
+       search.py thread t0821
+  2019-10-09  [unresolved]  Using CIDOC CRM properties to model conservation trea…
+       search.py thread t1252
+  …</pre>
+    <p class="note">Note the hedge the tool prints on its own episode summaries. It is there
+    because an outcome tag is a reading of a thread, not a decision of the SIG — for that,
+    see <code>crm_issue</code>. From a terminal:
+    <code>uv run python search.py concept E11</code></p>
+  </div>
+</details>
+
+<details id="t-crm_list" class="tool-entry" data-layer="norm">
+  <summary><span class="tname">crm_list</span><span class="tpurpose">every identifier in one model, spelled as RDF</span></summary>
+  <div class="entry-body">
+    <p>The answer to “what exactly do I type”. One call spells every identifier in a model as it
+    must be written in RDF — local name, inverse name, namespace at the top — so a modeller
+    never has to guess whether it is <code>E22_Man-Made_Object</code> or
+    <code>E22_Human-Made_Object</code>. Identifiers the archive attests but no current
+    declaration defines are marked as such rather than quietly dropped.</p>
+    <p class="io-label">How it works</p>
+    <p>One pass over the merged model view — CRMbase and the eleven family models in a single
+    dict — sorted and formatted. The local name is composed from the identifier and its label
+    (<code>E22</code> + “Human-Made Object” → <code>E22_Human-Made_Object</code>), which is also
+    the key the URI index is built on, so the name this prints is exactly the name every other
+    tool will accept.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"model": "CRMsci"}           // or CRMbase, CRMarchaeo, FRBRoo, LRMoo, … ; omit for all</pre>
+    <p class="io-label">Output — abridged</p>
+<pre>Namespaces (the name column is the local part; prepend these):
+  CRMsci      http://www.cidoc-crm.org/extensions/crmsci/
+
+CRMsci   O14   (no label recorded)          (root)     archive-attested only; no current declaration
+CRMsci   S1    S1_Matter_Removal            &lt; E7       This class comprises the activities that result in a…
+CRMsci   S4    S4_Single_Observation        &lt; S27 E13  This class comprises the activity of gaining scienti…
+CRMsci   S13   S13_Sample                   &lt; S11      This class comprises instances of S11 Amount of Matt…
+CRMsci   S19   S19_Encounter_Event          &lt; S27      This class comprises activities of Observation (S27)…
+  …
+CRMsci   O39   O39_observed_dimension (O39i_was_observed_in)   S21 -&gt; E54   This property records the dimension of an instance o…</pre>
+    <p class="note">The inverse name is printed in parentheses because that is the half people
+    get wrong. From a terminal:
+    <code>uv run python search.py ontology --model CRMsci</code></p>
+  </div>
+</details>
+
+<h3>May I write it? — the normative layer</h3>
+
+<details id="t-crm_connect" class="tool-entry" data-layer="norm">
+  <summary><span class="tname">crm_connect</span><span class="tpurpose">every property that can join two classes</span></summary>
+  <div class="entry-body">
+    <p>Two classes in, every property that can legally join them out — in both directions, and
+    with the CRM’s own declared full path printed underneath any shortcut. That last part is the
+    point: a modeller can see that <code>P52 has current owner</code> is the Acquisition path
+    collapsed into one link, and choose the shortcut or the path deliberately instead of
+    discovering the difference later.</p>
+    <p class="io-label">How it works</p>
+    <p>Two ancestor sets, computed by walking <code>sub_class_of</code> with an explicit visited
+    set — the CRM hierarchy is a DAG rather than a tree, since E22 is both an E19 and an E24, and
+    a naive walk revisits shared ancestors — then every property whose declared domain lands in
+    one set and range in the other, in both directions. The full paths are not inferred: they are
+    read out of the declaration’s own text in the published specification.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"subject_class": "E22", "object_class": "E21"}</pre>
+    <p class="io-label">Output — abridged</p>
+<pre>Properties joining E22 and E21
+
+E22 -&gt; E21:
+    P50   has current keeper                  E18 -&gt; E39
+      Full path: E18 Physical Thing. P30i transferred through (transferred custody):
+                 E10 Transfer of Custody. P29 custody received by: E39 Actor
+    P52   has current owner                   E18 -&gt; E39
+      Full path: E18 Physical Thing. P24i changed ownership through (transferred title of):
+                 E8 Acquisition. P22 transferred title to: E39 Actor
+    P51   has former or current owner         E18 -&gt; E39
+      Full path: … E8 Acquisition. P23 transferred title from …
+      Full path: … E8 Acquisition. P22 transferred title to …
+    P62   depicts                             E24 -&gt; E1
+      Full path: E24 Physical Human-Made Thing. P65 shows visual item (is shown by):
+                 E36 Visual Item. P138 represents (has representation): E1 CRM Entity
+    P198  holds or supports                   E18 -&gt; E18
+  …
+E21 -&gt; E22:
+  …</pre>
+    <p class="note">Two full paths under one property means the shortcut is genuinely ambiguous
+    about direction of title — the tool shows both rather than picking. From a terminal:
+    <code>uv run python search.py connect E22 E21</code></p>
+  </div>
+</details>
+
+<details id="t-crm_validate_link" class="tool-entry" data-layer="norm">
+  <summary><span class="tname">crm_validate_link</span><span class="tpurpose">one triple, checked</span></summary>
+  <div class="entry-body">
+    <p>One subject–property–object triple, checked against domain and range. It reports every
+    reading of an ambiguous property label rather than picking one, says whether the CRM
+    quantifies the property as necessary on its domain, and when no reading is legal it says the
+    thing a CRM modeller actually needs to hear.</p>
+    <p class="io-label">How it works</p>
+    <p>The name is resolved to every reading it could have — an identifier, an inverse identifier,
+    an RDF local name through the URI index, the identifier beside its own name, or a bare label —
+    and then each reading’s declared domain and range is tested for membership in the subject’s
+    and object’s ancestor sets. Set membership, not inference. Fourteen labels are shared between
+    properties (“consists of” is P5, P9 <em>and</em> P45), so an ambiguous name is reported with
+    every reading rather than resolved by guess.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"subject": "E79", "crm_property": "added", "object_class": "E52"}</pre>
+    <p class="io-label">Output</p>
+<pre>E79 --added--&gt; E52
+  no     P111     added                               E79 -&gt; E18
+         E52 is not a E18
+         (the CRM quantifies this as necessary on its domain)
+
+No reading of this link is legal. In the CRM that usually means
+the relationship runs through an event -- try `connect` on the two
+classes to see what does join them.</pre>
+    <p class="io-label">And the legal case</p>
+<pre>{"subject": "E79", "crm_property": "P111", "object_class": "E22"}
+
+E79 --P111--&gt; E22
+  LEGAL  P111     added                               E79 -&gt; E18
+         domain and range both admit these classes
+         (the CRM quantifies this as necessary on its domain)</pre>
+    <p class="note">The property can be named any way the other tools print it — an
+    identifier (<code>P111</code>), its RDF local name (<code>P111_added</code>, as
+    <code>crm_list</code> spells it), a full URI, a <code>crm:</code> name, a bare label
+    (<code>added</code>, <code>was added by</code>), or the identifier beside its own name
+    (<code>P111 added</code>, as the columns above print it). A pair that disagrees is refused
+    rather than resolved: <code>P111 augmented</code> answers <em>no property matches — P111 is
+    ‘added’</em>, because taking the id and discarding the name would report LEGAL about a
+    property the caller never asked about. From a terminal:
+    <code>uv run python search.py validate E79 added E52</code></p>
+  </div>
+</details>
+
+<details id="t-crm_validate_rdf" class="tool-entry" data-layer="norm">
+  <summary><span class="tname">crm_validate_rdf</span><span class="tpurpose">a whole RDF model</span></summary>
+  <div class="entry-body">
+    <p>A whole model in Turtle, RDF/XML, N-Triples or JSON-LD, checked link by link: every
+    domain, every range, every <code>rdf:type</code>, and every <code>owl:inverseOf</code> claim
+    the file makes. It reports the offending subject URI, not just a count, and it fails loudly
+    enough to gate a pipeline.</p>
+    <p class="io-label">How it works</p>
+    <p><code>rdflib</code> parses the document, every triple becomes a link in the same shape the
+    example-format reader produces, and each one goes through the single-triple check above — one
+    checker, two formats. <code>rdf:type</code> assertions are checked as class names and
+    <code>owl:inverseOf</code> claims against what the CRM actually declares: the two kinds of
+    assertion a link check on its own would walk straight past.</p>
+    <p class="io-label">Input — the model</p>
+<pre class="in">@prefix crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .
+@prefix ex:  &lt;http://example.org/bayeux/&gt; .
+
+ex:tapestry a crm:E22_Human-Made_Object .
+ex:backing  a crm:E22_Human-Made_Object .
+ex:in1724   a crm:E52_Time-Span .
+
+ex:addition a crm:E79_Part_Addition ;
+    crm:P110_augmented    ex:tapestry ;
+    crm:P111_added        ex:backing ;
+    crm:P111_added        ex:in1724 ;      # deliberately wrong
+    crm:P4_has_time-span  ex:in1724 .
+
+{"path": "backing.ttl"}                    // or {"content": "@prefix crm: …"}</pre>
+    <p class="io-label">Output</p>
+<pre>4 links checked: 1 illegal, 3 ok
+
+  ILLEGAL        P111
+      E79 -&gt; E52   at http://example.org/bayeux/addition
+      E52 is not a E18
+
+Verdict: FAILED -- at least one illegal or unresolved link, an unknown or mistyped
+class, or a false owl:inverseOf claim (the conditions `search.py validate --rdf`
+exits 1 on).</pre>
+    <p class="note">Pass <code>content</code> or <code>path</code>, exactly one. From a terminal:
+    <code>uv run python search.py validate --rdf backing.ttl</code></p>
+  </div>
+</details>
+
+<details id="t-crm_validate_xml" class="tool-entry" data-layer="norm">
+  <summary><span class="tname">crm_validate_xml</span><span class="tpurpose">a whole document in the CRM’s own example format</span></summary>
+  <div class="entry-body">
+    <p>The same check for the format the specification’s own published examples are written in,
+    where property labels <em>are</em> the element names. It checks the labels exactly as
+    written, not a normalisation of them, so a stale label like
+    <code>E22: Man-Made Object</code> is caught. It also separates a real error from a
+    limitation of the format — which matters, because one of them is the modeller’s fault and
+    the other is not.</p>
+    <p class="io-label">How it works</p>
+    <p><code>xml.etree.ElementTree</code> walks the published example format — element names are
+    property labels, <code>in_class</code> text names the class — and converts it into the same
+    link shape the RDF reader produces, so the checker underneath is the same one. The labels are
+    compared as written rather than as normalised, which is the only way a stale
+    <code>E22: Man-Made Object</code> can be caught at all.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"path": "models/crm_bayeux.xml"}</pre>
+    <p class="io-label">Output — abridged</p>
+<pre>575 links checked: 2 ambiguous, 9 attached_to_property, 428 ok, 136 ok_literal
+structural elements skipped: CRM_Entity in_class unit value
+
+ATTACHED_TO_PROPERTY: a property nested inside a literal-valued one, which
+the CRM models with a property-of-property and this format cannot write. As
+encoded it asserts something else and untrue. Fold the value into the text of
+the property it qualifies, or drop it.
+
+AMBIGUOUS links are legal but underdetermined. This format writes property
+labels as element names, so the file cannot say which of them it means --
+record the intent in your notes; there is nothing to fix in the document.
+  …</pre>
+    <p class="note">No illegal links in that file, and no label mismatches — which is the point
+    of keeping the eight worked models in the repository. From a terminal:
+    <code>uv run python search.py validate --xml models/crm_bayeux.xml</code></p>
+  </div>
+</details>
+
+<h3>What is it for? — the evidentiary layer</h3>
+
+<details id="t-crm_search" class="tool-entry" data-layer="evid">
+  <summary><span class="tname">crm_search</span><span class="tpurpose">twenty-six years of SIG discussion</span></summary>
+  <div class="entry-body">
+    <p>Where the ontology tools say what a class <em>is</em>, this says what it is <em>for</em>:
+    which of two plausible classes the SIG actually intends, why a property exists, what was
+    tried and abandoned. Each hit carries its date, its author, its thread, and the CRM
+    identifiers it mentions, so a modeller can judge the weight of an opinion before adopting
+    it — a 2002 message and a 2022 one are not equal evidence.</p>
+    <p class="io-label">How it works</p>
+    <p>The retrieval stack in figure 3, over 2,000-character chunks with 200 of overlap: SQLite
+    FTS5 for BM25 beside a Chroma index of <code>gte-modernbert-base</code> embeddings, the two
+    rankings fused by reciprocal rank fusion. Nothing summarises the hits — each one is the
+    archive’s own text with the id that fetches the rest of it — and no more than two hits come
+    from any one thread, because the third is one <code>crm_thread</code> call away and the slot
+    is better spent on a different voice.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"query": "part addition versus modification", "k": 3, "mode": "bm25"}</pre>
+    <p class="io-label">Output</p>
+<pre> 1. 2022-11-26  Christian-Emil Smith Ore  Re: [Crm-sig] Digging for a unknown issue, help need
+    &lt;c0eabc042dee45c3bac7136d4aeda132@iln.uio.no&gt;  thread=t1672  [E11 E12 E7 E79 E80 P31]
+    A problem is that A1 Excavation Processing Unit Subclass of: S1 Matter Removal S4 Observ…
+
+ 2. 2017-04-26  martin                    [Crm-sig] ISSUE 191, contribution
+    &lt;ce558fd3-9bbb-12c8-c697-1aafe39dfd28@ics.forth.gr&gt;  thread=t1009  [E11 E12 E18 E22 E24 E5]
+    Dear All, ISSUE 191 is still open, I still owe an argument. Here it is: P31 has modified …
+
+ 3. 2019-04-29  Martin Doerr              [Crm-sig] Issue 410 homework (P11 &amp; P12)
+    &lt;4eaba7c4-8bf5-f749-b9b0-26559eb9715c@ics.forth.gr&gt;  thread=t1199  [E11 E18 E19 E21 E39 E5]
+    Dear All, Here my rewriting of the scope notes of P11 and P12. It is a part of the most …</pre>
+    <p class="note">The default mode is <code>hybrid</code> — BM25 fused with vectors. Here it is
+    pinned to <code>bm25</code>, which needs no embedding model and is the stronger half on exact
+    identifiers like <code>P31</code>. From a terminal:
+    <code>uv run python search.py "part addition versus modification" --mode bm25 -k 3</code></p>
+  </div>
+</details>
+
+<details id="t-crm_docs" class="tool-entry" data-layer="evid">
+  <summary><span class="tname">crm_docs</span><span class="tpurpose">the specification, the register, the minutes, the principles</span></summary>
+  <div class="entry-body">
+    <p>The same retrieval over the written record rather than the correspondence: the v7.3.2
+    specification text, both its declarations and its narrative guidance, and — selected by
+    <code>kind</code> — the issue register, the SIG meeting minutes, or the Conceptual Modelling
+    Principles. Ask it the modelling question in your own words and it returns the paragraph of
+    the specification that governs it.</p>
+    <p class="io-label">How it works</p>
+    <p>The same stack over a different store, plus one default that exists because volume would
+    otherwise decide the ranking: the specification is 374 chunks in a store of about 7,000, so
+    <code>docs</code> searches declarations and narrative unless a <code>kind</code> says
+    otherwise. Bibliography-shaped chunks are excluded by default as well — 43 of them, 0.6% of
+    the corpus, which took two of the top five slots on an archaeology query, which is how they
+    came to be excluded.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"query": "separate identifiable wholes prior to the addition", "k": 2, "mode": "bm25"}
+// kind: "declaration" | "narrative" | "issue" | "minutes" | "principles"</pre>
+    <p class="io-label">Output</p>
+<pre> 1. E79 Part Addition    CIDOC CRM v7.3.2
+    "Subclass of: E11 Modification Scope note: This class comprises activities that result
+    in an instance of E18 Physical Thing being increased, enlarged or augmented by the
+    addition of a part. Typical scenarios include the attachment of an accessory, the
+    integration of a component, the addition of an el"
+    concepts: E11 E18 E78 E79 P110 P111
+    verify a quote: search.py quote crm732#E79 "..."
+
+ 2. E26 Physical Feature    CIDOC CRM v7.3.2
+    "Subclass of: E18 Physical Thing Superclass of: E25 Human-Made Feature E27 Site Scope
+    note: This class comprises identifiable features that are physically attached in an
+    integral way to particular physical objects. …"
+    concepts: E18 E19 E25 E26 E27
+    verify a quote: search.py quote crm732#E26 "..."</pre>
+    <p class="note">Every hit prints the command that verifies it. That is not decoration: it is
+    the same anchor <code>crm_quote</code> takes. From a terminal:
+    <code>uv run python search.py docs "separate identifiable wholes" --mode bm25 -k 2</code></p>
+  </div>
+</details>
+
+<h3>Was it settled? — the evidentiary layer</h3>
+
+<details id="t-crm_issue" class="tool-entry" data-layer="evid">
+  <summary><span class="tname">crm_issue</span><span class="tpurpose">the decision record</span></summary>
+  <div class="entry-body">
+    <p>If a modelling question was ever settled formally, it was settled as an issue. This
+    returns one issue by number: its status in the register, the SIG’s own words for the
+    outcome, every thread that discussed it, every meeting that took it up, and the issue’s own
+    cross-references. It is the difference between “someone on the list once said” and “the SIG
+    decided”.</p>
+    <p class="io-label">How it works</p>
+    <p>Not retrieval at all — an index built at build time. A regex requires the word “issue”
+    immediately adjacent to the number, and the number is then validated against the register
+    scraped from cidoc-crm.org. Both guards are needed: issue numbers run 1 to 722, so almost any
+    small integer near the word is coincidentally a real id (“issue 43, 3rd draft” is an ordinal,
+    not a second issue). What it reports as status is the register’s own field, never a reading of
+    the debate.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"issue_id": "191"}</pre>
+    <p class="io-label">Output — abridged</p>
+<pre>Issue 191  Range of P31
+
+Status:   Done   (closed 2018-05-25)
+Model:    CIDOC CRM
+Register: https://cidoc-crm.org/Issue/ID-191-range-of-p31
+
+Outcome (the SIG's own statement of the resolution):
+  In the 41st joined meeting of the CIDOC CRM SIG and ISO/TC46/SC4/WG9 and the 34th
+  FRBR - CIDOC CRM Harmonization meeting, the sig reviewed the Martin' proposal
+  accepted that
+
+"the identity and coming into existence of a Physical Man-made thing must not be
+bound to the fact of an accidental or intentional Modification of any microscale …"
+
+Then they reviewed the scope note of P31 and changed the range from E24 to E18 and
+marked obsolete the scope note. …
+
+Lyon, May 2018
+
+Discussed across 3 thread(s), 2010-11-05 .. 2021-11-29:
+  2010-11-05  t0530   1 mention(s)
+       search.py thread t0530
+  …
+Taken up at 5 SIG meeting(s):
+  December 2010  22nd Joined meeting of the CIDOC CRM SIG and ISO/TC46/SC4/WG9 and 16th
+       ISSUE 191
+       search.py quote minutes:2010Dec-22nd-meeting-Minutes#s049 "..."
+  …
+References (this issue's own cross-references, per the SIG's page):
+  Issue 386  Functional identity of E24 Physical Man Made Thing
+       search.py issue 386
+
+The status above is the register's, not a summary of the debate.
+Read the threads for the reasoning.</pre>
+    <p class="note">The last two lines are the tool refusing to overreach: it will tell you the
+    register’s status and quote the outcome, and it will not summarise the argument for you.
+    From a terminal: <code>uv run python search.py issue 191</code></p>
+  </div>
+</details>
+
+<details id="t-crm_thread" class="tool-entry" data-layer="evid">
+  <summary><span class="tname">crm_thread</span><span class="tpurpose">a whole exchange in date order</span></summary>
+  <div class="entry-body">
+    <p>A search hit is one message out of an argument. This returns the whole thread in date
+    order, numbered, so the reasoning can be read as it happened — including the messages that
+    walk back the first proposal. Worth the call whenever a hit looks like it settles the
+    question you are stuck on.</p>
+    <p class="io-label">How it works</p>
+    <p>Threads are reconstructed at build time from three signals: reply-chain headers, quote
+    overlap, and subject match — the last two under a time guard, because subject-only matching
+    glued several unrelated debates into one bogus 33-message “issue” thread. Messages then print
+    in date order from the cleaned records, de-quoted by rules keyed on how many quote blocks a
+    message has, so each reply shows what its author wrote rather than the thread re-quoted
+    beneath it.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"thread_id": "t1672"}</pre>
+    <p class="io-label">Output — abridged</p>
+<pre>[1] 2022-11-25  Christian-Emil Smith Ore  [Crm-sig] Digging for a unknown issue, help needed
+    &lt;75cad4ebcb85426fa997446919df5a9d@iln.uio.no&gt;
+
+Dear all,
+
+In the work with the cleanup of the definition document for CRMarcheo, I found a
+comment (written by myself) next to
+
+AP5 removed part or all of (was partially or totally removed by)
+  …
+
+[2] 2022-11-25  Martin Doerr  Re: [Crm-sig] Digging for a unknown issue, help needed
+    &lt;b87e2d7b-9069-5d5d-0367-19f8f894f70f@ics.forth.gr&gt;
+
+I think it is 469 and 365, as well as the introduction about compatibility of
+extensions: …
+
+[3] 2022-11-26  Christian-Emil Smith Ore  Re: …
+[4] 2022-11-26  Martin Doerr  Re: …
+
+[5] 2022-11-27  Christian-Emil Smith Ore  Re: [Crm-sig] Digging for a unknown issue…
+
+S10 Material Substantial &lt;= E18 Physical Thing &lt;= E26 Physical Feature &lt;= S20 …
+S1 Matter Removal &lt;=  A1 Excavation Processing Unit
+
+O1 diminished (was diminished by)
+Domain:  S1 Matter Removal
+Range:  S10 Material Substantial
+Superproperty of: E80 Part Removal: P112 diminished (was diminished by): E24 …</pre>
+    <p class="note">Five messages over three days, two people, ending in the class hierarchy
+    written out by hand. From a terminal:
+    <code>uv run python search.py thread t1672</code></p>
+  </div>
+</details>
+
+<h3>And before you cite any of it</h3>
+
+<details id="t-crm_show" class="tool-entry" data-layer="evid">
+  <summary><span class="tname">crm_show</span><span class="tpurpose">one message or chunk, in full</span></summary>
+  <div class="entry-body">
+    <p>A search result is a fragment. This returns the whole of one message, or one document
+    chunk, by id — with its date, author, subject and the CRM identifiers it mentions. It is how
+    you check that a snippet means what it appeared to mean in a list of results.</p>
+    <p class="io-label">How it works</p>
+    <p>A dictionary lookup by Message-ID or chunk id in the built records. No ranking, no scoring,
+    no retrieval — and a chunk id falls back to the full chunk text where the search output showed
+    only a window of it.</p>
+    <p class="io-label">Input</p>
+    <pre class="in">{"message_id": "&lt;3C56CCFC.AA84E2E2@ics.forth.gr&gt;"}   // or a chunk id: "crm732#E79"</pre>
+    <p class="io-label">Output — abridged</p>
+<pre>Message-ID: &lt;3C56CCFC.AA84E2E2@ics.forth.gr&gt;
+Date:       2002-01-29T18:25:33+02:00
+From:       martin &lt;martin@ics.forth.gr&gt;
+Subject:    [crm-sig] Proposed scope notes for Collection, Part Addition and Removal
+Entities:   E11 E18 E24
+
+In Paris we decided to add to the CRM:
+
+Part Addition
+   subclass of: E11 Modification
+      added (was added by) :                  E18 Physical Stuff
+      added to(was augmented by):        E24 Physical Man-Made Stuff
+         (subproperty of "has modified")
+
+Part Removal
+  subclass of: E11 Modification
+       removed (was removed by):             E18 Physical Stuff
+       removed from (was dimished by):    E24 Physical Stuff
+         (subproperty of "has modified")
+  …</pre>
+    <p class="note">The proposal that created E79 and E80, with the ranges they were born with —
+    <code>E24</code>, later changed to <code>E18</code> by Issue 191. From a terminal:
+    <code>uv run python search.py show '&lt;3C56CCFC.AA84E2E2@ics.forth.gr&gt;'</code></p>
+  </div>
+</details>
+
+<details id="t-crm_quote" class="tool-entry" data-layer="evid">
+  <summary><span class="tname">crm_quote</span><span class="tpurpose">does this phrase actually occur?</span></summary>
+  <div class="entry-body">
+    <p>The tool that exists because a plausible quotation and a real one look identical. Give it
+    a phrase and a source — thread, message, episode or document chunk — and it answers whether
+    the phrase is genuinely there, showing it in context with the match marked. When it is not
+    there, it says how close the nearest passage got, which is usually enough to see where the
+    paraphrase drifted.</p>
+    <p class="io-label">How it works</p>
+    <p>A substring match after whitespace and quote characters are normalised, with elided
+    quotations supported: fragments separated by … or […] must occur in order, and each must carry
+    at least four words or it is not treated as an elision at all. When that fails,
+    <code>difflib.SequenceMatcher(autojunk=False)</code> reports the longest contiguous run of the
+    phrase the source does contain, as a fraction of the whole. That number is diagnostic only —
+    it is never promoted into a FOUND, which is the entire discipline of this tool.</p>
+    <p class="io-label">Input — a plausible-sounding invention</p>
+    <pre class="in">{"source_id": "t0056", "phrase": "the SIG agreed that E79 requires two separate wholes"}</pre>
+    <p class="io-label">Output</p>
+<pre>Source: t0056 (thread)
+NOT FOUND
+  closest match (15% of the phrase, contiguous): message [1]  martin
+  "…herefore propose to relax part-removal from Physical Man-Mad**e wholes** to
+  Physical wholes in general. But may be cutting out of pi…"</pre>
+    <p class="io-label">And a real one</p>
+<pre>{"source_id": "t0056", "phrase": "In Paris we decided to add to the CRM"}
+
+Source: t0056 (thread)
+FOUND
+  message [1]  martin  &lt;3C56CCFC.AA84E2E2@ics.forth.gr&gt;
+  "**In Paris we decided to add to the CRM**: Part Addition subclass of: E11
+  Modification added (was add…"</pre>
+    <p class="note">Fifteen per cent, and the words it did match were about part
+    <em>removal</em>. From a terminal:
+    <code>uv run python search.py quote t0056 "In Paris we decided to add to the CRM"</code></p>
+  </div>
+</details>
+
+</div>
+
+<h2 id="worked">The same question, actually asked</h2>
+
+<p>Figure 1 is not an illustration of an intention. Every step below is real output from
+this repository, in the order a modeller would reach for it. The decision it records is in
+<code>models/crm_bayeux_notes.md</code>.</p>
+
+<p><strong>1. What is it?</strong> <code>crm_concept E79</code> returns the scope note, and the
+scope note settles it:</p>
+
+<blockquote>Both the E18 Physical Thing being augmented and the E18 Physical Thing that is
+being added are treated as separate identifiable wholes prior to the instance of E79 Part
+Addition.</blockquote>
+
+<p>with <code>E12 Production</code> and <code>E80 Part Removal</code> named as siblings under
+<code>E11</code>, 57 outgoing and 52 incoming properties, and <code>P110 augmented</code> and
+<code>P111 added</code> flagged as necessary. The 1724 backing cloth <em>was</em> such a
+separate whole, so it is an <code>E79</code>. The spurious final titulus, embroidered straight
+into the cloth and never a whole of its own, is an <code>E11 Modification</code>. Same object,
+two events, two classes — and the scope note, not taste, is what divides them.</p>
+
+<p><strong>2. May I write it?</strong> <code>crm_connect E22 E79</code> answers in both
+directions without being asked which one. The <code>E79 → E22</code> half, abridged:</p>
+
+<pre>E79 -&gt; E22:
+  ! P110  augmented                           E79 -&gt; E18
+  ! P111  added                               E79 -&gt; E18
+  ! P31   has modified                        E11 -&gt; E18
+    P16   used specific object                E7  -&gt; E70
+    P8    took place on or within             E4  -&gt; E18
+      Full path: E4 Period. P7 took place at (witnessed): E53 Place.
+                 P156i is occupied by (occupies): E18 Physical Thing
+    …five more, and three in the E22 -&gt; E79 direction
+! = the CRM quantifies this property as "necessary" on its domain.</pre>
+
+<p>The inherited property is shown with the class that declares it, and the shortcut is shown
+with the full path the CRM itself declares — so a modeller can choose the path deliberately
+rather than discover later that they wrote a shortcut.</p>
+
+<p><strong>3. What is it for?</strong> <code>crm_search</code> over the list. The fourth hit is
+from January 2002:</p>
+
+<blockquote>In Paris we decided to add to the CRM: Part Addition subclass of: E11 Modification,
+added (was added by): E18 Physical Stuff, added to (was augmented by): E24 Phy…</blockquote>
+
+<p>That is the class being created, in the words of the meeting that created it — including the
+range it originally had, which is not the range it has now.</p>
+
+<p><strong>4. Was it settled?</strong> Another hit points at ISSUE 191. <code>crm_issue 191</code>
+returns the decision record: <em>Range of P31</em>, status <strong>Done</strong>, closed
+2018-05-25, with the SIG’s own statement of the outcome —</p>
+
+<blockquote>…they reviewed the scope note of P31 and changed the range from E24 to E18 and
+marked obsolete the scope note.</blockquote>
+
+<p>— plus the three threads that discussed it, between 2010 and 2021, and the five SIG meetings
+that took it up. This is why the 2002 quotation says <code>E24</code> and the current
+specification says <code>E18</code>: the range was formally changed, in Lyon, in May 2018. A
+modeller reading the 2002 message alone would have got it wrong; the issue register is what
+tells them the discussion moved.</p>
+
+<p><strong>5. Before citing any of it.</strong> Each of those results prints the command that
+verifies it, down to the anchor in the minutes:</p>
+
+<pre>search.py quote minutes:2011May-23rd-meeting-Minutes#s040 "..."</pre>
+
+<p><code>crm_quote</code> answers only whether the phrase is genuinely there, in context. It
+exists because a plausible quotation and a real one are indistinguishable until something
+checks, and an assistant that paraphrases the SIG into something it never said is worse than
+no assistant.</p>
+
+<h2 id="answers">How an answer is made</h2>
+
+<p>The twelve tools run on two engines, and which one answered you decides how much weight the
+answer can bear. Half the tools <em>compute</em> from the normative RDFS: the same question
+returns the same answer on every machine, and it is wrong only where CIDOC's own RDFS is. The
+other half <em>retrieve</em>: they rank passages by statistical similarity, which can put the
+wrong passage first — but the passage itself is the archive's own text, printed with the
+identifier that fetches the rest of it.</p>
+
+<figure class="fig-scroll">
+<svg viewBox="0 0 1240 390" role="img"
+     aria-label="Two engines. The ontology tools compute an answer by walking the parsed RDFS hierarchy, with no model or ranking involved. The archive tools expand the query with the ontology lexicon, search a SQLite FTS5 BM25 index and a Chroma vector index in parallel, fuse the two rankings by reciprocal rank fusion, and return passages with their ids. A language model wrote only the episode summaries, at build time, validated and hedged.">
+  <defs>
+    <marker id="ck" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="arrow-k"/>
+    </marker>
+  </defs>
+
+  <!-- lane A: computed -->
+  <text x="20" y="22" class="tag n-tag">COMPUTED · THE SIX ONTOLOGY TOOLS</text>
+  <rect x="20" y="34" width="190" height="64" rx="4" class="card-box"/>
+  <text x="32" y="56" class="desc">a question that names</text>
+  <text x="32" y="70" class="desc">classes or properties</text>
+  <text x="32" y="84" class="desc">(E79, P111, “added”)</text>
+  <path d="M 210 66 L 236 66" class="flow" marker-end="url(#ck)"/>
+
+  <rect x="240" y="34" width="210" height="64" rx="4" class="card-box"/>
+  <text x="252" y="54" class="m desc">data/ontology.json</text>
+  <text x="252" y="70" class="desc">every domain, range, inverse</text>
+  <text x="252" y="84" class="desc">and quantifier, as declared</text>
+  <path d="M 450 66 L 476 66" class="flow" marker-end="url(#ck)"/>
+
+  <rect x="480" y="34" width="270" height="64" rx="4" class="card-box"/>
+  <text x="492" y="52" class="desc">walk sub_class_of and sub_property_of —</text>
+  <text x="492" y="66" class="desc">a DAG, not a tree, since E22 is both an E19</text>
+  <text x="492" y="80" class="desc">and an E24 — then test domain and range</text>
+  <text x="492" y="94" class="desc">for membership in the ancestor sets</text>
+  <path d="M 750 66 L 776 66" class="flow" marker-end="url(#ck)"/>
+
+  <rect x="780" y="34" width="440" height="64" rx="4" class="n-box"/>
+  <text x="794" y="56" class="body">A verdict, computed. No model, no embedding, no score, no ranking.</text>
+  <text x="794" y="76" class="desc">The same question returns the same answer on every machine, and the answer</text>
+  <text x="794" y="90" class="desc">is only ever as good as CIDOC’s own RDFS — which is the point of using it.</text>
+
+  <!-- lane B: retrieved -->
+  <text x="20" y="138" class="tag e-tag">RETRIEVED · THE SIX ARCHIVE TOOLS</text>
+  <rect x="20" y="150" width="190" height="64" rx="4" class="card-box"/>
+  <text x="32" y="178" class="desc">a question in your</text>
+  <text x="32" y="192" class="desc">own words</text>
+  <path d="M 210 182 L 236 182" class="flow" marker-end="url(#ck)"/>
+
+  <rect x="240" y="150" width="210" height="64" rx="4" class="card-box"/>
+  <text x="252" y="172" class="desc">expand with the ontology</text>
+  <text x="252" y="186" class="desc">lexicon — E55 ⇄ “Type”,</text>
+  <text x="252" y="200" class="desc">in both directions</text>
+  <path d="M 450 182 L 462 182" class="flow"/>
+  <path d="M 464 160 L 464 204" class="flow"/>
+  <path d="M 464 160 L 476 160" class="flow" marker-end="url(#ck)"/>
+  <path d="M 464 204 L 476 204" class="flow" marker-end="url(#ck)"/>
+
+  <rect x="480" y="140" width="270" height="42" rx="4" class="card-box"/>
+  <text x="492" y="157" class="m desc">SQLite FTS5 · BM25</text>
+  <text x="492" y="172" class="desc">unicode61 keeps E55 and P140 whole</text>
+
+  <rect x="480" y="186" width="270" height="42" rx="4" class="card-box"/>
+  <text x="492" y="203" class="m desc">Chroma · gte-modernbert-base</text>
+  <text x="492" y="218" class="desc">which splits E55 into E + 55</text>
+
+  <path d="M 750 160 L 762 160" class="flow"/>
+  <path d="M 750 204 L 762 204" class="flow"/>
+  <path d="M 764 160 L 764 204" class="flow"/>
+  <path d="M 764 182 L 776 182" class="flow" marker-end="url(#ck)"/>
+
+  <rect x="780" y="150" width="200" height="78" rx="4" class="card-box"/>
+  <text x="792" y="170" class="desc">fuse by rank: RRF, k=60</text>
+  <text x="792" y="186" class="desc">1:1 when the query names</text>
+  <text x="792" y="202" class="desc">an identifier, 1:2 toward</text>
+  <text x="792" y="218" class="desc">the vectors when it does not</text>
+  <path d="M 980 182 L 1006 182" class="flow" marker-end="url(#ck)"/>
+
+  <rect x="1010" y="150" width="210" height="78" rx="4" class="e-box"/>
+  <text x="1022" y="172" class="body">passages, ranked</text>
+  <text x="1022" y="192" class="desc">each with the id that</text>
+  <text x="1022" y="206" class="desc">shows or verifies it;</text>
+  <text x="1022" y="220" class="desc">at most two per thread</text>
+
+  <text x="20" y="246" class="sub">Ranked, never rewritten: what you read is the text that is in the archive.</text>
+
+  <!-- the one model-written thing -->
+  <rect x="20" y="266" width="1200" height="100" rx="5" class="q-box"/>
+  <text x="34" y="288" class="tag">THE ONE PLACE A LANGUAGE MODEL WROTE ANYTHING</text>
+  <text x="34" y="312" class="body">The episode summaries — the “Debated in 10 episodes” list that crm_concept prints — are written by subagents at build time, not by any tool at question time.</text>
+  <text x="34" y="332" class="body">They are validated against the ontology’s own identifier spellings, because a form the validator does not recognise is indistinguishable from a hallucination; they are</text>
+  <text x="34" y="352" class="body">constrained to decided / unresolved / informational; and they print with the hedge that an outcome is a reading. Every other line every tool prints is computed or quoted.</text>
+</svg>
+<figcaption><strong>Figure 3.</strong> Query time, where figure 2 was build time. The upper lane
+is decidable and so it is decided; the lower lane is a judgement about relevance and so it is
+ranked, and says so. The two indexes exist because neither alone works on this corpus: BM25's
+tokenizer keeps <code>E55</code> as one token, which an embedding model cannot — it splits it
+into a semantically empty <code>E</code> + <code>55</code> and lands near E52 and E41 — while
+the embeddings carry the paraphrase BM25 is deaf to. So the weighting shifts with the question:
+name an identifier and the exact match is the strongest signal available; name none and BM25 has
+nothing to bite on.</figcaption>
+</figure>
+
+<p>The bottom panel is the claim worth checking hardest, because it is the one that would matter
+most if it were false. No tool sends the corpus to a model and prints what comes back: an answer
+about legality is computed from the RDFS, and an answer about intent is a passage lifted whole,
+with the id that lets you fetch it and the <code>crm_quote</code> call that proves the phrase is
+really in it. The episode summaries are the exception, and they are labelled as one wherever
+they appear.</p>
+
+<h3 id="engines">BM25 and Chroma, if you have not met them</h3>
+
+<p>Neither is CRM-specific, and both are doing something narrow enough to state exactly.</p>
+
+<p><strong>BM25</strong> is a scoring formula for literal word matching — “Best Match 25”, the
+twenty-fifth formula in a series from the Okapi project in the 1990s, and still the default
+ranking in most library catalogues. It answers one question: given these query words, which
+passages look most <em>about</em> them, judged on the words alone? Three behaviours do the work.
+A rare word counts for more than a common one, so “posthole” carries a query and “the” carries
+nothing. Repetition saturates, so a tenth occurrence adds almost nothing over the third. And
+length is normalised, so a long passage cannot win merely by containing more words. (The last
+two are BM25's only tuning constants; SQLite fixes them at the standard values, and nothing here
+changes them.) What it cannot do is know what a word <em>means</em>: to BM25, “controlled
+vocabulary” and “E55 Type” have nothing whatever in common.</p>
+
+<p>Here it is SQLite's FTS5, which ships inside Python's own <code>sqlite3</code> and so costs no
+dependency. Two things about it are our choices rather than the formula's. The tokenizer is
+<code>unicode61</code> with diacritics folded, which keeps <code>E55</code> and <code>P140</code>
+as single tokens. And the fields are weighted: each chunk's list of CRM identifiers counts four
+times, the subject line twice, the body once, and the sender's name zero — because a query
+mentioning “Martin” should not drag in every message Martin ever sent.</p>
+
+<p><strong>Chroma</strong> is a vector database — the store for the other half. The embedding
+model turns each passage into 768 numbers: a point in a 768-dimensional space, positioned so that
+passages about the same thing land near one another whether or not they share any words. Chroma
+holds those points and, given the query's point, returns the nearest, measuring distance as the
+cosine of the angle between them and using an approximate-nearest-neighbour index (HNSW) so a
+lookup need not compare against every chunk. The model is <code>gte-modernbert-base</code>, whose
+8,192-token window comfortably holds a 2,000-character chunk, and each store records which model
+built it so the query side cannot silently use a different one.</p>
+
+<p>What each is blind to is easier to show than to describe:</p>
+
+<table>
+  <tr>
+    <th>what you type</th>
+    <th>BM25 on its own</th>
+    <th>the vectors on their own</th>
+  </tr>
+  <tr>
+    <td><code>P31</code></td>
+    <td>P31's own declaration and every passage that cites it — exact and complete, because
+    <code>P31</code> is one token and either a passage contains it or it does not.</td>
+    <td>Very little. <code>P31</code> is not a word: the model splits it into <code>P</code> and
+    <code>31</code>, which mean nothing, and the nearest points are other identifiers — which is
+    how a query for one identifier lands on its neighbours instead.</td>
+  </tr>
+  <tr>
+    <td>“how do I model a photograph of a building”</td>
+    <td>Passages that happen to contain <em>photograph</em> and <em>building</em>, many of them
+    incidentally, and nothing at all from the passages that answer the question in other
+    words.</td>
+    <td>The E36 Visual Item / P62 depicts / P138 represents guidance, which contains none of the
+    words you typed.</td>
+  </tr>
+</table>
+
+<p>Hence the weighting that shifts with the question: name an identifier and the exact match is
+the strongest signal available, so the two fuse evenly; name none and BM25 has nothing to bite
+on, so the vectors carry twice the weight. Both indexes hold exactly the same rows — 8,855
+message chunks, 7,086 document chunks, 883 episode summaries — so when they disagree it is
+always about scoring, never about one of them not having seen the text.</p>
+
+<p><strong>And why the two are fused by position rather than by score.</strong> The numbers are
+not comparable: FTS5's BM25 score is negative, and more negative is better; cosine similarity
+runs from −1 to 1. Adding them would be meaningless, and rescaling them into a common range would
+invent a precision neither has. Reciprocal rank fusion throws the scores away and keeps only the
+positions — each ranking contributes <code>1/(60 + rank)</code>, and the sums decide. The
+practical effect is that agreement outranks enthusiasm: a chunk both engines place third
+(1/63 + 1/63) finishes above one that is first in a single list and absent from the other
+(1/61).</p>
+
+<h2 id="sources">Where the material comes from</h2>
+
+<figure class="fig-scroll">
+<svg viewBox="0 0 1240 268" role="img"
+     aria-label="Three build lanes. The vendored RDFS and XML pass through build.py ontology into data slash ontology.json, feeding the six ontology tools. The mailing-list mbox passes through clean, thread and index into the stores, feeding the six archive tools. The specification text, issue pages and meeting minutes pass through the docs and issues stages into documents.jsonl and issues.json, and into the same index.">
+  <defs>
+    <marker id="bk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="arrow-k"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="16" class="tag" style="fill: var(--muted)">SOURCE</text>
+  <text x="380" y="16" class="tag" style="fill: var(--muted)">BUILD STAGE</text>
+  <text x="610" y="16" class="tag" style="fill: var(--muted)">GENERATED, GIT-IGNORED</text>
+  <text x="920" y="16" class="tag" style="fill: var(--muted)">WHAT REGISTERS</text>
+
+  <!-- lane 1: ontology -->
+  <rect x="20" y="30" width="300" height="58" rx="4" class="n-box"/>
+  <text x="32" y="50" class="desc">cidoc_crm_v7.1.3.rdf · cidoc_crm_v7.1.3.xml</text>
+  <text x="32" y="65" class="desc">rdfs/extensions/ · crm_family.json</text>
+  <text x="32" y="80" class="desc">tracked in the repository</text>
+  <path d="M 320 59 L 376 59" class="flow" marker-end="url(#bk)"/>
+  <rect x="380" y="42" width="170" height="34" rx="17" class="card-box"/>
+  <text x="465" y="63" text-anchor="middle" class="m desc">build.py ontology</text>
+  <path d="M 550 59 L 606 59" class="flow" marker-end="url(#bk)"/>
+  <rect x="610" y="34" width="230" height="50" rx="4" class="card-box"/>
+  <text x="622" y="54" class="m desc">data/ontology.json</text>
+  <text x="622" y="70" class="desc">one file, ~750 KB</text>
+  <path d="M 840 59 L 916 59" class="flow" marker-end="url(#bk)"/>
+  <rect x="920" y="34" width="300" height="50" rx="4" class="n-box"/>
+  <text x="932" y="54" class="body">the six ontology tools</text>
+  <text x="932" y="70" class="desc">always registered</text>
+
+  <!-- lane 2: archive -->
+  <rect x="20" y="110" width="300" height="58" rx="4" class="e-box"/>
+  <text x="32" y="130" class="desc">crm-sig.mbox — 143 MB</text>
+  <text x="32" y="145" class="desc">the CRM-SIG list, 1999–2026</text>
+  <text x="32" y="160" class="desc">distributed out of band, not in the repo</text>
+  <path d="M 320 139 L 376 139" class="flow" marker-end="url(#bk)"/>
+  <rect x="380" y="122" width="170" height="34" rx="17" class="card-box"/>
+  <text x="465" y="143" text-anchor="middle" class="m desc">clean → thread → index</text>
+  <path d="M 550 139 L 606 139" class="flow" marker-end="url(#bk)"/>
+  <rect x="610" y="114" width="230" height="50" rx="4" class="card-box"/>
+  <text x="622" y="134" class="m desc">clean.jsonl · threads.json</text>
+  <text x="622" y="150" class="m desc">stores/ — BM25 + vectors</text>
+  <path d="M 840 139 L 916 139" class="flow" marker-end="url(#bk)"/>
+  <rect x="920" y="110" width="300" height="58" rx="4" class="e-box"/>
+  <text x="932" y="130" class="body">the six archive tools</text>
+  <text x="932" y="146" class="desc">registered only when the data is present —</text>
+  <text x="932" y="160" class="desc">otherwise absent, not advertised and failing</text>
+
+  <!-- lane 3: documents -->
+  <rect x="20" y="196" width="300" height="58" rx="4" class="e-box"/>
+  <text x="32" y="216" class="desc">v7.3.2 text · Modelling Principles (.docx)</text>
+  <text x="32" y="231" class="desc">715 issue pages · 71 meeting minutes</text>
+  <text x="32" y="246" class="desc">fetched from cidoc-crm.org by tools/fetch_*.py</text>
+  <path d="M 320 225 L 376 225" class="flow" marker-end="url(#bk)"/>
+  <rect x="380" y="208" width="170" height="34" rx="17" class="card-box"/>
+  <text x="465" y="229" text-anchor="middle" class="m desc">docs → issues → index</text>
+  <path d="M 550 225 L 606 225" class="flow" marker-end="url(#bk)"/>
+  <rect x="610" y="200" width="230" height="50" rx="4" class="card-box"/>
+  <text x="622" y="220" class="m desc">documents.jsonl</text>
+  <text x="622" y="236" class="m desc">issues.json</text>
+  <path d="M 840 225 L 878 225 L 878 172" class="flow" marker-end="url(#bk)"/>
+  <text x="888" y="205" class="lbl">same index</text>
+</svg>
+<figcaption><strong>Figure 2.</strong> The corpus is derived, one <code>build.py</code> stage at
+a time, from material that is either tracked in the repository or fetched from cidoc-crm.org by
+a named script. Nothing is hand-curated in between. <code>data/</code> and <code>stores/</code>
+are git-ignored and can be fetched already built rather than rebuilt from the mbox.</figcaption>
+</figure>
+
+<h2 id="caveats">Two things worth knowing before you trust it</h2>
+
+<ul>
+  <li><strong>The two halves are not interchangeable.</strong> The ontology half computes from
+  the normative RDFS, so its answers about legality are as good as v7.1.3 itself. The archive
+  half quotes people arguing, including people who turned out to be wrong, and its value is
+  that it says <em>who</em> and <em>when</em>. A scope note and a 2003 mailing-list opinion are
+  not the same kind of authority, and the tools keep them apart rather than blending them into
+  one confident answer.</li>
+
+  <li><strong>A draft is marked as a draft.</strong> The Conceptual Modelling Principles are a
+  working document at v0.1.2. Their 66 chunks are held under their own kind, so they never
+  compete with the published specification in a default search — because a reader who cannot
+  tell a draft principle from a normative one will weight them alike.</li>
+</ul>
+
+<h2 id="reached">How it is reached</h2>
+
+<p>The same twelve tools, two ways. <code>mcp_server.py</code> speaks MCP over stdio, so an
+assistant holds the ontology and the embedding model in memory once per session instead of
+reloading them on every question. <code>search.py</code> is the same functionality as a
+command line, which is how every output quoted above was produced — and how anyone can check
+it.</p>
+
+<p class="foot">Generated into <code>docs/how-it-works.html</code>. Counts and quoted output
+are from the maintainer’s build of 2026-08-11, taken from <code>data/ontology.json</code>,
+<code>data/clean.jsonl</code>, <code>data/documents.jsonl</code>, <code>data/threads.json</code>,
+<code>data/issues.json</code>, and live <code>search.py</code> calls.</p>
+
+</div>
+
+</main>
+
+<script>
+// Clicking a tool card in figure 1 opens that tool's entry below and brings it into
+// view. Everything the script does is also reachable without it: the entries are
+// plain <details>, so they open on their own summary, and the page degrades to a
+// diagram plus a reference list.
+(function () {
+  var cards = document.querySelectorAll('svg g.tool');
+
+  function reveal(name) {
+    var entry = document.getElementById('t-' + name);
+    if (!entry) return;
+    cards.forEach(function (c) { c.classList.remove('active'); });
+    document.querySelectorAll('.tool-entry').forEach(function (e) { e.classList.remove('flash'); });
+    var card = document.querySelector('svg g.tool[data-tool="' + name + '"]');
+    if (card) card.classList.add('active');
+    entry.open = true;
+    // Reflow between class removal and re-add, or the animation will not restart
+    // when the same entry is clicked twice.
+    void entry.offsetWidth;
+    entry.classList.add('flash');
+    entry.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  cards.forEach(function (card) {
+    var name = card.getAttribute('data-tool');
+    card.addEventListener('click', function () { reveal(name); });
+    card.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        reveal(name);
+      }
+    });
+  });
+
+  // Opening an entry directly should highlight its card too, so the diagram and the
+  // list never disagree about what is selected.
+  document.querySelectorAll('.tool-entry').forEach(function (entry) {
+    entry.addEventListener('toggle', function () {
+      var name = entry.id.replace(/^t-/, '');
+      var card = document.querySelector('svg g.tool[data-tool="' + name + '"]');
+      if (card) card.classList.toggle('active', entry.open);
+    });
+  });
+
+  // A tool in the sidebar behaves like the same tool in the diagram: it opens the
+  // entry rather than jumping to a collapsed <details> and leaving the reader to
+  // click again. Without the script the href still works, which is why it is an
+  // href and not a button.
+  document.querySelectorAll('.toc a[data-tool]').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      reveal(link.getAttribute('data-tool'));
+    });
+  });
+
+  // Which section is being read. Last heading whose top has passed the reading
+  // line wins -- a plain rule, and one that behaves the same for a section three
+  // screens tall as for one that fits.
+  var sectionLinks = [].slice.call(document.querySelectorAll('.toc a[data-section]'));
+  var headings = sectionLinks.map(function (link) {
+    return document.getElementById(link.getAttribute('data-section'));
+  });
+
+  var marked = -1;
+
+  function markCurrent() {
+    var next = 0;
+    for (var i = 0; i < headings.length; i++) {
+      if (headings[i] && headings[i].getBoundingClientRect().top < 140) next = i;
+    }
+    // The last section is short, and at the bottom of the page there is no
+    // scroll left to carry its heading up past the reading line -- so without
+    // this it is the one section that can never light up.
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      next = headings.length - 1;
+    }
+    if (next === marked) return;
+    marked = next;
+    sectionLinks.forEach(function (link, i) { link.classList.toggle('here', i === next); });
+  }
+
+  // Seven rect reads, and no style written unless the answer changed -- cheap
+  // enough to run on the event itself. A requestAnimationFrame throttle was the
+  // first version and bought nothing measurable, at the cost of being the one
+  // piece of this page a test could not drive.
+  window.addEventListener('scroll', markCurrent, { passive: true });
+  window.addEventListener('resize', markCurrent, { passive: true });
+  markCurrent();
+})();
+</script>
+</body>
+</html>

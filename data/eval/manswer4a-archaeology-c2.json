@@ -1,0 +1,46 @@
+{
+  "case_id": "archaeology-c2",
+  "answer": "In scope, and the honest answer is: two records, not one. 'Context 56' is a documentary accident, not a real-world entity in its own right. The posthole (Trench 3) and the pit fill (Trench 7) are two physically distinct stratigraphic units -- different genesis events, different locations, different trenches -- that happen to have been given the same identifier string because two supervisors drew from the same numbering book without cross-checking. CIDOC CRM keeps identity (what an entity is, established through its formation event, location and material) strictly separate from identification (P1 is identified by / E42 Identifier), and the CRM's own declarations show why that separation matters here: E42 Identifier's scope note defines an identifier as something meant 'to identify [entities] uniquely and permanently within the context of one or more organisations' -- uniqueness is scoped to an organisational/documentary context, and that is exactly the scope that broke here (one book, two supervisors, no cross-check). The mailing list shows the SIG reasoning through this exact pattern for E35 Title (thread t0990, Issue 260 homework): the same string can be used twice, and Martin Doerr frames it as 'a simple question of disambiguation of identity,' concluding that 'the identity of the title... consists of the string + context.' The string alone never carries identity; context has to travel with it. Model each context sheet as its own E31 Document (P70 documents, required on E31, is exactly the fit), each documenting its own instance of A8 Stratigraphic Unit -- the pit fill as an A2 Stratigraphic Volume Unit (its scope note matches 'a connected portion of terrain... exhibiting homogeneity of structure or substance,' i.e. a fill), the posthole as whichever A8 subclass matches how it was actually recorded (A2 if the fill was recorded, A3 Stratigraphic Interface if the cut was). Both entities are P1 is identified by the same E42 Identifier string '56', which is a true and unremarkable fact about the documentation, not a reason to merge them. To stop the collision from propagating, give each unit its own disambiguated P48 has preferred identifier (e.g. 'T3-56' / 'T7-56'), keeping the bare '56' on each as a legacy identifier that traces back to the original sheet.",
+  "classes_proposed": ["A8", "A2", "A3", "E31", "E42", "E41"],
+  "properties_proposed": ["P1", "P70", "P48"],
+  "rejected_alternatives": [
+    {"option": "Treat 'context 56' as one E1 entity that turns out to have two features", "why_not": "A8/A2's required properties (P53 has former or current location, P92 brought into existence by, P45 consists of) individuate a stratigraphic unit by its own genesis event, location and material. Nothing in the case gives the posthole and the pit fill a shared genesis event or location -- they are in different trenches. Merging them would model the clerical error instead of the archaeology."},
+    {"option": "L54 is same as (CRMdig, E1->E1)", "why_not": "concept L54 shows it is 'a non-unique identification applied to E1 CRM Entity' -- built for the reverse situation, where an ambiguous identifier might mean two records refer to the same real thing. Here the case is explicit that the two features are physically distinct, so asserting L54 between the two records would misrepresent a known-different pair as an open identity question."}
+  ],
+  "citations": [
+    "A8", "A2", "A3", "E31", "E42", "E41", "P1", "P70", "P48", "L54",
+    "t0990",
+    {"id": "t0990", "quote": "the problem is a simple question of disambiguation of identity"},
+    {"id": "t0990", "quote": "the identity of the title as described above consists of the string + context"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept A2",
+    "concept E42",
+    "concept E15",
+    "docs \"context number\"",
+    "docs \"context number\" --kind narrative",
+    "docs \"same identifier\" --kind narrative",
+    "\"duplicate identifier\"",
+    "\"same number assigned twice\"",
+    "issues \"duplicate identifier\"",
+    "\"context sheet\"",
+    "\"excavation context\"",
+    "concept A1",
+    "concept A8",
+    "thread t0990",
+    "thread t1312",
+    "thread t0633",
+    "quote t0990 \"the problem is a simple question of disambiguation of identity\"",
+    "quote t0990 \"the identity of the title as described above consists of the string + context\"",
+    "concept L54",
+    "concept A3",
+    "concept E31",
+    "docs \"identity of a stratigraphic unit\" --kind narrative",
+    "connect A8 E42",
+    "connect E31 A8"
+  ],
+  "confidence": "medium",
+  "notes": "No thread or issue was found that argues this exact archaeological pattern (duplicate context number across trenches) directly -- the strongest textual precedent for the identity/identifier distinction is an analogy from the E35 Title debate (thread t0990), not an archaeology-specific one, so I'm treating the classification of A8/A2/E31/E42 as high-confidence (drawn straight from concept/connect output) but the supporting argument as an analogy, hence 'medium' overall rather than 'high'. Threads t0633 (coin-collection identifier mixup) and t1312 (mechanical-layer excavation modelling) were read and found not to bear on this specific identity-vs-identifier question, so they are listed under queries_run but not cited. Issue 427 ('Reuse identifiers of obsolete entities never published') was found via the issues search but is about reusing the CRM's own class/property numbers, not archaeological data identifiers, so it was deliberately not cited as precedent."
+}

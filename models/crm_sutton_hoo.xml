@@ -1,0 +1,1937 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="crm.xsl"?>
+<CRMset>
+
+<!-- ==================================================================
+     The Sutton Hoo helmet, encoded from the English Wikipedia article
+     "Sutton Hoo helmet". Format follows crm_amol_1.xml and
+     crm_clayton1.xml: element names are CIDOC CRM property labels with
+     spaces replaced by underscores; the text content of an element is
+     the label of the instance; <in_class> names its class.
+     Co-reference is by identical instance label, as in crm_clayton1.xml.
+     Deviations from the two examples are listed in the notes file.
+     ================================================================== -->
+
+<CRM_Entity>
+  Sutton Hoo helmet
+  <in_class>E22: Human-Made Object</in_class>
+
+  <has_preferred_identifier>
+    1939,1010.93
+    <in_class>E42: Identifier</in_class>
+    <has_type>
+      British Museum registration number
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </has_preferred_identifier>
+
+  <is_identified_by>
+    Sutton Hoo helmet
+    <in_class>E41: Appellation</in_class>
+  </is_identified_by>
+
+  <has_type>
+    helmet
+    <in_class>E55: Type</in_class>
+    <has_type>
+      object type
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </has_type>
+
+  <has_type>
+    crested helmet
+    <in_class>E55: Type</in_class>
+    <has_note>
+      Classification of Steuer (1987) and Tweddle (1992), distinguishing the
+      type from the continental spangenhelm and lamellenhelm. Within the
+      crested helmets the Sutton Hoo example belongs to the Vendel and
+      Valsgaerde class.
+    </has_note>
+    <has_broader_term>
+      helmet
+      <in_class>E55: Type</in_class>
+    </has_broader_term>
+  </has_type>
+
+  <has_type>
+    Anglo-Saxon
+    <in_class>E55: Type</in_class>
+    <has_type>
+      cultural attribution
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </has_type>
+
+  <has_note>
+    A decorated Anglo-Saxon helmet of iron covered with stamped sheets of
+    tinned bronze, found in 1939 in the ship-burial at Sutton Hoo, Suffolk.
+    The visage carries eyebrows, a nose and a moustache which together with a
+    dragon head form the image both of a human face and of a soaring winged
+    dragon. Excavated as more than 500 rusted fragments accounting for less
+    than half the original surface area, it was first reconstructed in
+    1945-46 and rebuilt in its present form in 1970-71.
+    <has_type>
+      Description
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </has_note>
+
+  <has_note>
+    The article records no maker, no place of manufacture and no date of
+    manufacture. Everything asserted below about the making of the helmet is
+    inference from the object and from comparanda, and is recorded as such.
+    <has_type>
+      Cataloguer note
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </has_note>
+
+  <!-- ============================ MATERIALS ======================== -->
+
+  <consists_of>
+    iron
+    <in_class>E57: Material</in_class>
+    <has_note>Core of the helmet: cap, cheek guards, neck guard, face mask and crest.</has_note>
+  </consists_of>
+  <consists_of>
+    tinned bronze
+    <in_class>E57: Material</in_class>
+    <has_note>The stamped decorative sheets laid over the iron core.</has_note>
+  </consists_of>
+  <consists_of>
+    cast bronze
+    <in_class>E57: Material</in_class>
+    <has_note>Forward and upper dragon heads, eyebrows, nose and mouth piece, rivets, edge clips.</has_note>
+  </consists_of>
+  <consists_of>
+    tin
+    <in_class>E57: Material</in_class>
+  </consists_of>
+  <consists_of>
+    gold
+    <in_class>E57: Material</in_class>
+    <has_note>Gilding of the dragon heads, eyebrows, boar-head terminals, nose and mouth piece and the two fluted strips flanking the crest; also the hatched gold foils backing the garnet cells.</has_note>
+  </consists_of>
+  <consists_of>
+    silver
+    <in_class>E57: Material</in_class>
+    <has_note>Wires inlaid in the crest and the eyebrows; silvered triangles on the nasal ridge; inlay of the punched circles.</has_note>
+  </consists_of>
+  <consists_of>
+    garnet
+    <in_class>E57: Material</in_class>
+  </consists_of>
+  <consists_of>
+    brass
+    <in_class>E57: Material</in_class>
+    <has_note>U-shaped tubing protecting the edges of the helmet.</has_note>
+  </consists_of>
+  <consists_of>
+    white alloy of tin and copper
+    <in_class>E57: Material</in_class>
+    <has_note>Composition of the fluted moulding strips, given by Maryon (1947) as possible rather than established.</has_note>
+  </consists_of>
+  <consists_of>
+    leather
+    <in_class>E57: Material</in_class>
+    <has_note>The hinges of the cheek and neck guards are possibly of leather; a leather lining is inferred from the blackened, rippled backs of the fragments. Neither survives.</has_note>
+  </consists_of>
+  <consists_of>
+    niello
+    <in_class>E57: Material</in_class>
+    <has_note>
+      Contested. Maryon (1947, pp. 141-143) reports niello separating the inlaid
+      silver wires of the eyebrows, filling the punched-down design of the nasal
+      ridge, and surrounding the punched circles of the nasal bridge and lower
+      lip. Oddy (1980, pp. 182-183; 2004, pp. 275-276) does not list the helmet
+      among the Sutton Hoo objects using niello, and holds the inlay to be an
+      uncorroded metallic inlay and not niello. See the attribute assignments
+      below.
+    </has_note>
+  </consists_of>
+  <consists_of>
+    tin oxide
+    <in_class>E57: Material</in_class>
+    <has_note>Not an original material: the alloy of the rear dragon head has mostly degraded into tin oxide.</has_note>
+  </consists_of>
+  <consists_of>
+    plaster
+    <in_class>E57: Material</in_class>
+    <has_note>Restoration material, added in 1970-71 and painted light brown; the 1945-46 plaster was removed.</has_note>
+  </consists_of>
+  <consists_of>
+    jute
+    <in_class>E57: Material</in_class>
+    <has_note>Restoration material: jute and adhesive moulded to the shape of the missing areas in 1970-71.</has_note>
+  </consists_of>
+  <consists_of>
+    water-resistant resin
+    <in_class>E57: Material</in_class>
+    <has_note>Restoration material: applied to the edges of the fragments in 1970-71.</has_note>
+  </consists_of>
+
+  <!-- ============================ DIMENSIONS ======================= -->
+
+  <has_dimension>
+    Sutton Hoo helmet weight
+    <in_class>E54: Dimension</in_class>
+    <has_type>
+      weight
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_value>2.5</has_value>
+    <has_unit>
+      kg
+      <in_class>E58: Measurement Unit</in_class>
+    </has_unit>
+    <has_note>Estimated, not measured. The helmet as it survives is a partial object mounted on modern fill, so the figure is a reconstruction of the original weight.</has_note>
+  </has_dimension>
+
+  <has_dimension>
+    Sutton Hoo helmet surviving proportion of original surface area
+    <in_class>E54: Dimension</in_class>
+    <has_type>
+      proportion of original surface area surviving
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_value>less than 0.5</has_value>
+    <has_note>The more than 500 excavated pieces proved to account for less than half of the original surface area.</has_note>
+  </has_dimension>
+
+  <!-- ============================ CONDITION ======================== -->
+
+  <has_condition>
+    shattered state of the Sutton Hoo helmet
+    <in_class>E3: Condition State</in_class>
+    <has_type>
+      shattered
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_time-span>
+      from the collapse of the burial chamber to 1945
+      <in_class>E52: Time-Span</in_class>
+      <end_is_qualified_by>ends when reconstruction began in 1945</end_is_qualified_by>
+    </has_time-span>
+    <has_note>
+      More than 500 pieces; a corroded mass, some fragments friable and encrusted
+      in sand, others hard and partially transformed into limonite. That the
+      helmet shattered rather than being squashed is what made reconstruction
+      possible: had it been crushed before the iron had fully oxidised it would
+      have been left distorted, like the Vendel and Valsgaerde helmets.
+    </has_note>
+  </has_condition>
+
+  <has_condition>
+    first reconstructed state of the Sutton Hoo helmet
+    <in_class>E3: Condition State</in_class>
+    <has_type>
+      reconstructed
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_time-span>
+      1946 to 1968
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1946/1970</at_some_time_within>
+    </has_time-span>
+    <has_note>Maryon's reconstruction, on public display for more than twenty years. Superseded.</has_note>
+  </has_condition>
+
+  <has_condition>
+    dismantled state of the Sutton Hoo helmet
+    <in_class>E3: Condition State</in_class>
+    <has_type>
+      dismantled
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_time-span>
+      1970
+      <in_class>E52: Time-Span</in_class>
+    </has_time-span>
+    <has_note>After four months of separation the helmet again lay in more than 500 fragments.</has_note>
+  </has_condition>
+
+  <has_condition>
+    current reconstructed state of the Sutton Hoo helmet
+    <in_class>E3: Condition State</in_class>
+    <has_type>
+      reconstructed
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_time-span>
+      2 November 1971 to the present
+      <in_class>E52: Time-Span</in_class>
+      <ongoing_throughout>1971-11-02/2025</ongoing_throughout>
+    </has_time-span>
+    <has_note>
+      A hollow helmet: the original fragments are set into plaster over jute,
+      painted light brown so that the fragments stand out, with the panel edges
+      drawn in, and the backs of the fragments remain visible from inside.
+    </has_note>
+  </has_condition>
+
+  <!-- ============================== PARTS ========================== -->
+
+  <is_composed_of>
+    Sutton Hoo helmet cap
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      iron
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Beaten into shape from a single piece of metal. Radiographs reveal no
+      pieces joined by welding, forging or riveting, and fragments at the crown
+      show the iron running continuously under the crest; but the fragmentary
+      state of the cap prevents this from being conclusively proven (Hood, Ager,
+      Williams and Harrington 2012, p. 95 n. 4).
+    </has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet face mask
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      iron
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Riveted to the cap on both sides and above the nose. Two cutouts serve as
+      eye openings; a third opens into the hollow of the overlaid nose, giving
+      access to two nostril-like holes beneath, among the few sources of fresh
+      air for the wearer.
+    </has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet dexter cheek guard
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      iron
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Deep enough to protect the entire side of the face and curved inward both
+      vertically and horizontally. Carried on two hinges, possibly of leather,
+      allowing it to be pulled flush with the face mask. In the current
+      reconstruction the cheek guards were switched from the sides they occupied
+      in the first.
+    </has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet sinister cheek guard
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      iron
+      <in_class>E57: Material</in_class>
+    </consists_of>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet neck guard
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      iron
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Attached to the back of the cap, of two overlapping pieces: a shorter piece
+      set inside the cap, over which attached a wide fan-like segment extending
+      downwards, straight from top to bottom but curved laterally to follow the
+      line of the neck. The inset portion gave extra movement; like the cheek
+      guards it hung on leather hinges.
+    </has_note>
+    <is_composed_of>
+      Sutton Hoo helmet neck guard inset piece
+      <in_class>E22: Human-Made Object</in_class>
+    </is_composed_of>
+    <is_composed_of>
+      Sutton Hoo helmet neck guard fan-like segment
+      <in_class>E22: Human-Made Object</in_class>
+    </is_composed_of>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet crest
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      iron
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      silver
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Hollow, of D-sectioned tubing, running across the top of the cap and
+      terminating front and back; made of two parts, an inverted U-shaped piece
+      into the bottom of which a flat strip was placed. No traces of solder
+      remain, so it was either forged or shrunk on to the cap. Inlaid with silver
+      wires, which may be what gave it the durability to survive its interment
+      largely intact.
+    </has_note>
+    <has_dimension>
+      Sutton Hoo helmet crest surviving length
+      <in_class>E54: Dimension</in_class>
+      <has_type>
+        length complete from front to back
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>25.5</has_value>
+      <has_unit>
+        cm
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+    <has_dimension>
+      Sutton Hoo helmet crest missing length above the rear dragon head
+      <in_class>E54: Dimension</in_class>
+      <has_type>
+        length missing
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>2</has_value>
+      <has_unit>
+        cm
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet forward dragon head
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      cast bronze
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      gold
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>Riveted to an iron tang extending from the front end of the crest; gilded.</has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet rear dragon head
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      tin oxide
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Riveted to the iron tang at the rear end of the crest. Made of an alloy
+      other than the cast bronze of the forward head, and now mostly degraded
+      into tin oxide. Mostly missing, and absent altogether from the 1945-46
+      reconstruction.
+    </has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet upper dragon head
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      cast bronze
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      garnet
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Faces upwards at the junction of the two eyebrows, breaking the plane
+      between face mask and cap; its neck rests on the face mask and it is held
+      to the cap by a large rivet shank beneath its eyes. Convex garnets sunk
+      into the head give it red eyes; the cell of the sinister eye has no gold
+      foil beneath it.
+    </has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet dexter eyebrow
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      cast bronze
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      silver
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      garnet
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      gold
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Hollow cast bronze, inlaid with parallel silver wires, terminating in a
+      gilded boar's head, gilded on its underside where individual bronze cells
+      hold square garnets. The garnet cells are underlain by small pieces of
+      hatched gold foil, which reflect light back through the stones. Gilding
+      "reddish in colour"; no trace of mercury or of tin corrosion product.
+    </has_note>
+    <has_dimension>
+      Sutton Hoo helmet dexter eyebrow shortfall in length against the sinister eyebrow
+      <in_class>E54: Dimension</in_class>
+      <has_type>
+        difference in length
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>approximately 5</has_value>
+      <has_unit>
+        mm
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+    <has_number_of_parts>43</has_number_of_parts>
+    <has_note>
+      The number of parts given above is the count of inlaid silver wires.
+      <has_type>
+        Cataloguer note
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet sinister eyebrow
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      cast bronze
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      silver
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      garnet
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      As the dexter eyebrow, but with no hatched gold foil behind the garnet
+      cells, so that the stones sit directly against the bronze and may have been
+      dimmed. Gilding "yellowish"; contains trace mercury and a tin corrosion
+      product absent from its counterpart. Approximately 5 mm longer than the
+      dexter brow.
+    </has_note>
+    <has_number_of_parts>46</has_number_of_parts>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet nose and mouth piece
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      cast bronze
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      gold
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <consists_of>
+      silver
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Held by five attachment points, its tang riveted to the cap beneath the
+      neck of the upper dragon head. Two small round projecting plates on each
+      side of the nose conceal rivets. An inlaid wire runs the length of the
+      nasal ridge, beside which the background was punched down and filled with
+      niello or another metallic inlay, leaving silvered triangles in relief; a
+      tracer provided a grooved border on each side. Three punched circles per
+      side run horizontally beside the nasal bridge, inlaid with silver. Below
+      them run chased alternate rows of plain flutings and billeted strips,
+      repeated vertically on the moustache; the bevelled lower lip repeats the
+      circled pattern of the nasal bridge. Except where covered by the eyebrows
+      and dragon head or inlaid with silver, the piece was heavily gilded.
+    </has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet pressblech sheets
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      tinned bronze
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>Decorative sheets laid over the iron core, stamped with five designs.</has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet fluted moulding strips
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      white alloy of tin and copper
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Possibly swaged; divide the designs into framed panels and are held to the
+      helmet by bronze rivets. The two strips running from front to back
+      alongside the crest were gilded, a fact which in 1970 allowed six fragments
+      with gilded moulding to be assigned to the crest.
+    </has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet edge tubing
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      brass
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>U-shaped, fastened by swaged bronze clips, and itself holding in place the pressblech panels sharing edges with the helmet.</has_note>
+  </is_composed_of>
+
+  <is_composed_of>
+    Sutton Hoo helmet lining
+    <in_class>E22: Human-Made Object</in_class>
+    <consists_of>
+      leather
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_note>
+      Does not survive. Inferred from the unique blackened, rippled and bubbly
+      character of the backs of the fragments, thought to result from a
+      deteriorated leather lining permeated with iron oxide. It was by matching
+      these wrinkles under a microscope that Williams found most of the new joins
+      in 1970-71.
+    </has_note>
+  </is_composed_of>
+
+  <!-- =========================== DECORATION ======================== -->
+
+  <depicts>
+    a human face
+    <in_class>E1: CRM Entity</in_class>
+    <has_note>The eyebrows, nose and moustache of the face mask create the image of a man.</has_note>
+  </depicts>
+
+  <shows_visual_item>
+    winged dragon motif of the Sutton Hoo helmet
+    <in_class>E36: Visual Item</in_class>
+    <represents>
+      a dragon in flight
+      <in_class>E1: CRM Entity</in_class>
+    </represents>
+    <has_note>
+      A composite motif assembled from four separate fittings: the upper dragon
+      head, the two eyebrows as wings, and the nose and moustache as body and
+      tail. The dragon soars upwards and, at the dramatic focal point of the
+      helmet, bares its teeth at the snake-like dragon flying down the crest.
+      Because the eyebrows also terminate in boars' heads they may take a
+      tertiary form as boars' bodies (Newton 1993, p. 37).
+    </has_note>
+  </shows_visual_item>
+
+  <shows_visual_item>
+    Design 1, dancing warriors
+    <in_class>E36: Visual Item</in_class>
+    <represents>
+      two men in civilian or ceremonial dress performing a spear or sword dance
+      <in_class>E1: CRM Entity</in_class>
+    </represents>
+    <has_note>
+      Known from six fragments and occurring four times on the helmet: on the two
+      panels immediately above the eyebrows, and in the middle row of the dexter
+      cheek guard on the panel closest to the face mask, with the symmetry of the
+      helmet implying the same position on the opposite side. Their outer hands
+      each hold two spears pointed towards their feet while their crossed hands
+      grip swords; no single fragment shows both warriors, though the key
+      fragment shows their crossed wrists. The full scene was inferred only after
+      the first reconstruction, when Bruce-Mitford was shown the then unpublished
+      Valsgaerde 7 helmet in Sweden. The dance has been associated with the cult
+      of Odin.
+    </has_note>
+  </shows_visual_item>
+
+  <shows_visual_item>
+    Design 2, rider and fallen warrior
+    <in_class>E36: Visual Item</in_class>
+    <represents>
+      a mounted warrior trampling an enemy, with a small anthropomorphic figure kneeling on the horse's rump
+      <in_class>E1: CRM Entity</in_class>
+    </represents>
+    <has_note>
+      Known from eight fragments and representations. Thought to have appeared
+      twelve times, on the assumption that Design 3 occupies a panel that
+      originally held it. All panels appear to have been struck from the same
+      die, so the horse and rider move clockwise around the helmet. The rider
+      holds his spear overhead; the fallen man, grasping the reins in his left
+      hand, thrusts a sword into the horse's chest with his right; the small
+      figure clutches the spear together with the rider. Elements of victory and
+      of defeat are combined and the symbolism is unclear; an overarching theme
+      of fate has been proposed. Reconstruction relies in part on the Pliezhausen
+      bracteate, which is complete and nearly identical though mirrored.
+    </has_note>
+  </shows_visual_item>
+
+  <shows_visual_item>
+    Design 3, unidentified figural scene
+    <in_class>E36: Visual Item</in_class>
+    <has_note>
+      Known from seven small fragments, too small and ambiguous to allow the
+      scene to be reconstructed; the article records no subject for it. Its
+      presence is suggested between one and four times, and must have occurred
+      towards the rear of the helmet on the dexter side. Fragment (a) shows
+      parallel raised lines suggesting the body of a horse; fragment (b) shows
+      two concentric raised lines two millimetres apart, apparently the rim of a
+      shield of the same diameter as that held by the rider in Design 2.
+      Bruce-Mitford proposed it as a variant rider scene used to repair a damaged
+      Design 2 panel, but fragment (c) is out of context with the rest and he
+      suggested it may have been a scrap placed under another piece to fill a
+      gap.
+    </has_note>
+  </shows_visual_item>
+
+  <shows_visual_item>
+    Design 4, larger interlace
+    <in_class>E36: Visual Item</in_class>
+    <represents>
+      a single quadruped in ribbon style
+      <in_class>E1: CRM Entity</in_class>
+    </represents>
+    <has_note>
+      Occurs on the cheek guards, the neck guard and the skull cap, and was
+      capable of complete reconstruction. Unlike the two identified figural
+      scenes it appears in partial as well as full die impressions, and on the
+      irregularly shaped cheek guards sometimes sideways. It has a billeted
+      border on all sides; the animal's head sits in the upper centre of the
+      panel, its eye defined by two circles, its jaws, neck, body and limbs
+      formed of interlacing billeted and pellet-filled ribbons. Representative of
+      what Salin termed Style II Germanic animal ornament.
+    </has_note>
+  </shows_visual_item>
+
+  <shows_visual_item>
+    Design 5, smaller interlace
+    <in_class>E36: Visual Item</in_class>
+    <represents>
+      two animals, upside down and reversed in relation to each other, with backward-turning heads
+      <in_class>E1: CRM Entity</in_class>
+    </represents>
+    <has_note>
+      Covered the face mask, was used prominently on the neck guard and filled
+      several empty spaces on the cheek guards. Its die appears to have had a
+      billeted border on only one each of its long and short sides, but on the
+      neck guard the design shows borders along both long sides, suggesting the
+      die was applied there as a continuous series of impressions on a large
+      sheet of foil which was then cut.
+    </has_note>
+  </shows_visual_item>
+
+  <bears_feature>
+    the modification to the sinister eyebrow of the Sutton Hoo helmet
+    <in_class>E25: Human-Made Feature</in_class>
+    <has_note>
+      The absence of hatched gold foil behind the garnets of the sinister eyebrow
+      and behind the sinister eye of the upper dragon head. Seen in low light,
+      with the garnets of only one brow reflecting, the helmet may have appeared
+      to have a single eye. Whether this is deliberate or the trace of a repair
+      is contested; see the attribute assignments below.
+    </has_note>
+  </bears_feature>
+
+  <!-- ============================= MAKING ========================== -->
+
+  <was_produced_by>
+    production of the Sutton Hoo helmet
+    <in_class>E12: Production</in_class>
+
+    <has_note>
+      Neither the maker, the place nor the date of manufacture is recorded. The
+      helmet is closer in character to the Swedish finds at Vendel and Valsgaerde
+      than to any English parallel, and its class derives from the Roman infantry
+      and cavalry helmets of the fourth- and fifth-century Constantinian
+      workshops; a die stamp reported from Denmark has also been connected with
+      it. Whether this indicates manufacture in Scandinavia or in England by a
+      workshop in the Scandinavian tradition is not settled by the article.
+    </has_note>
+
+    <has_time-span>
+      time-span of the production of the Sutton Hoo helmet
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>0450/0625</at_some_time_within>
+      <has_note>
+        No date is given by any source cited. The outer bound above is the
+        cataloguer's, derived from the two statements the article does make: that
+        the helmet was likely around 100 years old when buried, and that it must
+        precede the burial. It is recorded as an outer bound only, and the
+        estimate that it is dependent on is recorded separately as an attribute
+        assignment below.
+      </has_note>
+    </has_time-span>
+
+    <ends_before_the_start_of>
+      deposition of the Sutton Hoo helmet in the ship-burial
+      <in_class>E9: Move</in_class>
+    </ends_before_the_start_of>
+
+    <used_general_technique>
+      beating from a single piece
+      <in_class>E55: Type</in_class>
+      <has_note>The cap.</has_note>
+    </used_general_technique>
+    <used_general_technique>
+      pressblech
+      <in_class>E55: Type</in_class>
+      <has_note>
+        Preformed dies were covered with thin metal which, under applied force,
+        took up the design underneath, so that identical designs could be
+        mass-produced from one die. Distinguished from repousse, which raises
+        individual details from behind with small punches and then refines them
+        from the front by chasing; pressblech raises a design in one operation
+        from a single die.
+      </has_note>
+    </used_general_technique>
+    <used_general_technique>
+      fire-gilding
+      <in_class>E55: Type</in_class>
+      <has_note>Inferred from the presence of mercury on the nose and mouth piece.</has_note>
+    </used_general_technique>
+    <used_general_technique>
+      silver wire inlay
+      <in_class>E55: Type</in_class>
+    </used_general_technique>
+    <used_general_technique>
+      cloisonne garnet setting over hatched gold foil
+      <in_class>E55: Type</in_class>
+    </used_general_technique>
+    <used_general_technique>
+      swaging
+      <in_class>E55: Type</in_class>
+      <has_note>Possibly used for the fluted moulding strips and certainly for the bronze edge clips.</has_note>
+    </used_general_technique>
+    <used_general_technique>
+      chasing
+      <in_class>E55: Type</in_class>
+    </used_general_technique>
+    <used_general_technique>
+      tracing
+      <in_class>E55: Type</in_class>
+      <has_note>A tracer, a rather blunt chisel used chiefly for outlining, gave the grooved borders beside the nasal ridge.</has_note>
+    </used_general_technique>
+    <used_general_technique>
+      riveting
+      <in_class>E55: Type</in_class>
+    </used_general_technique>
+    <used_general_technique>
+      tinning
+      <in_class>E55: Type</in_class>
+    </used_general_technique>
+
+    <used_object_of_type>
+      preformed die
+      <in_class>E55: Type</in_class>
+      <has_note>
+        The dies themselves do not survive. They are said to have been similar to
+        the Torslunda plates. A fragment of stamped foil from the eastern mound at
+        Gamla Uppsala is so close to the corresponding warrior of Design 1 as to
+        appear at first glance to be from the same die.
+      </has_note>
+    </used_object_of_type>
+  </was_produced_by>
+
+  <!-- ==================== DEPOSITION AND REDISCOVERY =============== -->
+
+  <moved_by>
+    deposition of the Sutton Hoo helmet in the ship-burial
+    <in_class>E9: Move</in_class>
+    <moved_to>
+      burial chamber of the Sutton Hoo Mound 1 ship-burial
+      <in_class>E53: Place</in_class>
+      <falls_within>
+        Sutton Hoo, Suffolk
+        <in_class>E53: Place</in_class>
+        <place_is_defined_by>52 05 21 N, 01 20 17 E</place_is_defined_by>
+      </falls_within>
+    </moved_to>
+    <has_time-span>
+      time-span of the Sutton Hoo ship-burial
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>0613/0650</at_some_time_within>
+      <ongoing_throughout>0620/0625</ongoing_throughout>
+      <beginning_is_qualified_by>circa</beginning_is_qualified_by>
+      <has_note>
+        One time-span, several opinions, following the instruction in the scope
+        note of E61 Time Primitive that only one instance of E52 Time-Span should
+        be created for a phenomenon and that multiple instances of E61 Time
+        Primitive be attached to it to express multiple approximations. The
+        commonly given estimate is circa 620-625 AD. The outer bound reflects the
+        numismatic terminus post quem of 613-635 and Wilson's remark that the man
+        buried may be any great man of East Anglia from 610 to 650. The
+        superseded numismatic dating of 650-660 is recorded as an attribute
+        assignment below rather than as a further time primitive here, because it
+        was withdrawn rather than held alongside the present one.
+      </has_note>
+    </has_time-span>
+    <has_note>
+      The helmet was wrapped in cloths and placed to the left of the head of the
+      body, among other regalia and instruments of power, in the chamber of a
+      ship that had been hauled up from the nearby river and lowered into a
+      prepared trench; an oval mound was then constructed around the ship.
+    </has_note>
+  </moved_by>
+
+  <was_present_at>
+    collapse of the Sutton Hoo Mound 1 burial chamber
+    <in_class>S18: Alteration</in_class>
+    <has_note>
+      Long after the burial the chamber roof collapsed violently under the weight
+      of the mound, compressing the ship's contents into a seam of earth. The
+      helmet is thought to have been shattered either by this collapse or by the
+      force of another object falling on it; the article does not decide between
+      them. Modelled as an instance of S18 Alteration, whose scope note covers
+      natural events that permanently affect the form or consistency of a
+      physical thing without changing its identity; CRMbase offers only the
+      unspecific E5 Event for a non-intentional damage event.
+    </has_note>
+  </was_present_at>
+
+  <has_former_or_current_location>
+    burial chamber of the Sutton Hoo Mound 1 ship-burial
+    <in_class>E53: Place</in_class>
+    <has_note>
+      Findspot, known only approximately. Phillips's diary of Friday 28 July 1939
+      places the crushed remains four feet east of the shield boss on the north
+      side of the central deposit. No photographs were taken of the fragments in
+      situ and their relative positions were not recorded; the only contemporary
+      record of the helmet's location is a circle on the excavation diagram
+      marked "nucleus of helmet remains".
+    </has_note>
+  </has_former_or_current_location>
+
+  <was_present_at>
+    discovery of the Sutton Hoo helmet, 1939
+    <in_class>S19: Encounter Event</in_class>
+    <took_place_at>
+      Sutton Hoo, Suffolk
+      <in_class>E53: Place</in_class>
+    </took_place_at>
+    <has_time-span>
+      28 July to 1 August 1939
+      <in_class>E52: Time-Span</in_class>
+      <ongoing_throughout>1939-07-28/1939-08-01</ongoing_throughout>
+    </has_time-span>
+    <carried_out_by>
+      Charles Phillips
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <forms_part_of>
+      excavation of the Sutton Hoo ship-burial, 1939
+      <in_class>A9: Archaeological Excavation</in_class>
+      <took_place_on_or_within>
+        Sutton Hoo
+        <in_class>E27: Site</in_class>
+      </took_place_on_or_within>
+      <carried_out_by>
+        Charles Phillips
+        <in_class>E21: Person</in_class>
+      </carried_out_by>
+      <had_participant>
+        Basil Brown
+        <in_class>E21: Person</in_class>
+      </had_participant>
+      <has_time-span>
+        1939
+        <in_class>E52: Time-Span</in_class>
+        <end_is_qualified_by>excavation ended 24 August 1939</end_is_qualified_by>
+      </has_time-span>
+      <has_note>
+        Effectively a rescue dig under the threat of impending war. All items were
+        shipped out on 25 August 1939; Britain declared war nine days later.
+      </has_note>
+    </forms_part_of>
+    <has_note>
+      Discovered over three days with three weeks remaining in the excavation,
+      in more than 500 pieces. Its shattered state caused it to go at first
+      unnoticed. Phillips's diary for 29 July records that a few more fragments
+      came to light and were boxed with the rest, and for 1 August that a final
+      glean and sift produced a few fragments probably to be associated with the
+      helmet and the chain mail.
+    </has_note>
+  </was_present_at>
+
+  <was_present_at>
+    recovery of four further helmet fragments, 1967
+    <in_class>S19: Encounter Event</in_class>
+    <took_place_at>
+      Sutton Hoo, Suffolk
+      <in_class>E53: Place</in_class>
+    </took_place_at>
+    <has_time-span>
+      1967
+      <in_class>E52: Time-Span</in_class>
+    </has_time-span>
+    <forms_part_of>
+      re-excavation of Sutton Hoo, 1965-1970
+      <in_class>A9: Archaeological Excavation</in_class>
+      <took_place_on_or_within>
+        Sutton Hoo
+        <in_class>E27: Site</in_class>
+      </took_place_on_or_within>
+      <has_time-span>
+        1965 to 1970
+        <in_class>E52: Time-Span</in_class>
+        <ongoing_throughout>1965/1970</ongoing_throughout>
+      </has_time-span>
+      <had_general_purpose>
+        recovery of fragments missed in 1939
+        <in_class>E55: Type</in_class>
+      </had_general_purpose>
+      <has_note>
+        Among its objectives were to survey the mound and its surroundings, to
+        relocate the ship impression and excavate underneath, and to search the
+        strata of the 1939 spoil dumps for fragments originally missed. As
+        regards the helmet the excavation sought both positive and negative
+        evidence: new crest fragments could go where Maryon had placed plaster,
+        while their absence could be used to argue that the reconstructed crest
+        was too long.
+      </has_note>
+    </forms_part_of>
+    <has_note>
+      Four helmet fragments came from the second of the three 1939 dumps, which
+      contained only items from the ship's burial chamber: a hinge piece from the
+      dexter cheek guard, a surface flake from the crest, a small piece of iron
+      with fluted lines, and a small piece of iron edging showing part of the
+      larger interlace. The cheek guard piece joined a fragment found in 1939,
+      together completing a hinge plate for one of the moving parts of the
+      helmet. No substantial crest piece was found, which reinforced scepticism
+      of the long plaster insertions in the first reconstruction.
+    </has_note>
+  </was_present_at>
+
+  <!-- ===================== OWNERSHIP AND CUSTODY =================== -->
+
+  <was_attributed_by>
+    treasure trove inquest on the Sutton Hoo find, 14 August 1939
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P52 has current owner
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <assigned>
+      Edith Pretty
+      <in_class>E21: Person</in_class>
+    </assigned>
+    <carried_out_by>
+      the coroner's jury at the Sutton Hoo treasure trove inquest
+      <in_class>E74: Group</in_class>
+      <has_note>Fourteen persons.</has_note>
+    </carried_out_by>
+    <has_time-span>
+      14 August 1939
+      <in_class>E52: Time-Span</in_class>
+      <ongoing_throughout>1939-08-14</ongoing_throughout>
+    </has_time-span>
+    <has_note>
+      Under the common law of treasure trove then in force, gold and silver that
+      had been hidden and later rediscovered, the original owner being unknown,
+      belonged to the crown; it was the hiding and not the abandoning that gave
+      the king a property (Blackstone, Commentaries, 1765, p. 285). The jury found
+      that the objects were not treasure trove and thus belonged to Pretty, the
+      landowner, the dispositive point being that given the labour and publicity
+      of dragging the ship up to the trench it was impossible to hold that the
+      articles were buried or concealed secretly. The inquest is recorded as
+      covering the fifty-six categories of remaining objects; the article states
+      separately that items with only marginal amounts of gold or silver, such as
+      the helmet, were not eligible for treasure trove in the first place and
+      became the property of the landowner outright. Whether the helmet was among
+      the objects actually before the inquest is therefore not clear from the
+      article, and this assignment is recorded without resolving it.
+    </has_note>
+    <is_referred_to_by>
+      Bruce-Mitford 1975
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 718-726, 729-731.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      The Daily Telegraph, 1939
+      <in_class>E31: Document</in_class>
+      <has_note>Page 13.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <changed_ownership_through>
+    donation of the Sutton Hoo find to the British Museum by Edith Pretty
+    <in_class>E8: Acquisition</in_class>
+    <has_type>
+      donation
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <transferred_title_from>
+      Edith Pretty
+      <in_class>E21: Person</in_class>
+    </transferred_title_from>
+    <transferred_title_to>
+      British Museum
+      <in_class>E74: Group</in_class>
+    </transferred_title_to>
+    <has_time-span>
+      August 1939
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1939-08-14/1939-08-31</at_some_time_within>
+      <has_note>Within days of the inquest of 14 August 1939; the article gives no exact date.</has_note>
+    </has_time-span>
+    <has_note>
+      Pretty donated the entirety of the find. Even had the gold and silver
+      objects been declared treasure trove, ownership of the remaining objects
+      including the helmet would have stayed with her, so donation was one of the
+      only vehicles by which the museum could have taken possession.
+    </has_note>
+  </changed_ownership_through>
+
+  <custody_transferred_through>
+    removal of the Sutton Hoo finds to the British Museum
+    <in_class>E10: Transfer of Custody</in_class>
+    <custody_surrendered_by>
+      Edith Pretty
+      <in_class>E21: Person</in_class>
+    </custody_surrendered_by>
+    <custody_received_by>
+      British Museum
+      <in_class>E74: Group</in_class>
+    </custody_received_by>
+    <has_time-span>
+      25 August 1939
+      <in_class>E52: Time-Span</in_class>
+      <ongoing_throughout>1939-08-25</ongoing_throughout>
+    </has_time-span>
+    <has_note>
+      Excavation ended on 24 August 1939 and all items were shipped out the
+      following day. The intervening days before the declaration of war allowed
+      fragile and perishable objects to be tended to and the finds secured for
+      safekeeping.
+    </has_note>
+  </custody_transferred_through>
+
+  <has_former_or_current_location>
+    tunnel connecting Aldwych and Holborn tube stations, London
+    <in_class>E53: Place</in_class>
+    <has_note>
+      Wartime store. Throughout the Second World War the Sutton Hoo material was
+      kept here with other British Museum treasures. Only at the end of 1944 were
+      preparations made to unpack, conserve and restore the Sutton Hoo finds.
+    </has_note>
+  </has_former_or_current_location>
+
+  <has_former_or_current_owner>
+    Edith Pretty
+    <in_class>E21: Person</in_class>
+    <has_note>Owner of the land on which the ship-burial was found, and so of the helmet, from its discovery in 1939 until her donation later that month.</has_note>
+  </has_former_or_current_owner>
+
+  <has_current_owner>
+    British Museum
+    <in_class>E74: Group</in_class>
+  </has_current_owner>
+
+  <has_current_keeper>
+    British Museum
+    <in_class>E74: Group</in_class>
+  </has_current_keeper>
+
+  <has_current_location>
+    Room 41, British Museum
+    <in_class>E53: Place</in_class>
+    <falls_within>
+      London
+      <in_class>E53: Place</in_class>
+    </falls_within>
+    <has_note>Permanent display.</has_note>
+  </has_current_location>
+
+  <!-- ============ ALTERATION, RESTORATION, RECONSTRUCTION ========== -->
+
+  <was_modified_by>
+    possible ancient repair of a Design 2 panel of the Sutton Hoo helmet
+    <in_class>E11: Modification</in_class>
+    <has_note>
+      Conjectural. Bruce-Mitford proposed that Design 3 is a variant rider scene
+      used to replace a Design 2 panel damaged in antiquity, on the analogy of a
+      unique pressblech design on the Valsgaerde 6 helmet, and pointed to the
+      damage at the back of the helmet, where two centimetres of crest above the
+      rear dragon head and most of that head itself are missing. Against it: the
+      theory does not explain why the crest and rear dragon head were not
+      themselves repaired, and fragment (c) is out of context with the rest of
+      Design 3. Recorded here as an alteration whose occurrence is itself
+      contested; the competing readings are given as attribute assignments below.
+    </has_note>
+  </was_modified_by>
+
+  <was_modified_by>
+    first reconstruction of the Sutton Hoo helmet
+    <in_class>E11: Modification</in_class>
+    <has_type>
+      reconstruction
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <carried_out_by>
+      Herbert Maryon
+      <in_class>E21: Person</in_class>
+      <has_note>
+        A retired professor of sculpture and an authority on early metalwork,
+        specially employed as a technical attache at the British Museum on 11
+        November 1944 to restore and conserve the Sutton Hoo finds. He completed
+        the reconstruction in his seventies and with the use of only one eye, and
+        was appointed OBE in 1956 on the strength of his restorations.
+      </has_note>
+    </carried_out_by>
+    <has_time-span>
+      1945 to 1946
+      <in_class>E52: Time-Span</in_class>
+      <ongoing_throughout>1945/1946</ongoing_throughout>
+      <has_note>Six continuous months of the six years Maryon spent on the Sutton Hoo objects.</has_note>
+    </has_time-span>
+    <employed>
+      plaster
+      <in_class>E57: Material</in_class>
+    </employed>
+    <employed>
+      Plasticine
+      <in_class>E57: Material</in_class>
+    </employed>
+    <employed>
+      Durofix
+      <in_class>E57: Material</in_class>
+    </employed>
+    <employed>
+      umber
+      <in_class>E57: Material</in_class>
+    </employed>
+    <employed>
+      wire mesh
+      <in_class>E57: Material</in_class>
+    </employed>
+    <has_note>
+      Maryon traced and detailed each fragment on stiff paper and segregated them
+      by decoration, markings and thickness; adjoining pieces were adhered with
+      Durofix and held in a box of sand while the adhesive hardened. The pieces
+      were then set on a human-sized plaster head he sculpted, with added layers
+      to account for the original lining. Skull cap fragments were stuck on with
+      Plasticine or set into spaces cut into the head, then fixed permanently
+      with strong white plaster which, mixed with brown umber, also filled the
+      gaps; the cheek guards, neck guard and visor were placed onto shaped,
+      plaster-covered wire mesh and joined to the cap.
+    </has_note>
+    <has_note>
+      Criticised, though at the time almost entirely not in print, for arranging
+      the fragments around the mould of an average man's head and so possibly
+      predetermining the size; for the exposed jaw left by the missing front of
+      each cheek piece, the hole between eyebrows and nose, and eye holes large
+      enough for a sword to pass through; for a fixed rather than movable neck
+      guard; for a projecting face mask that would have left the nose vulnerable;
+      and for the use of plaster to elongate the crest by approximately four and
+      a half inches.
+      <has_type>
+        Criticism
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_referred_to_by>
+      Maryon 1947
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 137-144. The publication in which the five designs were first set out.</has_note>
+    </is_referred_to_by>
+  </was_modified_by>
+
+  <was_diminished_by>
+    dismantling of the first reconstruction of the Sutton Hoo helmet
+    <in_class>E80: Part Removal</in_class>
+    <carried_out_by>
+      Nigel Williams
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>
+      1970
+      <in_class>E52: Time-Span</in_class>
+      <has_note>Four months. The decision to reexamine the evidence was taken in 1968 and, after several months of deliberation, the decision to disassemble.</has_note>
+    </has_time-span>
+    <removed>
+      the 1945-46 restoration fill of the Sutton Hoo helmet
+      <in_class>E22: Human-Made Object</in_class>
+      <consists_of>
+        plaster
+        <in_class>E57: Material</in_class>
+      </consists_of>
+      <consists_of>
+        wire mesh
+        <in_class>E57: Material</in_class>
+      </consists_of>
+    </removed>
+    <has_note>
+      The cheek guards, face mask and neck guard were removed and x-rayed,
+      revealing the wire mesh covered in plaster and overlaid by fragments. The
+      wire was rolled back like a carpet and a saw used to separate each
+      fragment; the remaining plaster was chipped away with a scalpel and
+      needles. The skull cap was cut in half by pushing off the crest with long
+      pins inserted through the bottom of the plaster head and slicing through
+      the middle; the central plaster core was removed and the remaining thin
+      skin of plaster and iron separated into individual fragments. The process
+      left the helmet in more than 500 fragments. Some damage occurred: part of
+      the fragment of Design 1 showing the face and body of a dancing warrior was
+      crushed, and its nose and mouth were later restored.
+    </has_note>
+    <has_note>
+      Modelled as E80 Part Removal, and the removed material as a part, rather
+      than as an E81 Transformation. The scope note of E80 directs total
+      decomposition of an object into pieces to E81, but the scope note of E24
+      states that interventions of conservation and repair are not regarded to
+      produce a new human-made thing. What was removed was the modern fill added
+      in 1945-46; the ancient fragments were separated but remained the helmet,
+      which kept its registration number throughout. See the notes file.
+      <has_type>
+        Cataloguer note
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+  </was_diminished_by>
+
+  <was_augmented_by>
+    current reconstruction of the Sutton Hoo helmet
+    <in_class>E79: Part Addition</in_class>
+    <has_type>
+      reconstruction
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <carried_out_by>
+      Nigel Williams
+      <in_class>E21: Person</in_class>
+      <has_note>
+        Joined the British Museum in his teens after studying at the same Central
+        School of Arts and Crafts as Maryon, and reconstructed the helmet in his
+        mid-twenties.
+      </has_note>
+    </carried_out_by>
+    <has_time-span>
+      1970 to 1971
+      <in_class>E52: Time-Span</in_class>
+      <ongoing_throughout>1970/1971-11-02</ongoing_throughout>
+      <has_note>Eighteen months in all, of which a full year was Williams's own work. Put on display 2 November 1971.</has_note>
+    </has_time-span>
+    <continued>
+      first reconstruction of the Sutton Hoo helmet
+      <in_class>E11: Modification</in_class>
+    </continued>
+    <added>
+      the 1970-71 restoration fill of the Sutton Hoo helmet
+      <in_class>E22: Human-Made Object</in_class>
+      <consists_of>
+        jute
+        <in_class>E57: Material</in_class>
+      </consists_of>
+      <consists_of>
+        plaster
+        <in_class>E57: Material</in_class>
+      </consists_of>
+      <consists_of>
+        water-resistant resin
+        <in_class>E57: Material</in_class>
+      </consists_of>
+    </added>
+    <employed>
+      plaster
+      <in_class>E57: Material</in_class>
+    </employed>
+    <employed>
+      oil-free plasticine
+      <in_class>E57: Material</in_class>
+    </employed>
+    <has_note>
+      New joins were found mostly by looking at the backs of the fragments, whose
+      blackened, rippled surfaces could be matched under a microscope. The skull
+      cap was built out from the crest, aided by the discovery that only the two
+      fluted strips bordering the crest were gilded. The cheek guards were shaped
+      and substantially lengthened by joining three fragments from the sinister
+      side of the first reconstruction with two from the dexter side; the exposed
+      areas by the jaw were eliminated only near the end, when an expert on arms
+      and armour advised that the cheek guards should simply switch sides. The
+      repositioned fragments were placed against a featureless plaster dome built
+      outwards with oil-free plasticine to match the original dimensions, held
+      with long pins while jute and adhesive were moulded to the missing areas;
+      the fragment edges were coated with water-resistant resin and plaster was
+      spread over the jute, then painted light brown with the panel edges drawn
+      in.
+    </has_note>
+    <has_note>
+      Differences from the first reconstruction: a third row on the cheek guards,
+      a Design 4 panel in the middle row replaced by Design 1, and the cheek
+      guards switched sides. The visor and neck guard carry the same designs in
+      both.
+    </has_note>
+    <has_note>
+      Known errors, all in the neck guard, where very little original substance
+      survives that can be positioned with any certainty: several Design 5
+      fragments are placed too high, leaving more space below the transverse
+      fluted strips than above, whereas the configuration should allow two full
+      impressions of Design 5 of equal length joined vertically; seven vertical
+      strips of Design 5 are shown though there is no evidence for that number
+      and five is equally possible; the two strips flanking the central one show
+      an implausible inward tilt; and the neck guard hangs lower than it would
+      have when made, since its top originally fitted inside the cap, leaving the
+      abutting edges of the dexter cheek and neck guards at different levels. Two
+      blocks of fragments on the bottom edge and four in the middle are only
+      speculatively placed.
+      <has_type>
+        Criticism
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_referred_to_by>
+      Williams 1992
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 73-86. The conservator's own account.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      Bruce-Mitford 1982
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 251, 257-259, 272 n. 31.</has_note>
+    </is_referred_to_by>
+  </was_augmented_by>
+
+  <is_documented_in>
+    1966 Ordnance Survey illustration of the Sutton Hoo helmet
+    <in_class>E31: Document</in_class>
+    <was_created_by>
+      making of the 1966 Ordnance Survey illustration of the Sutton Hoo helmet
+      <in_class>E65: Creation</in_class>
+      <carried_out_by>
+        British Museum
+        <in_class>E74: Group</in_class>
+      </carried_out_by>
+      <carried_out_by>
+        Archaeology Division, Ordnance Survey
+        <in_class>E74: Group</in_class>
+      </carried_out_by>
+      <carried_out_by>
+        Charles Phillips
+        <in_class>E21: Person</in_class>
+        <has_note>Under whose direction the reconstruction was made.</has_note>
+      </carried_out_by>
+      <has_time-span>
+        1966
+        <in_class>E52: Time-Span</in_class>
+      </has_time-span>
+    </was_created_by>
+    <has_note>
+      An artistic reconstruction, not an intervention on the object, and so
+      modelled as a document rather than as an instance of E11 Modification. It
+      attempted to solve the criticisms of the first reconstruction, showing a
+      larger cap, a straighter face mask, smaller eye openings, the terminal
+      dragon heads at opposite ends, and a rearrangement of some of the
+      pressblech panels. It too was criticised by archaeologists, and it was
+      superseded by the 1970-71 rebuild of the object itself.
+    </has_note>
+  </is_documented_in>
+
+  <!-- ============= CONTESTED POINTS AND THEIR SOURCES ============== -->
+
+  <was_attributed_by>
+    attribution of the Sutton Hoo ship-burial to Raedwald of East Anglia
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P51 has former or current owner
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <assigned>
+      Raedwald of East Anglia
+      <in_class>E21: Person</in_class>
+      <has_note>
+        King of the East Angles, of the Wuffingas dynasty, whose seat is believed
+        to have been at Rendlesham, four and a quarter miles upriver from Sutton
+        Hoo. Almost all that is recorded of him comes from Bede. His death can be
+        conservatively dated between 616 and 633 on Bede alone.
+      </has_note>
+    </assigned>
+    <has_note>
+      The preferred candidate, but by no means conclusive. The case rests on the
+      dating of the burial, the abundance of wealth and of items identified as
+      regalia, and, befitting a king who kept two altars, the presence of both
+      Christian and pagan influences. The helmet contributes to it: it displays
+      both wealth and power, and the modification to the sinister eyebrow has
+      been read as linking the wearer to the one-eyed Odin.
+    </has_note>
+    <is_referred_to_by>
+      Keynes 1992
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 103-107.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      Campbell 1992
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 80-85.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    rejection of a secure attribution of the Sutton Hoo ship-burial to any named person
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P51 has former or current owner
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <carried_out_by>
+      David M. Wilson
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_note>
+      The rival reading, recorded here as an assignment that declines to assign.
+      The desire to link a burial with a known and famous name outstrips the
+      evidence; the burial is certainly a commemorative display of wealth and
+      power but does not necessarily memorialise Raedwald, or a king, and could
+      theoretically have been a votive offering (Carver 1986, p. 83). The case for
+      Raedwald depends heavily on the coins, whose dating is precise only within
+      two decades and whose chronologies have shifted before. Wilson: the little
+      word "may" should be brought into any identification of Raedwald; it may be
+      Sigeberht, or his illegitimate brother, or any other great man of East
+      Anglia from 610 to 650.
+    </has_note>
+    <is_referred_to_by>
+      Wilson 1992
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 9-10.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      Carver 1986
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 83-84, 88, 97.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      Campbell 2014
+      <in_class>E31: Document</in_class>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    numismatic dating of the Sutton Hoo burial to 650-660 AD
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P4 has time-span
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <assigned>
+      650 to 660 AD
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>0650/0660</at_some_time_within>
+    </assigned>
+    <has_time-span>
+      before 1960
+      <in_class>E52: Time-Span</in_class>
+      <end_is_qualified_by>held until 1960</end_is_qualified_by>
+    </has_time-span>
+    <has_note>
+      Superseded. Based largely on the numismatic chronologies established during
+      the nineteenth century by Prou. With this range the burial was variously
+      attributed to Aethelhere, Anna, Aethelwald, Sigeberht and Ecgric.
+    </has_note>
+    <is_referred_to_by>
+      Bruce-Mitford 1975
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 580-582, 588.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    numismatic dating of the Sutton Hoo burial by specific gravity of the Merovingian coins
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P4 has time-span
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <assigned>
+      613 to 635 AD, terminus post quem
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>0613/0635</at_some_time_within>
+    </assigned>
+    <has_time-span>
+      1972
+      <in_class>E52: Time-Span</in_class>
+    </has_time-span>
+    <has_note>
+      Current. Thirty-seven gold Merovingian coins, three blanks and two small
+      ingots were found in a purse and offer the most objective means of dating
+      the burial. Later studies took the specific gravity of some 700 Merovingian
+      gold coins, which were minted with predictably decreasing purity over time,
+      to estimate a coin's date from the fineness of its gold; this suggests the
+      latest coins in the purse were minted between 613 and 635 AD and most likely
+      closer to the beginning of that range. The range is a tentative terminus
+      post quem only: sometime later, perhaps after a period of years, the coins
+      were collected and buried. Generally consistent with, but not exclusive to,
+      Raedwald.
+    </has_note>
+    <is_referred_to_by>
+      Oddy and Hughes 1972
+      <in_class>E31: Document</in_class>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      Bruce-Mitford 1975
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 589-590, 606-607, 648-653, 698.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      Maddicott 1993
+      <in_class>E31: Document</in_class>
+      <has_note>Page 968.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    dating of the manufacture of the Sutton Hoo helmet to about a century before the burial
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P108i was produced by
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <carried_out_by>
+      Rupert Bruce-Mitford
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_note>
+      The helmet is older than the man with whom it was buried, and was likely
+      around 100 years old when buried, which suggests it may have been an
+      heirloom, a sample from the royal treasury passed down from another
+      generation. The same has been suggested for the shield from the burial, both
+      being objects of distinct Swedish influence. No figure or method is given for
+      the estimate in the article, and no independent date for the manufacture is
+      offered anywhere in it.
+    </has_note>
+    <is_referred_to_by>
+      Bruce-Mitford 1952
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 724-725.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      Bruce-Mitford 1978
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 224-225.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    reading of the sinister eyebrow of the Sutton Hoo helmet as a deliberate allusion to Odin
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P62 depicts
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <assigned>
+      Odin
+      <in_class>E1: CRM Entity</in_class>
+    </assigned>
+    <carried_out_by>
+      Neil Price
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <carried_out_by>
+      Paul Mortimer
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>
+      2014
+      <in_class>E52: Time-Span</in_class>
+    </has_time-span>
+    <has_note>
+      The two brows may have been manufactured in different ways while being
+      intended to look essentially the same. That the absence of foils results
+      from a repair, and presumably a shortage of gold, seems unlikely given the
+      minute quantities needed; and given the skill required to shape the gold
+      cell walls and cut the garnets so precisely, the omission on the left brow
+      appears deliberate. The repair theory also does not account for the absence
+      of gold foil behind one of the garnet dragon eyes. Seen in low light, with
+      only one brow's garnets reflecting, the helmet may have seemed to have a
+      single eye, linking its wearer to the one-eyed god.
+    </has_note>
+    <is_referred_to_by>
+      Price and Mortimer 2014
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 520-522, 532-534.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    reading of the sinister eyebrow of the Sutton Hoo helmet as the result of a repair
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P31i was modified by
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <carried_out_by>
+      Sonja Marzinzik
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>
+      2007
+      <in_class>E52: Time-Span</in_class>
+    </has_time-span>
+    <has_note>
+      The rival reading. A repair could explain the other subtle differences
+      between the eyebrows, such as their slightly different lengths and colours,
+      which the theorised allusion to Odin does not address (Bruce-Mitford 1978,
+      p. 239).
+    </has_note>
+    <is_referred_to_by>
+      Marzinzik 2007
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 29-30.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    identification of niello on the Sutton Hoo helmet
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P45 consists of
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <assigned>
+      niello
+      <in_class>E57: Material</in_class>
+    </assigned>
+    <carried_out_by>
+      Herbert Maryon
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>
+      1947
+      <in_class>E52: Time-Span</in_class>
+    </has_time-span>
+    <has_note>Niello separating the inlaid silver wires of the eyebrows, filling the punched-down designs on the nasal ridge, and surrounding the punched circles on the nasal bridge and lower lip.</has_note>
+    <is_referred_to_by>
+      Maryon 1947
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 141-143.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    denial of niello on the Sutton Hoo helmet
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P45 consists of
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <carried_out_by>
+      Andrew Oddy
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_note>
+      Oddy does not identify the helmet among the objects in the Sutton Hoo burial
+      that exhibit the use of niello, listing only the shield, the large hanging
+      bowl, the great gold buckle and the drinking horns. Of the nose inlays: the
+      metal of which these inlays are made is compact and is not corroded, and in
+      view of its condition it must be interpreted as a metallic inlay and not as
+      niello which has subsequently been reduced to silver metal.
+    </has_note>
+    <is_referred_to_by>
+      Oddy 1980
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 182-183.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      Bruce-Mitford 1978
+      <in_class>E31: Document</in_class>
+      <has_note>Page 231.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    counting of the garnets in the eyebrows of the Sutton Hoo helmet by Bruce-Mitford
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P57 has number of parts
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <carried_out_by>
+      Rupert Bruce-Mitford
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_note>Twenty-three garnets in the dexter eyebrow and twenty-five in the sinister.</has_note>
+    <is_referred_to_by>
+      Bruce-Mitford 1978
+      <in_class>E31: Document</in_class>
+      <has_note>Page 169.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    counting of the garnets in the eyebrows of the Sutton Hoo helmet by the 1978 technical report
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P57 has number of parts
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <has_note>Twenty-one garnets in the dexter eyebrow and twenty-two in the sinister. Contradicts the count in the body of the same volume.</has_note>
+    <is_referred_to_by>
+      Bruce-Mitford 1978
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 229-230, technical report appending the chapter.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    assertion that the cap of the Sutton Hoo helmet was beaten from a single piece
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P32 used general technique
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <assigned>
+      beating from a single piece
+      <in_class>E55: Type</in_class>
+    </assigned>
+    <carried_out_by>
+      Rupert Bruce-Mitford
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_note>
+      Held to be most likely but not conclusively proven, the fragmentary state of
+      the cap preventing proof (Hood, Ager, Williams and Harrington 2012, p. 95
+      n. 4).
+    </has_note>
+    <is_referred_to_by>
+      Bruce-Mitford 1978
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 152, 203.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>
+      Hood, Ager, Williams and Harrington 2012
+      <in_class>E31: Document</in_class>
+      <has_note>Page 95 n. 4.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    assertion that Design 3 of the Sutton Hoo helmet is a replacement for a damaged panel
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P31i was modified by
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <carried_out_by>
+      Rupert Bruce-Mitford
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_note>
+      Offered as a possible indication that the helmet at one time suffered damage
+      necessitating the restoration of at least one Design 2 panel with a new
+      equestrian scene. Bruce-Mitford was himself inconsistent about Design 3: in
+      1972 he wrote that there were only four designs, in 1975 he referred to the
+      unidentified scene in the past tense, and only in 1978 were the seven
+      fragments discussed as incapable of placement.
+    </has_note>
+    <is_referred_to_by>
+      Bruce-Mitford 1978
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 197-199, 224-225.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <was_attributed_by>
+    assertion that the number of vertical Design 5 strips on the neck guard should be five
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>
+      P57 has number of parts
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <carried_out_by>
+      Rupert Bruce-Mitford
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_note>
+      The current reconstruction shows seven, but there is no evidence to indicate
+      that there were seven vertical ornamental strips on the lower portion of the
+      neck guard, and the suggestion that the number should be cut to five is
+      equally possible.
+    </has_note>
+    <is_referred_to_by>
+      Bruce-Mitford 1982
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 258-259.</has_note>
+    </is_referred_to_by>
+  </was_attributed_by>
+
+  <!-- ========================== SOURCES ============================ -->
+
+  <is_documented_in>
+    Bruce-Mitford 1975, The Sutton Hoo Ship-Burial, volume 1
+    <in_class>E31: Document</in_class>
+  </is_documented_in>
+  <is_documented_in>
+    Bruce-Mitford 1978, The Sutton Hoo Ship-Burial, volume 2
+    <in_class>E31: Document</in_class>
+    <has_note>Pages 138-231 are the principal published account of the helmet, and the source of the numbering of the five designs used above.</has_note>
+  </is_documented_in>
+  <is_documented_in>
+    Bruce-Mitford 1972, The Sutton Hoo helmet, a new reconstruction
+    <in_class>E31: Document</in_class>
+  </is_documented_in>
+  <is_documented_in>
+    Maryon 1947
+    <in_class>E31: Document</in_class>
+  </is_documented_in>
+  <is_documented_in>
+    Williams 1992
+    <in_class>E31: Document</in_class>
+  </is_documented_in>
+  <is_documented_in>
+    Plenderleith 1956
+    <in_class>E31: Document</in_class>
+    <has_note>Pages 284-285, on the state of the fragments as they reached Maryon's workbench.</has_note>
+  </is_documented_in>
+  <is_documented_in>
+    excavation diary of C. W. Phillips
+    <in_class>E31: Document</in_class>
+    <has_note>Entries for 28 and 29 July and 1 August 1939, quoted at Bruce-Mitford 1975, pp. 742-743.</has_note>
+  </is_documented_in>
+  <is_documented_in>
+    excavation diagram of the Sutton Hoo burial chamber
+    <in_class>E31: Document</in_class>
+    <has_note>The only contemporary record of the helmet's position, marking it as a circle labelled "nucleus of helmet remains".</has_note>
+  </is_documented_in>
+  <is_documented_in>
+    British Museum collection record for the Sutton Hoo helmet
+    <in_class>E31: Document</in_class>
+  </is_documented_in>
+  <is_documented_in>
+    Marzinzik 2007
+    <in_class>E31: Document</in_class>
+  </is_documented_in>
+  <is_documented_in>
+    Steuer 1987
+    <in_class>E31: Document</in_class>
+    <has_note>Pages 190-203, 227-231. Source of the classification as a crested helmet.</has_note>
+  </is_documented_in>
+  <is_documented_in>
+    Tweddle 1992
+    <in_class>E31: Document</in_class>
+    <has_note>Pages 1082-1087, 1167-1170.</has_note>
+  </is_documented_in>
+  <is_documented_in>
+    Coatsworth and Pinder 2002
+    <in_class>E31: Document</in_class>
+    <has_note>Pages 108-114, 141-142, on the pressblech process and on gold foil backing.</has_note>
+  </is_documented_in>
+  <is_documented_in>
+    Daily Mail, 1939
+    <in_class>E31: Document</in_class>
+    <has_note>The earliest press notice, describing "a gold helmet encrusted with precious stones" and, days later, "elaborate interlaced ornaments in silver and gold leaf".</has_note>
+  </is_documented_in>
+  <is_documented_in>
+    Kendrick, Kitzinger and Allen 1939
+    <in_class>E31: Document</in_class>
+    <has_note>Pages 111-130. The first published description of the fragments: "elaborate", "magnificent", "crushed and rotted".</has_note>
+  </is_documented_in>
+
+  <is_referred_to_by>
+    Blackstone 1765, Commentaries on the Laws of England
+    <in_class>E32: Authority Document</in_class>
+    <has_note>Page 285. The definition of treasure trove applied at the 1939 inquest.</has_note>
+  </is_referred_to_by>
+
+</CRM_Entity>
+
+</CRMset>

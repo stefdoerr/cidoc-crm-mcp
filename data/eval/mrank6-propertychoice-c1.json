@@ -1,0 +1,38 @@
+{
+  "case_id": "propertychoice-c1",
+  "ranking": ["A", "B", "C"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 5,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Every proposed class (E11, E21, E74, E55, E7) does real work, and every checked quote (P14/P11 scope notes, the Michelangelo example, t1546's 'patients in a surgery' and 'as it's not P14...' lines, t1345's 'two P14 links'/'part of implies on behest of'/'no substance of identity to such a one-person Group', issue 488's and 542's outcomes, and the 57th-minutes 'dependent on CRMsoc developments' line) reproduces the source accurately, including the correct, verified claim that Velios's proposed P14 scope-note rewording in t1546 was never folded into the published v7.3.2 text. The extra move -- giving the officer her own E7 activities plus an overarching museum activity the treatment 'forms part of' -- is optional, clearly flagged as such, and grounded in Doerr's own partitioning guidance rather than invented. One loose end: t1477 sits in the citation list unconnected to any specific claim in the prose."
+    },
+    {
+      "label": "B",
+      "class_count": 5,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Reaches the same correct resolution as A with equally accurate citations (including the same correct, verified finding that the t1546 scope-note rewording was never published), and adds a genuinely case-specific point A lacks: the supervision claim rests solely on the workshop's own invoice, which is exactly the scenario the CRM's 'Authorship of Knowledge Base Contents' guidance (verified to exist) addresses via E13. Its one real weakness is committing, in the main answer rather than only as a caveated option, to E14 Condition Assessment for the officer's two 'checking progress' visits -- a class that (verified) requires P35 has identified and an E3 Condition State the case never supplies. B flags this honestly in its own notes, which mitigates but does not erase the overreach."
+    },
+    {
+      "label": "C",
+      "class_count": 3,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        {"id": "t1546", "what_it_actually_says": "C states t1546 'revised the P14 scope note precisely to separate' active from passive participation, and calls it a 'SIG-agreed scope-note revision.' Verified against crm732#P14 directly: the published v7.3.2 scope note is still the original two sentences ('This property describes the active participation... It implies causal or legal responsibility.'). The quoted text C cites is real (Velios's proposed addition, endorsed in discussion by Doerr), but it was a proposal, not an adopted revision -- the exact distinction A and B both independently verify and get right."}
+      ],
+      "verdict": "Gets the substantive answer right (principal and both apprentices via P14 with differentiated P14.1 roles; officer excluded, gets P11/P12 instead) but the model is under-specified: it never types the three named people as E21 Person or the role values it repeatedly invokes ('supervising conservator', 'conservator/assistant') as E55 Type, listing only the generic superclasses E7 and E39 in their place. It also overclaims that t1546 revised the published scope note, when the record shows the proposal was not adopted -- a citation whose claim the source does not support, though the quote itself is genuine."
+    }
+  ],
+  "decisive_difference": "All three converge on the same substantive answer (principal + both apprentices carry P14 with distinct P14.1 roles; the conservation officer is excluded from P14 per the t1546 reading and gets P11 or her own activity instead), so the ranking turns on execution. C is separated from A and B by two verifiable defects: it relies throughout on entities it never types (E21 for the named people, E55 for the role values it names), and it misstates t1546 as having revised the published P14 scope note, which direct inspection of crm732#P14 shows is unchanged. A edges out B on a thinner margin: both verify cleanly against the source material, but B commits in its main recommendation to E14 Condition Assessment for the officer's two visits despite the case never supplying the E3 Condition State that class requires (B itself flags this as its weakest point), while A models the same visits as plain E7 Activities -- a choice that needs nothing the case doesn't give it. B partially offsets this with a genuinely useful, case-specific point (the supervision claim traces to the workshop's own invoice, which is exactly what the CRM's authorship-of-KB-contents guidance is for) that A does not raise.",
+  "confident": false,
+  "notes": "C ranking last is solid and I would not expect it to move on a re-read. A over B is a closer call resting on how much weight to give B's E14 overreach (self-flagged) against B's invoice-provenance insight (which A lacks); a second read could plausibly swap A and B. No provenance was guessed at or relied on for ranking; I did not read other files under data/eval/. The one thing that made this hard was that A and B are close to indistinguishable in rigor -- both independently caught the same subtle fact (t1546's proposed scope-note wording never made it into the published 7.3.2 text) that C got wrong, which is a strong signal about the pair's care but does not by itself separate them from each other."
+}

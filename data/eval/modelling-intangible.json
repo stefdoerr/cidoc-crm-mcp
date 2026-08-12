@@ -1,0 +1,23 @@
+[
+  {
+    "case": "A regional sound archive holds a 1952 wax-cylinder recording of an elderly woman singing a lullaby in her home dialect. In 2003 a folklorist recorded the same woman's daughter singing what she calls 'the same lullaby' passed down to her, though the melody has simplified and two verses have dropped out over the decades in between. The archive is cataloguing both recordings and needs to decide how they relate to each other.",
+    "question": "Should the 2003 recording be catalogued as a performance of the same lullaby as the 1952 recording, or as a distinct but related song that merely shares an ancestor with it?",
+    "kind": "identity",
+    "why_hard": "Oral transmission drifts the content itself, so the question is where the boundary of 'the same work' sits when the thing being identified has no fixed text to compare against, only a lineage of remembered performances.",
+    "distinctive_terms": ["wax cylinder", "lullaby", "home dialect", "dropped verses", "passed down"]
+  },
+  {
+    "case": "A family donates forty minicassette tapes to a folk-life archive, recorded over three years of weekly kitchen-table sessions in which an elderly fiddler taught tunes to his teenage grandnephew by playing them over and over until the younger man could reproduce them by ear. No lesson plan or tune list survives, only the tapes, each dated but otherwise unlabelled. The archive wants to record that the grandnephew learned his repertoire from his granduncle.",
+    "question": "Should the catalogue assert a direct relationship between the two fiddlers, or should that relationship only be inferred by chaining together the forty individual recorded sessions that each show the pair performing together?",
+    "kind": "shortcut vs full path",
+    "why_hard": "There is no direct 'taught' relation available; the transmission is real but only evidenced as a pattern across forty separate participation records, so the choice is between an economical shortcut assertion and the fully warranted chain of individual sessions.",
+    "distinctive_terms": ["minicassette", "kitchen-table sessions", "played by ear", "grandnephew", "repertoire"]
+  },
+  {
+    "case": "A village council maintains a midsummer bonfire-lighting custom in which the right to strike the first flame passes informally from the current fire-keeper to a chosen successor, usually a younger relative, at a moment the fire-keeper alone decides, sometimes years before they die. There is no ceremony marking the handover and often no witnesses beyond the two people involved; the community simply comes to accept who the new fire-keeper is over the following year or two. A heritage documentation project wants to record the succession of fire-keepers as an unbroken chain.",
+    "question": "Can the transfer of the right to be fire-keeper be modelled as a documentable event, or does the informal, undated, often unwitnessed nature of the succession put it outside what the model can responsibly assert?",
+    "kind": "out of scope",
+    "why_hard": "The model is built to document things that happened at an identifiable time with identifiable participants; a handover with no ceremony, no fixed date and often no witness resists being forced into an event-shaped record, and the community's gradual acceptance afterward is not an event at all.",
+    "distinctive_terms": ["fire-keeper", "midsummer bonfire", "informal succession", "unwitnessed handover", "village council"]
+  }
+]

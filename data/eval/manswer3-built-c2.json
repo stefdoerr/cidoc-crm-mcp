@@ -1,0 +1,29 @@
+{
+  "case_id": "built-c2",
+  "answer": "A plain containment link straight from the mill to 'the hundred' and then to 'the rural district' does not work, and not only because the hundred stopped existing. The CRM does not treat an administrative/geopolitical unit as an E53 Place at all: E4 Period's scope note explicitly says 'a geopolitical unit as a specific case of an instance of E4 Period is the set of activities and phenomena related to the claim of power ... an administrative system that establishes a geopolitical unit', and its spatiotemporal properties 'can be modelled through the properties inherited from E92 Spacetime Volume' -- not through E53. This was a deliberate SIG resolution (Issue 312, 'Mapping Geopolitical Units to Period', closed 2018, which added exactly this text to the E4 scope note) and was argued out on the mailing list: Richard Light's 2018 'Administrative units' thread (t1093) got the answer 'we tend to model them as kinds of geopolitical units' (i.e. E4), and Martin Doerr's 2019 thread on Place vs SpaceTimeVolume (t1243) is explicit that 'It is wrong to regard the Desert as an E53 ... It is wrong to argue that Czechoslovakia is not a period' -- the named unit is the E4 Period, and only 'Extent of X at time t' is the E53. Empirically, search.py connect confirms there is no direct E53->E4 or E4->E53 containment property at all (only L54 is same as); the only route from a Period to a Place is P161 has spatial projection (E92->E53), a required property on E4. So: (1) Sedgewick Hundred and Whitgate Rural District must each be their own E4 Period instance (specialised as a geopolitical unit), each carrying its own required P4 has time-span bounding when it existed -- they are not one continuously-renamed place, since the hundred was abolished rather than renamed (t1090, where Martin Doerr told Richard Light multiple inheritance for geopolitical entities with duration runs through E92, not E53, for exactly this reason). (2) Each period has its own P161 has spatial projection to an E53 Place representing its territorial extent. (3) The mill itself keeps one stable E53 Place, reached from the human-made object via the required P53 has former or current location (E18->E53). (4) That stable place is linked to each administrative unit's territorial place by P89 falls within, in turn once for the hundred's extent (valid up to 1894) and once for the rural district's extent (valid from 1894). That four-step chain -- object -> its place -> falls-within -> each unit's spatial-projection place <- projected from each unit's own bounded period -- is the 'fuller chain' the question asks about, and it is required precisely because administrative units are periods with a spatial projection, not places themselves, quite independently of whether a unit happens to survive with a new name or get abolished outright.",
+  "classes_proposed": ["E22", "E53", "E4"],
+  "properties_proposed": ["P53", "P89", "P161", "P4"],
+  "rejected_alternatives": [
+    {"option": "Direct E53-to-E53 (or object-to-unit) containment treating the hundred/rural district as places", "why_not": "search.py connect E53 E4 and connect E22 E4 return no place-to-period or object-to-period containment property (only L54 is same as); and t1243 has Martin Doerr stating directly that regarding a named geopolitical unit itself as an E53 Place is wrong ('It is wrong to regard the Desert as an E53')."},
+    {"option": "Modelling Sedgewick Hundred and Whitgate Rural District as one continuous E4 Period that merely changed name/extent in 1894", "why_not": "the situation is an abolition and replacement by a new unit, not a renaming of a persisting unit (contrast with E4's own worked example 'The Capital of Russia', which is offered specifically for a unit continuing without temporal discontinuity while changing place); t1090 confirms geopolitical entities with a bounded duration are handled through E92-based multiple inheritance on E4, i.e. as periods with their own time-span, which argues for two bounded instances here rather than one."}
+  ],
+  "citations": ["E4", "E53", "E22", "P53", "P89", "P161", "P4", "Issue 312", "t1093", "t1090", "t1243"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E53",
+    "docs \"administrative division boundary\" --kind narrative",
+    "thread t1093",
+    "thread t1090",
+    "thread t1243",
+    "concept E4",
+    "connect E22 E53",
+    "connect E22 E4",
+    "connect E53 E4",
+    "issues \"administrative unit\"",
+    "issues \"geopolitical\"",
+    "issue 312"
+  ],
+  "confidence": "high",
+  "notes": "docs --kind narrative on 'administrative division boundary' returned nothing on-topic (FOL/temporal-primitive passages only) -- the real answer came from concept dossiers (E4's scope note names geopolitical units explicitly), connect (which shows the absence of a direct place<->period containment property), the mailing list threads, and the issue register (Issue 312), not from the reference-model text search."
+}

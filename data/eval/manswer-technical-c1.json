@@ -1,0 +1,43 @@
+{
+  "case_id": "technical-c1",
+  "answer": "This is in scope, and it is the exact 'Ship of Theseus' border case the SIG itself has argued about (thread t1170). CIDOC CRM's identity criteria for E19/E22 are functional-coherence-based, not substance-based (Wiggins, as Doerr states in t1170): an object with all its parts gradually swapped while it stays continuously in service keeps its identity. But Doerr explicitly draws the opposite conclusion for the case of parts removed, stored, and reassembled only after the thing had stopped being used/functioning for an extended period -- he calls that a new object, 'because the continuity of functionality is broken... not temporarily on repair within an extended activity making use of it.' Our engine matches that pattern more closely than ordinary repair: the boiler (the part that actually makes it a working engine) was destroyed outright, the frame and cylinders then sat inert for over fifty years with no operating activity of any kind, and the replacement boiler is a wholly new build to the old drawings, not reassembled original fabric. E24's own scope note draws the same line: 'interventions of conservation and repair are not regarded to produce a new instance,' but where the intervention is 'obvious and sufficient to regard that the product has a new, distinct identity,' the production should be documented as E81 Transformation, with 'substantial continuity of the previous matter and structure' expressed through that event -- and E81's scope note lists 'reconstructions... of historical buildings or ruins' as a characteristic case, which is a close structural analogy to a machine reduced to a boiler-less hulk and later reconstructed. E11's own example list even pairs E12+E81 for a directly comparable heritage case: the restoration of the Enola Gay into a museum exhibit. So I recommend: model the quarry-era engine and the engine on display today as two distinct E22 Human-Made Object instances, linked by an E81 Transformation (also typed E12 Production for the boiler build) via P124 transformed (old engine) / P123 resulted in (new engine), with the surviving frame and cylinders documented via P46 is composed of as the recognizable substance and structure carried across the Transformation into both wholes.",
+  "classes_proposed": ["E22", "E81", "E24", "E12"],
+  "properties_proposed": ["P123", "P124", "P46"],
+  "rejected_alternatives": [
+    {
+      "option": "E11 Modification (treat it as ordinary repair, single continuous E22 identity throughout)",
+      "why_not": "E24's scope note exempts 'conservation and repair' from creating a new identity, but that exemption presumes the object stayed a coherent, functioning whole. Here the defining functional part (the boiler) was destroyed and the frame/cylinders sat with no operating activity for over fifty years -- exactly the pattern Doerr (t1170) distinguishes from repair and calls a new object, because continuity of functionality, not substance, is what repair preserves."
+    },
+    {
+      "option": "Same E19/E22 with all parts eventually replaced, per Doerr's 'ship with all parts replaced is identical' remark",
+      "why_not": "That remark in t1170 covers gradual, continuous-use replacement (planks swapped one at a time while the ship keeps sailing). Doerr immediately contrasts it with the century-long-storage-then-reassembly variant and calls that one a new object -- our case (total non-function for 50+ years, then a freshly-fabricated part) is the second pattern, not the first."
+    }
+  ],
+  "citations": [
+    "E22", "E24", "E81", "E11", "P123", "P124", "P46",
+    "t1170", "t1265", "t1396",
+    "Modelling principles > Monotonicity"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"identity through part replacement\" --kind narrative",
+    "docs \"restoration replacement of parts\" --kind narrative",
+    "\"ship of theseus\"",
+    "\"same object after restoration\"",
+    "thread t1170",
+    "thread t1080",
+    "concept E81",
+    "concept E22",
+    "thread t1265",
+    "concept E24",
+    "concept P123",
+    "concept P124",
+    "thread t1396",
+    "concept E11",
+    "concept P46",
+    "thread t1874"
+  ],
+  "confidence": "medium",
+  "notes": "The mailing-list search surfaced the exact debate (Ship of Theseus, t1170) unprompted, which made the case tractable -- but the concept dossiers alone (E22/E24/E81) would not have surfaced the crucial 'temporarily on repair vs. broken continuity' distinction; that only came from reading the full thread body, which the tool supports but concept/ontology search does not summarize. Confidence is medium because this is a genuine border case the SIG itself never fully closed."
+}

@@ -1,0 +1,43 @@
+{
+  "case_id": "built-c3",
+  "answer": "The consultation-as-event and its report can be minimally documented (an E7 Activity carried out by the trust, documented by an E31 Document that P70 documents it, with the free-text comments as opaque E62 String content of that document via P3 has note) -- that much is unremarkable, no different from filing any other management-history record. But that is not what is being asked. The substantive content the trust wants folded in -- the 58/24/18 percentage breakdown and the anonymous sentiment ('ruins the feel of the place') -- is not something CIDOC CRM gives you classes or properties to represent as semantic content. E13 Attribute Assignment requires the assignment to be traceable to whose opinion it was (its scope note is explicit: 'note that all instances of properties described in a knowledge base are the opinion of someone'); anonymous, aggregated survey respondents cannot be bound to that. E16 Measurement is for measuring physical properties of a physical thing, not aggregate public attitude. There is no class anywhere in the 241-entry ontology for a poll result or a sentiment. The SIG's own Intended Scope statement (Issue 581) defines the model's target as 'scientific and scholarly documentation about the past at a human scale and the available documented and empirical evidence for this' -- a consultation about a still-proposed, not-yet-built road is about a contested future, not evidence about the past. And when the SIG considered exactly this category of fact -- Francesco Beretta's CRMsoc homework (Issue 580) distinguished 'objective spatio-temporal facts', which is what CRMbase models, from 'social facts' / collective attitudes and conventions, which is what CRMsoc was meant to cover -- the SIG discontinued CRMsoc in 2025 rather than fold that layer in. So the kind of data this case asks about was considered and deliberately left outside the model, not merely unaddressed yet. Honest answer: out of scope for what it is being asked to capture. The trust should keep the consultation report as an ordinary linked document/attachment if it wants provenance, but should not expect the CRM to represent the sentiment itself.",
+  "classes_proposed": [],
+  "properties_proposed": [],
+  "rejected_alternatives": [
+    {"option": "E13 Attribute Assignment", "why_not": "Scope note requires the assignment to register whose opinion it was; anonymous, aggregated respondents in a 1,340-person poll cannot be individually attributed, and the class is built for structured single assertions by an identifiable actor, not a percentage breakdown of a crowd."},
+    {"option": "E16 Measurement", "why_not": "Domain is measuring physical properties (P39 measured -> E18 Physical Thing, P40 observed dimension -> E54 Dimension); public sentiment/opinion is not a dimension of a physical thing."},
+    {"option": "CRMsoc (social facts extension)", "why_not": "This is exactly the category CRMsoc was drafted to cover (collective/social facts vs. CRMbase's objective spatio-temporal facts, per Issue 580 homework), but the SIG discontinued CRMsoc in 2025 (Issue 580, closed) -- the extension meant to hold this never became part of the standard."},
+    {"option": "E31 Document / E7 Activity for the survey report itself", "why_not": "Not rejected outright -- this part is legitimately representable (the consultation as an activity, its report as a document) -- but it only captures that the consultation happened and produced a report, not the sentiment data the question is actually about."}
+  ],
+  "citations": [
+    "Issue 581",
+    {"id": "t1564", "quote": "This does not mean that information intended for presentation to members of the general public is excluded"},
+    "Issue 580",
+    {"id": "t1556", "quote": "CRMbase is concerned with objective spatio-temporal facts"},
+    "E13",
+    "E16",
+    "E31"
+  ],
+  "in_scope": false,
+  "queries_run": [
+    "ontology",
+    "docs \"public consultation\"",
+    "docs \"scope of the CIDOC CRM\" --kind narrative",
+    "docs \"public opinion survey statistics\" --kind narrative",
+    "docs \"Intended Scope broad maximally-inclusive\" --kind narrative",
+    "docs \"documentation should not include current administrative or operational information\" --kind narrative",
+    "docs \"curated factual knowledge about the past at a human scale\" --kind narrative",
+    "\"public consultation survey opinion\"",
+    "issues \"public opinion survey\"",
+    "issue 581",
+    "concept E13",
+    "issue 580",
+    "\"CRMsoc\"",
+    "thread t1564",
+    "thread t1556",
+    "quote t1556 \"CRMbase is concerned with objective spatio-temporal facts\"",
+    "quote t1564 \"This does not mean that information intended for presentation to members of the general public is excluded\""
+  ],
+  "confidence": "medium",
+  "notes": "No tool surfaced a class for 'opinion', 'sentiment', 'survey' or 'belief' directly, so absence-of-evidence is itself part of the case for out-of-scope. The CRMsoc discontinuation (Issue 580) was the strongest single piece of evidence -- it shows the SIG considered a home for this kind of fact and walked away from it, which is stronger than my just failing to find a matching class myself. Did not check CRMinf (I2 Belief etc.) individually since it is built for scholarly argumentation over evidence, not for polling the public, and the case gave no indication of an inferential/argumentation angle."
+}

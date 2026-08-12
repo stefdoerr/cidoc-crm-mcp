@@ -1,0 +1,147 @@
+{
+  "case_id": "archaeology-c3",
+  "answer": "Keep it inside. This is not a case where the CRM has to be stretched: it has a purpose-built slot for exactly a surveyed polygon, and the specification says so in as many words. The introduction's section on Spatial Relations describes the P168/P171/P172 cluster as the way to \"link to geometric place expressions while also accurately indicating how this expression relates to the documented place\", and says these properties \"provide a valid interface to the OGC standards\" (crm732#s0074).\n\nWHAT TO WRITE\n\n1. The polygon itself is ONE instance of E94 Space Primitive - a single OGC-conformant value (a WKT `POLYGON((...))` or a GML geometry, carrying its SRS), not several dozen modelled point entities. That restraint is deliberate on the CRM's part: \"E94 Space Primitive is not further elaborated upon within this model. It is considered good practice to maintain compatibility with OGC standards\" (crm732#E94). Issue 391 (Harmonizing Space Primitive) closed Done with E94 declared both an appellation and a primitive value, and with published RDF guidance for it; in practice that means a typed geospatial literal (geo:wktLiteral / ogc:gmlLiteral). So the catalogue holds the geometry verbatim and hands the geometry *work* - area, orientation, buffering, overlay - back to the GIS, which reads that value.\n\n2. The polygon does not become the cut's place; it defines a new one. Per E94's scope note, using a Space Primitive to approximate the actual extent of some place \"always defines a (declarative) instance of E53 Place in its own right\" (crm732#E94; ratified as Issue 390 at the 46th SIG meeting). So mint a declarative E53 Place, join it to the polygon with P168 place is defined by, and relate it to the cut with P189 approximates (declarative -> phenomenal, which is the direction P189's own examples use).\n\n3. The cut is A3 Stratigraphic Interface in CRMarchaeo - a stratigraphic unit that is a coherent part of a boundary surface, and specifically the kind that is \"only surfaces, formed by the removal or destruction of existing stratifications\", which is what a grave cut is. Conveniently you do not need a second node for its actual extent: A3 inherits from CRMsci's S20 Rigid Physical Feature, which S20's scope note declares a subclass of both E26 Physical Feature and E53 Place, the latter as a phenomenal place, precisely so that one can talk about the feature's extent without instantiating a separate place. `connect A3 E94` confirms P168, P171 and P172 all reach E94 from A3 on that inheritance.\n\n4. Because the surveyor is part of this case, record the survey act too - this is the thing that usually drives people to keep geometry outside, and it does not have to. A total-station fix is an instance of CRMsci's S23 Position Determination, a class scoped to determining an observable entity's position by instrument (its scope note names a theodolite, and gives \"the outer walls of an excavated settlement\" as the sort of extent being approximated), whose result is attached with O30 determined position to an E94 Space Primitive. Hang P14 carried out by (surveyor), P4 has time-span, P16 used specific object (the instrument) and P33/P32 (technique) off it. In the SIG's own debate on holding geometries as literals, Rob Sanderson's objection was exactly that a bare literal cannot carry typing or provenance (t1119); S23/O30 supplies that from the event side rather than by inflating the geometry.\n\nTWO PRACTICAL CAUTIONS\n\n- E53 Place quantifies P157 is at rest relative to as necessary. Record the reference frame the coordinates are at rest in, not just the numbers.\n- Reprojection is not a relabelling: \"Definitions of instances of E53 Place using different spatial reference systems are always definitions of different instances of E53 Place\" (crm732#E94). A re-projected outline is a new declarative Place approximating the same cut, not an edit of the existing one. This is the single point most likely to bite a GIS-driven workflow.\n\nWHERE THE LIMIT ACTUALLY FALLS\n\nThe honest boundary is not \"geometry is out of scope\" but \"geometric reasoning is out of scope\". The CRM will hold the outline and say what it means; it will not model vertices, topology operators, or the over/under relations archaeologists work with. When Christian-Emil Ore asked for general relative-position predicates for exactly this kind of layered archaeological material, Martin Doerr argued them out of scope on integration grounds and added that \"the CRM does NOT disallow to document something it does not model\" (t1316). Martin has separately acknowledged that there are \"subtle implementation issues about where to stop ontological representation and use data objects directly within a KB\" (t1397). Read together: put the authoritative outline in the catalogue as an E94 value with its declarative place and its survey provenance, and let the GIS layer be a derived working copy rather than the only copy.\n\nOne thing to check before you commit the subject of the geometry: if what the total station actually captured was the exposed excavated surface (a planum or profile) rather than the interpreted cut, the correct subject is A10 Excavation Interface, whose scope note explicitly covers surfaces measured by tachymetry and says that under a stratigraphic methodology such an interface is intended to approximate an A3 Stratigraphic Interface. Same geometry pattern either way; different thing being approximated.",
+  "classes_proposed": ["E94", "E53", "A3", "S23"],
+  "properties_proposed": ["P168", "P189", "P157", "O30"],
+  "rejected_alternatives": [
+    {
+      "option": "E62 String carrying the WKT via P190 has symbolic content",
+      "why_not": "Technically possible - E94's own dossier lists P190 - but as the primary encoding it throws away the assertion that this value defines a place. P168's range is E94, and Issue 391 settled that E94 is simultaneously an appellation and a primitive value so it can be realised as a typed geospatial literal. A plain string is neither queryable as geometry nor connected to E53."
+    },
+    {
+      "option": "SP5 Geometric Place Expression (CRMgeo)",
+      "why_not": "The index reports SP5 as historical: only the archive attests it, CRMgeo's current declarations no longer carry it, and no scope note is on file. Martin's Issue 391 proposal was that E94 Space Primitive should replace both E47 Spatial Coordinates and SP5, and that issue closed Done. Building the catalogue on SP5 today would be building on a withdrawn identifier."
+    },
+    {
+      "option": "SP6 Declarative Place with Q10 place is defined by (CRMgeo)",
+      "why_not": "Still current, and it is literally the declarative-place notion this answer relies on. But Q10 is a subproperty of P168 and SP6 a subclass of E53, so plain E53 + P168 says the same thing while keeping the site database in CRMbase. Reach for SP6/Q10 only if the archive is already committed to CRMgeo and wants the reference-space machinery (SP3/SP4) as well."
+    },
+    {
+      "option": "D1 Digital Object (CRMdig) for the geometry",
+      "why_not": "This is the 'keep it outside as a linked file' option dressed in CRM clothing - it models the shapefile, not the outline. It is fine for the exported layer as a deliverable, but it does not put the extent into the catalogue as data. The SIG declined to make geometric place expressions a subclass of D1 anyway, on the grounds that not every geometry arises from a digital process (t1397)."
+    },
+    {
+      "option": "P171 at some place within (or P172 contains) straight from the cut to the polygon",
+      "why_not": "These are the right tools for a bounding or a minimum extent - P171's scope note is about a maximum spatial extent, and it is an explicit shortcut for E53. P89 falls within: E53. P168: E94, i.e. through a declarative place that is deliberately left undocumented. Here the surveyed polygon is precisely the artefact the archivist wants to keep, cite, date and attribute, so the intermediate declarative place should be instantiated rather than suppressed."
+    },
+    {
+      "option": "A10 Excavation Interface as the subject of the outline",
+      "why_not": "Not so much rejected as conditional. If the plan records the interpreted cut, A3 is the subject; if it records the surface as actually exposed by digging, A10 is, and A10 then approximates the A3. Flagged in the answer as a check rather than dismissed, because the case does not say which was surveyed."
+    }
+  ],
+  "siblings_considered": [
+    {
+      "of": "E94",
+      "sibling": "E95",
+      "why_not": "E95 Spacetime Primitive expresses geometries that are limited and varying over time, and it feeds P169 defines spacetime volume, not P168. What the surveyor closed is a static planar outline in one spatial reference system with no temporal extent of its own; the cut's temporal aspect sits on its genesis event, not on the polygon. E94 is the spatial primitive and is the declared range of P168."
+    },
+    {
+      "of": "E53",
+      "sibling": "E92",
+      "why_not": "E92 Spacetime Volume is a 4-dimensional point set, and the cut does define one (P196 is quantified as necessary on A3). But the surveyed polygon is a purely spatial extent, and the geometry-bearing pattern in the CRM runs E53 -P168-> E94; a spacetime volume would have to be defined by an E95 Spacetime Primitive via P169 instead, which is not what a plan drawing is."
+    },
+    {
+      "of": "A3",
+      "sibling": "A2",
+      "why_not": "A2 Stratigraphic Volume Unit is a bounded portion of terrain - here that would be the grave fill sitting inside the cut, not the cut. The surveyed outline is of the boundary surface left by digging, which is A3; AP12 confines is what relates the A3 to the A2 it bounds. If the fill's extent is surveyed separately, it gets its own A2 and its own geometry."
+    },
+    {
+      "of": "S23",
+      "sibling": "S21",
+      "why_not": "S23's own scope note states it is not a subclass of S21 Measurement, because a position determination normally has to measure more than one dimension - a total-station fix resolves a combination of distances and angles against known reference points. S21 Measurement would be right for the grave's depth or maximum length as a single E54 Dimension, not for fixing the polygon."
+    }
+  ],
+  "citations": [
+    "E94",
+    "E53",
+    "A3",
+    "A2",
+    "A8",
+    "A10",
+    "S20",
+    "S23",
+    "S21",
+    "S27",
+    "SP2",
+    "SP5",
+    "SP6",
+    "Q10",
+    "D1",
+    "E92",
+    "E95",
+    "E62",
+    "P168",
+    "P189",
+    "P171",
+    "P157",
+    "O30",
+    "AP12",
+    "crm732#P171",
+    "issue390#outcome",
+    "minutes:46th_joint_meeting_of_the_CIDOC_CRM_SIG_minutes_v1#s078",
+    "t1119",
+    {"id": "crm732#E94", "quote": "not further elaborated upon within this model"},
+    {"id": "crm732#E94", "quote": "It is considered good practice to maintain compatibility with OGC standards"},
+    {"id": "crm732#E94", "quote": "always defines a (declarative) instance of E53 Place in its own right"},
+    {"id": "crm732#E94", "quote": "Definitions of instances of E53 Place using different spatial reference systems are always definitions of different instances of E53 Place"},
+    {"id": "crm732#s0074", "quote": "provide a valid interface to the OGC standards"},
+    {"id": "issue391#outcome", "quote": "E94 Space Primitive is declared IsA E41 Appellation AND IsA E59 Primitive Value"},
+    {"id": "t1316", "quote": "the CRM does NOT disallow to document something it does not model"},
+    {"id": "t1397", "quote": "where to stop ontological representation and use data objects directly within a KB"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E94",
+    "concept E53",
+    "docs \"Spatial Relations space primitive declarative place geometry\" --kind narrative",
+    "docs \"Spatial Relations key class E53 Place P168 place is defined by\" --kind narrative --raw",
+    "docs \"Spatial Relations key class E53 Place P168 place is defined by\" --kind narrative --json",
+    "concept A3",
+    "concept A2",
+    "concept A8",
+    "concept A1",
+    "concept S20",
+    "connect A3 E94",
+    "connect E53 E94",
+    "concept P168",
+    "concept P189",
+    "concept P171",
+    "concept SP5",
+    "concept SP6",
+    "concept SP2",
+    "concept Q10",
+    "threads \"geometry belongs in GIS not in the CRM, spatial data storage\"",
+    "thread t1316",
+    "thread t1119",
+    "issues \"Harmonizing Space Primitive E94 geometry literal\"",
+    "issue 391",
+    "\"grave cut negative feature stratigraphic interface A3\"",
+    "concept A10",
+    "concept AP12",
+    "issue 390",
+    "concept D1",
+    "thread t1397",
+    "quote crm732#s0074 \"provide a valid interface to the OGC standards\"",
+    "quote t1316 \"the CRM does NOT disallow to document something it does not model\"",
+    "docs \"E94 Space Primitive scope note not further elaborated OGC\" --kind declaration --json",
+    "quote crm732#E94 \"not further elaborated upon within this model\"",
+    "quote crm732#E94 \"always defines a (declarative) instance of E53 Place in its own right\"",
+    "quote crm732#S20 \"shortcuts an implicit self-referential path\"  [UNKNOWN SOURCE - extension scope notes are not quotable]",
+    "quote t1397 \"where to stop ontological representation and use data objects directly within a KB\"",
+    "concept S23",
+    "concept O30",
+    "concept S27",
+    "quote crm732#E94 \"Definitions of instances of E53 Place using different spatial reference systems are always definitions of different instances of E53 Place\"",
+    "quote crm732#E94 \"It is considered good practice to maintain compatibility with OGC standards\"",
+    "quote crm732#P171 \"maximum spatial extent\"",
+    "quote S23 \"theodolite\"  [UNKNOWN SOURCE]",
+    "quote minutes:46th_joint_meeting_of_the_CIDOC_CRM_SIG_minutes_v1#s078 \"E94 Space Primitive\"",
+    "\"store polygon geometry in CRM database or keep in GIS shapefile excavation plan\"",
+    "docs \"scope note of E94 Space Primitive outcome\" --kind issue --json",
+    "quote issue390#outcome \"always defines a (declarative) instance of E53 Place in its own right\"",
+    "quote issue391#outcome \"E94 Space Primitive is declared IsA E41 Appellation AND IsA E59 Primitive Value\""
+  ],
+  "confidence": "high",
+  "notes": "Three frictions with the tools. (1) `ontology` lists only CRMbase's 241 identifiers, so the extension classes that carry this case - A3, A10, S20, S23, SP6 - are reachable only by guessing an id and running `concept` on it; there is no way to browse CRMarchaeo or CRMsci. (2) `concept` prints no Siblings block for extension classes, so A3's and S23's siblings had to be reconstructed from the 'Superclass of' lines of A8 (A7, A2, A3) and S27 (S4, S19, S21, S23). (3) `quote` does not accept extension concept ids (S20, S23, A10 all return UNKNOWN SOURCE), so the CRMsci and CRMarchaeo scope notes I lean on are paraphrased rather than quoted, even though I read them in full. One loose end I could not close: P168's FOL in 7.3.2 carries the clauses P168(x,y) => not-exists z [E92(z) & P161(z,x) & P169(u,z)] and P168(x,y) => not-exists z [E4(z) & P161(z,x)], which appear to bar attaching a Space Primitive directly to a place that is the spatial projection of a period or of a spacetime-primitive-defined volume. That reinforces the recommendation to route through a separate declarative place rather than putting P168 straight on the A3, but I could not find the SIG discussion that motivated those clauses - the FOL-formalization threads it points to (t1268, t1633) are marked unresolved."
+}

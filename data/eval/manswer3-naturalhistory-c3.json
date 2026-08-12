@@ -1,0 +1,41 @@
+{
+  "case_id": "naturalhistory-c3",
+  "answer": "This is squarely CRMsci territory, not out of scope, but the storage-vs-reference question is a policy choice the model leaves open rather than one it settles. Model the fish as E20 Biological Object. The sequencing is an S21 Measurement (subclass of S4 Single Observation, both CRMsci): P14 carried out by the genomics lab, O24 measured the specimen (an S15 Observable Entity), and O16 observed value is the actual literal outcome slot -- so the model has no structural objection to holding the nucleotide sequence itself if you want to. The external database's accession number is an E42 Identifier attached via P1 is identified by / P48 has preferred identifier to whatever CRM entity represents the sequence result -- this is the standard CRM pattern for pointing at an authority record without re-hosting it, and it works whether or not you also keep a local copy of the payload. The phylogenetic placement is a distinct analytical step: best kept off the specimen record as its own S21 Measurement/S4 Single Observation (or, if framed as reasoning about relatedness, CRMinf via J2 concluded that -> I2 Belief), with the bootstrap-support values as E54 Dimension(s) attached to that conclusion, not to the fish itself. So: the CRM classes exist for either design (duplicate the data locally, or store only the sequencing/analysis events plus the external identifier); I did not find any SIG guidance in the archive that mandates one over the other for this case, so the curator's storage question is an institutional-policy call the model accommodates but does not adjudicate.",
+  "classes_proposed": ["E20", "S21", "S4", "S15", "E42", "E54", "I2"],
+  "properties_proposed": ["P14", "O24", "O16", "P1", "P48", "P43", "J2"],
+  "rejected_alternatives": [
+    {"option": "E22 Human-Made Object for the sequence data file", "why_not": "not investigated in depth; E20 Biological Object is the specimen itself and is the class whose siblings/dossier and connect results actually matched this case, so a human-made-object framing for the fish was not pursued"},
+    {"option": "Storing the sequence only as a plain E62 String with no observation event", "why_not": "S4/S21's own applicable-properties list treats the value as the output of an O16 observed value slot on the observation activity itself, so dropping the activity loses the required P14/P4/etc. provenance the CRM quantifies as necessary on S4/S21"}
+  ],
+  "citations": ["E20", "S4", "S21", "S15", "E42", "P1", "P48", "O16", "O24", "P14", "J2", "I2", "t1188", "Modelling principles > Minimality"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"DNA sequence\"",
+    "docs \"specimen\" --kind narrative",
+    "\"DNA sequence specimen genetic accession\"",
+    "threads \"DNA sequencing biological specimen\"",
+    "docs \"genetic sequence\"",
+    "docs \"Minimality\" --kind narrative",
+    "concept S4",
+    "concept E20",
+    "--help",
+    "\"genetic material sample DNA sequence specimen\"",
+    "issues \"DNA sequence genetic sample specimen\"",
+    "\"phylogenetic tree bootstrap sequence genome\"",
+    "issues \"sequence data external database accession identifier digital\"",
+    "issue 332",
+    "thread t1188",
+    "issue 347",
+    "\"GenBank accession number external database duplicate data reference identifier\"",
+    "docs \"duplicate data external system reference\" --kind narrative",
+    "concept S15",
+    "connect E20 E42",
+    "connect S4 E42",
+    "connect E20 E31",
+    "concept S21",
+    "concept I2"
+  ],
+  "confidence": "medium",
+  "notes": "The CRMsci dossiers (S4/S21/S15) gave a clean structural answer for who-measured-what-and-how, but nothing in docs/issues/mailing-list directly rules on whether a local collection database should duplicate externally-accessioned sequence/analysis data versus reference it only -- that half of the case is a practical governance question the tools did not resolve, so I flagged it as such rather than inventing a SIG position. thread t1188 was the only archive hit that put phylogenetic-sequencing data explicitly inside CRMsci's discussed remit; it is informational sharing, not a decided issue, so I cited it only for that limited claim."
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "intangible-c1",
+    "verdict": "suboptimal",
+    "constraint_checked": "P128 domain E18->range E90 (E22 IS-A E18, E33 IS-A E90: holds). P130 domain/range E70->E70 (E33 IS-A E70 via E73/E89/E28: holds). But the answer's own cited precedent, t1128, has Doerr saying for derivative-text pairs 'I would use both, R2 and the E65 creation event' (E65 P16 used specific object -> the source). The delivered classes_proposed/properties_proposed (E33, E22 / P130, P128) omit E65+P16 entirely, so the final model is less complete than the decided practice it invokes as authority.",
+    "better_modelling": "Add an E65 Creation for the 2003 recording session with P16 used specific object -> the 1952 recording's E33 content, alongside P130 shows features of. This matches t1128's full pattern rather than only its shortcut half.",
+    "evidence": ["P130", "P128", "E33", "t1128"],
+    "reasoning": "Domain/range checks pass and the 'no work-identity construct exists' conclusion is well evidenced (t1475/Issue 527, genuinely unresolved -- Doerr naming an unbuilt 'core-variant relation'), but the answer cites a fuller decided pattern than it actually implements, which is exactly the kind of correct-but-too-general defect the strict pass should catch."
+  },
+  {
+    "case_id": "intangible-c2",
+    "verdict": "correct",
+    "constraint_checked": "Grepped the full ontology listing for teach/instruct/apprentice/mentor/student -- no match, confirming no direct person-to-person transmission property exists (unlike P152 has parent, domain/range E21->E21, whose FOL shows it is explicitly a shortcut for a full E67 Birth path). P11 had participant (domain E5/E7 event -> E39 Actor) and P4 has time-span both apply cleanly to the forty E7 Activity instances.",
+    "better_modelling": null,
+    "evidence": ["P152", "P11", "t0834"],
+    "reasoning": "t0834 quote verified verbatim ('it is not necessary that a student and teacher should be seen as members of an E74 Group', Christian-Emil, discussing this exact ULAN teacher/student pattern) and t1701's 'quite overstretching what an activity is' quote also verified verbatim -- both rejections are accurately cited, not manufactured, and no sharper construct was missed."
+  },
+  {
+    "case_id": "intangible-c3",
+    "verdict": "correct",
+    "constraint_checked": "E74 Group's current scope note explicitly states groups 'in the wider sense also comprise official positions... such as the president of a country' and 'it may happen that the group never had more than one member' -- directly licenses a singleton-office reading for 'Fire-Keeper of [village]'. P143/P144 domain->range confirmed E85->E39 / E85->E74; P145/P146 confirmed E86->E39 / E86->E74; E85/E86 examples ('inauguration... into an official position', 'end of tenure... in an official position') match the case almost verbatim.",
+    "better_modelling": null,
+    "evidence": ["E74", "E85", "E86", "P143", "P144", "P145", "P146", "t1022"],
+    "reasoning": "All cited property domains/ranges hold exactly. The E30 Right rejection is grounded in a direct quote in t1022 (Christian-Emil: no CRM property for 'giving somebody a right'), and the fuzzy-timespan argument (E52/P81/P82, P12 optional) correctly defeats the 'informal/undated/unwitnessed' framing in the question rather than retreating to 'contested'."
+  },
+  {
+    "case_id": "naturalhistory-c1",
+    "verdict": "suboptimal",
+    "constraint_checked": "E80 step verified: P112/P113 domain->range is E80->E18 (current, per t1536's resolved E24->E18 fix), matching the moth/leg split exactly. E81 step checked against t1396 (the SIG's own e-vote thread ratifying E81's examples): every adopted example -- mummification, Pompeii petrification, church-to-stable/bookshop reuse, the castrated-satyr panel -- preserves recognizable macroscopic structure across the transformation, which is what the scope note's 'preserves recognizable substance and structure' clause is written around. Dissolving a leg into a liquid DNA extract preserves no recognizable structure at all; it is bulk chemical digestion, not a structure-preserving transformation.",
+    "better_modelling": "Drop E81/E12 for the second step. Model it as plain E12 Production: P16 used specific object -> the removed leg (consumed as raw material), P108 has produced -> the frozen DNA extract, optionally with an E6 Destruction/P13 destroyed of the leg as part of that production. This tracks the case ('a new object created by a sampling event that also modified the original') without borrowing E81's structure-continuity claim, which the case does not meet.",
+    "evidence": ["E80", "E81", "P112", "P113", "t1396", "t1536"],
+    "reasoning": "The E80 half is correct and well-evidenced (t1536 supports the identity-disjointness argument accurately). The E81 half over-reaches: the SIG's own ratified example set for E81/P123/P124 is uniformly about preserved macroscopic form, and the answer's own notes admit uncertainty here (flagging CRMsci S2/S13 as the 'more natural home' before falling back to core classes), which is itself evidence the fit was recognized as weak."
+  }
+]

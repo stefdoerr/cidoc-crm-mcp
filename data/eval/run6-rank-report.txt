@@ -1,0 +1,32 @@
+18 of 18 cases ranked
+
+== CONTROL: run6a vs run6b (same system, so any systematic
+            preference is judge noise, not signal) ==
+  run6a ranked above run6b: 10/18
+  run6b ranked above run6a: 8/18
+  the two samples ranked ADJACENT (1st+2nd or 2nd+3rd): 18/18
+  split 10-8; |skew| 0.11  (0.00 = perfectly balanced, as it should be)
+  Adjacency is the sharper test: two samples of one system should
+  bracket each other. Splitting them apart means the judge is
+  reacting to sampling noise as if it were quality.
+
+  judge self-reported confident: 3/18   not confident: 15/18
+
+== RESULT: run6 vs run4a ==
+  ranked first:  run4a 1   run6a 9   run6b 8
+  a run6 sample ranked above run4a: 34/36 pairings
+
+== BREADTH: is the extra breadth load-bearing, or padding? ==
+  run                  neither             padding     under-specified
+  run4a                      0                   1                  17
+  run6a                     18                   0                   0
+  run6b                     17                   0                   1
+
+  'padding' counts against run6 directly; 'under-specified' against
+  run4a. This is the row that decides whether the +70% class-count
+  rise is the protocol working or the protocol being gamed.
+
+== how to read this ==
+  If the control is skewed or the two samples are rarely adjacent,
+  the RESULT section above is noise and must not be reported as a
+  finding. Read the control first, every time.

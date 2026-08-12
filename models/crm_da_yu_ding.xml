@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="crm.xsl"?>
+<!-- CIDOC CRM encoding of the Da Yu ding, after the form of
+ old.cidoc-crm.org/docs/amol/crm_amol_1.xml and .../clayton/crm_clayton1.xml.
+ Source of content: English Wikipedia, "Da Yu ding".
+ Class labels follow CIDOC CRM v7.3.2, not the v3.x labels used in the examples.
+ Instance identity is by the text label of the element, as in both examples:
+ the same label used twice denotes the same instance. -->
+<CRMset>
+
+<!-- ============================================================
+ 1. THE OBJECT
+ ============================================================ -->
+<CRM_Entity>Da Yu ding
+  <in_class>E22: Human-Made Object</in_class>
+
+  <is_identified_by>大盂鼎
+    <in_class>E41: Appellation</in_class>
+    <has_type>Chinese name
+      <in_class>E55: Appellation Type</in_class>
+    </has_type>
+    <has_alternative_form>Dà Yú dǐng
+      <in_class>E41: Appellation</in_class>
+      <has_type>Pinyin romanisation
+        <in_class>E55: Appellation Type</in_class>
+      </has_type>
+    </has_alternative_form>
+    <has_alternative_form>Da Yu ding
+      <in_class>E41: Appellation</in_class>
+      <has_type>Pinyin romanisation without tone marks
+        <in_class>E55: Appellation Type</in_class>
+      </has_type>
+    </has_alternative_form>
+  </is_identified_by>
+  <has_note>The article records no museum inventory or accession number for this
+    object, so no instance of E42 Identifier is asserted. The names below are
+    appellations, not assigned identifiers, and no preferred identifier is claimed.
+    <has_type>Modelling note
+      <in_class>E55: Note Type</in_class>
+    </has_type>
+  </has_note>
+
+  <has_type>ding (鼎)
+    <in_class>E55: Object Type</in_class>
+    <has_broader_term>ancient Chinese ritual bronze vessel
+      <in_class>E55: Object Type</in_class>
+    </has_broader_term>
+  </has_type>
+  <has_type>round tripod cauldron
+    <in_class>E55: Object Type</in_class>
+  </has_type>
+  <has_note>An ancient Chinese bronze circular ding vessel of the Western Zhou
+    dynasty. The tripod is round, with three legs, a common shape during the
+    Western Zhou dynasty.
+    <has_type>Description
+      <in_class>E55: Note Type</in_class>
+    </has_type>
+  </has_note>
+  <was_intended_for>ancestral sacrifice to Nan Gong
+    <in_class>E55: Type</in_class>
+  </was_intended_for>
+  <had_as_general_use>ritual food vessel
+    <in_class>E55: Type</in_class>
+  </had_as_general_use>
+
+  <!-- material -->
+  <consists_of>bronze
+    <in_class>E57: Material</in_class>
+  </consists_of>
+
+  <!-- dimensions -->
+  <has_dimension>Da Yu ding height
+    <in_class>E54: Dimension</in_class>
+    <has_type>height
+      <in_class>E55: Dimension Type</in_class>
+    </has_type>
+    <has_value>101.9</has_value>
+    <has_unit>cm
+      <in_class>E58: Measurement Unit</in_class>
+    </has_unit>
+  </has_dimension>
+  <has_dimension>Da Yu ding aperture
+    <in_class>E54: Dimension</in_class>
+    <has_type>aperture (diameter of the mouth)
+      <in_class>E55: Dimension Type</in_class>
+    </has_type>
+    <has_value>77.8</has_value>
+    <has_unit>cm
+      <in_class>E58: Measurement Unit</in_class>
+    </has_unit>
+    <has_note>The body of the article calls this measurement the aperture; the
+      infobox of the same article labels the same 77.8 cm figure "width". Recorded
+      here as the aperture, which is the reading given in running prose, with the
+      disagreement noted rather than resolved.
+      <has_type>Source discrepancy
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </has_dimension>
+  <has_dimension>Da Yu ding weight
+    <in_class>E54: Dimension</in_class>
+    <has_type>weight
+      <in_class>E55: Dimension Type</in_class>
+    </has_type>
+    <has_value>153.5</has_value>
+    <has_unit>kg
+      <in_class>E58: Measurement Unit</in_class>
+    </has_unit>
+  </has_dimension>
+
+  <!-- condition -->
+  <has_note>The article makes no statement about the physical condition of the
+    object, and records no damage, loss, repair, restoration or reconstruction of
+    it at any point in its history. No instance of E3 Condition State and no
+    instance of E11 Modification later than the original casting is therefore
+    asserted. The absence is in the source, not in the model.
+    <has_type>Modelling note
+      <in_class>E55: Note Type</in_class>
+    </has_type>
+  </has_note>
+
+  <!-- parts and decoration -->
+  <bears_feature>the cast characters on the interior wall of the Da Yu ding
+    <in_class>E25: Human-Made Feature</in_class>
+    <has_note>The physical attachment of the inscribed characters to this object.
+      It is also reachable as the value of P200 has complete copy on the E34
+      Inscription below, P200 being a subproperty of P128 carries; stated here as
+      well because P56 bears feature is quantified as dependent, every instance of
+      E26 Physical Feature being found on exactly one physical object.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </bears_feature>
+  <bears_feature>the mouth of the Da Yu ding
+    <in_class>E25: Human-Made Feature</in_class>
+    <has_type>rim
+      <in_class>E55: Feature Type</in_class>
+    </has_type>
+    <shows_visual_item>taotie decoration on the mouth of the Da Yu ding
+      <in_class>E36: Visual Item</in_class>
+      <has_type>taotie pattern
+        <in_class>E55: Motif Type</in_class>
+      </has_type>
+      <represents>taotie (饕餮)
+        <in_class>E55: Type</in_class>
+      </represents>
+      <has_note>P138 represents is used with an instance of E55 Type as its range,
+        not P199 represents instance of type, because the taotie is a conventional
+        mythical mask motif: the decoration shows the concept, it does not portray
+        a particular individual creature whose identity happens to be unrecorded.
+        The scope note of P199 draws exactly this distinction.
+        <has_type>Modelling note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </shows_visual_item>
+  </bears_feature>
+  <bears_feature>the legs of the Da Yu ding
+    <in_class>E25: Human-Made Feature</in_class>
+    <has_type>leg
+      <in_class>E55: Feature Type</in_class>
+    </has_type>
+    <has_note>The article states in one sentence that the tripod is "round, with
+      three legs" and in the next that "its four legs are engraved with animal face
+      patterns". The two statements contradict each other; a ding is by definition
+      a tripod, so three is the reading consistent with the object type, but the
+      source is left unresolved here rather than silently corrected. See the
+      attribute assignments attached to this object.
+      <has_type>Source discrepancy
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <shows_visual_item>animal-face decoration on the legs of the Da Yu ding
+      <in_class>E36: Visual Item</in_class>
+      <has_type>animal face pattern
+        <in_class>E55: Motif Type</in_class>
+      </has_type>
+      <represents_instance_of_type>animal face
+        <in_class>E55: Type</in_class>
+      </represents_instance_of_type>
+      <has_note>P199 is used here, and not P138, because the article names only a
+        kind of thing shown ("animal face patterns") and no identifiable creature.
+        <has_type>Modelling note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </shows_visual_item>
+  </bears_feature>
+
+  <!-- the inscription: three distinct things -->
+  <!-- (a) this object, E22, the bronze that carries the text;
+ (b) the text itself, E34 Inscription, an immaterial symbolic object
+ whose identity is the prototype, not any one embodiment;
+ (c) the cast characters on the interior wall, E25 Human-Made Feature,
+ the one physical embodiment of that text, reached from the text by
+ P200 has complete copy and from this object by P56 bears feature. -->
+  <carries>the inscription of the Da Yu ding
+    <in_class>E34: Inscription</in_class>
+    <has_type>cast bronze inscription (jinwen 金文)
+      <in_class>E55: Inscription Type</in_class>
+    </has_type>
+    <has_language>Chinese
+      <in_class>E56: Language</in_class>
+      <has_note>The article names only the script ("Chinese characters"). The
+        language of a Western Zhou bronze inscription would more precisely be Old
+        Chinese, but that is not stated in the source and is not asserted here.
+        <has_type>Modelling note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_language>
+    <has_note>P190 has symbolic content is deliberately not instantiated: the
+      article does not reproduce the Chinese text of the inscription, only an
+      English translation, and P190 must carry the content of this symbolic
+      object itself, not a translation of it. The translation is attached below
+      by P73 has translation as a separate linguistic object with its own identity.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <has_dimension>number of lines of the Da Yu ding inscription
+      <in_class>E54: Dimension</in_class>
+      <has_type>number of lines
+        <in_class>E55: Dimension Type</in_class>
+      </has_type>
+      <has_value>19</has_value>
+      <has_unit>line
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+    <has_dimension>number of characters of the Da Yu ding inscription
+      <in_class>E54: Dimension</in_class>
+      <has_type>number of characters
+        <in_class>E55: Dimension Type</in_class>
+      </has_type>
+      <has_value>291</has_value>
+      <has_unit>Chinese character
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+
+    <!-- (c) the physical embodiment -->
+    <has_complete_copy>the cast characters on the interior wall of the Da Yu ding
+      <in_class>E25: Human-Made Feature</in_class>
+      <has_type>cast characters
+        <in_class>E55: Feature Type</in_class>
+      </has_type>
+      <has_note>The characters were cast with the vessel rather than incised after
+        it, so this feature was brought into existence by the same instance of E12
+        Production as the vessel. It is the individual physical embodiment that the
+        scope note of E34 Inscription explicitly separates from the text itself.
+        <has_type>Modelling note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_complete_copy>
+
+    <!-- the creation of the text, distinct from the casting of the bronze -->
+    <was_created_by>the composition of the Da Yu ding inscription
+      <in_class>E65: Creation</in_class>
+      <carried_out_by>Yu (盂)
+        <in_class>E21: Person</in_class>
+      </carried_out_by>
+      <has_time-span>the 23rd year of King Kang of Zhou
+        <in_class>E52: Time-Span</in_class>
+      </has_time-span>
+      <has_note>The inscription's closing section is in Yu's own voice, so Yu is
+        recorded as having carried out the creation of the text. The article does
+        not say who drafted or wrote it, and no scribe is asserted.
+        <has_type>Modelling note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </was_created_by>
+
+    <!-- what it says: the four sections, in order -->
+    <is_composed_of>the first speech in the Da Yu ding inscription
+      <in_class>E33: Linguistic Object</in_class>
+      <has_language>Chinese
+        <in_class>E56: Language</in_class>
+      </has_language>
+      <has_note>A historical overview giving a moral rationale for the fall of the
+        Shang and the rise of the Western Zhou: the King says that drinking wine in
+        excess made the Shang lose the Mandate of Heaven, grace and the army, while
+        the Kings of Zhou do not drink excessively even ceremonially. The King then
+        commands Yu to support him and to work official service throughout days.
+        <has_type>Content
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_about>Shang dynasty
+        <in_class>E4: Period</in_class>
+        <has_note>c. 1600 - 1046 BC.
+          <has_type>Statement
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+      </is_about>
+      <refers_to>King Wen of Zhou
+        <in_class>E21: Person</in_class>
+      </refers_to>
+      <refers_to>King Wu of Zhou
+        <in_class>E21: Person</in_class>
+      </refers_to>
+    </is_composed_of>
+    <is_composed_of>the second speech in the Da Yu ding inscription
+      <in_class>E33: Linguistic Object</in_class>
+      <has_language>Chinese
+        <in_class>E56: Language</in_class>
+      </has_language>
+      <has_note>A short charge to Yu to emulate his late grandfather, Nan Gong.
+        <has_type>Content
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <refers_to>Nan Gong (南公)
+        <in_class>E21: Person</in_class>
+      </refers_to>
+    </is_composed_of>
+    <is_composed_of>the third speech in the Da Yu ding inscription
+      <in_class>E33: Linguistic Object</in_class>
+      <has_language>Chinese
+        <in_class>E56: Language</in_class>
+      </has_language>
+      <has_note>The appointment of the King's minister with army power, and a
+        detailed inventory of the gifts given by the King: a flask of sacrificial
+        liquors, ceremonial cap, robes, kneepads and sandals, a chariot with horse,
+        the banner of Yu's late grandfather Nan Gong, four estate officials, 659
+        servants from charioteers to common peasants, thirteen officials of the rank
+        of King's officers, and 1,050 servants (人鬲). The listed inventory includes
+        1,726 persons held in servitude in total.
+        <has_type>Content
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_composed_of>
+    <is_composed_of>the closing section of the Da Yu ding inscription
+      <in_class>E33: Linguistic Object</in_class>
+      <has_language>Chinese
+        <in_class>E56: Language</in_class>
+      </has_language>
+      <has_note>Yu himself recording that he made this tripod for his deceased
+        grandfather Nan Gong in response to the King's kindness, and that it was
+        the King's twenty-third sacrificial year.
+        <has_type>Content
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_about>the casting of the Da Yu ding
+        <in_class>E12: Production</in_class>
+      </is_about>
+    </is_composed_of>
+
+    <!-- what the inscription is about, and whom it names -->
+    <is_about>the charge of Yu by King Kang of Zhou
+      <in_class>E7: Activity</in_class>
+      <has_type>royal charge
+        <in_class>E55: Activity Type</in_class>
+      </has_type>
+      <carried_out_by>King Kang of Zhou
+        <in_class>E21: Person</in_class>
+      </carried_out_by>
+      <had_participant>Yu (盂)
+        <in_class>E21: Person</in_class>
+      </had_participant>
+      <took_place_at>Zongzhou (宗周)
+        <in_class>E53: Place</in_class>
+        <has_note>Identified in the article with Haojing.
+          <has_type>Statement
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+      </took_place_at>
+      <has_time-span>the ninth month of the 23rd year of King Kang of Zhou
+        <in_class>E52: Time-Span</in_class>
+        <falls_within>the 23rd year of King Kang of Zhou
+          <in_class>E52: Time-Span</in_class>
+        </falls_within>
+      </has_time-span>
+      <has_note>Recorded because the inscription is about it, not because the
+        article documents it independently. Zongzhou is where the King was when he
+        charged Yu; it is not stated to be where the vessel was cast.
+        <has_type>Modelling note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_about>
+    <refers_to>Yu (盂)
+      <in_class>E21: Person</in_class>
+    </refers_to>
+    <refers_to>King Kang of Zhou
+      <in_class>E21: Person</in_class>
+    </refers_to>
+
+    <!-- the translation is a different linguistic object -->
+    <has_translation>the English translation of the Da Yu ding inscription
+      <in_class>E33: Linguistic Object</in_class>
+      <has_language>English
+        <in_class>E56: Language</in_class>
+      </has_language>
+      <has_symbolic_content>It was in the ninth month when the King was at Zongzhou. The King charged Yu saying, "Yu! Shining King Wen received the great mandate from Heaven. When King Wu succeeded Wen, he created a state, opening hidden lands, possessing all the four quarters, and setting right their peoples. In ceremonial affairs involving wine, oh! - he permitted no excess; at sacrificial rites, he permitted no drunkenness. Hence Heaven in its greatness watched closely over its sons and protected the former Kings in their possession of the four quarters. I have heard that the Yin loss of the mandate was due to the fact that its greater and lesser lords and the many officials assisting the Yin sank into drunkenness and so were bereft of their city. You have helped me from the hazy dawn of my youth: When I was engaged in my youthful studies, you never coerced me but always helped me. Now I am attempting to emulate and grasp the upright virtue of King Wen, and charge the many officials as he did. Now I charge you to assist Rong in attending to the constancy of harmonious virtue: be assiduous in remonstrating with me from dawn to dusk serving in awe of Heaven's awesomeness." The King said, "Oh! I charge you Yu to emulate your late grandfather Nan Gong, whom you succeed." The King said, "Yu, assist me by overseeing until death the affairs of war. Assiduously remonstrate and upbraid me. From dawn to dusk help me to govern the four quarters and follow the former Kings in receiving charge of the people and the lands. I give to you a flask of sacrificial liquors, ceremonial cap, robes, kneepads, and sandals, and a chariot with horse. I present to you the banner of your late grandfather Nan Gong for you to lead in hunting. I give to you four estate officials and 659 servant from charioteers to common peasants. I give you thirteen officials of the rank of King's officers to guard your borders, and along with them 1,050 servants. Move them promptly from their current lands." The King said, "Yu! Be attentive to your government and do not disobey my charge." In gratitude for the favors of the King, Yu casts this precious cauldron for his late grandfather Nan Gong. It was in the King's twenty-third sacrificial year.</has_symbolic_content>
+      <is_documented_in>Minford, "The Triumph: A Heritage of Sorts", China Heritage Quarterly 19 (2009)
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </has_translation>
+
+    <is_documented_in>Da Yu Ding Chinese Rubbing Collection, Harvard University
+      <in_class>E31: Document</in_class>
+      <has_note>Cited in the article for the count of 19 lines and 291 characters.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_documented_in>
+    <is_documented_in>Eno, "Inscriptional Records of the Western Zhou" (2012), pp. 23-24
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <is_documented_in>Thersen, "Chinese Euphonics" (2015), pp. 103-127
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </carries>
+
+  <!-- the making -->
+  <was_produced_by>the casting of the Da Yu ding
+    <in_class>E12: Production</in_class>
+    <used_general_technique>bronze casting
+      <in_class>E55: Technique Type</in_class>
+    </used_general_technique>
+    <employed>bronze
+      <in_class>E57: Material</in_class>
+    </employed>
+    <carried_out_by>Yu (盂)
+      <in_class>E21: Person</in_class>
+      <has_note>Grandson of Nangong Kuo; appointed by King Kang as an overseer of
+        the Supervisors of the Military (sirong 司戎).
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </carried_out_by>
+    <has_note>The inscription says "Yu casts this precious cauldron". Yu is
+      recorded as the actor who carried out the production in the sense of having
+      caused it; the founders who did the physical work are not named in the
+      article. P14.1 in the role of would be the right way to qualify this as a
+      commissioning role, but the XML form of the two example files has no way to
+      express a property of a property, so the qualification is left in this note.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article does not say where the vessel was cast. No instance of
+      P7 took place at is asserted for this production.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <was_motivated_by>the charge of Yu by King Kang of Zhou
+      <in_class>E7: Activity</in_class>
+    </was_motivated_by>
+
+    <has_time-span>the 23rd year of King Kang of Zhou
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>997 BC to 981 BC
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+      <beginning_is_qualified_by>uncertain: the regnal year is agreed, the absolute year is not</beginning_is_qualified_by>
+      <end_is_qualified_by>uncertain: the regnal year is agreed, the absolute year is not</end_is_qualified_by>
+      <has_note>All the sources cited by the article agree that the inscription
+        dates itself to the 23rd year of King Kang of Zhou; they disagree about
+        which absolute year that is, because they use different dates for King
+        Kang's accession. P82 at some time within therefore carries the outer bound
+        spanned by the competing proposals, and P81 ongoing throughout is not
+        asserted, because the proposals do not overlap and so have no common inner
+        bound. The competing readings themselves are recorded as separate instances
+        of E13 Attribute Assignment on this production, so that the disagreement is
+        visible rather than averaged away.
+        <has_type>Modelling note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <has_note>The article's own figures are mutually inconsistent: it dates King
+        Kang's reign to 1020-996 BC, which puts his 23rd year at 997 BC, but it also
+        gives 981 BCE for that same 23rd year in the inscription table. 981 BC falls
+        outside the reign the same article states.
+        <has_type>Source discrepancy
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_time-span>
+
+    <!-- contested dating, one assignment per source -->
+    <was_attributed_by>dating of the Da Yu ding to 997 BC (Shanghai Museum 1959)
+      <in_class>E13: Attribute Assignment</in_class>
+      <assigned_property_of_type>has time-span
+        <in_class>E55: Property Type</in_class>
+      </assigned_property_of_type>
+      <assigned_attribute_to>the casting of the Da Yu ding
+        <in_class>E12: Production</in_class>
+      </assigned_attribute_to>
+      <assigned>997 BC (23rd year of King Kang of Zhou, on an accession of 1020 BC)
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>997 BC
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </assigned>
+      <is_documented_in>Shanghai Museum, Yu ding Ke ding (Shanghai, 1959)
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+      <has_note>The date of the inscription is stated by the ding itself to be in
+        King Kang's 23rd year; with the reign dates 1020-996 BC that the article
+        gives for King Kang, this is 997 BC.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </was_attributed_by>
+    <was_attributed_by>dating of the Da Yu ding to 981 BC (Minford 2009, after Shaughnessy)
+      <in_class>E13: Attribute Assignment</in_class>
+      <assigned_property_of_type>has time-span
+        <in_class>E55: Property Type</in_class>
+      </assigned_property_of_type>
+      <assigned_attribute_to>the casting of the Da Yu ding
+        <in_class>E12: Production</in_class>
+      </assigned_attribute_to>
+      <assigned>981 BC (23rd year of King Kang of Zhou, on a later accession)
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>981 BC
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </assigned>
+      <is_documented_in>Minford, "The Triumph: A Heritage of Sorts", China Heritage Quarterly 19 (2009)
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+      <is_documented_in>Shaughnessy, in Loewe and Shaughnessy (eds.), The Cambridge History of Ancient China (1999), p. 320ff
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </was_attributed_by>
+    <was_attributed_by>dating of the Da Yu ding to the early 10th century BC
+      <in_class>E13: Attribute Assignment</in_class>
+      <assigned_property_of_type>has time-span
+        <in_class>E55: Property Type</in_class>
+      </assigned_property_of_type>
+      <assigned_attribute_to>the casting of the Da Yu ding
+        <in_class>E12: Production</in_class>
+      </assigned_attribute_to>
+      <assigned>early 10th century BC
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1000 BC to 950 BC
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </assigned>
+      <has_note>The looser dating given in the article's infobox, without a source.
+        It is compatible with both of the absolute datings above.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </was_attributed_by>
+
+    <!-- contested attribution to the reign of King Kang -->
+    <was_attributed_by>attribution of the Da Yu ding to the reign of King Kang of Zhou
+      <in_class>E13: Attribute Assignment</in_class>
+      <assigned_property_of_type>falls within the reign of
+        <in_class>E55: Property Type</in_class>
+      </assigned_property_of_type>
+      <assigned_attribute_to>the casting of the Da Yu ding
+        <in_class>E12: Production</in_class>
+      </assigned_attribute_to>
+      <assigned>the reign of King Kang of Zhou
+        <in_class>E4: Period</in_class>
+        <has_time-span>the reign of King Kang of Zhou, time-span
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>1020 BC to 996 BC
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+        </has_time-span>
+      </assigned>
+      <used_specific_object>Xiao Yu ding
+        <in_class>E22: Human-Made Object</in_class>
+      </used_specific_object>
+      <has_note>Two grounds are given in the article. First, the Xiao Yu ding, which
+        was discovered alongside the Da Yu ding, mentions sacrifices made to King
+        Wen, King Wu and King Cheng, which places it in the following reign.
+        Second, the design of the Da Yu ding compares well with other bronze
+        artifacts of that period. The attribution is therefore inferential, not
+        documentary, and is recorded as an assignment rather than as a direct
+        property of the production.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>出土文献中心 (2023), lecture by Edward Shaughnessy, Tsinghua University
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+      <is_documented_in>Shanghai Museum, Yu ding Ke ding (Shanghai, 1959)
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </was_attributed_by>
+    <!-- period of origin. P12i was present at cannot be used to put the object
+         in the Western Zhou dynasty: P12 has E5 Event as its domain and E4 Period
+         is the superclass of E5, not a subclass of it. The period is therefore
+         reached from the production, which is an event, by P10 falls within,
+         which relates spacetime volumes and so accepts both. -->
+    <falls_within>Western Zhou dynasty
+      <in_class>E4: Period</in_class>
+      <has_time-span>the Western Zhou dynasty, time-span
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1046 BC to 771 BC
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <is_documented_in>Qiu Xigui, Chinese Writing (2000), p. 68
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </falls_within>
+  </was_produced_by>
+
+  <!-- the findspot -->
+  <has_former_or_current_location>Li Village, Jingdang Township, Qishan County, Shaanxi
+    <in_class>E53: Place</in_class>
+    <has_type>findspot
+      <in_class>E55: Place Type</in_class>
+    </has_type>
+    <falls_within>Jingdang Township
+      <in_class>E53: Place</in_class>
+      <falls_within>Qishan County
+        <in_class>E53: Place</in_class>
+        <falls_within>Shaanxi
+          <in_class>E53: Place</in_class>
+          <falls_within>China
+            <in_class>E53: Place</in_class>
+          </falls_within>
+        </falls_within>
+      </falls_within>
+    </falls_within>
+  </has_former_or_current_location>
+  <has_note>The article records no deposition event for the object between its
+    casting and its unearthing in 1849: nothing is said about when, how or by whom
+    it was buried, or whether it came from a hoard, a tomb or a settlement layer.
+    No instance of an original deposition is asserted. The only deposition the
+    article does record is the deliberate burial of 1937, modelled below.
+    <has_type>Modelling note
+      <in_class>E55: Note Type</in_class>
+    </has_type>
+  </has_note>
+
+  <!-- rediscovery, 1849 -->
+  <moved_by>the unearthing of the Da Yu ding
+    <in_class>E9: Move</in_class>
+    <has_type>unearthing (chance find)
+      <in_class>E55: Activity Type</in_class>
+    </has_type>
+    <moved_from>Li Village, Jingdang Township, Qishan County, Shaanxi
+      <in_class>E53: Place</in_class>
+    </moved_from>
+    <took_place_at>Li Village, Jingdang Township, Qishan County, Shaanxi
+      <in_class>E53: Place</in_class>
+    </took_place_at>
+    <has_time-span>the unearthing of the Da Yu ding, 1849
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1849
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+      <falls_within>the Daoguang era of the Qing dynasty
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1821 to 1851
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </falls_within>
+      <has_note>The infobox gives 1849; the body of the article places the
+        unearthing more loosely in the Daoguang era (1821-1851). 1849 falls within
+        that era, so the two are compatible and both are recorded.
+        <has_type>Source discrepancy
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_time-span>
+    <occurred_in_the_presence_of>Xiao Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </occurred_in_the_presence_of>
+    <has_note>The article says only that the ding was excavated or unearthed at Li
+      Village; it names no finder and describes no archaeological method. Modelled
+      here as an instance of E9 Move, which captures the change of physical
+      location out of the ground. CRMsci S19 Encounter Event with O19 encountered
+      object and O21 encountered at is the class that actually means "was found",
+      and would be the better fit, but see the notes accompanying this file.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </moved_by>
+
+  <!-- ownership, in order -->
+  <!-- 1st owner -->
+  <changed_ownership_through>acquisition of the Da Yu ding by Song Jinjian
+    <in_class>E8: Acquisition</in_class>
+    <has_type>acquisition after the find
+      <in_class>E55: Acquisition Type</in_class>
+    </has_type>
+    <transferred_title_to>Song Jinjian (宋金鑒)
+      <in_class>E21: Person</in_class>
+      <has_note>1821-1863; described in the article as a local rich man.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </transferred_title_to>
+    <transferred_title_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_title_of>
+    <has_time-span>acquisition of the Da Yu ding by Song Jinjian, time-span
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1849 to 1863
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+      <has_note>Bounded by the unearthing and by Song Jinjian's death; no date is
+        given in the article.
+        <has_type>Modelling note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_time-span>
+  </changed_ownership_through>
+
+  <!-- the rival claim about who owned it first -->
+  <was_attributed_by>rival attribution of the first ownership of the Da Yu ding to a Ko family
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>has former or current owner
+      <in_class>E55: Property Type</in_class>
+    </assigned_property_of_type>
+    <assigned_attribute_to>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </assigned_attribute_to>
+    <assigned>a Ko family
+      <in_class>E74: Group</in_class>
+    </assigned>
+    <is_documented_in>Shaanxi Epigraphy (陝西金石志, 1934)
+      <in_class>E31: Document</in_class>
+      <has_note>Cited in the article by way of Shanghai Museum, Yu ding Ke ding
+        (Shanghai, 1959).
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_documented_in>
+    <has_note>The article states that another record shows the owner to have been
+      another, Ko, family, and that there is controversy. The Song Jinjian line is
+      given in the running text and is modelled above as an acquisition; this rival
+      claim is recorded as somebody's assignment rather than as a competing
+      acquisition event, because the article reports the disagreement without
+      describing any transfer to the Ko family. The maintainer of this file takes
+      no position on which is right.
+      <has_type>Contested
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </was_attributed_by>
+
+  <!-- 2nd owner: expropriation, later reversed -->
+  <changed_ownership_through>expropriation of the Da Yu ding by Zhou Gengsheng
+    <in_class>E8: Acquisition</in_class>
+    <has_type>expropriation
+      <in_class>E55: Acquisition Type</in_class>
+    </has_type>
+    <transferred_title_from>Song Jinjian (宋金鑒)
+      <in_class>E21: Person</in_class>
+    </transferred_title_from>
+    <transferred_title_to>Zhou Gengsheng (周庚盛)
+      <in_class>E21: Person</in_class>
+      <has_note>Described in the article as the governor.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </transferred_title_to>
+    <transferred_title_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_title_of>
+    <has_note>No date is given. This transfer was afterwards reversed: Song Jinjian
+      recovered the tripod after Zhou Gengsheng died.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </changed_ownership_through>
+
+  <!-- 3rd owner: the reversal -->
+  <changed_ownership_through>recovery of the Da Yu ding by Song Jinjian
+    <in_class>E8: Acquisition</in_class>
+    <has_type>recovery
+      <in_class>E55: Acquisition Type</in_class>
+    </has_type>
+    <transferred_title_from>Zhou Gengsheng (周庚盛)
+      <in_class>E21: Person</in_class>
+    </transferred_title_from>
+    <transferred_title_to>Song Jinjian (宋金鑒)
+      <in_class>E21: Person</in_class>
+    </transferred_title_to>
+    <transferred_title_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_title_of>
+    <was_motivated_by>the death of Zhou Gengsheng
+      <in_class>E69: Death</in_class>
+    </was_motivated_by>
+    <has_note>The article says only that after Zhou Gengsheng died, Song Jinjian
+      recovered the tripod. The mechanism of the recovery is not stated.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </changed_ownership_through>
+
+  <!-- 4th owner: purchase, before winter 1873 -->
+  <changed_ownership_through>purchase of the Da Yu ding by Yuan Baoheng
+    <in_class>E96: Purchase</in_class>
+    <has_type>purchase
+      <in_class>E55: Acquisition Type</in_class>
+    </has_type>
+    <transferred_title_to>Yuan Baoheng (袁保恆)
+      <in_class>E21: Person</in_class>
+      <has_note>1826-1878; a follower of Zuo Zongtang.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </transferred_title_to>
+    <transferred_title_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_title_of>
+    <had_sales_price>700 taels of silver
+      <in_class>E97: Monetary Amount</in_class>
+      <has_value>700</has_value>
+      <has_currency>tael of silver
+        <in_class>E98: Currency</in_class>
+      </has_currency>
+    </had_sales_price>
+    <has_time-span>purchase of the Da Yu ding by Yuan Baoheng, time-span
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>before winter 1873
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+      <end_is_qualified_by>terminus ante quem: Wu Dacheng saw the tripod in Yuan's estate in winter 1873</end_is_qualified_by>
+    </has_time-span>
+    <has_note>The article does not name the seller, so no instance of P23
+      transferred title from is asserted for this purchase.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>Wu Dacheng's record of the tripod in Yuan Baoheng's estate in Shaanxi, winter 1873
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </changed_ownership_through>
+
+  <!-- 5th owner, uncertain transfer -->
+  <changed_ownership_through>transfer of the Da Yu ding from Yuan Baoheng to Zuo Zongtang
+    <in_class>E8: Acquisition</in_class>
+    <has_type>reported but not established
+      <in_class>E55: Acquisition Type</in_class>
+    </has_type>
+    <transferred_title_from>Yuan Baoheng (袁保恆)
+      <in_class>E21: Person</in_class>
+    </transferred_title_from>
+    <transferred_title_to>Zuo Zongtang
+      <in_class>E21: Person</in_class>
+      <has_note>1812-1885; described in the article as the fifth owner of the
+        Da Yu ding, which is consistent with the sequence Song Jinjian, Zhou
+        Gengsheng, Song Jinjian again, Yuan Baoheng, Zuo Zongtang.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </transferred_title_to>
+    <transferred_title_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_title_of>
+    <has_note>The article says only that Yuan "may have sent the tripod he bought
+      to Zuo". The transfer is therefore hedged in the source. It is nonetheless
+      instantiated, because the same article calls Zuo the fifth owner and records
+      him giving the tripod away in 1875, which entails that he held it; what is
+      uncertain is the route, not the fact. The uncertainty is carried by the type
+      and by this note.
+      <has_type>Contested
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </changed_ownership_through>
+
+  <!-- 6th owner: the 1875 gift -->
+  <changed_ownership_through>gift of the Da Yu ding from Zuo Zongtang to Pan Zuyin
+    <in_class>E8: Acquisition</in_class>
+    <has_type>gift
+      <in_class>E55: Acquisition Type</in_class>
+    </has_type>
+    <transferred_title_from>Zuo Zongtang
+      <in_class>E21: Person</in_class>
+    </transferred_title_from>
+    <transferred_title_to>Pan Zuyin (潘祖蔭)
+      <in_class>E21: Person</in_class>
+      <has_note>1830-1890; described in the article as the sixth owner of the Da Yu
+        ding, and as a famous collector with rich knowledge of Chinese characters.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </transferred_title_to>
+    <transferred_title_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_title_of>
+    <took_place_at>Beijing
+      <in_class>E53: Place</in_class>
+      <falls_within>China
+        <in_class>E53: Place</in_class>
+      </falls_within>
+    </took_place_at>
+    <has_time-span>gift of the Da Yu ding to Pan Zuyin, 1875
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1875
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <is_documented_in>the letter of March 1875 from Chen Jieqi to Pan Zuyin
+      <in_class>E31: Document</in_class>
+      <has_note>Chen Jieqi, 1813-1884. The article dates the letter to March 1875,
+        equivalently the 11th day of the first month of the first year of the
+        Guangxu era in the Chinese calendar.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_documented_in>
+    <is_documented_in>Shanghai Museum, Yu ding Ke ding (Shanghai, 1959)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </changed_ownership_through>
+
+  <!-- 7th: inheritance -->
+  <changed_ownership_through>inheritance of the Pan family property by Pan Zunian
+    <in_class>E8: Acquisition</in_class>
+    <has_type>inheritance
+      <in_class>E55: Acquisition Type</in_class>
+    </has_type>
+    <transferred_title_from>Pan Zuyin (潘祖蔭)
+      <in_class>E21: Person</in_class>
+    </transferred_title_from>
+    <transferred_title_to>Pan Zunian (潘祖年)
+      <in_class>E21: Person</in_class>
+      <has_note>1870-1925; younger brother of Pan Zuyin.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </transferred_title_to>
+    <transferred_title_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_title_of>
+    <has_note>The article says that Pan Zunian inherited the family property; it
+      does not name the ding among what he inherited, and it gives no date. The
+      acquisition is instantiated because the object stays with the Pan family
+      through to 1951, but the inference is flagged here rather than hidden.
+      <has_type>Contested
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </changed_ownership_through>
+
+  <!-- 8th: the 1951 donation -->
+  <changed_ownership_through>donation of the Da Yu ding to the Shanghai Museum
+    <in_class>E8: Acquisition</in_class>
+    <has_type>donation
+      <in_class>E55: Acquisition Type</in_class>
+    </has_type>
+    <transferred_title_from>Pan Dayu (潘達于)
+      <in_class>E21: Person</in_class>
+      <has_note>1906-2007.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </transferred_title_from>
+    <transferred_title_to>Shanghai Museum
+      <in_class>E74: Group</in_class>
+    </transferred_title_to>
+    <transferred_title_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_title_of>
+    <transferred_title_of>Da Ke ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_title_of>
+    <has_time-span>donation of the two tripods to the Shanghai Museum, 1951
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1951
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <has_note>Pan Dayu wrote a short letter intending to donate the two tripods. A
+      few months later Liu Ruli (劉汝醴) and Shen Gengmei (沈羹梅) went to Suzhou,
+      accompanied by Pan Jiahua (潘家華), daughter of Pan Dayu, to take the tripods.
+      Mao Dun (1896-1981), the Minister of Culture, personally inscribed an
+      honorary credential for her.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article does not say how title passed from Pan Zunian, who died
+      in 1925, to Pan Dayu, who made the donation. That step in the chain is absent
+      from the source and is not asserted here.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </changed_ownership_through>
+
+  <!-- custody and location -->
+  <custody_transferred_through>transfer of the Da Yu ding to the National Museum of China, 1959
+    <in_class>E10: Transfer of Custody</in_class>
+    <has_type>permanent transfer between museums
+      <in_class>E55: Transfer Type</in_class>
+    </has_type>
+    <custody_surrendered_by>Shanghai Museum
+      <in_class>E74: Group</in_class>
+    </custody_surrendered_by>
+    <custody_received_by>National Museum of China
+      <in_class>E74: Group</in_class>
+    </custody_received_by>
+    <transferred_custody_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_custody_of>
+    <has_time-span>transfer of the Da Yu ding to the National Museum of China, 1959
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1959
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <has_note>The article says the Da Yu ding "was transferred to the National
+      Museum of China in Beijing", without saying whether legal title moved with it.
+      Modelled as a transfer of custody only. If title also changed, an instance of
+      E8 Acquisition would be needed in addition; the article does not support one.
+      This supersedes the display of the two tripods together at the Shanghai
+      Museum, which had run from 1951.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>Shanghai Museum, Yu ding Ke ding (Shanghai, 1959)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </custody_transferred_through>
+  <custody_transferred_through>temporary transfer of the Da Yu ding to the Shanghai Museum, March 2004
+    <in_class>E10: Transfer of Custody</in_class>
+    <has_type>temporary loan for exhibition
+      <in_class>E55: Transfer Type</in_class>
+    </has_type>
+    <custody_surrendered_by>National Museum of China
+      <in_class>E74: Group</in_class>
+    </custody_surrendered_by>
+    <custody_received_by>Shanghai Museum
+      <in_class>E74: Group</in_class>
+    </custody_received_by>
+    <transferred_custody_of>Da Yu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </transferred_custody_of>
+    <has_time-span>temporary transfer of the Da Yu ding to the Shanghai Museum, March 2004
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>March 2004
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <has_note>For a limited-time display celebrating Pan Dayu's 100th birthday; the
+      first time the two tripods were together in nearly 50 years. The article does
+      not record the return, so no reversing transfer of custody is asserted, but
+      the loan is typed as temporary.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </custody_transferred_through>
+
+  <!-- moves, including the 1937 burial -->
+  <moved_by>the move of the Pan family collection from Beijing to Suzhou
+    <in_class>E9: Move</in_class>
+    <moved_from>Beijing
+      <in_class>E53: Place</in_class>
+    </moved_from>
+    <moved_to>Suzhou
+      <in_class>E53: Place</in_class>
+      <falls_within>China
+        <in_class>E53: Place</in_class>
+      </falls_within>
+    </moved_to>
+    <has_time-span>the move of the Pan family collection to Suzhou, c. 1896
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>about 1896
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+      <beginning_is_qualified_by>approximate: the article says "in about 1896"</beginning_is_qualified_by>
+    </has_time-span>
+    <carried_out_by>the Pan family
+      <in_class>E74: Group</in_class>
+    </carried_out_by>
+    <has_note>The Pan family moved to Suzhou from Beijing with their collection,
+      including the two tripods.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </moved_by>
+  <moved_by>the burial of the two tripods by the Pan family, 1937
+    <in_class>E9: Move</in_class>
+    <has_type>deliberate concealment by burial
+      <in_class>E55: Activity Type</in_class>
+    </has_type>
+    <moved>Da Ke ding
+      <in_class>E22: Human-Made Object</in_class>
+    </moved>
+    <carried_out_by>the Pan family
+      <in_class>E74: Group</in_class>
+    </carried_out_by>
+    <used_specific_object>the wooden box in which the two tripods were buried
+      <in_class>E22: Human-Made Object</in_class>
+    </used_specific_object>
+    <has_time-span>the burial of the two tripods, 1937
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1937
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <was_motivated_by>the outbreak of the Second Sino-Japanese War
+      <in_class>E5: Event</in_class>
+      <has_time-span>1937
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1937
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+    </was_motivated_by>
+    <has_note>Fearing looting or destruction, the Pan family packed the two tripods
+      in a wooden box and buried it. The article does not say where the box was
+      buried, so no instance of P26 moved to is asserted, and it does not record
+      the recovery of the tripods from the ground, although the 1951 donation
+      entails that they were recovered. That recovery is missing from the source
+      and is not asserted here.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </moved_by>
+  <moved_by>the move of the Da Yu ding from Shanghai to Beijing, 1959
+    <in_class>E9: Move</in_class>
+    <moved_from>Shanghai
+      <in_class>E53: Place</in_class>
+      <falls_within>China
+        <in_class>E53: Place</in_class>
+      </falls_within>
+    </moved_from>
+    <moved_to>Beijing
+      <in_class>E53: Place</in_class>
+    </moved_to>
+    <has_time-span>the move of the Da Yu ding to Beijing, 1959
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1959
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+  </moved_by>
+
+  <!-- present keeper and holding -->
+  <has_current_keeper>National Museum of China
+    <in_class>E74: Group</in_class>
+  </has_current_keeper>
+  <has_current_location>National Museum of China, Beijing
+    <in_class>E53: Place</in_class>
+    <falls_within>Beijing
+      <in_class>E53: Place</in_class>
+    </falls_within>
+  </has_current_location>
+  <forms_part_of>the collection of the National Museum of China
+    <in_class>E78: Curated Holding</in_class>
+    <has_current_or_former_curator>National Museum of China
+      <in_class>E74: Group</in_class>
+    </has_current_or_former_curator>
+  </forms_part_of>
+  <forms_part_of>the Pan family collection
+    <in_class>E78: Curated Holding</in_class>
+    <has_current_or_former_curator>Pan Zuyin (潘祖蔭)
+      <in_class>E21: Person</in_class>
+    </has_current_or_former_curator>
+    <has_current_or_former_curator>the Pan family
+      <in_class>E74: Group</in_class>
+    </has_current_or_former_curator>
+  </forms_part_of>
+
+  <!-- the contradiction in the number of legs -->
+  <was_attributed_by>the statement that the Da Yu ding has three legs
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>has number of parts
+      <in_class>E55: Property Type</in_class>
+    </assigned_property_of_type>
+    <assigned_attribute_to>the legs of the Da Yu ding
+      <in_class>E25: Human-Made Feature</in_class>
+    </assigned_attribute_to>
+    <has_note>"The tripod is round, with three legs, a common shape during the
+      Western Zhou dynasty."
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </was_attributed_by>
+  <was_attributed_by>the statement that the Da Yu ding has four legs
+    <in_class>E13: Attribute Assignment</in_class>
+    <assigned_property_of_type>has number of parts
+      <in_class>E55: Property Type</in_class>
+    </assigned_property_of_type>
+    <assigned_attribute_to>the legs of the Da Yu ding
+      <in_class>E25: Human-Made Feature</in_class>
+    </assigned_attribute_to>
+    <has_note>"Its four legs are engraved with animal face patterns." This
+      contradicts the statement of three legs made two sentences earlier in the
+      same article. Both are recorded; neither is preferred here.
+      <has_type>Contested
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </was_attributed_by>
+
+  <!-- sources cited for this object -->
+  <is_documented_in>Wikipedia, "Da Yu ding" (English Wikipedia)
+    <in_class>E31: Document</in_class>
+    <has_note>The single source from which this whole encoding is drawn. Everything
+      asserted in this file is asserted on its authority, including the statements
+      it in turn attributes to the works listed below.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </is_documented_in>
+  <is_documented_in>Shanghai Museum, Yu ding Ke ding (Shanghai, 1959)
+    <in_class>E31: Document</in_class>
+    <has_note>Cited in the article for the attribution to King Kang and the date of
+      the inscription, for the early ownership history, and for the 1959 transfer.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </is_documented_in>
+  <is_documented_in>Li Song, Chinese Bronze Ware: A Mirror of Culture (2015), p. 30
+    <in_class>E31: Document</in_class>
+    <has_note>Cited for the object being on display in the National Museum of China.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </is_documented_in>
+  <is_documented_in>Qiu Xigui, Chinese Writing (2000), p. 68
+    <in_class>E31: Document</in_class>
+  </is_documented_in>
+</CRM_Entity>
+
+<!-- ============================================================
+ 2. OTHER OBJECTS, ONLY SO FAR AS THEY PLACE THIS ONE
+ ============================================================ -->
+<CRM_Entity>Xiao Yu ding
+  <in_class>E22: Human-Made Object</in_class>
+  <has_note>Discovered alongside the Da Yu ding. It mentions sacrifices made to
+    King Wen, King Wu and King Cheng, and is the ground on which the Da Yu ding is
+    attributed to the reign of King Kang. Recorded only to that extent.
+    <has_type>Statement
+      <in_class>E55: Note Type</in_class>
+    </has_type>
+  </has_note>
+  <has_former_or_current_location>Li Village, Jingdang Township, Qishan County, Shaanxi
+    <in_class>E53: Place</in_class>
+  </has_former_or_current_location>
+</CRM_Entity>
+
+<CRM_Entity>Da Ke ding
+  <in_class>E22: Human-Made Object</in_class>
+  <has_note>Acquired by Pan Zuyin in 1890, buried with the Da Yu ding in 1937 and
+    donated with it in 1951; it remained at the Shanghai Museum after 1959.
+    Recorded only so far as it shares events with the Da Yu ding.
+    <has_type>Statement
+      <in_class>E55: Note Type</in_class>
+    </has_type>
+  </has_note>
+  <has_current_keeper>Shanghai Museum
+    <in_class>E74: Group</in_class>
+  </has_current_keeper>
+</CRM_Entity>
+
+<!-- ============================================================
+ 3. EVENTS REFERRED TO FROM ABOVE THAT NEED THEIR OWN DETAIL
+ ============================================================ -->
+<CRM_Entity>the death of Zhou Gengsheng
+  <in_class>E69: Death</in_class>
+  <was_death_of>Zhou Gengsheng (周庚盛)
+    <in_class>E21: Person</in_class>
+  </was_death_of>
+  <has_note>No date is given in the article. Recorded because Song Jinjian's
+    recovery of the tripod is said to follow it.
+    <has_type>Modelling note
+      <in_class>E55: Note Type</in_class>
+    </has_type>
+  </has_note>
+</CRM_Entity>
+
+</CRMset>

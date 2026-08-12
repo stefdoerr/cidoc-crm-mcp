@@ -1,0 +1,38 @@
+{
+  "case_id": "propertychoice-c1",
+  "answer": "Model the repair as an E11 Modification (the CRM's own scope note for E11 names conservation treatment explicitly). Link the two apprentices to it with P14 carried out by: they performed the filling, regluing and touch-up, which is exactly the 'active participation' P14 requires. Also link the studio principal with P14 carried out by, even though she did no hands-on work herself: the invoice names her as having supervised and approved the repairs, i.e. she holds the causal/legal responsibility for the outcome that P14's scope note asks for ('It implies causal or legal responsibility'), and CRM-SIG's own clarification of that clause (thread t1546) confirms that a party who does not do the physical work but carries legal/causal responsibility still belongs under P14 rather than being excluded from it -- Martin Doerr's example is someone legally co-responsible for an act without inhibiting it, contrasted with a merely necessary-but-passive participant such as a surgery patient. Use P14.1 in the role of on each link to distinguish the roles (e.g. 'supervisor'/'approver' for the principal, hands-on conservator roles for the apprentices) -- P14 is many-to-many and its own worked example ('...carried out by Michelangelo Buonarroti (E21) in the role of master craftsman') is structurally the same pattern: a named responsible figure plus the people who did the physical work, disambiguated by role, not by picking only one of them. So yes, more than one actor should be recorded as having carried out the treatment. The museum's conservation officer is different in kind: her two visits were oversight from the commissioning institution, she did no hands-on work, and -- unlike the studio principal -- nothing in the case gives her causal or legal responsibility for the repair activity itself (that responsibility sits with the workshop). Per the same P14 scope-note discussion, a participant who is necessary/present but not causally or legally responsible and not actively performing the act is the case P14 is meant to exclude; if her checking visits need to be documented at all, P11 had participant (which explicitly 'does not imply any causal relationship') is the available alternative, or her visits could be modelled as her own separate monitoring activity -- but she should not be recorded as having carried out the treatment.",
+  "classes_proposed": ["E11", "E39"],
+  "properties_proposed": ["P14", "P14.1", "P11"],
+  "rejected_alternatives": [
+    {"option": "P14 carried out by for the conservation officer", "why_not": "P14's scope note requires active participation implying causal or legal responsibility; her role (checking progress twice, no hands-on work, no responsibility for the repair outcome) matches the case CRM-SIG (thread t1546) explicitly carves out of P14 -- a necessary or present party without causal/legal responsibility -- for which P11 had participant is the recommended fallback, not P14."},
+    {"option": "Only the apprentices carried out by, principal excluded", "why_not": "P14 is quantified many-to-many (1,n:0,n) and its own worked example combines a named responsible actor with a role qualifier; the principal's documented supervision-and-approval is exactly the causal/legal-responsibility clause of the P14 scope note, per Martin Doerr's clarification in t1546 that legally co-responsible non-hands-on parties belong under P14, not P11."},
+    {"option": "P12 occurred in the presence of for the conservation officer", "why_not": "P12's domain is E5 Event/E77 Persistent Item and its own scope note says it documents presence 'without implying any specific role'; it is not a carried-out-by relation and does not answer the question of who is recorded as having done the treatment, so it does not compete with P14/P11 here."}
+  ],
+  "citations": [
+    "E11", "P14", "P11", "P12",
+    {"id": "t1546", "quote": "Necessary participation is definitey not meant by \"causal\" or \"legal responsibility\" in this scope note."},
+    {"id": "t1546", "quote": "there are well-known criminal cases in which participation"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept P14",
+    "concept E11",
+    "docs \"carried out by\" --kind narrative",
+    "docs \"supervised\" --kind narrative",
+    "concept P12",
+    "issue 1546",
+    "thread t1546",
+    "concept P11",
+    "thread t1477",
+    "thread t1345",
+    "issues \"supervision\"",
+    "issues \"workshop\"",
+    "concept P14.1",
+    "docs \"in the role of\" --kind narrative",
+    "quote t1546 \"Necessary participation is definitey not meant by\"",
+    "quote t1546 \"there are well-known criminal cases in which participation\""
+  ],
+  "confidence": "high",
+  "notes": "search.py concept does not resolve 'P14.1' or 'P14.1 in the role of' as its own lookup ('No such concept'), even though P14.1 is named and described inline in the P14 dossier -- had to cite it via the P14 concept output rather than an independent concept lookup. 'issue 1546' is not a numbered SIG issue in the register; the relevant SIG discussion only exists as thread t1546. Threads t1477 (Groups and carried out by) and t1345 (acting on behalf of another) are adjacent but unresolved and address group/delegation cases, not the supervisor-vs-hands-on-worker split this case turns on, so they informed but were not decisive."
+}

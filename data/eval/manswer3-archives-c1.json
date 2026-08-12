@@ -1,0 +1,41 @@
+{
+  "case_id": "archives-c1",
+  "answer": "Record every handover as its own E10 Transfer of Custody event, not just creator + current holder. E10's scope note is built exactly for this: it can express the beginning of custody (no previous custodian), a transfer (custodian to custodian), and the end/donation, each with P28 custody surrendered by, P29 custody received by, and P30 transferred custody of (necessary) the ledgers, dated via P4 has time-span from each signed handover note. The shortcut properties P49 has former or current keeper / P50 has current keeper look like the 'just note who holds them now' option, but they are explicitly declared as shortcuts for the fully articulated E10 path, not substitutes for it -- and the SIG's own debate (t1632, closed as Issue 616) found the 'current' inference on these shortcuts under-specified and in places wrong, which is a reason not to lean on them when the fuller history is actually known. The Monotonicity principle in the reference model narrative is direct on this: time-varying properties like ownership/custody/location may be asserted repeatedly without conflict, but 'if a more specific temporal knowledge is required/available, it is recommended to explicitly describe the events leading to the assertion of that property' -- and here it is available, in the form of four signed handover notes. Since the 2010 move is a donation (title given away, not merely deposited), that last step should additionally carry an E8 Acquisition; the 1934 absorption and 1988 deposit read as custody-only unless there is evidence ownership changed too.",
+  "classes_proposed": ["E10", "E8"],
+  "properties_proposed": ["P28", "P29", "P30", "P4"],
+  "rejected_alternatives": [
+    {"option": "P50 has current keeper / P49 has former or current keeper only", "why_not": "concept E10 and docs on 'has current keeper' show these are declared shortcuts for the longer E10 path; thread t1632 (Issue 616, 'shortcuts in P50 has current keeper...') shows the SIG itself found the current-holder inference from these shortcuts under-specified/incorrect, so collapsing four documented handovers into one current-keeper statement discards exactly the evidence the archive holds and relies on a property the CRM community does not fully trust for inference."},
+    {"option": "E9 Move alone", "why_not": "E9 is change of physical location; the case is about custody/responsibility, which E10's scope note distinguishes from mere relocation (E10 scope note: 'the legal responsibility for the physical custody... may differ from... physical possession'). E9 could supplement E10 for the physical relocations but doesn't capture the custody chain by itself."},
+    {"option": "Noting only creator and current holder, no events", "why_not": "Modelling principles > Monotonicity (crm732#s0058) explicitly recommends describing the events when more specific temporal knowledge is available -- which it is here, via the signed handover notes -- rather than relying only on time-neutral current-state properties."}
+  ],
+  "citations": [
+    "E10",
+    "P28",
+    "P29",
+    "P30",
+    "P49",
+    "P50",
+    "E8",
+    "Modelling principles > Monotonicity",
+    "t1632",
+    "Issue 616",
+    {"id": "crm732#s0058", "quote": "it is recommended to explicitly describe the events"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E10",
+    "docs \"chain of custody\"",
+    "docs \"shortcut\" --kind narrative",
+    "docs \"has current keeper\" --kind declaration",
+    "docs \"shortcut properties imply longer path\" --kind narrative",
+    "thread t1632",
+    "docs \"Certain properties declared in the CIDOC CRM such as having a part an owner or a location may change many times\" --kind narrative",
+    "issues \"custody\"",
+    "quote crm732#s0058 \"it is recommended to explicitly describe the events leading to the assertion of that property for that item\"",
+    "connect E39 E22",
+    "concept E78"
+  ],
+  "confidence": "high",
+  "notes": "docs search for E10 narrative mentions returned none directly ('No CIDOC CRM v7.3.2 narrative passages mention E10 directly'), so the Monotonicity argument had to be reached via a general query on time-varying properties rather than a direct E10 hit; the SIG's own scope-note debate (t1632/Issue 616) was the strongest corroborating evidence that the shortcut properties are not a safe substitute for the full event chain."
+}

@@ -1,0 +1,42 @@
+{
+  "case_id": "naturalhistory-c1",
+  "ranking": ["B", "A", "C"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 7,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "t1749 is real (Doerr's 2023 'New Issue, missing part of type') but it is about a proposed *typed* negative property ('misses part of type X') for retrieval over presumed-complete objects, not specifically about a lack of a generic 'was formerly part of' shortcut for an already-removed, already-documented part. The answer's framing ('Martin Doerr raised exactly that gap ... and it was left unresolved') is a fair-ish but stretched reading of that thread."
+      ],
+      "verdict": "Precise and well-cited: P112/P113/O1/O5 domains and ranges are all used correctly, E24's scope note is quoted accurately and does the work it's asked to do, and the E20/E22 and E20/E80 SIG history (t1536, Issue 574) is used correctly to keep the moth an E20. It is the most parsimonious of the three, refusing to invent an identity for the clipped leg that the case never catalogued -- a defensible, argued choice, not laziness. Two small blemishes: classes_proposed omits E42 Identifier even though the prose leans on P1/P48->E42 twice, and it treats E81 for the leg-to-extract step as a discardable optional rather than engaging with how well E81's own 'taxidermy of specimen in natural history' example fits a two-stage clip-then-dissolve process."
+    },
+    {
+      "label": "B",
+      "class_count": 9,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "Issue 76 (Contemporary Naming Procedure) appears only in the citations array and is never referenced or relied on anywhere in the prose or alternatives -- an orphan citation that does no work."
+      ],
+      "verdict": "The most complete and internally consistent of the three: it keeps the mechanical clip (S2+E80) and the chemical dissolution (E81+E12) as two separate, correctly-typed events, which matches the case's own two-step narrative ('clipped a leg ... that leg is now dissolved into an extract') and lands squarely on E81's own scope-note example of 'taxidermy of specimen in natural history' -- about the closest textual fit available for a natural-history transformation. classes_proposed matches its prose exactly (includes E42, E55, unlike A), and its rejection of S24/O29 sample-splitting is grounded in a verified SIG-minutes quote rather than an inferred paraphrase. Only real flaw: the aside suggesting you can 'drop P108 and P123 and use P92/P93 instead' is confusing, since P123 is itself necessary on E81 and a subproperty of P92, so 'dropping' it while keeping E81 doesn't actually change what the class ontologically requires -- a soft inconsistency, not an illegal use."
+    },
+    {
+      "label": "C",
+      "class_count": 6,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "E83 and t0375 are cited and the prose asserts that 'the mailing list traces P137 exemplifies back to exactly this natural-history type-specimen use case' as the reason paratype status doesn't transfer -- but P137, P136, P135, E83 and E55 never appear in classes_proposed or properties_proposed. The paratype half of the question is argued in prose but never actually modelled."
+      ],
+      "verdict": "Correctly frames the S1/S2 vs E80 fork and correctly keeps the moth an E20 that survives diminishment, but it under-specifies the model in three places central to this exact case: it never types a creation event for the extract (E12/E81 or any CRMsci equivalent) despite quoting almost verbatim the E80/S1 pairing rule that requires one for matter that 'may acquire a persistent identity of different nature'; it never touches P1/P48/E42 even though the case is framed entirely around the extract's 'own new catalogue number' versus the moth's 'original number'; and it never proposes any construct for how paratype status is recorded, leaving the second half of the question answered only by assertion. class_count is lower not because it is tighter but because load-bearing pieces are missing."
+    }
+  ],
+  "decisive_difference": "A and B both complete the model the case asks for: the moth stays E20 and keeps its number: the extract gets its own typed identity by way of an explicit creation event (E12 in A; E81+E12 in B), and paratype status is tied off with a real P137/P136/E83 path that the answer then explicitly refuses to copy onto the extract. C wins the framing argument (the S1 fork, the moth's survival) but stops short of building the rest of the model it argues for: no creation event is typed for the extract despite C itself quoting the rule that requires one, no identifier construct appears despite the case being built entirely around catalogue numbers, and P137/E83 are invoked in prose but never proposed as classes or properties -- so the paratype half of the question is asserted, not modelled. Between A and B the gap is narrow: B keeps the mechanical clip and the chemical dissolution as two separate events and lands E81 on the second, whose own scope note names 'taxidermy of specimen in natural history' as a characteristic case -- a closer textual fit than anything A uses for that step -- and B's classes_proposed stays consistent with its own prose (includes E42), while A's omits it despite using it in text. A's compensating strength is parsimony: it declines to assert an identity for the clipped leg that nobody in the case catalogued, which is a real and defensible economy, not padding.",
+  "confident": false,
+  "notes": "No provenance signal strong enough to guess system/run identity; all three show the same tool-gap awareness (connect not walking the CRMbase<->CRMsci S10/E18 edge, concept S24 not resolving) stated almost identically, which is more likely a shared environment quirk than a shared author. The A-vs-B ordering is the soft part of this ranking and could plausibly flip on a re-read -- both are strong, thoroughly cited answers that reach the same substantive verdict and differ mainly in how they handle the leg-as-intermediate-object question and in a few points of self-consistency. C's placement as worst is not close: it is under-specified on three separate, case-central fronts (creation event, identifiers, paratype construct) rather than just shorter."
+}

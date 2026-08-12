@@ -1,0 +1,36 @@
+{
+  "case_id": "classchoice-c3",
+  "ranking": ["C", "A", "B"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 4,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Gets the central call right and every citation checked out (E74 scope note, P14/P11 scope notes, P107, Issue 371/t1085, Issue 542/t1477 closure in Bern April 2025, E39's only-sibling structure, the connect E24/E39 path list). All four classes (E74, E21, E12, E13) do real work; the E13 wrapper around the consultation's identification is a genuine, non-decorative touch. Its one soft spot: it treats nesting the basket's production inside the broader session (P9 consists of) as an optional refinement 'if you need it,' when the case's own hedge -- 'could not confirm which of them, if any, handled this particular basket' -- is exactly the situation that nesting is for, so the default model attaches P11 to the same event that bears P108 to this specific basket."
+    },
+    {
+      "label": "B",
+      "class_count": 2,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Reaches the same correct verdict (E74 Group by P14, the three women by P11 not P14, reject bare E39 Actor) with accurate citations (E74, E12, Issue 2 scope note, t1477), but the prose leans on entities it never types: it recommends P11 had participant for the three named women without ever listing E21 in classes_proposed, and it distinguishes 'the broader communal work-session activity' from 'the object-level maker attribution' without declaring the session as its own class -- the exact event-granularity distinction the case turns on is gestured at in prose but not modelled. It also never wraps the community consultation's own act of identification in an E13, so that identification is silently absorbed as museum fact rather than attributed to its source."
+    },
+    {
+      "label": "C",
+      "class_count": 5,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Same correct core call as A, verified accurate on every citation checked (E74, E66, E39, P14, E13, P107/E85 shortcut, E40 deprecation table, Issue 371/t1085, Issue 542 closure). Its default structure is the most textually faithful of the three: it nests this basket's E12 inside a broader E7 session via P9 consists of, so the three women's P11 sits at session level and is never placed on the narrower event that bears P108 to this specific basket -- matching the case's 'could not confirm...this particular basket' hedge more precisely than A's default single-event model. The one added class (E7) does real structural work rather than padding, and C explicitly flags its one genuine judgment call (a separate E74 for 'the household's women' nested under the household itself) as unsettled by the sources rather than asserting it as fact."
+    }
+  ],
+  "decisive_difference": "All three converge on the same correct verdict -- E74 Group carried out by (P14) for the household's women, the three consultation-named women attached by P11 had participant rather than P14, and rejection of a bare E39 Actor -- and every citation I spot-checked across all three (scope notes, quantifications, Issue 371/t1085, Issue 542/t1477's closure in Bern, the E24/E39 connect path, the E40 deprecation table) held up exactly as quoted. B is held back by real under-specification, not by getting the modelling wrong: it relies on entities and an event distinction in prose (the three women as participants, a 'broader work-session activity' distinct from the object-level production) that it never types or declares as a class, and it skips the E13 wrapper for the consultation's own act of identification. Between A and C the margin is much finer and turns on event granularity: C's default nests this basket's production inside a separate session activity so participation and production stay cleanly apart, which is a slightly more precise fit to the case's specific hedge about this particular basket than A's default of a single event carrying both P108 and P11, even though A offers the identical fix as an optional refinement.",
+  "confident": false,
+  "notes": "A and C are close enough on both substance and citation accuracy that a re-read could plausibly swap their order; I forced C above A on the event-granularity point above, but consider it a genuine coin-toss rather than a clear separation. B's third place is solid. On provenance: A and C share enough structural DNA (same four-part answer shape: group via P14, individuals via P11, senior weaver via P14+P14.1, consultation via E13; overlapping rare citations like Issue 542's Bern closure and the E24/E39 connect-path observation) that they read as two runs of the same system, with B's shorter, differently-organized answer reading as a different system -- but this is an impression from style and citation overlap, not a proven fact, and it did not affect the ranking above, which rests on the modelling itself."
+}

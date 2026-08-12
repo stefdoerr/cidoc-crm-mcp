@@ -1,0 +1,23 @@
+[
+  {
+    "case": "Our university insect collection holds a pinned moth that was designated a paratype when the species was described in 1932. Last year one of our graduate students clipped a single leg from the mounted specimen to extract DNA for barcoding, and that leg is now dissolved into an extract sitting in a -80C freezer under its own new catalogue number. The moth itself, now missing a leg, stays in its original drawer with its original number.",
+    "question": "Should we record the frozen DNA extract as a part removed from the pinned moth using the specimen's existing identity, or as a new object created by a sampling event that also modified the original specimen, and does that choice affect whether the extract still counts as coming from the paratype?",
+    "kind": "shortcut vs full path",
+    "why_hard": "The real question is whether a simple removed-from link is enough, or whether the sampling needs its own event record connecting the extract's creation to the modification of the original specimen, and whether paratype status travels with it either way.",
+    "distinctive_terms": ["paratype moth", "leg clip", "DNA extract", "pinned specimen", "barcoding"]
+  },
+  {
+    "case": "In 1968 two different field crews from our state geological survey drilled boreholes six weeks apart and about 40 metres apart, each crew logging and numbering the rock cores they brought up under their own accession series. Nobody at the time realized the two boreholes had struck the same fault zone at depth. A stratigrapher reviewing the old logs now believes the bottom segment of one core is the physically continuous extension of the top segment of the other, but the two labelled boxes have sat in different repository buildings for fifty years and both still carry their original accession numbers on decades of loan paperwork.",
+    "question": "Do we now treat the two accessioned core segments as one specimen with a single identity, or keep them as two specimens connected by a documented physical relationship, and which choice do we have to honour in the old loan records that already cite the separate numbers?",
+    "kind": "identity",
+    "why_hard": "It forces a choice between merging two independently accessioned things into one identity after the fact, or keeping two identities tied by a physical relationship, with fifty years of citations riding on the answer.",
+    "distinctive_terms": ["borehole", "rock core segment", "fault zone", "accession series", "loan paperwork"]
+  },
+  {
+    "case": "Our genomics lab sequenced mitochondrial DNA from a fish caught during last year's river survey and deposited the resulting sequence in a public genetic database, which gave it its own accession number there. The curator now wants our own collection database to also hold the full nucleotide sequence and the bootstrap-support values from the phylogenetic tree the sequencing team built to place the fish relative to its close relatives.",
+    "question": "Is our collection database the right place to store the actual sequence and the tree statistics alongside the specimen record, or should it stop at documenting that the sequencing happened and pointing to the external accession number?",
+    "kind": "out of scope",
+    "why_hard": "It's tempting to treat the sequence and tree as just more specimen data, but the harder call is where documenting an activity and its external reference should stop and the scientific dataset itself begins.",
+    "distinctive_terms": ["mitochondrial DNA", "river survey", "sequence accession", "phylogenetic tree", "bootstrap-support values"]
+  }
+]

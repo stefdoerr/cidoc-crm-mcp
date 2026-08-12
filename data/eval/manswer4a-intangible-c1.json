@@ -1,0 +1,40 @@
+{
+  "case_id": "intangible-c1",
+  "answer": "The question's own framing (same lullaby vs. a distinct song that merely shares an ancestor) is a false binary that CRMbase alone cannot resolve, but the LRMoo family model (F1 Work / F2 Expression / F28 Expression Creation / F31 Performance) is built for exactly this middle ground and should be used instead of picking one horn of the dilemma. F2 Expression's own scope note is explicit that 'if a text is revised or modified, the result is considered to be a new F2 Expression' -- and here the melody has been simplified and two verses dropped, so the 2003 recording cannot honestly be catalogued as the same Expression as the 1952 one. But F1 Work's scope note is equally explicit that a Work's identity is independent of that: 'inherent to the notion of work is the existence of recognisable realizations of the work in the form of one or more expressions' and 'a Work can evolve over time' -- its boundary tracks 'the dominance of a concept', not verbatim identity of content. So the defensible model is: one F1 Work (the lullaby as a persisting intellectual/musical entity), realised (R3 is realised in) by two distinct F2 Expressions -- one carried by the 1952 wax cylinder, one by the 2003 tape/recording (each E22 Human-Made Object, linked via P128 carries) -- with each recording session modelled as an F28 Expression Creation that R17 created its F2 Expression, R19 created a realisation of the shared F1 Work, and R81 recorded the F31 Performance (the daughter's singing). Because the transmission path is documented (mother to daughter, decades of oral memory), the 2003 Expression should be linked to the 1952 Expression by R76 is derivative of (has derivative), which F28's own scope note names for exactly this situation ('an instance of F28 Expression Creation may use as source material one or more specific instances of F2 Expression. When the source expression is documented this is also expressed by the property R76 is derivative of'). R76 is itself a subproperty of the base property P130 shows features of, which the SIG has told a previous questioner with an almost identical problem (two revised-but-similar texts) to use as the direct shortcut, reserving the fuller FRBR/LRMoo derivation chain (R2/R76 plus an E65/F28 creation event using the earlier item as source material) for when more precision is wanted -- which is the case here since a cataloguing decision is explicitly being asked for. If the archive's policy is more conservative and does not want to assert Work-level identity at all (since the 'is it still the same song' judgment is inherently interpretive and rests only on the informant's own claim), the fallback that stays honest is to drop F1/F2 altogether and relate the two recordings' content only through the base property P130 shows features of, without asserting they realise one Work -- but that discards the informant's own continuity claim, which the Work/Expression/derivative-Expression model is able to preserve without overstating identity. Either way, treating the recordings as flatly identical (same Expression) or as fully unrelated songs (no property at all) are both unsupported by what the tools show.",
+  "classes_proposed": ["F1", "F2", "F28", "F31", "E22"],
+  "properties_proposed": ["R3", "R17", "R19", "R76", "R80", "R81", "P128", "P130"],
+  "rejected_alternatives": [
+    {"option": "Same F2 Expression for both recordings (flat 'same lullaby' identity)", "why_not": "F2 Expression's scope note states that any revision or modification of content is treated as a new Expression, and the melody is simplified and two verses are dropped between 1952 and 2003 -- documented content difference, not mere copying."},
+    {"option": "Two unrelated E73/E33 items with no connecting property ('distinct song, merely shares an ancestor', read as no assertable relation)", "why_not": "The transmission is documented (mother to daughter, decades of memory transmission), and CRM explicitly provides derivation properties (P130, R76, R2) for exactly this kind of evidenced-but-not-identical relationship; asserting nothing would discard evidence the case gives us."},
+    {"option": "E33 Linguistic Object as the sole class for 'the lullaby'", "why_not": "E33 only covers the linguistic (word) content; the case's identity question concerns the song as melody-plus-words, which is F1 Work's explicit scope ('musical compositions'), not E33's."},
+    {"option": "Splitting into two separate F1 Works connected by R2 is derivative of", "why_not": "Defensible if the archive's policy treats this much drift as a new work, but not clearly required by anything the tools showed -- F1 Work's scope note tolerates evolution and multiple non-identical Expressions of one Work, so collapsing to two Works is a stronger claim than the evidence forces."}
+  ],
+  "citations": ["E73", "E33", "F1", "F2", "F28", "F31", "R3", "R17", "R19", "R76", "R80", "R81", "P128", "P130", {"id": "t1128", "quote": "Describing derivation chains is very important and fundamental"}],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E73",
+    "concept E33",
+    "concept P130",
+    "concept F1",
+    "concept F2",
+    "docs \"oral tradition\"",
+    "docs \"same lullaby\"",
+    "concept E100",
+    "concept F31",
+    "concept R2",
+    "concept R76",
+    "thread t1128",
+    "\"folk song variant oral transmission melody\"",
+    "issues \"same work different expression variant\"",
+    "thread t0990",
+    "connect F31 F1",
+    "connect F1 F2",
+    "connect E22 E33",
+    "quote t1128 \"Describing derivation chains is very important and fundamental\"",
+    "quote F1 \"A Work can evolve over time\"",
+    "concept F28"
+  ],
+  "confidence": "medium",
+  "notes": "concept E100 failed (No such concept), even though 'E100 Audio Item' text appears in a docs search hit -- did not use it since it could not be independently verified via concept lookup. quote F1 failed because F1 is not a thread/message/doc-chunk id the quote verb recognises, so the F1 Work scope-note language in the answer is paraphrased rather than quoted with marks. The tools give the Work/Expression/derivation apparatus but not a determinate threshold for how much melodic/textual drift still counts as 'the same Work' versus a derivative Work -- that remains a cataloguing-policy judgment call for the archive, which is why confidence is medium rather than high."
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "case": "We look after a stationary winding engine that hauled slate wagons up an incline at a quarry until it closed in 1962. Its original vertical boiler was cut up for scrap during a wartime metal drive, and the engine then sat boiler-less in a shed for over fifty years. In 1998 our engineering group had a new boiler built to the exact drawings of the original, held in the county record office, and fitted it to the surviving frame and cylinders, which had never been touched. The engine has been raised to full working pressure and run at our open days every year since.",
+    "question": "Is the engine on display today the same object that worked the quarry, or has fitting a newly-built boiler created something we should record as a different object incorporating old parts?",
+    "kind": "identity",
+    "why_hard": "Forces a decision on how much material continuity (frame and cylinders kept, boiler renewed from a drawing) can survive before the identity of 'the quarry engine' should be treated as broken, and how to relate the old and new boiler as distinct items either way.",
+    "distinctive_terms": ["winding engine", "vertical boiler", "quarry incline", "wartime scrap drive", "boiler built to drawings", "working pressure"]
+  },
+  {
+    "case": "Our trust runs a beam engine that has pumped water into a canal feeder reservoir since it was built by a Midlands ironworks in 1876. The original cast-iron beam cracked in 1932 and was replaced with a steel beam of the same dimensions, made by a different local firm, while the rest of the engine - cylinder, flywheel, pump rods - stayed as built. We want our record to show the 1876 construction and the 1932 beam replacement clearly, without our catalogue implying the whole engine was built twice.",
+    "question": "Should we record the 1932 beam as a new part produced and fitted to the existing engine, or is there a more direct way of saying the engine itself was modified that avoids treating the beam as a separate produced thing?",
+    "kind": "shortcut vs full path",
+    "why_hard": "Tests whether a modification-of-the-whole reading (the engine was altered in 1932) is adequate, or whether the beam needs modelling as its own produced object that only afterwards becomes part of the engine - the difference between a shortcut property and the full production-plus-joining path.",
+    "distinctive_terms": ["beam engine", "cast-iron beam", "steel beam replacement", "canal feeder reservoir", "pump rods", "ironworks"]
+  },
+  {
+    "case": "We run a working watermill that still sells flour it grinds commercially. The current miller re-cuts the furrows in the millstones himself every few months, and he does it by feel, using a pattern of grooves and a dressing technique he adjusts slightly each time - not the same pattern his predecessor used, and not written down anywhere. Visitors keep asking whether the mill has 'always ground the same way', and we would like our documentation to capture the technique itself, not just log each re-dressing as an event.",
+    "question": "Can we represent the miller's personal dressing technique as a thing in its own right, distinct from the individual re-dressing events, or is capturing a craft skill like this simply outside what the model is meant to hold?",
+    "kind": "out of scope",
+    "why_hard": "The events (each re-dressing) and the actor (the miller) are easy to model; the difficulty is that the tacit technique itself - an evolving, personal, undocumented skill - is not a class of thing the model represents, and the case tests whether the system will say so instead of forcing it into some existing class.",
+    "distinctive_terms": ["watermill", "millstone dressing", "furrows", "hand-dressing technique", "commercial flour", "miller"]
+  }
+]

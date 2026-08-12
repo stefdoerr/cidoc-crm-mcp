@@ -1,0 +1,246 @@
+@prefix crm:    <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
+@prefix ex:     <http://example.org/bianzhong#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+# ===========================================================================
+# The whole find (1978): the named ensemble of bells, racks and hammers as
+# excavated together. Wikipedia's own usage -- "Bianzhong of Marquis Yi of
+# Zeng ... is the name given to an ancient musical instrument made of bells
+# ... unearthed in 1978 in the Tomb of Marquis Yi of Zeng" -- attaches the
+# proper name to the whole find, not just to the bells.
+# ===========================================================================
+
+ex:instrument a crm:E22_Human-Made_Object ;
+    rdfs:label "Bianzhong of Marquis Yi of Zeng" ;
+    crm:P1_is_identified_by ex:name_instrument ;
+    crm:P2_has_type ex:type_bianzhong ;
+    crm:P46_is_composed_of ex:bellSet, ex:rackA, ex:rackB, ex:hammers ;
+    crm:P3_has_note "The two wooden racks from which the bells are hung are placed perpendicular to one another." ;
+    crm:P54_has_current_permanent_location ex:museumPlace ;
+    crm:P50_has_current_keeper ex:hubeiMuseum .
+
+ex:name_instrument a crm:E41_Appellation ;
+    rdfs:label "Bianzhong of Marquis Yi of Zeng" .
+
+ex:type_bianzhong a crm:E55_Type ;
+    rdfs:label "bianzhong (chime-bell musical instrument)" .
+
+# ---------------------------------------------------------------------------
+# The 64 bells, as a functional sub-aggregate of the whole find. Wikipedia
+# distinguishes "the bianzhong" (the bells, given a date) from the racks
+# (never dated) and describes "the instrument" as containing 64 bianzhong.
+# ---------------------------------------------------------------------------
+
+ex:bellSet a crm:E22_Human-Made_Object ;
+    rdfs:label "the 64 bianzhong bells" ;
+    crm:P2_has_type ex:type_bellset ;
+    crm:P57_has_number_of_parts "64"^^xsd:integer ;
+    crm:P46_is_composed_of ex:topLevel, ex:middleLevel, ex:bottomLevel,
+                            ex:bell_biggest, ex:bell_smallest ;
+    crm:P3_has_note "Each bell can sound two different tones, a third apart in pitch. The set's combined tonal range runs from C2 to D7 (scientific pitch notation); in the middle of that range it can sound all twelve chromatic semitones." .
+
+ex:type_bellset a crm:E55_Type ;
+    rdfs:label "set of tuned chime bells (bianzhong)" .
+
+ex:topLevel a crm:E22_Human-Made_Object ;
+    rdfs:label "top level of bells" ;
+    crm:P2_has_type ex:type_bellset ;
+    crm:P57_has_number_of_parts "19"^^xsd:integer ;
+    crm:P3_has_note "Hung in three groups at the top level of the racks." .
+
+ex:middleLevel a crm:E22_Human-Made_Object ;
+    rdfs:label "middle level of bells" ;
+    crm:P2_has_type ex:type_bellset ;
+    crm:P57_has_number_of_parts "33"^^xsd:integer ;
+    crm:P3_has_note "Hung in three groups at the middle level of the racks." .
+
+ex:bottomLevel a crm:E22_Human-Made_Object ;
+    rdfs:label "bottom level of bells" ;
+    crm:P2_has_type ex:type_bellset ;
+    crm:P57_has_number_of_parts "12"^^xsd:integer ;
+    crm:P3_has_note "Hung in two groups at the bottom level of the racks." .
+
+ex:bell_biggest a crm:E22_Human-Made_Object ;
+    rdfs:label "the biggest bell" ;
+    crm:P2_has_type ex:type_bell ;
+    crm:P43_has_dimension ex:dim_biggest_height, ex:dim_biggest_weight .
+
+ex:bell_smallest a crm:E22_Human-Made_Object ;
+    rdfs:label "the smallest bell" ;
+    crm:P2_has_type ex:type_bell ;
+    crm:P43_has_dimension ex:dim_smallest_height, ex:dim_smallest_weight .
+
+ex:type_bell a crm:E55_Type ;
+    rdfs:label "bianzhong (individual chime bell)" .
+
+ex:dim_biggest_height a crm:E54_Dimension ;
+    crm:P2_has_type ex:type_height ;
+    crm:P90_has_value "153.4"^^xsd:decimal ;
+    crm:P91_has_unit ex:unit_cm .
+
+ex:dim_biggest_weight a crm:E54_Dimension ;
+    crm:P2_has_type ex:type_weight ;
+    crm:P90_has_value "203.6"^^xsd:decimal ;
+    crm:P91_has_unit ex:unit_kg .
+
+ex:dim_smallest_height a crm:E54_Dimension ;
+    crm:P2_has_type ex:type_height ;
+    crm:P90_has_value "20.4"^^xsd:decimal ;
+    crm:P91_has_unit ex:unit_cm .
+
+ex:dim_smallest_weight a crm:E54_Dimension ;
+    crm:P2_has_type ex:type_weight ;
+    crm:P90_has_value "2.4"^^xsd:decimal ;
+    crm:P91_has_unit ex:unit_kg .
+
+ex:type_height a crm:E55_Type ; rdfs:label "height" .
+ex:type_weight a crm:E55_Type ; rdfs:label "weight" .
+ex:type_length a crm:E55_Type ; rdfs:label "length" .
+ex:type_width  a crm:E55_Type ; rdfs:label "width" .
+
+ex:unit_cm a crm:E58_Measurement_Unit ; rdfs:label "centimetre" .
+ex:unit_kg a crm:E58_Measurement_Unit ; rdfs:label "kilogram" .
+ex:unit_m  a crm:E58_Measurement_Unit ; rdfs:label "metre" .
+
+# ---------------------------------------------------------------------------
+# The two wooden racks.
+# ---------------------------------------------------------------------------
+
+ex:rackA a crm:E22_Human-Made_Object ;
+    rdfs:label "wooden rack A (7.48 m x 2.65 m)" ;
+    crm:P2_has_type ex:type_rack ;
+    crm:P45_consists_of ex:material_wood ;
+    crm:P43_has_dimension ex:dim_rackA_length, ex:dim_rackA_width .
+
+ex:rackB a crm:E22_Human-Made_Object ;
+    rdfs:label "wooden rack B (3.35 m x 2.73 m)" ;
+    crm:P2_has_type ex:type_rack ;
+    crm:P45_consists_of ex:material_wood ;
+    crm:P43_has_dimension ex:dim_rackB_length, ex:dim_rackB_width .
+
+ex:type_rack a crm:E55_Type ; rdfs:label "bell-rack (support frame)" .
+ex:material_wood a crm:E57_Material ; rdfs:label "wood" .
+
+ex:dim_rackA_length a crm:E54_Dimension ; crm:P2_has_type ex:type_length ; crm:P90_has_value "7.48"^^xsd:decimal ; crm:P91_has_unit ex:unit_m .
+ex:dim_rackA_width  a crm:E54_Dimension ; crm:P2_has_type ex:type_width  ; crm:P90_has_value "2.65"^^xsd:decimal ; crm:P91_has_unit ex:unit_m .
+ex:dim_rackB_length a crm:E54_Dimension ; crm:P2_has_type ex:type_length ; crm:P90_has_value "3.35"^^xsd:decimal ; crm:P91_has_unit ex:unit_m .
+ex:dim_rackB_width  a crm:E54_Dimension ; crm:P2_has_type ex:type_width  ; crm:P90_has_value "2.73"^^xsd:decimal ; crm:P91_has_unit ex:unit_m .
+
+# ---------------------------------------------------------------------------
+# The hammers.
+# ---------------------------------------------------------------------------
+
+ex:hammers a crm:E22_Human-Made_Object ;
+    rdfs:label "wooden hammers" ;
+    crm:P2_has_type ex:type_hammer ;
+    crm:P45_consists_of ex:material_wood ;
+    crm:P3_has_note "Used to strike the bells; found together with them in the Tomb of Marquis Yi of Zeng." .
+
+ex:type_hammer a crm:E55_Type ; rdfs:label "hammer (bell-striking mallet)" .
+
+# ---------------------------------------------------------------------------
+# Production of the bells. Wikipedia dates only "the bianzhong" (the bells);
+# it never dates the racks or the hammers, so the production event's product
+# is scoped to ex:bellSet, not to ex:instrument as a whole. No maker or
+# commissioner is named anywhere in the source, so P14_carried_out_by is
+# deliberately absent rather than invented.
+# ---------------------------------------------------------------------------
+
+ex:production a crm:E12_Production ;
+    rdfs:label "production of the bianzhong bells" ;
+    crm:P108_has_produced ex:bellSet ;
+    crm:P4_has_time-span ex:ts_433bc .
+
+ex:ts_433bc a crm:E52_Time-Span ;
+    rdfs:label "433 BC" ;
+    crm:P81_ongoing_throughout "433 BC" ;
+    crm:P82_at_some_time_within "433 BC" .
+
+# ---------------------------------------------------------------------------
+# The 1978 finding/excavation. Modelled as an S19 Encounter Event (CRMsci),
+# not as an E8 Acquisition or E10 Transfer of Custody: the source names no
+# party who took title or custody at this moment, only that the object was
+# "unearthed" -- an encounter with a pre-existing thing, not a transfer.
+# ---------------------------------------------------------------------------
+
+ex:encounter a crmsci:S19_Encounter_Event ;
+    rdfs:label "1978 unearthing of the bianzhong in the Tomb of Marquis Yi of Zeng" ;
+    crmsci:O19_encountered_object ex:instrument ;
+    crmsci:O21_encountered_at ex:tomb ;
+    crm:P4_has_time-span ex:ts_1978 .
+
+ex:ts_1978 a crm:E52_Time-Span ;
+    rdfs:label "1978" ;
+    crm:P81_ongoing_throughout "1978" ;
+    crm:P82_at_some_time_within "1978" .
+
+# ---------------------------------------------------------------------------
+# Places: the find-spot hierarchy exactly as given by the source, from the
+# tomb up through China. ex:hubei is reused (not duplicated) as the branch
+# point shared with the current-location hierarchy below.
+# ---------------------------------------------------------------------------
+
+ex:tomb a crm:E53_Place ;
+    rdfs:label "Tomb of Marquis Yi of Zeng" ;
+    crm:P89_falls_within ex:leigudun .
+
+ex:leigudun a crm:E53_Place ;
+    rdfs:label "Leigudun Community" ;
+    crm:P89_falls_within ex:nanjiao .
+
+ex:nanjiao a crm:E53_Place ;
+    rdfs:label "Nanjiao Subdistrict" ;
+    crm:P89_falls_within ex:zengdu .
+
+ex:zengdu a crm:E53_Place ;
+    rdfs:label "Zengdu District" ;
+    crm:P89_falls_within ex:suizhou .
+
+ex:suizhou a crm:E53_Place ;
+    rdfs:label "Suizhou" ;
+    crm:P1_is_identified_by ex:name_suizhou, ex:name_suicounty ;
+    crm:P89_falls_within ex:hubei .
+
+ex:name_suizhou a crm:E41_Appellation ;
+    rdfs:label "Suizhou" ;
+    crm:P139_has_alternative_form ex:name_suicounty .
+
+ex:name_suicounty a crm:E41_Appellation ;
+    rdfs:label "Sui County" ;
+    crm:P3_has_note "The name in administrative use in 1978, at the time the bells were unearthed; the source calls it 'then Sui County'." .
+
+ex:hubei a crm:E53_Place ;
+    rdfs:label "Hubei Province" ;
+    crm:P89_falls_within ex:china .
+
+ex:china a crm:E53_Place ;
+    rdfs:label "China" .
+
+# ---------------------------------------------------------------------------
+# Current location and keeper.
+# ---------------------------------------------------------------------------
+
+ex:wuhan a crm:E53_Place ;
+    rdfs:label "Wuhan" ;
+    crm:P89_falls_within ex:hubei .
+
+ex:museumPlace a crm:E53_Place ;
+    rdfs:label "Hubei Provincial Museum (site)" ;
+    crm:P89_falls_within ex:wuhan .
+
+ex:hubeiMuseum a crm:E74_Group ;
+    rdfs:label "Hubei Provincial Museum" ;
+    crm:P74_has_current_or_former_residence ex:museumPlace .
+
+# ---------------------------------------------------------------------------
+# Replicas made for other museums -- named, dated and located nowhere in the
+# source, so this node records only the bare relational fact and nothing
+# else.
+# ---------------------------------------------------------------------------
+
+ex:replicas a crm:E22_Human-Made_Object ;
+    rdfs:label "unspecified replica sets made for other museums" ;
+    crm:P130_shows_features_of ex:instrument ;
+    crm:P3_has_note "The source states only that copies have been made for other museums, without naming them, dating the copies, or saying how many; this node records that bare fact and nothing more." .

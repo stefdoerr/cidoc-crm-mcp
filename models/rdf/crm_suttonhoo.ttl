@@ -1,0 +1,263 @@
+@prefix crm:    <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
+@prefix ex:     <https://example.org/suttonhoo/> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+# =====================================================================
+# The Sutton Hoo helmet -- CIDOC CRM model
+# Source: Wikipedia, "Sutton Hoo helmet" (cached plain-text extract).
+# Every class/property choice below is argued in the accompanying report,
+# v2_suttonhoo-report.md, section 1.
+# =====================================================================
+
+# ---------------------------------------------------------------------
+# The object and its type
+# ---------------------------------------------------------------------
+
+ex:Helmet a crm:E22_Human-Made_Object ;
+    rdfs:label "the Sutton Hoo helmet"@en ;
+    crm:P2_has_type ex:Type_CrestedHelmet ;
+    crm:P45_consists_of ex:Material_Iron, ex:Material_TinnedBronze ;
+    crm:P46_is_composed_of
+        ex:Part_Cap, ex:Part_FaceMask, ex:Part_CheekGuards,
+        ex:Part_NeckGuard, ex:Part_Crest, ex:Part_Eyebrows,
+        ex:Part_NoseMouthPiece, ex:Part_DragonHead_Upward ;
+    crm:P43_has_dimension ex:Dimension_Weight ;
+    crm:P62_depicts
+        ex:Motif_Visage, ex:Motif_DancingWarriors,
+        ex:Motif_RiderAndFallenWarrior, ex:Motif_LargerInterlace,
+        ex:Motif_SmallerInterlace ;
+    crm:P52_has_current_owner ex:BritishMuseum ;
+    crm:P50_has_current_keeper ex:BritishMuseum ;
+    crm:P55_has_current_location ex:Place_Room41_BritishMuseum ;
+    crm:P3_has_note "The exterior was divided by fluted moulding strips into panels stamped with one of five pressblech designs. Edges were further protected by U-shaped brass tubing fastened with swaged bronze clips; rivets throughout are bronze. A fifth design (\"Design 3\"), known from seven small fragments on the sinister-rear area, could not be reconstructed or identified by Bruce-Mitford; it is deliberately not linked as a depicted subject below, since the article itself treats its subject as unknown."@en .
+
+ex:Type_CrestedHelmet a crm:E55_Type ;
+    rdfs:label "crested helmet"@en ;
+    crm:P3_has_note "The article's own classification: one of c. 50 helmets of this broad type (as opposed to the continental spangenhelm/lamellenhelm), and within that, of the Vendel/Valsgärde sub-class."@en .
+
+# ---------------------------------------------------------------------
+# Materials (E57), shared across P45_consists_of statements
+# ---------------------------------------------------------------------
+
+ex:Material_Iron a crm:E57_Material ; rdfs:label "iron"@en .
+ex:Material_TinnedBronze a crm:E57_Material ; rdfs:label "tinned bronze"@en .
+ex:Material_Bronze a crm:E57_Material ; rdfs:label "bronze"@en .
+ex:Material_Silver a crm:E57_Material ; rdfs:label "silver"@en .
+ex:Material_Garnet a crm:E57_Material ; rdfs:label "garnet"@en .
+ex:Material_Niello a crm:E57_Material ; rdfs:label "niello"@en .
+
+# ---------------------------------------------------------------------
+# Dimensions (E54)
+# ---------------------------------------------------------------------
+
+ex:Dimension_Weight a crm:E54_Dimension ;
+    rdfs:label "estimated weight"@en ;
+    crm:P2_has_type ex:Type_Weight ;
+    crm:P90_has_value "2.5"^^xsd:decimal ;
+    crm:P91_has_unit ex:Unit_Kilogram ;
+    crm:P3_has_note "The article gives this as \"an estimated 2.5 kg (5.5 lb)\" -- an estimate, not a re-weighing of the reconstructed object."@en .
+
+ex:Type_Weight a crm:E55_Type ; rdfs:label "weight"@en .
+ex:Unit_Kilogram a crm:E58_Measurement_Unit ; rdfs:label "kilogram"@en .
+ex:Unit_Centimetre a crm:E58_Measurement_Unit ; rdfs:label "centimetre"@en .
+
+ex:Dimension_CrestLength a crm:E54_Dimension ;
+    rdfs:label "surviving length of the crest, front to back"@en ;
+    crm:P2_has_type ex:Type_SurvivingLength ;
+    crm:P90_has_value "25.5"^^xsd:decimal ;
+    crm:P91_has_unit ex:Unit_Centimetre ;
+    crm:P3_has_note "\"The crest, complete for 25.5 cm (10.0 in) from front to back, is missing 2 cm (0.79 in) above the rear dragon head.\" This is a surviving-fabric measurement, not a reconstructed original length -- the article records an unresolved dispute over how much of the crest length in the 1971 reconstruction is original versus restorer's plaster."@en .
+
+ex:Type_SurvivingLength a crm:E55_Type ; rdfs:label "surviving length (front to back)"@en .
+
+# ---------------------------------------------------------------------
+# Major parts (E22 -- worked, purposely-shaped iron/bronze components)
+# ---------------------------------------------------------------------
+
+ex:Part_Cap a crm:E22_Human-Made_Object ;
+    rdfs:label "skull cap"@en ;
+    crm:P45_consists_of ex:Material_Iron ;
+    crm:P3_has_note "Beaten into shape from a single piece of iron -- unique among the known Anglo-Saxon helmets, whose caps were each built from at least eight pieces."@en .
+
+ex:Part_FaceMask a crm:E22_Human-Made_Object ;
+    rdfs:label "face mask (iron visor plate)"@en ;
+    crm:P45_consists_of ex:Material_Iron ;
+    crm:P3_has_note "Riveted to the cap on both sides and above the nose; two cutouts form the eye openings and a third opens into the hollow nose, above two nostril-like holes. The Sutton Hoo helmet is the only known Anglo-Saxon helmet with a face mask."@en .
+
+ex:Part_CheekGuards a crm:E22_Human-Made_Object ;
+    rdfs:label "cheek guards (dexter and sinister)"@en ;
+    crm:P45_consists_of ex:Material_Iron ;
+    crm:P3_has_note "Deep enough to protect the whole side of the face, curved inward both vertically and horizontally; two hinges per side allowed them to close flush against the face mask. The article calls the hinge material only \"possibly\" leather; that hedge is preserved here by not asserting a material for the hinges at all."@en .
+
+ex:Part_NeckGuard a crm:E22_Human-Made_Object ;
+    rdfs:label "neck guard"@en ;
+    crm:P45_consists_of ex:Material_Iron ;
+    crm:P3_has_note "Two overlapping iron pieces: a shorter piece set inside the cap, and a wider fan-like segment hanging from it, straight top to bottom but curved laterally to the neck. Attached to the cap by hinges the article again associates with leather, without full certainty."@en .
+
+ex:Part_Crest a crm:E22_Human-Made_Object ;
+    rdfs:label "crest"@en ;
+    crm:P45_consists_of ex:Material_Iron ;
+    crm:P43_has_dimension ex:Dimension_CrestLength ;
+    crm:P46_is_composed_of ex:Part_DragonHead_Front, ex:Part_DragonHead_Rear ;
+    crm:P3_has_note "Hollow, D-sectioned iron tubing built from two parts (an inverted-U piece with a flat strip fitted into its base); flanked by two gilded fluted strips. No solder traces survive, so the article leaves open whether it was forged in place or shrunk on to the cap."@en .
+
+ex:Part_DragonHead_Front a crm:E22_Human-Made_Object ;
+    rdfs:label "front crest-terminal dragon head"@en ;
+    crm:P45_consists_of ex:Material_Bronze ;
+    crm:P3_has_note "Cast bronze, gilded; riveted via an iron tang extending from the front end of the crest."@en .
+
+ex:Part_DragonHead_Rear a crm:E22_Human-Made_Object ;
+    rdfs:label "rear crest-terminal dragon head"@en ;
+    crm:P3_has_note "Made of an alloy the article does not name (\"another alloy\"), now mostly degraded into tin oxide; mostly missing and absent from the first (1945-46) reconstruction. No crm:P45_consists_of is asserted for it here, since the source does not identify the material."@en .
+
+ex:Part_DragonHead_Upward a crm:E22_Human-Made_Object ;
+    rdfs:label "upward-facing (third) dragon head"@en ;
+    crm:P45_consists_of ex:Material_Bronze ;
+    crm:P3_has_note "Cast bronze; sits at the junction of the two eyebrows, facing upward, its neck resting on the face mask and held by a large rivet shank under its eyes. Structurally separate from the crest-terminal dragon heads: it is not riveted to the crest, so it is composed directly into the helmet rather than into the crest part."@en .
+
+ex:Part_Eyebrows a crm:E22_Human-Made_Object ;
+    rdfs:label "eyebrows (dexter and sinister pair)"@en ;
+    crm:P45_consists_of ex:Material_Bronze, ex:Material_Silver, ex:Material_Garnet ;
+    crm:P3_has_note "Hollow cast bronze, riveted to the cap and to the nose-and-mouth-piece tang; inlaid with parallel silver wires; gilded boar-head terminals; garnets set in bronze cells on the underside. The two are asymmetric: the dexter brow is c. 5 mm shorter, has 43 rather than 46 silver wires and one or two fewer garnets, differently coloured gilding, and -- on the sinister brow and one dragon eye only -- the garnet cells lack the gold-foil backing seen elsewhere. The article reports this asymmetry has been read as a deliberate allusion to the one-eyed god Odin, but frames that reading itself as a possible allusion, not a settled fact; no depicts statement about Odin is asserted anywhere in this file for that reason."@en .
+
+ex:Part_NoseMouthPiece a crm:E22_Human-Made_Object ;
+    rdfs:label "nose-and-mouth piece"@en ;
+    crm:P45_consists_of ex:Material_Bronze, ex:Material_Silver, ex:Material_Niello ;
+    crm:P3_has_note "Cast bronze, riveted to the cap at five points; the nasal ridge is inlaid with wire, its background punched down and filled with niello or another metallic inlay; heavily gilded, with mercury residue indicating fire-gilding. The moustache repeats the nose's flute-and-billet pattern; the lip repeats its circle pattern."@en .
+
+# ---------------------------------------------------------------------
+# What the helmet depicts (E36 Visual Item, via the P62 depicts shortcut)
+# ---------------------------------------------------------------------
+
+ex:Motif_Visage a crm:E36_Visual_Item ;
+    rdfs:label "composite visage: man joined by a dragon's head"@en ;
+    crm:P3_has_note "The article's lead: \"The visage contains eyebrows, a nose, and moustache, creating the image of a man joined by a dragon's head to become a soaring dragon with outstretched wings.\" Formed jointly by the eyebrows, nose-and-mouth piece and upward-facing dragon head, which is why this motif is attached to the whole helmet rather than to any one part."@en .
+
+ex:Motif_DancingWarriors a crm:E36_Visual_Item ;
+    rdfs:label "Design 1: dancing warriors"@en ;
+    crm:P3_has_note "Two men in ceremonial dress, crossed sword-hands, outer hands holding spears, in what is interpreted as a ritual sword-dance possibly associated with the cult of Odin. Occurs (from the same die) on the two panels above the eyebrows and, inferred by symmetry, on both cheek guards. Closely paralleled by the Valsgärde 7 helmet and a Gamla Uppsala foil fragment."@en .
+
+ex:Motif_RiderAndFallenWarrior a crm:E36_Visual_Item ;
+    rdfs:label "Design 2: rider and fallen warrior"@en ;
+    crm:P3_has_note "A mounted, spear-wielding warrior tramples an enemy who is stabbing the horse; a small anthropomorphic figure, its body forming a swastika, kneels on the horse's rump and grips the spear alongside the rider. The article treats the small figure's identity as \"possibly\" divine/Odin and the overall iconography's meaning as unclear (\"an overarching theme...may...be that of fate\") -- again a hedge preserved as narrative text, not as an asserted identity."@en .
+
+ex:Motif_LargerInterlace a crm:E36_Visual_Item ;
+    rdfs:label "Design 4: larger interlace (single zoomorphic ribbon animal)"@en ;
+    crm:P3_has_note "A single quadruped in ribbon style (Salin \"Style II\" animal ornament), fully reconstructable; occurs on the cheek guards, neck guard and skull cap."@en .
+
+ex:Motif_SmallerInterlace a crm:E36_Visual_Item ;
+    rdfs:label "Design 5: smaller interlace (two confronted zoomorphic figures)"@en ;
+    crm:P3_has_note "Two animals, upside down and reversed relative to each other, with backward-turning heads toward the panel centre. Covers the face mask, is prominent on the neck guard, and fills spaces on the cheek guards."@en .
+
+# ---------------------------------------------------------------------
+# Production
+# ---------------------------------------------------------------------
+
+ex:Production a crm:E12_Production ;
+    rdfs:label "manufacture of the Sutton Hoo helmet"@en ;
+    crm:P108_has_produced ex:Helmet ;
+    crm:P4_has_time-span ex:TimeSpan_Production ;
+    crm:P3_has_note "No maker or commissioner is named in the source, so no crm:P14_carried_out_by is asserted. No place of production is asserted either (no crm:P7_took_place_at): the article records two live, competing readings -- an Anglo-Saxon origin (it is classed throughout as an \"Anglo-Saxon helmet\") and a rival theory, prompted by the closeness of the Valsgärde 7 and Gamla Uppsala parallels, that it \"was made in Sweden, not Anglo-Saxon England.\" The article does not adjudicate between them, so this model does not either."@en .
+
+ex:TimeSpan_Production a crm:E52_Time-Span ;
+    rdfs:label "estimated manufacture (model author's inference; not a date given by the source)"@en ;
+    crm:P82a_begin_of_the_begin "0500"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "0625"^^xsd:gYear ;
+    crm:P79_beginning_is_qualified_by "No numeric production date appears anywhere in the source. This lower bound is arithmetic performed by the model author, not the article: it combines the claim that the helmet was \"likely around 100 years old when buried\" (the heirloom hypothesis) with the traditional c. 620-625 burial date. Flagged here as going beyond what the text states, per the brief's instruction to mark such formalisations plainly."@en ;
+    crm:P80_end_is_qualified_by "Upper bound is the latest traditionally cited burial year (c. 625); manufacture is assumed to precede burial. The article's own numismatic terminus post quem for the burial (613-635, from coin-fineness analysis) is a different, better-evidenced date and is recorded separately on the discovery/burial context below rather than folded into this bound, to avoid conflating two distinct arguments."@en .
+
+# ---------------------------------------------------------------------
+# Discovery, 1939
+# ---------------------------------------------------------------------
+
+ex:Discovery1939 a crmsci:S19_Encounter_Event ;
+    rdfs:label "1939 discovery of the helmet fragments"@en ;
+    crmsci:O19_encountered_object ex:Helmet ;
+    crmsci:O21_encountered_at ex:Place_SuttonHoo ;
+    crm:P4_has_time-span ex:TimeSpan_Discovery1939 ;
+    crm:P3_has_note "The helmet was found shattered, wrapped in cloths, to the left of the head of the buried individual, inside a ship dragged up from the river and buried under an earthen mound; the chamber roof later collapsed and compressed the contents. It was excavated in more than 500 fragments, accounting for less than half the original surface area. Recorded in the excavation diary of C. W. Phillips (28 and 29 July, and 1 August 1939); the diary documents the find but the article does not say Phillips personally excavated it, so no crm:P14_carried_out_by is asserted here. No photographs were taken of the fragments in situ and their relative positions were not recorded -- only a circle marked \"nucleus of helmet remains\" on the excavation diagram -- a gap the article itself flags as regrettable, since the helmet's importance was not yet recognised."@en .
+
+ex:TimeSpan_Discovery1939 a crm:E52_Time-Span ;
+    rdfs:label "28 July - 1 August 1939"@en ;
+    crm:P82a_begin_of_the_begin "1939-07-28"^^xsd:date ;
+    crm:P82b_end_of_the_end "1939-08-01"^^xsd:date .
+
+ex:Document_PhillipsDiary a crm:E31_Document ;
+    rdfs:label "excavation diary of C. W. Phillips"@en ;
+    crm:P70_documents ex:Discovery1939 .
+
+ex:Place_SuttonHoo a crm:E53_Place ;
+    rdfs:label "Sutton Hoo"@en ;
+    crm:P89_falls_within ex:Place_England .
+
+ex:Place_England a crm:E53_Place ;
+    rdfs:label "England"@en ;
+    crm:P3_has_note "Not named as such in the cached article extract. Inferred from \"British Museum\", \"British soil\", and the English common-law treasure-trove inquest the article describes. Flagged as a modelling addition beyond the literal text, per the brief's instruction on naming a place's country."@en .
+
+ex:Place_Room41_BritishMuseum a crm:E53_Place ;
+    rdfs:label "Room 41, British Museum"@en ;
+    crm:P89_falls_within ex:Place_BritishMuseumBuilding ;
+    crm:P3_has_note "\"The helmet is on permanent display in Room 41\" of the British Museum, alongside the Royal Armouries replica."@en .
+
+ex:Place_BritishMuseumBuilding a crm:E53_Place ;
+    rdfs:label "the British Museum (building)"@en .
+
+# ---------------------------------------------------------------------
+# Ownership: Edith Pretty, then the British Museum
+# ---------------------------------------------------------------------
+
+ex:Person_EdithPretty a crm:E21_Person ; rdfs:label "Edith Pretty"@en .
+ex:Person_Raedwald a crm:E21_Person ; rdfs:label "Rædwald of East Anglia"@en .
+ex:BritishMuseum a crm:E74_Group ; rdfs:label "British Museum"@en .
+
+ex:Type_Ownership a crm:E55_Type ; rdfs:label "ownership"@en .
+
+ex:InquestAssignment1939 a crm:E13_Attribute_Assignment ;
+    rdfs:label "coroner's inquest ruling that the ship-burial finds were not treasure trove"@en ;
+    crm:P140_assigned_attribute_to ex:Helmet ;
+    crm:P141_assigned ex:Person_EdithPretty ;
+    crm:P177_assigned_property_of_type ex:Type_Ownership ;
+    crm:P4_has_time-span ex:TimeSpan_Inquest ;
+    crm:P3_has_note "A 14-person jury found, on 14 August 1939, that the 56 categories of buried objects were not treasure trove, because it was \"impossible\" they had been secretly hidden, given the labour and publicity of hauling the ship up and the feasting that would have accompanied the burial. Items with only marginal gold or silver content, including the helmet, were therefore the outright property of the landowner, Edith Pretty, under the common-law rule that treasure trove belongs to the crown only when hidden by an unknown owner, and to the landowner otherwise."@en .
+
+ex:TimeSpan_Inquest a crm:E52_Time-Span ;
+    rdfs:label "14 August 1939"@en ;
+    crm:P82a_begin_of_the_begin "1939-08-14"^^xsd:date ;
+    crm:P82b_end_of_the_end "1939-08-14"^^xsd:date .
+
+ex:Acquisition_Pretty a crm:E8_Acquisition ;
+    rdfs:label "Edith Pretty's title to the ship-burial finds"@en ;
+    crm:P24_transferred_title_of ex:Helmet ;
+    crm:P22_transferred_title_to ex:Person_EdithPretty ;
+    crm:P17_was_motivated_by ex:InquestAssignment1939 ;
+    crm:P4_has_time-span ex:TimeSpan_Inquest ;
+    crm:P3_has_note "No crm:P23_transferred_title_from is asserted: ownership of the finds was undetermined until the inquest resolved it, and E8 Acquisition explicitly permits an acquisition with no recorded donor (\"acquisition from an unknown source\")."@en .
+
+ex:Acquisition_BritishMuseum a crm:E8_Acquisition ;
+    rdfs:label "Edith Pretty's donation of the helmet to the British Museum"@en ;
+    crm:P24_transferred_title_of ex:Helmet ;
+    crm:P23_transferred_title_from ex:Person_EdithPretty ;
+    crm:P22_transferred_title_to ex:BritishMuseum ;
+    crm:P4_has_time-span ex:TimeSpan_Donation ;
+    crm:P3_has_note "\"Within days\" of the 14 August 1939 inquest, Pretty donated the entire find to the British Museum; the article gives no exact date. Even had the gold/silver objects from the burial been ruled treasure trove, the helmet and the other non-precious-metal finds would have stayed hers regardless -- donation was one of the only routes by which the museum could acquire them."@en .
+
+ex:TimeSpan_Donation a crm:E52_Time-Span ;
+    rdfs:label "shortly after 14 August 1939 (exact date not given)"@en ;
+    crm:P82a_begin_of_the_begin "1939-08-14"^^xsd:date ;
+    crm:P82b_end_of_the_end "1939-08-25"^^xsd:date ;
+    crm:P79_beginning_is_qualified_by "The article says only \"within days\" of the 14 August 1939 inquest."@en ;
+    crm:P80_end_is_qualified_by "Upper bound taken from the article's statement that excavation ended 24 August 1939 and all finds were shipped out the next day; this is the model author's outer bound, not a date the article attaches to the donation itself."@en .
+
+# ---------------------------------------------------------------------
+# The Rædwald hypothesis -- deliberately not asserted as fact
+# ---------------------------------------------------------------------
+
+ex:RaedwaldHypothesis a crm:E13_Attribute_Assignment ;
+    rdfs:label "hypothesis identifying Rædwald as the leader the helmet was buried with"@en ;
+    crm:P140_assigned_attribute_to ex:Helmet ;
+    crm:P141_assigned ex:Person_Raedwald ;
+    crm:P177_assigned_property_of_type ex:Type_Ownership ;
+    crm:P3_has_note "The article: Rædwald is \"the preferred candidate\" for the ship-burial's honoree, but the case is \"by no means conclusive\", resting on burial dating, the abundance of regalia, and the Christian/pagan syncretism of the grave goods -- and elsewhere: \"these arguments have been made with more vigour than persuasiveness.\" Former British Museum director Sir David M. Wilson, quoted in the article: \"the little word may should be brought into any identification of Rædwald... it may or even might be Sigeberht who died in the early 630s, or it might be his illegitimate brother if he had one..., or any other great man of East Anglia from 610 to 650.\" This is why the model does not assert crm:P52_has_current_owner or crm:P51_has_former_or_current_owner between the helmet and Rædwald: either would flatten a contested identification into a fact. Instead the identification is recorded as an E13 Attribute Assignment -- the idiom the CRM SIG itself reached for when discussing exactly this class of case (\"probably author of\"; SIG 'Belief values' thread, 2017-10-03) -- so the file states only that the attribution has been made, and by whom the article credits it, not that it is true."@en .

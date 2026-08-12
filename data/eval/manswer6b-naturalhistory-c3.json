@@ -1,0 +1,281 @@
+{
+  "case_id": "naturalhistory-c3",
+  "answer": "Short answer: stop at documentation plus a resolvable pointer for the sequence, and refuse the framing for the bootstrap values — they are not properties of the fish at all, so \"alongside the specimen record\" is the wrong shape regardless of storage policy. The CRM family will represent everything the curator wants; what it will not do is reward putting the sequence string and the tree statistics in the specimen record as attributes.\n\n1. THE SEQUENCING, as an event you must hold locally. Model it as an S4 Single Observation (CRMsci): P14 carried out by the genomics lab, P4 has time-span, O8 observed the specimen (an E20 Biological Object — CRMsci declares E18 Physical Thing a subclass of S10 Material Substantial, hence an S15 Observable Entity), O9 observed property type an S9 Property Type such as \"complete mitochondrial genome sequence\" drawn from a genomics vocabulary, and O16 observed value the resulting data object. O9's scope note describes exactly this triple — property type, observed entity, value — as the way to say what the values in a scientific data set are about without reifying the observed property itself. If the lab worked from a tissue subsample rather than the whole animal, the precise target of O8 is an S13 Sample removed by an S2 Sample Taking; that chain is where the collection database genuinely earns its keep, because it is the only link that lets a future reader tie the public sequence back to your voucher.\n\n2. THE DEPOSITED SEQUENCE, as an entity you can point at. D9 Data Object (CRMdig) — a subclass of D1 Digital Object and E31 Document, defined as a digital object that is the result of measurements or other observations, or their algorithmic evaluation, in the form of structured data. A FASTA record is that; so is a Newick tree carrying support values. D9 carries a required P70 documents, so the data object points back at the specimen. That one property is the \"documenting that the sequencing happened\" the curator asked about, and it is the part you must not delegate to anybody else.\n\n3. THE ACCESSION NUMBER. E42 Identifier attached to the D9 with P1 is identified by, and P2 has type so nobody confuses it with your own catalogue number. Because it was allocated by someone else, record the allocation itself as an E15 Identifier Assignment: P14 carried out by the repository, P140 assigned attribute to the data object, P37 assigned the identifier. That is what turns \"pointing to the external accession number\" into something a query can follow and attribute, instead of a string in a free-text field.\n\n4. THE NUCLEOTIDE STRING ITSELF. D9 has P190 has symbolic content: E62 String, so nothing in the model forbids caching the sequence locally. Nothing recommends it either. The specification's own criterion for what deserves explicit structure is queryability: \"only concepts to be used for selecting multiple instances from the knowledge base by formal querying need to be explicitly modelled\", and E13's scope note applies the same test to assignments — whether they are structured rather than free text \"depends on whether this information should be accessible by structured queries\". Nobody selects specimens from a collection database by string-matching sixteen kilobases. CRMsci states its own purpose as \"integrating metadata about scientific observation, measurements and processed data\" and adds that \"It is not primarily a model for processing data in order to produce new research results\". Martin Doerr put the identical test to a museum asking how much measurement detail to structure — \"Obviously the CRM is not a full model for the description of scientific measurements\" — and then \"I wonder if the conditions are relevant for queries\": if not, a note suffices. Here, the repository suffices. Note also the shape of the one CRMdig construct that relates a file to values, L61 contains value set of: it points from the data object to the dimension whose values it contains. The model relates a data object to what it is about; it does not inline the payload.\n\n5. THE BOOTSTRAP VALUES — the part that is misplaced, not merely optional. A bootstrap proportion is not a measurement of the fish and not a property of the fish. It is the support for one branching hypothesis under one resampling procedure applied to one alignment. In the family models it lands in the inference layer: the tree-building is an S6 Data Evaluation (CRMsci), \"the action of concluding propositions on a respective reality from observational data by making evaluations based on mathematical inference rules and calculations using established hypotheses\" — the same class CRMsci uses for an earthquake epicentre or a volume derived from a 3D model rather than measured. Record it with P14 carried out by the sequencing team, P16 used specific object the sequence data object, and P33 used specific technique an E29 Design or Procedure naming the program version and the substitution/resampling model. It then J2 concluded that an I2 Belief, whose J4 that is an I4 Proposition Set (this specimen groups with these relatives) and whose J5 holds to be is an I6 Belief Value — the support figure. P129 is about ties the proposition set back to the specimen.\n\nRecorded that way the number means something. Recorded as a column beside the specimen it does not: a bare 87 with no proposition, no alignment, no model and no program attached cannot be interpreted or compared with anyone else's 87. And whether to carry it at all is contested in the SIG: in t1035 Niccolucci argued for quantified reliability as a measured dimension, while Sanderson objected that \"there's very little to be gained from saying that one person is 5/10 sure of an assertion whereas someone else is 4/10 certain\" and Doerr answered \"I absolutely do agree and do not propose a quantification of belief\". A bootstrap value is admittedly not a subjective confidence — it is reproducible from the data — which is precisely why it belongs with the analysis and its inputs, in the publication or the repository, and why copying it into the collection database gains little.\n\nRECOMMENDATION. Hold: the sequencing observation with its actor, date, material and property type; the data object with its required P70 documents back to the specimen; the accession number and the repository's assignment of it; and, if the placement matters curatorially, the analysis and its conclusion as an attributed S6 Data Evaluation with an I6 Belief Value. Do not hold: the nucleotide string as an attribute of the specimen (cache it on the D9 with P190 if you must, but it is a cache, not documentation), and do not hold per-node bootstrap statistics as specimen fields. The SIG has looked at this exact kind of process and treated it as the hard end of the spectrum: Doerr called \"a DNA - taxonomic distance measurement\" a procedure \"with an great number of steps, a series of instruments subsequently used and possible errors in each one\". A collection database that tries to be that record will do it badly; one that documents the chain and points outward will still be readable when the sequencing platform is obsolete.\n\nSCOPE LIMIT, stated plainly: the CRM represents the sequencing, the data object, the identifier and its assignment, the inference and its confidence. It does not represent the content of the sequence, the alignment, or the resampling computation. Those are the research record, not the documentation record, and no amount of CRM will make them into documentation.",
+  "classes_proposed": [
+    "S4",
+    "D9",
+    "E42",
+    "E15",
+    "S6",
+    "I2",
+    "I4",
+    "I6"
+  ],
+  "properties_proposed": [
+    "O8",
+    "O9",
+    "O16",
+    "P70",
+    "P1",
+    "P2",
+    "P37",
+    "P140",
+    "P14",
+    "P4",
+    "P16",
+    "P33",
+    "J2",
+    "J4",
+    "J5",
+    "P129",
+    "P190"
+  ],
+  "rejected_alternatives": [
+    {
+      "option": "D11 Digital Measurement Event (CRMdig)",
+      "why_not": "The right class if they later want machine-level provenance of the sequencer run, but its result is framed as an E54 Dimension whose value set lives in a D9 (L20 has created is declared a shortcut through O39/E54/L61). A nucleotide sequence is a symbol string, not a dimension with a unit, so the dimension-shaped output does not fit what was determined here."
+    },
+    {
+      "option": "E16 Measurement (CRMbase)",
+      "why_not": "Its result path is P40 observed dimension: E54 Dimension, the same quantity mismatch; and E16 is declared a subclass of S4 Single Observation, so choosing S4 keeps the determination expressible without forcing the sequence into a numeric dimension."
+    },
+    {
+      "option": "I5 Inference Making (CRMinf)",
+      "why_not": "A genuine rival, not a wrong answer: it overlaps CRMsci's S5 Inference Making, and S6 Data Evaluation is the more specific child that names deriving conclusions from observational data. The SIG's own issue 602, 'determine the interface btw CRMsci and CRMinf', is still Open, so the duplication is unresolved; in a CRMinf-only stack use I5 with J3 applied: I3 Inference Logic, whose scope note explicitly covers 'the algorithm implemented in a particular revision of a software package'."
+    },
+    {
+      "option": "E54 Dimension on the specimen, via P43 has dimension and P90 has value",
+      "why_not": "This is the shape the curator's request implies, and CRMsci even offers O10 assigned dimension for dimensions derived by evaluation rather than measured — so the objection is not a missing construct. It is that a dimension is a quantifiable property of the thing it belongs to, and a bootstrap proportion is not a property of the fish; it is support for a proposition about the fish. Niccolucci proposed reliability-as-dimension in t1035 and it did not become the model's answer."
+    },
+    {
+      "option": "E73 Information Object for the deposited sequence",
+      "why_not": "Correct but too generic. D9 Data Object says what this thing is — structured data resulting from observation or its algorithmic evaluation — and it carries a required P70 documents, which is exactly the specimen link the collection database needs."
+    },
+    {
+      "option": "E62 String with P190 has symbolic content hung on the specimen record",
+      "why_not": "Available and tempting, but it makes the sequence an attribute of the fish rather than the output of an attributed observation, and it strands the accession number with nothing to identify. If a local copy is wanted, P190 belongs on the D9 Data Object, where the assignment, the actor and the accession number are already attached."
+    }
+  ],
+  "siblings_considered": [
+    {
+      "of": "S4",
+      "sibling": "S21",
+      "why_not": "S21 Measurement is the other direct subclass of S27 Observation and the obvious rival for 'the lab determined something about the specimen'. Rejected because a measurement's outcome is a quantity — a dimension with a value and a unit — whereas O16 observed value on S4 ranges over E1, which is what a symbol string or a data object needs."
+    },
+    {
+      "of": "D9",
+      "sibling": "E32",
+      "why_not": "E32 Authority Document is the other direct subclass of E31 Document, and worth asking about because the case involves a public reference database that everyone cites. But E32 is for thesauri, authority lists and terminological references; a deposited sequence record is observational data, not a terminological authority."
+    },
+    {
+      "of": "E42",
+      "sibling": "E35",
+      "why_not": "E35 Title is the closest sibling under E41 Appellation, and honestly not a plausible rival: an accession number identifies by allocation and convention, not by being recognisable as a title within a cultural context. Named because none of E42's siblings (E35, E61, E94, E95) is a real competitor here."
+    },
+    {
+      "of": "E15",
+      "sibling": "E17",
+      "why_not": "E17 Type Assignment is a sibling under E13 and is genuinely in play elsewhere in this record — the fish's determination to species is an E17. But the accession number was allocated, not classified: nothing about it assigns the data object to a category, so P37 assigned / E42 rather than P42 assigned / E55."
+    },
+    {
+      "of": "S6",
+      "sibling": "S7",
+      "why_not": "S7 Simulation or Prediction is the other prominent direct subclass of S5 Inference Making, and a phylogenetic run does execute software over a mathematical model, which makes it a fair question. But S7 is for simulating the behaviour of a system of interacting components; the analysis here evaluates observed sequence data to conclude something about actual past relatedness, which is S6 Data Evaluation."
+    },
+    {
+      "of": "I2",
+      "sibling": "E3",
+      "why_not": "E3 Condition State is the closest sibling under E2 Temporal Entity, and it is not a plausible rival — named because none of I2's siblings is. A condition state is a state of an instance of E18 Physical Thing over a time-span; the support for a phylogenetic hypothesis is not a state of the fish, and only I2 carries J4 that and J5 holds to be."
+    },
+    {
+      "of": "I4",
+      "sibling": "E73",
+      "why_not": "E73 Information Object is a sibling under E89 Propositional Object and the rival a reader should raise: is the tree a file or a set of propositions? Both, but they are different entities. The tree file is an E73 (specifically a D9); I4 is the content whose identity is 'the total of its content, regardless of equivalent encodings', and it is I4, not E73, that an I2 Belief can be held about via J4."
+    },
+    {
+      "of": "I6",
+      "sibling": "E60",
+      "why_not": "E60 Number is a sibling under E59 Primitive Value and is exactly what the curator wants to store — 87. Rejected because a bare number carries no indication of what it qualifies. I6 Belief Value is reachable only through J5 from an I2 Belief, which forces the proposition, the actor and the inference to be present; that constraint is the whole point."
+    }
+  ],
+  "citations": [
+    "S4",
+    "S6",
+    "S5",
+    "S7",
+    "S13",
+    "S2",
+    "S9",
+    "S10",
+    "S15",
+    "S21",
+    "S27",
+    "D1",
+    "D9",
+    "D11",
+    "E13",
+    "E15",
+    "E20",
+    "E29",
+    "E31",
+    "E32",
+    "E35",
+    "E42",
+    "E54",
+    "E60",
+    "E73",
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "I5",
+    "I6",
+    "O8",
+    "O9",
+    "O10",
+    "O16",
+    "L20",
+    "L61",
+    "J2",
+    "J3",
+    "J4",
+    "J5",
+    "P70",
+    "P190",
+    "Modelling principles > Extensions of CIDOC CRM",
+    "t1409",
+    {
+      "id": "crm732#s0050",
+      "quote": "only concepts to be used for selecting multiple instances from the knowledge base by formal querying need to be explicitly modelled"
+    },
+    {
+      "id": "crm732#E13",
+      "quote": "depends on whether this information should be accessible by structured queries"
+    },
+    {
+      "id": "minutes:minutesOftheMeeting_ver.1#s126",
+      "quote": "integrating metadata about scientific observation, measurements and processed data"
+    },
+    {
+      "id": "minutes:minutesOftheMeeting_ver.1#s126",
+      "quote": "It is not primarily a model for processing data in order to produce new research results"
+    },
+    {
+      "id": "t0231",
+      "quote": "Obviously the CRM is not a full model for the description of scientific measurements"
+    },
+    {
+      "id": "t0231",
+      "quote": "I wonder if the conditions are relevant for queries"
+    },
+    {
+      "id": "t1494",
+      "quote": "a DNA - taxonomic distance measurement"
+    },
+    {
+      "id": "t1494",
+      "quote": "with an great number of steps, a series of instruments subsequently used and possible errors in each one"
+    },
+    {
+      "id": "t1494",
+      "quote": "S4 Observation O9 observed property type"
+    },
+    {
+      "id": "t1035",
+      "quote": "there's very little to be gained from saying that one person is 5/10 sure of an assertion whereas someone else is 4/10 certain"
+    },
+    {
+      "id": "t1035",
+      "quote": "I absolutely do agree and do not propose a quantification of belief"
+    },
+    "minutes:59CIDOC_CRM_52_FRMR_LRMoo_SIG_minutes#s009"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E73",
+    "concept S21",
+    "concept S4",
+    "docs \"primary data raw data scope of documentation not the content\" --kind narrative",
+    "docs \"Intended Scope Practical Scope out of scope not intended to describe\" --kind narrative",
+    "docs \"only concepts to be used for selecting multiple instances from the knowledge base by formal querying need to be explicitly modelled\" --kind narrative --raw",
+    "docs \"only concepts to be used for selecting multiple instances from the knowledge base by formal querying\" --kind narrative --json",
+    "concept I2",
+    "concept I5",
+    "concept I6",
+    "concept I4",
+    "concept D1",
+    "concept D11",
+    "concept D9",
+    "docs \"primary data should be kept in the data files not in the metadata knowledge base\" --kind minutes",
+    "issue 382",
+    "thread t1409",
+    "docs \"knowledge creation process All knowledge contained in an information system must have been introduced into that system by some human agent\" --kind narrative --json",
+    "quote minutes:40th_joined_meeting \"global schema for integrating metadata about scientific observation\"  [FAILED: unknown source id]",
+    "docs \"Scientific Observation Model formal ontology global schema integrating metadata about scientific observation measurements and processed data\" --kind minutes --json",
+    "quote minutes:minutesOftheMeeting_ver.1#s126 \"integrating metadata about scientific observation, measurements and processed data\"",
+    "quote minutes:minutesOftheMeeting_ver.1#s126 \"It is not primarily a model for processing data in order to produce new research results\"",
+    "issues \"primary data digital object measurement result stored\"",
+    "issue 327",
+    "concept S13",
+    "concept S2",
+    "threads \"DNA sequence specimen natural history primary data\"",
+    "threads \"storing primary research data measurement values in a CRM database versus pointing to external repository\"",
+    "quote crm732#s0050 \"only concepts to be used for selecting multiple instances from the knowledge base by formal querying need to be explicitly modelled\"",
+    "connect D9 E20",
+    "concept S27",
+    "concept S9",
+    "concept S15",
+    "concept O16",
+    "concept L61",
+    "concept O39  [FAILED: no such concept]",
+    "concept J5",
+    "concept J2",
+    "concept J4",
+    "concept L20",
+    "concept O8",
+    "concept O9",
+    "concept S10",
+    "concept S20",
+    "connect S4 E20",
+    "connect S4 E18",
+    "connect S4 S13",
+    "concept E13",
+    "concept I1",
+    "concept E89",
+    "concept E59",
+    "concept E41",
+    "concept E2",
+    "concept D35",
+    "concept E15",
+    "concept E42",
+    "concept I3",
+    "docs \"E13 Attribute Assignment need to be documented explicitly in structures of a schema rather than free text accessible by structured queries\" --kind declaration --json",
+    "quote crm732#E13 \"depends on whether this information should be accessible by structured queries\"",
+    "issues \"numerical data into a specialized system doing further processing unlikely anyone would search for all objects that are exactly a certain length\" --json",
+    "\"should the knowledge base contain the raw measurement values or only reference the data set file\"",
+    "thread t0231",
+    "quote t0231 \"Obviously the CRM is not a full model for the description of scientific measurements\"",
+    "quote t0231 \"I wonder if the conditions are relevant for queries\"",
+    "threads \"genetic sequence accession number external repository identifier for a specimen\"",
+    "\"DNA sequencing genome specimen voucher\"",
+    "thread t1494",
+    "quote t1494 \"a DNA - taxonomic distance measurement\"",
+    "quote t1494 \"with an great number of steps, a series of instruments subsequently used and possible errors in each one\"",
+    "quote t1494 \"S4 Observation O9 observed property type\"",
+    "\"belief value probability confidence numeric CRMinf I6\"",
+    "threads \"recording degree of confidence probability of a conclusion CRMinf belief value\"",
+    "thread t1035",
+    "quote t1035 \"there's very little to be gained from saying that one person is 5/10 sure of an assertion whereas someone else is 4/10 certain\"",
+    "quote t1035 \"I absolutely do agree and do not propose a quantification of belief\"",
+    "issue 602",
+    "concept E20",
+    "quote minutes:59CIDOC_CRM_52_FRMR_LRMoo_SIG_minutes#s009 \"Issue 602\"",
+    "concept S5",
+    "concept S6",
+    "concept S7",
+    "concept S8"
+  ],
+  "confidence": "medium",
+  "notes": "The boundary judgement is well evidenced (CRMsci's own scope statement, the Extensions principle, E13's scope note, and Doerr's query test in t0231, all quote-verified). The class choices are less settled, and one is openly contested by the SIG: issue 602, 'determine the interface btw CRMsci and CRMinf', is still Open, so choosing S6 Data Evaluation over I5 Inference Making for the phylogenetic analysis is a judgement call rather than a settled reading. There is no on-point SIG discussion of DNA sequences and specimen records; the closest is t1494, where DNA sequencing came up only as an example of instrument complexity. Hence 'medium'.\n\nTool friction worth reporting. (1) `concept <id>` prints no Siblings block for any extension class (S4, S6, D9, I2, I4, I6 all showed none), so every sibling in siblings_considered had to be reconstructed by hand from the 'Subclass of' / 'Superclass of' lines of the parents — e.g. I1 Argumentation's dossier is the only place that reveals S27 Observation and E13 are siblings of I5. This is exactly the block the brief says the answer turns on, and it is missing for two thirds of the classes I proposed. (2) `connect S4 E20` and `connect S4 E18` do not surface O8 observed, although `connect S4 S13` does, and S10 Material Substantial's own dossier declares E18 a subclass of S10 (hence of S15 Observable Entity). The connect index appears not to follow CRMsci's re-parenting of E18, so I asserted O8 to the specimen on the strength of the S10 dossier rather than on connect's output. (3) Extension scope notes are not in the docs index, so `quote` cannot verify anything from CRMsci/CRMdig/CRMinf definitions — all such wording in my answer is paraphrase, and only the four document/minutes chunks and the three threads are quoted. (4) O9's scope note as printed opens with text belonging to a different property ('This property associates an instance of S1 Matter Removal with the instance of S10 Material Substantial that this activity diminished. Although an instance of S4 Single Observation with...'), which looks like a defect in the source declaration; I relied on the second half, which is coherent. (5) `concept O39` returns 'no such concept' although D11's scope note and L20's declaration both reference O39 observed dimension by name."
+}

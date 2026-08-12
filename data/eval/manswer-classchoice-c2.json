@@ -1,0 +1,29 @@
+{
+  "case_id": "classchoice-c2",
+  "answer": "Model the trial and the certificate as two chained E13 Attribute Assignment sub-events, not one. The eleven-day comparison of the chronometer against the observatory's regulator, noon by noon, is a direct, calibrated, comparative determination of a numeric quantity (accumulated seconds gained or lost per day) -- that is exactly what E16 Measurement is for: P39 measured the chronometer, P40 observed dimension an E54 Dimension for its daily rate (P90 has value / P91 has unit), with the regulator as the reference instrument (P16 used specific object). The E54 Dimension dossier is explicit that identity of a dimension depends on the method of determination -- here the method is comparison against the regulator over 11 days, a calibrated means, not a subjective judgement. The certificate's further declaration that the chronometer is 'fit for sea service' is a different kind of act: an acceptability judgement, not itself a further quantifiable dimension. That fits E14 Condition Assessment's siblings pattern found in the Sinai Greek 418 examples (t1406, t1781): P34 concerned the chronometer, P35 has identified an E3 Condition State which P2 has type an E55 Type such as 'fit for sea service', by direct analogy to the archive's 'fine'/'broken' condition-state types. Both events share the same object and time-span but are not the same act: the daily rate is what was measured; fitness is what was concluded from it. I checked whether the whole trial could instead be only a Condition Assessment 'carried out by measurement' (E14's scope note allows measurement as a method) -- but the daily rate itself is a first-order calibrated quantity, the paradigm case for E16, so collapsing it into E14 alone would lose the measured value. I also checked whether the daily-rate step should instead be a mere 'Data Evaluation' (per Martin Doerr in t1631, comparing two already-asserted E54 Dimension values after the fact is not a Measurement). That does not apply here: the observatory ran both clocks side by side and read them directly each day, which Doerr's own reply in the same thread calls a legitimate 'direct comparative measurement' (like placing two figurines side by side to determine the exact difference in height) -- still E16, not a downstream evaluation of pre-existing values.",
+  "classes_proposed": ["E16", "E54", "E14", "E3"],
+  "properties_proposed": ["P39", "P40", "P90", "P91", "P16", "P34", "P35", "P2"],
+  "rejected_alternatives": [
+    {"option": "E14 Condition Assessment for the whole trial (measurement folded in as method only)", "why_not": "E14's scope note allows measurement as a method of assessment, but the daily rate is itself a calibrated numeric dimension (E54) with value/unit -- the defining case of E16 Measurement, per its scope note and P40's domain/range -- so using E14 alone would not carry the measured value forward, only the fitness verdict."},
+    {"option": "Data Evaluation (per t1631) for the rate determination", "why_not": "In t1631 Martin Doerr reserves 'Data Evaluation' for comparing two already-asserted/independent E54 Dimension values (e.g. two historical earthquake reports) without direct observation. The observatory instead directly observed both clocks side by side each day, which Doerr's own reply calls a legitimate 'direct comparative measurement' -- still E16 Measurement."},
+    {"option": "E17 Type Assignment for the fitness declaration", "why_not": "E17's scope note and examples (classifying an object as 'Lamentation cloth', determining a plant species) concern assigning a general taxonomic/classificatory type to an item, not judging its state of preservation/functional condition over a time-span; E14's scope note ('assessing the state of preservation... during a particular period') and its P34/P35 pattern in t1406/t1781 match the fitness verdict much more directly."}
+  ],
+  "citations": ["E13", "E14", "E16", "E54", "E3", "P39", "P40", "P16", "P34", "P35", "P2", "P90", "P91", "t1631", "t1406", "t1781"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E16",
+    "concept E14",
+    "docs \"condition assessment versus measurement\" --kind narrative",
+    "docs \"rate of gain or loss dimension\"",
+    "concept E54",
+    "thread t1406",
+    "thread t1781",
+    "concept E17",
+    "concept E3",
+    "comparing two clocks to determine rate of gain or loss",
+    "thread t1631"
+  ],
+  "confidence": "high",
+  "notes": "The concept dossier's siblings block made the E14-vs-E16 boundary explicit almost immediately, and it was easy from there. What made the answer solid rather than guessed was pure luck of phrasing: searching the mailing list for 'comparing two clocks to determine rate' surfaced t1631, a near-exact precedent (comparing dimensions via direct side-by-side observation vs. after-the-fact data evaluation) -- a differently-worded query might have missed it, since the tool has no way to browse threads by topic other than semantic search."
+}

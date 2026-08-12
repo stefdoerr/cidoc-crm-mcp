@@ -1,0 +1,36 @@
+{
+  "case_id": "built-c3",
+  "answer": "The substance of what the trust wants to fold in -- 1,340 aggregate percentages (58% opposed / 24% in favour / 18% undecided) plus several hundred anonymous free-text comments -- falls outside the Intended Scope of the CIDOC CRM, and should not be forced into the heritage documentation system. The reference model states its own boundary directly: 'Information required solely for the administration and management of cultural institutions, such as information relating to personnel, accounting, and visitor statistics, falls outside the Intended Scope of the CIDOC CRM' (docs, Introduction > Scope of the CIDOC CRM). An online consultation's aggregate approval/opposition percentages are the same kind of administrative/managerial statistic as 'visitor statistics': present-day public reaction to a live proposal, not 'curated, factual knowledge about the past at a human scale' (same section). Structurally, CRM's mechanism for recording an assertion, E13 Attribute Assignment, is built around registering 'whose opinion it was' -- an identifiable responsible party (concept E13 scope note). An anonymous crowd of 1,340 respondents, reduced to percentages, cannot be attributed this way; per the Authorship of Knowledge Base Contents / knowledge-creation-process narrative, statements lacking explicit attribution default to being read as the maintaining institution's own view -- which would misrepresent public opinion as the trust's. The 'Recording Intangible Cultural Heritage' thread (t0916) draws the same line under a different name: Mika Nyman's and Martin Doerr's 'World of Things vs World of Minds' distinction places raw subjective/mental states (what people feel about the road) outside what CRM documents; CRM documents evidence of activities and their products, not aggregated sentiment itself. If the trust wants any trace of the consultation event in the same database (e.g. because it is itself now part of the landscape's history), the defensible move is to record only that a consultation activity took place -- E7 Activity, dated with P4 has time-span and located with P7 took place at -- and keep the platform's statistics and comments in the system built for them, at most cross-referenced by an unstructured P3 has note pointer. The aggregate percentages and the sentiment content have no CRM construct of their own.",
+  "classes_proposed": ["E7"],
+  "properties_proposed": ["P4", "P7", "P3"],
+  "rejected_alternatives": [
+    {"option": "E13 Attribute Assignment", "why_not": "Its scope note frames it around registering an identifiable party's opinion ('whose opinion it was'); a percentage aggregated over 1,340 anonymous respondents has no such identifiable responsible party, and per the Authorship of Knowledge Base Contents narrative an unattributed statement defaults to being read as the maintaining institution's own view -- the wrong attribution for public sentiment."},
+    {"option": "E31 Document / E33 Linguistic Object for the free-text comments", "why_not": "Could technically carry individual comments as text, but this only relocates unstructured prose into the database -- it gives no CRM structure to the thing actually being asked about, the aggregate percentages, and the case is about the aggregate/anonymous sentiment, not about archiving individual remarks."}
+  ],
+  "citations": [
+    "Introduction > Scope of the CIDOC CRM",
+    "Modelling principles > Authorship of Knowledge Base Contents",
+    "Introduction > Terminology",
+    "E13",
+    "t0916"
+  ],
+  "in_scope": false,
+  "queries_run": [
+    "ontology",
+    "docs \"public consultation opinion survey\" --kind narrative",
+    "\"public consultation opinion survey results heritage\"",
+    "docs \"scientific and scholarly documentation presentation to members of the public\" --kind narrative",
+    "docs \"Intended Scope factual knowledge about the past\" --kind narrative",
+    "docs \"information intended for presentation to members of the public\" --kind narrative --raw",
+    "docs \"information intended for presentation to members of the public\" --kind narrative --json",
+    "\"visitor statistics administration management scope\"",
+    "docs \"opinion attitude sentiment subjective statement\" --kind narrative --json",
+    "thread t0916",
+    "concept E13",
+    "docs \"anonymous statement lacking attribution of authority\" --kind narrative --json",
+    "\"aggregate survey results percentage respondents opinion poll\"",
+    "docs \"Practical Scope reference standards de facto standards\" --kind narrative --json"
+  ],
+  "confidence": "medium",
+  "notes": "No mailing-list thread argues this exact boundary (public consultations/opinion polls), so the case rests on the Scope narrative's 'visitor statistics' exclusion plus E13's authorship requirement, reasoned by analogy rather than found pre-decided. The default preview truncates narrative text at ~200 chars and hid the operative clause ('...falls outside the Intended Scope') until I reran with --json for full text -- that truncation is the main thing that made this harder than it needed to be."
+}

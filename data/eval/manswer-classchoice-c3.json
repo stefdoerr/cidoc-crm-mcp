@@ -1,0 +1,31 @@
+{
+  "case_id": "classchoice-c3",
+  "answer": "Record the household's women as the maker via a single E74 Group, not as three named E21 Persons and not as a vaguer unspecified actor. E74's scope note explicitly extends to families ('Married couples and other concepts of family are regarded as particular examples of E74 Group') and to gatherings that 'act collectively... due to any form of unifying relationship' such as 'creating some common artifact' -- exactly the communal work session described. The CRM-SIG's own 'Groups and carried out by' discussion (t1477) analyses precisely this shape of case under 'Scriptorium of, Workshop of, Circle of, Studio of': 'We know that some member(s) of the group carried out the activity, but also that not all members of the group did it, and the group is not necessarily named, rather constructed' -- and concludes the current model still expresses this with plain P14 carried_out_by pointing at the Group, since no refined 'member-or-members-of' subproperty was ever adopted. That is our situation: household named, collective work session documented, individual hands not confirmed. Naming the three later-identified women as the makers (P14 to each E21 Person) would overclaim: the case says it 'could not confirm which of them, if any, handled this particular basket,' and P14 'implies causal or legal responsibility' (its scope note), so asserting it for a specific production event without that confirmation manufactures a fact not in evidence. If their presence at the session is worth recording at all, P11 had participant is the honest fit -- it documents participation in an E5 Event 'but does not imply any causal relationship' -- though even that binds them to the work session, not necessarily to this specific basket's production if the session covered multiple pieces. Falling back to a bare unspecified E39 Actor, the third option, throws away information we actually have (the named household, the collective framing) for no gain in honesty over E74 Group. So: E12 Production, P108 has produced -> the basket (E22/E19), P14 carried out by -> the household's women as an E74 Group; optionally P11 had participant -> the three named E21 Persons for the session itself, kept separate from the P14 attribution of this object's production.",
+  "classes_proposed": ["E74", "E12", "E39"],
+  "properties_proposed": ["P14", "P108", "P11"],
+  "rejected_alternatives": [
+    {"option": "Named E21 Persons as makers (P14 to each of the three women)", "why_not": "P14's scope note says it 'implies causal or legal responsibility'; the case states we cannot confirm which of the three, if any, handled this basket, so per-person P14 would assert a fact the source explicitly withholds -- the exact overclaiming the SIG's t1477 discussion of Workshop-of/Circle-of cases warns against."},
+    {"option": "Broader, unspecified E39 Actor with no group identity", "why_not": "E74 Group's scope note already covers this exactly ('family' as a worked example, and gatherings that act collectively via 'creating some common artifact'), so falling back to bare E39 discards known, citable information for no honesty gain."}
+  ],
+  "citations": ["E74", "E12", "P14", "P108", "P11", "P107", "t1477", "t0834"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E12",
+    "concept P14",
+    "concept E39",
+    "concept E74",
+    "docs \"group of people acting collectively as maker\" --kind narrative",
+    "docs \"uncertain attribution of participants\" --kind narrative",
+    "concept P107",
+    "docs \"underspecified actor unknown identity\" --kind narrative",
+    "\"named individuals uncertain whether they participated in production\"",
+    "threads \"household extended family as group maker\"",
+    "concept P11",
+    "thread t1477",
+    "thread t0834",
+    "concept P108"
+  ],
+  "confidence": "high",
+  "notes": "The `docs --kind narrative` search never surfaced anything about uncertainty or group-vs-individual attribution directly -- it kept returning generic Monotonicity/Terminology passages regardless of query wording, so that entry point was a dead end. The real answer came from the mailing list (threads search), which had a thread (t1477) analysing this exact case shape almost word-for-word ('Workshop of... not all members did it... group not necessarily named') -- that was the single most useful hit in the whole search."
+}

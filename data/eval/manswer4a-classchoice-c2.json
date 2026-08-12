@@ -1,0 +1,46 @@
+{
+  "case_id": "classchoice-c2",
+  "answer": "Document the eleven-day trial as an E16 Measurement, not an E14 Condition Assessment. What the observatory actually did — running the chronometer against its own regulator clock and noting the accumulated gain or loss at noon each day — is a systematic, direct comparative observation of a quantifiable physical property (the rate at which the chronometer's time diverges from true time), which is exactly E16's scope: 'actions measuring physical properties and other values that can be determined by a systematic, objective procedure of direct observation'. Martin Doerr's own gloss on the sibling boundary confirms direct side-by-side comparison of two physical things counts as measurement, not something else: in thread t1631 he writes that we can formulate 'direct comparative measurements of two objects or more, such as putting two figurines side by side and determining the taller, or exact difference in height' — the chronometer-vs-regulator comparison is the same pattern. The result is an E54 Dimension (the daily rate, in a time unit per day), P40 observed dimension of the E16 Measurement, whose P39 measured is the chronometer (E22 Human-Made Object), with P14 carried out by the observatory and P4 has time-span the eleven days; the regulator clock is the reference instrument, P16 used specific object. E14 Condition Assessment is a false fit: concept(E14) and the SIG's own examples (Issue 503, Issue 672, thread t1781) show E14 is specifically about a P34 concerned / P35 has identified path to an E3 Condition State whose P2 has type is things like 'damage', 'broken', 'fine', 'quality' — i.e. the object's state of physical preservation. Nothing in the case involves inspecting the chronometer's material condition; no damage, wear, or preservation state is assessed. The certificate's closing line, 'fit for sea service', is a downstream judgement drawn from the measured rate, not a separate condition inspection — it is best carried as content of the certificate itself (an E31 Document that P70 documents the E16 Measurement), or, if a discrete act is wanted, as an E17 Type Assignment motivated by (P17) the measurement, rather than as an E14 Condition Assessment for which the trial supplies no state-of-preservation evidence at all.",
+  "classes_proposed": ["E16", "E54", "E22"],
+  "properties_proposed": ["P39", "P40", "P177", "P14", "P16", "P4", "P91"],
+  "rejected_alternatives": [
+    {"option": "E14", "why_not": "concept(E14) and its worked examples (Issue 503, Issue 672, thread t1781) all route through P34 concerned / P35 has identified to an E3 Condition State typed as things like 'damage', 'broken', 'fine' -- a judgement about the object's physical state of preservation. The trial never inspects the chronometer's material condition; it compares its timekeeping against a reference clock, which is a measured dimension, not a condition state."},
+    {"option": "E3", "why_not": "concept(E3)'s own examples ('wrecked', 'ruined', 'still not cooked', 'cockled') are all about physical/material state over a time-span, reached via E14. The daily rate is a continuous quantified value (an E54 Dimension) produced by comparison against a reference clock, not a qualitative state assigned by inspection."}
+  ],
+  "citations": [
+    "E16", "E14", "E3", "E22", "P39", "P40", "P177", "P34", "P35", "P44", "P43", "P91",
+    "Modelling principles > Minimality",
+    "Issue 503", "Issue 672",
+    "t1781",
+    {"id": "t1631", "quote": "putting two figurines side by side and determining the taller"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E16",
+    "concept E14",
+    "docs \"rate of a timepiece measurement\" --kind narrative",
+    "docs \"condition assessment fitness for use\" --kind narrative",
+    "docs \"daily rate chronometer\"",
+    "\"chronometer\"",
+    "\"rate of gain or loss clock\"",
+    "\"fit for service trial\"",
+    "thread t0589",
+    "concept E3",
+    "issues \"condition assessment fitness for use performance\"",
+    "thread t1781",
+    "issue 503",
+    "issue 672",
+    "connect E22 E54",
+    "connect E22 E3",
+    "docs \"minimality principle\" --kind narrative",
+    "thread t1631",
+    "connect E16 E31",
+    "connect E14 E31",
+    "concept E17",
+    "quote t1631 \"putting two figurines side by side and determining the taller\"",
+    "quote E14 \"the act of assessing the state of preservation of an object during a particular period\""
+  ],
+  "confidence": "high",
+  "notes": "The free-text mailing-list search for 'chronometer' and related phrasing returned nothing on-topic (the CRM never contains the case's concrete nouns, as expected); the useful evidence came from concept dossiers, connect, the E13-subclass issue register (503, 672), and one directly relevant thread (t1631) surfaced by a semantic search for comparative measurement. The certificate's 'fit for sea service' clause is a real residue that the case does not force a class for; I treated it as a document-level note/possible E17 rather than stretching E14 to cover it, since no tool output supports E14 reaching beyond preservation-state judgements."
+}

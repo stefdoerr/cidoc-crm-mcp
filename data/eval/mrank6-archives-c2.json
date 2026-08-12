@@ -1,0 +1,40 @@
+{
+  "case_id": "archives-c2",
+  "ranking": ["B", "C", "A"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 4,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [
+        "E65 Creation: A records the secretary in a role such as 'signed by'/'authorised by' via P14 on the *same* E65 Creation event that the clerk's composing is recorded on ('Record the clerk in a role such as drafted by/composed by and the secretary in a role such as signed by/authorised by on that same creation'). But P94 has created's own scope note (verified with `search.py concept P94`) says E65 Creation 'represents the act of conceiving the intellectual content ... It does not represent the act of creating the first physical carrier ... this is the composition of a poem, not its commitment to paper.' If E65 Creation excludes even the physical writing-out of the words, it certainly excludes a subsequent signature, which is not composition at all. A never engages with this scope note (P94 appears in its citations only as a bare id, never quoted), and never types the physical carrier (no E22, no E12) -- so the cataloguer's actual evidence, handwriting and letterheads on paper, has no node in the model to attach to. The model asks the reader to record a physical-world fact (who signed the sheet) on a class specifically scoped to exclude the physical carrier."
+      ],
+      "unsupported_citations": [],
+      "verdict": "Correctly establishes that CRM routes attribution through an event rather than a direct Person-to-Text property (verified: `connect E21 E33` and `connect E39 E31` return no direct link), correctly handles the unnamed clerk via E21's necessary-properties list, and its t0610/t0840 quotes check out verbatim. But it puts the signing itself on the composition event, which is exactly backwards given P94's own scope note, and it never models the physical layer that the case's evidence actually lives on -- a real omission, not economy."
+    },
+    {
+      "label": "B",
+      "class_count": 9,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Separates composing (E65, clerk), writing-out (E12, clerk) and signing (a typed E7 Activity + E37 Mark, secretary) into three distinct events, so the secretary is never asserted to have participated in producing the physical object -- the most scope-note-faithful structure of the three. It also fully carries through its own stated design: an E13 on the E12 Production (strong, hand is close to observed) and a separate E13 on the E65 Creation (weak, composition is a further inference). Every quote and thread citation I checked against the actual source text is accurate: the Goethe/Faust E7 example, the Rembrandt etching typed (E12,E65,E81), E12's 'becomes relevant to documentation by a modification', E37's signature wording, E21's identity-reasoning disclaimer, t1345's Sanderson quote, t1377's 'carrying the text of a letter', t0840's Martin quote, and Issue 316's 2025 'far too complex' closure and Issue 349's still-Open status. E37 Mark for the signature-as-object is the one piece that goes slightly beyond what the question needs, but it does real work (P65 links it to the sheet) rather than sitting decoratively in the class list."
+    },
+    {
+      "label": "C",
+      "class_count": 8,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [
+        "E12 Production (soft): the default model puts the secretary's 'signatory' role on the *same* E12 Production event as the clerk's 'scribe' role, distinguished only by P14.1. E12's scope note frames production as an activity 'designed to, and succeed in, creating one or more new items'; the letter is already the documentable 'new' item once the clerk finishes writing it, so folding a later signature into that same production (rather than a subsequent E11 Modification or its own event, which C offers only as an optional partition) mildly echoes -- at a smaller scale -- the same composing/carrier conflation the case is designed to test."
+      ],
+      "unsupported_citations": [],
+      "verdict": "Finds the single most decisive passage in the whole corpus -- P94's scope note, 'this is the composition of a poem, not its commitment to paper' (verified verbatim) -- and builds the entire answer around correctly separating composing from writing. The King Arthur/Monotonicity quote and the t1345/t1477/t1704/Issue 349 citations all check out exactly against source. Its one real gap: the prose promises two independently-confident E13s (strong on the hand/E12, weak on composition/E65), but the concrete P140/P141/P177 recipe is only spelled out for the E65 Creation; the E12 'scribe' attribution to the clerk -- who the case says has no name recorded anywhere to confirm the identification -- is left as a bare, unwrapped P14 assertion, under-delivering on its own stated design."
+    }
+  ],
+  "decisive_difference": "A places the secretary's signing on the very event class (E65 Creation) whose own scope note stops at conceiving the wording and explicitly excludes even committing it to paper -- the case's central composing/signing distinction, modelled backwards. B and C both get that distinction right, grounding it in the same correctly-quoted P94 scope note, and both cite verifiably real, on-point threads throughout. B separates further than C does: it keeps the signing off the production event entirely (a typed Activity of its own, tied together by P9 consists of) and it actually writes out both halves of its promised two-tier confidence structure as two separate E13s, where C's concrete recipe only implements the weaker half and leaves the stronger claim (the clerk's hand) asserted as unwrapped fact.",
+  "confident": false,
+  "notes": "A-last is a solid call: the P94 scope note is unambiguous and directly checked against `search.py concept P94`, and A's own citation list shows it never actually looked at what P94 says, despite citing the id. B-over-C is the closer call and the one I'd expect to see argued the other way on a re-read: C's core insight (composing vs. carrier, via P94) is at least as sharp as B's, C is more economical, and its E12/production choice for the signing role is a defensible modelling style rather than a clear-cut error -- I flagged it as a soft scope tension rather than a hard violation. The point that tipped it for me, C's own two-tier confidence promise being only half-implemented in its concrete E13 recipe, is a real textual gap but a narrow one, and a reader who takes C's prose as controlling (rather than its structured fields) might reasonably read C as equal to B. No provenance of the three systems/runs was apparent to me from style or from tool-error fingerprints; I did not go looking for it."
+}

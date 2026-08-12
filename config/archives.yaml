@@ -1,0 +1,39 @@
+crm-sig:
+  mbox: crm-sig.mbox
+  description: "CIDOC CRM Special Interest Group mailing list, 1999-2026"
+  embedding_model: Alibaba-NLP/gte-modernbert-base
+  chunk_size: 2000
+  chunk_overlap: 200
+  list_footer_marker: "Crm-sig mailing list"
+  ontology:
+    xml: sources/cidoc_crm_v7.1.3.xml
+    family: sources/crm_family.json
+    id_pattern: '\b([EP]\d{1,3})(?:\.\d)?i?\b'
+    # Deliberately broad; lib.ontology.family_of decides which candidates are real.
+    family_pattern: '\b(LRM-?[EPR]\d{1,3}|[A-Z]{1,3}\d{1,3})(?:\.\d)?i?\b'
+    stop_labels: [Type, Place, Actor, Date, Name, Group, Event, Right, Title, Mark, Object]
+  episodes:
+    min_thread_size: 2
+  documents:
+    - id: crm732
+      path: sources/cidoc_crm_version_7.3.2.docx
+      title: "Definition of the CIDOC Conceptual Reference Model, version 7.3.2"
+      cite: "CIDOC CRM v7.3.2"
+    # 45 numbered modelling rules across 8 themes, against the 20 chunks the
+    # 7.3.2 text devotes to its own principles. Mostly complementary rather
+    # than duplicate: 8.2 ("most binary relationships in intuitive
+    # conceptualizations conceal temporal entities") is the authoritative
+    # statement of the event-mediation rule `connect` currently prints as an
+    # unsourced hint.
+    #
+    # The cite says "working document, v0.1.2" because it IS one, and these
+    # chunks share `kind: narrative` with the published specification. A
+    # reader who cannot tell a draft principle from a normative one will
+    # weight them alike, and this corpus exists to keep that distinction.
+    - id: crmprinciples
+      path: sources/CM Principles Word v.0.1.2.docx
+      title: "Conceptual Modelling Principles"
+      cite: "CRM Conceptual Modelling Principles v0.1.2 (working document)"
+      # Its own kind, so it does not compete with the published specification
+      # in the default `docs` search. Reachable with --kind principles.
+      kind: principles

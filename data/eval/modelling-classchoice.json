@@ -1,0 +1,23 @@
+[
+  {
+    "case": "A regional costume collection holds a hand-sewn 1920s silk wedding gown. In the 1950s the original bride's granddaughter had the bodice unpicked and the silk and lace panels recut and restitched by a local seamstress into a christening gown for her infant, discarding the worn skirt fabric in the process. The christening gown stayed in the family for seventy years and has now been donated along with a photograph of the original wedding and the seamstress's fitting notes.",
+    "question": "When cataloguing the 1950s alteration, should we record it as changing the existing wedding gown, or as the wedding gown ending and a new, distinct garment coming into existence from its material?",
+    "kind": "class choice",
+    "why_hard": "The garment keeps continuous material and craftsmanship but changes function, form and name, so the real question is whether the object persists through the rework or is consumed to bring a different object into being, and that boundary decides which event class and which object records apply downstream.",
+    "distinctive_terms": ["wedding gown", "christening gown", "recut", "unpicked", "seamstress", "silk and lace panels"]
+  },
+  {
+    "case": "A maritime museum holds a two-day marine chronometer that its owner sent to the local observatory before a voyage. The observatory kept the chronometer running alongside its own regulator clock for eleven days, noting the accumulated gain or loss at noon each day, and then issued a certificate stating the chronometer's daily rate and declaring it fit for sea service.",
+    "question": "Should the observatory's eleven-day trial be documented as measuring the chronometer's daily rate, or as assessing the chronometer's condition and fitness for the voyage?",
+    "kind": "class choice",
+    "why_hard": "The trial both yields a numeric error figure and ends in a pass/fail pronouncement about the instrument itself, so it reads at once as producing a measured quantity and as judging a state of the object, and each reading calls for a different kind of assignment record.",
+    "distinctive_terms": ["marine chronometer", "regulator clock", "daily rate", "observatory trial", "certificate", "fit for sea service"]
+  },
+  {
+    "case": "An ethnographic collection includes a coiled basket collected in the 1970s from a weaving cooperative in a highland village. The collector's field diary records that the basket was made during a communal work session by the women of one extended-family household, naming the household but not individuals, under the guidance of its senior weaver. A later community consultation identified by name three women who were present and working that day, though it could not confirm which of them, if any, handled this particular basket.",
+    "question": "For the maker of the basket, should we record the household's women collectively as a single group, name the three later-identified women as the makers, or use a broader, unspecified kind of actor given the uncertainty?",
+    "kind": "class choice",
+    "why_hard": "Collective, uncredited authorship recorded at the household level, a later partial naming of individuals who may or may not have touched this specific piece, and the source's own refusal to individuate all pull toward a different actor class, and picking wrong either erases named women or overstates what the record actually supports.",
+    "distinctive_terms": ["coiled basket", "weaving cooperative", "communal work session", "household", "senior weaver", "community consultation"]
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "case_id": "built-c3",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t0916"],
+    "reasoning": "The 'visitor statistics' scope-exclusion and the E13 'whose opinion it was' / default-to-institution rules are quoted verbatim and used exactly as written; t0916's 'World of Things vs World of Minds' is a real exchange (Nyman/Doerr) and Doerr's own line -- the world of minds is accessible only through the world of things, 'as long as we do not resort to telepathy' -- genuinely backs the claim that CRM captures evidence of the consultation, not the sentiment itself. Recording the consultation as a bare E7 with the raw data left in its native system is a defensible, honestly medium-confidence resolution.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "classchoice-c1",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1396"],
+    "reasoning": "E11's scope note verbatim escalates exactly this destruction+reuse-of-material pattern to E81, and t1396 does contain George Bruseker's castrated-satyr-into-Christian-panel example contrasted against mere building repurposing -- an accurate, on-point precedent for gown-into-christening-gown. E17 rejection is a bit of a strawman (never a serious contender here) but not wrong.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "classchoice-c2",
+    "verdict": "defensible_but_thin",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1631", "t1406", "t1781"],
+    "reasoning": "The E16 half is excellently grounded: t1631 has Doerr distinguishing 'Data Evaluation' (comparing two already-asserted E54 values) from 'direct comparative measurement... putting two figurines side by side' -- an exact match for two clocks read side-by-side daily. But E14/E3 for 'fit for sea service' stretches E14's actual scope ('assessing the state of preservation') into a functional fitness-for-purpose verdict, which is a different kind of judgement than the cited Sinai Greek 418 'fine'/'broken' precedent (genuine preservation states); the stated 'high' confidence doesn't reflect that this half is a looser analogy than the measurement half.",
+    "what_is_wrong": ["E14 Condition Assessment is applied to a functional/performance certification ('fit for sea service') by analogy to preservation-state examples ('fine'/'broken'), a real but understated stretch beyond E14's stated scope of assessing physical preservation."]
+  },
+  {
+    "case_id": "classchoice-c3",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1477", "t0834"],
+    "reasoning": "E74's scope note literally names 'family' and 'creating some common artifact' as covered cases; P14's 'implies causal or legal responsibility' vs P11's 'does not imply any causal relationship' are quoted correctly; t1477 contains the 'Workshop of... not all members did it... group not necessarily named' passage verbatim, and no such 'member-or-members-of' subproperty was ever added to the ontology, confirming plain P14-to-Group is still the only mechanism. t0834 is listed in citations but never actually cashed out in the prose -- decorative, not a support failure.",
+    "what_is_wrong": []
+  }
+]

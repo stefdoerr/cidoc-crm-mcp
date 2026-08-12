@@ -1,0 +1,38 @@
+[
+  {
+    "case_id": "naturalhistory-c2",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1080", "t0891"],
+    "reasoning": "t1080 is not just relevant but literally Doerr discussing splitting a bore core and asking 'we need a transitive property of its own... Any good idea?' -- the quoted line is verbatim and on-point; t0891 (P49 homework) genuinely backs the 'identity criteria are type-specific, not a job for custody/part-whole properties' claim via the Ferrari/cutlery/Theseus exchange. P46's FOL P132 spatiotemporal-overlap implication and the E13/P140/P141 reified-relation pattern both check out against their dossiers.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "naturalhistory-c3",
+    "verdict": "defensible_but_thin",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1736", "t1444"],
+    "reasoning": "t1444 precisely confirms the P39/E16 range reduction from E1 to E18 (verified in the e-vote text). t1736 (Issue 490) does discuss referencing an external guaranteed copy over duplicating content, but it is about file/document identity (the CRM's own PDF) -- it never touches genetic sequences or derived statistics, so calling it a thread that 'worked through exactly this problem' for GenBank data overstates how squarely it applies; the principle transfers, but the phrasing claims more precision than the source has.",
+    "what_is_wrong": ["t1736 is described as working through 'exactly this' storage-vs-pointer problem, but the thread is about generic file/document content identity, not scientific sequence data -- the analogy is reasonable, the 'exactly' is not"]
+  },
+  {
+    "case_id": "propertychoice-c1",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": [],
+    "reasoning": "P14's own scope note quotes the Michelangelo/master-craftsman example verbatim, matching the supervisor+apprentices split; E11's scope note explicitly names 'conservation treatment'; E14's scope note explicitly allows assessment 'by inspection' for the officer's check-ins. No thread citations were made, and the notes honestly admit the SIG threads found (t1477, t1345, t0496) were near-misses rather than dressing them up as support.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "propertychoice-c2",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t0914", "t1540"],
+    "reasoning": "t0914 msg 7 has Doerr proposing almost the exact wording quoted ('...can have additional parties carried out by...in the role of Mediator?') for an intermediary in a purchase; t1540 has Sanderson explicitly separating the auction E7 Activity from the E8 Acquisition it may trigger. E10's own scope note example is a verbatim auction-house consignment. The single-Acquisition-plus-custody-chain reading is well grounded given the case states custody/payment control, not legal title, at the auction house.",
+    "what_is_wrong": []
+  }
+]

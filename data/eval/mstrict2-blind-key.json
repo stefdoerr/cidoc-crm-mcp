@@ -1,0 +1,98 @@
+{
+ "archaeology-c1": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "archaeology-c2": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "archaeology-c3": {
+  "A": "run1",
+  "B": "run2"
+ },
+ "archives-c1": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "archives-c2": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "archives-c3": {
+  "A": "run1",
+  "B": "run2"
+ },
+ "built-c1": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "built-c2": {
+  "A": "run1",
+  "B": "run2"
+ },
+ "built-c3": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "classchoice-c1": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "classchoice-c2": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "classchoice-c3": {
+  "A": "run1",
+  "B": "run2"
+ },
+ "intangible-c1": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "intangible-c2": {
+  "A": "run1",
+  "B": "run2"
+ },
+ "intangible-c3": {
+  "A": "run1",
+  "B": "run2"
+ },
+ "naturalhistory-c1": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "naturalhistory-c2": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "naturalhistory-c3": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "propertychoice-c1": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "propertychoice-c2": {
+  "A": "run1",
+  "B": "run2"
+ },
+ "propertychoice-c3": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "technical-c1": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "technical-c2": {
+  "A": "run2",
+  "B": "run1"
+ },
+ "technical-c3": {
+  "A": "run1",
+  "B": "run2"
+ }
+}

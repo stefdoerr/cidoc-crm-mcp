@@ -1,0 +1,20 @@
+{
+  "question_id": "2012-2013-q3",
+  "answer": "In thread t0610 (\"Uncertainty in the location at which an activity took place\", March 2012), Alexander Dutton raised the exact 'find location: Ankara(?)' / 'near Ankara' / 'between Mut and Balat' problem and asked how to reify P7_took_place_at with an E13 Attribute Assignment to attach an uncertainty flag. Several approaches were proposed in the discussion: (1) Alexander's original idea of reifying the P7 statement via E13 Attribute Assignment (P140/P141), with an ad-hoc extension property to mark low surety; (2) Vladimir Alexiev's alternative of using RDF Reification vocabulary (rdf:Statement/rdf:subject/rdf:property/rdf:object) or, in ResearchSpace's case, the OAC annotation ontology, to attach a qualification (e.g. 'near', 'between') to the specific statement while still asserting the direct P7 relation; (3) Martin Doerr's counter-proposal that Named Graphs are a cleaner realization of the same E13/RDF-reification isomorphism than plain RDF reification. For the recommendation going forward, Martin (as CRM editor) argued that full reification is 'heavy overkill' for mere certainty/uncertainty modalities, and recommended instead: keep the direct P7_took_place_at assertion (treating all statements as a 'default question mark' so queries still recall results), record the actual uncertainty/qualifier ('near', 'between Mut and Balat', etc.) as a free-text note on the find event rather than in a formal reified structure, and, for encoding discrete uncertainty levels formally, supertype CRM properties with explicit uncertain counterparts (e.g. making P7_took_place_at a subproperty of a new P7_possibly_took_place_at), optionally formalized with modal logic. He proposed this be discussed further at the Helsinki SIG meeting (June 2012), but the archive contains no follow-up thread showing that a formal SIG vote or minutes adopted one option -- the search system's own episode tagging marks this discussion as [unresolved]. So: approaches proposed = E13 attribute-assignment reification, RDF reification/named graphs with statement-level qualifiers, and property supertyping with 'possibly' counterparts; Martin's recommendation (the closest thing to an SIG-level steer in the archive) favored avoiding heavy reification in favor of a note-based qualifier plus the supertyped/modal-logic 'possibly' properties, but this was not shown to be formally ratified by the SIG in the retrieved material.",
+  "found": true,
+  "cited_threads": ["t0610"],
+  "queries_run": [
+    "search \"uncertain location found near\" -k 10",
+    "search thread t0610",
+    "search \"Helsinki minutes uncertainty location\" -k 10",
+    "threads \"uncertainty location vague place\" -k 5",
+    "threads \"uncertainty location activity took place Ankara\" -k 5",
+    "search \"supertyping properties uncertain counterparts modal logic\" -k 10",
+    "search \"minutes Heraklion 2012 uncertainty\" -k 10 --after 2012 --before 2013",
+    "search \"Ankara\" -k 10",
+    "search \"SIG minutes Heraklion May 2012\" -k 10",
+    "concept P7"
+  ],
+  "confidence": "medium",
+  "notes": "Thread t0610 directly matches the question's example ('found near Ankara') and contains the full proposal/discussion. However, no follow-up thread or minutes document in the archive shows a formal SIG vote ratifying one approach; Martin Doerr's (the CRM editor's) closing message is the strongest candidate for 'the SIG recommendation' but it reads as his personal/editorial recommendation for further discussion at the Helsinki meeting, and the episode is tagged [unresolved] in concept P7's chronology. Searches for Heraklion/Helsinki 2012 minutes turned up only logistics threads, not a substantive follow-up."
+}

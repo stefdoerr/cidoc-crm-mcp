@@ -1,0 +1,19 @@
+{
+  "question_id": "2020-2021-q2",
+  "answer": "In CRMarchaeo, A7 Embedding (the state/feature of a physical thing being partially or completely embedded within surrounding matter of an A2 Stratigraphic Volume Unit) was originally classified as a temporal State/Condition (a subclass of S16 State in 2016, later E3 Condition State by 2021). Issue 447 ('A7 Embedding as Rigid Physical Feature', discussed Feb-Mar 2021 and decided at the 49th joint SIG/ISO meeting) reclassified A7 Embedding as a subclass of S20 Rigid Physical Feature instead. Gerald Hiebel argued for this because the surrounding matter's condition is used to infer deposition time; Martin Doerr supported it, noting a Rigid Physical Feature's genesis event already supplies the temporal information, so a separate temporal property is unnecessary. Christian-Emil Ore noted this reclassification made the earlier temporal aspect of A7 disappear, and Achille Felicetti objected that an embedding is 'something more immaterial' than a physical feature. The reclassification created a follow-on property problem for AP19 'is embedding in (contains embedding)', whose range was fixed to A2 Stratigraphic Volume Unit. Because many excavations record structures without distinguishing layers (A2) from surfaces/interfaces (A3), and because a physical-feature embedding (per Martin Doerr's Talheim Death Pit / multi-layer examples) can span multiple stratigraphic units, Christian-Emil Ore proposed (thread t1445, March 2021) widening AP19's range from A2 to A8 (the common superclass of A2 and A3). Achille Felicetti flagged this as formally fine but conceptually disputable: it would license triples stating an A7 Embedding 'is embedding in' an A3 Stratigraphic Interface, even though an interface is a 2D feature things cannot literally be embedded within. This range/property issue was left unresolved in the archive -- the concept chronology for A7 marks the Issue 447 classification change and the AP19-range discussion both as 'unresolved'.",
+  "found": true,
+  "cited_threads": ["t1431", "t1445", "t1554", "t0957"],
+  "queries_run": [
+    "search \"CRMarchaeo embedding classification\" -k 10",
+    "thread t1431",
+    "thread t1445",
+    "concept A7",
+    "thread t1554",
+    "thread t1592",
+    "thread t0957",
+    "search \"AP19 range A8 decision\" -k 10 --mode bm25",
+    "search \"embedding S20 resolved\" -k 10"
+  ],
+  "confidence": "high",
+  "notes": "Thread t1431 (Issue 447) and t1445 (CRMarcheo -embedding) directly document the S16/E3 -> S20 reclassification and the resulting AP19-range problem; t1554 confirms the SIG decision date/venue; t0957 (2016, Issue 303) confirms the earlier S16-State classification for contrast. Also found a related later issue (t1592, Issue 585, 2022) reinforcing the reclassification but not part of the 2020-2021 window. No message in the archive shows a final resolution for the AP19 range -- it appears to remain open."
+}

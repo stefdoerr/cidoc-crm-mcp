@@ -1,0 +1,49 @@
+{
+  "case_id": "built-c2",
+  "answer": "Neither of the two options in the question as literally posed is quite right, but the answer leans firmly toward the second: a plain P89 falls-within chain of Place-to-Place links is not adequate, but the fix is not 'make each administrative unit its own Place with a bounded period' -- E53 Place in the CRM has no time-span property at all (P4 has time-span is declared on E2 Temporal Entity, and E53 is not a subclass of E2; concept E53's applicable-property list confirms it has no P4), so a Place literally cannot be given a start or end and 'the hundred stopped existing' cannot be said of one. P89 falls within is also declared as purely spatial: its own scope note says it 'addresses spatial containment only and does not imply any relationship between things or phenomena occupying these places' -- so even ignoring the time problem, P89 could never carry the sense of administrative membership the record needs. The CRM SIG has already settled this exact question: Issue 312 (closed) rewrote the E4 Period scope note so that 'a geopolitical unit... is the set of activities and phenomena related to the claim of power, the consequences of belonging to a jurisdictional area and an administrative system,' with its spatiotemporal properties inherited from E92 Spacetime Volume. Martin Doerr states the consequence directly on the list: a jurisdictional entity like this is 'wrong to regard as an E53' -- 'It is correct to regard \"Extent of Czechoslovakia 2000\" as an instance of E53,' i.e. the Place is only the frozen spatial projection of the unit, never the unit itself; and in the parallel Multiple-inheritance thread he tells a modeller with the same problem, 'multiple inheritance yes, but with E92, not E53.' So Sedgewick Hundred and Whitgate Rural District should each be their own E4 Period instance (the geopolitical-unit case of E4), each bounded by its own P4 has time-span (Hundred ending, Rural District beginning, 1894), and each given its spatial extent via P161 has spatial projection to an E53 Place -- which is where the geometry, and only the geometry, lives. The mill's membership in each jurisdiction for exactly the years it applied is then expressed through the spacetime-volume chain the connect tool confirms is declared for these classes: the mill (P196 defines, necessary on E18) defines its own spacetime volume; an E93 Presence of the mill for each sub-period (P195 was a presence of the mill, P164 is temporally specified by the relevant Time-Span, P167 was within the mill's unchanging Place) is what P10 falls within the Hundred's spacetime volume up to 1894 and within the Rural District's afterward (P10 falls within and P166 was a presence of are exactly the properties declared, necessary, between E93 and E4). This keeps the mill itself untouched -- one continuant, one unchanging site-Place, one or two P1-identified Appellations for the name change -- while the containing jurisdiction is modelled as the thing that actually began and ended.",
+  "classes_proposed": ["E4", "E92", "E93", "E53", "E22"],
+  "properties_proposed": ["P4", "P161", "P160", "P10", "P166", "P195", "P164", "P167", "P196"],
+  "rejected_alternatives": [
+    {"option": "P89 falls within (E53 -> E53) as a plain containment chain from the mill's Place to the Hundred's Place to the Rural District's Place", "why_not": "P89's own scope note restricts it to pure geometric containment ('addresses spatial containment only and does not imply any relationship between things or phenomena occupying these places'), so it cannot express administrative membership even if the time problem is ignored; and it links two E53 instances, a class with no P4 has time-span, so it cannot express that the Hundred's jurisdiction ended."},
+    {"option": "Model each administrative unit as its own E53 Place with a bounded period attached to it", "why_not": "concept E53 shows no P4 has time-span (or any time-bounding property) is declared on E53 or its parent E1 -- a Place cannot be given a start or end in this model at all, so 'a place with a bounded period' is not constructible; the SIG's own resolution of Issue 312 assigns bounded-existence administrative units to E4 Period instead, with the Place only as its atemporal spatial projection (P161)."},
+    {"option": "Treat 'Sedgewick Hundred' and 'Whitgate Rural District' as two appellations of the same underlying administrative Place, mirroring the mill's own name change", "why_not": "Martin Doerr's ruling in t1243 treats geopolitical units as things with their own claim-of-power identity and existence (E4 Period), not as alternative names for a static extent; the 1894 reorganisation is a change in which jurisdiction held the ground, not a renaming of one persisting unit, and the case even flags that the Hundred was 'abolished and folded into' a new unit rather than simply relabelled."}
+  ],
+  "citations": [
+    "E4", "E53", "E92", "E93", "P89", "P10", "P4", "P161", "P160", "P166", "P195", "P164", "P167", "P196",
+    "t1243", "t1090",
+    {"id": "t1243", "quote": "It is correct to regard \"Extent of Czechoslovakia 2000\" as an instance of E53."},
+    {"id": "t1090", "quote": "So, multiple inheritance yes, but with E92, not E53"},
+    "minutes:minutesOftheMeeting_ver.1#s057",
+    "Introduction to the basic concepts > Relations with Events > Spatiotemporal Relations"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E53",
+    "docs \"administrative\"",
+    "threads \"administrative boundary change\"",
+    "threads \"place ceases to exist administrative unit abolished\"",
+    "thread t1243",
+    "thread t1090",
+    "thread t1019",
+    "issues \"geopolitical unit administrative area\"",
+    "concept E4",
+    "connect E22 E4",
+    "connect E53 E4",
+    "connect E93 E4",
+    "connect E18 E4",
+    "issue 312",
+    "docs \"geopolitical unit\"",
+    "docs \"geopolitical unit changes boundaries over time\" --kind narrative",
+    "concept P89",
+    "concept E93",
+    "quote t1243 \"E53 Place is not a\"",
+    "quote t1243 \"It is correct to regard\"",
+    "quote t1090 \"So, multiple inheritance yes, but with E92, not E53\"",
+    "quote P89 \"addresses spatial containment only and does not imply any relationship\"",
+    "quote E53 \"independent from temporal phenomena and matter\"",
+    "quote E4 \"geopolitical unit is the set of activities and phenomena related to the claim of power\""
+  ],
+  "confidence": "medium",
+  "notes": "The tools gave a clean, decided answer for the core question (E4 Period for jurisdictions, Issue 312 closed, confirmed twice on the mailing list by Martin Doerr). The uncertainty is only in the plumbing for how a real HER system would implement the E93-Presence chain to bind the mill to each jurisdiction for the right sub-period -- that pattern is assembled from separately-declared necessary properties (via 'connect') rather than pointed to as a single worked example in the docs or archive, and thread t1093 shows the SIG itself still treats the general 'administrative units as temporal/spatial entities' topic as unresolved as of its most recent mention. Note also: 'thread t1019' returned an unrelated 2017 discussion on Rights, not the 'populated places' episode its own summary in the E53 dossier pointed to under that id -- flagging as a retrieval mismatch, not something I relied on."
+}

@@ -1,0 +1,231 @@
+{
+  "question_id": "no-linguistic-appellation",
+  "question": "Why does the CIDOC CRM not include a \"Linguistic Appellation\" class?",
+  "short_answer": "A \"Linguistic Appellation\" -- a name that is also a piece of natural language, so you can say which language it is in -- does exist, but only in the RDF encoding of the CRM, as E33_E41_Linguistic_Appellation, accepted for that purpose in Berlin in November 2018 (Issue 363). It was kept out of the standard because the CRM's Minimality rule admits a class that merges two branches only if it is genuinely narrower than being both things at once, and being in a language is treated as an accidental trait of a name, recorded by declaring the same name an instance of both E41 Appellation and E33 Linguistic Object. The 2022 attempt to promote it (Issue 624) foundered on the question of what the language of a name even is, and was closed in October 2025 as idle rather than on the merits.",
+  "explanation": "The CRM has a rule about when a new class is allowed. Its Minimality section permits a class that \"serves as a merging point of two CIDOC CRM class branches via multiple IsA\", but adds a test: it \"should be narrower in scope than the intersection of the scopes of the branch superclasses\". A Linguistic Appellation is by construction exactly that intersection -- a name that is also natural language -- and nothing more. Athanasios Velios put the test to the list in November 2022 and concluded that it fails (t1649).\n\nThe SIG had run the argument twice before. In 2014 Dan Matei asked to attach P72 has language to place names and was refused: \"we regard that many (most) Appellations do not have a language\", with Stephen Stead adding that \"Not all are, so making them sub-classes is a lie. In those cases where they are then multiple instantiation is the correct solution\" (t0785). In 2017 Robert Sanderson asked the same and got the same: \"We do not declare subclasses of combinations of classes just for the sake of an accidental combination\" (t1024). The model was moving the other way anyway: E44 Place Appellation, E45 Address, E48 Place Name, E49 Time Appellation, E75 and E82 were all deleted between 2016 and 2018, because \"a class definition in CRM must not depend on the incidental association of its instances with another entity instance\" (Issue 260).\n\nImplementers still needed something. Sanderson judged multiple instantiation \"an anti-pattern\", since real toolchains pick one class at random, so Getty built its own Name class. In November 2018 the SIG met this halfway, accepting \"a subclass of E41 Appellation, namely 'Linguistic Appellation', in the rdf representation of the crm\" -- explicitly not part of the standard.\n\nGeorge Bruseker attacked that compromise in 2022: \"It is a fundamental class. It should be in the standard in the first place.\" Two objections held Issue 624 up. Pavlos Fafalios gave the structural one -- E35 Title exists only because P102 has title needs a range that is both, and \"since there is no such property, there is (currently) no need to introduce such a class in CRM\". Martin Doerr gave the semantic one: without examples fixing what the class would mean, \"it is not mature for ontological standardization at an international level, but resolved application-wise\". At Belval in December 2022 the proposal \"spurred a lively debate\"; homework went to Doerr for a counter-argument that never came. In October 2025 the SIG closed the issue because \"it has been idle for two years\".",
+  "real_world_example": "The SIG's own test case was the name of the author Douglas Adams. On 9 November 2022 Robert Sanderson wrote out the pattern he wanted the standard to bless: the person Q42, identified by an E33_E41_Linguistic_Appellation with symbolic content \"Douglas Adams\" and P72 has language English, and by a second one with content \"دوغلاس آدمز\" and P72 has language Arabic. Martin Doerr's reply is the whole objection in one paragraph: the Arabic script is also used for Farsi, so \"The fact that the arabic script is mainly used for Arabic, does itr make a transcript of an English name 'Arabic?' why not Farsi?\" And in the other direction: \"Why is Douglas Adams not 'German'? I would use it in German exactly in this form.\" \"What is the language of 'Martin', 'Martino'... Identical in English, Spanish, French, Dutch, German, Norwegian, Danish, Swedish?\" The class would have been easy to add and impossible to apply consistently. An earlier and equally concrete case is Dan Matei's, from 2014: in Transylvania there are \"thousends bilingual (Romanian and Hungarian) place names\", which is a real requirement -- but Doerr's counter was that \"there are a million more which do not have a language equivalent, and many which have survived different cultures\", so language cannot be built into the definition of a name.",
+  "decision_status": "partly settled",
+  "issues": [
+    {
+      "id": 624,
+      "title": "Add E33_E41_Linguistic_Appellation to the Official Specification",
+      "status": "Done",
+      "outcome": "The direct request, raised by George Bruseker and Robert Sanderson in November 2022. At the 55th joint meeting (Belval, December 2022) the SIG reviewed the proposal to introduce a class Exxx Name into the specification as the equivalent of the RDFS class; it 'spurred a lively debate concerning the utility of such a class', and homework was assigned to Martin Doerr to make a formal counter-argument with an example showing the logical problems. The counter-argument was never tabled. At the 61st joint meeting (Heraklion, October 2025) the SIG closed the issue 'on the grounds that it has been idle for two years', noting that the proposer 'has since implemented it externally and is no longer interested to pursue the issue'. The class was therefore never rejected on the merits and never adopted."
+    },
+    {
+      "id": 363,
+      "title": "Form and persistence of RDF identifiers",
+      "status": "Done",
+      "outcome": "The decision that created the class in its actual, RDFS-only form. At the 42nd joint meeting (Berlin, November 2018) the SIG accepted the 'Implementing the CIDOC Conceptual Reference Model in RDF' document as an implementation guideline explicitly 'not part of the crm as such', and 'The proposal to document a subclass of E41 Appellation, namely “Linguistic Appellation”, in the rdf representation of the crm was accepted.' Issue closed at the 45th joint meeting (Heraklion, October 2019)."
+    },
+    {
+      "id": 260,
+      "title": "Review specializations of Appellation",
+      "status": "Done",
+      "outcome": "The general re-examination of E41's subclasses. At the 32nd joint meeting the SIG 'noted that a class definition in CRM must not depend on the incidental association of its instances with another entity instance. The sense of subclasses of Appellation has been misinterpreted in that sense.' Closed as no longer relevant because 'the subclasses of E41 Appellation have been deprecated from the CIDOC CRM (see issues 290, 305, 317)'. This is the principle that a Linguistic Appellation class would have to survive."
+    },
+    {
+      "id": 290,
+      "title": "Conceptual Objects and their Appellations",
+      "status": "Done",
+      "outcome": "37th joint meeting (Berlin, December 2016): deleted E75 Conceptual Object Appellation. Part of the sweep that removed specialised appellation classes rather than adding new ones."
+    },
+    {
+      "id": 305,
+      "title": "Actor Appellation",
+      "status": "Done",
+      "outcome": "37th joint meeting (Berlin, December 2016): deleted E82 Actor Appellation. The list discussion behind it quoted the minimality criterion then circulating, 'A class is not declared unless it is required as the domain or range of a property not appropriate to its superclass' (Franco Niccolucci, August 2016, quoting a FORTH CAA2016 presentation)."
+    },
+    {
+      "id": 317,
+      "title": "Time Appellation",
+      "status": "Done",
+      "outcome": "41st joint meeting (Lyon, May 2018): closed with 'there is no discussion' -- E49 Time Appellation went the same way. Deprecated appellation classes now migrate to plain E41 Appellation with a P2 has type where needed."
+    },
+    {
+      "id": 340,
+      "title": "Classes without properties",
+      "status": "Done",
+      "outcome": "The 'classes without properties' debate that reworked the Minimality section into the form the 2022 discussion was argued against, including the requirement that a class formed by multiple IsA 'should be narrower in scope than the intersection of the scopes of the branch superclasses'. Neither Velios nor Doerr cited this issue by number in the 2022 thread -- they quoted the resulting Minimality text -- and Issue 624 does not cross-reference it; the connection is mine."
+    },
+    {
+      "id": 555,
+      "title": "RDFS Implementation and related issues",
+      "status": "Done",
+      "outcome": "Cross-referenced from Issue 624. At the 51st joint meeting the SIG fixed the naming convention for RDFS-only multiple-IsA classes ('keeping numbers of the numeric identifier in order'), which is why the class is E33_E41_Linguistic_Appellation and not E41_E33. It was an inconsistency in those comments that George Bruseker spotted and that opened the whole 2022 debate."
+    },
+    {
+      "id": 437,
+      "title": "Scope note and examples of E41 Appellation",
+      "status": "Done",
+      "outcome": "46th joint meeting (Athens, February 2020): accepted the current E41 scope note, which carries the standard's own instruction for this case -- appellations formulated as a valid noun phrase of a language 'should also be declared as instances of E33 Linguistic Object', after which 'the language using the appellation can be declared with the property P72 has language'. This is the answer the CRM gives instead of a class."
+    },
+    {
+      "id": 573,
+      "title": "CRMsoc & F51 Pursuit & F52 Name Use Activity",
+      "status": "Open",
+      "outcome": "Cross-referenced from Issue 624 as the alternative route: model the use of a name in a language as an activity (F52 Name Use Activity) rather than as a property of the name. Francesco Beretta and Martin Doerr both pointed the December 2022 discussion this way. Still unresolved, so the substantive modelling question has no settled home."
+    }
+  ],
+  "threads": ["t1649", "t1682", "t1024", "t0785"],
+  "citations": [
+    {
+      "id": "crm732#s0053",
+      "quote": "should be narrower in scope than the intersection of the scopes of the branch superclasses"
+    },
+    {
+      "id": "crm732#E41",
+      "quote": "the respective instances of E41 Appellation should also be declared as instances of E33 Linguistic Object"
+    },
+    {
+      "id": "crm732#s0124",
+      "quote": "E82 Actor Appellation"
+    },
+    {
+      "id": "t0785",
+      "quote": "we regard that many (most) Appellations do not have a language"
+    },
+    {
+      "id": "t0785",
+      "quote": "Not all are, so making them sub-classes is a lie"
+    },
+    {
+      "id": "t0785",
+      "quote": "Avoiding to subclass any combination of classes that may appear in some reality, is one of the fundamental principles that has kept the CRM as small as it is"
+    },
+    {
+      "id": "t1024",
+      "quote": "We do not declare subclasses of combinations of classes just for the sake of an accidental combination"
+    },
+    {
+      "id": "t1024",
+      "quote": "MI is an anti-pattern that should be avoided"
+    },
+    {
+      "id": "t1024",
+      "quote": "we've decided to create our own class"
+    },
+    {
+      "id": "t1649",
+      "quote": "It is a fundamental class. It should be in the standard in the first place."
+    },
+    {
+      "id": "t1649",
+      "quote": "narrower in scope that the result of multiple instantiation"
+    },
+    {
+      "id": "t1649",
+      "quote": "since there is no such property, there is (currently) no need to introduce such a class in CRM"
+    },
+    {
+      "id": "t1649",
+      "quote": "not to add classes without distinct properties of their own"
+    },
+    {
+      "id": "t1682",
+      "quote": "the RDF language tags on labels are not on the Appellation, but on the link instance"
+    },
+    {
+      "id": "t1682",
+      "quote": "Using a range property instead of a link property is a logical error"
+    },
+    {
+      "id": "issue363#current-s0002",
+      "quote": "in the rdf representation of the crm was accepted"
+    },
+    {
+      "id": "issue260#current-s0000",
+      "quote": "must not depend on the incidental association of its instances with another entity instance"
+    },
+    {
+      "id": "issue260#outcome",
+      "quote": "the subclasses of E41 Appellation have been deprecated from the CIDOC CRM"
+    },
+    {
+      "id": "issue624#background-s0001",
+      "quote": "does itr make a transcript of an English name"
+    },
+    {
+      "id": "issue624#background-s0005",
+      "quote": "it is not mature for ontological standardization at an international level, but resolved application-wise"
+    },
+    {
+      "id": "issue624#current-s0000",
+      "quote": "The proposal spurred a lively debate concerning the utility of such a class"
+    },
+    {
+      "id": "issue624#current-s0002",
+      "quote": "it needs a scope note and examples that disambiguate scope and senses"
+    },
+    {
+      "id": "issue624#outcome",
+      "quote": "it has been idle for two years"
+    },
+    {
+      "id": "issue624#outcome",
+      "quote": "has since implemented it externally and is no longer interested to pursue the issue"
+    }
+  ],
+  "caveats": "The register never records a decision rejecting a Linguistic Appellation class. Issue 624 is marked Done, but its closure is procedural -- idle for two years, proposer no longer interested -- so on the archive's own terms the substantive question was abandoned, not resolved. Anyone reading the status as 'the SIG decided against it' is over-reading the record.\n\nThe reasoning given above is therefore assembled, not quoted from a resolution. The Minimality test and the 'incidental association' principle are the SIG's own, recorded in the standard and in Issue 260's minute; but their application to this particular class comes from individual posts -- Athanasios Velios's reading of the narrower-than-the-intersection test, Pavlos Fafalios's observation that no property requires the class (he explicitly said he did not take a position for or against), and Martin Doerr's Farsi/German examples. Doerr is the CRM's editor, but these are his arguments, not a vote. The formal counter-argument the 55th meeting commissioned from him was never delivered, which is exactly why the issue lapsed.\n\nWhat the SIG did formally decide is narrower than the answer: that a 'Linguistic Appellation' subclass of E41 be documented in the RDF representation (Issue 363, 42nd joint meeting, Berlin, November 2018), and that the earlier specialised appellation subclasses be deleted (Issues 260/290/305/317). The connection between those deletions and the refusal to add this one is thematic and was drawn by participants in the 2022 thread; the register does not cross-reference them.\n\nI did not find in the archive any record of the class having been in an official CRM version and later removed. E33_E41_Linguistic_Appellation exists only in the RDFS files from 7.x onward and in the 'Implementing the CIDOC CRM in RDF' guideline, which the 42nd meeting minuted as 'not part of the crm as such'. The deprecated appellation identifiers (E44, E45, E48, E49, E75, E82) are a different, earlier family and were never called 'Linguistic Appellation'.\n\nThe alternative solutions floated in December 2022 -- Francesco Beretta's plain property E41 Appellation -> is used in -> E56 Language, Doerr's suggestion to follow the SDHSS class sdh:C11 Appellation in a Language as a long path for P1, and Beretta's F52 Name Use Activity route -- were all left open. Issue 573, which would host the last of these, is still Open.",
+  "queries_run": [
+    "search.py issue 624",
+    "search.py thread t1682",
+    "search.py thread t1649",
+    "search.py thread t1024",
+    "search.py thread t0785",
+    "search.py concept E33_E41_Linguistic_Appellation",
+    "search.py concept E33",
+    "search.py concept E35",
+    "search.py concept E41",
+    "search.py concept E44",
+    "search.py issues \"Linguistic Appellation\"",
+    "search.py issues \"subclass of E41 Appellation Linguistic Appellation rdf representation accepted\"",
+    "search.py issues \"deprecate Appellation subclasses E44 Place Appellation E45 Address E49 Time Appellation E82 Actor Appellation\"",
+    "search.py issues \"class definition in CRM must not depend on the incidental association of its instances with another entity instance\"",
+    "search.py issues \"E33_E41 Linguistic Appellation class name language\"",
+    "search.py issues \"Exxx Name class proposal scope note examples\"",
+    "search.py issues \"minimality principle class without properties multiple instantiation\"",
+    "search.py issues \"logical problems admitting class Name CIDOC CRM\"",
+    "search.py issues \"language of appellation subproperty of P1 typically identified in English\"",
+    "search.py issues \"51st CIDOC CRM 44th FRBRoo SIG meeting order of numeric identifier\"",
+    "search.py issues \"Appellation in a Language longpath P1\"",
+    "search.py issues \"Douglas Adams Farsi Arabic script transcription name language\"",
+    "search.py issues \"Nomen LRM language of nomen appellation\"",
+    "search.py threads \"Linguistic Appellation class language of a name\"",
+    "search.py issue 363",
+    "search.py issue 361",
+    "search.py issue 555",
+    "search.py issue 260",
+    "search.py issue 290",
+    "search.py issue 305",
+    "search.py issue 317",
+    "search.py issue 437",
+    "search.py docs \"Minimality a CRM class is declared when merging point of two branches multiple IsA\" --kind narrative",
+    "search.py docs \"E41 Appellation scope note signs meaningful or not arrangements of signs\" --kind declaration",
+    "search.py docs \"Deprecated Class Migration Instructions table E75 Conceptual Object Appellation E82 Actor Appellation\"",
+    "search.py quote t0785 \"Not all are, so making them sub-classes is a lie\"",
+    "search.py quote t0785 \"Avoiding to subclass any combination of classes that may appear in some reality, is one of the fundamental principles that has kept the CRM as small as it is\"",
+    "search.py quote t0785 \"we regard that many (most) Appellations do not have a language\"",
+    "search.py quote t1024 \"We do not declare subclasses of combinations of classes just for the sake of an accidental combination\"",
+    "search.py quote t1024 \"we've decided to create our own class\"",
+    "search.py quote t1024 \"MI is an anti-pattern that should be avoided\"",
+    "search.py quote t1649 \"not to add classes without distinct properties of their own\"",
+    "search.py quote t1649 \"since there is no such property, there is (currently) no need to introduce such a class in CRM\"",
+    "search.py quote t1649 \"narrower in scope that the result of multiple instantiation\"",
+    "search.py quote t1649 \"It is a fundamental class. It should be in the standard in the first place.\"",
+    "search.py quote t1682 \"Using a range property instead of a link property is a logical error\"",
+    "search.py quote t1682 \"the RDF language tags on labels are not on the Appellation, but on the link instance\"",
+    "search.py quote issue624#outcome \"it has been idle for two years\"",
+    "search.py quote issue624#outcome \"has since implemented it externally and is no longer interested to pursue the issue\"",
+    "search.py quote issue624#current-s0000 \"The proposal spurred a lively debate concerning the utility of such a class\"",
+    "search.py quote issue624#current-s0002 \"it needs a scope note and examples that disambiguate scope and senses\"",
+    "search.py quote issue624#background-s0001 \"does itr make a transcript of an English name\"",
+    "search.py quote issue624#background-s0005 \"it is not mature for ontological standardization at an international level, but resolved application-wise\"",
+    "search.py quote issue363#current-s0002 \"in the rdf representation of the crm was accepted\"",
+    "search.py quote issue260#current-s0000 \"must not depend on the incidental association of its instances with another entity instance\"",
+    "search.py quote issue260#outcome \"the subclasses of E41 Appellation have been deprecated from the CIDOC CRM\"",
+    "search.py quote crm732#s0053 \"should be narrower in scope than the intersection of the scopes of the branch superclasses\"",
+    "search.py quote crm732#E41 \"the respective instances of E41 Appellation should also be declared as instances of E33 Linguistic Object\"",
+    "search.py quote crm732#s0124 \"E82 Actor Appellation\""
+  ]
+}

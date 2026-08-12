@@ -1,0 +1,17 @@
+{
+  "question_id": "2012-2013-q4",
+  "answer": "No. In thread t0630 (\"ISSUE: P62 needs a parent and a sibling\", July 2012), Vladimir Alexiev proposed adding physical-domain shortcut siblings of P62_depicts — tentatively numbered P67a and P129a — to let a physical object directly 'refer to' (parallel to P67_refers_to) or be 'about' (parallel to P129_is_about) something, mirroring how P62 shortcuts P138_represents. Stephen Stead, Matthew Stiff and Sebastian Rahtz debated examples (blue plaques, gravestone epitaphs, a drawing referencing a scriptwriter), and Martin Doerr gave a detailed theoretical rebuttal arguing that unlike depiction, textual/inscribed 'aboutness' usually passes through an intermediate object (e.g. an inscription) that has its own documentary identity, so shortcutting over it would be counterproductive to information integration; he said CRM-SIG would need to consider the new evidence at a future meeting. No such properties were ever added: the archive's own chronology for P62 tags this episode as 'unresolved', and the current ontology skeleton (v7.1.3) still shows P67 and P129 with only E89 Propositional Object as domain — no E24 Physical Human-Made Thing siblings exist. So the parallel shortcut proposal was discussed but not accepted.",
+  "found": true,
+  "cited_threads": ["t0630"],
+  "queries_run": [
+    "search \"depicts shortcut property physical object\" -k 10",
+    "thread t0630",
+    "concept P62",
+    "search \"P62 parent sibling issue resolution accepted rejected\" -k 10",
+    "search \"P67a P129a shortcut physical refers to\" -k 10",
+    "search \"P62 depicts no sibling refers to about shortcut rejected not accepted\" -k 10 --mode bm25",
+    "ontology (grepped for P62/P67/P129/P138 rows)"
+  ],
+  "confidence": "high",
+  "notes": "Thread t0630 contains the full proposal and debate but no explicit closing vote; conclusion rests on (1) the archive's chronology entry explicitly marking this episode 'unresolved' and (2) the current ontology skeleton showing no E24-domain counterpart to P67/P129 was ever added. No later thread (checked P62's full chronology through 2022) revisits or formally closes this specific proposal."
+}

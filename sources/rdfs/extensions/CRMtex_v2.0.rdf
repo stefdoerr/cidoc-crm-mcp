@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <!--
+RDFs implementation of CRMtex v2.0 June, 2023 (https://www.cidoc-crm.org/crmtex/ModelVersion/version-2.0-0).
+
+Created by FORTH-ICS - February, 2024
+CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
+
+-->
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionInfo xml:lang="en">CRMtex Ontology 2.0 (June, 2023) including references to CIDOC-CRM 7.1.2, CRMinf 0.7b, CRMsci 2.0, and FRBRoo 2.4</owl:versionInfo>
+    <rdfs:comment xml:lang="en">CRMtex is an extension of the CIDOC CRM created to support the study of ancient and handwritten documents, i.e., texts characterised by uniqueness since they have been produced without the use of techniques typical of modern mechanized processes of production. CRMtex aims to model information concerning ancient inscriptions (including coins, marks and stamps), papyri, medieval manuscripts, but also modern handwritten documents of any kind.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Written Text</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises visible or tactile marks (called glyphs or graphs), which relate in a systematic way to units of speech, intentionally traced (i.e., “written”) on some kind of physical support by using specific techniques and tools, with the purpose of conveying a message towards a given receiver or group of receivers.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E25_Human-Made_Feature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX2_Writing">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Writing</rdfs:label>
+    <rdfs:comment xml:lang="en">This class describes the activity of communicating information by means of permanent, visible marks in a non-mechanical way, using various techniques (painting, sculpture, etc.) and by means of specific tools, on a given support.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F28_Expression_Creation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX3_Writing_System">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Writing System</rdfs:label>
+    <rdfs:comment xml:lang="en">This class represents a conventional symbolic system designed to represent units of a natural language with the purpose of recording and transmitting information. A writing system consists of a set of symbols (graphemes, TX8), instantiated through physical signs of a visual or tactile nature (glyphs, TX9) representing linguistic units of any kind and the related syntactic (i.e., graphotactic) rules. It is used to produce a TX1 Written Text during a TX2 Writing event.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E29_Design_or_Procedure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX4_Writing_Field">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Writing Field</rdfs:label>
+    <rdfs:comment xml:lang="en">This class describes the portion of the physical carrier arranged and usually reserved and delimited for the purpose of accommodating a written text, highlighting and isolating it from the other parts of the object to which it belongs, enhancing and guaranteeing its readability. This entity is paramount specially in epigraphy, in which a specific element called “epigraphic field” has been defined by the discipline itself. Its importance is also evident in papyrology and codicology, where a clear distinction between area(s) containing the written text and empty parts of the support (margins, intercolumnia , etc.) is significant for the definition of styles and periods of the document.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E25_Human-Made_Feature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Text Recognition</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises activities of recognizing physical features on some surface, often an instance of TX4 Writing Field, as an arrangement of a series of identifiable glyphs of some known script, deciphered or not, in an order characteristic for a text. For study purposes, the text recognition procedure requires a scientific autoptic examination of the text. An autoptic examination consists of an accurate analysis of the surface and the signs, and prescribes the use of specific tools and procedures for establishing the exact value of each sign on the physical feature. Deterioration of the original medium or “sloppy” writing may render parts of the original text as undecipherable or ambiguous, which may be annotated in the transcript following epigraphic standards; a text recognition typically results in a record of an equivalent sequence of graphemes on another persistent medium in a scholarly established form of representation of the respective graphemes, often called a “transcript”. An instance of TX5 Text Recognition may in particular apply even to a single glyph, typically forming part of an instance of TX5 Text Recognition applying to a larger sequence of glyphs containing the former glyph. The recognition process may be assisted by mechanical means, imaging technology, or a traditional squeeze for incised glyphs. In case the recognition process is solely based on the latter, the observation concerns only the representations on the latter as present to the researcher in some physical form or projection and should unambiguously be documented as such. In case the recognized text has not been documented in a transcript, text recognition may constitute an implicit part of an overarching reading process, instance of TX14 Reading, which has resulted in other noteworthy propositions related to the content of the recognized text. On the other side, recognition of single glyphs or contracted parts of texts, as they are characteristic for the use of ligatured scripts, may quite well be implicitly supported by the reader’s comprehension of the text and the creator of the transcript may have chosen not to annotate parts that the reader regarded as unambiguous. Since these cases can often hardly be separated from the shape recognition of the glyphs in isolation, documenting such implicit comprehension as a separate process may not be relevant. It is however regarded as good practice to document explicitly the reading process and associated interpretative reasoning for any non-trivial resolution of ambiguity or gaps in the recognized text that has a bearing on the transcript or further completion of the transcript.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E65_Creation"/>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmsci/S4_Observation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX6_Transliteration">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Transliteration</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises activities of exactly re-writing (i.e., re-encoding) an instance of TX12 Grapheme Sequence, i.e., the characters of a text, a contiguous part or a single character of it, by using a writing system (TX3) different from that of the original text, without changing the order of characters or words, by using standard correspondences. This operation may apply a 1:1 relation between the signs of the two writing systems, a “transliteration” in the narrower sense (e.g., the ALA-LC Romanization of Greek to Latin). It may also apply an approximation of the sounds of a language, as defined by the source writing system, by that of the target writing system, normally called a “transcription” (e.g., the “rōmaji” Romanization of Japanese), or a mixture of both (e.g. the ELOT 743 Type 2 – transcription of Greek to Latin letters). In a broader sense, the term “transcription” also applies to the activity of re-encoding a text using the same writing system (see example 1). The P16 used specific object (was used for) property can be used to specify the applied method of correspondence.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E65_Creation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX7_Written_Text_Segment">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Written Text Segment</rdfs:label>
+    <rdfs:comment xml:lang="en">This class describes portions of text considered to be of particular significance by scholars, as witnesses of a certain meaning or bearers of a particular phenomenon relevant to the investigation, study and understanding of a text. Examples of such text portions are columns, fragments, sections, paragraphs, as well as single words or signs, or other components of a written text. To each of these entities can be associated a single production event (TX2) or destruction event (E6), as in the case of letters or words damaged or worn by atmospheric agents or human interventions, as well as specific conditions (E3) for documenting its status during the text recognition process (TX5). The relationship between a written text (TX1) and its components is documented through the TXP4 has segment property.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX8_Grapheme">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Grapheme</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises symbols used as kinds of atomic units with distinctive value in a given writing system in order to represent linguistic units of some level to encode elements of a message. According to the typology of the writing system, the represented linguistic units can be phonemes (as in Latin), syllables (as in Mycenaean Linear B), up to complete words (as in Chinese and Sumerian scripts). A writing system also provides the conventions determining how the graphemes are to be used to write a language (orthographic rules). In some writing systems, graphemes may also be used as auxiliary signs, for instance, for disambiguating senses of homonyms, as in the Japanese writing system, or to mark the semantic categories of the words, as in the ancient Egyptian determinatives.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX9_Glyph">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Glyph</rdfs:label>
+    <rdfs:comment xml:lang="en">This class describes the physical, concrete features traced by a writer, representing the material manifestations of the graphemes needed to codify a linguistic expression. Glyphs are typically observed by the scholars during a text recognition activity (TX5) carried out to decode and recognise the graphemes (TX8) they represent.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX7_Written_Text_Segment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX10_Style">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Style</rdfs:label>
+    <rdfs:comment xml:lang="en">This class describes stylistic variations of texts, including local script styles (as the Carolingian minuscule for the Latin script) and individual scribal hands. It includes: the general appearance of the script, in terms of general design, aspects related to a bilinear system (i.e., upper- and lowercase), measures (i.e., large, medium or small), shape and number of strokes forming a character, its order and direction. A style includes also information about ductus (the direction the text), ligatures and nexi (i.e., the connection between characters obtained by tracing them without detaching the writing instrument from the support and using one or more strokes in common), and the writing angle (i.e., the position the writing instrument is located with respect to the support). The style corresponds to fonts and their variations in the modern printing process.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E29_Design_or_Procedure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX11_Grapheme_Occurrence">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Grapheme Occurrence</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises single occurrences of a Grapheme used as an atomic unit at a particular position in the abstract form of a given particular piece of text.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Grapheme Sequence</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises particular sequences of Graphemes used for representing the abstract written form of a section of a given particular text.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX13_Script">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Script</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises functionally complete sets of mutually different graphemes employed by one or more languages, regardless of the specific operating rules in a particular language. A writing system, on the other hand, also refers to the set of relations between symbols and linguistic units they represent. The same language may be written using different scripts.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E89_Propositional_Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TX14_Reading">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Reading</rdfs:label>
+    <rdfs:comment xml:lang="en">This class describes the complete intellectual activity, involving the interaction of visual-perceptual, linguistic, and conceptual systems, leading from text recognition (TX5) until its association with a complete linguistic meaning.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crminf/I1_Argumentation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP1_used_writing_system">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">used writing system</rdfs:label>
+    <rdfs:comment xml:lang="en">This property identifies the specific instance of TX3 Writing System employed during the writing event (TX2) that led to the creation of a written text (TX1).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX2_Writing"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX3_Writing_System"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP1i_writing_system_used_for"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP1i_writing_system_used_for">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">writing system used for</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX3_Writing_System"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX2_Writing"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P33i_was_used_by"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP1_used_writing_system"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP2_includes">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">includes</rdfs:label>
+    <rdfs:comment xml:lang="en">This property describes the relation existing between a TX1 Written Text and the TX4 Writing Field, specifically created to accommodate the text, within which it is inscribed. This relation becomes quite relevant in the very frequent case where more than a single text is found on different areas of a specific support.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX4_Writing_Field"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P56_bears_feature"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP2i_is_included_within"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP2i_is_included_within">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is included within</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX4_Writing_Field"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P56i_is_found_on"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP2_includes"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP4_has_segment">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has segment</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is intended to correlate a text and the different parts of it which a scholar can identify, such as: letters, words, lines, columns, pages, or any other scan that can be made by scholars because it is considered to have a particular relevance for the investigation of the text itself.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX7_Written_Text_Segment"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P46_is_composed_of"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP4i_is_segment_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP4i_is_segment_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is segment of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX7_Written_Text_Segment"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP4_has_segment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP5_wrote">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">wrote</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to describe in detail the close relationship between a text and the writing event that led to its production.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX2_Writing"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P108_has_produced"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP5i_was_written_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP5i_was_written_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was written by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX2_Writing"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P108i_was_produced_by"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP5_wrote"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP6_encodes">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">encodes</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to indicate the language encoded by the TX3 Writing System and used for writing, reading or rendering (i.e. transcribing) a TX1 Written Text.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX3_Writing_System"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E56_Language"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P2_has_type"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP6i_is_encoding_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP6i_is_encoding_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is encoding of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E56_Language"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX3_Writing_System"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P2i_is_type_of"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP6_encodes"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP7_has_item">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has item</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of TX13 Script with an instance of TX8 Grapheme employed by this script. Different instances of TX13 Script may have some graphemes in common.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX13_Script"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX8_Grapheme"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P67_refers_to"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP7i_is_item_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP7i_is_item_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is item of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX8_Grapheme"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX13_Script"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P67i_is_referred_to_by"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP7_has_item"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP8_has_component">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has component</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to state the (physical) belonging of a glyph to a given TX1 Written Text.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX9_Glyph"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P46_is_composed_of"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP8i_is_component_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP8i_is_component_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is component of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX9_Glyph"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP8_has_component"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP9_is_encoded_using">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is encoded using</rdfs:label>
+    <rdfs:comment xml:lang="en">This property has the purpose of directly associating a TX1 Written Text with the TX3 Writing System used for encoding it. It is a shortcut of the more fully articulated path from TX1 Written Text through TXP5i was written by , TX2 Writing, TXP1 used writing system to TX3 Writing System.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX3_Writing_System"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP9i_was_used_to_encode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP9i_was_used_to_encode">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was used to encode</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX3_Writing_System"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP9_is_encoded_using"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP10_deciphered_text">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">deciphered text</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of TX5 Text Recognition with an instance of E24 Physical Human-Made Thing carrying a glyph or a sequence of glyphs that was recognized in the respective activity of text recognition. Typically, the associated instance of E24 Physical Human-Made Thing is more specifically an instance of TX1 Written Text, however, a text may also be recognized from a mechanical copy, a photograph, squeeze or other form of material copy of a written original, which would not by itself constitute an instance of TX1 Written Text. In the latter case, the material copy should be associated with the original written text using the property ‘P130 shows features’. If the text was actually recognized only from a digital representation, this property should not be used, rather the property TXP13 deciphered via the representation should be used instead.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Human-Made_Thing"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmsci/O8_observed"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP10i_was_deciphered_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP10i_was_deciphered_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was deciphered by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Human-Made_Thing"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmsci/O8i_was_observed_by"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP10_deciphered_text"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP11_transcribed">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">transcribed</rdfs:label>
+    <rdfs:comment xml:lang="en">This property describes the relation between an activity of TX6 Transliteration and the identified sequence of graphemes (TX12) represented in an instance of TX1 Written Text.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX6_Transliteration"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP11i_was_transcribed_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP11i_was_transcribed_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was transcribed by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX6_Transliteration"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP11_transcribed"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP12_has_style">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has style</rdfs:label>
+    <rdfs:comment xml:lang="en">This property describes information about the style used for the realization of the written text (TX1). The property TXP12.1 has type allows the nature of the style to be specified, for example to record the direction, orientation or the linear system of the text.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX10_Style"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP12i_is_style_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP12i_is_style_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is style of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX10_Style"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P33i_was_used_by"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP12_has_style"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP13_deciphered_via_the_representation">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">deciphered via the representation</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of TX5 Text Recognition with an instance of E36 Visual Item, capturing the optical impression of an instance of TX1 Written Text by some mechanical method, that was used for recognizing the text without access to the original text and without an explicitly documented material copy or electronic display device that was used for the process. If the text was actually recognized from an autoptic recognition or from a material reproduction, this property may not be used but the property “TXP10 deciphered text (was deciphered by)” should be used instead. This property should also not be used, if the recognition of the text was actually carried out from the original text or a material copy of it together with an auxiliary instance of E36 Visual Item. In this case, the use of the auxiliary material should be documented with the more general property P16 used specific object.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E36_Visual_Item"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP13i_was_representation_used_for_deciphering"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP13i_was_representation_used_for_deciphering">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was representation used for deciphering</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E36_Visual_Item"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP13_deciphered_via_the_representation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP14_used_copy_or_representation_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">used copy or representation of</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of TX5 Text Recognition, carried out only via copies or representations of a text, with the original instance of TX1 Written Text that was represented on the used copies or digital surrogates. This property is to be used only for non-autoptic recognition. If this particular recognition of the text was actually carried out from the original text, the property TXP10 deciphered text should be used for associating the instance of TX5 Text Recognition with the original instance of TX1 Written Text. If some form of material copy of the written text was used for the text recognition, then this material copy should be associated with the original written text using the property ‘P130 shows features of’.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP14i_was_deciphered_via_copy_or_representation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP14i_was_deciphered_via_copy_or_representation">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was deciphered via copy or representation</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP14_used_copy_or_representation_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP15_recorded_correspondence">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">recorded correspondence</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of TX5 Text Recognition with an instance of TX12 Grapheme Sequence that was created by this activity of text recognition for recording and representing as faithfully as possible the exact value of each sign on the physical material of the recognized instance of TX1 Written Text.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P94_has_created"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP15i_was_recorded_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP15i_was_recorded_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was recorded by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P94i_was_created_by"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP15_recorded_correspondence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP16_employs_script">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">employs script</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of TX3 Writing System with one of the instances of the script (TX13) it employs.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX3_Writing_System"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX13_Script"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P148_has_component"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP16i_is_employed_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP16i_is_employed_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is employed by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX13_Script"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX3_Writing_System"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P148i_is_component_of"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP16_employs_script"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP17_has_part">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has part</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of TX12 Grapheme Sequence with another instance of TX12 Grapheme Sequence appearing at a particular position of the sequence. The property can be also used by an instance of TX11 Grapheme Occurrence (subclass of TX12 Grapheme Sequence) for denoting that a grapheme occurrence has part another grapheme occurrence. Note that a grapheme occurrence may be a symbolic composite containing another grapheme occurrence, such as the minute character “e” on top of the character “u” in former German writing systems denoting the symbol for “ü”.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P106_is_composed_of"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP17i_forms_part_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP17i_forms_part_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">forms part of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX12_Grapheme_Sequence"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P106i_forms_part_of"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP17_has_part"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP18_read">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">read</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of TX14 Reading with an instance of TX1 Written Text whose linguistic meaning was interpreted/understood through the reading process. It is a shortcut of the fully developed path from TX14 Reading through P9 consists of , TX5 Text Recognition, TXP10 deciphered tex t, to TX1 Written Text.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX14_Reading"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP18i_was_read_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmtex/TXP18i_was_read_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was read by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TX14_Reading"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmtex/TXP18_read"/>
+  </rdf:Description>
+</rdf:RDF>

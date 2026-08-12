@@ -1,0 +1,43 @@
+{
+  "case_id": "technical-c1",
+  "answer": "The engine on display is the same object as the one that worked the quarry -- not a new object incorporating old parts. The winding engine (an E22 Human-Made Object) never lost its identity: its frame and cylinders, the recognisable core, persisted continuously and were never disassembled or removed. What happened to the boiler is a change to one part of that persisting whole, which CRM has purpose-built classes for: the wartime removal and scrapping of the original boiler is an E80 Part Removal (P112 diminished: the engine; P113 removed: the old boiler) whose removed part then underwent its own E6 Destruction (P13 destroyed: the old boiler) -- it was 'cut up for scrap', not stored. The engine then existed for fifty years as the same object, simply missing a part and non-functional (an analogous case is raised in thread t1170, where a non-functioning industrial-heritage machine is still treated as the same object, just in a different phase). In 1998 a new boiler was built to the original drawings (E12 Production, P108 has produced) and fitted to the surviving frame/cylinders: an E79 Part Addition (P110 augmented: the engine; P111 added: the new boiler). Per E80's own scope note, the case would only tip into E81 Transformation (a new object) if the removal 'results in the total decomposition of the original object into pieces, such that the whole ceases to exist' -- that did not happen here; the whole (frame+cylinders) was never taken apart. This matches the CRM SIG's own reasoning about this exact paradox: in thread t1170, Martin Doerr states that 'an instance of E19 with all parts replaced is identical' as long as continuity of coherence and functionality holds, and explicitly contrasts this with a ship-of-Theseus variant where all the original planks are removed and stored for a century before being reassembled -- that reconstructed ship he treats as a NEW E19 object, 'because the continuity of functionality is broken', since it was never 'temporarily on repair within an extended activity making use of it'. Our engine is the opposite case: the frame and cylinders were never removed from the site or from continuous custodianship, so the criterion for a new object is not met. Net model: one continuing E22 (the engine) that underwent E80+E6 (old boiler removed and destroyed) and later E79 fed by an E12 (new boiler produced and added) -- not an E81 Transformation and not two 'different objects'.",
+  "classes_proposed": ["E22", "E80", "E6", "E12", "E79"],
+  "properties_proposed": ["P112", "P113", "P13", "P108", "P110", "P111"],
+  "rejected_alternatives": [
+    {"option": "E81 Transformation (treating the 1998 rebuild as bringing a new object into existence)", "why_not": "E80's scope note reserves Transformation for when part-removal 'results in the total decomposition of the original object into pieces, such that the whole ceases to exist' -- here the frame and cylinders were never dismantled, only the boiler (one part) was removed, so the whole never ceased to exist."},
+    {"option": "Treating the engine as a new object because it sat non-functional for 50 years", "why_not": "In thread t1170, a non-functioning industrial-heritage machine is discussed as still being the same object, just lacking the observable property that would let it perform its function ('not functional' is offered as an example property of a phase of an object, not a marker of a new object); functionality being suspended is not the same as functionality never being resumable, and here it plainly was resumed."},
+    {"option": "Modelling the rebuilt engine as a reconstruction analogous to Doerr's 'planks stored in a warehouse for a century' ship-of-Theseus case", "why_not": "Doerr treats that specific variant as a NEW object precisely because the whole was disassembled and its parts kept in storage, breaking continuity of functionality; our case never disassembled the frame/cylinders -- only the boiler, a single part, was removed and later replaced, which is the ordinary scenario E79/E80 are written for."}
+  ],
+  "citations": ["E22", "E80", "E79", "E81", "E6", "E12",
+    {"id": "t1170", "quote": "an instance of E19 with all parts replaced is identical"},
+    {"id": "t1170", "quote": "continuity of functionality is broken"},
+    {"id": "t1170", "quote": "not functional"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E79",
+    "concept E80",
+    "concept E81",
+    "docs \"identity of physical objects through part replacement\" --kind narrative",
+    "docs \"replacing parts of an object\" --kind narrative",
+    "\"identity of an object after replacement of parts\"",
+    "\"restoration same object identity\"",
+    "\"ship of Theseus\"",
+    "threads \"identity through replacement of parts\"",
+    "threads \"restoration of historic object rebuilt part\"",
+    "thread t1170",
+    "thread t1080",
+    "issue 369",
+    "issue 574",
+    "concept E22",
+    "concept E6",
+    "docs \"Minimality principle\" --kind narrative",
+    "docs \"continuity of identity physical thing\" --kind narrative",
+    "quote t1170 \"an instance of E19 with all parts replaced is identical\"",
+    "quote t1170 \"continuity of functionality is broken\"",
+    "quote t1170 \"not functional\""
+  ],
+  "confidence": "high",
+  "notes": "The single most useful hit was thread t1170 (nominally about Issue 369 'Timed relations'/Phase), where Martin Doerr directly works through a ship-of-Theseus variant for E19 identity and gives an explicit rule (continuity of coherence/functionality, not substance) plus the dividing line against E81 Transformation. Issue 369's own SIG 'outcome' text only records that the thread's Phase-related content was redirected to Issue 422 -- it does not itself ratify Doerr's E19-identity remarks, so I cited that as his stated position in the thread rather than as an official SIG ruling. No case-specific corpus hit exists for 'boiler' or 'winding engine' (expected, per Minimality), so the mapping onto E22/E79/E80/E81/E6 is my own reasoning from the scope notes and the t1170 discussion."
+}

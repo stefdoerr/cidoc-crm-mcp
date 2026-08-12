@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "archaeology-c1",
+    "verdict": "suboptimal",
+    "constraint_checked": "E7 Activity scope note: 'actions intentionally carried out by instances of E39 Actor.' E9 Move is a subclass of E7, so instantiating it requires an actor-driven action. Colluviation (erosion washing the axe downslope) has no actor.",
+    "better_modelling": "Drop the P25i-moved-by/E9-Move/P26 option entirely; commit to E93 Presence alone (P195 was a presence of -> the axe E22, P164 is temporally specified by -> post-Roman E52, P167 was within -> the deposit's E53), which needs no actor and is the construct the answer itself calls 'cleaner.' Offering E9 Move as a live alternative for a non-agentive natural process is the defect, even though the answer flags the tension.",
+    "evidence": ["E7", "E9", "E93", "P195", "P164", "P167", "t0674"],
+    "reasoning": "The rest of the answer (E12 Production with its own P4 time-span, kept separate from the find location) is correct and well-cited (Martin Doerr's meteorite gloss in t0674 checked out verbatim). But the answer hedges between two constructs for 'how it got there,' and one of them (the full E9 Move path) fails E9's inherited E7 scope note for this specific natural, unintentional relocation -- it should have been ruled out, not offered as an equal option."
+  },
+  {
+    "case_id": "archaeology-c2",
+    "verdict": "correct",
+    "constraint_checked": "E42 Identifier scope note ('uniquely and permanently within the context of one or more organisations') and E77 Persistent Item's identity clause (crm732#s0065: 'informed people are able to agree that they refer to the same, single thing... both in its extent and over its time of existence') -- verified verbatim against the reference doc.",
+    "better_modelling": "None found. Two E25/E26 Human-Made Feature instances (posthole cut, pit fill), each with its own E42 via P1/P48, plus two E15 Identifier Assignment events (P14/P4), is the direct application of these scope notes; E26's own example of a doorway (an opening, i.e. negative space) as a valid feature supports modelling a cut this way.",
+    "evidence": ["E42", "E77", "E25", "E26", "P37", "P48", "crm732#s0065"],
+    "reasoning": "Checked P37 (E15->E42), P48 (E1->E42), P14 (E7->E39 via E15<E13<E7) domains/ranges and all hold. Tried to find a single-record alternative and could not: nothing in E77's class-specific identity test lets a shared label override two physically distinct features in different trenches."
+  },
+  {
+    "case_id": "archaeology-c3",
+    "verdict": "correct",
+    "constraint_checked": "P168 domain->range E53->E94 vs. P171/P172 domain->range E53->E94, distinguished by scope note: P171/P172 apply only when the Place's extent is 'not precisely known' (approximation of max/min extent), whereas P168 defines the Place from an exact geometry. E94's own scope note gives a WKT POLYGON as its literal example.",
+    "better_modelling": "None found. E53/E94 via P168 is the most specific fit; P171/P172 were correctly rejected since this is an exact closed total-station polygon, not a bound on an uncertain extent.",
+    "evidence": ["E94", "P168", "P171", "P172"],
+    "reasoning": "Verified the WKT example is real (not paraphrased) and that P171/P172's scope notes both open with the 'may not have precisely known spatial extents' condition, which this case does not meet -- so ruling them out and using P168 is the CRM-prescribed choice, not just a defensible one."
+  },
+  {
+    "case_id": "archives-c1",
+    "verdict": "correct",
+    "constraint_checked": "P50 has current keeper is declared a shortcut (E18.P30i.E10.P29.E39); per the Terminology entry for 'shortcut' (crm732#s0018): shortcuts exist 'for the cases where common documentation practice refers only to the deduction rather than to the fully developed path... in order to allow the user to describe cases in which he has less detailed knowledge.' Here each handover has direct evidence (a signed note), so the fully articulated path (four separate E10 events via P28/P29/P30) is what the model calls for, not the shortcut.",
+    "better_modelling": "None found. Could add E8 Acquisition alongside the 2010 E10 if legal title (not just custody) passed then, which the answer already flags as a separate open question rather than folding it into the main claim.",
+    "evidence": ["E10", "P28", "P29", "P30", "P50", "crm732#s0018"],
+    "reasoning": "Checked E10<E7, P28/P29 domain E10 range E39, P30 domain E10 range E18 -- all hold. The shortcut-vs-full-path argument is exactly the principle stated in the Terminology section, which the answer characterized correctly even though it cited a different passage location for it."
+  }
+]

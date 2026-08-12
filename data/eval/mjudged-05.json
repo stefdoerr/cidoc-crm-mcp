@@ -1,0 +1,38 @@
+[
+  {
+    "case_id": "propertychoice-c3",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t0654", "t1224"],
+    "reasoning": "Verified P22/P23/P24 quantifications and P9's E4-E4 domain/range directly against concept dossiers; t0654 does list the dual-events pattern (Alexiev's email) and t1224 does contain Doerr's verbatim rejection of a unifying Exchange class ('I would question Exchange as so general an activity... I think it is not necessary'), so the two-E8-events-plus-E7 model and both rejections check out.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "technical-c1",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1170"],
+    "reasoning": "t1170 confirms both quoted Doerr passages verbatim (parts-replaced ship is identical; reconstructed-after-storage ship is a new object 'because the continuity of functionality is broken... not temporarily on repair'), and E24/E11/E81 scope notes support the E81+two-E22 model for this genuine border case, honestly flagged as medium confidence.",
+    "what_is_wrong": ["The 'Modelling principles > Monotonicity' citation is never actually tied to any claim in the answer text -- it reads as decorative padding rather than support for anything specific."]
+  },
+  {
+    "case_id": "technical-c2",
+    "verdict": "unsupported",
+    "modelling_works": true,
+    "citations_support_claims": false,
+    "checked_threads": ["t0056", "t1170"],
+    "reasoning": "The Part-Addition/Removal recommendation itself is correct (P110/P112 are confirmed siblings of P108 under P31, exactly as claimed), but the answer quotes t0056 as designing the pair 'precisely for reassembling a part of an object' -- that exact phrase never appears in t0056 (a single 2002 message with no such wording); it is Vladimir Alexiev's phrase from the 2012 thread t0654, which the model queried (per queries_run) but did not cite. A real, checked thread id is attached to a quote it does not contain.",
+    "what_is_wrong": ["Quoted phrase 'replacing a part of an object' attributed to t0056 (2002) actually originates in t0654 (2012), which is not among the cited sources for this case."]
+  },
+  {
+    "case_id": "technical-c3",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t0761"],
+    "reasoning": "t0761 confirms Stephen Stead's quote near-verbatim ('codified in a document or exist as a set of tribal knowledge in either the performers... or the observers'), and P33/E29 (E7->E29) vs. P32/E55 (E7->E55, 'drawn from an external' vocabulary) domain/range checks support both the E29 recommendation and the E55 rejection.",
+    "what_is_wrong": []
+  }
+]

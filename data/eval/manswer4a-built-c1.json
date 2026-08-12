@@ -1,0 +1,45 @@
+{
+  "case_id": "built-c1",
+  "answer": "Do not record the Combe Farm barn as the same building as the one described in the 1839 tithe survey. The 1938 operation was a full dismantling, relocation four miles away, and re-erection with roughly 30% of the fabric renewed (roof covering, brick plinth walls, one whole bay) -- this is not repair-in-place of a standing building, it is disassembly followed by reconstruction on a new site. The CRM's own guidance on exactly this kind of case (E81 Transformation's scope note names 'reconstructions and repurposing of historical buildings or ruins' as a characteristic case) and the SIG's own discussion of borderline cases both point the same way: Martin Doerr's Ship-of-Theseus discussion (thread t1170) explicitly rules that a structure disassembled, stored, and reassembled -- as opposed to one kept in continuous use through an extended repair -- counts as a new instance because 'the continuity of functionality is broken'; and his later remark on E24's movability (thread t1874) gives the closer architectural analogy directly: moving something across 'substantially new boundaries' (his example is the Temple of Abu Simbel) creates 'a new instance of E18 Physical Object... that incorporates the previous item,' with the event documented as E81 Transformation. Model two distinct E24 Physical Human-Made Thing instances: the barn recorded at Hollow Farm in 1839, and the barn now standing at Combe Farm. Link them through a single E81 Transformation event (the 1938 dismantling-and-re-erection), with P124 transformed pointing at the Hollow Farm barn and P123 resulted in pointing at the Combe Farm barn -- this is exactly what those two properties exist for: recording that the new object is causally connected to, and materially continuous with, the old one, without asserting they are the same object. The 1839 tithe survey is an E31 Document that P70 documents the Hollow Farm barn (the old instance), not the Combe Farm one. The 1938 estate plaque is evidence of the Transformation itself (it records the causal link) but does not make the buildings identical.",
+  "classes_proposed": ["E24", "E81", "E31"],
+  "properties_proposed": ["P123", "P124", "P70"],
+  "rejected_alternatives": [
+    {"option": "E19/E24 with no new instance created (treat Combe Farm barn as a continuation of the same object)", "why_not": "Martin Doerr's ruling in thread t1170 (message [10]) is that disassembly, storage/relocation, and reassembly breaks 'the continuity of functionality' required to keep the same identity -- he contrasts this explicitly with an object 'temporarily on repair within an extended activity making use of it,' which is what continuous identity would require. The Hollow Farm barn was fully dismantled and moved four miles before re-erection, so it fails that test."},
+    {"option": "E11 Modification", "why_not": "E11's own scope note says an event must instead be documented as E81 Transformation 'if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities.' Replacing the roof, the plinth walls and a whole bay, plus relocating the frame, goes beyond a modification that leaves the original's identity intact."},
+    {"option": "E6 Destruction (barn at Hollow Farm simply ceased to exist, unrelated new construction at Combe Farm)", "why_not": "E6's scope note reserves plain Destruction for cases where 'the matter remaining from the destruction is not documented.' Here 70% of the original oak frame is explicitly carried into the new building and the estate plaque records the derivation, so the material/causal continuity is exactly what E81 (a subtype of E64, so it does not lose the destruction) is for."},
+    {"option": "Plain repurposing/reuse with no E81 event (per the withdrawn Dominicanenkerk church-to-stable example)", "why_not": "In thread t1411 Martin Doerr withdrew the Dominicanenkerk church-to-stable example because, on reflection, that was 'rather an example for reuse than transformation' -- i.e. a change of use without enough physical alteration. That caution doesn't apply here: our case involves actual structural dismantlement, a relocated frame, and replaced fabric, which is physical alteration of the kind his replacement example (the Hephaisteion becoming a church) and the Abu Simbel case both illustrate."}
+  ],
+  "citations": [
+    "E81", "E24", "E11", "E6", "P123", "P124", "P70",
+    "t1874", "t1170", "t1396", "t1411",
+    {"id": "t1874", "quote": "a new instance of E18 Physical Object is created that incorporates the previous item"},
+    {"id": "t1170", "quote": "the continuity of functionality is broken"},
+    {"id": "t1170", "quote": "The ship was definitely not temporarily on repair within an extended activity making use of it"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E24",
+    "docs \"dismantled and rebuilt\" --kind narrative",
+    "docs \"identity of an object over time\" --kind narrative",
+    "thread t1396",
+    "thread t1874",
+    "quote t1874 \"a new instance of E18 Physical Object is created that incorporates the previous item\"",
+    "quote t1874 \"Characteristic cases are reconstructions and repurposing of historical buildings or ruins\"",
+    "connect E24 E24",
+    "docs \"Minimality\" --kind narrative",
+    "connect E81 E24",
+    "concept E11",
+    "concept E6",
+    "\"reused timber frame barn dismantled rebuilt\"",
+    "thread t1411",
+    "thread t1170",
+    "quote t1170 \"the continuity of functionality is broken\"",
+    "quote t1170 \"The ship was definitely not temporarily on repair within an extended activity making use of it\"",
+    "quote t1170 \"propose to regard the \\\"reconstructed\\\" as a new E19 object\"",
+    "connect E24 E31"
+  ],
+  "confidence": "high",
+  "notes": "The 'quote t1874 Characteristic cases are reconstructions...' check came back NOT FOUND for that thread (it's from the current E81 scope note shown by `concept`, not from anything said in t1874's messages), so it is cited only as a plain identifier (concept dossier), not as a quoted phrase. The two closest analogies the archive offers (Abu Simbel relocation, Ship-of-Theseus reconstruction) are both about ships/temples, not barns -- the mapping onto a re-erected timber-framed farm building is my own extrapolation from those two SIG rulings, not something the tools state about barns directly."
+}

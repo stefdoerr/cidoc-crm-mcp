@@ -1,0 +1,34 @@
+{
+  "case_id": "naturalhistory-c2",
+  "answer": "Keep the two accessioned core segments as two distinct E19 Physical Object instances, each still identified (P1 is identified by) by its own original accession number, and do NOT retroactively merge them into a single specimen identity. The stratigrapher's belief that the segments were once physically continuous is an interpretive claim, not a change of physical fact about the two boxes sitting in two repositories today, so it should be recorded as a documented assertion (an E13 Attribute Assignment carried out by the stratigrapher, P140/P141 pointing at the two specimens) rather than folded into the specimens' own identity. I looked for a CRM property meaning 'was formerly the physically continuous extension of' and found none; the nearest candidate, P46 is composed of, is disqualified by its own FOL declaration (P46(x,y) => P132(x,y), i.e. spatiotemporal overlap between part and whole), which would falsely assert the two segments currently occupy one presence -- they plainly do not, being 40m apart underground originally and in different buildings now. E81 Transformation is also wrong: no destruction/creation event happened, only a reinterpretation of old evidence. This is not a modelling gap unique to this case: CRM-SIG itself (thread t1080) raised exactly the 'split bore core' identity/unity question in 2018 and left it explicitly unresolved (Martin Doerr: 'we need to think about the identity and unity criteria... Probably we need a transitive property of its own. Any good idea?' -- no property was ever agreed). Thread t0891 gives the general principle applied here: identity criteria are type/purpose-specific and are the modeller's job to define, not something P49-style custody or part-whole properties can settle for you. On the loan-paperwork question: Monotonicity (narrative) says a knowledge base should stay 'flexible enough to receive new insight' without retracting prior valid statements, and P1 is identified by is many:many, so the old loan records citing the two separate accession numbers remain correctly identified as they stand; you add the new relationship assertion alongside them, you don't rewrite the old identifiers.",
+  "classes_proposed": ["E19", "E13"],
+  "properties_proposed": ["P1", "P140", "P141"],
+  "rejected_alternatives": [
+    {"option": "Merge into one E19 specimen identity", "why_not": "Contradicts Monotonicity (don't retract prior valid identifications/custody records) and matches exactly the 'bore core split' identity/unity problem that CRM-SIG left unresolved in thread t1080 -- no agreed CRM mechanism for merging post-hoc."},
+    {"option": "P46 is composed of (segment A + segment B into one whole)", "why_not": "P46's own FOL declaration requires P132 spatiotemporal overlap between part and whole; the two segments are in different repository buildings under separate custody now, so asserting P46 would misstate their current physical relationship."},
+    {"option": "E81 Transformation", "why_not": "E81 covers events that actually destroy and create E18 Physical Things preserving substance; nothing physical happened here, only a documentary reinterpretation of old logs."}
+  ],
+  "citations": [
+    "E19", "E26", "P46", "E13", "Modelling principles > Monotonicity", "t1080", "t0891"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"specimen\"",
+    "docs \"physical object identity part whole\" --kind narrative",
+    "concept E19",
+    "concept E26",
+    "threads \"two fragments discovered to be the same object identity merge\"",
+    "threads \"specimen accession number reidentified same object\"",
+    "thread t1080",
+    "concept S11",
+    "thread t0891",
+    "concept P46",
+    "docs \"Minimality\" --kind narrative",
+    "docs \"Monotonicity identity preserved over time\" --kind narrative",
+    "\"sherds refit joined same original vessel\"",
+    "concept E13"
+  ],
+  "confidence": "medium",
+  "notes": "concept's siblings block made ruling out E81/E26 quick. threads search on a paraphrase ('specimen accession number reidentified same object') got lucky and surfaced t1080, which turned out to be the CRM-SIG discussing this exact bore-core-splitting identity problem -- without that hit I'd have had much less to stand on. Hardest part: there's no way to search for 'a property that does not exist'; I only ruled out P46 by reading its FOL clause in the concept dossier and noticing the spatiotemporal-overlap implication, which is easy to miss if you stop at the plain-English scope note."
+}

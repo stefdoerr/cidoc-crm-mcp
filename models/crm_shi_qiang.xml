@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="crm.xsl"?>
+<CRMset>
+
+  <!-- ================================================================
+       1. THE OBJECT
+       ================================================================ -->
+  <CRM_Entity>the Shi Qiang pan
+    <in_class>E22: Human-Made Object</in_class>
+
+    <is_identified_by>Shi Qiang pan
+      <in_class>E41: Appellation</in_class>
+      <has_type>name in English
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_alternative_form>史墻盤
+        <in_class>E41: Appellation</in_class>
+        <has_type>name in Chinese, traditional characters
+          <in_class>E55: Type</in_class>
+        </has_type>
+      </has_alternative_form>
+      <has_alternative_form>Shǐ Qiáng pán
+        <in_class>E41: Appellation</in_class>
+        <has_type>Hanyu Pinyin romanisation
+          <in_class>E55: Type</in_class>
+        </has_type>
+      </has_alternative_form>
+    </is_identified_by>
+
+    <has_note>[Statement] The name means literally "Scribe Qiang's basin".</has_note>
+
+    <has_type>pan (盤) — Chinese bronze basin
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_type>Chinese bronze
+      <in_class>E55: Type</in_class>
+    </has_type>
+
+    <has_note>[Description] The vessel is low and round, and has two handles. Its exterior is cast with a taotie design; the interior is inscribed.</has_note>
+
+    <has_note>[Statement] Regarded as one of China's national treasures.</has_note>
+
+    <consists_of>bronze
+      <in_class>E57: Material</in_class>
+    </consists_of>
+
+    <has_dimension>height of the Shi Qiang pan
+      <in_class>E54: Dimension</in_class>
+      <has_type>height
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>16.2
+        <in_class>E60: Number</in_class>
+      </has_value>
+      <has_unit>cm
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+
+    <has_dimension>diameter of the Shi Qiang pan
+      <in_class>E54: Dimension</in_class>
+      <has_type>diameter
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>47.3
+        <in_class>E60: Number</in_class>
+      </has_value>
+      <has_unit>cm
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+
+    <!--  parts named by the article: the two handles  -->
+    <bears_feature>handle A of the Shi Qiang pan
+      <in_class>E25: Human-Made Feature</in_class>
+      <has_type>handle
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_note>[Statement] The article records that the vessel has two handles and distinguishes them no further. "A" and "B" are arbitrary labels used here only to individuate the two features; no property of either is asserted.</has_note>
+    </bears_feature>
+
+    <bears_feature>handle B of the Shi Qiang pan
+      <in_class>E25: Human-Made Feature</in_class>
+      <has_type>handle
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </bears_feature>
+
+    <!--  decoration  -->
+    <bears_feature>the cast taotie decoration on the exterior of the Shi Qiang pan
+      <in_class>E25: Human-Made Feature</in_class>
+      <has_type>cast relief decoration
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_note>[Description] Cast on the exterior of the vessel.</has_note>
+      <shows_visual_item>the taotie design of the Shi Qiang pan
+        <in_class>E36: Visual Item</in_class>
+        <represents>taotie (饕餮)
+          <in_class>E55: Type</in_class>
+        </represents>
+      </shows_visual_item>
+    </bears_feature>
+
+    <!--  the inscription, as a physical written text  -->
+    <bears_feature>the cast inscription on the interior of the Shi Qiang pan
+      <in_class>TX1: Written Text</in_class>
+      <has_type>cast inscription
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_note>[Description] Cast on the interior of the vessel; 284 characters divided into eighteen lines.</has_note>
+      <has_dimension>number of characters of the Shi Qiang pan inscription
+        <in_class>E54: Dimension</in_class>
+        <has_type>count of characters
+          <in_class>E55: Type</in_class>
+        </has_type>
+        <has_value>284
+          <in_class>E60: Number</in_class>
+        </has_value>
+        <has_unit>character
+          <in_class>E58: Measurement Unit</in_class>
+        </has_unit>
+      </has_dimension>
+      <has_dimension>number of lines of the Shi Qiang pan inscription
+        <in_class>E54: Dimension</in_class>
+        <has_type>count of lines
+          <in_class>E55: Type</in_class>
+        </has_type>
+        <has_value>18
+          <in_class>E60: Number</in_class>
+        </has_value>
+        <has_unit>line
+          <in_class>E58: Measurement Unit</in_class>
+        </has_unit>
+      </has_dimension>
+      <is_documented_in>Rubbing of the Shi Qiang pan
+        <in_class>E31: Document</in_class>
+        <has_note>[Statement] Illustrated in the article as File:Shi Qiang pan inscription.jpg.</has_note>
+      </is_documented_in>
+
+      <carries>the inscription of the Shi Qiang pan
+        <in_class>E34: Inscription</in_class>
+        <has_type>dynastic genealogy
+          <in_class>E55: Type</in_class>
+        </has_type>
+        <has_language>Chinese
+          <in_class>E56: Language</in_class>
+        </has_language>
+        <has_note>[Description] The text first praises the previous and current rulers of the Zhou dynasty, extolling their virtues and deeds, recording the virtues and highlights of the first seven Zhou kings; it then recounts the history of the family of the caster, culminating with Scribe Qiang himself. This is in contrast to most bronze inscriptions, which detail only immediate events.</has_note>
+        <has_note>[Statement] The article names only three of the seven kings — Wen, Wu and Zhao — and states that the current ruler is praised; the reigning king at the time of casting was King Gong. The remaining kings are not named in the article and are not modelled here.</has_note>
+        <has_note>[Statement] The language of the inscription is difficult both graphically and lexically. Transcriptions are available, but most are incomplete due to font constraints.</has_note>
+
+        <refers_to>King Wen of Zhou
+          <in_class>E21: Person</in_class>
+        </refers_to>
+        <refers_to>King Wu of Zhou
+          <in_class>E21: Person</in_class>
+        </refers_to>
+        <refers_to>King Zhao of Zhou
+          <in_class>E21: Person</in_class>
+        </refers_to>
+        <refers_to>King Gong of Zhou
+          <in_class>E21: Person</in_class>
+        </refers_to>
+        <refers_to>Qiang (墻), Scribe Qiang of the Wei clan
+          <in_class>E21: Person</in_class>
+        </refers_to>
+        <refers_to>the high ancestor of Scribe Qiang
+          <in_class>E21: Person</in_class>
+        </refers_to>
+        <refers_to>the grandfather of Scribe Qiang
+          <in_class>E21: Person</in_class>
+        </refers_to>
+        <refers_to>the father of Scribe Qiang
+          <in_class>E21: Person</in_class>
+        </refers_to>
+        <refers_to>the Zhou conquest
+          <in_class>E5: Event</in_class>
+        </refers_to>
+
+        <has_component>the passage of the Shi Qiang pan inscription on King Wen
+          <in_class>E33: Linguistic Object</in_class>
+          <has_symbolic_content>King Wen of Zhou "joined the ten thousand states"</has_symbolic_content>
+          <refers_to>King Wen of Zhou
+            <in_class>E21: Person</in_class>
+          </refers_to>
+        </has_component>
+
+        <has_component>the passage of the Shi Qiang pan inscription on King Wu
+          <in_class>E33: Linguistic Object</in_class>
+          <has_symbolic_content>King Wu of Zhou "campaigned through the four quarters"</has_symbolic_content>
+          <refers_to>King Wu of Zhou
+            <in_class>E21: Person</in_class>
+          </refers_to>
+        </has_component>
+
+        <has_component>the passage of the Shi Qiang pan inscription on King Zhao
+          <in_class>E33: Linguistic Object</in_class>
+          <has_symbolic_content>King Zhao of Zhou "tamed Chu and Jing"</has_symbolic_content>
+          <refers_to>King Zhao of Zhou
+            <in_class>E21: Person</in_class>
+          </refers_to>
+          <refers_to>Chu
+            <in_class>E53: Place</in_class>
+          </refers_to>
+          <refers_to>Jing
+            <in_class>E53: Place</in_class>
+          </refers_to>
+          <has_note>[Statement] The article treats this passage as the demonstration of the inscription's ritualistic intent: the campaign against Chu and Jing was in fact defeated and King Zhao was killed, within living memory of the casting of the vessel.</has_note>
+          <has_a_meaning_belief>Martin Kern's belief that the Shi Qiang pan's claim about King Zhao is false
+            <in_class>I2: Belief</in_class>
+            <holds_to_be>FALSE
+              <in_class>I6: Belief Value</in_class>
+            </holds_to_be>
+            <has_time-span>2009
+              <in_class>E52: Time-Span</in_class>
+              <at_some_time_within>2009
+                <in_class>E61: Time Primitive</in_class>
+              </at_some_time_within>
+            </has_time-span>
+            <was_concluded_by>Martin Kern's argument on bronze inscriptions and the ancestral sacrifice (2009)
+              <in_class>I1: Argumentation</in_class>
+              <carried_out_by>Martin Kern
+                <in_class>E21: Person</in_class>
+              </carried_out_by>
+              <is_documented_in>Kern 2009
+                <in_class>E31: Document</in_class>
+                <has_note>[Statement] Kern, Martin (2009), "Bronze inscriptions, the Shijing and the Shangshu: the evolution of the ancestral sacrifice during the Western Zhou", in Lagerwey, J. and Kalinowski, M. (eds), Early Chinese Religion, Part One: Shang Through Han (1250 BC to 220 AD), Handbook of Oriental Studies section 4: China, vol. 21, Brill, p. 153.</has_note>
+              </is_documented_in>
+            </was_concluded_by>
+          </has_a_meaning_belief>
+        </has_component>
+
+        <has_component>the section of the Shi Qiang pan inscription recounting the history of the caster's family
+          <in_class>E33: Linguistic Object</in_class>
+          <has_note>[Description] Beginning slightly before the midpoint of the text. It recounts how the caster's high ancestor had been moved from a more eastern location to the Zhou homeland around the time of the Zhou conquest, touches on the appropriateness of Qiang's grandfather's sacrifices and on the agricultural success of Qiang's father, and culminates with Scribe Qiang himself.</has_note>
+          <refers_to>the high ancestor of Scribe Qiang
+            <in_class>E21: Person</in_class>
+          </refers_to>
+          <refers_to>the grandfather of Scribe Qiang
+            <in_class>E21: Person</in_class>
+          </refers_to>
+          <refers_to>the father of Scribe Qiang
+            <in_class>E21: Person</in_class>
+          </refers_to>
+          <refers_to>Qiang (墻), Scribe Qiang of the Wei clan
+            <in_class>E21: Person</in_class>
+          </refers_to>
+          <refers_to>the Zhou conquest
+            <in_class>E5: Event</in_class>
+          </refers_to>
+        </has_component>
+
+        <has_translation>Shaughnessy's English translation of the Shi Qiang pan inscription
+          <in_class>E33: Linguistic Object</in_class>
+          <has_language>English
+            <in_class>E56: Language</in_class>
+          </has_language>
+          <is_documented_in>Shaughnessy 1991
+            <in_class>E31: Document</in_class>
+            <has_note>[Statement] Shaughnessy, Edward L. (1991), Sources of Western Zhou History, Berkeley: University of California Press, pp. 3–4.</has_note>
+          </is_documented_in>
+        </has_translation>
+
+        <is_documented_in>Shirakawa 1962
+          <in_class>E31: Document</in_class>
+          <has_note>[Statement] Shirakawa Shizuka (白川靜) (1962), 金文通釋 [Complete Explanations of Bronze Inscriptions], vol. 6, ch. 50, Kobe: Hakutsuru bijutsukan, pp. 335–366. The article names this as the fullest treatment of the text.</has_note>
+        </is_documented_in>
+        <is_documented_in>Chinese University of Hong Kong 2001
+          <in_class>E31: Document</in_class>
+          <has_note>[Statement] 殷周金文集成釋文 [Transcribed Texts of Collected Shang and Zhou Bronze Inscriptions], vol. 6, Chinese University of Hong Kong Press, 2001, pp. 132–133; cited in the article at p. 181 for the character and line count.</has_note>
+        </is_documented_in>
+        <is_documented_in>Academy of Chinese Social Science Archaeology Research Institute 1994
+          <in_class>E31: Document</in_class>
+          <has_note>[Statement] 殷周金文集成 [Collected Shang and Zhou Bronze Inscriptions], vol. 16, Shanghai, 1994, p. 181.</has_note>
+        </is_documented_in>
+        <is_documented_in>Khayutina 2021
+          <in_class>E31: Document</in_class>
+          <has_note>[Statement] Khayutina, Maria (2021), "The beginning of cultural memory production in China and the memory policy of the Zhou royal house during the Western Zhou period", Early China 44, pp. 19–108.</has_note>
+        </is_documented_in>
+        <is_documented_in>Columbia University translation of the Shi Qiang pan inscription
+          <in_class>E31: Document</in_class>
+          <has_note>[Statement] English translation published by Columbia University (external link in the article).</has_note>
+        </is_documented_in>
+      </carries>
+    </bears_feature>
+
+    <!--  making  -->
+    <was_produced_by>the casting of the Shi Qiang pan
+      <in_class>E12: Production</in_class>
+      <has_type>bronze casting of a ritual vessel
+        <in_class>E55: Type</in_class>
+      </has_type>
+
+      <carried_out_by>Qiang (墻), Scribe Qiang of the Wei clan
+        <in_class>E21: Person</in_class>
+        <is_identified_by>Qiang (墻)
+          <in_class>E41: Appellation</in_class>
+        </is_identified_by>
+        <is_current_or_former_member_of>the Wei (𢼸, modern 微) clan
+          <in_class>E74: Group</in_class>
+        </is_current_or_former_member_of>
+        <has_note>[Made Note] The article says the vessel "was cast ... for a member of the Wei clan whose name was Qiang" and elsewhere calls Qiang "the caster". Qiang is therefore recorded here as the actor of the production in the role of the patron for whom, and in whose name, the vessel was cast — the conventional sinological sense of "caster". The bronze-worker who physically cast the vessel is not named in the article.</has_note>
+      </carried_out_by>
+
+      <used_general_technique>casting
+        <in_class>E55: Type</in_class>
+      </used_general_technique>
+
+      <has_time-span>the time-span of the casting of the Shi Qiang pan
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>-0915/-0900
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+        <beginning_is_qualified_by>The article dates the casting to the reign of King Gong of Zhou, whose regnal dates are themselves given as approximate (c. 915 BCE), after Shaughnessy 1999, p. 25.</beginning_is_qualified_by>
+        <end_is_qualified_by>The article dates the casting to the reign of King Gong of Zhou, whose regnal dates are themselves given as approximate (c. 900 BCE), after Shaughnessy 1999, p. 25.</end_is_qualified_by>
+        <falls_within>the reign of King Gong of Zhou, c. 915–900 BCE
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>-0915/-0900
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+          <is_time-span_of>the reign of King Gong of Zhou
+            <in_class>E4: Period</in_class>
+          </is_time-span_of>
+          <is_documented_in>Shaughnessy 1999
+            <in_class>E31: Document</in_class>
+            <has_note>[Statement] Shaughnessy, Edward L. (1999), "Calendar and Chronology", in Loewe, M. and Shaughnessy, E. (eds), The Cambridge History of Ancient China, Cambridge University Press, pp. 19–29, cited at p. 25.</has_note>
+          </is_documented_in>
+        </falls_within>
+        <falls_within>the end of the 10th century BCE
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>-1000/-0901
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+          <has_note>[Statement] The article's lead dates the vessel to "the end of the 10th century BCE". The maximum extent recorded here is the whole of the 10th century BCE, because the article does not say where within it "the end" begins; intersected with the reign of King Gong this yields c. 915–901 BCE.</has_note>
+        </falls_within>
+      </has_time-span>
+
+      <was_attributed_by>the dating of the Shi Qiang pan to c. 908 BCE
+        <in_class>E13: Attribute Assignment</in_class>
+        <assigned>c. 908 BCE
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>-0908
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+          <beginning_is_qualified_by>circa</beginning_is_qualified_by>
+          <end_is_qualified_by>circa</end_is_qualified_by>
+        </assigned>
+        <assigned_property_of_type>P4 has time-span
+          <in_class>E55: Type</in_class>
+        </assigned_property_of_type>
+        <has_note>[Statement] The article's infobox gives "c. 908 BCE" as the date of creation. No source is cited in the article for this more precise date, and no actor is named as its author; it is recorded here as a separate assignment rather than merged with the reign-based bracket, which it does not contradict.</has_note>
+      </was_attributed_by>
+
+      <ends_before_or_with_the_start_of>the burial of the Shi Qiang pan
+        <in_class>E9: Move</in_class>
+      </ends_before_or_with_the_start_of>
+    </was_produced_by>
+
+    <!--  deposition  -->
+    <moved_by>the burial of the Shi Qiang pan
+      <in_class>E9: Move</in_class>
+      <has_type>burial, deposition of a hoard
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <moved_to>the findspot of the Shi Qiang pan
+        <in_class>E53: Place</in_class>
+        <falls_within>Fufeng County
+          <in_class>E53: Place</in_class>
+          <falls_within>Baoji
+            <in_class>E53: Place</in_class>
+            <falls_within>Shaanxi
+              <in_class>E53: Place</in_class>
+              <falls_within>China
+                <in_class>E53: Place</in_class>
+              </falls_within>
+            </falls_within>
+          </falls_within>
+        </falls_within>
+      </moved_to>
+      <has_note>[Statement] "Some time later it was buried along with over 100 other vessels belonging to the family." The article gives the deposit no date, no agent, and no identity of its own beyond the count, so no aggregate entity has been created for the other vessels.</has_note>
+      <has_note>[Statement] That the place of burial is the same as the place of the 1976 find is the article's evident implication rather than an explicit statement.</has_note>
+      <ends_before_the_start_of>the unearthing of the Shi Qiang pan in 1976
+        <in_class>S19: Encounter Event</in_class>
+      </ends_before_the_start_of>
+    </moved_by>
+
+    <!--  rediscovery  -->
+    <was_object_encountered_through>the unearthing of the Shi Qiang pan in 1976
+      <in_class>S19: Encounter Event</in_class>
+      <has_type>unearthing, archaeological discovery
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_time-span>1976
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1976
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <encountered_at>the findspot of the Shi Qiang pan
+        <in_class>E53: Place</in_class>
+        <falls_within>Fufeng County
+          <in_class>E53: Place</in_class>
+          <falls_within>Baoji
+            <in_class>E53: Place</in_class>
+            <falls_within>Shaanxi
+              <in_class>E53: Place</in_class>
+            </falls_within>
+          </falls_within>
+        </falls_within>
+      </encountered_at>
+      <has_note>[Statement] "only unearthed in 1976, in Fufeng County, Baoji, Shaanxi". The article names no excavator, no excavation project and no stratigraphic context.</has_note>
+      <is_documented_in>Shaughnessy 1991
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </was_object_encountered_through>
+
+    <!--  present custody  -->
+    <has_current_keeper>Baoji Bronzeware Museum
+      <in_class>E74: Group</in_class>
+      <has_current_or_former_residence>Baoji
+        <in_class>E53: Place</in_class>
+      </has_current_or_former_residence>
+    </has_current_keeper>
+
+    <has_current_location>the Baoji Bronzeware Museum premises
+      <in_class>E53: Place</in_class>
+      <falls_within>Baoji
+        <in_class>E53: Place</in_class>
+      </falls_within>
+    </has_current_location>
+
+    <!--  the 2002 determination and the right that follows  -->
+    <was_classified_by>the 2002 listing of the Shi Qiang pan among the cultural relics forbidden to be exhibited abroad
+      <in_class>E17: Type Assignment</in_class>
+      <assigned>cultural relic forbidden to be exhibited abroad
+        <in_class>E55: Type</in_class>
+      </assigned>
+      <has_time-span>2002
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>2002
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>[Statement] One of sixty-four objects so listed in 2002. The article does not name the body that made the listing.</has_note>
+      <is_documented_in>The Chinese Cultural Heritage Protection Web Site, entry 39 (qiangpan)
+        <in_class>E31: Document</in_class>
+        <has_note>[Statement] http://www.wenbao.net/html/whyichan/64th/39qiangpan.htm (in Chinese).</has_note>
+      </is_documented_in>
+    </was_classified_by>
+
+    <is_subject_to>the prohibition on exhibiting the Shi Qiang pan abroad
+      <in_class>E30: Right</in_class>
+      <has_type>prohibition on exhibition outside China
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_note>[Statement] Consequence of the 2002 listing. The article states the prohibition but names no holder of the right and gives no instrument beyond the listing itself.</has_note>
+    </is_subject_to>
+
+    <is_documented_in>English Wikipedia, "Shi Qiang pan"
+      <in_class>E31: Document</in_class>
+      <has_note>[Statement] https://en.wikipedia.org/wiki/Shi_Qiang_pan — the single source for everything modelled in this file.</has_note>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <!-- ================================================================
+       2. THE CONTESTED CHARACTERISATION OF THE INSCRIPTION
+       Two scholars hold the proposition true, one holds it false.
+       ================================================================ -->
+  <CRM_Entity>that the inscription of the Shi Qiang pan is the first conscious attempt in China to write history
+    <in_class>I17: One-Proposition Set</in_class>
+
+    <is_about>the inscription of the Shi Qiang pan
+      <in_class>E34: Inscription</in_class>
+    </is_about>
+
+    <is_subject_of>Edward L. Shaughnessy's belief that the Shi Qiang pan inscription is the first conscious attempt in China to write history
+      <in_class>I2: Belief</in_class>
+      <holds_to_be>TRUE
+        <in_class>I6: Belief Value</in_class>
+      </holds_to_be>
+      <has_time-span>1991
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1991
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <was_concluded_by>Shaughnessy's account of the Shi Qiang pan in Sources of Western Zhou History
+        <in_class>I1: Argumentation</in_class>
+        <carried_out_by>Edward L. Shaughnessy
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <is_documented_in>Shaughnessy 1991
+          <in_class>E31: Document</in_class>
+          <has_note>[Statement] Shaughnessy, Edward L. (1991), Sources of Western Zhou History, Berkeley: University of California Press, p. 1.</has_note>
+        </is_documented_in>
+      </was_concluded_by>
+    </is_subject_of>
+
+    <is_subject_of>Stephen Durrant's belief that the Shi Qiang pan inscription is the first conscious attempt in China to write history
+      <in_class>I2: Belief</in_class>
+      <holds_to_be>TRUE
+        <in_class>I6: Belief Value</in_class>
+      </holds_to_be>
+      <has_time-span>2001
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>2001
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <was_concluded_by>Durrant's account of the literary features of historical writing
+        <in_class>I1: Argumentation</in_class>
+        <carried_out_by>Stephen Durrant
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <is_documented_in>Durrant 2001
+          <in_class>E31: Document</in_class>
+          <has_note>[Statement] Durrant, Stephen (2001), "The literary features of historical writing", in Mair, V. H. (ed.), The Columbia History of Chinese Literature, New York: Columbia University Press, pp. 493–510, cited at p. 495.</has_note>
+        </is_documented_in>
+      </was_concluded_by>
+    </is_subject_of>
+
+    <is_subject_of>Lothar von Falkenhausen's belief that the Shi Qiang pan inscription is not the first conscious attempt in China to write history
+      <in_class>I2: Belief</in_class>
+      <holds_to_be>FALSE
+        <in_class>I6: Belief Value</in_class>
+      </holds_to_be>
+      <has_time-span>1993
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1993
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <was_concluded_by>Falkenhausen's review article on issues in Western Zhou studies
+        <in_class>I1: Argumentation</in_class>
+        <carried_out_by>Lothar von Falkenhausen
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <has_note>[Statement] Falkenhausen disputes the characterisation, arguing that antecedents may have existed that have not survived, and that bronze inscriptions are foremost to be understood as fulfilling a ritual purpose: the text exults ancestors, royal and personal.</has_note>
+        <is_documented_in>Falkenhausen 1993
+          <in_class>E31: Document</in_class>
+          <has_note>[Statement] Falkenhausen, Lothar von (1993), "Issues in Western Zhou studies: a review article", Early China 18, pp. 139–226, cited at p. 168.</has_note>
+        </is_documented_in>
+      </was_concluded_by>
+    </is_subject_of>
+  </CRM_Entity>
+
+</CRMset>

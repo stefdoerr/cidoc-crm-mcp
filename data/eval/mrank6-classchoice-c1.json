@@ -1,0 +1,40 @@
+{
+  "case_id": "classchoice-c1",
+  "ranking": ["C", "B", "A"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 2,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "t0654: cited but never invoked in the prose; the thread is a 2012 debate about merging E79 Part Addition / E80 Part Removal into a generic 'dual event' and about listing inverse properties in the spec. E81 is mentioned only in passing in one message's comparison table. It does not support any claim A makes about the wedding-gown case."
+      ],
+      "verdict": "Gets the core call right -- E81 not E11 -- and its scope-note reasoning for why E80, E79 and E17 don't fit is accurate and verified against the actual scope notes. But it proposes only E81+E22 with P124/P123 and explicitly declines to model the seamstress ('not needed to decide the class question'), even though the case names her as the one who did the recutting. E81 alone has no P14 carried out by (confirmed: E81 is a subclass only of E63/E64), so A's model literally cannot express who performed the alteration -- exactly the entity-it-never-types symptom of under-specification, which both other answers caught and fixed with E12."
+    },
+    {
+      "label": "B",
+      "class_count": 3,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Same structural conclusion as C (E81+E12, two E22 records, P124/P123/P108/P14/P4), every quoted scope-note passage verified accurate. Adds real value beyond the class-selection mechanics: correctly notes P108 is a subproperty of P31 (verified in the FOL block), so E12 satisfies E11's required property without a separate statement; grounds the identity test in Martin Doerr's Ship-of-Theseus remarks (thread t1170, quotes verified verbatim) about coherence/functionality rather than substance; and honestly flags a genuine reading ambiguity in E6's 'also' clause rather than papering over it."
+    },
+    {
+      "label": "C",
+      "class_count": 3,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "P126 (employed): listed in the citations array but never mentioned or used in the prose -- a minor floating citation, not a claim it fails to support."
+      ],
+      "verdict": "Reaches the identical, fully-verified structural conclusion as B, but lands the single most directly on-point textual warrant for the dual E81+E12 classification: E24's own scope note, which explicitly says substantial continuity of matter/structure in a modified product 'can be documented by describing the production process also as an instance of E81 Transformation' -- verified verbatim. Also grounds the decision in E81's origin (Issue 12's three-way split, verified verbatim: hard-disc replacement for E11 vs. Tutankhamun/windmill/coin-into-jewellery for E81), which is about as close an analogy to a gown becoming a gown as the archive has."
+    }
+  ],
+  "decisive_difference": "A is separated from B/C by a real modelling gap, not a style choice: A omits E12 entirely, and since E81 alone has no P14 (verified: E81 is a subclass only of E63/E64, not E7), A's model cannot express the seamstress the case explicitly names, and A waves this away rather than fixing it. B and C converge on an identical, thoroughly-verified model (E81+E12, two E22 objects, P124/P123/P108/P14/P4) with citation accuracy that held up on every check I ran (E6, E11, E12, E80, E24, P108/P31 subproperty relation, Issue 12, Issue 404's e-vote in t1396, Issue 509's closure, and the Ship-of-Theseus thread t1170). Between B and C the margin is thin: C locates the one scope note (E24) that most directly licenses the dual classification and the most apt historical analogy (Issue 12's coin-into-jewellery); B compensates with a sharper property-hierarchy argument (P108 subproperty of P31) and an honest flag of a genuine ambiguity in E6's scope note. I ranked C over B on the strength of the E24 citation being the most direct hit on the rubric's own second and third comparison points (scope-note survival and specificity), but this is close enough that a re-read could plausibly flip it.",
+  "confident": false,
+  "notes": "No provenance leaked as far as I could tell -- both B and C are similarly exhaustive and well-verified, which makes them read like they could be two runs of the same careful system, but I have no direct evidence of that beyond the similarity of conclusions and structure (which is exactly what two good answers to the same well-posed question should look like). The B-vs-C ordering is the fragile part of this ranking; the A-vs-{B,C} ordering is not."
+}

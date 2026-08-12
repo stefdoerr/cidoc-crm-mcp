@@ -1,0 +1,13 @@
+{
+  "question_id": "2016-2017-q1",
+  "answer": "Yes, the renaming was accepted. On 2016-02-05 Chryssoula Bekiari opened a formal SIG vote (issue 270) proposing to rename E78 Collection to 'E78 Curated Holdings'. Several members (George Bruseker, Martin Doerr) voted yes on the plural form, but Wolfgang Schmidle raised a linguistic objection: 'holdings' in the plural is ambiguous, sometimes meaning the collection as a whole and sometimes the individual items within it, and 'Curated Holdings' would be confusing when referring to two E78 instances. Martin Doerr agreed ('Good point! \"Curated Holding\" hence...') and the proposal shifted to the singular 'Curated Holding'. Stephen Stead then explicitly voted 'for Curated Holding without the S', and Pat Riva and Oyvind Eide confirmed agreement. The rationale for choosing the 'Holding(s)' terminology in the first place (over Collection, or alternatives like 'curated set'/'curated assemblage' suggested by Franco Niccolucci and Steve Stead) was Martin Doerr's explanation that librarians use 'holdings' to refer to physical copies of library contents, distinguishing holdings from informational content -- matching CRM's existing treatment of E78 as a class of physical things (needed so location and destruction can be discussed, e.g. video games in a collection must be represented by physical copies). The class was ultimately settled as 'E78 Curated Holding' (singular), which is confirmed as the current name in the ontology (v7.1.3) and by the concept chronology, which marks the 2016-02-05 episode as '[decided] Renaming E78 Collection to Curated Holding and scope clarification'.",
+  "found": true,
+  "cited_threads": ["t0907"],
+  "queries_run": [
+    "search \"E78 Collection rename\" -k 10",
+    "thread t0907",
+    "concept E78"
+  ],
+  "confidence": "high",
+  "notes": "The vote thread t0907 fully documents the deliberation: the plural 'Curated Holdings' proposal, Wolfgang Schmidle's objection to the plural, the shift to singular 'Curated Holding', and Stephen Stead/Pat Riva/Oyvind Eide's votes for the singular form. The concept chronology's episode label ('[decided] Renaming E78 Collection to Curated Holding') and the current ontology entry (E78 Curated Holding) independently corroborate the outcome."
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "2001-2008-q4",
+  "answer": "Yes. In November 2008 Christian-Emil Ore raised the problem that P107 'has current or former member' cannot express asymmetric roles within a group (his example: master vs. apprentice, or 'associate member' vs. 'full member'). Stephen Stead proposed adding a P107.1 sub-property ('in the role of'); Martin Doerr agreed it would let CRM express subtleties of group structure elegantly, noting roles can change after joining so P107.1 can't simply be inferred from the type of the Joining event. Christian-Emil Ore then drafted the actual property text, naming it 'P107.1 kind of member' (tentative name) and a parallel 'P144.1 kind of member' on P144 (the fuller path via E85 Joining), with a royal-family example ('Prince Phillip, kind of member: husband'). This was put to an e-mail vote on 2008-11-14 as part of the CRM v4.3 -> v5.0 change set and was approved (Stephen Stead and Christian-Emil Ore both voted 'Approved subject to edits'). A negative vote then arrived (relayed by Martin on 2008-11-20) arguing the same effect could be achieved without a new sub-property, by modeling master/apprentice as singleton sub-groups whose type expresses the role. Christian-Emil Ore rejected this as too artificial/indirect ('like epicycle models of the planet orbits') and pointed out CRM has no sub-group property to support it; Martin was open to the idea but did not force the vote, and said the P107.1/P144.1 addition would stand as accepted if no further votes came in by the following Monday. No further opposing votes are visible in the archive, and the property (documented today as P107.1 'kind of member', usable to specify 'the type of membership or the role the member has in the group') is present in the current CIDOC CRM standard, confirming the sub-property was adopted.",
+  "found": true,
+  "cited_threads": ["t0412", "t0426", "t0427", "t0431"],
+  "queries_run": [
+    "search \"sub-property group membership role master apprentice\" -k 10",
+    "concept P107",
+    "thread t0412",
+    "thread t0426",
+    "thread t0427",
+    "thread t0431"
+  ],
+  "confidence": "high",
+  "notes": "concept P107's chronology list pointed straight at the relevant threads (t0412, t0426, t0427, t0431), all from Oct-Nov 2008, within the question's window; no separate query needed to locate them beyond the initial hybrid search and concept lookup."
+}

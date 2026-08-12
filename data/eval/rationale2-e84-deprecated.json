@@ -1,0 +1,146 @@
+{
+  "question_id": "e84-deprecated",
+  "question": "Why was E84 Information Carrier deprecated?",
+  "short_answer": "E84 Information Carrier was deleted by the CIDOC CRM SIG at its 40th meeting in Cologne, January 2018, closing Issue 295. It had been created in 2002 for one job — to be the thing that carries an information object — but the property that did the carrying, P128 carries, was later widened to apply to any physical thing at all, which left E84 with no property of its own and nothing it could say that its parent class could not. Under the criteria the SIG was then writing down for when a class deserves to exist (Issue 340), a class that carries no property and is not a useful mapping target does not earn its place, so E84 was removed and its examples were moved up to E24 Physical Human-Made Thing.",
+  "explanation": "E84 was born in 2002 as a repair. The 4th SIG meeting resolved Issue 7 by \"creating new entity: Information Carrier to replace Iconographic Object (E23)\", together with \"a property 'is carrier of (is materialised by)'\" pointing at E73 Information Object. The class and the property were introduced as a pair: the class existed so that the property would have somewhere to start from.\n\nThat pairing then came apart. E84's own scope note conceded the problem in writing: any physical thing may carry information, \"therefore the property P128 carries (is carried by) applies to E18 Physical Thing in general.\" Ceri Binding put the resulting contradiction to the list in September 2014 — the scope note said E18, the property said E24. As Issue 259 the SIG chose the wide reading, and at the 31st meeting (Crete, October 2014) \"revised the scope notes P128, E84, domain of P128 updated.\" Carrying was now something a rock face could do. E84 kept the name of the job but no longer held the property.\n\nWhat remained was a class defined by intention alone — objects \"explicitly designed\" as carriers — with nothing attached to it that E22 Human-Made Object could not already express. In April 2017, at the 38th meeting, the position was stated plainly: \"We should deprecate E84 information carrier in CRM since it is a class without properties.\" That fed a general question, Issue 340, on classes without properties, opened on the list by Athanasios Velios, who listed fourteen such classes and noted the CRM's own minimality rule was vague about what saves them: \"it is difficult to define what a *key* concept is.\"\n\nAt the 39th meeting (FORTH, October 2017) Martin Doerr answered with an explicit test, minuted as \"Reasons for Classes to Be\": a class should have \"a property in or out\", or be \"structural to IsA hierarchy\", or, \"if a leaf\", be an \"important matching point to some community that would map to and extend where properties would be added.\" E84 failed all three, and the same minutes record the consequence: \"Following Martin's proposal to remove class E84 since it does not satisfy the requirements proposed on issue 340\", the SIG began redistributing its examples. Three months later at Cologne the SIG reviewed the homework and \"decided the following: delete E84 information carrier\", moving its examples to E24. The published migration instruction preserves the distinction where anyone still wants it, but as a type rather than a class: \"E84 Information Carrier | use E22 Human-Made Object, P2 has type: 'Information Carrier'.\"",
+  "real_world_example": "The Rosetta Stone was one of E84's own three examples. After the deletion it was not reclassified out of existence — it simply moved up: \"the Rosetta Stone (E22)\" now appears verbatim in the example list of E24 Physical Human-Made Thing, alongside \"my paperback copy of Crime & Punishment\" and the ICS-FORTH computer disk, all inherited from E84. The interesting test case is the empty one. E84's whole point was that a carrier \"may or may not contain information, e.g., a diskette\" — a blank disk is still a carrier because it was built to be one. At Cologne the SIG explicitly went looking for that case: \"we should look for example of well known some sort of information bearing object that does not have information on it. E.g. empty blackboard.\" Martin Doerr's accepted proposal added \"my empty DVD disk (E22)\" to E24's examples, which is where it still sits. The blank DVD is documentable without E84; it is a human-made physical thing whose type says what it was made for.",
+  "decision_status": "settled",
+  "issues": [
+    {
+      "id": 7,
+      "title": "How to model relation between physical carrier and conceptual objects",
+      "status": "Done",
+      "outcome": "Copenhagen, 2 July 2002: created the class Information Carrier to replace E23 Iconographic Object, together with the property 'is carrier of (is materialised by)' to E73 Information Object. This is the origin of E84 — class and property introduced as a pair."
+    },
+    {
+      "id": 259,
+      "title": "E84 Information Carrier-scope note",
+      "status": "Done",
+      "outcome": "Crete, October 2014 (31st meeting): the SIG resolved the contradiction between E84's scope note (which said P128 applies to E18 in general) and P128's declared domain (E24) by widening the property. 'The sig resolving this issue revised the scope notes P128, E84, domain of P128 updated.' P128's domain is E18 Physical Thing in the current standard. This is the step that left E84 without a property."
+    },
+    {
+      "id": 340,
+      "title": "Classes without properties",
+      "status": "Done",
+      "outcome": "Raised on the list in April 2017 and closed at the 44th meeting (Paris, June 2019) with a rewritten 'Minimality' section stating when a CRM class is declared: when required as domain or range of a property not appropriate to its superclass; when it is a merging point of two branches via multiple IsA; or when it is useful as a leaf class to domain communities building extensions. At the 41st meeting the SIG had also agreed 'that having a class solely for merging branches is not a good enough reason as we can simply do multiple instantiation'."
+    },
+    {
+      "id": 295,
+      "title": "Digital Libraries as physical objects",
+      "status": "Done",
+      "outcome": "Cologne, January 2018 (40th meeting): 'delete E84 information carrier'. E84's examples were moved to E24 Physical Man-Made Thing, E78 Curated Holding gained new examples including a digital library, and E25 Man-Made Feature's scope note was extended to cover information-encoding features on mechanical or digital carriers. The issue was closed."
+    },
+    {
+      "id": 416,
+      "title": "Scope note of E34",
+      "status": "Done",
+      "outcome": "44th meeting, June 2019: the SIG corroborated an e-vote to edit the scope note of E34 Inscription 'to avoid mention of deprecated class, E84 Information Carrier in it' — the clean-up that followed the deletion."
+    }
+  ],
+  "threads": [
+    "t0787",
+    "t1003",
+    "t1054"
+  ],
+  "citations": [
+    {
+      "id": "minutes:4th_chios_meeting_minutes#s005",
+      "quote": "Resolved by creating new entity: Information Carrier to replace Iconographic Object (E23). The link for this would be “is carrier of (is materialised by)” which points to Information Object (E73)."
+    },
+    {
+      "id": "t0787",
+      "quote": "the scope note for E84 Information Carrier states that \"the property P128 carries (is carried by) applies to E18 Physical Thing in general\". However the domain of P128 is currently E24 Physical Man-Made Thing."
+    },
+    {
+      "id": "minutes:minutes_CIDOC_meeting_29-9_2-10-2014_final#s047",
+      "quote": "The sig resolving this issue revised the scope notes P128, E84, domain of P128 updated. The issue is closed."
+    },
+    {
+      "id": "minutes:minutes_of_38th_meeting_Crete#s084",
+      "quote": "We should deprecate E84 information carrier in CRM since it is a class without properties"
+    },
+    {
+      "id": "t1003",
+      "quote": "During the last SIG meeting Martin took a couple of chances to emphasise that CRM classes should always have properties."
+    },
+    {
+      "id": "t1003",
+      "quote": "It seems to me that it is difficult to define what a *key* concept is"
+    },
+    {
+      "id": "minutes:draft_minutes_-_39th-32nd_meeting_v2#s015",
+      "quote": "Martin proposes: Reasons for Classes to Be:"
+    },
+    {
+      "id": "minutes:draft_minutes_-_39th-32nd_meeting_v2#s015",
+      "quote": "if a leaf is important matching point to some community that would map to and extend where properties would be added"
+    },
+    {
+      "id": "minutes:draft_minutes_-_39th-32nd_meeting_v2#s018",
+      "quote": "Following Martin’s proposal to remove class E84 since it does not satisfy the requirements proposed on issue 340"
+    },
+    {
+      "id": "minutes:minutesOftheMeeting_ver.1#s061",
+      "quote": "delete E84 information carrier"
+    },
+    {
+      "id": "minutes:minutesOftheMeeting_ver.1#s061",
+      "quote": "we should look for example of well known some sort of information bearing object that does not have information on it. E.g. empty blackboard"
+    },
+    {
+      "id": "minutes:minutesOftheMeeting_ver.1#s162",
+      "quote": "Therefore the property P128 carries (is carried by) applies to E18 Physical Thing in general."
+    },
+    {
+      "id": "minutes:minutesOftheMeeting_ver.1#s162",
+      "quote": "my empty DVD disk"
+    },
+    {
+      "id": "minutes:Lyon-minutesOftheMeeting_ver.4#s047",
+      "quote": "having a class solely for merging branches is not a good enough reason as we can simply do multiple instantiation"
+    },
+    {
+      "id": "crm732#s0124",
+      "quote": "E84 Information Carrier | use E22 Human-Made Object, P2 has type: “Information Carrier”"
+    },
+    {
+      "id": "minutes:46th_joint_meeting_of_the_CIDOC_CRM_SIG_minutes_v1#s063",
+      "quote": "F54 is deprecated"
+    }
+  ],
+  "caveats": "The chain from 'P128 was widened' to 'therefore E84 had no property' is assembled from separate records rather than stated in one place. Issue 259's minutes say only that the domain of P128 was updated, not to what; that P128's domain is E18 Physical Thing is read off the current standard, and E84's own scope note had already anticipated it. No source explicitly says 'the 2014 widening is what emptied E84' — that reading is mine, though the 38th meeting's 'class without properties' verdict three years later is consistent with it.\n\nThe Issue 340 criteria E84 was judged against were still being drafted when E84 was deleted. Doerr's three 'Reasons for Classes to Be' are minuted at the 39th meeting as his proposal, and the 39th meeting's decision on them was procedural — 'make the statement described above, write a justification for each of existing classes that we will keep' — not a ratification. Issue 340 itself stayed open until June 2019, eighteen months after E84 was gone, and even then the register notes objections to the final text. So E84 was measured against a rule the SIG had not yet finished writing.\n\nThe 39th meeting minutes note 'It is decided to be created a new issue for covering the discussion about E84 staying or going'. No such separate issue appears in the register; the deletion was carried out under Issue 295 instead, and the argument for staying was, so far as the archive shows, never made at length. The list discussion of the deletion (t1054) contains only Doerr's proposal and one supportive reply from Øyvind Eide — the deliberation is in the minutes, not the mailing list.\n\nAn abandoned plan: at the 38th meeting the intention was that 'E84 will be replaced with F54 everywhere' (F54 Utilised Information Carrier, from FRBRoo). That is not what happened. The CRM simply deleted E84, the published migration is to E22 plus a type, and F54 — kept at the 41st meeting despite a deprecation proposal — was itself deprecated at the 46th meeting in February 2020 in favour of F5 Item.",
+  "queries_run": [
+    "search.py concept E84",
+    "search.py concept P128",
+    "search.py concept E24",
+    "search.py issue 295",
+    "search.py issue 340",
+    "search.py issue 259",
+    "search.py issue 7",
+    "search.py issues \"E84 Information Carrier\"",
+    "search.py issues \"E84 staying or going deprecate information carrier new issue\"",
+    "search.py docs \"E84 Information Carrier deprecate class without properties\" --kind minutes",
+    "search.py docs \"ISSUE 295 Digital libraries as physical objects Martin proposal remove class E84 requirements\" --kind minutes",
+    "search.py docs \"Reasons for Classes to Be property structural IsA hierarchy leaf important matching point community\" --kind minutes",
+    "search.py docs \"ISSUE 340 Classes without properties crm-sig considering CRM is not a suggestion of what to document useful useless\" --kind minutes --json",
+    "search.py docs \"Delete E84 Information Carrier Subclass of E22 Man-Made Object scope note persistent physical carriers E73\" --kind minutes --json",
+    "search.py docs \"ISSUE 259 scope notes P128 E84 domain of P128 updated\" --kind minutes --json",
+    "search.py docs \"F54 Utilised Information Carrier deprecate keep scope note E84 subclass\" --kind minutes --json",
+    "search.py docs \"Deprecated Class Migration Instructions E84 Information Carrier use\" --json",
+    "search.py thread t1054",
+    "search.py thread t1003",
+    "search.py thread t0787",
+    "search.py quote minutes:minutes_of_38th_meeting_Crete#s084 \"We should deprecate E84 information carrier in CRM since it is a class without properties\"",
+    "search.py quote minutes:draft_minutes_-_39th-32nd_meeting_v2#s015 \"Martin proposes: Reasons for Classes to Be:\"",
+    "search.py quote minutes:draft_minutes_-_39th-32nd_meeting_v2#s018 \"Following Martin's proposal to remove class E84 since it does not satisfy the requirements proposed on issue 340\"",
+    "search.py quote minutes:minutesOftheMeeting_ver.1#s061 \"delete E84 information carrier\"",
+    "search.py quote minutes:minutesOftheMeeting_ver.1#s162 \"Therefore the property P128 carries (is carried by) applies to E18 Physical Thing in general.\"",
+    "search.py quote minutes:Lyon-minutesOftheMeeting_ver.4#s047 \"having a class solely for merging branches is not a good enough reason as we can simply do multiple instantiation\"",
+    "search.py quote minutes:4th_chios_meeting_minutes#s005 \"Resolved by creating new entity: Information Carrier to replace\"",
+    "search.py quote crm732#s0124 \"E84 Information Carrier | use E22 Human-Made Object, P2 has type: 'Information Carrier'\"",
+    "search.py quote minutes:minutes_CIDOC_meeting_29-9_2-10-2014_final#s047 \"revised the scope notes P128, E84, domain of P128 updated\"",
+    "search.py quote minutes:46th_joint_meeting_of_the_CIDOC_CRM_SIG_minutes_v1#s063 \"F54 is deprecated\"",
+    "search.py quote t1003 \"During the last SIG meeting Martin took a couple of chances to emphasise that CRM classes should always have properties.\"",
+    "search.py quote t1054 \"Delete\""
+  ]
+}

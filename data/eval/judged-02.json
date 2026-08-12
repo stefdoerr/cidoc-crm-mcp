@@ -1,0 +1,66 @@
+[
+  {
+    "question_id": "2016-2017-q1",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "All four facts are present: issue 270, the plural-to-singular vote switch (Wolfgang Schmidle's objection, Doerr's agreement), and the librarians'-holdings rationale tied to preserving location/destruction as meaningful. The Prato meeting name itself isn't mentioned, but the Feb 2016 date is given, so nothing is contradicted.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2016-2017-q2",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "Matches deprecation of E82 in favor of E41, the cultural-convention objection to the 'characteristic form' test, the specific unupdated references (P131, property hierarchy, P1, E39) as of the following year, and Sanderson's extension of the argument to nearly all E41 subclasses except E42.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2016-2017-q3",
+    "verdict": "partial",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Correctly reports no hierarchy change, the E22/'Set' subclass proposal, the features-based objection with multiple instantiation as the alternative, and the Open-World closing (auction lots/hoards as plain E19s, edge cases left for extensions). But it omits an entire strand of the gold's fact 3: a third member's counter-examples (dispersed structures, in-situ rock art) showing some curated holdings lack objective physical boundaries -- a distinct objection from the features point, and it's not present anywhere in the produced answer.",
+    "missing_or_wrong": ["counter-examples of dispersed structures / in-situ rock art showing E19's single-object-with-boundaries requirement doesn't fit all curated holdings"]
+  },
+  {
+    "question_id": "2016-2017-q4",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "Correctly concludes the concept-vs-holding question was never resolved, reports the unadopted 'Right Holding' class proposal from more than one member, covers the unresolved joint/partial-ownership question, and matches Doerr's proposal to restart the stalled working group (Collection Trust partner withdrawal) with no group shown reconvening.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2018-2019-q1",
+    "verdict": "correct",
+    "facts_hit": 3,
+    "facts_total": 3,
+    "reasoning": "Precisely matches all three facts: E46 Section Definition deprecated, P58 deprecated by unanimous November 2018 vote, and P59's scope note rewritten so sections are represented as E53 Place instances identified by name or geometry, with the same poop-deck example.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2018-2019-q2",
+    "verdict": "correct",
+    "facts_hit": 3,
+    "facts_total": 3,
+    "reasoning": "Matches the primary-choice-'Made'/fallback-'Human-Made' framing, the ambiguity objection with the same cat-scratch example, and the vote landing on 'Human-Made' rather than plain 'Made'. It omits the gold's secondary point that 'Made X' also carried unwanted slang connotations, but the substantive ambiguity objection and the correct adopted outcome are both present.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2018-2019-q3",
+    "verdict": "correct",
+    "facts_hit": 3,
+    "facts_total": 3,
+    "reasoning": "Correctly reports Doerr's superproperty-of-rdfs:label proposal, Richard Light's objection that it would contaminate unrelated RDF data sharing rdfs:label, and the pivot to a new 'has symbolic content' property (E90/E62). It attributes the general 'CRM should only define subproperties, never superproperties' principle less directly (via a 2021 OWL DataProperty/ObjectProperty-disjointness argument from Sanderson rather than Light's stated rule), but this doesn't contradict the gold, it supplements it.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2018-2019-q4",
+    "verdict": "hallucinated",
+    "facts_hit": 1,
+    "facts_total": 3,
+    "reasoning": "Gold is explicit that this was never resolved and no vote was ever taken. The produced answer flatly contradicts this, opening with 'Yes, the group settled on adding the property' and inventing a specific resolved outcome -- a numbered property 'O28 is conceptually greater than' allegedly 'confirmed' in a 2022 thread. It gets the naming churn and the base-to-CRMsci move right, but fabricates a confident, specific adoption that the gold says never happened.",
+    "missing_or_wrong": ["fabricated a settled/adopted outcome ('O28', confirmed 2022) where gold says no vote was ever taken and the matter stayed open", "omits that Doerr's CRM-base-vs-SKOS scope objection was never resolved"]
+  }
+]

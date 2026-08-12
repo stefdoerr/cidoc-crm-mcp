@@ -1,0 +1,33 @@
+{
+  "case_id": "intangible-c2",
+  "answer": "Do not assert a direct 'learned from' / 'taught by' relationship between the two fiddlers as a CRM property -- no such property exists, and the SIG considered and declined to add one. `search.py connect E21 E21` returns exactly one declared Person-to-Person property, P152 has parent, and nothing else: CRM gives itself a shortcut only for the biologically/formally determinate kinship relation, not for socially interpreted ones. Issue 256 ('groups and relations between persons', closed 2017-10-10) is the SIG discussing precisely this gap -- Karl Grossner proposed a P89 Propositional Object subclass and Christian-Emil a generic typed relationship property for cases like ULAN's 'student of'/'teacher of' -- and the issue was closed unresolved, deferred to a hypothetical CRMsoc extension that is not part of the current model. So the direct-assertion option is out for CRMbase as it stands today.\n\nThe chaining option is what CRM actually supports and is the same pattern the SIG worked out for exactly this kind of case (thread t1701, on intangible cultural heritage transmission): document each of the forty tapes as evidence of its own E7 Activity (a dated teaching/performance session), with both the granduncle and the grandnephew attached via P14 carried out by (both are actively playing) or P11 had participant if one is judged the primary agent and the other the audience/learner. The 'grandnephew learned his repertoire from his granduncle' claim is then not a base fact recorded on the two E21 Person instances but an interpretation that follows from the pattern of shared participation across the forty linked sessions -- which is exactly the honest distinction the question is testing.\n\nOne caution from the same thread: Martin Doerr explicitly warns against reifying the whole three-year arrangement as a single master E7 Activity/E4 Period just to have somewhere to hang the relationship ('I cannot imagine how an \"All Tango Performances\" could be associated with a clear identity, unity and distinction from others' -- t1701). P9 consists of / P9i forms part of is available if the archive has independent evidence of the sessions forming one continuous course of instruction, but it should not be invented purely to carry the inferred relationship; the safer default is forty independent E7 Activities, each time-spanned by its tape's date, with the teaching relationship left as a documented inference over that set rather than a modelled entity. If the archive wants to record that inference itself as an explicit, citable conclusion (rather than leaving it implicit for a catalogue user to reconstruct), CRMinf's I2 Belief -- reached via I5 Inference Making with the forty E7 Activities as J1 used as premise -- is where the CRM family puts 'this is what we concluded from the evidence', keeping the conclusion distinct from and traceable to the directly observed sessions.",
+  "classes_proposed": ["E7", "I2"],
+  "properties_proposed": ["P14", "P11", "P9"],
+  "rejected_alternatives": [
+    {"option": "P152 has parent (or any direct Person-to-Person property) asserting 'learned from' between the two E21 Person instances", "why_not": "`connect E21 E21` shows P152 has parent as the only declared property between two Persons; it is CRM's shortcut for elementary/biological kinship, not social relations. Issue 256 is the SIG discussing exactly this gap for teacher/student and closing it in 2017 unresolved, deferring it to a potential CRMsoc extension -- so no direct property for this exists in the current model."},
+    {"option": "A single reified master E7 Activity or E4 Period spanning all three years, used to directly host the teaching relationship", "why_not": "Martin Doerr's objection in thread t1701 to an analogous 'All Tango Performances' aggregate: it lacks a clear identity, unity, and distinction criterion, and risks making 'any type of activity become an activity.' Better to keep the forty sessions as independent E7 Activities and let the relationship remain an inference over the set, only aggregating with P9 if the continuity itself is independently evidenced."}
+  ],
+  "citations": ["E7", "P14", "P11", "P9", "P152", "I2",
+    {"id": "t0834", "quote": "A relation is simply an instance of E74 group of E21 Persons where the persons in question are members"},
+    {"id": "t1701", "quote": "I cannot imagine, how an \"All Tango Performances\" could be associated with a clear identity, unity and distinction from others"},
+    "Issue 256"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E7",
+    "teacher pupil learning",
+    "docs \"direct relationship between two people\" --kind narrative",
+    "thread t0834",
+    "issue 256",
+    "thread t1701",
+    "connect E21 E21",
+    "connect E21 E7",
+    "docs \"chaining events instead of a direct property\" --kind narrative",
+    "concept I2",
+    "docs \"minimality principle\" --kind narrative",
+    "quote t0834 \"A relation is simply an instance of E74 group of E21 Persons where the persons in question are members\"",
+    "quote t1701 \"I cannot imagine, how an \\\"All Tango Performances\\\" could be associated with a clear identity, unity and distinction from others\""
+  ],
+  "confidence": "high",
+  "notes": "connect E21 E21 was the decisive query: it mechanically confirms P152 has parent is the sole Person-Person shortcut, which turns the mailing-list discussion (Issue 256, t0834) from a stylistic preference into a hard fact about the current model. The intangible-heritage thread (t1701) happened to already work through almost this exact case (oral transmission via individual performances) so it doubled as both the modelling-pattern source and a check against overreaching with a reified 'master activity'."
+}

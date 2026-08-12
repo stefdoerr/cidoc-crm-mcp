@@ -1,0 +1,40 @@
+{
+  "case_id": "archives-c1",
+  "ranking": ["A", "C", "B"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 7,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "All seven classes (E10, E8, E22, E31, E12, E74, E52) do real work, and A is the only answer to keep the two CRM mechanisms analytically distinct: E8-vs-E10 for the ownership/custody split (deposit vs. donation) and P2 has type for the physical-possession-vs-legal-responsibility split within custody itself, applying the latter correctly to the 1934 absorption rather than conflating it with the former. Citations checked (E10, E74, E78, s0018, s0032, s0058, s0059, Issue 616/634, t1673, minutes 55th/58th) all matched verbatim and in context; it also honestly flags the parish/council actor-continuity question as unresolved rather than asserting it."
+    },
+    {
+      "label": "B",
+      "class_count": 5,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        {"id": "t1469", "what it actually says": "Only the raw Getty Provenance Index stock-book data for the 1941 sale (Parke-Bernet Galleries to the Legion of Honor) plus a message promising a CRM write-up via an external, unarchived Google Doc link. The thread itself contains no modelled example of discrete custody/acquisition events with actors and dates, contrary to the answer's characterization of it as 'the SIG's own worked provenance example'."}
+      ],
+      "verdict": "B's prose itself names E8 Acquisition as the right class for the 2010 title transfer but then declines to model it ('outside what this question asked'), leaving the donation's legal-title dimension untyped in its own classes_proposed -- a clear under-specification given the case volunteers that fact and E10's own scope note insists ownership and custody are modelled separately. It also uses generic E39 Actor for the institutional custodians where E74 Group is the CRM's own more specific term (which A and C both correctly justify from E74's scope note), and its alternatives_considered covers only one rival against A/C's roughly ten."
+    },
+    {
+      "label": "C",
+      "class_count": 6,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        {"id": "crm732#E10", "what it actually says": "The passage 'where only one of legal responsibility for custody or actual physical possession moves ... this difference should be expressed using P2 has type' is about splitting the two facets of custody itself (physical possession vs. legal responsibility for it). C's claim that the note 'asks for exactly this' to mark the 1988-deposit-vs-2010-donation distinction misapplies it to the separate ownership-vs-custody split, which C elsewhere (correctly) handles via the E8/E10 pairing -- the citation is verbatim-accurate but is stretched to support a claim about a different distinction."}
+      ],
+      "verdict": "C is otherwise as thorough and load-bearing as A -- same E8/E74 additions, exhaustive and precisely-quoted citations (deprecation migration table, Issue 118/616/634, t0915 on E78) -- but conflates the E10 scope note's physical-possession/legal-responsibility split with the deposit-vs-donation (custody-vs-ownership) split it had already correctly modelled via E8, and never explicitly types the E52 Time-Span its own repeated use of P4 requires."
+    }
+  ],
+  "decisive_difference": "All three converge on the same correct thesis (three E10s plus an E8 for 2010, reject P49/P50 as the record) and none proposes an illegal property or a class that fails its own scope note. B is separated from the other two by a concrete under-specification: it names E8 Acquisition in its own prose for the 2010 donation and then omits it from the model, and it uses the generic E39 Actor where E74 Group is the CRM's own more specific term. Between A and C the gap is narrower and turns on one citation-support nuance: C's application of the E10 P2-has-type passage to the deposit/donation distinction stretches a real, accurately-quoted passage to a claim it does not quite make, where A keeps that mechanism and the E8-vs-E10 ownership mechanism cleanly separate.",
+  "confident": false,
+  "notes": "B ranking last is solid -- the missing E8 is demonstrable from B's own text, the E39-vs-E74 gap is demonstrable from E74's scope note, and the t1469 mismatch is demonstrable by reading the thread. The A-over-C order rests on a single, subtler interpretive point (what the E10 P2-has-type example is actually distinguishing); I verified the quoted text matches verbatim and believe the distinction is real, but a reader who treats P2 has type as a generic, purpose-agnostic typing property (domain E1, range E55, usable for any distinction one likes) rather than as bound to the note's specific example could reasonably read C's use as harmless rather than an error, in which case A and C would be close to indistinguishable. No provenance signal was noticed that would identify which system produced which answer."
+}

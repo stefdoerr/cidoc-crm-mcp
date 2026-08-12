@@ -1,0 +1,20 @@
+{
+  "question_id": "2014-2015-q4",
+  "answer": "No universal settlement was ever reached. Martin Doerr opened this as ISSUE: Shortcut semantics in Aug 2014 (thread t0780), arguing that in some cases (e.g. 'created by'/'produced by' standing in for a Production event, or 'rights held by') the shortcut does logically imply the existence of the intermediate event node, while Vladimir Alexiev argued a shortcut should never infer a long path (Skolemization/YAGNI concerns); the thread ended without consensus, and its own episode summary is tagged 'unresolved'. The follow-up homework (Christian-Emil Ore, May 2015, thread t0855) explicitly framed this as informal ('not a formal issue') and concluded the answer varies per property and per person's 'ontological commitment' - some shortcuts were labeled 'strong' (implies the path, e.g. P105 right held by, P56 bears feature) and others 'weak' (does not, e.g. P53/P55 location, P59 has section) - i.e. resolved case-by-case rather than as a general logical rule. The FOL formalization work resurfaced in Oct 2019 (thread t1268) still asking the SIG to 'decide yes or no' property-by-property, with replies like 'we will see' and 'I am unsure here' showing it was still open. Later (2022-2023) the SIG did reach 'decided' status on narrower sub-questions (e.g. defining 'weak inverse' shortcuts, or marking specific CRMbase properties P81/P82 as strong), but never on the general question of whether shortcuts as a class imply their full path.",
+  "found": true,
+  "cited_threads": ["t0780", "t0855", "t1268"],
+  "queries_run": [
+    "search \"shortcut property implies event\" -k 10",
+    "search thread t0780",
+    "search \"strong shortcut weak shortcut\" -k 10",
+    "search thread t0855",
+    "search \"shortcut semantics resolution\" -k 10 --mode bm25",
+    "search \"shortcut semantics issue closed\" -k 10",
+    "search concept P105",
+    "search threads \"shortcut implies existence of intermediate path\" -k 8",
+    "search concept P108",
+    "search thread t1268"
+  ],
+  "confidence": "high",
+  "notes": "Question asks whether it was 'ever' settled, not just in 2014-2015; extended search past that window to 2019/2022 threads confirmed the general question stayed open while only narrow sub-cases got formally decided over time."
+}

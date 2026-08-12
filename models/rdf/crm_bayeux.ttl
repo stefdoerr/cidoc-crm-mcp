@@ -1,0 +1,361 @@
+@prefix crm:  <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix bt:   <http://example.org/bayeux-tapestry/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+## The object itself
+#################################################################
+
+bt:Tapestry a crm:E22_Human-Made_Object ;
+    rdfs:label "The Bayeux Tapestry" ;
+    crm:P3_has_note "An embroidered hanging, conventionally called a 'tapestry' though the design is stitched, not woven; it meets the broader traditional definition of tapestry as 'a textile fabric decorated with designs ... painted, embroidered, or woven in colours'." ;
+    crm:P45_consists_of bt:LinenMaterial, bt:WoolMaterial ;
+    crm:P46_is_composed_of bt:LinenPanel ;
+    crm:P57_has_number_of_parts "9"^^xsd:integer ;
+    crm:P43_has_dimension bt:LengthDimension, bt:WidthDimension ;
+    crm:P128_carries bt:Tituli ;
+    crm:P62_depicts bt:NormanConquest1066, bt:BattleOfHastings,
+        bt:WilliamOfNormandy, bt:HaroldGodwinson, bt:EdwardTheConfessor,
+        bt:OdoOfBayeux, bt:HalleysCometApparition1066 ;
+    crm:P53_has_former_or_current_location bt:Bayeux, bt:London ;
+    crm:P50_has_current_keeper bt:BayeuxMuseum ;
+    crm:P51_has_former_or_current_owner bt:FrenchState .
+
+bt:LinenPanel a crm:E22_Human-Made_Object ;
+    rdfs:label "linen panel (one of nine forming the tapestry)" ;
+    crm:P3_has_note "Nine linen panels, ranging from about fourteen to three metres in length, were embroidered separately and then sewn together; the joins were disguised with further embroidery. At the first join (end of scene 13) the borders do not line up; later joins are practically invisible, showing the technique improving as work went on." ;
+    crm:P45_consists_of bt:LinenMaterial .
+
+bt:LinenMaterial a crm:E57_Material ;
+    rdfs:label "linen" .
+
+bt:WoolMaterial a crm:E57_Material ;
+    rdfs:label "wool (crewel yarn)" .
+
+bt:LengthDimension a crm:E54_Dimension ;
+    rdfs:label "length: 68.38 m" ;
+    crm:P2_has_type bt:LengthType ;
+    crm:P90_has_value "68.38"^^xsd:decimal ;
+    crm:P91_has_unit bt:Metre .
+
+bt:WidthDimension a crm:E54_Dimension ;
+    rdfs:label "width: 0.5 m" ;
+    crm:P2_has_type bt:WidthType ;
+    crm:P90_has_value "0.5"^^xsd:decimal ;
+    crm:P91_has_unit bt:Metre .
+
+bt:LengthType a crm:E55_Type ; rdfs:label "length" .
+bt:WidthType a crm:E55_Type ; rdfs:label "width" .
+bt:Metre a crm:E58_Measurement_Unit ; rdfs:label "metre" .
+
+bt:Tituli a crm:E34_Inscription ;
+    rdfs:label "Latin tituli of the Bayeux Tapestry" ;
+    crm:P3_has_note "Captions in the central zone (occasionally the top border) naming people, places and actions across the 58 scenes; the style and spelling of some words show English influence." ;
+    crm:P72_has_language bt:MedievalLatin .
+
+bt:MedievalLatin a crm:E56_Language ; rdfs:label "Medieval Latin" .
+
+bt:EmbroideryTechnique a crm:E55_Type ; rdfs:label "embroidery (crewel work on linen)" .
+bt:StemStitchTechnique a crm:E55_Type ; rdfs:label "stem/outline stitch" .
+bt:CouchingTechnique a crm:E55_Type ; rdfs:label "couching (laid work)" .
+
+#################################################################
+## Making
+#################################################################
+
+bt:Production a crm:E12_Production ;
+    rdfs:label "production of the Bayeux Tapestry" ;
+    crm:P108_has_produced bt:Tapestry ;
+    crm:P32_used_general_technique bt:EmbroideryTechnique, bt:StemStitchTechnique, bt:CouchingTechnique ;
+    crm:P126_employed bt:LinenMaterial, bt:WoolMaterial ;
+    crm:P7_took_place_at bt:England ;
+    crm:P4_has_time-span bt:ProductionTimeSpan ;
+    crm:P3_has_note "Place and date follow the leading modern hypothesis (production in England, in the 1070s, for Bishop Odo of Bayeux). The article's opening summary gives a vaguer window -- 'thought to date to the 11th century, within a few years of the battle' [1066] -- which this narrower 1070s dating is compatible with but not identical to; the model formalises the more specific figure because it is the one tied to a stated rationale (the Odo/cathedral-construction theory), not because the article resolves the two into one date. A rival, now generally rejected, French tradition held the tapestry was made in Normandy by Queen Matilda and her ladies-in-waiting; other scholars have proposed Saint-Florent de Saumur in the Loire Valley as the place of execution. The identity of the tapestry's designer (as opposed to its embroiderers) is separately, and more speculatively, disputed -- Howard B. Clarke has proposed Scolland, Abbot of St Augustine's Abbey, Canterbury; Christine Grainge has proposed Lanfranc, Archbishop of Canterbury -- but each is a single scholar's proposal, not a named consensus like the Odo commission, so this model does not assert either as an E21 Person standing in any CRM relation to the production; it records the dispute only in this note." .
+
+bt:ProductionTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "1070s (probable)" ;
+    crm:P82a_begin_of_the_begin "1070-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1079-12-31"^^xsd:date ;
+    crm:P3_has_note "Formalises the article's 'made for him in England in the 1070s' as a decade-wide interval. This is the model's own addition -- the article never states a year range. One historian cited in the article speculates the work was 'possibly completed by 1077' to be displayed at Bayeux Cathedral's dedication, which would narrow this interval considerably, but that date is itself hedged ('possibly') and tied to a further hypothesis (design for that dedication) which the model does not otherwise assert, so it is recorded here as a note rather than tightening P82b." .
+
+bt:England a crm:E53_Place ; rdfs:label "England" .
+
+## Hedged attributions: who commissioned it, who made it.
+## Modelled with E13 Attribute Assignment rather than as direct P14 statements
+## on bt:Production, precisely because the article marks both claims as
+## probable rather than certain, and E13 is CRM's own mechanism for keeping
+## the base graph "neutral... registering someone else's opinion" (E13 scope
+## note) instead of flattening the hedge into a flat fact.
+
+bt:CommissionAttribution a crm:E13_Attribute_Assignment ;
+    rdfs:label "attribution of commissioning to Bishop Odo of Bayeux" ;
+    crm:P140_assigned_attribute_to bt:Tapestry ;
+    crm:P141_assigned bt:OdoOfBayeux ;
+    crm:P177_assigned_property_of_type bt:CommissionerRoleType ;
+    crm:P14_carried_out_by bt:ModernScholarship ;
+    crm:P4_has_time-span bt:Y20thCentury ;
+    crm:P3_has_note "The article: 'It is likely that it was commissioned by Bishop Odo of Bayeux ... scholarly analysis in the 20th century concluded it was probably commissioned by' Odo. Supporting reasons given: three of Odo's followers named in the Domesday Book appear on the tapestry; it was found in the cathedral Odo built; and it may have been commissioned alongside the cathedral's 1070s construction. Rejected alternatives named in the article: French legend attributes the commission (and the stitching) to Queen Matilda, William's wife -- hence the French name 'La Tapisserie de la Reine Mathilde'; Carola Hicks has suggested Edith of Wessex, widow of Edward the Confessor, as an alternative patron." .
+
+bt:CommissionerRoleType a crm:E55_Type ; rdfs:label "commissioner" .
+
+bt:ModernScholarship a crm:E74_Group ;
+    rdfs:label "20th-century scholarly analysis (as reported by the article)" .
+
+bt:MakerAttribution a crm:E13_Attribute_Assignment ;
+    rdfs:label "attribution of the embroidery work to Anglo-Saxon women needleworkers" ;
+    crm:P140_assigned_attribute_to bt:Tapestry ;
+    crm:P141_assigned bt:NeedleworkersGroup ;
+    crm:P177_assigned_property_of_type bt:MakerRoleType ;
+    crm:P14_carried_out_by bt:ModernScholarship ;
+    crm:P4_has_time-span bt:Y20thCentury ;
+    crm:P3_has_note "The article: 'The actual physical work of stitching was most probably undertaken by women needleworkers,' comparing it to the famous English needlework tradition Opus Anglicanum. No individual needleworker is named, and even the collective attribution is hedged ('most probably'), so this is modelled as an attribute assignment to an anonymous, unnamed E74 Group rather than as a direct P14 statement on the production event." .
+
+bt:MakerRoleType a crm:E55_Type ; rdfs:label "maker (embroiderer)" .
+
+bt:NeedleworkersGroup a crm:E74_Group ;
+    rdfs:label "Anglo-Saxon women needleworkers (unnamed)" .
+
+bt:Y20thCentury a crm:E52_Time-Span ;
+    rdfs:label "20th century" ;
+    crm:P82a_begin_of_the_begin "1900-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1999-12-31"^^xsd:date ;
+    crm:P3_has_note "The article dates the Odo attribution only to 'scholarly analysis in the 20th century'; the same phrase is taken to date the needlework attribution, since both rest on the same body of modern scholarship." .
+
+bt:OdoOfBayeux a crm:E21_Person ;
+    rdfs:label "Odo, Bishop of Bayeux" ;
+    crm:P3_has_note "William the Conqueror's half-brother; after the Conquest also Earl of Kent and, in William's absences, regent of England." .
+
+#################################################################
+## Depicted content
+#################################################################
+
+bt:NormanConquest1066 a crm:E7_Activity ;
+    rdfs:label "the Norman Conquest of England (1066)" ;
+    crm:P9_consists_of bt:BattleOfHastings ;
+    crm:P4_has_time-span bt:Y1066 .
+
+bt:BattleOfHastings a crm:E7_Activity ;
+    rdfs:label "Battle of Hastings" ;
+    crm:P4_has_time-span bt:BattleOfHastingsTimeSpan .
+
+bt:BattleOfHastingsTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "14 October 1066" ;
+    crm:P82a_begin_of_the_begin "1066-10-14"^^xsd:date ;
+    crm:P82b_end_of_the_end "1066-10-14"^^xsd:date .
+
+bt:Y1066 a crm:E52_Time-Span ;
+    rdfs:label "1066" ;
+    crm:P82a_begin_of_the_begin "1066-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1066-12-31"^^xsd:date .
+
+bt:WilliamOfNormandy a crm:E21_Person ;
+    rdfs:label "William, Duke of Normandy (later William I of England)" .
+
+bt:HaroldGodwinson a crm:E21_Person ;
+    rdfs:label "Harold Godwinson, King of England (Harold II)" .
+
+bt:EdwardTheConfessor a crm:E21_Person ;
+    rdfs:label "Edward the Confessor, King of England" .
+
+bt:HalleysCometApparition1066 a crm:E1_CRM_Entity ;
+    rdfs:label "the 1066 apparition of Halley's Comet, as depicted (upper border, scene 32)" ;
+    crm:P3_has_note "Deliberately left without an rdf:type. The CIDOC CRM SIG has an unresolved, on-the-record dispute (the 'questionable Sunrise' thread) over whether a natural phenomenon with no participant and no actor -- their example was a sunrise -- is an E5 Event at all, or merely a time-span, or a 'situation' the CRM does not yet model. A comet's apparition is exactly that case: no interaction, no P11 participant, arguably no E5. Rather than assert a class the CRM's own editors have not settled, this model records only that the tapestry depicts it (P62_depicts, whose range E1 CRM Entity accepts an untyped resource) and leaves the ontological status open." .
+
+#################################################################
+## First record and rediscovery
+#################################################################
+
+bt:Inventory1476 a crm:E31_Document ;
+    rdfs:label "1476 inventory of the treasures of Bayeux Cathedral" ;
+    crm:P70_documents bt:Tapestry ;
+    crm:P94i_was_created_by bt:Inventory1476Creation ;
+    crm:P3_has_note "The earliest known written reference to the tapestry. It is a record of an object that was never lost -- the hanging continued to be displayed annually at the cathedral for the Feast of St John the Baptist, still noted in 1728 -- so this is a documentation event, not a discovery or excavation." .
+
+bt:Inventory1476Creation a crm:E65_Creation ;
+    rdfs:label "compiling of the 1476 inventory" ;
+    crm:P94_has_created bt:Inventory1476 ;
+    crm:P4_has_time-span bt:Y1476 ;
+    crm:P7_took_place_at bt:Bayeux .
+
+bt:Y1476 a crm:E52_Time-Span ; rdfs:label "1476" ;
+    crm:P82a_begin_of_the_begin "1476-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1476-12-31"^^xsd:date .
+
+bt:MontfauconPublication a crm:E31_Document ;
+    rdfs:label "Les Monuments de la Monarchie française, vols. 1-2 (Bernard de Montfaucon, 1729-1730)" ;
+    crm:P70_documents bt:Tapestry ;
+    crm:P94i_was_created_by bt:MontfauconCreation ;
+    crm:P3_has_note "Following up an unidentified sketch reported by Antoine Lancelot in 1724, Montfaucon traced it to the tapestry at Bayeux Cathedral and published drawings and a description in 1729-1730. This is the event the article and secondary literature call the tapestry's 'rediscovery' -- but, per the note on the 1476 inventory, the object itself was not lost or excavated, only unknown to wider scholarship, so it is modelled as the creation of a documenting publication (E65 Creation -> E31 Document -> P70_documents), not as a Discovery/Finding activity. CIDOC CRM has no standard class for 'discovery' of an extant, never-excavated object: a 2013 SIG proposal for an Exx Discovery (Finding) subclass of E7 Activity was never ratified into the base standard, and Stephen Stead's own advice in that thread was that, absent a property that needs the new class, 'the alternative is just to type an instance of E7 Activity' -- which is one class-instantiation more than is needed here, since the existing E65/E31/P70 pattern already says everything the article supports." .
+
+bt:MontfauconCreation a crm:E65_Creation ;
+    rdfs:label "creation of Montfaucon's publication" ;
+    crm:P94_has_created bt:MontfauconPublication ;
+    crm:P14_carried_out_by bt:BernardDeMontfaucon ;
+    crm:P4_has_time-span bt:Y1729_1730 .
+
+bt:Y1729_1730 a crm:E52_Time-Span ; rdfs:label "1729-1730" ;
+    crm:P82a_begin_of_the_begin "1729-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1730-12-31"^^xsd:date .
+
+bt:BernardDeMontfaucon a crm:E21_Person ;
+    rdfs:label "Bernard de Montfaucon" .
+
+#################################################################
+## History of ownership and movement
+#################################################################
+
+bt:FrenchState a crm:E74_Group ;
+    rdfs:label "the French state (public property, post-1792)" .
+
+bt:Confiscation1792 a crm:E8_Acquisition ;
+    rdfs:label "confiscation of the tapestry as public property (1792)" ;
+    crm:P24_transferred_title_of bt:Tapestry ;
+    crm:P22_transferred_title_to bt:FrenchState ;
+    crm:P4_has_time-span bt:Y1792 ;
+    crm:P7_took_place_at bt:Bayeux ;
+    crm:P3_has_note "During the French Revolution the tapestry was confiscated as public property, intended for covering military wagons; a local lawyer rescued it, stored it privately, and eventually handed it to the city administrators. This is the only point at which the article's language ('confiscated as public property') supports a change of legal title rather than merely of custody or physical location, so it is the only event modelled as E8 Acquisition; every later relocation described below is modelled as E9 Move and/or E10 Transfer of Custody, since the article never again uses ownership language -- it describes the cathedral chapter and the town council disputing custody ('the council refused to return it to the cathedral'), not title." .
+
+bt:Y1792 a crm:E52_Time-Span ; rdfs:label "1792" ;
+    crm:P82a_begin_of_the_begin "1792-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1792-12-31"^^xsd:date .
+
+bt:MoveToParis1803 a crm:E9_Move ;
+    rdfs:label "removal to Paris for display at the Musée Napoléon (1803)" ;
+    crm:P25_moved bt:Tapestry ;
+    crm:P27_moved_from bt:Bayeux ;
+    crm:P26_moved_to bt:Paris ;
+    crm:P4_has_time-span bt:Y1803 ;
+    crm:P14_carried_out_by bt:FineArtsCommission ;
+    crm:P3_has_note "Ordered by the Fine Arts Commission (set up 1803 to safeguard national treasures) as part of Napoleon's planned invasion of Britain; the tapestry's propaganda value was exploited in this display." .
+
+bt:Y1803 a crm:E52_Time-Span ; rdfs:label "1803" ;
+    crm:P82a_begin_of_the_begin "1803-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1803-12-31"^^xsd:date .
+
+bt:MoveReturnToBayeux1804 a crm:E9_Move ;
+    rdfs:label "return to Bayeux after the invasion plan was abandoned (1804)" ;
+    crm:P25_moved bt:Tapestry ;
+    crm:P27_moved_from bt:Paris ;
+    crm:P26_moved_to bt:Bayeux ;
+    crm:P4_has_time-span bt:Y1804 ;
+    crm:P3_has_note "Once Napoleon abandoned the invasion of Britain, the tapestry's propaganda value was lost and it was returned to Bayeux, where the town council displayed it on a winding apparatus of two cylinders -- against the concern of scholars who felt this was damaging it." .
+
+bt:Y1804 a crm:E52_Time-Span ; rdfs:label "1804" ;
+    crm:P82a_begin_of_the_begin "1804-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1804-12-31"^^xsd:date .
+
+bt:MoveToLouvre1944 a crm:E9_Move ;
+    rdfs:label "removal to the Louvre by the Gestapo (27 June 1944)" ;
+    crm:P25_moved bt:Tapestry ;
+    crm:P27_moved_from bt:Bayeux ;
+    crm:P26_moved_to bt:Paris ;
+    crm:P4_has_time-span bt:Y1944_06_27 ;
+    crm:P14_carried_out_by bt:Gestapo ;
+    crm:P3_has_note "Taken to the Louvre by the Gestapo on 27 June 1944 during preparations against the advancing Allies. On 18 August 1944 Heinrich Himmler ordered it moved to 'a place of safety', thought to be Berlin -- a message intercepted by Bletchley Park -- and on 22 August the SS attempted to take possession, but by then the Louvre was back in French hands; that further move never happened, so it is recorded only in this note, not as a second E9 Move. After the liberation of Paris the tapestry went on public display at the Louvre from 25 August 1944." .
+
+bt:Y1944_06_27 a crm:E52_Time-Span ; rdfs:label "27 June 1944" ;
+    crm:P82a_begin_of_the_begin "1944-06-27"^^xsd:date ;
+    crm:P82b_end_of_the_end "1944-06-27"^^xsd:date .
+
+bt:MoveReturnToBayeux1945 a crm:E9_Move ;
+    rdfs:label "return to Bayeux (1945)" ;
+    crm:P25_moved bt:Tapestry ;
+    crm:P27_moved_from bt:Paris ;
+    crm:P26_moved_to bt:Bayeux ;
+    crm:P4_has_time-span bt:Y1945 .
+
+bt:Y1945 a crm:E52_Time-Span ; rdfs:label "1945" ;
+    crm:P82a_begin_of_the_begin "1945-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1945-12-31"^^xsd:date .
+
+bt:Paris a crm:E53_Place ; rdfs:label "Paris, France" .
+bt:Bayeux a crm:E53_Place ; rdfs:label "Bayeux, Normandy, France" .
+bt:London a crm:E53_Place ; rdfs:label "London, England" .
+
+bt:BayeuxMuseum a crm:E74_Group ;
+    rdfs:label "Musée de la Tapisserie de Bayeux" .
+
+bt:BritishMuseum a crm:E74_Group ;
+    rdfs:label "The British Museum, London" .
+
+bt:FineArtsCommission a crm:E74_Group ;
+    rdfs:label "the Fine Arts Commission (established 1803)" .
+
+bt:Gestapo a crm:E74_Group ;
+    rdfs:label "the Gestapo" .
+
+bt:Ahnenerbe a crm:E74_Group ;
+    rdfs:label "the Ahnenerbe ('ancestral heritage') research team" .
+
+## The 1941 removal, loss and 2023 rediscovery of underside fragments
+
+bt:Fragments1941 a crm:E19_Physical_Object ;
+    rdfs:label "fragments removed from the underside of the tapestry (1941)" ;
+    crm:P3_has_note "Typed as the more general E19 Physical Object rather than E22 Human-Made Object: once cut away from the tapestry the scraps are still physical, still human-made in origin, but the article gives no reason to think they retain the kind of complete, self-contained physical boundary E22's scope note asks for ('physical boundaries that separate them completely in an objective way from other objects') -- 'fragments' is exactly the word used, and their significance here is as detached matter, not as a newly bounded artefact." ;
+    crm:P46i_forms_part_of bt:Tapestry ;
+    crm:P45_consists_of bt:LinenMaterial, bt:WoolMaterial ;
+    crm:P53_has_former_or_current_location bt:Bayeux .
+
+bt:PartRemoval1941 a crm:E80_Part_Removal ;
+    rdfs:label "removal of fragments by a German 'ancestral heritage' research team (1941)" ;
+    crm:P113_removed bt:Fragments1941 ;
+    crm:P112_diminished bt:Tapestry ;
+    crm:P4_has_time-span bt:Y1941 ;
+    crm:P14_carried_out_by bt:Ahnenerbe ;
+    crm:P7_took_place_at bt:Bayeux ;
+    crm:P3_has_note "During the Nazi occupation of France, fragments from the underside of the tapestry were taken by a research team studying Germany's 'ancestral heritage' (the Ahnenerbe). The article does not explicitly place this removal at Bayeux, but the tapestry is only recorded as leaving Bayeux (for the Louvre) in June 1944, three years later, so Bayeux is the best-supported location." .
+
+bt:Y1941 a crm:E52_Time-Span ; rdfs:label "1941" ;
+    crm:P82a_begin_of_the_begin "1941-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1941-12-31"^^xsd:date .
+
+bt:FragmentRediscovery2023 a crm:E7_Activity ;
+    rdfs:label "rediscovery of the 1941 fragments (2023)" ;
+    crm:P2_has_type bt:RediscoveryType ;
+    crm:P12_occurred_in_the_presence_of bt:Fragments1941 ;
+    crm:P4_has_time-span bt:Y2023 ;
+    crm:P3_has_note "Unlike the tapestry's own 1729-1730 'rediscovery' by scholarship (which was never physically lost), these fragments genuinely went missing between 1941 and 2023, which is the archetypal case the CRM SIG's unratified 'Discovery (Finding)' proposal targeted. With no dedicated class available, this follows Stephen Stead's fallback in that same thread: type a plain E7 Activity, and use a sub-property of P12 occurred in the presence of (E7 -> E77 Persistent Item, which a physical object satisfies) rather than the rejected P16 used specific object, whose scope note is about tools or materials used in an activity, not about the thing an activity is about." .
+
+bt:RediscoveryType a crm:E55_Type ; rdfs:label "rediscovery" .
+
+bt:Y2023 a crm:E52_Time-Span ; rdfs:label "2023" ;
+    crm:P82a_begin_of_the_begin "2023-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "2023-12-31"^^xsd:date .
+
+bt:FragmentReturnCustody2026 a crm:E10_Transfer_of_Custody ;
+    rdfs:label "return of the fragments to Bayeux (2026)" ;
+    crm:P30_transferred_custody_of bt:Fragments1941 ;
+    crm:P29_custody_received_by bt:BayeuxMuseum ;
+    crm:P4_has_time-span bt:Y2026_fragments ;
+    crm:P3_has_note "Modelled as custody only, not as a further E8 Acquisition: the article gives no indication that legal title to the fragments (part of an object already French public property since 1792) was ever transferred to whoever held them between 1941 and 2023; 'returned' reads as restoring custody of French state property, not as a new acquisition." .
+
+bt:Y2026_fragments a crm:E52_Time-Span ; rdfs:label "2026" ;
+    crm:P82a_begin_of_the_begin "2026-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "2026-12-31"^^xsd:date .
+
+## The 2025-2027 loan to the British Museum
+
+bt:LoanMove2026 a crm:E9_Move ;
+    rdfs:label "removal of the tapestry from Bayeux and transport to London for the British Museum loan" ;
+    crm:P25_moved bt:Tapestry ;
+    crm:P27_moved_from bt:Bayeux ;
+    crm:P26_moved_to bt:London ;
+    crm:P4_has_time-span bt:LoanMoveTimeSpan ;
+    crm:P3_has_note "The tapestry was taken off display on 19 September 2025 -- the first time since 1983 -- to prepare for the loan, and arrived at the British Museum on 10 July 2026. The Bayeux museum is meanwhile closed for renovation, so 'the tapestry's current location' has no single answer in the source at all: not a former location versus a current one, but two institutions each without their ordinary display for overlapping reasons. This model gives both Bayeux and London as P53_has_former_or_current_location on the tapestry (see top) rather than asserting a single P55_has_current_location, and lets the dated Move/Transfer-of-Custody events carry the actual sequence." .
+
+bt:LoanMoveTimeSpan a crm:E52_Time-Span ; rdfs:label "19 September 2025 - 10 July 2026" ;
+    crm:P82a_begin_of_the_begin "2025-09-19"^^xsd:date ;
+    crm:P82b_end_of_the_end "2026-07-10"^^xsd:date .
+
+bt:LoanCustody2026 a crm:E10_Transfer_of_Custody ;
+    rdfs:label "loan of custody to the British Museum (Sept 2026 - Jul 2027)" ;
+    crm:P30_transferred_custody_of bt:Tapestry ;
+    crm:P28_custody_surrendered_by bt:BayeuxMuseum ;
+    crm:P29_custody_received_by bt:BritishMuseum ;
+    crm:P4_has_time-span bt:LoanExhibitionTimeSpan ;
+    crm:P3_has_note "Announced by President Macron in 2018 and again in July 2025, in exchange for British Museum loans (from Sutton Hoo, the Lewis chessmen or the Battersea Shield) to museums in Rouen and Caen; the first time the tapestry is recorded as being in Britain in over 900 years. Modelled as E10 Transfer of Custody, not E8 Acquisition: a loan moves physical custody and responsibility for care, explicitly not legal ownership, which the article never suggests changed hands." .
+
+bt:LoanExhibitionTimeSpan a crm:E52_Time-Span ; rdfs:label "10 September 2026 - 11 July 2027" ;
+    crm:P82a_begin_of_the_begin "2026-09-10"^^xsd:date ;
+    crm:P82b_end_of_the_end "2027-07-11"^^xsd:date .

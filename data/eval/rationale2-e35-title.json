@@ -1,0 +1,138 @@
+{
+  "question_id": "e35-title",
+  "question": "Why does the CIDOC CRM have the class E35 Title? Why is a title not just an appellation (E41) or a linguistic object (E33)?",
+  "short_answer": "E35 Title exists because a title is two things at once: a name that picks out an object, and a piece of language that has a language and can be translated. Modelling it as a name only (E41 Appellation) loses the language and the translation link; modelling it as language only (E33 Linguistic Object) loses the fact that it identifies something. E35 is declared as a subclass of both so that cataloguers can attach a language to a title and link a title to its translation, and the SIG has twice refused to delete it -- explicitly at its 37th meeting in 2016, where sibling classes such as E75 Conceptual Object Appellation and E82 Actor Appellation were deleted in the same breath, and again in 2022 when a deletion proposal was turned away for offering no new evidence.",
+  "explanation": "The CRM is deliberately economical: it declares a class only when the class is needed as the end of a property, when it genuinely narrows the meeting point of two branches, or when it is 'useful as a leaf class ... to domain communities building CIDOC CRM extensions or matching key domain classes from other models' (v7.3.2 Modelling Principles, Minimality, crm732#s0053). E35 Title has always been vulnerable on the first count -- it declares no property of its own -- and that is exactly the charge Robert Sanderson brought in November 2022 (t1653).\n\nWhat keeps it is the second and third counts. Because E35 is a subclass of both E33 Linguistic Object and E41 Appellation, an instance inherits P72 has language and P73 has translation from the linguistic side and P1 is identified by from the naming side. The SIG's own 2026 write-up of the Object Title Information pattern makes the argument in plain words: E35 'is both a name and a linguistically encoded sign, meaning that in addition to the properties of E41 Appellation we can also use the properties pertaining to language to describe the title' (62nd meeting, March 2026). A bare E41 Appellation is not linguistic, so 'La Gioconda' could not be marked as Italian nor tied to 'Mona Lisa'; a bare E33 Linguistic Object does not identify anything, so it could not sit at the end of P102 has title. And titles are the most-used retrieval handle museums and libraries have -- precisely the 'leaf class that a domain community maps onto' case (39th meeting, October 2017).\n\nThe decision history is unusually clean. Issue 260 (Review specializations of Appellation) put every subclass of E41 on the table. At the 37th meeting (Berlin, December 2016) the room went down the list and recorded 'E35 Title - it remains, the scope should be updated' while writing 'delete' next to E75 Conceptual Object Appellation, E82 Actor Appellation and E46 Section definition. The reason given for keeping it is a form-versus-function correction from Oyvind Eide: the old scope note described something *functioning as* a title, whereas the class is meant to catch strings recognisable *as* titles by their form. The revised scope note was accepted at the 40th meeting (January 2018). When Sanderson reopened the question in 2022, Martin Doerr refused it procedurally -- 'this decision can only be undone in a new issue, if new, different evidence is provided' -- and no issue was ever registered. E35 is still in v7.3.2 unchanged.",
+  "real_world_example": "Monet's 1868-69 painting in the Musee d'Orsay, inventory RF 1984 164. At its 47th meeting (June 2020) the SIG adopted it as the worked example for P102 has title: the painting has title 'La Pie' (E35) has type creator's title, and has title 'The Magpie' (E35) has type translated title. Both strings are E35 Title, each carries its own P72 has language, and P73 has translation joins them. If titles were plain E41 Appellations there would be nowhere to record that one is French and the other English, or that the second is the first rendered into another language. The SIG's 2026 Object Title Information pattern makes the same point with the Mona Lisa / La Gioconda pair.",
+  "decision_status": "settled",
+  "issues": [
+    {
+      "id": 260,
+      "title": "Review specializations of Appellation",
+      "status": "Done",
+      "outcome": "The SIG reviewed every subclass of E41 Appellation. At the 37th meeting (Berlin, Dec 2016) it recorded 'it is decided to keep the Title, to update scope note' and simultaneously deleted E75 Conceptual Object Appellation, E82 Actor Appellation and E46 Section definition. The revised E35 scope note (form-based rather than function-based) was accepted at the 40th meeting (Jan 2018). The register's closing note observes that the other subclasses of E41 were eventually deprecated; E35 was not."
+    },
+    {
+      "id": 317,
+      "title": "Time Appellation",
+      "status": "Done",
+      "outcome": "Reviewed jointly with Issue 260 at the 37th meeting; the minutes carry the survival list, including the line 'E35 Title - it remains, the scope should be updated (Oyvind)'. Closed at the 41st meeting (Lyon, May 2018) with 'there is no discussion'."
+    },
+    {
+      "id": 340,
+      "title": "Classes without properties",
+      "status": "Done",
+      "outcome": "Established the standing test that decides cases like E35. At the 39th meeting (Oct 2017) Martin Doerr proposed 'Reasons for Classes to Be', including 'if a leaf is important matching point to some community that would map to and extend where properties would be added'. Refined at the 41st, 43rd and 44th meetings into the Minimality section now in the standard. Closed Paris, June 2019. Having no properties of one's own is therefore not, by itself, grounds for deletion."
+    },
+    {
+      "id": 305,
+      "title": "Actor Appellation",
+      "status": "Done",
+      "outcome": "Closed at the same 37th meeting by deleting E82 Actor Appellation. Its discussion thread contains the clearest statement of the contrast a participant drew: 'An E41 Appellation (Leonardo's Masterpiece) is not a Title (Mona Lisa), it is just an Appellation.' This is one member's argument, not a recorded SIG position."
+    },
+    {
+      "id": 71,
+      "title": "Guidance to distinguish between titles and other appellations",
+      "status": "Done",
+      "outcome": "Monterey, Feb 2002. The earliest recorded shaping of E35: titles are proper nouns naming a work, and are not to be confused with generic object names such as 'chair' or 'painting', which are instances of E55 Type. Issue 35 was folded into it and marked as FAQ material."
+    }
+  ],
+  "threads": ["t1653", "t0990", "t1010"],
+  "citations": [
+    {
+      "id": "minutes:minutes_of_37th_meeting_Berlin_draft_2#s040",
+      "quote": "E35 Title - it remains, the scope should be updated"
+    },
+    {
+      "id": "minutes:minutes_of_37th_meeting_Berlin_draft_2#s036",
+      "quote": "it is decided to keep the Title, to update scope note"
+    },
+    {
+      "id": "minutes:minutes_of_37th_meeting_Berlin_draft_2#s036",
+      "quote": "E75 Conceptual Object Appellation: delete"
+    },
+    {
+      "id": "minutes:draft_minutes_-_39th-32nd_meeting_v2#s015",
+      "quote": "if a leaf is important matching point to some community that would map to and extend where properties would be added"
+    },
+    {
+      "id": "minutes:draft_minutes_-_39th-32nd_meeting_v2#s009",
+      "quote": "CRM is not a suggestion of what to document but it tries to cover what people do document"
+    },
+    {
+      "id": "crm732#s0053",
+      "quote": "It is useful as a leaf class"
+    },
+    {
+      "id": "minutes:62_SIG_Minutes#s080",
+      "quote": "the CIDOC CRM provides the specialized class E35 Title in order to record the existence of the title itself"
+    },
+    {
+      "id": "minutes:62_SIG_Minutes#s080",
+      "quote": "in addition to the properties of E41 Appellation we can also use the properties pertaining to language to describe the title"
+    },
+    {
+      "id": "minutes:47th_joint_CIDOC-CRM_40th_FRBRoo_SIG_meeting_minutes_v1.5#s118",
+      "quote": "has title “La Pie” (E35) has type creator’s title (E55)"
+    },
+    {
+      "id": "t1653",
+      "quote": "It does not have its own properties"
+    },
+    {
+      "id": "t1653",
+      "quote": "this decision can only be undone in a new issue, if new, different evidence is provided"
+    },
+    {
+      "id": "t0990",
+      "quote": "the class title was intrudeced for practical-pragmatical  purposes in CRM at an early stage and from a museum point of view"
+    },
+    {
+      "id": "issue305#background-s0007",
+      "quote": "An E41 Appellation (Leonardo’s Masterpiece) is not a Title (Mona Lisa), it is just an Appellation"
+    }
+  ],
+  "caveats": "Three limits on the above. (1) The minutes never record a roll-call vote specifically on 'keep E35 Title'. In 2022 Martin Doerr recalled that Title, Site and Inscription 'had been on the list of classes potentially to be deleted' and that the decision not to delete was 'extensively discussed and voted', and Athina Kritsotaki pointed at Issue 340 and the 44th meeting minutes -- but the Issue 340 minutes for the 39th, 41st, 43rd and 44th meetings only record the drafting of the general Minimality criteria, with E34 Inscription as the worked example and no mention of E35. The explicit keep decision for E35 is in the 37th meeting minutes under Issues 260/317, a different issue from the one the participants cited from memory. (2) The 2022 'Delete E35 Title' proposal was refused on procedural grounds, not argued down on the merits; Sanderson's objections (no own properties, P102 semantically indistinguishable from P1) were never answered point by point in the register, and no issue number was assigned. (3) The 'both a name and a linguistically encoded sign' rationale is stated crisply in the 62nd meeting's Object Title Information pattern (March 2026) and is implied by the dual subclass declaration, but I did not find a minute from the period when E33 was added as a second superclass that argues the case in those terms. Christian-Emil Ore's remark that the class was introduced 'for practical-pragmatical purposes ... from a museum point of view' is his recollection, not a register entry, and he also thought the new form-based scope note was 'almost without information value'.",
+  "queries_run": [
+    "concept E35",
+    "issue 260",
+    "issue 71",
+    "issue 35",
+    "issue 305",
+    "issue 317",
+    "issue 340",
+    "issue 533",
+    "issues \"delete E35 Title\"",
+    "issues \"E35 Title redundant minimality class without properties\"",
+    "issues \"E35 Title subclass of E33 Linguistic Object add superclass\"",
+    "issues \"Delete E35 Title Sanderson 2022 new issue\"",
+    "issues \"E35 Title Remain Of course Leonardo's Masterpiece is not a Title Mona Lisa\"",
+    "threads \"delete E35 Title proposal\"",
+    "thread t1653",
+    "thread t0990",
+    "thread t1444",
+    "docs \"delete E35 Title\" --kind minutes",
+    "docs \"E35 Title\" --kind minutes",
+    "docs \"proposal to delete class E35 Title deprecate\" --kind minutes",
+    "docs \"E35 Title E34 Inscription E53 Site classes without properties keep vote\" --kind minutes",
+    "docs \"classes without properties keep E35 Title E53 Site useful leaf class extensions\" --kind minutes",
+    "docs \"E84 Information Carrier Reasons for Classes to Be leaf important matching point\" --kind minutes",
+    "docs \"ISSUE 260 crm-sig reviewed proposals made by Oyvind ... delete\" --kind minutes",
+    "docs \"ISSUE 317 E45 Address remains E46 Section Definition deleted ...\" --kind minutes",
+    "docs \"ISSUE 340 Classes without properties sig reviewed Minimality section objections\" --kind minutes",
+    "docs \"adding examples to P102 has title Monet 1868-1869\" --kind minutes",
+    "docs \"Object Title Information recording title information cultural heritage objects\" --kind minutes",
+    "docs \"deprecate E44 Place Appellation E45 Address E47 ... decision\" --kind minutes",
+    "docs \"E35 Title scope note\" --kind declaration",
+    "docs \"minimality class declared leaf class domain communities extensions\" --kind narrative",
+    "quote minutes:minutes_of_37th_meeting_Berlin_draft_2#s036 (several phrases, walked)",
+    "quote minutes:minutes_of_37th_meeting_Berlin_draft_2#s040 \"E35 Title - it remains, the scope should be updated\"",
+    "quote minutes:draft_minutes_-_39th-32nd_meeting_v2#s015 \"if a leaf is important matching point...\"",
+    "quote crm732#s0053 \"It is useful as a leaf class\"",
+    "quote minutes:62_SIG_Minutes#s080 (two phrases)",
+    "quote minutes:47th_joint_CIDOC-CRM_40th_FRBRoo_SIG_meeting_minutes_v1.5#s118 \"has title “La Pie” (E35)...\"",
+    "quote t1653 (two phrases)",
+    "quote t0990 \"the class title was intrudeced for practical-pragmatical purposes...\"",
+    "quote issue305#background-s0007 \"An E41 Appellation (Leonardo’s Masterpiece) is not a Title...\""
+  ]
+}

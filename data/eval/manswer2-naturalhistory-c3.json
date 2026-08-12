@@ -1,0 +1,37 @@
+{
+  "case_id": "naturalhistory-c3",
+  "answer": "Document the sequencing/analysis as an activity on the specimen, and hold only a pointer (identifier) to the external genetic-database record -- do not try to make the collection database the master copy of the raw sequence or the tree statistics. The fish specimen is an E20 Biological Object. The sequencing itself is the direct transition from physical reality to information and fits CRMsci's S21 Measurement (the CRM-family generalisation of E16 Measurement; note E16 is itself a subclass of S21 in the harmonised model) or, more loosely, S4 Single Observation -- with P16 used specific object pointing at the specimen (or a sample taken from it). E16 Measurement's own scope note draws exactly the boundary this case needs: the measurement/observation is the initial transition from physical reality to information, but any *subsequent* inference over that information (its scope note's own example: inferring properties from satellite imagery) is a separate, further E13 Attribute Assignment, not folded into the original measurement. Building a phylogenetic tree and computing bootstrap-support values from the sequence plus its relatives is exactly such a subsequent analytical step -- it is not a direct measurement of the specimen. Crucially, no class in the base model or in CRMsci (S4, S7, S9, S10, S15, S19, S20, S21, S25, S27, O8, O12) represents a phylogenetic tree, a branch, or a support statistic; the closest generic containers are E54 Dimension (a quantifiable property of one or more S15 Observable Entities) and P190 has symbolic content (E90 -> E62, a verbatim string), neither of which gives a bootstrap value or a full nucleotide sequence any actual CRM semantics -- they would just be inert text/number blobs. The Minimality principle and the 'Extensions of CIDOC CRM' narrative are explicit that classes/properties are only declared when needed for cross-institution querying, not to internalise a specialist dataset's own structure. The cleanest fit for 'pointing to the external accession number' is to model the genetic database's record as an E31 Document that P70 documents the specimen (E20) and that P1 is identified by the accession number (E42 Identifier via E41 Appellation). So: yes to documenting that sequencing/analysis happened (S21 Measurement/E16, P16 used specific object); yes to holding the accession number as an identifier on the external document/record (P1 is identified by, P70 documents); no to re-hosting the raw sequence letters and the bootstrap values as first-class CRM content in the collection database -- that data has no home in the model beyond an opaque string, and stretching E54 Dimension or P190 to carry it buys no queryable semantics that the accession-number pointer doesn't already give.",
+  "classes_proposed": ["E20", "S21", "E31", "E42"],
+  "properties_proposed": ["P16", "P70", "P1"],
+  "rejected_alternatives": [
+    {"option": "E54 Dimension for the bootstrap-support value", "why_not": "O12 has dimension (S15 -> E54) covers a quantifiable property of one or more S15 Observable Entities, but a bootstrap-support value is a property of a branch in a phylogenetic tree, a structure CRM/CRMsci has no class for at all -- forcing it into E54 gives a number with no CRM semantics attached, which is exactly what Minimality warns against."},
+    {"option": "P190 has symbolic content for the full nucleotide sequence", "why_not": "technically available (E90 -> E62) and would let the sequence be stored verbatim, but the Extensions-of-CIDOC-CRM narrative says only facts useful for cross-institution querying need explicit modelling; duplicating content that already has a stable external identity (the accession number) adds no queryable fact the identifier pointer doesn't already provide."},
+    {"option": "E15 Identifier Assignment for the accession number", "why_not": "that activity happened at the external genetic database, not in our collection database; P1 is identified by is the documented shortcut for simply recording an identifier that already exists, without modelling who assigned it or when."}
+  ],
+  "citations": [
+    "E20", "S21", "E16", "E31", "P70", "P1", "E42", "P190", "P16",
+    "Modelling principles > Minimality",
+    "Modelling principles > Extensions of CIDOC CRM"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"DNA sequence\"",
+    "docs \"genetic sequence\"",
+    "docs \"biological specimen\"",
+    "\"DNA sequence\" (mailing list)",
+    "\"accession number external database\" (mailing list)",
+    "issues \"DNA genetic sequence\"",
+    "issues \"CRMsci biological subject observation\"",
+    "concept S4", "concept S7", "concept S9", "concept S10", "concept S19", "concept S20",
+    "concept O8", "concept O12", "concept O23 (not found)",
+    "concept S21", "concept S25", "concept S27", "concept S15", "concept E73", "concept E42",
+    "issue 77",
+    "docs \"Minimality principle scope of the model\" --kind narrative",
+    "\"point to external database rather than storing the content locally\" (mailing list)",
+    "concept E16",
+    "concept P190", "concept P16", "concept P1", "concept P70"
+  ],
+  "confidence": "medium",
+  "notes": "No search turned up a thread or issue discussing DNA sequencing or phylogenetics by name (expected, per Minimality -- CRM stays abstract). The reasoning leans on the E16 Measurement scope note's own worked example (satellite imagery -> subsequent E13 Attribute Assignment) as the closest analogue for why tree-building/bootstrap analysis is a further step beyond the sequencing measurement itself, and on the Extensions/Minimality narrative for why the collection database shouldn't try to internalise the tree statistics. Could not find any CRMsci class for a sample/tissue extraction step between specimen and sequencer; P16 used specific object was applied directly to the specimen as the pragmatic shortcut."
+}

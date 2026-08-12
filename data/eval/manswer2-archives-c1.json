@@ -1,0 +1,30 @@
+{
+  "case_id": "archives-c1",
+  "answer": "Record each handover as its own event, not just creator + current holder. Each of the three moves (1934 absorption into the council registry, 1988 deposit with the county record office, 2010 donation to you) is an instance of E10 Transfer of Custody (subclass of E7 Activity), with P28 custody surrendered by (the outgoing custodian), P29 custody received by (the incoming custodian) and P30 transferred custody of (the ledgers, an E19/E22 Physical Thing). Each signed handover note is itself an E31 Document that P70 documents the corresponding E10 event, so the paper trail you already hold becomes direct evidence for the chain rather than being discarded. Collapsing this to 'creator + current holder' means using only the shortcut properties P50 has current keeper / P49 has former or current keeper -- but those are explicitly declared as shortcuts of the fuller custody-transfer path, not a replacement for it (Introduction > Applied Form > Shortcuts), and the Monotonicity principle warns against asserting only a 'current' state for time-dependent properties like keeper/owner/location, since that loses the record of what was true in each period once the fuller history is not captured. Since you already have a signed note for every move, recording only endpoints would throw away information the CRM is built to keep. Note E10's scope note also allows recording legal-custody responsibility and physical possession separately via P2 has type if a given handover changed one but not the other (Issue 475 / thread t1394 reworked this exact distinction into the current scope note).",
+  "classes_proposed": ["E10", "E31"],
+  "properties_proposed": ["P28", "P29", "P30", "P70", "P2"],
+  "rejected_alternatives": [
+    {"option": "P50 has current keeper / P49 has former or current keeper alone", "why_not": "Declared as shortcuts of a longer property path (Introduction > Applied Form > Shortcuts) -- they summarize custody, they don't substitute for recording the individual transfer events when the fuller history (signed notes, dates, intermediate holders) is actually available."},
+    {"option": "Asserting only 'created by parish overseer' + 'current holder is us'", "why_not": "Modelling principles > Monotonicity flags exactly this pattern: properties like owner/keeper/location change over an item's existence, and recording only a single 'current' state discards the ability to know what was true at earlier points -- here, the intermediate council and county custodianships."},
+    {"option": "E8 Acquisition for the 1934/1988/2010 moves", "why_not": "E8 is for transfers of legal ownership; the case describes custodial handovers backed by handover notes, not stated ownership transfers, so E10 (which explicitly separates physical/legal custody via P2 has type) is the right level unless ownership is separately asserted."}
+  ],
+  "citations": ["E10", "E7", "P28", "P29", "P30", "P70", "P50", "P49", "Introduction > Applied Form > Shortcuts", "Modelling principles > Monotonicity", "t1394", "t1375", "475"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E10",
+    "ontology | grep P29|P30|custody",
+    "docs \"chain of custody\" --kind narrative",
+    "docs \"transfer of custody\" --kind narrative",
+    "docs \"custody\" --kind declaration",
+    "docs \"asserting that such a property applies without further qualification\" --kind narrative",
+    "docs \"keeper owner location change over time history\" --kind narrative",
+    "search.py \"chain of custody\"",
+    "docs \"however for some of these properties many databases may describe a current state\" --kind narrative",
+    "thread t1375",
+    "docs \"For example, the property E18 Physical Thing. P52 has current owner\" --kind narrative",
+    "issue 475"
+  ],
+  "confidence": "high",
+  "notes": "docs search truncates passages to ~200 chars with no visible chunk id, so I paraphrased rather than quoted the Monotonicity/Shortcuts text and cited by section path instead of running quote verification (no direct quotation marks used in the answer)."
+}

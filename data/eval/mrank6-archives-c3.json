@@ -1,0 +1,42 @@
+{
+  "case_id": "archives-c3",
+  "ranking": ["C", "A", "B"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 5,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "t0608 and t1306 are listed in citations but never actually invoked by any claim in the prose (verified: t0608 = Christian-Emil Ore's 'CRM is a model for describing what has happened' in the 'Retrospective and Planned Events' thread; t1306 = Doerr's 'mandate to safeguard records' in 'The archivists are (still) a different sect?'). Decorative, not wrong."
+      ],
+      "verdict": "E17/P41/P42/P14/P4 for the review, E29/P33 for the schedule, and the E13+E52-declarative-time-span fallback for the date are all verified against their scope notes and are legal and load-bearing; crm732#s0046 (Authorship of Knowledge Base Contents) is quoted accurately. Its alternatives_considered list pads itself with a near-duplicate rejection of E87 (two separate entries making the same P147->E78 argument), and it deliberately omits E6 Destruction even though the case literally names destruction as one of the two outcomes."
+    },
+    {
+      "label": "B",
+      "class_count": 3,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "t1306: quoted accurately ('mandate to safeguard records of another institution about their actions') but the claim built on it -- that this is 'exactly the rule-governed, forward-scheduling workflow... that keeps getting proposed as its own model rather than absorbed into CRMbase' -- is not what the thread says. Doerr's point there is about gapless custodial completeness, not scheduling, and the very same message concludes 'Otherwise, I think CRM is very adequate, and the above should not be difficult to be modeled' -- the opposite of the spin the answer puts on it."
+      ],
+      "verdict": "The case's second question is explicitly about whether the retention schedule belongs in documented history; B never types the schedule at all (no E29), folding it wholesale into the 'different matter' that is out of scope, which conflates an existing prescriptive document with a not-yet-happened event. It also reaches for generic E13 (P141/P177) rather than the more specific E17, whose scope note (personal opinion + date of classification) is written for exactly this case. Its own historical trail stops at Issue 333/CRMsoc and never reaches Issue 419 (CRMsoc's plan classes were moved to a stand-alone CRMact) or Issue 557 (CRMsoc was discontinued in 2025), so its fallback pointer to 'the CRMsoc plans extension' names a defunct destination. properties_proposed also lists P70, which never appears anywhere in the prose. in_scope:false additionally sits oddly against B's own two-part answer, which treats the decision itself as squarely in scope."
+    },
+    {
+      "label": "C",
+      "class_count": 4,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "Minor: 'E14' and 'E14 Condition Assessment for the disposal review' in alternatives_considered are a near-duplicate rejection of the same class with the same reasoning, restated -- padding in that list, though not in classes_proposed."
+      ],
+      "verdict": "All four classes do distinct work: E17 for the dated, personal-opinion decision (verified scope note match), E29 for the schedule (verified P33's domain is E7, range E29), E55 for the retention-ground vocabulary (backed by a verified paraphrase of the About Types narrative), and E6 for an actually-executed destruction, which is the only answer to model the case's own literal 'destroyed' outcome, correctly caveated by E13/P13's E18-only range for a born-digital file. It adds a verified Monotonicity-principle argument (crm732#s0058/s0059) for why repeated E17s beat a status field, and its scope history is the most complete and current of the three -- the 2005 'Scheduled Treatment' minutes ('No construct in CIDOC CRM currently makes it possible to account for an event that has not happened yet', with the E7+P3-note fallback) is a directly on-point historical precedent neither A nor B found, and it is the only answer to note that CRMsoc, the SIG's own home for Activity Plans, was subsequently discontinued (Issue 557, 2025). Issue 115's superseded E30 wording ('legal privileges to use material and immaterial things and their derivatives') is also verified verbatim."
+    }
+  ],
+  "decisive_difference": "B is held back by a genuine modelling gap rather than a style difference: the case asks in as many words whether the retention schedule belongs in documented history, and B never types the schedule (no E29), while also reaching for a less specific class (E13, not E17) where the more specific one fits the scope note better, and leaning on a t1306 quote whose own message concludes the opposite of what B uses it to argue. Between A and C, both are legal, scope-note-consistent and well-cited; C edges ahead by covering the case's literal destruction outcome (E6) with a properly caveated class, by adding a verified Monotonicity argument A doesn't use, and by carrying the CRMsoc/CRMact history one step further (Issue 419's move out of CRMsoc, Issue 557's discontinuation) plus an exact, highly on-point 2005 precedent (Scheduled Treatment) that neither A nor B located. A is nearly as strong and deliberately, transparently excludes E6 as out of scope for the specific question asked, which is defensible rather than wrong.",
+  "confident": false,
+  "notes": "B-last is clear-cut (missing E29 for a class the question explicitly asks about, plus a citation whose full context contradicts the claim). A vs C is close: both pass every domain/range and scope-note check I ran, and the gap rests on completeness/depth of research (Scheduled Treatment precedent, Issue 557, Monotonicity, E6 coverage) rather than any error in A. A re-read could plausibly swap A and C. No provenance guess made -- I did not attempt to infer which system or run produced which label, beyond noting (as a general observation, not a scoring input) that A and C's alternatives_considered lists both contain a near-duplicate entry for a rejected sibling class (E87 in A, E14 in C), which reads like a shared generation artifact across two of the three answers."
+}

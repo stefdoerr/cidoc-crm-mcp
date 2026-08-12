@@ -1,0 +1,266 @@
+@prefix crm:    <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
+@prefix ex:     <https://example.org/houmuwu-ding/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+# ---------------------------------------------------------------------------
+# The object itself
+# ---------------------------------------------------------------------------
+
+ex:HoumuwuDing a crm:E22_Human-Made_Object ;
+    rdfs:label "Houmuwu ding" ;
+    crm:P1_is_identified_by ex:Appellation_Houmuwu , ex:Appellation_Simuwu ;
+    crm:P2_has_type ex:Type_Ding ;
+    crm:P45_consists_of ex:Material_Bronze ;
+    crm:P43_has_dimension ex:Dim_Height , ex:Dim_Width , ex:Dim_Depth , ex:Dim_Weight ;
+    crm:P46_is_composed_of ex:Legs , ex:Handles ;
+    crm:P56_bears_feature ex:Feature_TaotieBand , ex:Feature_KuilongBand ;
+    crm:P128_carries ex:Inscription ;
+    crm:P53_has_former_or_current_location ex:Place_WuguanVillage ;
+    crm:P50_has_current_keeper ex:NationalMuseumOfChina ;
+    crm:P3_has_note "The heaviest piece of bronzeware known to survive from anywhere in the ancient world, and, per the source, the largest and heaviest ancient Chinese bronzeware yet discovered, and the only one of its kind." ,
+        "Current keeper inferred from the source's statement that the vessel was renamed in the National Museum of China's March 2011 special display 'ancient Chinese bronze art'. The source narrates no custody chain between the 1939 discovery and this display, so no E10 Transfer of Custody or E8 Acquisition event is asserted here, only the current-keeper fact. The museum's city (Beijing) is not stated in the source and is deliberately not added." .
+
+ex:Type_Ding a crm:E55_Type ;
+    rdfs:label "ding (rectangular, four-legged Chinese ritual bronze vessel)" .
+
+ex:Material_Bronze a crm:E57_Material ;
+    rdfs:label "bronze" .
+
+# ---------------------------------------------------------------------------
+# Dimensions
+# ---------------------------------------------------------------------------
+
+ex:Dim_Height a crm:E54_Dimension ;
+    crm:P2_has_type ex:DimType_Height ;
+    crm:P90_has_value "133"^^xsd:decimal ;
+    crm:P91_has_unit ex:Unit_Centimetre .
+
+ex:Dim_Width a crm:E54_Dimension ;
+    crm:P2_has_type ex:DimType_Width ;
+    crm:P90_has_value "110"^^xsd:decimal ;
+    crm:P91_has_unit ex:Unit_Centimetre .
+
+ex:Dim_Depth a crm:E54_Dimension ;
+    crm:P2_has_type ex:DimType_Depth ;
+    crm:P90_has_value "79"^^xsd:decimal ;
+    crm:P91_has_unit ex:Unit_Centimetre .
+
+ex:Dim_Weight a crm:E54_Dimension ;
+    crm:P2_has_type ex:DimType_Weight ;
+    crm:P90_has_value "832.84"^^xsd:decimal ;
+    crm:P91_has_unit ex:Unit_Kilogram .
+
+ex:DimType_Height a crm:E55_Type ; rdfs:label "height" .
+ex:DimType_Width  a crm:E55_Type ; rdfs:label "width" .
+ex:DimType_Depth  a crm:E55_Type ; rdfs:label "depth" .
+ex:DimType_Weight a crm:E55_Type ; rdfs:label "weight" .
+
+ex:Unit_Centimetre a crm:E58_Measurement_Unit ; rdfs:label "centimetre" .
+ex:Unit_Kilogram   a crm:E58_Measurement_Unit ; rdfs:label "kilogram" .
+
+# ---------------------------------------------------------------------------
+# Major parts
+# ---------------------------------------------------------------------------
+
+ex:Legs a crm:E22_Human-Made_Object ;
+    rdfs:label "the four legs of the Houmuwu ding" ;
+    crm:P2_has_type ex:Type_Leg ;
+    crm:P3_has_note "Four legs, integrally cast with the body. Treated as a single aggregate part, which E22's own scope note explicitly allows ('aggregates of objects made for functional purposes... such as a set of chessmen')." .
+
+ex:Handles a crm:E22_Human-Made_Object ;
+    rdfs:label "the two handles of the Houmuwu ding" ;
+    crm:P2_has_type ex:Type_Handle ;
+    crm:P56_bears_feature ex:Feature_HandleMotif ;
+    crm:P3_has_note "Two handles, each decorated on the exterior with a paired-tiger-and-human-head motif." .
+
+ex:Type_Leg    a crm:E55_Type ; rdfs:label "leg (vessel support)" .
+ex:Type_Handle a crm:E55_Type ; rdfs:label "handle" .
+
+# ---------------------------------------------------------------------------
+# Decorative features
+# ---------------------------------------------------------------------------
+
+ex:Feature_TaotieBand a crm:E25_Human-Made_Feature ;
+    rdfs:label "taotie decorative band" ;
+    crm:P2_has_type ex:Motif_Taotie ;
+    crm:P3_has_note "Band of decoration on each side of the vessel, surrounding a blank central space." .
+
+ex:Feature_KuilongBand a crm:E25_Human-Made_Feature ;
+    rdfs:label "kuilong decorative band" ;
+    crm:P2_has_type ex:Motif_Kuilong .
+
+ex:Feature_HandleMotif a crm:E25_Human-Made_Feature ;
+    rdfs:label "paired-tiger-and-human-head motif on the handles" ;
+    crm:P2_has_type ex:Motif_TigerHumanHead ;
+    crm:P3_has_note "Two tigers facing each other, their jaws closing around a human head between them; the source notes the same image is also found on the Fu Hao battle axes." .
+
+ex:Motif_Taotie         a crm:E55_Type ; rdfs:label "taotie (animal-faced creature motif)" .
+ex:Motif_Kuilong        a crm:E55_Type ; rdfs:label "kuilong (one-legged dragon motif)" .
+ex:Motif_TigerHumanHead a crm:E55_Type ; rdfs:label "paired tiger-and-human-head motif" .
+
+# ---------------------------------------------------------------------------
+# Inscription
+# ---------------------------------------------------------------------------
+
+ex:Inscription a crm:E34_Inscription ;
+    rdfs:label "three-character inscription on the interior wall" ;
+    crm:P190_has_symbolic_content "后母戊" ;
+    crm:P72_has_language ex:Lang_Chinese ;
+    crm:P2_has_type ex:Type_BronzewareScript ;
+    crm:P67_refers_to ex:FuJing ;
+    crm:P3_has_note "Located on the interior wall, per the source. Read today as Houmuwu ('Queen Mother Wu'), the temple name of Fu Jing, queen and primary wife of Wu Ding. The reading has changed over time: transcribed sīmǔwù (司母戊) at and after discovery; Guo Moruo (after 1949) read the first glyph as sī ('sacrifice'); Li Xueqin proposed in 1977 that it be read hòu ('queen') instead, which 'provoked much discussion'; Sun Ji then supported hòu via the oracle-bone convention of horizontal reflection (undated in the source). The P190 value given here is the current (post-2011) reading; see the dated E13 Attribute Assignment events below for the history." .
+
+ex:Lang_Chinese a crm:E56_Language ; rdfs:label "Chinese" .
+ex:Type_BronzewareScript a crm:E55_Type ; rdfs:label "bronzeware script (jinwen)" .
+
+# ---------------------------------------------------------------------------
+# People
+# ---------------------------------------------------------------------------
+
+ex:FuJing a crm:E21_Person ;
+    rdfs:label "Fu Jing" ;
+    crm:P3_has_note "Queen and primary wife of Wu Ding, per the source. Her tomb (tomb 260 at Yinxu) was not located until 1959 and was found looted; this is not modelled here as it concerns Fu Jing's own biography, and the source does not connect that tomb to the Houmuwu ding's own find-history." .
+
+ex:WuDing a crm:E21_Person ; rdfs:label "Wu Ding" .
+
+ex:ZuGeng a crm:E21_Person ;
+    rdfs:label "Zu Geng of Shang" ;
+    crm:P152_has_parent ex:FuJing .
+
+ex:ZhangFeng a crm:E21_Person ; rdfs:label "Zhang Feng" .
+ex:LiXueqin  a crm:E21_Person ; rdfs:label "Li Xueqin" .
+ex:SunJi     a crm:E21_Person ; rdfs:label "Sun Ji" .
+
+ex:NationalMuseumOfChina a crm:E74_Group ; rdfs:label "National Museum of China" .
+
+# ---------------------------------------------------------------------------
+# Death of Fu Jing (anchor for the production's relative date)
+# ---------------------------------------------------------------------------
+
+ex:FuJingDeath a crm:E69_Death ;
+    crm:P100_was_death_of ex:FuJing ;
+    crm:P3_has_note "Date unknown. The source states only that the ding was made after her death; no calendar date for her death is given or invented here." .
+
+# ---------------------------------------------------------------------------
+# Production
+# ---------------------------------------------------------------------------
+
+ex:Production a crm:E12_Production ;
+    rdfs:label "casting of the Houmuwu ding" ;
+    crm:P108_has_produced ex:HoumuwuDing .
+
+ex:FuJingDeath crm:P183_ends_before_the_start_of ex:Production .
+
+ex:AttrAssign_Maker a crm:E13_Attribute_Assignment ;
+    rdfs:label "presumed attribution of the casting to Zu Geng of Shang" ;
+    crm:P140_assigned_attribute_to ex:Production ;
+    crm:P141_assigned ex:ZuGeng ;
+    crm:P177_assigned_property_of_type crm:P14_carried_out_by ;
+    crm:P3_has_note "The source hedges this: 'made after her death, presumably by her son, Zu Geng of Shang.' Modelled as an E13 Attribute Assignment rather than a direct crm:P14_carried_out_by on the Production itself, so the attribution is recorded as somebody's assertion rather than as settled fact. No source is named for who made the presumption, so P14 (the assigner) is left unstated on this assignment." .
+
+# ---------------------------------------------------------------------------
+# Discovery (1939) -- modelled as a CRMsci S19 Encounter Event, not a bespoke
+# "Discovery" class (see report for the SIG history behind this choice).
+# ---------------------------------------------------------------------------
+
+ex:Place_WuguanVillage a crm:E53_Place ;
+    rdfs:label "Wuguan Village" ;
+    crm:P89_falls_within ex:Place_Anyang ;
+    crm:P3_has_note "Near Yinxu, the site of the last Shang-dynasty capital, per the source. 'Near' is recorded only as a note, not as a formal spatial-containment property, since the source does not state that Wuguan Village falls within the Yinxu site boundary -- unlike its relation to Anyang and Henan, which the source states directly as a plain administrative sequence." .
+
+ex:Place_Anyang a crm:E53_Place ;
+    rdfs:label "Anyang" ;
+    crm:P89_falls_within ex:Place_Henan .
+
+ex:Place_Henan a crm:E53_Place ;
+    rdfs:label "Henan" .
+
+ex:TimeSpan_1939 a crm:E52_Time-Span ;
+    rdfs:label "1939" ;
+    crm:P82a_begin_of_the_begin "1939-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1939-12-31"^^xsd:date .
+
+ex:Encounter1939 a crmsci:S19_Encounter_Event ;
+    rdfs:label "1939 unearthing of the Houmuwu ding" ;
+    crmsci:O19_encountered_object ex:HoumuwuDing ;
+    crmsci:O21_encountered_at ex:Place_WuguanVillage ;
+    crm:P4_has_time-span ex:TimeSpan_1939 .
+
+# ---------------------------------------------------------------------------
+# 1946 confirmation as a Shang-dynasty bronze vessel
+# ---------------------------------------------------------------------------
+
+ex:TimeSpan_1946_10 a crm:E52_Time-Span ;
+    rdfs:label "October 1946" ;
+    crm:P82a_begin_of_the_begin "1946-10-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1946-10-31"^^xsd:date .
+
+ex:Type_ShangBronzeVessel a crm:E55_Type ; rdfs:label "Shang-dynasty bronze vessel" .
+
+ex:Identification1946 a crm:E17_Type_Assignment ;
+    rdfs:label "1946 confirmation as a Shang-dynasty bronze vessel" ;
+    crm:P41_classified ex:HoumuwuDing ;
+    crm:P42_assigned ex:Type_ShangBronzeVessel ;
+    crm:P4_has_time-span ex:TimeSpan_1946_10 ;
+    crm:P3_has_note "Confirmed following an on-site interview by reporter Shao Shenzhi; the source does not name who actually carried out the confirmation, so P14_carried_out_by is left unstated rather than attributed to the reporter." .
+
+# ---------------------------------------------------------------------------
+# Naming history: three dated re-namings/re-readings of the inscription,
+# each an E13 Attribute Assignment recording whose opinion it was.
+# ---------------------------------------------------------------------------
+
+ex:Appellation_Simuwu a crm:E41_Appellation ;
+    rdfs:label "Simuwu ding" ;
+    crm:P190_has_symbolic_content "司母戊鼎" .
+
+ex:Appellation_Houmuwu a crm:E41_Appellation ;
+    rdfs:label "Houmuwu ding" ;
+    crm:P190_has_symbolic_content "后母戊鼎" ;
+    crm:P139_has_alternative_form ex:Appellation_Simuwu .
+
+ex:TimeSpan_1946_11 a crm:E52_Time-Span ;
+    rdfs:label "November 1946" ;
+    crm:P82a_begin_of_the_begin "1946-11-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1946-11-30"^^xsd:date .
+
+ex:NamingAssign1946 a crm:E13_Attribute_Assignment ;
+    rdfs:label "Zhang Feng's 1946 naming as Simuwu ding" ;
+    crm:P140_assigned_attribute_to ex:HoumuwuDing ;
+    crm:P141_assigned ex:Appellation_Simuwu ;
+    crm:P177_assigned_property_of_type crm:P1_is_identified_by ;
+    crm:P14_carried_out_by ex:ZhangFeng ;
+    crm:P4_has_time-span ex:TimeSpan_1946_11 ;
+    crm:P3_has_note "Zhang Feng interpreted the inscription as sīmǔwù and named the vessel 'Simu Wu Large Square Ding'. The source separately credits Guo Moruo with the sī = 'sacrifice' etymology (the son cast the vessel to honour his mother), dated only 'after 1949' and, elsewhere in the source, to 1959; both mentions are folded into this note rather than given their own dated E13 events, because neither changes the appellation itself, only its interpretation, and the source's own two dates for Guo Moruo are not obviously reconcilable." .
+
+ex:TimeSpan_1977 a crm:E52_Time-Span ;
+    rdfs:label "1977" ;
+    crm:P82a_begin_of_the_begin "1977-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1977-12-31"^^xsd:date .
+
+ex:Reading_Hou a crm:E55_Type ; rdfs:label "hòu ('queen') reading of the first glyph" .
+
+ex:ReadingProposal1977 a crm:E13_Attribute_Assignment ;
+    rdfs:label "Li Xueqin's 1977 proposal to read the first glyph as hòu" ;
+    crm:P140_assigned_attribute_to ex:Inscription ;
+    crm:P141_assigned ex:Reading_Hou ;
+    crm:P177_assigned_property_of_type crm:P190_has_symbolic_content ;
+    crm:P14_carried_out_by ex:LiXueqin ;
+    crm:P4_has_time-span ex:TimeSpan_1977 ;
+    crm:P3_has_note "Proposed reading the first glyph as hòu ('queen') rather than sī, on the grounds that sīmǔwù is a rare verb-object construction; the source says this 'provoked much discussion among scholars' -- a contested proposal, not an immediate consensus. Sun Ji later supported it by pointing out that hòu is the horizontal reflection of sī, a known oracle-bone-script convention; the source gives no date for Sun Ji's contribution, so no separate dated event is asserted for it, and Sun Ji is linked only via this note, not a formal role." .
+
+ex:TimeSpan_2011_03 a crm:E52_Time-Span ;
+    rdfs:label "March 2011" ;
+    crm:P82a_begin_of_the_begin "2011-03-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "2011-03-31"^^xsd:date .
+
+ex:RenamingAssign2011 a crm:E13_Attribute_Assignment ;
+    rdfs:label "National Museum of China's 2011 renaming to Houmuwu ding" ;
+    crm:P140_assigned_attribute_to ex:HoumuwuDing ;
+    crm:P141_assigned ex:Appellation_Houmuwu ;
+    crm:P177_assigned_property_of_type crm:P1_is_identified_by ;
+    crm:P14_carried_out_by ex:NationalMuseumOfChina ;
+    crm:P4_has_time-span ex:TimeSpan_2011_03 ;
+    crm:P17_was_motivated_by ex:ReadingProposal1977 ;
+    crm:P3_has_note "Renamed in the special display 'ancient Chinese bronze art' after the National Museum of China's 2011 renovation reopening, adopting the hòu reading." .

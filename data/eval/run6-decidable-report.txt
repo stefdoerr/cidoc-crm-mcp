@@ -1,0 +1,82 @@
+run6a: 18 answers   run6b: 18 answers   paired: 18
+
+== sibling compliance (proposed classes whose rival was weighed) ==
+  run6a   100/105  95%
+  run6b    97/101  96%
+  baselines, before the requirement existed:
+  run3      25/ 81  31%
+  run4a     23/ 81  28%
+  run4b     12/ 65  18%
+
+== class-count inflation check ==
+  run6a   mean 5.94 classes/answer  median 6.0  max 10  total 107
+  run6b   mean 5.67 classes/answer  median 5.0  max 9  total 102
+  run4a   mean 3.46 classes/answer  median 3.0  max 6  total 83   (baseline)
+  run4b   mean 3.67 classes/answer  median 4.0  max 7  total 66   (baseline)
+
+== class-count inflation, SAME CASES ONLY ==
+  case                             prior runs    run6a/6b   prior mean -> run6
+  archaeology-c1              [5, 3, 4, 5, 5]      [6, 6]   4.40 -> 6.00
+  archaeology-c2              [5, 4, 3, 6, 3]      [5, 6]   4.20 -> 5.50
+  archaeology-c3              [2, 2, 2, 2, 3]      [4, 3]   2.20 -> 3.50
+  archives-c1                 [1, 2, 2, 5, 5]      [7, 6]   3.00 -> 6.50
+  archives-c2                 [6, 6, 6, 4, 7]      [9, 8]   5.80 -> 8.50
+  archives-c3                 [2, 0, 5, 3, 2]      [5, 4]   2.40 -> 4.50
+  built-c1                    [3, 2, 3, 3, 4]      [7, 5]   3.00 -> 6.00
+  built-c2                    [4, 3, 3, 3, 5]      [7, 8]   3.60 -> 7.50
+  built-c3                    [1, 0, 0, 3, 0]      [4, 4]   0.80 -> 4.00
+  classchoice-c1              [3, 2, 2, 2, 2]      [3, 3]   2.20 -> 3.00
+  classchoice-c2              [4, 3, 4, 3, 5]      [4, 4]   3.80 -> 4.00
+  classchoice-c3              [3, 2, 3, 2, 2]      [4, 5]   2.40 -> 4.50
+  intangible-c2               [3, 2, 4, 2, 4]      [7, 4]   3.00 -> 5.50
+  intangible-c3               [5, 6, 3, 3, 3]      [7, 5]   4.00 -> 6.00
+  naturalhistory-c1           [5, 4, 6, 6, 4]      [7, 9]   5.00 -> 8.00
+  naturalhistory-c2           [2, 6, 3, 4, 5]     [10, 9]   4.00 -> 9.50
+  naturalhistory-c3           [6, 4, 7, 5, 5]      [6, 8]   5.40 -> 7.00
+  propertychoice-c1           [2, 2, 2, 3, 2]      [5, 5]   2.20 -> 5.00
+
+  prior mean 3.41   run6 mean 5.81   delta +70%
+  cases where BOTH run6 samples equal or exceed the case's own historical maximum: 13/18
+  This is the failure mode the sibling rule invites: an answer that
+  adds classes just to have siblings to dismiss satisfies the rule
+  and is worse. A large positive delta here outweighs a compliance
+  gain -- read the two together, never the compliance alone.
+
+== paired agreement on classes_proposed ==
+  identical: 3/18   mean Jaccard 0.703
+  noise floor (run4a vs run4b): 3/18   0.524
+
+  per case (agreed core | disagreed):
+    archaeology-c1       0.71  [A2 A4 A7 E12 E22] | [E52 S19]
+    archaeology-c2       0.83  [A2 A3 E15 E31 E42] | [E29]
+    archaeology-c3       0.75  [A3 E53 E94] | [S23]
+    archives-c1          0.86  [E10 E12 E22 E31 E74 E8] | [E52]
+    archives-c2          0.55  [E12 E13 E21 E22 E33 E65] | [E37 E42 E7 I2 I5]
+    archives-c3          0.50  [E17 E29 E55] | [E13 E52 E6]
+    built-c1             0.71  [E12 E24 E31 E34 E81] | [E22 E9]
+    built-c2             0.67  [E22 E4 E41 E52 E53 E93] | [E15 E55 E7]
+    built-c3             1.00  [E29 E31 E33 E7] | []
+    classchoice-c1       1.00  [E12 E22 E81] | []
+    classchoice-c2       1.00  [E16 E17 E31 E54] | []
+    classchoice-c3       0.80  [E12 E13 E21 E74] | [E7]
+    intangible-c2        0.38  [E21 E31 E7] | [E13 E22 E55 I2 I7]
+    intangible-c3        0.50  [E13 E30 E52 E7] | [E74 E85 E86 I2]
+    naturalhistory-c1    0.60  [E12 E20 E80 E83 S13 S2] | [E24 E42 E55 E81]
+    naturalhistory-c2    0.73  [A2 E10 E15 E19 E42 I2 S13 S2] | [E31 I5 S6]
+    naturalhistory-c3    0.40  [D9 E15 E42 S4] | [E17 E20 I2 I4 I6 S6]
+    propertychoice-c1    0.67  [E11 E21 E55 E74] | [E14 E7]
+
+  fully reproducible cases (3): built-c3 classchoice-c1 classchoice-c2
+  Only these support a claim that a difference from a previous run
+  is real rather than resampling noise.
+
+== domain findings (property proposed without the class carrying it) ==
+  run6a: 2 finding(s) across 18 answers
+    archives-c3          P170     domain
+    naturalhistory-c3    P200     unknown
+  run6b: 1 finding(s) across 18 answers
+    intangible-c3        P75      domain
+  baseline: 9 across the 116 pre-existing answers (7.8% of answers)
+
+No judged quality figure is reported here. See the judging pass,
+which is only meaningful beside its own blinded control.

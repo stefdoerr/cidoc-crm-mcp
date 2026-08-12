@@ -1,0 +1,164 @@
+{
+  "case_id": "archaeology-c1",
+  "answer": "Your instinct is right, but the problem is not the direct link as such — it is that the direct link is the only statement you make.\n\nThe find-to-context link you are using is, in CRMarchaeo terms, AP21 contains (is contained in), from A2 Stratigraphic Volume Unit to E18 Physical Thing. Its scope note declares it a shortcut for the fuller path E18 Physical Thing ← AP18 is embedding of — A7 Embedding — AP19 is embedding in → A2 Stratigraphic Volume Unit. Christian-Emil Ore, working through Issue 613 (Inverse shortcuts), observed that this is the only shortcut CRMarchaeo declares and that no FOL axiom is given for it; the general reading he and Martin Doerr settled on is that 'an instance of the shortcut implies an instance of the long path'. So AP21 says no more than: some embedding of this object in this deposit exists. It is not false for a residual find. It is simply empty — there is no node in it on which anything about that embedding, or about the object's own age, can be recorded. That is why your database reads 'came from context N' as if it meant 'dates to context N'.\n\nSo: expand the shortcut for this find (and, honestly, for all of them — residuality is only detectable if the two dates are separately recorded in the first place).\n\n1. The axe fragment is an E22 Human-Made Object. Do not promote it to a stratigraphic unit. The SIG dealt with exactly this temptation in November 2018 (t1123): Martijn van Leusen wrote that 'a find should not normally be modeled as a stratigraphic unit', because stratigraphic units are meant to represent chronologically separable processes; Martin Doerr replied that 'finds are described as objects embedded in' Stratigraphic Units (A7 Embedding); and Achille Felicetti concluded 'I would go for AP18 + A7 or AP15 + S10 in CRMarchaeo'.\n\n2. The colluvial deposit — your context — is an A2 Stratigraphic Volume Unit.\n\n3. Instantiate an A7 Embedding for this particular find: Embedding AP18 is embedding of → the axe; Embedding AP19 is embedding in → the colluvial A2. The Embedding individuates 'this axe, in this position, in this matter' as a thing you can talk about, which the bare AP21 assertion does not.\n\n4. Date the embedding through the event that made it, not through the embedding itself. A4 Stratigraphic Genesis AP7 produced → the A7 Embedding (and, separately, the A2 deposit); that genesis carries P4 has time-span → the post-Roman E52 Time-Span you get from the pottery. This is deliberately where the SIG located the temporal information. Under Issue 447 A7 Embedding was reclassified away from E3 Condition State to S20 Rigid Physical Feature, i.e. it stopped being a temporal entity; when Keith May asked at the 49th SIG meeting whether the new, non-temporal A7 could still distinguish a coin that fell on a surface and was later buried from one deliberately dug in, Martin Doerr answered that 'This information can be expressed through the stratigraphic genesis (A4) that gave rise to whatever stratigraphic unit' (A8) one is interested in documenting. Your 'washed in from an eroding surface upslope' is precisely an A4: its scope note covers aggregations of cycles of erosion/destruction and deposit/accumulation, due to natural forces as much as to human activity.\n\n5. Date the axe through its own event: E12 Production P108 has produced → the axe, and P4 has time-span → a Neolithic E52 Time-Span. Nothing about the deposit touches this.\n\n6. Now state the residuality itself, rather than leaving it as a note for a human reader. The axe's E12 Production P183 ends before the start of the deposit's A4 Stratigraphic Genesis. Both are instances of E2 Temporal Entity, so P183 applies; it is Allen's {before}, asymmetric and transitive, and its published examples are archaeological in exactly this way (Tomb Four at Nikitopoulou, whose MHIII-LHI use ends before the start of its LHIIIA reuse). If you also want a flag your finds staff can filter on, put P2 has type on the A7 Embedding with a term such as 'residual' or 'reworked' from your own vocabulary — but the P183 assertion is the part a machine can reason with.\n\nWhat this buys you is that 'found in' and 'dated by' become two different statements. A query for the date of the axe lands on the E12 Production; a query for the date of the context lands on the A4 Stratigraphic Genesis; and the P183 between them forbids any reasoner from concluding that the colluvium is Neolithic or the axe post-Roman. You can keep the AP21 triple as a flat index for the finds database — it is entailed by the long path anyway — provided the long path is also there.\n\nTwo limits worth stating. First, AP19's range is A2 specifically; if a context is recorded without deciding whether it is a deposit or an interface, you are stuck, and the proposal to lift AP19's range to A8 was raised by Ore in 2021 (t1445) and not adopted. Second, 'clearly Neolithic and residual' is an interpretation. The model above asserts it as fact. If you need to record who inferred it and on what evidence, that requires E13 Attribute Assignment or the CRMinf machinery, which I have not worked up here because it is a separate question from the one you asked.",
+  "classes_proposed": ["E22", "A2", "A7", "A4", "E12", "E52"],
+  "properties_proposed": ["AP18", "AP19", "AP21", "AP7", "P108", "P4", "P183", "P2"],
+  "rejected_alternatives": [
+    {
+      "option": "AP21 contains (is contained in) used alone, as now",
+      "why_not": "It is a declared shortcut with no FOL axiom, and it introduces no node for the embedding. It is not wrong for a residual find, but it can carry neither the deposition event nor a qualification of the find's relation to the deposit, so 'found in' and 'dated by' stay indistinguishable. Keep it, but as an index over the expanded path, not instead of it."
+    },
+    {
+      "option": "A8 Stratigraphic Unit (or A2) for the axe itself",
+      "why_not": "Ruled out by the SIG in t1123: a stratigraphic unit represents a chronologically separable genesis process, and an object washed in with the bulk of a colluvial deposit does not constitute one. Modelling the axe as an SU would also give it stratigraphic relations (AP11) it does not have, which is the error Ore found in the Norwegian recording template."
+    },
+    {
+      "option": "E3 Condition State for the state of being embedded",
+      "why_not": "That was A7 Embedding's original superclass, and Issue 447 deliberately moved A7 off it to S20 Rigid Physical Feature, taking the temporal aspect off the embedding and relocating it to the A4 Stratigraphic Genesis. Reintroducing a condition state would undo the decision."
+    },
+    {
+      "option": "E9 Move for the axe being washed downslope",
+      "why_not": "E9 Move is an E7 Activity, i.e. an action intentionally carried out by an actor. Colluviation is a natural process. The transport is properly part of the A4 Stratigraphic Genesis, whose scope note explicitly covers erosion and accumulation by natural forces."
+    },
+    {
+      "option": "S19 Encounter Event / A1 Excavation Processing Unit, via AP17 is found by",
+      "why_not": "Legitimate and available — AP17 links an A7 Embedding to the encounter that found it — and it would give you a third, distinct date (discovery). But the misrepresentation the case describes is between manufacture and deposition, not between deposition and excavation, so I left it out rather than pad the model."
+    }
+  ],
+  "siblings_considered": [
+    {
+      "of": "E22",
+      "sibling": "E25",
+      "why_not": "E25 Human-Made Feature is the other Physical Human-Made Thing subclass in play, but it covers features purposely created on and physically attached to something else. The whole point of this case is that the axe is a detached, transportable object that travelled from where it was made and used to where it was buried; a feature cannot be residual in a deposit."
+    },
+    {
+      "of": "A2",
+      "sibling": "A3",
+      "why_not": "A3 Stratigraphic Interface is a boundary surface marking where the effect of a genesis or removal event ended, not a body of matter. The colluvium sealing the oven is a bounded volume of homogeneous material, so A2. Whether an interface can hold finds at all was raised as Issue 299 and is not the model here; AP19's range is A2 in any case."
+    },
+    {
+      "of": "A7",
+      "sibling": "A3",
+      "why_not": "The sibling worth testing, because a find lying on the surface of a layer is a real recording situation and an interface is a candidate locus for it. But an interface is two-dimensional: it cannot embed an object 'partially or completely' in surrounding matter, which is what A7's scope note requires and what a stone axe carried in with colluvium actually is."
+    },
+    {
+      "of": "A4",
+      "sibling": "E12",
+      "why_not": "E12 Production is A4's sibling under S17 Physical Genesis, and I do use it — but for the axe's Neolithic manufacture, not for the formation of the colluvium. E12 is also an E11 Modification, hence an E7 Activity intentionally carried out by an actor; nobody produced the colluvial deposit on purpose. A4 is the class whose scope note admits natural erosion and accumulation processes."
+    },
+    {
+      "of": "E12",
+      "sibling": "E81",
+      "why_not": "E81 Transformation would be the class if we wanted the broken axe to be a new object with a separate identity from the whole axe, preserving its substance. The finds record treats the fragment as the axe, and the case is about the axe's age, not about when it broke, so a single E12 Production carrying the Neolithic date is what is needed."
+    },
+    {
+      "of": "E52",
+      "sibling": "E92",
+      "why_not": "E92 Spacetime Volume is the sibling one might reach for, since both the deposit and the axe have spatiotemporal extents. But the two facts being conflated here are purely temporal — when the axe was made, when the layer formed — and the spatial side is already carried by the stratigraphic units themselves (P196, P161, P89). P4 has time-span to an E52 is the direct expression."
+    }
+  ],
+  "citations": [
+    "A7",
+    "A8",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A1",
+    "A6",
+    "AP7",
+    "AP17",
+    "AP18",
+    "AP19",
+    "AP21",
+    "S17",
+    "S20",
+    "E22",
+    "E12",
+    "E52",
+    "P183",
+    "Introduction > Applied Form > Shortcuts",
+    {"id": "t1123", "quote": "a find should not normally be modeled as a stratigraphic unit"},
+    {"id": "t1123", "quote": "finds are described as objects embedded in"},
+    {"id": "t1123", "quote": "I would go for AP18 + A7 or AP15 + S10 in CRMarchaeo"},
+    {"id": "t1677", "quote": "In CRMarchaeo, only one shortcut is declared"},
+    {"id": "t1677", "quote": "an instance of the shortcut implies an instance of the long path"},
+    {"id": "minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026", "quote": "This information can be expressed through the stratigraphic genesis (A4) that gave rise to whatever stratigraphic unit"},
+    {"id": "minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026", "quote": "does this allow to distinguish between a coin found lying on a surface"},
+    "t1445",
+    "Issue 447",
+    "Issue 585",
+    "Issue 613"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept A8",
+    "concept A7",
+    "concept A2",
+    "concept A3",
+    "concept A4",
+    "concept AP18",
+    "concept AP19",
+    "concept AP21",
+    "concept AP17",
+    "concept AP20",
+    "connect E22 A2",
+    "connect A7 E18",
+    "thread t1123",
+    "threads \"residual finds older than the deposit they are found in\"",
+    "issues \"residual or intrusive finds dating of deposit\"",
+    "concept A5",
+    "concept A1",
+    "concept A6",
+    "\"an object much older than the layer it was found in residual redeposited\"",
+    "docs \"shortcut property and the fully articulated path it stands for\" --kind narrative",
+    "docs \"Shortcuts deduction from the longer path to the shortcut is always valid\"",
+    "docs \"shortcut properties are declared as shortcuts of longer more comprehensively articulated paths\" --kind narrative",
+    "quote \"Introduction > Applied Form > Shortcuts\" \"Some properties are declared as shortcuts of longer, more comprehensively articulated paths\"  [UNKNOWN SOURCE - section paths are not quotable ids]",
+    "quote t1123 \"finds are described as objects embedded in\"",
+    "quote t1123 \"I would go for AP18 + A7 or AP15 + S10 in CRMarchaeo\"",
+    "quote t1123 \"a find should not normally be modeled as a stratigraphic unit\"",
+    "concept AP7",
+    "connect A4 A7",
+    "issue 585",
+    "issue 447",
+    "issues \"dating a stratigraphic unit from the finds it contains terminus post quem\"",
+    "docs \"embedding may be due to later intrusion the expert can only decide it is not recent\" --kind minutes",
+    "threads \"distinguishing the date of manufacture of an artefact from the date of the layer where it was deposited\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"does this allow to distinguish between a coin found lying on a surface\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"and then was em\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"residual\"  [NOT FOUND]",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"intrusion\"  [NOT FOUND]",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"from which it was excavated)\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"MD:\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"CEO:\"  [NOT FOUND]",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"SdS\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"Decision\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"This information can be expressed through the stratigraphic\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"Does the SU have to be\"  [NOT FOUND]",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"OK to change the definition of A7\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"genesis (A4) that gave rise to whatever stratigraphic unit\"",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"gave rise to whatever stratigraphic unit is at stake\"  [NOT FOUND]",
+    "quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s026 \"A7 does not need to be a temporal entity\"  [NOT FOUND]",
+    "concept E22 (siblings)",
+    "concept E12 (siblings)",
+    "concept E52 (siblings)",
+    "concept A4 (siblings - none printed)",
+    "concept A7 (siblings - none printed)",
+    "concept A2 (siblings - none printed)",
+    "concept S17",
+    "concept S18",
+    "concept S20",
+    "connect E12 A4",
+    "concept P183",
+    "thread t1677",
+    "quote t1677 \"In CRMarchaeo, only one shortcut is declared\"",
+    "quote t1677 \"an instance of the shortcut implies an instance of the long path\"",
+    "issue 613",
+    "concept E12",
+    "thread t1445"
+  ],
+  "confidence": "high",
+  "notes": "Three friction points. (1) `ontology` lists CRMbase only, so the whole CRMarchaeo layer — which is where this case actually lives — has to be guessed at by identifier and then confirmed with `concept`. There is no way to enumerate an extension. (2) `concept` prints an explicit `Siblings:` block for CRMbase classes but not for CRMarchaeo/CRMsci ones; for A2, A4 and A7 I had to derive siblings from the `Subclass of:` / `Superclass of:` lines (A8 lists A7, A2, A3 as its subclasses; A4's parents are S17 and A5, and S17 lists E12). Note also that those `Superclass of:` lines appear to be within-model: S17 lists E12 but not A4, even though A4 declares S17 as a parent. (3) `connect E22 A2` returns AP21 but prints no `Full path` for it, even though AP21's scope note spells the path out — consistent with Ore's remark in t1677 that AP21 carries no FOL axiom. Also: section paths such as 'Introduction > Applied Form > Shortcuts' cannot be passed to `quote`, so that one is cited unquoted."
+}

@@ -1,0 +1,37 @@
+{
+  "case_id": "archaeology-c3",
+  "answer": "In scope: the exact surveyed outline belongs inside the CRM-based catalogue as data in its own right, not only as a linked GIS layer. CIDOC CRM has a class purpose-built for this: E94 Space Primitive holds a geometry serialised in an OGC standard (its scope note gives a WKT POLYGON as one of its own examples, alongside GML points and coordinate strings), and P168 'place is defined by' attaches that E94 value to an E53 Place. That Place, in turn, is what the grave cut (an E26 Physical Feature -- an identifiable feature physically attached to the site, distinct from E27 Site's 'constellation of matter' framing) has its former or current location at, via P53. So the chain is: grave-cut (E26) --P53--> Place (E53) --P168--> Space Primitive (E94, holding the actual polygon coordinates from the total-station survey). E94's own scope note states this is meant 'to link CIDOC CRM encoded data to the kinds of geometries used in maps or Geoinformation systems' -- i.e. CRM was deliberately extended to absorb exactly this kind of precise GIS-shaped geometry rather than push it outside the model. Issue 390 (closed, ratifying that scope note) and Issue 391 (closed, harmonising Space Primitive's declaration as both E41 Appellation and E59 Primitive Value) confirm the SIG settled this as the intended reading, not an incidental afterthought. The archivist's instinct -- keep it in the same place as everything else -- matches what the model actually provides; a separate linked GIS file is an option, not a requirement forced by a gap in the CRM.",
+  "classes_proposed": ["E26", "E53", "E94"],
+  "properties_proposed": ["P53", "P168"],
+  "rejected_alternatives": [
+    {
+      "option": "Treat the outline as unrepresentable in CRM and keep it only as an external linked GIS layer",
+      "why_not": "E94 Space Primitive's scope note explicitly targets OGC-standard geometries (its own example is a WKT POLYGON) and exists precisely so that map/GIS-style geometry can be captured as CRM data via P168 -- ruled out by the model's own stated purpose for the class, not just a workaround."
+    },
+    {
+      "option": "E27 Site for the outline itself",
+      "why_not": "E27's scope note explicitly contrasts itself with 'the purely geometric notion of E53 Place': E27 stands for the constellation of matter (the ground itself), not its surveyed shape. The geometry belongs on a Place/Space Primitive pair, not on the Site/Feature class."
+    }
+  ],
+  "citations": ["E94", "E53", "P168", "E26", "E27", "P53", "Issue 390", "Issue 391"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"surveyed outline of a feature\"",
+    "concept E53",
+    "concept E94",
+    "docs \"Geoinformation system geometry linked separately\" --kind narrative",
+    "connect E26 E53",
+    "connect E27 E53",
+    "docs \"cut stratigraphic unit excavation\"",
+    "concept P168",
+    "concept SP6",
+    "issues \"GIS geometry declarative place spatial primitive\"",
+    "issue 390",
+    "issue 391",
+    "quote E94 \"link CIDOC CRM encoded data to the kinds of geometries used in maps or Geoinformation systems\" (failed: not a valid source id, so this line is described rather than quoted)",
+    "quote E27 \"In contrast to the purely geometric notion of E53 Place\" (failed: not a valid source id, so this line is described rather than quoted)"
+  ],
+  "confidence": "high",
+  "notes": "search.py quote only accepts thread/message/doc-chunk ids, not class identifiers like 'E94' or 'E27', so the scope-note wording seen via `concept` and `docs` is described in my own words rather than quoted verbatim -- no doc-chunk id was surfaced for those passages to verify against."
+}

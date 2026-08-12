@@ -1,0 +1,221 @@
+@prefix crm:    <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix obj:    <http://example.org/shiqiangpan/> .
+
+# ---------------------------------------------------------------------------
+# The object itself
+# ---------------------------------------------------------------------------
+
+obj:ShiQiangPan a crm:E22_Human-Made_Object ;
+    rdfs:label "Shi Qiang pan"@en, "史墻盤"@zh ;
+    crm:P1_is_identified_by obj:PanAppellation ;
+    crm:P2_has_type obj:PanFormType, obj:NationalTreasureType ;
+    crm:P3_has_note "Low, round vessel; exterior cast with a taotie design. The name 'Shi Qiang pan' (史墻盤) literally means 'Scribe Qiang's basin'. Regarded as one of China's national treasures -- an informal repute, not a dated classification, unlike the 2002 export-ban listing modelled separately below."@en ;
+    crm:P45_consists_of obj:BronzeMaterial ;
+    crm:P43_has_dimension obj:HeightDimension, obj:DiameterDimension ;
+    crm:P56_bears_feature obj:TaotieFeature ;
+    crm:P46_is_composed_of obj:Handles ;
+    crm:P128_carries obj:Inscription ;
+    crm:P50_has_current_keeper obj:BaojiBronzewareMuseum .
+
+obj:PanAppellation a crm:E41_Appellation ;
+    rdfs:label "Shi Qiang pan"@en, "史墻盤"@zh .
+
+obj:PanFormType a crm:E55_Type ;
+    rdfs:label "pan (Chinese ritual bronze basin)"@en .
+
+obj:NationalTreasureType a crm:E55_Type ;
+    rdfs:label "national treasure"@en .
+
+obj:BronzeMaterial a crm:E57_Material ;
+    rdfs:label "bronze"@en .
+
+# --- dimensions -------------------------------------------------------------
+
+obj:HeightDimension a crm:E54_Dimension ;
+    crm:P2_has_type obj:HeightType ;
+    crm:P90_has_value "16.2"^^xsd:decimal ;
+    crm:P91_has_unit obj:Centimetre .
+
+obj:DiameterDimension a crm:E54_Dimension ;
+    crm:P2_has_type obj:DiameterType ;
+    crm:P90_has_value "47.3"^^xsd:decimal ;
+    crm:P91_has_unit obj:Centimetre .
+
+obj:HeightType a crm:E55_Type ; rdfs:label "height"@en .
+obj:DiameterType a crm:E55_Type ; rdfs:label "diameter"@en .
+obj:Centimetre a crm:E58_Measurement_Unit ; rdfs:label "centimetre"@en .
+
+# --- decoration and parts ----------------------------------------------------
+
+obj:TaotieFeature a crm:E25_Human-Made_Feature ;
+    rdfs:label "taotie decoration"@en ;
+    crm:P3_has_note "Taotie motif cast on the exterior of the vessel."@en .
+
+obj:Handles a crm:E19_Physical_Object ;
+    rdfs:label "the vessel's two handles"@en ;
+    crm:P2_has_type obj:HandleType ;
+    crm:P3_has_note "The vessel has two handles. The article does not describe them individually (no distinguishing decoration or asymmetry is mentioned), so they are modelled here as one undifferentiated part rather than as two separate anonymous instances."@en .
+
+obj:HandleType a crm:E55_Type ; rdfs:label "handle"@en .
+
+# ---------------------------------------------------------------------------
+# The inscription and what it records
+# ---------------------------------------------------------------------------
+
+obj:Inscription a crm:E34_Inscription ;
+    rdfs:label "inscription of the Shi Qiang pan"@en ;
+    crm:P3_has_note "284 characters in eighteen lines on the interior of the vessel. Praises the preceding Zhou kings and then, unusually for such inscriptions, recounts the history of the caster's own family down to Scribe Qiang himself. Most inscriptions of this kind record only immediate events; this one does not."@en ;
+    crm:P72_has_language obj:ChineseLanguage ;
+    crm:P129_is_about obj:KingWen, obj:KingWu, obj:KingZhao, obj:FirstSevenZhouKings,
+        obj:WeiClan, obj:Qiang, obj:QiangFather, obj:QiangGrandfather, obj:KingZhaoCampaign .
+
+obj:ChineseLanguage a crm:E56_Language ; rdfs:label "Chinese"@en .
+
+obj:FirstSevenZhouKings a crm:E74_Group ;
+    rdfs:label "the first seven kings of Zhou"@en ;
+    crm:P3_has_note "The inscription is said to record the virtues and highlights of the first seven Zhou kings; the article names three of them (Wen, Wu, Zhao) as examples, without stating their ordinal position within the seven."@en ;
+    crm:P107_has_current_or_former_member obj:KingWen, obj:KingWu, obj:KingZhao .
+
+obj:KingWen a crm:E21_Person ;
+    rdfs:label "King Wen of Zhou"@en ;
+    crm:P3_has_note "Praised in the inscription for having 'joined the ten thousand states'."@en .
+
+obj:KingWu a crm:E21_Person ;
+    rdfs:label "King Wu of Zhou"@en ;
+    crm:P3_has_note "Praised in the inscription for having 'campaigned through the four quarters'."@en .
+
+obj:KingZhao a crm:E21_Person ;
+    rdfs:label "King Zhao of Zhou"@en .
+
+obj:KingZhaoCampaign a crm:E7_Activity ;
+    rdfs:label "King Zhao's campaign against Chu and Jing"@en ;
+    crm:P14_carried_out_by obj:KingZhao ;
+    crm:P3_has_note "The inscription praises King Zhao for having 'tamed Chu and Jing'. The article states that, in reality, the campaign was defeated and the king killed -- within living memory of the vessel's casting -- and offers this as evidence of the inscription's ritual, eulogistic intent rather than plain reportage."@en .
+
+# ---------------------------------------------------------------------------
+# Maker / commissioner and family
+# ---------------------------------------------------------------------------
+
+obj:WeiClan a crm:E74_Group ;
+    rdfs:label "Wei clan"@en ;
+    crm:P1_is_identified_by obj:WeiClanAppellation ;
+    crm:P107_has_current_or_former_member obj:Qiang .
+
+obj:WeiClanAppellation a crm:E41_Appellation ;
+    rdfs:label "Wei (微)"@en .
+
+obj:Qiang a crm:E21_Person ;
+    rdfs:label "Qiang"@en, "墻"@zh ;
+    crm:P1_is_identified_by obj:QiangAppellation ;
+    crm:P2_has_type obj:ScribeRole ;
+    crm:P152_has_parent obj:QiangFather .
+
+obj:QiangAppellation a crm:E41_Appellation ;
+    rdfs:label "Qiang"@en, "墻"@zh .
+
+obj:ScribeRole a crm:E55_Type ; rdfs:label "scribe"@en .
+
+obj:QiangFather a crm:E21_Person ;
+    rdfs:label "Qiang's father"@en ;
+    crm:P152_has_parent obj:QiangGrandfather ;
+    crm:P3_has_note "Praised in the inscription for his agricultural success; not named in the source."@en .
+
+obj:QiangGrandfather a crm:E21_Person ;
+    rdfs:label "Qiang's grandfather"@en ;
+    crm:P3_has_note "Praised in the inscription for the appropriateness of his sacrifices; not named in the source."@en .
+
+# ---------------------------------------------------------------------------
+# Making
+# ---------------------------------------------------------------------------
+
+obj:Production a crm:E12_Production ;
+    rdfs:label "casting of the Shi Qiang pan"@en ;
+    crm:P108_has_produced obj:ShiQiangPan ;
+    crm:P17_was_motivated_by obj:Qiang ;
+    crm:P4_has_time-span obj:ProductionTimeSpan ;
+    crm:P3_has_note "Cast for Qiang, a member of the Wei clan, during the reign of King Gong of Zhou (r. c. 915-900 BCE); the article separately places the casting, more broadly, at 'the end of the 10th century BCE'. No artisan is named in the source, and none is asserted here. In the secondary literature reflected by the article, 'the caster' denotes Qiang -- the person for whom, not necessarily by whose hand, the vessel was made."@en .
+
+obj:ProductionTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "reign of King Gong of Zhou, c. 915-900 BCE"@en ;
+    crm:P82a_begin_of_the_begin "-0914"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "-0899"^^xsd:gYear ;
+    crm:P3_has_note "Bounds converted from the article's 'r. c. 915-900 BCE' using astronomical year numbering (915 BCE = -0914, 900 BCE = -0899). The outer P82a/P82b bracket is used, rather than the tighter P81a/P81b, to preserve the source's own 'c.' hedge at both ends."@en .
+
+# ---------------------------------------------------------------------------
+# Burial and discovery
+# ---------------------------------------------------------------------------
+
+obj:BurialMove a crm:E9_Move ;
+    rdfs:label "burial of the Shi Qiang pan with the Wei family hoard"@en ;
+    crm:P25_moved obj:ShiQiangPan ;
+    crm:P26_moved_to obj:FufengCounty ;
+    crm:P4_has_time-span obj:BurialTimeSpan ;
+    crm:P3_has_note "Buried together with over 100 other bronzes belonging to the family; those other vessels are not individually modelled here, and the hoard as a whole is not reified as a Collection -- see the report for the SIG discussion this follows."@en .
+
+obj:BurialTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "some time after casting, before 1976"@en ;
+    crm:P82a_begin_of_the_begin "-0899"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "1976"^^xsd:gYear .
+
+obj:DiscoveryEvent a crmsci:S19_Encounter_Event ;
+    rdfs:label "1976 discovery of the Shi Qiang pan"@en ;
+    crmsci:O19_encountered_object obj:ShiQiangPan ;
+    crmsci:O21_encountered_at obj:FufengCounty ;
+    crm:P4_has_time-span obj:DiscoveryTimeSpan ;
+    crm:P3_has_note "Unearthed in 1976 together with the rest of the buried hoard."@en .
+
+obj:DiscoveryTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "1976"@en ;
+    crm:P82a_begin_of_the_begin "1976"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "1976"^^xsd:gYear .
+
+# ---------------------------------------------------------------------------
+# Places
+# ---------------------------------------------------------------------------
+
+obj:FufengCounty a crm:E53_Place ;
+    rdfs:label "Fufeng County"@en ;
+    crm:P89_falls_within obj:Baoji .
+
+obj:Baoji a crm:E53_Place ;
+    rdfs:label "Baoji"@en ;
+    crm:P89_falls_within obj:Shaanxi .
+
+obj:Shaanxi a crm:E53_Place ;
+    rdfs:label "Shaanxi"@en .
+
+# ---------------------------------------------------------------------------
+# Current custody, official listing, and the replica
+# ---------------------------------------------------------------------------
+
+obj:BaojiBronzewareMuseum a crm:E74_Group ;
+    rdfs:label "Baoji Bronzeware Museum"@en ;
+    crm:P2_has_type obj:MuseumType .
+
+obj:MuseumType a crm:E55_Type ; rdfs:label "museum"@en .
+
+obj:ForbiddenExportAssignment a crm:E17_Type_Assignment ;
+    rdfs:label "2002 listing as forbidden to exhibit abroad"@en ;
+    crm:P41_classified obj:ShiQiangPan ;
+    crm:P42_assigned obj:ForbiddenExportType ;
+    crm:P4_has_time-span obj:ForbiddenExportTimeSpan .
+
+obj:ForbiddenExportType a crm:E55_Type ;
+    rdfs:label "cultural relic forbidden to be exhibited abroad"@en .
+
+obj:ForbiddenExportTimeSpan a crm:E52_Time-Span ;
+    rdfs:label "2002"@en ;
+    crm:P82a_begin_of_the_begin "2002"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "2002"^^xsd:gYear .
+
+obj:Replica a crm:E22_Human-Made_Object ;
+    rdfs:label "replica of the Shi Qiang pan"@en ;
+    crm:P130_shows_features_of obj:ShiQiangPan ;
+    crm:P3_has_note "A replica displayed at the Calgary Chinese Cultural Centre Museum; the article gives no date or maker for the replica itself, so none is asserted."@en ;
+    crm:P55_has_current_location obj:CalgaryMuseumPlace .
+
+obj:CalgaryMuseumPlace a crm:E53_Place ;
+    rdfs:label "Calgary Chinese Cultural Centre Museum"@en .

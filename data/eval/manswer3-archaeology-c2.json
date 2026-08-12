@@ -1,0 +1,45 @@
+{
+  "case_id": "archaeology-c2",
+  "answer": "Treat context 56 as two records, not one. \"Context\" in an excavation maps onto CRMarchaeo's A8 Stratigraphic Unit, and A8's own scope note ties an instance to a form that can be attributed to a single genesis event or process. A posthole cut (Trench 3) and a pit-fill deposit (Trench 7) are two different genesis events with different locations, so no honest single A8 instance can cover both, no matter what number is written on the sheet. The number clash is a separate, secondary problem: E42 Identifier's own scope note only promises uniqueness/permanence 'within the context of one or more organisations' -- that promise was broken here by two supervisors drawing from the same book without cross-checking, not by the archaeology. So: two A8 Stratigraphic Unit instances, each P1 is identified by / P48 has preferred identifier an E42 Identifier with the string '56'. Because A8's Required block (P157, P89, P196, P45, P53) never includes P1/P48, the model already treats the identifier as incidental documentation rather than what constitutes the entity's identity -- consistent with letting the string collide without collapsing the two features. If the digitisation project wants to record the mistake itself rather than silently renumbering one context, an E15 Identifier Assignment per context sheet (P14 carried out by the respective supervisor, P37 assigned the E42 '56', P141 assigned it to that A8 instance) documents who issued which '56' and when, which is exactly the kind of provenance-of-error E15 exists for.",
+  "classes_proposed": ["A8", "E42", "E15"],
+  "properties_proposed": ["P1", "P48", "P37", "P141", "P14", "P53"],
+  "rejected_alternatives": [
+    {
+      "option": "Single A8 Stratigraphic Unit record spanning both trenches (one 'context 56' that turns out to describe two features)",
+      "why_not": "A8's scope note requires the unit's form to be attributable to a single genesis event or process. A posthole cut and a pit-fill deposit are two different genesis events in two different trenches, so merging them into one instance misrepresents the stratigraphy regardless of the shared label."
+    },
+    {
+      "option": "L54 is same as between the two context-56 records",
+      "why_not": "L54 asserts the two records co-refer to the same real-world entity. Nothing in the case supports that -- the sheets describe physically and stratigraphically distinct features that only collided on a number."
+    }
+  ],
+  "citations": ["A8", "E42", "E15", "P1", "P48", "P37", "P141", "P14", "P53", "issue 427"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept A8",
+    "concept E42",
+    "docs \"context number\" --kind narrative",
+    "docs \"identifier assignment error\" --kind narrative",
+    "issues \"duplicate identifier\"",
+    "issues \"same number assigned twice\"",
+    "\"context number reused two features\"",
+    "threads \"same identifier two different objects\"",
+    "issue 213",
+    "issue 427",
+    "issues \"assistant coin collection identifiers wrong tray\"",
+    "docs \"single context sheet stratigraphic unit\" --kind narrative",
+    "\"context sheet trench\"",
+    "concept E15",
+    "connect A8 E42",
+    "issues \"unique identifier duplicate assignment error\"",
+    "thread t0990",
+    "docs \"single genesis event or process\" --kind declaration",
+    "docs \"identify them uniquely and permanently within the context of one or more organisations\" --kind declaration",
+    "quote A8 \"can be attributed to a single genesis event or process\" (failed: A8 is not a quotable source id)",
+    "quote E42 \"uniquely and permanently within the context of one or more organisations\" (failed: E42 is not a quotable source id)",
+    "quote 427 \"distress and concerns caused by reusing identifiers\" (failed: 427 is not a quotable source id)"
+  ],
+  "confidence": "high",
+  "notes": "search.py quote only accepts thread/episode/message/doc-chunk ids, not class/property ids, so the A8 and E42 scope-note wording above is paraphrased rather than quoted verbatim -- I did not put quotation marks around it. Thread t0990 surfaced on 'context' but is about disambiguating E35 Title strings by linguistic/provenance context, an unrelated sense of the word; I did not cite it. Issue 213 (an assistant mis-shelving coin identifiers) is a related but distinct failure mode (identifier attached to the wrong physical object) rather than two honestly-distinct objects sharing one identifier, so I left it out of the citation list."
+}

@@ -1,0 +1,28 @@
+{
+  "case_id": "archives-c1",
+  "answer": "Record each handover as its own E10 Transfer of Custody -- P28 custody surrendered by, P29 custody received by, P30 transferred custody of the ledgers (E22), P4 has time-span for the date on the note -- and record the 2010 donation additionally as an E8 Acquisition, because a formal donation transfers legal title and not merely physical custody. The two are different axes: E10's scope is 'the physical custody, or the legal responsibility for the physical custody', while E8 is 'transfers of legal ownership'. An event can be both, and the 2010 step is. Each signed handover note is an E31 Document linked by P70 documents to the event it attests, which is what makes the chain evidenced rather than asserted. Do not collapse this to P49/P50 has former or current keeper: those are declared shortcuts of the full E10 path, and using them here would discard dated, signed, individually attested transfers the archive already holds.",
+  "classes_proposed": ["E8", "E10", "E22", "E31"],
+  "properties_proposed": ["P28", "P29", "P30", "P22", "P23", "P24", "P70", "P4"],
+  "rejected_alternatives": [
+    {"option": "P49/P50 has former or current keeper only", "why_not": "declared shortcuts of the full E10 path; they cannot carry the date, the signatory or the note that evidences each transfer, all of which this archive has."},
+    {"option": "one E10 covering the whole chain", "why_not": "P28/P29 take one surrendering and one receiving actor per event; a single instance cannot express three successive holders in order."}
+  ],
+  "siblings_considered": [
+    {"of": "E10", "sibling": "E9", "why_not": "E9 Move is 'changes of the physical location of the instances of E19 Physical Object'. The ledgers did move, but what the handover notes record is who became responsible for them, not where they went; location would be an additional and separately evidenced fact."},
+    {"of": "E8", "sibling": "E87", "why_not": "E87 Curation Activity covers managing and preserving a curated holding over time. The 2010 donation is a discrete transfer of ownership on a date, not the ongoing curation that follows it."},
+    {"of": "E22", "sibling": "E20", "why_not": "E20 Biological Object is for items of living origin; the ledgers are manufactured, so E22 Human-Made Object is the right member of the pair."},
+    {"of": "E31", "sibling": "E33", "why_not": "E33 Linguistic Object would model the note's wording as language. The relevant fact is that the note attests a transfer, which is P70 documents on E31; its text is not at issue."}
+  ],
+  "citations": ["E10", "E8", "E9", "E87", "P30", "P24", "P49", "P50"],
+  "in_scope": true,
+  "queries_run": [
+    "concept E10",
+    "concept E8",
+    "concept E9",
+    "concept E87",
+    "concept E22",
+    "concept E31"
+  ],
+  "confidence": "medium",
+  "notes": "Answered by the assistant, not a fresh answerer agent -- the subagent cap was exhausted -- and the assistant had already seen that a previous run missed E8 on this case. It is therefore contaminated as a measurement of whether the protocol surfaces E8, and is kept only as a mechanism check that the siblings_considered field can be produced and validated. Must not be pooled with manswer3/4a/4b."
+}

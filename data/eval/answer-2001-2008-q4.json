@@ -1,0 +1,15 @@
+{
+  "question_id": "2001-2008-q4",
+  "answer": "Yes. In Nov 2008 Christian-Emil Ore raised the problem that CRM's Group/membership model (P107 has current or former member) could not express asymmetric roles within a group, such as master vs. apprentice (thread t0426). Stephen Stead proposed solving it with a new 'property of a property' P107.1 (paired with P144.1 on the underlying E85 Joining event) to qualify the kind/role of membership ('in the role of'), as an alternative to modeling master/apprentice as sub-groups or offices. Martin Doerr supported the idea. A formal e-mail vote was called on 2008-11-14 as part of the CRM v4.3->v5.0 change package: 'the addition of properties of properties P107.1, P144.1, as described in the attached proposal' (thread t0427); Stephen Stead and Christian-Emil Ore both voted approve (Stead subject to his text edits). A negative vote then arrived (thread t0431) arguing the master/apprentice case could instead be modeled by treating roles as sub-groups (offices/positions) rather than adding sub-properties, sparking debate about whether roles are relational (favoring P107.1) or structural (favoring sub-groups). Martin Doerr weighed the objection but said he would regard the issue as accepted if no further votes came in. The current ontology entry for P107 (checked via `search.py concept P107`) confirms the sub-property was ultimately adopted and survives in CRM v7.1.3: 'The property P107.1 kind of member can be used to specify the type of membership or the role the member has in the group,' with the worked example 'kind of member husband (E55)'. So the SIG did add the sub-property mechanism, deciding it by a called e-mail vote on the v4.3 change package, over a subsequent (ultimately unsuccessful) objection favoring a sub-group-based alternative.",
+  "found": true,
+  "cited_threads": ["t0426", "t0427", "t0431"],
+  "queries_run": [
+    "search \"master apprentice group membership role\" -k 10",
+    "thread t0431",
+    "concept P107",
+    "thread t0426",
+    "thread t0427"
+  ],
+  "confidence": "high",
+  "notes": "First hybrid search query hit the topic directly on the first try (thread t0431, P107.1/P144.1 negative vote). concept P107's chronology pointed to the earlier origin thread t0426 and the vote-call thread t0427, which together give the full sequence: problem raised -> proposal -> formal vote -> objection -> Martin's resolution -> confirmed by current ontology text showing P107.1 'kind of member' survives in v7.1.3."
+}

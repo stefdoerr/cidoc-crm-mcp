@@ -1,0 +1,42 @@
+{
+  "case_id": "propertychoice-c1",
+  "answer": "Model the repair as one E11 Modification (subclass of E7 Activity, since it is a conservation treatment on a Human-Made Object). Link both the studio principal and the two apprentices to it with P14 carried out by, each qualified by P14.1 in the role of with a different role value (e.g. 'supervisor/approver' for the principal, 'restorer' for the apprentices). P14 is quantified many-to-many and necessary (1,n:0,n), so recording several actors under it is exactly what the property is for, and P14.1 exists specifically to keep their contributions distinct rather than flattening them into one undifferentiated 'carried out by' set. The apprentices qualify straightforwardly: they did the filling, regluing and touch-up, i.e. the active physical performance. The principal qualifies too, even though she did no hands-on work herself: the invoice records her as bearing responsibility for the outcome ('supervised and approved'), and P14's scope note requires only causal or legal responsibility, not hands-on execution -- the mailing list discussion in t1546 makes this explicit, distinguishing P14 (active participation implying causal/legal responsibility) from P11 (necessary but non-causal participation, illustrated there by a surgery patient), and concluding that an actor who bears legal/causal responsibility without personally performing the act should still get P14 ('there are well-known criminal cases in which participation without inhibiting... are regarded as legally co-responsible. In that case, we should rather use P14' -- Martin Doerr, t1546). SIG Issue 488 confirms the general pattern of an actor acting at another's behest is handled by subtyping P14.1 in the role of, which is exactly the mechanism used here to keep 'approved/supervised' distinct from 'executed'. The museum's conservation officer is different in kind: her two visits checked progress on someone else's activity and she carried no causal or legal responsibility for the repair's execution or outcome -- she should not get P14. The tools offer P12 occurred in the presence of (E5 -> E77, 'active or passive presence... without implying any specific role') for recording that she was present at/monitoring the activity, without claiming she carried it out.",
+  "classes_proposed": ["E11", "E21"],
+  "properties_proposed": ["P14", "P12"],
+  "rejected_alternatives": [
+    {"option": "P14 carried out by for the museum conservation officer", "why_not": "t1546 establishes P14 requires active participation implying causal or legal responsibility; her visits were oversight of the workshop's activity, not execution of it, and the invoice attributes responsibility for the repair to the studio principal, not to her."},
+    {"option": "P11 had participant for the museum conservation officer", "why_not": "concept P11 shows it is for actors whose participation, though not causal, is still a necessary part of the event itself (its own example is a portrait's sitter). Checking on progress from outside is closer to P12's 'presence... without implying any specific role' than to being a participant in the treatment."},
+    {"option": "Modelling the workshop as a single E74 Group carrying out the activity (via P14) instead of naming the principal and apprentices individually", "why_not": "thread t1477 (Robert Sanderson, 'Groups and carried out by') shows the SIG left open and unresolved exactly how 'Studio of X'-type group attribution should work, and explicitly notes it doesn't tell you which members did what. Since the case already specifies who supervised and who executed, naming the individuals with distinct P14.1 roles preserves information a Group-level P14 would discard."}
+  ],
+  "citations": [
+    "E11",
+    "P14",
+    "P11",
+    "P12",
+    "t1477",
+    "t1546",
+    "Issue 488",
+    {"id": "t1546", "quote": "we should rather use P14"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E11",
+    "concept P14",
+    "connect E11 E39",
+    "connect E11 E21",
+    "thread t1477",
+    "thread t1546",
+    "concept P11",
+    "concept P12",
+    "docs \"in the role of\" --kind declaration",
+    "quote t1546 \"we should rather use P14\"",
+    "issues \"role of\"",
+    "issue 488",
+    "docs \"responsibility for treatment\" --kind narrative",
+    "conservation officer checked progress",
+    "concept P14.1"
+  ],
+  "confidence": "high",
+  "notes": "concept P14.1 returned 'No such concept' -- P14.1 in the role of is not independently queryable, only visible embedded in P14's scope note and in Issue 488's outcome text, so it is used in the prose but not listed as a standalone citation id."
+}

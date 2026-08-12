@@ -1,0 +1,736 @@
+[
+  {
+    "case_id": "archaeology-c1",
+    "slice": "archaeology",
+    "case": "We excavated a colluvial deposit sealing a Roman corn-drying oven and recovered a broken polished stone axe amid post-Roman pottery. The axe is clearly Neolithic and residual, washed in from an eroding surface upslope, not contemporary with the oven or the deposit around it. Our finds database currently just records that it came from that context, the same as everything else pulled from it.",
+    "question": "Should we link the axe fragment straight to the context it was found in, the way we do for every other find, or does that shortcut misrepresent an object that's thousands of years older than the layer it ended up in?",
+    "kind": "shortcut vs full path",
+    "why_hard": "A direct find-to-context link works for ordinary finds but implies contemporaneity, so residual material may need the fuller event chain that keeps original deposition separate from final recovery location.",
+    "distinctive_terms": [
+      "colluvial deposit",
+      "corn-drying oven",
+      "polished stone axe",
+      "residual find",
+      "post-Roman pottery"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "colluvial deposit": 0,
+        "corn-drying oven": 0,
+        "polished stone axe": 0,
+        "residual find": 0,
+        "post-roman pottery": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "archaeology-c2",
+    "slice": "archaeology",
+    "case": "We're digitizing the card index from a 1978 rescue excavation and just found that context number 56 was written on two different context sheets: one for a posthole in Trench 3, one for a pit fill in Trench 7. Two site supervisors were clearly drawing numbers from the same book without checking each other, and nobody caught the clash at the time. Now we have to decide what 'context 56' means when we bring it into the digital archive.",
+    "question": "Do we treat context 56 as one record that turns out to describe two different features, or as two records that happen to share a number by accident?",
+    "kind": "identity",
+    "why_hard": "The shared identifier suggests one entity but the physical evidence is of two, so the fix has to separate the identifier from the thing it names without silently rewriting the original 1978 archive.",
+    "distinctive_terms": [
+      "card index",
+      "context number",
+      "posthole",
+      "pit fill",
+      "rescue excavation",
+      "site supervisor"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "card index": 0,
+        "context number": 0,
+        "posthole": 0,
+        "pit fill": 0,
+        "rescue excavation": 0,
+        "site supervisor": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "archaeology-c3",
+    "slice": "archaeology",
+    "case": "Our surveyor recorded the plan of an oval grave cut with several dozen total-station points, closing them into a polygon so we can calculate its exact area and orientation in GIS. Everything else about the context, the finds and the interpretation lives in our CRM-based site database, and our archivist wants the precise surveyed outline stored in the same place rather than as a separate linked file.",
+    "question": "Should the exact surveyed outline of the cut live inside our CRM-based catalogue as data in its own right, or is that something the model was never meant to hold, so it stays outside as a linked GIS layer?",
+    "kind": "out of scope",
+    "why_hard": "The model can assert that a feature exists and reference documentation about it, but it has no native way to carry precise vector geometry, so the test is whether an answer forces coordinate geometry into a class meant for named or approximate places instead of pointing outside the model.",
+    "distinctive_terms": [
+      "total station",
+      "grave cut",
+      "polygon outline",
+      "GIS layer"
+    ],
+    "novelty": {
+      "terms": 4,
+      "per_term_documents": {
+        "total station": 0,
+        "grave cut": 2,
+        "polygon outline": 0,
+        "gis layer": 0
+      },
+      "max_co_occurrence": 1,
+      "where": "mail:8020b6d1ddb5dc95",
+      "which": [
+        "grave cut"
+      ],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "archives-c1",
+    "slice": "archives",
+    "case": "Our regional archive holds ledgers of poor-relief payments created by the overseer of a small parish. When that parish was absorbed into a larger municipal council in 1934, the ledgers moved to the council's registry office. In 1988 the council deposited them with the county record office, and in 2010, when the county record office was wound up, they were formally donated to us. Each move is backed by a signed handover note listing what was transferred.",
+    "question": "Do we need to record every handover as its own event in the chain of custody, or is it enough to note who created the ledgers and who holds them now?",
+    "kind": "shortcut vs full path",
+    "why_hard": "Weighs a single current-holder shortcut against a full chain of transfer events, and whether intermediate custodians who never owned the material outright still deserve their own step.",
+    "distinctive_terms": [
+      "poor-relief ledgers",
+      "parish overseer",
+      "registry office",
+      "handover note",
+      "county record office wound up"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "poor-relief ledgers": 0,
+        "parish overseer": 0,
+        "registry office": 0,
+        "handover note": 0,
+        "county record office wound up": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "archives-c2",
+    "slice": "archives",
+    "case": "A bundle of nineteenth-century letters about a dispute over canal toll rights is catalogued as written by the Canal Company's secretary. Comparing the handwriting and letterheads, our cataloguer thinks a junior clerk actually drafted most of the letters and the secretary only signed them before they were sent. We have no clerk's name recorded anywhere else in the collection to confirm this.",
+    "question": "Should the letters' authorship be credited to the secretary, the clerk, or both, and how do we record our uncertainty about who actually composed the text versus who merely signed it?",
+    "kind": "uncertainty",
+    "why_hard": "Turns on separating the role of drafting from the role of signing within the same creation event, and on expressing a hunch backed by physical evidence rather than a named, confirmed second author.",
+    "distinctive_terms": [
+      "canal toll rights",
+      "Canal Company secretary",
+      "junior clerk",
+      "letterhead",
+      "signed but not drafted"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "canal toll rights": 0,
+        "canal company secretary": 0,
+        "junior clerk": 0,
+        "letterhead": 0,
+        "signed but not drafted": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "archives-c3",
+    "slice": "archives",
+    "case": "Under our retention schedule, planning-application case files older than fifteen years come up for a disposal review: a records officer decides whether each file is destroyed or kept permanently for historical value. We want to capture, alongside the description of each file, its next review date and whether the reason for keeping it was a statutory requirement or a curator's judgement of historical importance.",
+    "question": "Should the retention schedule and disposal-review decision be modelled as part of the file's documented history, or does that belong to a different kind of system altogether?",
+    "kind": "out of scope",
+    "why_hard": "Tempts a modeller to invent a heritage-documentation event for what is really an internal records-management workflow, so the real judgement is recognising the boundary rather than finding a class for it.",
+    "distinctive_terms": [
+      "retention schedule",
+      "disposal review",
+      "records officer",
+      "planning-application case files",
+      "statutory requirement"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "retention schedule": 0,
+        "disposal review": 0,
+        "records officer": 0,
+        "planning-application case files": 0,
+        "statutory requirement": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "built-c1",
+    "slice": "built",
+    "case": "In 1938 our estate dismantled an early nineteenth-century threshing barn at Hollow Farm and re-erected it four miles away at Combe Farm, reusing roughly seventy per cent of the original oak frame but replacing the roof covering, the brick plinth walls, and one whole bay that had rotted through. The barn is described in an 1839 tithe survey at its original site, and the re-erected building at Combe Farm still carries an estate plaque reading 'rebuilt from Hollow Farm barn, 1938'. We are cataloguing historic farm buildings for the county survey and need to decide how to record the building at Combe Farm relative to the one described in 1839.",
+    "question": "Is the barn now standing at Combe Farm the same building recorded in the 1839 tithe survey, or a new building that reuses material from a demolished one, and how should the record reflect that?",
+    "kind": "identity",
+    "why_hard": "Tests whether persistent identity survives a move plus majority-but-not-total material replacement, or whether relocation plus partial loss creates a new item that merely incorporates spolia from the old one; there is no bright line and the two readings lead to opposite record structures.",
+    "distinctive_terms": [
+      "threshing barn",
+      "re-erected",
+      "oak frame",
+      "tithe survey",
+      "estate plaque",
+      "reused timbers"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "threshing barn": 0,
+        "re-erected": 0,
+        "oak frame": 7,
+        "tithe survey": 0,
+        "estate plaque": 0,
+        "reused timbers": 0
+      },
+      "max_co_occurrence": 1,
+      "where": "spec:P190",
+      "which": [
+        "oak frame"
+      ],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "built-c2",
+    "slice": "built",
+    "case": "A windmill on our patch was recorded as 'Fen End Mill' on estate maps through most of the eighteenth century, then appears as 'Bell's Mill' in census returns from the 1850s onward after a long-serving tenant miller took it over - same structure, same site, just a different name in use. The mill stood inside Sedgewick Hundred until that unit was abolished and folded into the new Whitgate Rural District in 1894, so for part of its working life it belonged to an administrative area that no longer exists. We're building a county historic environment record and need to link the mill to both the changing name and the changing administrative geography without implying either change altered what the mill physically is.",
+    "question": "Can the mill's shifting administrative-area membership be recorded as a plain containment link to the hundred and then to the rural district, or does the fact that the hundred stopped existing require modelling each administrative unit as its own place with a bounded period, joined through a fuller chain?",
+    "kind": "shortcut vs full path",
+    "why_hard": "A direct containment link reads fine while the containing unit persists, but once the container itself is abolished and replaced, the shortcut cannot carry the information about when the relationship held; that needs the longer path through time-bound places and the events that redrew them.",
+    "distinctive_terms": [
+      "Fen End Mill",
+      "Bell's Mill",
+      "tenant miller",
+      "Sedgewick Hundred",
+      "Whitgate Rural District",
+      "1894 boundary change"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "fen end mill": 0,
+        "bell's mill": 0,
+        "tenant miller": 0,
+        "sedgewick hundred": 0,
+        "whitgate rural district": 0,
+        "1894 boundary change": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "built-c3",
+    "slice": "built",
+    "case": "A conservation trust that looks after a historic parkland is running an online public consultation about a proposed access road that would cut through part of the eighteenth-century designed landscape. The consultation platform reports that 1,340 people responded, with 58% opposed, 24% in favour and 18% undecided, plus several hundred anonymous free-text comments about how the road would 'ruin the feel of the place'. The trust wants this consultation outcome folded into the same heritage database that documents the landscape's design history, planting phases and historic views.",
+    "question": "Should the aggregate consultation results and anonymous public sentiment about the proposed road be recorded in the heritage documentation system at all, or does that kind of data fall outside what the model is meant to capture?",
+    "kind": "out of scope",
+    "why_hard": "The system is built to hold documented statements traceable to identifiable actors and sources, not anonymised percentages and aggregated sentiment from an open survey; forcing the consultation numbers into the same structure as attributed historical claims would misrepresent what is actually known and by whom.",
+    "distinctive_terms": [
+      "public consultation",
+      "access road",
+      "designed landscape",
+      "anonymous comments",
+      "sentiment breakdown",
+      "planting phases"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "public consultation": 0,
+        "access road": 0,
+        "designed landscape": 0,
+        "anonymous comments": 0,
+        "sentiment breakdown": 0,
+        "planting phases": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "classchoice-c1",
+    "slice": "classchoice",
+    "case": "A regional costume collection holds a hand-sewn 1920s silk wedding gown. In the 1950s the original bride's granddaughter had the bodice unpicked and the silk and lace panels recut and restitched by a local seamstress into a christening gown for her infant, discarding the worn skirt fabric in the process. The christening gown stayed in the family for seventy years and has now been donated along with a photograph of the original wedding and the seamstress's fitting notes.",
+    "question": "When cataloguing the 1950s alteration, should we record it as changing the existing wedding gown, or as the wedding gown ending and a new, distinct garment coming into existence from its material?",
+    "kind": "class choice",
+    "why_hard": "The garment keeps continuous material and craftsmanship but changes function, form and name, so the real question is whether the object persists through the rework or is consumed to bring a different object into being, and that boundary decides which event class and which object records apply downstream.",
+    "distinctive_terms": [
+      "wedding gown",
+      "christening gown",
+      "recut",
+      "unpicked",
+      "seamstress",
+      "silk and lace panels"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "wedding gown": 0,
+        "christening gown": 0,
+        "recut": 0,
+        "unpicked": 1,
+        "seamstress": 0,
+        "silk and lace panels": 0
+      },
+      "max_co_occurrence": 1,
+      "where": "mail:5c6329a5a816a3d8",
+      "which": [
+        "unpicked"
+      ],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "classchoice-c2",
+    "slice": "classchoice",
+    "case": "A maritime museum holds a two-day marine chronometer that its owner sent to the local observatory before a voyage. The observatory kept the chronometer running alongside its own regulator clock for eleven days, noting the accumulated gain or loss at noon each day, and then issued a certificate stating the chronometer's daily rate and declaring it fit for sea service.",
+    "question": "Should the observatory's eleven-day trial be documented as measuring the chronometer's daily rate, or as assessing the chronometer's condition and fitness for the voyage?",
+    "kind": "class choice",
+    "why_hard": "The trial both yields a numeric error figure and ends in a pass/fail pronouncement about the instrument itself, so it reads at once as producing a measured quantity and as judging a state of the object, and each reading calls for a different kind of assignment record.",
+    "distinctive_terms": [
+      "marine chronometer",
+      "regulator clock",
+      "daily rate",
+      "observatory trial",
+      "certificate",
+      "fit for sea service"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "marine chronometer": 0,
+        "regulator clock": 0,
+        "daily rate": 0,
+        "observatory trial": 0,
+        "certificate": 13,
+        "fit for sea service": 0
+      },
+      "max_co_occurrence": 1,
+      "where": "mail:74b6fe8fb0f812b9",
+      "which": [
+        "certificate"
+      ],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "classchoice-c3",
+    "slice": "classchoice",
+    "case": "An ethnographic collection includes a coiled basket collected in the 1970s from a weaving cooperative in a highland village. The collector's field diary records that the basket was made during a communal work session by the women of one extended-family household, naming the household but not individuals, under the guidance of its senior weaver. A later community consultation identified by name three women who were present and working that day, though it could not confirm which of them, if any, handled this particular basket.",
+    "question": "For the maker of the basket, should we record the household's women collectively as a single group, name the three later-identified women as the makers, or use a broader, unspecified kind of actor given the uncertainty?",
+    "kind": "class choice",
+    "why_hard": "Collective, uncredited authorship recorded at the household level, a later partial naming of individuals who may or may not have touched this specific piece, and the source's own refusal to individuate all pull toward a different actor class, and picking wrong either erases named women or overstates what the record actually supports.",
+    "distinctive_terms": [
+      "coiled basket",
+      "weaving cooperative",
+      "communal work session",
+      "household",
+      "senior weaver",
+      "community consultation"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "coiled basket": 0,
+        "weaving cooperative": 0,
+        "communal work session": 0,
+        "household": 2,
+        "senior weaver": 0,
+        "community consultation": 0
+      },
+      "max_co_occurrence": 1,
+      "where": "mail:c9dfd4f58667ef88",
+      "which": [
+        "household"
+      ],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "intangible-c1",
+    "slice": "intangible",
+    "case": "A regional sound archive holds a 1952 wax-cylinder recording of an elderly woman singing a lullaby in her home dialect. In 2003 a folklorist recorded the same woman's daughter singing what she calls 'the same lullaby' passed down to her, though the melody has simplified and two verses have dropped out over the decades in between. The archive is cataloguing both recordings and needs to decide how they relate to each other.",
+    "question": "Should the 2003 recording be catalogued as a performance of the same lullaby as the 1952 recording, or as a distinct but related song that merely shares an ancestor with it?",
+    "kind": "identity",
+    "why_hard": "Oral transmission drifts the content itself, so the question is where the boundary of 'the same work' sits when the thing being identified has no fixed text to compare against, only a lineage of remembered performances.",
+    "distinctive_terms": [
+      "wax cylinder",
+      "lullaby",
+      "home dialect",
+      "dropped verses",
+      "passed down"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "wax cylinder": 0,
+        "lullaby": 0,
+        "home dialect": 0,
+        "dropped verses": 0,
+        "passed down": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "intangible-c2",
+    "slice": "intangible",
+    "case": "A family donates forty minicassette tapes to a folk-life archive, recorded over three years of weekly kitchen-table sessions in which an elderly fiddler taught tunes to his teenage grandnephew by playing them over and over until the younger man could reproduce them by ear. No lesson plan or tune list survives, only the tapes, each dated but otherwise unlabelled. The archive wants to record that the grandnephew learned his repertoire from his granduncle.",
+    "question": "Should the catalogue assert a direct relationship between the two fiddlers, or should that relationship only be inferred by chaining together the forty individual recorded sessions that each show the pair performing together?",
+    "kind": "shortcut vs full path",
+    "why_hard": "There is no direct 'taught' relation available; the transmission is real but only evidenced as a pattern across forty separate participation records, so the choice is between an economical shortcut assertion and the fully warranted chain of individual sessions.",
+    "distinctive_terms": [
+      "minicassette",
+      "kitchen-table sessions",
+      "played by ear",
+      "grandnephew",
+      "repertoire"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "minicassette": 0,
+        "kitchen-table sessions": 0,
+        "played by ear": 0,
+        "grandnephew": 0,
+        "repertoire": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "intangible-c3",
+    "slice": "intangible",
+    "case": "A village council maintains a midsummer bonfire-lighting custom in which the right to strike the first flame passes informally from the current fire-keeper to a chosen successor, usually a younger relative, at a moment the fire-keeper alone decides, sometimes years before they die. There is no ceremony marking the handover and often no witnesses beyond the two people involved; the community simply comes to accept who the new fire-keeper is over the following year or two. A heritage documentation project wants to record the succession of fire-keepers as an unbroken chain.",
+    "question": "Can the transfer of the right to be fire-keeper be modelled as a documentable event, or does the informal, undated, often unwitnessed nature of the succession put it outside what the model can responsibly assert?",
+    "kind": "out of scope",
+    "why_hard": "The model is built to document things that happened at an identifiable time with identifiable participants; a handover with no ceremony, no fixed date and often no witness resists being forced into an event-shaped record, and the community's gradual acceptance afterward is not an event at all.",
+    "distinctive_terms": [
+      "fire-keeper",
+      "midsummer bonfire",
+      "informal succession",
+      "unwitnessed handover",
+      "village council"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "fire-keeper": 0,
+        "midsummer bonfire": 0,
+        "informal succession": 0,
+        "unwitnessed handover": 0,
+        "village council": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "naturalhistory-c1",
+    "slice": "naturalhistory",
+    "case": "Our university insect collection holds a pinned moth that was designated a paratype when the species was described in 1932. Last year one of our graduate students clipped a single leg from the mounted specimen to extract DNA for barcoding, and that leg is now dissolved into an extract sitting in a -80C freezer under its own new catalogue number. The moth itself, now missing a leg, stays in its original drawer with its original number.",
+    "question": "Should we record the frozen DNA extract as a part removed from the pinned moth using the specimen's existing identity, or as a new object created by a sampling event that also modified the original specimen, and does that choice affect whether the extract still counts as coming from the paratype?",
+    "kind": "shortcut vs full path",
+    "why_hard": "The real question is whether a simple removed-from link is enough, or whether the sampling needs its own event record connecting the extract's creation to the modification of the original specimen, and whether paratype status travels with it either way.",
+    "distinctive_terms": [
+      "paratype moth",
+      "leg clip",
+      "DNA extract",
+      "pinned specimen",
+      "barcoding"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "paratype moth": 0,
+        "leg clip": 0,
+        "dna extract": 0,
+        "pinned specimen": 0,
+        "barcoding": 2
+      },
+      "max_co_occurrence": 1,
+      "where": "mail:e48e5a695868cf85",
+      "which": [
+        "barcoding"
+      ],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "naturalhistory-c2",
+    "slice": "naturalhistory",
+    "case": "In 1968 two different field crews from our state geological survey drilled boreholes six weeks apart and about 40 metres apart, each crew logging and numbering the rock cores they brought up under their own accession series. Nobody at the time realized the two boreholes had struck the same fault zone at depth. A stratigrapher reviewing the old logs now believes the bottom segment of one core is the physically continuous extension of the top segment of the other, but the two labelled boxes have sat in different repository buildings for fifty years and both still carry their original accession numbers on decades of loan paperwork.",
+    "question": "Do we now treat the two accessioned core segments as one specimen with a single identity, or keep them as two specimens connected by a documented physical relationship, and which choice do we have to honour in the old loan records that already cite the separate numbers?",
+    "kind": "identity",
+    "why_hard": "It forces a choice between merging two independently accessioned things into one identity after the fact, or keeping two identities tied by a physical relationship, with fifty years of citations riding on the answer.",
+    "distinctive_terms": [
+      "borehole",
+      "rock core segment",
+      "fault zone",
+      "accession series",
+      "loan paperwork"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "borehole": 1,
+        "rock core segment": 0,
+        "fault zone": 0,
+        "accession series": 0,
+        "loan paperwork": 0
+      },
+      "max_co_occurrence": 1,
+      "where": "mail:ee286e928708d15f",
+      "which": [
+        "borehole"
+      ],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "naturalhistory-c3",
+    "slice": "naturalhistory",
+    "case": "Our genomics lab sequenced mitochondrial DNA from a fish caught during last year's river survey and deposited the resulting sequence in a public genetic database, which gave it its own accession number there. The curator now wants our own collection database to also hold the full nucleotide sequence and the bootstrap-support values from the phylogenetic tree the sequencing team built to place the fish relative to its close relatives.",
+    "question": "Is our collection database the right place to store the actual sequence and the tree statistics alongside the specimen record, or should it stop at documenting that the sequencing happened and pointing to the external accession number?",
+    "kind": "out of scope",
+    "why_hard": "It's tempting to treat the sequence and tree as just more specimen data, but the harder call is where documenting an activity and its external reference should stop and the scientific dataset itself begins.",
+    "distinctive_terms": [
+      "mitochondrial DNA",
+      "river survey",
+      "sequence accession",
+      "phylogenetic tree",
+      "bootstrap-support values"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "mitochondrial dna": 0,
+        "river survey": 0,
+        "sequence accession": 0,
+        "phylogenetic tree": 0,
+        "bootstrap-support values": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "propertychoice-c1",
+    "slice": "propertychoice",
+    "case": "A regional decorative arts museum sent six lacquered cabinets for structural repair to an outside conservation workshop. The workshop's invoice lists the studio's principal as having 'supervised and approved' the repairs, but the actual filling, regluing and touch-up work was carried out by two apprentices under her direction. The museum's own conservation officer visited twice to check progress but did none of the hands-on work herself.",
+    "question": "When we record the repair work, which of the three people — the studio principal, the apprentices, or the museum's conservation officer — should be linked as having carried out the treatment, and should more than one of them be recorded that way?",
+    "kind": "property choice",
+    "why_hard": "Multiple agents surround the same activity in different roles (supervision, execution, oversight); the case turns on which role corresponds to actually carrying out the work versus merely being present or overseeing it, not on picking the activity's class itself.",
+    "distinctive_terms": [
+      "lacquered cabinets",
+      "conservation workshop",
+      "apprentices",
+      "structural repair",
+      "supervised and approved"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "lacquered cabinets": 0,
+        "conservation workshop": 0,
+        "apprentices": 0,
+        "structural repair": 0,
+        "supervised and approved": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "propertychoice-c2",
+    "slice": "propertychoice",
+    "case": "A retired engineer consigned a group of scientific instruments to a regional auction house. The auction house catalogued and sold the lot to a bidder on the phone, then, per its standard terms, held the buyer's payment for ten days before forwarding the net proceeds to the engineer and releasing the instruments to a courier the buyer had arranged. The buyer never had any direct dealings with the engineer at all.",
+    "question": "Does the record of this sale show title passing straight from the engineer to the phone bidder, or does it show two separate transfers — engineer to auction house, then auction house to bidder — given that the auction house held the money and controlled the release of the goods?",
+    "kind": "property choice",
+    "why_hard": "The auction house physically stands between seller and buyer and controls money and goods, which tempts modelling it as a title-holder in its own right; the real choice is whether title itself ever passes through it, or only custody and payment do, and that determines which pair of parties the transfer-of-title relation should actually connect.",
+    "distinctive_terms": [
+      "scientific instruments",
+      "consigned",
+      "phone bidder",
+      "net proceeds",
+      "auction house"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "scientific instruments": 0,
+        "consigned": 0,
+        "phone bidder": 0,
+        "net proceeds": 0,
+        "auction house": 7
+      },
+      "max_co_occurrence": 1,
+      "where": "spec:E10",
+      "which": [
+        "auction house"
+      ],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "propertychoice-c3",
+    "slice": "propertychoice",
+    "case": "Two local history societies agreed, in a single exchange of letters, to swap material to round out each other's collections: Society A handed over a set of nineteenth-century trade tokens, and Society B handed over a set of commemorative medals from the same period. No money changed hands, and both societies treat the whole thing as one transaction, not two separate donations.",
+    "question": "For this one exchange agreement, does each society appear as the source in one transfer-of-title record and the recipient in another, or is there a way to show both societies as simultaneously giving and receiving within a single transfer, and which direction should the relation point for each object?",
+    "kind": "property choice",
+    "why_hard": "An exchange collapses two opposite-direction transfers into one negotiated act; the difficulty is not identifying that title changed hands but deciding whether the 'from' and 'to' roles can both be held by both parties in one event, or whether the exchange has to be split into two linked transfers to keep the direction of the relation honest.",
+    "distinctive_terms": [
+      "trade tokens",
+      "commemorative medals",
+      "exchange of letters",
+      "local history societies",
+      "swap"
+    ],
+    "novelty": {
+      "terms": 5,
+      "per_term_documents": {
+        "trade tokens": 0,
+        "commemorative medals": 0,
+        "exchange of letters": 1,
+        "local history societies": 0,
+        "swap": 0
+      },
+      "max_co_occurrence": 1,
+      "where": "mail:ec97c39bdf5892cb",
+      "which": [
+        "exchange of letters"
+      ],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "technical-c1",
+    "slice": "technical",
+    "case": "We look after a stationary winding engine that hauled slate wagons up an incline at a quarry until it closed in 1962. Its original vertical boiler was cut up for scrap during a wartime metal drive, and the engine then sat boiler-less in a shed for over fifty years. In 1998 our engineering group had a new boiler built to the exact drawings of the original, held in the county record office, and fitted it to the surviving frame and cylinders, which had never been touched. The engine has been raised to full working pressure and run at our open days every year since.",
+    "question": "Is the engine on display today the same object that worked the quarry, or has fitting a newly-built boiler created something we should record as a different object incorporating old parts?",
+    "kind": "identity",
+    "why_hard": "Forces a decision on how much material continuity (frame and cylinders kept, boiler renewed from a drawing) can survive before the identity of 'the quarry engine' should be treated as broken, and how to relate the old and new boiler as distinct items either way.",
+    "distinctive_terms": [
+      "winding engine",
+      "vertical boiler",
+      "quarry incline",
+      "wartime scrap drive",
+      "boiler built to drawings",
+      "working pressure"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "winding engine": 0,
+        "vertical boiler": 0,
+        "quarry incline": 0,
+        "wartime scrap drive": 0,
+        "boiler built to drawings": 0,
+        "working pressure": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "technical-c2",
+    "slice": "technical",
+    "case": "Our trust runs a beam engine that has pumped water into a canal feeder reservoir since it was built by a Midlands ironworks in 1876. The original cast-iron beam cracked in 1932 and was replaced with a steel beam of the same dimensions, made by a different local firm, while the rest of the engine - cylinder, flywheel, pump rods - stayed as built. We want our record to show the 1876 construction and the 1932 beam replacement clearly, without our catalogue implying the whole engine was built twice.",
+    "question": "Should we record the 1932 beam as a new part produced and fitted to the existing engine, or is there a more direct way of saying the engine itself was modified that avoids treating the beam as a separate produced thing?",
+    "kind": "shortcut vs full path",
+    "why_hard": "Tests whether a modification-of-the-whole reading (the engine was altered in 1932) is adequate, or whether the beam needs modelling as its own produced object that only afterwards becomes part of the engine - the difference between a shortcut property and the full production-plus-joining path.",
+    "distinctive_terms": [
+      "beam engine",
+      "cast-iron beam",
+      "steel beam replacement",
+      "canal feeder reservoir",
+      "pump rods",
+      "ironworks"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "beam engine": 0,
+        "cast-iron beam": 0,
+        "steel beam replacement": 0,
+        "canal feeder reservoir": 0,
+        "pump rods": 0,
+        "ironworks": 0
+      },
+      "max_co_occurrence": 0,
+      "where": "",
+      "which": [],
+      "verdict": "novel"
+    }
+  },
+  {
+    "case_id": "technical-c3",
+    "slice": "technical",
+    "case": "We run a working watermill that still sells flour it grinds commercially. The current miller re-cuts the furrows in the millstones himself every few months, and he does it by feel, using a pattern of grooves and a dressing technique he adjusts slightly each time - not the same pattern his predecessor used, and not written down anywhere. Visitors keep asking whether the mill has 'always ground the same way', and we would like our documentation to capture the technique itself, not just log each re-dressing as an event.",
+    "question": "Can we represent the miller's personal dressing technique as a thing in its own right, distinct from the individual re-dressing events, or is capturing a craft skill like this simply outside what the model is meant to hold?",
+    "kind": "out of scope",
+    "why_hard": "The events (each re-dressing) and the actor (the miller) are easy to model; the difficulty is that the tacit technique itself - an evolving, personal, undocumented skill - is not a class of thing the model represents, and the case tests whether the system will say so instead of forcing it into some existing class.",
+    "distinctive_terms": [
+      "watermill",
+      "millstone dressing",
+      "furrows",
+      "hand-dressing technique",
+      "commercial flour",
+      "miller"
+    ],
+    "novelty": {
+      "terms": 6,
+      "per_term_documents": {
+        "watermill": 0,
+        "millstone dressing": 0,
+        "furrows": 0,
+        "hand-dressing technique": 0,
+        "commercial flour": 0,
+        "miller": 10
+      },
+      "max_co_occurrence": 1,
+      "where": "mail:7f37ea1d601c62cb",
+      "which": [
+        "miller"
+      ],
+      "verdict": "novel"
+    }
+  }
+]

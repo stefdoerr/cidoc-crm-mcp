@@ -1,0 +1,39 @@
+{
+  "case_id": "built-c3",
+  "answer": "No: the aggregate consultation statistics (1,340 respondents, 58%/24%/18% split) and the anonymous free-text sentiment ('ruins the feel of the place') should not be folded into the CRM-modelled heritage documentation. The Scope of the CIDOC CRM narrative summarises the model's target as 'the curated, factual knowledge about the past at a human scale,' and explicitly names the analogous case: 'information relating to personnel, accounting, and visitor statistics, falls outside the Intended Scope of the CIDOC CRM.' A public-consultation poll is the same kind of administrative/management-process data as visitor statistics -- a numeric summary over an anonymous population, gathered to inform a present-day decision, not curated evidence about the landscape's design history. The free-text comments fare no better: CRM's documentary classes (E31 Document, E33 Linguistic Object, E89 Propositional Object) presuppose an identifiable object making propositions, traceable to an actor (P14/P94/authorship); several hundred anonymous comments folded into one aggregate sentiment have neither an identified author nor a determinate proposition, so they cannot be attached the way a named commentator's or curator's note could be. What CAN legitimately be recorded, if the trust wants provenance for the decision itself, is that a consultation activity took place -- E7 Activity, with P4 has time-span and P7 took place at -- as a fact about the management process, but that only records the event's occurrence, not the poll numbers or the sentiment content, which is what this question actually asked about.",
+  "classes_proposed": [],
+  "properties_proposed": [],
+  "rejected_alternatives": [
+    {"option": "E7 Activity (for the poll content itself)", "why_not": "E7 can record that a consultation event occurred (time-span, place), but has no property that takes an aggregate statistic or a population's anonymous sentiment as its content -- only that the event happened, which is not what the question asks about recording."},
+    {"option": "E13 Attribute Assignment / E16 Measurement", "why_not": "Both require an identifiable item being assessed and, functionally, an assessor; a 58%-opposed figure over 1,340 anonymous respondents has no single identified subject and no identified assessor, so it does not fit the assignment/measurement pattern."},
+    {"option": "E31 Document / E33 Linguistic Object / E89 Propositional Object", "why_not": "These model identifiable items making propositions, traceable to authorship. Aggregated, anonymous free-text comments folded into 'public sentiment' are neither one identifiable document nor attributable to an actor, so the pattern used elsewhere for citing an identified source's opinion does not transfer."}
+  ],
+  "citations": [
+    "E7",
+    "Introduction > Scope of the CIDOC CRM",
+    {"id": "crm732#s0005", "quote": "visitor statistics, falls outside the Intended Scope of the CIDOC CRM"},
+    {"id": "crm732#s0004", "quote": "curated, factual knowledge about the past at a human scale"},
+    {"id": "crm732#s0005", "quote": "It pertains to their current state as well as to information about their past"}
+  ],
+  "in_scope": false,
+  "queries_run": [
+    "ontology",
+    "docs \"public opinion survey\"",
+    "docs \"statistical data aggregate\"",
+    "docs \"scope of the CIDOC CRM\" --kind narrative",
+    "docs \"what the CRM does not cover\"",
+    "docs \"opinion attitude belief public feeling\"",
+    "docs \"value assessment significance of a place\"",
+    "issues \"public consultation opinion survey\"",
+    "issues \"subjective value significance\"",
+    "docs \"\\\"Intended Scope\\\"\" --kind narrative",
+    "docs \"cultural heritage information reconstruction interpretation of the past\" --kind narrative",
+    "docs \"curated, factual knowledge about the past at a human scale\" --kind narrative --json",
+    "quote crm732#s0005 \"visitor statistics, falls outside the Intended Scope of the CIDOC CRM\"",
+    "quote crm732#s0004 \"curated, factual knowledge about the past at a human scale\"",
+    "concept E7",
+    "quote crm732#s0005 \"It pertains to their current state as well as to information about their past\""
+  ],
+  "confidence": "high",
+  "notes": "No query surfaced a hit for 'public consultation' or 'survey' literally (expected, per Minimality -- the CRM stays abstract). The scope conclusion rests on the explicit 'visitor statistics' exclusion, which is a close analogy (anonymous, aggregate, management-process data) rather than an exact match, so I treated the mapping as an inference to flag, not a literal citation of 'consultation.'"
+}

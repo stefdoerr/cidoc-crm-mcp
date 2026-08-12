@@ -1,0 +1,43 @@
+{
+  "case_id": "intangible-c2",
+  "answer": "The catalogue should not assert a direct 'learned repertoire from' relationship between the granduncle and grandnephew as a primitive fact. CRM has no property for a direct interpersonal teaching/learning relation, and the SIG itself confronted this exact case (a ULAN 'student of'/'teacher of' pair) in Issue 256 and closed it without adopting any such property into CRMBase, deferring it to a never-realised 'CRMsoc' extension. Instead, each of the forty dated tapes should be catalogued as evidence of its own E7 Activity (a teaching/performance session), with P11 had participant linking that activity to both E21 Person instances (granduncle and grandnephew). The relationship the archive wants to record -- that the grandnephew learned his repertoire from his granduncle -- is then a derived reading of the recurring co-participation pattern across the forty activities, not a separate assertion the model makes for you: P11's own scope note says shared participation 'is most likely an indication of... acquaintance and interaction' but 'does not imply any causal relationship'. This matches the Minimality principle -- CRM deliberately does not declare shortcut properties for relations that are derivable from the primitive event pattern -- so the honest recommendation is: document the sessions, and let the teaching relationship be inferred by chaining them.",
+  "classes_proposed": ["E7", "E21"],
+  "properties_proposed": ["P11"],
+  "rejected_alternatives": [
+    {"option": "A direct 'teacher of / student of' property between E21 Person instances", "why_not": "Issue 256 (closed 2017-10-10) shows the SIG discussing exactly this relation (ULAN's 'student of'/'teacher of' pair) and explicitly declining to add it to CRMBase, calling it out-of-scope pending a hypothetical 'CRMsoc' extension -- which does not exist among the indexed family models (search.py concept CRMsoc: 'No such concept')."},
+    {"option": "E74 Group (P107 has current or former member / P143 joined / P144 joined with)", "why_not": "In thread t0834, Martin Doerr argues E74 Group presumes members capable of 'acting as one' actor; a teacher and pupil do not meet that unity criterion, which is why the same thread proposed (but never adopted) a separate 'relationship group' subclass of E28/P89 instead of reusing E74."},
+    {"option": "P152 has parent", "why_not": "Concept dossier and thread t0225 ('family relations') show this property, and the CRM's person-relation pattern generally, are anchored to E67 Birth -- a biological/legal parentage event -- not to a pattern of repeated teaching sessions; there is no analogous shortcut for transmitted skill or repertoire."}
+  ],
+  "citations": [
+    "E7", "P11", "E21",
+    {"id": "crm732#P11", "quote": "does not imply any causal relationship"},
+    {"id": "crm732#s0053", "quote": "the model itself is constructed as economically as possible"},
+    "Issue 256",
+    "t0834",
+    "t0225"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E7",
+    "concept P11",
+    "docs \"teacher learner\" --kind narrative",
+    "docs \"performance recorded\" --kind narrative",
+    "docs \"Minimality\" --kind narrative",
+    "docs \"relationship between two persons not documented by an event\" --kind narrative",
+    "\"teacher student relationship\"",
+    "issues \"shortcut property derived relationship\"",
+    "thread t0225",
+    "thread t0834",
+    "issue 256",
+    "quote P11 \"does not imply any causal relationship\" (failed: P11 is not a valid source id)",
+    "quote t0834 \"eventually looked at within the context of an extension for social/anthropological questions\" (NOT FOUND -- that phrasing is from the issue register outcome, not the thread itself)",
+    "concept CRMsoc (no such concept)",
+    "docs \"acquaintance and interaction\" --kind declaration",
+    "docs \"Minimality\" --kind narrative --json",
+    "quote crm732#P11 \"does not imply any causal relationship\" (FOUND)",
+    "quote crm732#s0053 \"the model itself is constructed as economically as possible\" (FOUND)"
+  ],
+  "confidence": "high",
+  "notes": "The strongest evidence was not a scope note but a live SIG debate (Issue 256 / thread t0834) that used the near-identical ULAN example of a painter's 'student of'/'teacher of' relation and closed without adopting a direct property -- that made the negative case (don't invent a shortcut) much stronger than reasoning from Minimality alone. The quote tool rejected a bare concept id ('P11') as a source; the declaration text is only quotable via its document chunk id (crm732#<concept_id>), which took an extra round trip through documents.py to discover."
+}

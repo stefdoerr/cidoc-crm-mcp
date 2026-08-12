@@ -1,0 +1,66 @@
+[
+  {
+    "question_id": "2001-2008-q1",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "All four key facts are present: original 'scientifically' wording quoted, Tony Gill's objection (Dewey classmarks, subject headings, iconographic classifications), Martin's same-day agreement and removal of the word, and retention of the biological 'determination' example.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2001-2008-q2",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "Captures the April debate (verifiable tests, certifying authority, tiered conformance, logo), the September draft's 'no loss of meaning w.r.t. CRM concepts' criterion with subset restriction, and the Ivanov-prompted counterexample ('Physical Object has date: Time-Span'). Extra November/adoption detail does not contradict the gold, which only covers through September.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2001-2008-q3",
+    "verdict": "partial",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Correctly gets Köhler's problem, Oliveira's R58 proposal, and Doerr's P130/R58 generalization reconciliation, but omits entirely Köhler's pushback that R58 implies substantial content modification and his R65 'is realised in' counter-suggestion, which the gold treats as a distinct, unresolved key fact.",
+    "missing_or_wrong": ["Köhler's follow-up objection that R58 implies substantial content modification, and his suggestion of R65 'is realised in' as a better fit, left unaddressed"]
+  },
+  {
+    "question_id": "2001-2008-q4",
+    "verdict": "hallucinated",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Gets the trigger, the P107.1/P144.1 drafting, and the negative-vote/subgroup alternative right, but the gold's difficulty is 'unresolved' precisely because the archive records no final decision on P107.1/P144.1 — instead the produced answer confidently asserts the properties were adopted via an e-mail vote (even citing the live ontology as 'confirmation'), inventing a resolution the gold explicitly says never happened, and never mentions the actual pivot to debating the 'two or more members' requirement.",
+    "missing_or_wrong": ["invents a final 'adopted' resolution and a deciding e-mail vote where gold says no final decision appears", "omits the archive's actual pivot to the 'two or more members' scope-note debate"]
+  },
+  {
+    "question_id": "2009-2011-q1",
+    "verdict": "correct",
+    "facts_hit": 3,
+    "facts_total": 3,
+    "reasoning": "Correctly states no general 'caused' property exists, that causation is treated as interpretation/inference outside CRM's factual scope (capturing the judge half of the police/judge analogy, though not the police half explicitly), and gives the co-occurring-process/P123/P15/P17 workaround.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2009-2011-q2",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "Covers the hierarchy-of-authority objection (Schich, Ivanov, Balzer), Doerr's museums-only scope restriction, the conditional aggregator allowance (mapping + documented relationship), and the star-shaped co-reference tractability argument.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2009-2011-q3",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "Correctly distinguishes asymmetric/antisymmetric with symmetric subproperties allowed, clarifies 'dynamic' as user-subtyping, and identifies both unresolved threads: the P130-has-inverse-but-P139-doesn't inconsistency and the unanswered 'nonsymmetric' renaming proposal.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2009-2011-q4",
+    "verdict": "hallucinated",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Correctly conveys the 'no comprehensive list' decision, the abandonment rationale, and the case-by-case mechanism, but confidently adds a third 'fundamental/unambiguous' disjoint pair (Time-Span/Place/Dimension) that the gold explicitly says does not exist — the guidance confirms only two. It also swaps in different counter-examples and drops the gold's specific Actor/Collection overloading example.",
+    "missing_or_wrong": ["asserts a third confirmed 'fundamental' disjoint pair (Time-Span/Place/Dimension) contradicting gold's 'only two'", "omits the Actor/Collection overloaded-node counter-example"]
+  }
+]

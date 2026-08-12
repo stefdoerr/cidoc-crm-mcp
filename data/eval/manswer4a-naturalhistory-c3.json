@@ -1,0 +1,66 @@
+{
+  "case_id": "naturalhistory-c3",
+  "answer": "Split the question in two, because the CRM tools draw the line differently for each half. Documenting THAT the sequencing happened, on THIS specimen, and pointing to the external accession is squarely in scope and is exactly what CRMsci gives you: the fish is an E20 Biological Object; the tissue removed for sequencing is an S2 Sample Taking (P16 used specific object -> E20); the sequencing itself is an S4 Single Observation (P16 used specific object -> the sample; O16 observed value -> the resulting data); the public database's record is an E31 Document (P70 documents, required on E31, pointing back at the specimen/sample) carrying the accession number as its E42 Identifier (P1 is identified by / P48 has preferred identifier). That is a complete, well-supported chain and it is the CRM's own recommended shape for 'ordinary collection management' in natural history (Issue 77/76 background: collection management is covered by the CRM, the deeper scientific discourse is not, by design). Storing the actual nucleotide string and the bootstrap-support values as content of the specimen record is a different claim, and the tools do not support it: the CRM has no class or property for 'sequence content' or 'a support value' on E20 or S4 -- per the Minimality principle and Issue 241's scope note, information outside the CRM's formally defined semantics can at best be parked as an unstructured P3 has note, never as a modelled fact. The bootstrap values are worse than merely unmodelled: they characterize a phylogenetic tree built by comparing this sequence against several external relatives' sequences, so they are a property of that multi-specimen analytic construct, not of this one physical fish -- attaching them to the specimen's own record misattributes a comparative result as if it were a fact about the object. Recommendation: the collection database should document the sequencing event, link the specimen to it, and hold the external accession as an identifier; it should not try to hold the sequence or the tree statistics as first-class content of the specimen record itself.",
+  "classes_proposed": ["E20", "S2", "S4", "E31", "E42"],
+  "properties_proposed": ["P16", "O16", "P70", "P1", "P48"],
+  "rejected_alternatives": [
+    {
+      "option": "Modelling the full nucleotide sequence as a property/attribute of the E20 Biological Object specimen record",
+      "why_not": "concept E20 lists no property for sequence content, and the Minimality principle plus Issue 241's scope note say information outside the CRM's formal semantics can only be attached as an unstructured P3 has note -- it is never a modelled fact of the object."
+    },
+    {
+      "option": "Recording the bootstrap-support values as part of the specimen's own record",
+      "why_not": "the values are an output of a phylogenetic tree built by comparing this specimen's sequence with sequences of other, external specimens (per the CRMsci S4/observation framework, an O16 observed value is the result of a single observation on one entity) -- they characterize the tree, a multi-specimen analytic construct, not this one E20 Biological Object, so filing them under the specimen misattributes a comparative result as a direct fact about it."
+    },
+    {
+      "option": "Treating the deposited sequence purely as an E73 Information Object with no identifier chain, skipping E42",
+      "why_not": "the case explicitly says the external database 'gave it its own accession number' -- E42 Identifier's scope note (assigned to identify uniquely and permanently within the context of an organisation) matches that fact exactly, and dropping it loses the one piece of information the curator's alternative (stop and point outward) actually needs."
+    }
+  ],
+  "citations": [
+    "E20", "S2", "S4", "E31", "E42", "P16", "O16", "P70", "P1", "P48",
+    "Modelling principles > Minimality",
+    "Introduction > Scope of the CIDOC CRM",
+    "Issue 77", "Issue 76", "Issue 241",
+    "t1188", "t1494", "t0091"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"DNA sequence\"",
+    "docs \"genetic sequence\" --kind narrative",
+    "docs \"biological specimen sample\"",
+    "concept E20",
+    "issues \"DNA sequence\"",
+    "\"DNA\"",
+    "thread t1494",
+    "concept S4",
+    "docs \"accession number external database\"",
+    "docs \"digital object\" --kind narrative",
+    "docs \"Minimality principle\" --kind narrative",
+    "concept S19",
+    "docs \"sample specimen collection natural history\" --kind narrative",
+    "issues \"GenBank accession sequence database\"",
+    "issue 77",
+    "docs \"scope of the CIDOC CRM scientific documentation\" --kind narrative",
+    "issues \"Documentation structures for Natural History collection management taxonomic discourse\"",
+    "quote t0091 \"elaboration of the proposal\"",
+    "docs \"practical scope reference standards\" --kind narrative",
+    "issues \"storing raw scientific data duplicate\"",
+    "connect E20 E31",
+    "connect E20 E42",
+    "issues \"taxonomic discourse identification of specimens covered by CRM extension needed\"",
+    "issue 76",
+    "issue 241",
+    "docs \"Additional information that falls outside the semantics formally defined by the CRM\" --raw",
+    "docs \"Practical Scope of the CIDOC CRM is expressed in terms of the set of reference standards\" --raw",
+    "\"phylogenetic tree bootstrap analysis\"",
+    "docs \"CRMsci scientific observation model scope\" --kind narrative",
+    "connect S4 E42",
+    "connect E20 E73",
+    "thread t1188",
+    "concept S2"
+  ],
+  "confidence": "medium",
+  "notes": "No thread in the archive discusses DNA sequencing or bootstrap values by name (expected -- the CRM stays abstract by design). The closest concrete precedent found was t1188 (phyloseq / sample merging in CRMsci) and t1494 (DNA-taxonomic-distance measurement cited as the complex end of the instrument-class discussion), neither of which resolves the specimen-record-vs-pointer question directly; the reasoning here rests on composing S2/S4/E31/E42 from their concept dossiers plus the Minimality principle and the Issue 76/77 natural-history collection-management-vs-taxonomic-discourse split, rather than on a single thread that argues this exact boundary. CRMsci's S4/Observation area is itself still under active revision (t0956, t1458, t1605 unresolved/informational), so the exact class shape could shift."
+}

@@ -1,0 +1,28 @@
+{
+  "case_id": "archaeology-c3",
+  "answer": "In scope. The exact surveyed outline is not something the CRM excludes -- it has a purpose-built pair of constructs for exactly this. Model the cut's extent as an E53 Place, and attach the closed total-station polygon to it via P168 'place is defined by', whose range is E94 Space Primitive. E94's own scope note gives a WKT POLYGON literal as a direct example of the kind of value it holds, and explicitly exists 'to link CIDOC CRM encoded data to the kinds of geometries used in maps or Geoinformation systems.' CRMgeo's SP6 Declarative Place names this pattern precisely: a Place whose identity is derived from its geometric definition. So the outline can live as first-class E94 data inside the same CRM-based catalogue as the context/finds/interpretation, satisfying the archivist's request, rather than being forced out to a separately linked GIS file. Whether it is physically stored in the same table or a separate one is an implementation choice the CRM explicitly declines to prescribe (Objectives of the CIDOC CRM: 'not optimised for implementation specific storage and processing factors') -- but that is a storage-engineering question, not a modelling boundary; the class model itself has no gap here.",
+  "classes_proposed": ["E53", "E94"],
+  "properties_proposed": ["P168"],
+  "rejected_alternatives": [
+    {"option": "P171 at some place within / P172 contains", "why_not": "domain/range is E53 -> E94 like P168, but both scope notes frame them as min/max approximations for places 'not precisely known' -- the opposite of a closed total-station polygon, which is exact."},
+    {"option": "SP5 Geometric Place Expression (CRMgeo)", "why_not": "its concept dossier reports it as historical -- 'only this archive attests SP5; CRMgeo's current declarations no longer carry it' -- so it is not part of the current model; E94 Space Primitive is the current construct that plays this role."},
+    {"option": "P157 is at rest relative to (provides reference space for)", "why_not": "E53's scope note ties this property to positioning relative to a mobile physical object (its own example is H.M.S. Victory), not to defining a place from a direct geometric survey -- a different situation than a static grave cut."}
+  ],
+  "citations": ["E53", "E94", "P168", "SP6", "Introduction > Objectives of the CIDOC CRM"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E53",
+    "concept E94",
+    "docs \"geometry GIS geographic information system\" --kind narrative",
+    "docs \"declarative place geometric coordinates\" --kind declaration",
+    "concept P168",
+    "concept SP6",
+    "docs \"Minimality principle\" --kind narrative",
+    "\"surveyed polygon total station GIS coordinates\"",
+    "thread t1397",
+    "concept SP5"
+  ],
+  "confidence": "high",
+  "notes": "SP5 Geometric Place Expression looked like the obvious extension class from the mailing-list thread (t1397) but its own concept dossier flags it as historical, not current -- a good example of why the concept tool's status line needs checking before citing a family-model class. No direct quotations were used, so search.py quote was not needed."
+}

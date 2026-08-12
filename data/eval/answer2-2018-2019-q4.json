@@ -1,0 +1,18 @@
+{
+  "question_id": "2018-2019-q4",
+  "answer": "Yes, the group settled on it, though only provisionally within the 2018-2019 window and it kept being revisited afterward. Stephen Stead raised the issue in thread t1156 ('**NEW ISSUE** Ordinal Property for E55 Type', Jan 2019), motivated exactly by the condition-report example in the question (Excellent/Good/Average/Poor/Critical) plus map scales and fire hazard ratings, proposing 'Pxx is conceptually greater than (is conceptually less than)', domain and range E55 Type, many-to-many, transitive. A long naming debate followed -- alternatives floated included 'conceptually follows/precedes' (Franco Niccolucci, then adopted by Stead mid-thread), 'ranked higher than/ranked lower than' (Stead again, backed by Robert Sanderson), 'is_ordinal_superior_to/inferior_of' (George Bruseker), and 'ordinally after/before' (Athanasios Velios) -- alongside a substantive dispute (mainly from Martin Doerr) over whether this belonged in CRMbase at all versus CRMsci or being left to SKOS. Thread t1156 ends in Jan 2019 unresolved, with Doerr proposing to move it into CRMsci and Christian-Emil Ore still questioning the whole approach. Resolution came at the CRM-SIG meeting in Paris: in thread t1219 ('Issue 407: Ordinal Property for E55 Type', June 2019) Robert Sanderson reports 'Agreement at Paris SIG that this could go into CRMsci and thus \"Oxx is conceptually greater than\"', with a revised scope note adding concept-scheme/vocabulary context (e.g. 'good' and 'average' in the same conservation-report vocabulary). So the final form settled on in 2018-2019 was: property (is conceptually greater than / is conceptually less than), domain and range E55 Type, transitive, placed in CRMsci rather than CRMbase. A later 2022 thread (t1631) and the current ontology lookup show this became CRMsci property O28, still described there as 'a draft property' with Martin Doerr raising fresh scope concerns (whether it should apply to E55 Type generally or be restricted to a new subclass) -- so full closure of the issue extended beyond 2019, but the name/placement settled in the Paris SIG agreement is what stuck.",
+  "found": true,
+  "cited_threads": ["t1156", "t1219", "t1631"],
+  "queries_run": [
+    "search \"rank instances of Type relative to each other\" -k 10",
+    "thread t1156",
+    "thread t1219",
+    "search \"Issue 407 Ordinal Property\" -k 15 --after 2019",
+    "search \"conceptually greater than CRMsci\" -k 15",
+    "concept O28",
+    "search \"O28 is conceptually greater than\" -k 10",
+    "thread t1631"
+  ],
+  "confidence": "high",
+  "notes": "The concept O28 lookup was the key pivot -- it revealed the property had a current standard identifier, which led to thread t1631 (2022) confirming both the eventual name/number and that the SIG was still calling it 'draft' and reopening scope questions years later, so 'settled' needed qualification rather than a clean yes/no."
+}

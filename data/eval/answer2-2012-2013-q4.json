@@ -1,0 +1,18 @@
+{
+  "question_id": "2012-2013-q4",
+  "answer": "No. In thread t0630 (\"ISSUE: P62 needs a parent and a sibling\", started 2012-07-05 by Vladimir Alexiev), Alexiev proposed adding P67a_refers_to and P129a_is_about as physical-domain sibling shortcuts to P62_depicts, parallel to the conceptual-domain P67/P129, based on British Museum data examples (e.g. a drawing of an actress whose data also names the scriptwriter, a blue plaque referring to a person and a building). Several examples were offered (Matthew Stiff, Sebastian Rahtz), but Stephen Stead argued these were really conceptual objects (inscriptions) carried by the physical object, not direct physical 'aboutness'. Martin Doerr gave a detailed justification for why CRM generally avoids such shortcuts for inscriptions (to preserve the identity/integration role of the intermediate text-bearing object), while saying CRM-SIG would need to consider the new evidence at a future meeting. The thread ends on 2012-07-20 with Alexiev asking whether it had been logged as an issue, and no acceptance is recorded. The current CIDOC CRM standard (v7.1.3) confirms no such properties were ever added: P67 and P129 still have domain E89 Propositional Object only, and P62 remains the sole physical-object 'aboutness' shortcut - so the parallel proposal was not accepted.",
+  "found": true,
+  "cited_threads": ["t0630"],
+  "queries_run": [
+    "search \"depicts shortcut refers to about physical object\" -k 10",
+    "thread t0630",
+    "search \"P67a P129a aboutness shortcut physical\" -k 10",
+    "concept P62",
+    "concept P67",
+    "search \"P62 issue number aboutness rejected accepted\" -k 10",
+    "search \"P67a P129a\" -k 10 --mode bm25",
+    "ontology"
+  ],
+  "confidence": "medium",
+  "notes": "No explicit later message says the SIG formally voted 'rejected' - the thread simply trails off after Martin's 2012-07-10 explanation and Vladimir's 2012-07-20 reply, and the episode summary tags it 'unresolved'. The conclusion that it was not accepted rests on inference from the absence of P67a/P129a (or any equivalent) in the current ontology skeleton, combined with no message anywhere in later search results reporting adoption."
+}

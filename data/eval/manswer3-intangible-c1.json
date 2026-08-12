@@ -1,0 +1,43 @@
+{
+  "case_id": "intangible-c1",
+  "answer": "The CRM family gives you the apparatus to record either cataloguing decision, but it does not tell you which one is correct -- that judgment stays with the archivist. Model 'the lullaby' as an LRMoo F1 Work, and each singing event as an F31 Performance (R80 performed) carried out by the woman or her daughter, captured on the 1952 and 2003 carriers respectively. The open question the case poses -- same work vs. a distinct but related work -- maps onto two mutually exclusive LRMoo paths: (a) both performances realise the SAME F1 Work (its content simply varies across performances/expressions, which the F2 Expression scope note explicitly allows: 'if a text is revised or modified, the result is considered to be a new F2 Expression', not automatically a new Work); or (b) the 2003 lullaby is a second, distinct F1 Work related to the first via R2 'is derivative of', which is defined for exactly this shape -- 'an instance of F1 Work which modifies the content of another instance of F1 Work'. R1 'is logical successor of' was considered and rejected: its scope note is about a work that 'logically continues the content' of another (e.g. a sequel), which doesn't fit a variant transmitted by memory. Neither the CRM nor LRMoo gives a rule for choosing between (a) and (b) for informally, orally transmitted material -- and the SIG's own decision register shows this is a live gap, not an oversight on my part. Issue 527 'Modelling provenance of Intangible Heritage' is still Open and names exactly this: oral/musical traditions where 'content variants pose another challenge, which may need a core-variant relation, or a variant set' -- i.e. no such relation has been adopted. Issue 274 'Archetypical sounds' is also Open; the SIG concluded that distinguishing properties for relating one sound piece to another were 'not been identified so far', and separately flagged 'sound as intangible heritage' as a further, unaddressed dimension. So: in scope for recording whichever choice the archive makes (F1/F2/F31 plus R2 or plain co-membership), but the CRM does not adjudicate 'same lullaby' vs 'related-by-descent' for oral tradition -- that is an acknowledged open problem in the model itself, and the archive should document its own editorial judgment (most plausibly R2 is derivative of, given the melody has demonstrably changed) rather than treat either answer as CRM-certified.",
+  "classes_proposed": ["F1", "F2", "F31"],
+  "properties_proposed": ["R80", "R2"],
+  "rejected_alternatives": [
+    {"option": "R1 (is logical successor of)", "why_not": "scope note: 'associates an instance of F1 Work which logically continues the content of another instance of F1 Work' -- fits sequels/continuations, not a memory-transmitted variant with no logical continuation of narrative content"},
+    {"option": "a new dedicated class for sound variants/archetypes", "why_not": "Issue 274 (archetypical sounds) is Open and the SIG explicitly concluded no distinguishing properties justifying a new class had been identified"}
+  ],
+  "citations": [
+    "F1", "F2", "F31", "R2", "R1", "R80",
+    "Modelling principles > Minimality",
+    {"id": "t1475", "quote": "Content variants pose another challenge, which may need a core-variant relation, or a variant set"},
+    {"id": "t1467", "quote": "these have not been identified so far"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E73",
+    "concept F1",
+    "concept F2",
+    "concept F31",
+    "concept F3",
+    "concept R2",
+    "concept R1",
+    "connect F1 F1",
+    "connect F31 F1",
+    "docs \"oral tradition\"",
+    "docs \"variant\" --kind narrative",
+    "docs \"same work\"",
+    "\"folk song\"",
+    "threads \"oral tradition variant song\"",
+    "thread t1475",
+    "issue 527",
+    "issue 274",
+    "thread t1467",
+    "quote t1475 \"core-variant relation\"",
+    "quote t1467 \"these have not been identified so far\"",
+    "docs \"minimality\" --kind narrative"
+  ],
+  "confidence": "medium",
+  "notes": "The mechanics (F1 Work / F2 Expression / F31 Performance, R2 is derivative of) are well-supported by concept dossiers, but the actual boundary-drawing rule for oral-tradition variants has no settled answer in the corpus -- both directly relevant SIG issues (527, 274) are registered Open, so 'in scope, but the model doesn't decide it for you' is the most honest reading rather than a confident single class."
+}

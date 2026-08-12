@@ -1,0 +1,394 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
+@prefix dayuding: <https://example.org/dayuding#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# =====================================================================
+# The object itself
+# =====================================================================
+
+dayuding:DaYuDing a crm:E22_Human-Made_Object ;
+    rdfs:label "Da Yu ding"@en, "大盂鼎"@zh ;
+    crm:P2_has_type dayuding:Type_Ding ;
+    crm:P45_consists_of dayuding:Material_Bronze ;
+    crm:P43_has_dimension dayuding:Dim_Height, dayuding:Dim_Weight, dayuding:Dim_Aperture ;
+    crm:P46_is_composed_of dayuding:Body, dayuding:Legs ;
+    crm:P128_carries dayuding:Inscription ;
+    crm:P3_has_note "One of a pair of bronze tripods (ding) owned together by the Pan family from 1875 to 1951, the other being the Da Ke ding, and popularly grouped with the Mao Gong ding as the 'Three Treasures of China'. The Da Ke ding and Mao Gong ding are not modelled here as they are separate objects outside this file's scope; where the article states an event affected both Pan-family tripods together, the note on that event says so." .
+
+dayuding:Type_Ding a crm:E55_Type ;
+    rdfs:label "ding (Chinese ritual bronze tripod vessel)"@en .
+
+dayuding:Material_Bronze a crm:E57_Material ;
+    rdfs:label "bronze"@en .
+
+# ---- Dimensions -------------------------------------------------------
+
+dayuding:Dim_Height a crm:E54_Dimension ;
+    rdfs:label "height: 101.9 cm"@en ;
+    crm:P2_has_type dayuding:Type_Height ;
+    crm:P90_has_value "101.9"^^xsd:decimal ;
+    crm:P91_has_unit dayuding:Unit_Centimetre .
+
+dayuding:Dim_Weight a crm:E54_Dimension ;
+    rdfs:label "weight: 153.5 kg"@en ;
+    crm:P2_has_type dayuding:Type_Weight ;
+    crm:P90_has_value "153.5"^^xsd:decimal ;
+    crm:P91_has_unit dayuding:Unit_Kilogram .
+
+dayuding:Dim_Aperture a crm:E54_Dimension ;
+    rdfs:label "aperture (mouth diameter): 77.8 cm"@en ;
+    crm:P2_has_type dayuding:Type_ApertureDiameter ;
+    crm:P90_has_value "77.8"^^xsd:decimal ;
+    crm:P91_has_unit dayuding:Unit_Centimetre .
+
+dayuding:Type_Height a crm:E55_Type ; rdfs:label "height"@en .
+dayuding:Type_Weight a crm:E55_Type ; rdfs:label "weight"@en .
+dayuding:Type_ApertureDiameter a crm:E55_Type ; rdfs:label "aperture diameter"@en .
+dayuding:Unit_Centimetre a crm:E58_Measurement_Unit ; rdfs:label "centimetre"@en .
+dayuding:Unit_Kilogram a crm:E58_Measurement_Unit ; rdfs:label "kilogram"@en .
+
+# ---- Parts and decoration --------------------------------------------
+
+dayuding:Body a crm:E19_Physical_Object ;
+    rdfs:label "body and mouth of the ding"@en ;
+    crm:P45_consists_of dayuding:Material_Bronze ;
+    crm:P56_bears_feature dayuding:TaotieDecoration .
+
+dayuding:Legs a crm:E19_Physical_Object ;
+    rdfs:label "legs of the ding"@en ;
+    crm:P45_consists_of dayuding:Material_Bronze ;
+    crm:P56_bears_feature dayuding:AnimalFaceDecoration ;
+    rdfs:comment "The article states the tripod has three legs ('The tripod is round, with three legs, a common shape...') but later, in the same paragraph, says 'its four legs are engraved with animal face patterns.' This is an internal inconsistency in the source; the model does not assert a leg count (no P57 has_number_of_parts) rather than silently pick one of the two numbers."@en .
+
+dayuding:TaotieDecoration a crm:E25_Human-Made_Feature ;
+    rdfs:label "taotie pattern engraved on the mouth"@en ;
+    crm:P2_has_type dayuding:Type_TaotiePattern .
+
+dayuding:AnimalFaceDecoration a crm:E25_Human-Made_Feature ;
+    rdfs:label "animal-face pattern engraved on the legs"@en ;
+    crm:P2_has_type dayuding:Type_AnimalFacePattern .
+
+dayuding:Type_TaotiePattern a crm:E55_Type ; rdfs:label "taotie pattern"@en .
+dayuding:Type_AnimalFacePattern a crm:E55_Type ; rdfs:label "animal-face pattern"@en .
+
+# ---- Inscription and its content --------------------------------------
+
+dayuding:Inscription a crm:E34_Inscription, crm:E33_Linguistic_Object ;
+    rdfs:label "inscription on the interior of the Da Yu ding"@en ;
+    crm:P72_has_language dayuding:Language_Chinese ;
+    crm:P67_refers_to dayuding:KingKang, dayuding:Yu, dayuding:NanGong ;
+    crm:P3_has_note "19 lines, 291 Chinese characters, on the inside of the vessel. Four parts, per the article: (1) a historical/moral rationale for the fall of the Shang dynasty and the rise of the Western Zhou, turning on excessive wine-drinking having cost the Shang the Mandate of Heaven; (2) a short charge to Yu to emulate his late grandfather Nan Gong; (3) the king's appointment of Yu with army power and a detailed inventory, including 1,726 slaves; (4) Yu's own dedication, recording that he had the vessel made for his deceased grandfather Nan Gong in response to the king's kindness. Most of the text is described as 'the King's Speech'. Modelled as one resource, double-typed E34_Inscription/E33_Linguistic_Object, rather than as two resources joined by P128_carries: P128's domain is E18 Physical Thing, and E34 is not a physical thing (its own scope note calls it 'the underlying prototype', not the physical embodiment) but already IS a kind of E33 by subclassing -- an initial draft wrongly asserted E34 P128_carries E33, which crm_validate_rdf correctly rejected (see report)." .
+
+dayuding:Language_Chinese a crm:E56_Language ;
+    rdfs:label "Chinese"@en .
+
+# =====================================================================
+# People and institutions
+# =====================================================================
+
+dayuding:KingKang a crm:E21_Person ;
+    rdfs:label "King Kang of Zhou"@en ;
+    crm:P3_has_note "Reigned 1020-996 BC per the article. Not modelled with P98i_was_born / P100i_died_in: the article gives these as regnal years, not birth/death dates." .
+
+dayuding:Yu a crm:E21_Person ;
+    rdfs:label "Yu (盂)"@en .
+
+dayuding:NanGong a crm:E21_Person ;
+    rdfs:label "Nan Gong (南宮)"@en ;
+    crm:P3_has_note "Yu's late grandfather, for whom Yu had the ding made, per the inscription as described in the article. Not linked to Yu by crm:P152_has_parent: P152 has_parent is for a direct parent-child link and Nan Gong is Yu's grandfather." .
+
+dayuding:SongJinjian a crm:E21_Person ;
+    rdfs:label "Song Jinjian (宋金鑒)"@en ;
+    crm:P3_has_note "1821-1863, per the article. A local rich man." .
+
+dayuding:ZhouGengsheng a crm:E21_Person ;
+    rdfs:label "Zhou Gengsheng (周庚盛)"@en ;
+    crm:P3_has_note "A governor, per the article; no dates given." .
+
+dayuding:YuanBaoheng a crm:E21_Person ;
+    rdfs:label "Yuan Baoheng (袁保恆)"@en ;
+    crm:P3_has_note "1826-1878, per the article. A follower of Zuo Zongtang." .
+
+dayuding:ZuoZongtang a crm:E21_Person ;
+    rdfs:label "Zuo Zongtang"@en ;
+    crm:P3_has_note "No dates given by the article." .
+
+dayuding:PanZuyin a crm:E21_Person ;
+    rdfs:label "Pan Zuyin (潘祖蔭)"@en ;
+    crm:P3_has_note "1830-1890, per the article. A collector; in 1890 he also acquired the Da Ke ding." .
+
+dayuding:PanZunian a crm:E21_Person ;
+    rdfs:label "Pan Zunian (潘祖年)"@en ;
+    crm:P3_has_note "1870-1925, per the article. Pan Zuyin's younger brother." .
+
+dayuding:PanDayu a crm:E21_Person ;
+    rdfs:label "Pan Dayu (潘達于)"@en ;
+    crm:P3_has_note "1906-2007, per the article. The article does not state her relationship to Pan Zunian, nor how or when she came to hold the tripods between his 1925 death and her 1951 donation; this file does not invent an event to bridge that gap (see report)." .
+
+dayuding:ShanghaiMuseum a crm:E74_Group ;
+    rdfs:label "Shanghai Museum"@en .
+
+dayuding:NationalMuseumOfChina a crm:E74_Group ;
+    rdfs:label "National Museum of China"@en .
+
+# =====================================================================
+# Places
+# =====================================================================
+
+dayuding:LiVillage a crm:E53_Place ;
+    rdfs:label "Li Village"@en ;
+    crm:P89_falls_within dayuding:JingdangTownship .
+
+dayuding:JingdangTownship a crm:E53_Place ;
+    rdfs:label "Jingdang Township"@en ;
+    crm:P89_falls_within dayuding:QishanCounty .
+
+dayuding:QishanCounty a crm:E53_Place ;
+    rdfs:label "Qishan County"@en ;
+    crm:P89_falls_within dayuding:Shaanxi .
+
+dayuding:Shaanxi a crm:E53_Place ;
+    rdfs:label "Shaanxi"@en ;
+    crm:P3_has_note "The article's own address, 'Li Village, Jingdang Township, Qishan County, Shaanxi', is decomposed into this full P89_falls_within chain since every level is stated explicitly. The chain deliberately stops at Shaanxi (a province): the article never says 'China', and adding it would be exactly the kind of beyond-the-source addition flagged in the brief (cf. dayuding:Beijing, dayuding:Suzhou, neither given a country either)." .
+
+dayuding:Beijing a crm:E53_Place ;
+    rdfs:label "Beijing"@en .
+
+dayuding:Suzhou a crm:E53_Place ;
+    rdfs:label "Suzhou"@en .
+
+# =====================================================================
+# Broad dating: the Western Zhou dynasty
+# =====================================================================
+
+dayuding:WesternZhouDynasty a crm:E4_Period ;
+    rdfs:label "Western Zhou dynasty"@en ;
+    crm:P4_has_time-span dayuding:WesternZhouSpan .
+
+dayuding:WesternZhouSpan a crm:E52_Time-Span ;
+    rdfs:label "1046-771 BC"@en ;
+    crm:P3_has_note "1046-771 BC, per the article. Not given as xsd:date-typed P82a/P82b bounds: an astronomical-year-numbering conversion (year N BC = -(N-1)) was tried first, but crm_validate_rdf's underlying RDF library cannot parse negative-year xsd:date literals ('-1045-01-01' etc.) at all, only warns and drops them, so the plain-text year range is kept here instead of a broken typed literal (see report)." .
+
+# =====================================================================
+# Production
+# =====================================================================
+
+dayuding:Production a crm:E12_Production ;
+    rdfs:label "casting of the Da Yu ding"@en ;
+    crm:P108_has_produced dayuding:DaYuDing ;
+    crm:P14_carried_out_by dayuding:Yu ;
+    crm:P4_has_time-span dayuding:ProductionSpan ;
+    crm:P3_has_note "The inscription itself dates the casting to the king's 23rd year, given by the article as 997 BC. Yu's own dedication (see dayuding:Inscription) records that he had the vessel made for his grandfather Nan Gong; crm:P14_carried_out_by is asserted to Yu at face value on that basis, without a role qualifier (see report on P14.1). The identification of the reigning king as King Kang of Zhou is itself an attribution: the article says the ding 'is attributed to King Kang', on the strength of the Xiao Yu ding (found alongside it, and referring to Kings Wen, Wu and Cheng) and of stylistic comparison with other bronzes of his reign -- not a direct statement of the Da Yu ding's own text. This file does not separately model the Xiao Yu ding as an entity (see report); no crm:P7_took_place_at is asserted for this production, because the article gives the ding's find-place, not its place of manufacture, and the two are not the same claim." .
+
+dayuding:ProductionSpan a crm:E52_Time-Span ;
+    rdfs:label "997 BC (23rd year of King Kang of Zhou, per the ding's inscription)"@en ;
+    crm:P3_has_note "997 BC, per the article's own conversion of the inscribed '23rd Year'. No xsd:date-typed P82a/P82b bounds for the same reason as dayuding:WesternZhouSpan (see its note): the validator's date parser cannot handle negative years." ;
+    crm:P86_falls_within dayuding:WesternZhouSpan .
+
+# =====================================================================
+# Discovery / excavation
+# =====================================================================
+
+dayuding:Discovery a crmsci:S19_Encounter_Event ;
+    rdfs:label "unearthing of the Da Yu ding at Li Village"@en ;
+    crmsci:O19_encountered_object dayuding:DaYuDing ;
+    crmsci:O21_encountered_at dayuding:LiVillage ;
+    crm:P4_has_time-span dayuding:DaoguangEraSpan ;
+    crm:P3_has_note "The article gives no excavator and no more precise date than 'In the Daoguang era (1821-1851) of the Qing dynasty, this tripod was unearthed'; no crm:P14_carried_out_by is asserted." .
+
+dayuding:DaoguangEraSpan a crm:E52_Time-Span ;
+    rdfs:label "Daoguang era (1821-1851)"@en ;
+    crm:P82a_begin_of_the_begin "1821-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1851-12-31"^^xsd:date .
+
+# =====================================================================
+# Ownership and custody history
+# =====================================================================
+
+# 1. Song Jinjian acquires the newly unearthed tripod
+dayuding:Acq1_SongAcquires a crm:E8_Acquisition ;
+    rdfs:label "Song Jinjian acquires the ding"@en ;
+    crm:P24_transferred_title_of dayuding:DaYuDing ;
+    crm:P22_transferred_title_to dayuding:SongJinjian ;
+    crm:P3_has_note "No previous owner is named by the article; E8 Acquisition's own scope note allows for 'the acquisition from an unknown source', which is the reading used here. No time-span is asserted: the article gives no date beyond 'next', after the Daoguang-era discovery." .
+
+# 2. Governor Zhou Gengsheng expropriates it
+dayuding:Acq2_ZhouExpropriates a crm:E8_Acquisition ;
+    rdfs:label "Governor Zhou Gengsheng expropriates the ding from Song Jinjian"@en ;
+    crm:P24_transferred_title_of dayuding:DaYuDing ;
+    crm:P23_transferred_title_from dayuding:SongJinjian ;
+    crm:P22_transferred_title_to dayuding:ZhouGengsheng ;
+    crm:P2_has_type dayuding:Type_Expropriation .
+
+dayuding:Type_Expropriation a crm:E55_Type ; rdfs:label "expropriation"@en .
+
+# 3. Song Jinjian recovers it after Zhou's death
+dayuding:Acq3_SongRecovers a crm:E8_Acquisition ;
+    rdfs:label "Song Jinjian recovers the ding after Zhou Gengsheng's death"@en ;
+    crm:P24_transferred_title_of dayuding:DaYuDing ;
+    crm:P23_transferred_title_from dayuding:ZhouGengsheng ;
+    crm:P22_transferred_title_to dayuding:SongJinjian ;
+    crm:P2_has_type dayuding:Type_Recovery ;
+    crm:P3_has_note "The article does not state the legal mechanism (e.g. inheritance dispute, restitution by Zhou's heirs) -- only that Song recovered it 'after he [Zhou] died'." .
+
+dayuding:Type_Recovery a crm:E55_Type ; rdfs:label "recovery"@en .
+
+# 4. Yuan Baoheng buys it, before winter 1873
+dayuding:Acq4_YuanBuys a crm:E8_Acquisition ;
+    rdfs:label "Yuan Baoheng buys the ding"@en ;
+    crm:P24_transferred_title_of dayuding:DaYuDing ;
+    crm:P23_transferred_title_from dayuding:SongJinjian ;
+    crm:P22_transferred_title_to dayuding:YuanBaoheng ;
+    crm:P2_has_type dayuding:Type_Purchase ;
+    crm:P4_has_time-span dayuding:BeforeWinter1873Span ;
+    crm:P17_was_motivated_by dayuding:PriceAmount ;
+    crm:P3_has_note "Price: 700 taels of silver, per the article. crm:P17_was_motivated_by is used to connect this Acquisition to the price only because it was the sole legal property crm_connect returned between E8_Acquisition and E97_Monetary_Amount; the CRM-SIG's own 2015 'Money, money, money' thread treats the link between an acquisition and its price as an open issue with no adopted, clean property, so this is the best available option rather than an endorsed idiom (see report). Flagged discrepancy: the article gives Song Jinjian's dates as 1821-1863, yet also has him selling the ding to Yuan Baoheng 'before winter 1873' -- ten years after the death date it gives him elsewhere. This file reproduces both figures from the article as given and does not resolve the discrepancy (e.g. by assuming heirs conducted the sale, or that one of the two dates is a typo in the source); see report." .
+
+dayuding:Type_Purchase a crm:E55_Type ; rdfs:label "purchase"@en .
+
+dayuding:PriceAmount a crm:E97_Monetary_Amount ;
+    rdfs:label "700 taels of silver"@en ;
+    crm:P90_has_value "700"^^xsd:decimal ;
+    crm:P91_has_unit dayuding:Unit_Tael ;
+    crm:P180_has_currency dayuding:Unit_Tael .
+
+dayuding:Unit_Tael a crm:E98_Currency ;
+    rdfs:label "tael (silver)"@en .
+
+dayuding:BeforeWinter1873Span a crm:E52_Time-Span ;
+    rdfs:label "before winter 1873"@en ;
+    crm:P82b_end_of_the_end "1873-12-01"^^xsd:date ;
+    crm:P3_has_note "The article says only 'Before winter 1873'; no lower bound is given, so none is asserted (no P82a). The upper bound '1873-12-01' is this file's own approximation of 'before winter' for a machine-comparable date and is not a claim the article itself makes that precisely." .
+
+# 5. Yuan (uncertain: "may have") sends it to Zuo Zongtang
+dayuding:Move_YuanToZuo a crm:E10_Transfer_of_Custody ;
+    rdfs:label "Yuan Baoheng possibly sends the ding to Zuo Zongtang"@en ;
+    crm:P30_transferred_custody_of dayuding:DaYuDing ;
+    crm:P28_custody_surrendered_by dayuding:YuanBaoheng ;
+    crm:P29_custody_received_by dayuding:ZuoZongtang ;
+    crm:P3_has_note "The article hedges this step: 'Yuan may have sent the tripod he bought to Zuo.' Modelled as E10_Transfer_of_Custody (physical possession only, not a claim about legal title) because that is the weaker and more uncertain of the two claims the source could be making. CIDOC CRM has no dedicated confidence/uncertainty property in the base model for flagging a whole event as merely probable -- the CRM-SIG's own 2019 discussion on 'Guidelines for representing uncertainty' (Issue 349) confirms this is still an open question, and Martin Doerr's reply there notes that reifying every uncertain claim through E13 Attribute Assignment is 'computationally heavy' -- so the hedge is carried here in prose (this note) rather than by a formal qualifier. A stricter reading of the source would omit this node entirely and simply leave unstated how title reached Zuo Zongtang before his 1875 gift." .
+
+# 6. Zuo Zongtang gives it to Pan Zuyin, 1875, Beijing
+dayuding:Acq5_ZuoGifts a crm:E8_Acquisition ;
+    rdfs:label "Zuo Zongtang gives the ding to Pan Zuyin"@en ;
+    crm:P24_transferred_title_of dayuding:DaYuDing ;
+    crm:P23_transferred_title_from dayuding:ZuoZongtang ;
+    crm:P22_transferred_title_to dayuding:PanZuyin ;
+    crm:P2_has_type dayuding:Type_Gift ;
+    crm:P7_took_place_at dayuding:Beijing ;
+    crm:P4_has_time-span dayuding:Y1875Span ;
+    crm:P3_has_note "crm:P23_transferred_title_from Zuo Zongtang is asserted here even though the article never narrates an event by which Zuo himself acquired title (only that Yuan 'may have sent' him the object) -- inferred from the fact that Zuo 'presented the tripod he treasured as a gift', which presupposes he held it as his own to give. This is an inference beyond the literal text, distinct from the hedged custody move above." .
+
+dayuding:Type_Gift a crm:E55_Type ; rdfs:label "gift"@en .
+
+dayuding:Y1875Span a crm:E52_Time-Span ;
+    rdfs:label "1875"@en ;
+    crm:P82a_begin_of_the_begin "1875-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1875-12-31"^^xsd:date .
+
+# 7. Pan Zunian inherits the family property, including the ding
+dayuding:Acq6_PanZunianInherits a crm:E8_Acquisition ;
+    rdfs:label "Pan Zunian inherits the family property, including the ding"@en ;
+    crm:P24_transferred_title_of dayuding:DaYuDing ;
+    crm:P23_transferred_title_from dayuding:PanZuyin ;
+    crm:P22_transferred_title_to dayuding:PanZunian ;
+    crm:P2_has_type dayuding:Type_Inheritance ;
+    crm:P4_has_time-span dayuding:Y1890Span ;
+    crm:P7_took_place_at dayuding:Beijing ;
+    crm:P3_has_note "The article states only that Pan Zunian 'inherited the family property' after introducing Pan Zuyin's dates (1830-1890); the ding is not individually renamed at this step. Both its inclusion in 'the family property' and the 1890 date (Pan Zuyin's death year, used here as the inheritance date) are this file's inference, not a direct statement. crm:P7_took_place_at Beijing is also inferred, not stated directly for this event: the article places the Pan family, and its collection, in Beijing from Zuo's 1875 gift until 'about 1896', bracketing this 1890 event on both sides." .
+
+dayuding:Type_Inheritance a crm:E55_Type ; rdfs:label "inheritance"@en .
+
+dayuding:Y1890Span a crm:E52_Time-Span ;
+    rdfs:label "1890"@en ;
+    crm:P82a_begin_of_the_begin "1890-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1890-12-31"^^xsd:date .
+
+# 8. The Pan family's move from Beijing to Suzhou, about 1896
+dayuding:Move_ToSuzhou a crm:E9_Move ;
+    rdfs:label "the Pan family's move from Beijing to Suzhou with their collection"@en ;
+    crm:P25_moved dayuding:DaYuDing ;
+    crm:P26_moved_to dayuding:Suzhou ;
+    crm:P27_moved_from dayuding:Beijing ;
+    crm:P4_has_time-span dayuding:Ca1896Span ;
+    crm:P3_has_note "The article's collection, 'including the two tripods', also moved the Da Ke ding; not modelled here (see dayuding:DaYuDing note)." .
+
+dayuding:Ca1896Span a crm:E52_Time-Span ;
+    rdfs:label "about 1896"@en ;
+    crm:P82a_begin_of_the_begin "1896-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1896-12-31"^^xsd:date ;
+    crm:P3_has_note "The article says 'In about 1896'; this file keeps a single-year span rather than widening it to reflect that hedge -- a stricter reading might use a wider span instead." .
+
+# 9. Burial for safekeeping, 1937
+dayuding:Move_Burial1937 a crm:E9_Move ;
+    rdfs:label "the Pan family buries the ding for safekeeping"@en ;
+    crm:P25_moved dayuding:DaYuDing ;
+    crm:P27_moved_from dayuding:Suzhou ;
+    crm:P4_has_time-span dayuding:Y1937Span ;
+    crm:P17_was_motivated_by dayuding:SecondSinoJapaneseWar ;
+    crm:P3_has_note "'Fearing looting or destruction, the Pan family packed the two tripods in a wood box and buried it' (the Da Ke ding was buried together with it; not modelled here). crm:P27_moved_from Suzhou is inferred from the family's ~1896 move there and no subsequent move being stated before 1937; no crm:P26_moved_to is asserted, since the article does not name the burial place beyond implying it was on or near the family's Suzhou property, and this file does not narrow that further." .
+
+dayuding:SecondSinoJapaneseWar a crm:E5_Event ;
+    rdfs:label "Second Sino-Japanese War"@en ;
+    crm:P4_has_time-span dayuding:SecondSinoJapaneseWarSpan ;
+    crm:P3_has_note "Broke out in 1937, per the article ('In 1937, the Second Sino-Japanese War broke out'). No end date is given by the article, so none is asserted here." .
+
+dayuding:SecondSinoJapaneseWarSpan a crm:E52_Time-Span ;
+    rdfs:label "began 1937"@en ;
+    crm:P82a_begin_of_the_begin "1937-01-01"^^xsd:date ;
+    crm:P3_has_note "Only a begin bound is given, matching dayuding:BeforeWinter1873Span's pattern of a one-sided bound rather than inventing an end date (the war's actual 1945 end is common knowledge, not something this article states)." .
+
+dayuding:Y1937Span a crm:E52_Time-Span ;
+    rdfs:label "1937"@en ;
+    crm:P82a_begin_of_the_begin "1937-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1937-12-31"^^xsd:date .
+
+# 10. Pan Dayu donates it to the Shanghai Museum, 1951
+dayuding:Acq7_PanDayuDonates a crm:E8_Acquisition ;
+    rdfs:label "Pan Dayu donates the ding to the Shanghai Museum"@en ;
+    crm:P24_transferred_title_of dayuding:DaYuDing ;
+    crm:P23_transferred_title_from dayuding:PanDayu ;
+    crm:P22_transferred_title_to dayuding:ShanghaiMuseum ;
+    crm:P2_has_type dayuding:Type_Donation ;
+    crm:P4_has_time-span dayuding:Y1951Span ;
+    crm:P3_has_note "The Da Ke ding was donated in the same act; not modelled here. No event in this file bridges Pan Zunian's 1890 inheritance and Pan Dayu's ownership by 1951 -- the article never states how the ding passed between them, and none is invented (see dayuding:PanDayu note)." .
+
+dayuding:Type_Donation a crm:E55_Type ; rdfs:label "donation"@en .
+
+dayuding:Y1951Span a crm:E52_Time-Span ;
+    rdfs:label "1951"@en ;
+    crm:P82a_begin_of_the_begin "1951-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1951-12-31"^^xsd:date .
+
+# 11. Transfer from the Shanghai Museum to the National Museum of China, 1959
+dayuding:Custody1_ToNMC a crm:E10_Transfer_of_Custody ;
+    rdfs:label "the ding is transferred from the Shanghai Museum to the National Museum of China"@en ;
+    crm:P30_transferred_custody_of dayuding:DaYuDing ;
+    crm:P28_custody_surrendered_by dayuding:ShanghaiMuseum ;
+    crm:P29_custody_received_by dayuding:NationalMuseumOfChina ;
+    crm:P4_has_time-span dayuding:Y1959Span ;
+    crm:P3_has_note "The article's word is 'transferred', naming neither sale nor gift between these two state institutions. Modelled as E10_Transfer_of_Custody rather than E8_Acquisition on that basis, as the more conservative reading (see report). This file therefore has no E8_Acquisition after 1951, so its last asserted title-holder remains the Shanghai Museum even though the National Museum of China has held physical custody since 1959 -- a consequence of the source's own wording, not a claim that the Shanghai Museum kept legal ownership." .
+
+dayuding:Y1959Span a crm:E52_Time-Span ;
+    rdfs:label "1959"@en ;
+    crm:P82a_begin_of_the_begin "1959-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1959-12-31"^^xsd:date .
+
+# 12. Loan back to the Shanghai Museum for a limited-time display, March 2004
+dayuding:Custody2_2004Loan a crm:E10_Transfer_of_Custody ;
+    rdfs:label "the ding is lent to the Shanghai Museum for a limited-time display"@en ;
+    crm:P30_transferred_custody_of dayuding:DaYuDing ;
+    crm:P28_custody_surrendered_by dayuding:NationalMuseumOfChina ;
+    crm:P29_custody_received_by dayuding:ShanghaiMuseum ;
+    crm:P4_has_time-span dayuding:Y200403Span ;
+    crm:P2_has_type dayuding:Type_LoanForExhibition ;
+    crm:P3_has_note "For a limited-time display marking Pan Dayu's 100th birthday, reuniting the Da Yu ding with the Da Ke ding (not modelled here) for the first time in nearly 50 years. The article does not state when this loan ended, so no return event is modelled." .
+
+dayuding:Type_LoanForExhibition a crm:E55_Type ; rdfs:label "loan for exhibition"@en .
+
+dayuding:Y200403Span a crm:E52_Time-Span ;
+    rdfs:label "March 2004"@en ;
+    crm:P82a_begin_of_the_begin "2004-03-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "2004-03-31"^^xsd:date .

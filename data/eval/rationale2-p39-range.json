@@ -1,0 +1,165 @@
+{
+  "question_id": "p39-range",
+  "question": "Why is the range of P39 measured restricted?",
+  "short_answer": "Because the SIG decided that a \"measurement\" in the CRM's sense is an act of direct physical observation, and you can only observe something that is physically there. In March 2021 the range of P39 measured was cut from E1 CRM Entity (i.e. anything at all) to E18 Physical Thing; counting the words in a text or putting a market value on a coin hoard are inferences rather than observations, and are now recorded with the more general E13 Attribute Assignment. The change also removed an old asymmetry, in which the model let you measure things that were not allowed to have a dimension in the first place.",
+  "explanation": "The restriction has a long run-up. In 2008 the SIG had gone the other way: issue 156, closed in Crete in May 2008, widened P39's range from E70 Thing to E1 CRM Entity so that processes and their durations could be measured. That left the model lopsided, and it stayed lopsided for a decade -- issue 223 (2013) and issue 229 flagged it without fixing it.\n\nRobert Sanderson stated the asymmetry cleanly in September 2020 (thread t1388, reopened as issue 511): dimensions hang off E70 Thing via P43 has dimension, so most classes cannot have a dimension, yet P39's range of E1 let you measure absolutely anything -- \"an entity that cannot have dimensions can still be measured\". Two fixes were possible: widen P43 or narrow P39. The SIG narrowed P39, and narrowed it further than Sanderson proposed, to E18 Physical Thing rather than E70 Thing.\n\nThe reason given in the room (49th joint meeting, 8-11 March 2021) was epistemic, not tidiness. E16 Measurement had always been scoped as \"direct observation of particular states of physical reality\"; Martin Doerr argued that measuring a duration really means observing a clock, that time has no physical dimension, and that E13 Attribute Assignment already covers assigning quantities to non-physical things. A second, practical reason appears in the e-vote thread: the over-wide range of P39 was blocking a proper generalisation of measurement in CRMsci.\n\nFrancesco Beretta objected that this breaks monotonicity -- E16 keeps its identifier but loses substance, so existing data using it for coin values or place areas becomes non-conformant. He was answered that the migration path (to E13/P140/P141) is loss-free, and that the break was worth taking before the model went to ISO. The meeting voted 7 to 1 to accept.",
+  "real_world_example": "The SIG's own worked case is the carbon-14 dating of the \"Schoeninger Speer II\", a roughly 400,000-year-old wooden spear excavated at Schoeningen in 1995: a real instrument reading taken off a physically present object, and still the second example of P39 in the standard. The contrast is sharper in what was deleted from E16 in the same e-vote: the pixel size of the National Gallery's downloadable JPEG of Titian's \"Bacchus and Ariadne\", and the fact that the E21 Person scope note in CRM v5.0.4 runs to 77 words. Both were previously offered as measurements; after 2021 they are attribute assignments, because nothing physical is being observed. The casualty Beretta and Sanderson both named is place: \"The county of Los Angeles has a dimension of 4751 square miles\" can no longer be said with P39, and as of the archive it still cannot be said in CRMbase at all.",
+  "decision_status": "settled",
+  "issues": [
+    {
+      "id": 511,
+      "title": "Measurements and Dimensions",
+      "status": "Done",
+      "outcome": "Range of P39 measured reduced from E1 CRM Entity to E18 Physical Thing for v7.1.1. Voted 7-1 in favour at the 49th joint meeting (8-11 March 2021), after a preliminary 6-1 vote that the issue was mature enough to decide; the consequential scope-note changes to E16, P39, P140, P40 and P43 went to an e-vote on 19 March 2021. Francesco Beretta cast a VETO, withdrew it and voted NO; the motion passed and the issue closed in May 2021."
+    },
+    {
+      "id": 156,
+      "title": "Measuring activities",
+      "status": "Done",
+      "outcome": "The opposite decision, taken in Crete in May 2008: 'about measuring the process and the dimension of process we decided to change the range of P39 to be E1 CRM Entity instead of E70 Thing'. This is the widening that issue 511 reversed."
+    },
+    {
+      "id": 223,
+      "title": "specialization of P16 (raised as 'Correcting issue 156')",
+      "status": "Done",
+      "outcome": "Raised in 2013 by Athina Kritsotaki because moving P39's range to E1 while leaving P43's domain at E70 was inconsistent. Folded into issue 227/229 and closed in 2014 without resolving the asymmetry."
+    },
+    {
+      "id": 229,
+      "title": "Correcting issue 156 (introduction of CRMsci)",
+      "status": "Done",
+      "outcome": "Closed at the 36th meeting (Heraklion, August 2016) by handing the measurement question to issue 307; the meeting recorded that 'in the scope note of E16 should be defined that a measurement is a result of observation', the principle later used to justify the 2021 reduction."
+    },
+    {
+      "id": 537,
+      "title": "How does reducing the range of P39 measured affect CRMsci?",
+      "status": "Done",
+      "outcome": "Opened as a direct consequence of 511. At the 50th meeting (22-25 June 2021) the SIG accepted revised definitions of S21, O16, O24, O12 and O9, 6 in favour and none against."
+    },
+    {
+      "id": 536,
+      "title": "Properties for assigning dimensions to places and temporal entities",
+      "status": "Done",
+      "outcome": "The gap the reduction opened -- no way to give a dimension to a place or a period -- was meant to be filled here for v7.2. It never was: the issue was 'stopped by editorial decision' on the grounds that OGC standards such as GeoSPARQL and GML can be used with CRMgeo instead of adding new CRM properties."
+    },
+    {
+      "id": 388,
+      "title": "Reference to the measurements of position of things",
+      "status": "Done",
+      "outcome": "Cross-referenced by 511; position measurement was handled in CRMsci (Position Measurement as a subclass of S4 Observation) rather than by widening P39."
+    }
+  ],
+  "threads": [
+    "t1388",
+    "t1433",
+    "t1444",
+    "t0681"
+  ],
+  "citations": [
+    {
+      "id": "t1388",
+      "quote": "I propose that the range of P39 measured be changed to E70 Thing to resolve this inconsistency"
+    },
+    {
+      "id": "t1433",
+      "quote": "This seems inconsistent that an entity that cannot have dimensions can still be measured"
+    },
+    {
+      "id": "t1433",
+      "quote": "The county of Los Angeles has a dimension of 4751 square miles"
+    },
+    {
+      "id": "minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s056",
+      "quote": "allowing non-monotonic reasoning can be a problem"
+    },
+    {
+      "id": "minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s056",
+      "quote": "measuring duration in time, involves observing a time-measuring device. Time has no physical dimension."
+    },
+    {
+      "id": "minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s056",
+      "quote": "In agreement: 7 Against: 1"
+    },
+    {
+      "id": "minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s056",
+      "quote": "one cannot measure instances of E53 Place, or instances of E2 Temporal Entity using P39 any more"
+    },
+    {
+      "id": "minutes:Minutes_50th_CIDOC_CRM_SIG_and_43rd_FRBRoo_Harmonization_meeting#s049",
+      "quote": "Accept proposed changes"
+    },
+    {
+      "id": "t1444",
+      "quote": "Changed to clarify that E16 Measurement requires observation, including an update to an example and the removal of two examples"
+    },
+    {
+      "id": "t1444",
+      "quote": "I'm concerned with monotonicity"
+    },
+    {
+      "id": "t1444",
+      "quote": "I withdraw it and simply vote NO"
+    },
+    {
+      "id": "t1444",
+      "quote": "The reduction was decided in the last CRM-SIG with good majority after considering all pros and cons"
+    },
+    {
+      "id": "t1444",
+      "quote": "Physical presence is one of the most fundamental reasoning processes in the CRM"
+    },
+    {
+      "id": "t1444",
+      "quote": "developing adequate generalization of E16 Measurement in CRMsci"
+    },
+    {
+      "id": "t1444",
+      "quote": "The migration path provided is definitely loss-free from a technical point of view"
+    },
+    {
+      "id": "crm732#s0129",
+      "quote": "The reason is twofold"
+    },
+    {
+      "id": "crm732#s0129",
+      "quote": "only physical things can be observed for quantitative measurements"
+    }
+  ],
+  "caveats": "The decision is fully recorded, but three things should be stated carefully. (1) The 49th-meeting minutes name the participants only by initials (FB, MD, OE, RS); the identification of FB as Francesco Beretta and MD as Martin Doerr comes from matching the same arguments in the e-vote thread t1444, not from the minutes themselves. (2) The long chain of reasoning about 'physical presence', epistemic humility, and CRMsci being blocked for a decade is Martin Doerr's argument in a mailing-list message, written after the vote to explain it; the SIG as a body recorded only the shorter exchange in the minutes and the vote tallies. The published Migration Instructions in v7.3.2 do, however, ratify a two-part version of that reasoning as the model's official explanation. (3) The register's own summary of 511 mentions only the e-vote and the withdrawn veto; without the minutes there is no record that the substantive reduction had already been carried in the room 7-1, which is exactly the distinction Christian-Emil Ore and Martin Doerr had to spell out during the veto dispute. (4) The 'ensuing problem' created by the restriction -- that places and temporal entities can no longer be measured -- was never solved inside CRMbase; issue 536 was stopped by editorial decision in favour of OGC/CRMgeo. Whether that counts as a clean resolution is not something the archive settles. Note also that P39's range was E70 Thing, not E18, before 2008; the pre-2008 history further back than issue 156 was not traced here.",
+  "queries_run": [
+    "search.py issue 511",
+    "search.py concept P39",
+    "search.py quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s056 \"511\"",
+    "search.py docs \"range of P39 measured reduce E18 Physical Thing\" --kind minutes",
+    "search.py docs \"511: Measurement and dimensions Proposal Reduce the range of P39 ensuing problem\" --kind minutes --json",
+    "search.py docs \"537 How does reducing the range of P39 measured affect CRMsci\" --kind minutes --json",
+    "search.py thread t1444",
+    "search.py thread t1433",
+    "search.py issue 536",
+    "search.py issue 223",
+    "search.py issue 156",
+    "search.py issue 229",
+    "search.py thread t0681",
+    "search.py issues \"range of P39 measured E70 Thing E1 CRM Entity measure immaterial\"",
+    "search.py issues \"measure a period process duration range P39 E1\"",
+    "search.py docs \"issue 156 measuring activities range of P39 process dimension of process\" --kind minutes",
+    "search.py docs \"CRMsci Issue 307 Harmonizing Measurement 229 correcting 156\" --kind minutes --json",
+    "search.py docs \"Migration Instructions for the reduced scope of E16 Measurement\" --kind narrative --json",
+    "search.py docs \"Issue 536 Properties for assigning dimensions to places and temporal entities\" --kind minutes --json",
+    "search.py quote t1388 \"I propose that the range of P39 measured be changed to E70 Thing to resolve this inconsistency\"",
+    "search.py quote t1433 \"This seems inconsistent that an entity that cannot have dimensions can still be measured\"",
+    "search.py quote t1433 \"The county of Los Angeles has a dimension of 4751 square miles\"",
+    "search.py quote t1444 \"I'm concerned with monotonicity\"",
+    "search.py quote t1444 \"I withdraw it and simply vote NO\"",
+    "search.py quote t1444 \"Physical presence is one of the most fundamental reasoning processes in the CRM\"",
+    "search.py quote t1444 \"developing adequate generalization of E16 Measurement in CRMsci\"",
+    "search.py quote t1444 \"The migration path provided is definitely loss-free from a technical point of view\"",
+    "search.py quote t1444 \"Changed to clarify that E16 Measurement requires observation, including an update to an example and the removal of two examples\"",
+    "search.py quote t1444 \"the running time of a movie on a specific video cassette\"",
+    "search.py quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s056 \"In agreement: 7 Against: 1\"",
+    "search.py quote minutes:49th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_Minutes#s056 \"allowing non-monotonic reasoning can be a problem\"",
+    "search.py quote minutes:Minutes_50th_CIDOC_CRM_SIG_and_43rd_FRBRoo_Harmonization_meeting#s049 \"Accept proposed changes\"",
+    "search.py quote crm732#s0129 \"The reason is twofold\"",
+    "search.py quote crm732#s0129 \"only physical things can be observed for quantitative measurements\""
+  ]
+}

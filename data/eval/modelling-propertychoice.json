@@ -1,0 +1,23 @@
+[
+  {
+    "case": "A regional decorative arts museum sent six lacquered cabinets for structural repair to an outside conservation workshop. The workshop's invoice lists the studio's principal as having 'supervised and approved' the repairs, but the actual filling, regluing and touch-up work was carried out by two apprentices under her direction. The museum's own conservation officer visited twice to check progress but did none of the hands-on work herself.",
+    "question": "When we record the repair work, which of the three people — the studio principal, the apprentices, or the museum's conservation officer — should be linked as having carried out the treatment, and should more than one of them be recorded that way?",
+    "kind": "property choice",
+    "why_hard": "Multiple agents surround the same activity in different roles (supervision, execution, oversight); the case turns on which role corresponds to actually carrying out the work versus merely being present or overseeing it, not on picking the activity's class itself.",
+    "distinctive_terms": ["lacquered cabinets", "conservation workshop", "apprentices", "structural repair", "supervised and approved"]
+  },
+  {
+    "case": "A retired engineer consigned a group of scientific instruments to a regional auction house. The auction house catalogued and sold the lot to a bidder on the phone, then, per its standard terms, held the buyer's payment for ten days before forwarding the net proceeds to the engineer and releasing the instruments to a courier the buyer had arranged. The buyer never had any direct dealings with the engineer at all.",
+    "question": "Does the record of this sale show title passing straight from the engineer to the phone bidder, or does it show two separate transfers — engineer to auction house, then auction house to bidder — given that the auction house held the money and controlled the release of the goods?",
+    "kind": "property choice",
+    "why_hard": "The auction house physically stands between seller and buyer and controls money and goods, which tempts modelling it as a title-holder in its own right; the real choice is whether title itself ever passes through it, or only custody and payment do, and that determines which pair of parties the transfer-of-title relation should actually connect.",
+    "distinctive_terms": ["scientific instruments", "consigned", "phone bidder", "net proceeds", "auction house"]
+  },
+  {
+    "case": "Two local history societies agreed, in a single exchange of letters, to swap material to round out each other's collections: Society A handed over a set of nineteenth-century trade tokens, and Society B handed over a set of commemorative medals from the same period. No money changed hands, and both societies treat the whole thing as one transaction, not two separate donations.",
+    "question": "For this one exchange agreement, does each society appear as the source in one transfer-of-title record and the recipient in another, or is there a way to show both societies as simultaneously giving and receiving within a single transfer, and which direction should the relation point for each object?",
+    "kind": "property choice",
+    "why_hard": "An exchange collapses two opposite-direction transfers into one negotiated act; the difficulty is not identifying that title changed hands but deciding whether the 'from' and 'to' roles can both be held by both parties in one event, or whether the exchange has to be split into two linked transfers to keep the direction of the relation honest.",
+    "distinctive_terms": ["trade tokens", "commemorative medals", "exchange of letters", "local history societies", "swap"]
+  }
+]

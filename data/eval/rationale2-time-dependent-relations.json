@@ -1,0 +1,175 @@
+{
+  "question_id": "time-dependent-relations",
+  "question": "How does the CIDOC CRM handle time-dependent relations, and why?",
+
+  "short_answer": "The CIDOC CRM deliberately puts no timestamp on a relationship. Saying that an object had an owner, a part or a location means only that this held at some time during the object's life; if you need to know when, you are expected to describe the event that started or ended it -- the acquisition, the move, the joining. The SIG chose this because a knowledge base built on it can only ever grow: new facts get added, and nothing already recorded has to be deleted or rewritten. The rule was proposed as an explanatory note in 2012 (Issue 204, accepted at Amersfoort), a proposal to attach validity spans to properties themselves was tried and abandoned in 2017-2019 (Issue 369, closed at Heraklion), and the principle now sits in the standard's Modelling Principles chapter as the fourth consequence of monotonicity.",
+
+  "explanation": "The CRM refuses to timestamp relationships and timestamps happenings instead. Ownership is not an attribute of a painting with a start and end date; it is the residue of an acquisition, which has a date because events are the things that occupy time. Location is the residue of a move. The CRM's shortcut properties (has former or current owner, has former or current location) are defined as abbreviations of exactly those event paths.\n\nThe reason is what the SIG calls monotonicity: everything once recorded should stay true as more is learned. If a relationship carried its own validity period, learning that the painting changed hands would mean editing or deleting the earlier statement -- a destructive update, and one that assumes you learn about the past in chronological order. Historians and archaeologists do not. Under the time-neutral rule the two statements coexist as an aggregation over the object's lifetime, and the ordering is recovered from the events when known. The 47th meeting (June 2020), drafting the Modelling Principles chapter line by line, put the trade-off in one sentence: time-neutral properties can later be specialized by time-specific ones in an extension, but not the reverse, so the CRM 'always gives priority to modelling properties as time-neutral, and rather representing changes by events.'\n\nThis was argued out more than once. It first appears in 2001 as Issue 23, 'Where does temporal validity fit in with short cuts and indirection?'; the 4th Chios meeting (2002) resolved to build a general mechanism giving temporal validity to any attribute, and the issue closed at Oxford in 2003 as absorbed into the shortcut framework of Issue 127. Martin Doerr revived it in 2017 with a table of thirty-plus CRM properties whose validity can be shorter than that of their domain and range, which became Issue 369 'Timed relations'. The 39th meeting weighed properties-of-properties against activities and drew the distinction that stuck: 'to document the temporality of such properties we introduce activities and not PC classes.' Heraklion 2019 closed Issue 369 precisely because the SIG had abandoned properties holding over time-spans in favour of new temporal entities -- Phase, Social Institution, Mental Attitude.\n\nThe one concession, the 'current' properties, is the exception that proves the rule. At Belval in December 2022 (Issue 616) the meeting recorded that these 'break the basic assumption that a CIDOC CRM KB/database store accumulate history' and 'were originally introduced because they were used in museums back in the 90s.' Deprecation was proposed, deferred to Issue 634, and that issue closed in Paris in 2024 citing 'general discontent'. They survive for want of a replacement, not because the SIG defends them.",
+
+  "real_world_example": "A museum object's location. The 'current location' field in 1990s collection systems is what the CRM's P55 has current location was built to accommodate -- the SIG said so explicitly at Belval in 2022 -- and it is non-monotonic: when the object goes on loan, someone has to overwrite the field, and the previous location is lost unless separately kept. The CRM's preferred encoding is to record each E9 Move with its own time-span; the object's whole location history then accumulates, the current location is derivable as the destination of the latest move, and nothing ever has to be deleted. The corresponding time-neutral property, P53 has former or current location, is safe to export to another repository precisely because it makes no claim about now. The specification's illustration of this (Silver cup 232 in Display Cabinet 23, Room 4, British Museum) is labelled fictitious in the standard itself; the museum-practice motivation, however, is the SIG's own and is recorded in the Belval minutes.",
+
+  "decision_status": "settled",
+
+  "issues": [
+    {
+      "id": 23,
+      "title": "Where does temporal validity fit in with short cuts and indirection?",
+      "status": "Done",
+      "outcome": "First framing of the problem, raised by 2001. The 2nd joined meeting (Oct 2001) decided 'We need rules for defining the semantics of the shortcuts in the property scope notes' and tasked Martin Doerr with a guidance document. The 4th Chios meeting (2002) decided 'A guideline should be created describing a general extension mechanism compatible with the CRM, which provides temporal validity to any attribute. The attribute becomes a shortcut of the temporal entity describing the range of validity.' Closed at the 8th Chios meeting, Oxford, 7 Oct 2003: 'The model has been changed - dealt with by Issue 127.'"
+    },
+    {
+      "id": 127,
+      "title": "Properties of E13 Attribute Assignment",
+      "status": "Done",
+      "outcome": "Closed 17 Sep 2003. Established the general shortcut/indirection pattern the CRM uses for time-dependent and opinion-dependent assertions: any property directly attached to an item can also be described indirectly through an action (E13 Attribute Assignment and its subclasses), and 'all cases of properties in this model that are also described indirectly through an action, are characterized as short cuts of this action'. Issue 23 was closed as absorbed into this."
+    },
+    {
+      "id": 204,
+      "title": "Clarification on scope notes of P50, P52, P55 and explanatory note for temporal validity and 'current' properties",
+      "status": "Done",
+      "outcome": "Closed 20 Nov 2012. The SIG accepted Martin Doerr's proposed introduction text (as edited by Matthew Stiff) at Amersfoort: stating a property of an item means only that it held at some time-span; more temporal detail should be given by describing the acquiring/losing events, e.g. E9 Move; 'current' properties are non-monotonic and are only recommended where they can be maintained consistently, otherwise data should be reclassified to the time-neutral superproperties, especially on export."
+    },
+    {
+      "id": 369,
+      "title": "Timed relations",
+      "status": "Done",
+      "outcome": "Closed at Heraklion, October 2019 (45th joint meeting). The SIG did NOT adopt properties-on-properties carrying validity time-spans. The minutes: the decision 'was motivated by the fact that there was a markedly different approach from this point forward - instead of modelling states for the continuation of which there exists positive evidence as properties on properties (which would mean that properties would hold over time spans), the sig resorted to the notions of: Phase ... Social Institution ... Mental Attitude.' Discussion transferred to Issue 422."
+    },
+    {
+      "id": 422,
+      "title": "Phases",
+      "status": "Done",
+      "outcome": "Closed/paused at Heraklion, October 2019. Carried the timed-relations problem forward as a class-based solution: Phase to be broken down into Social, Mental and Physical phenomena; the label 'Phase' reserved for a potential future superclass. Confirms the SIG's chosen direction was new temporal entities, not timestamped properties."
+    },
+    {
+      "id": 459,
+      "title": "Modelling Principles (Intro to the CRM)",
+      "status": "Done",
+      "outcome": "The 46th (Feb 2020) and 47th (June 2020) meetings drafted and reviewed the Monotonicity section of the specification's Modelling Principles chapter. This is where the time-neutrality rule acquired its published justification, including the statement that time-neutral properties can be specialized by time-specific ones in a monotonic extension but not vice-versa."
+    },
+    {
+      "id": 616,
+      "title": "shortcuts in P50 has current keeper, P52 has current owner, P55 has current location",
+      "status": "Done",
+      "outcome": "Closed at Belval, December 2022. Recorded that 'current' properties 'need external curation and also break the basic assumption that a CIDOC CRM KB/database store accumulate history', and that 'they were originally introduced because they were used in museums back in the 90s'. Deprecation proposed by CEO but deferred: an alternative for expressing current validity must exist first. Spun off Issue 634."
+    },
+    {
+      "id": 634,
+      "title": "What is required for expressing current knowledge?",
+      "status": "Done",
+      "outcome": "Closed at Paris, March 2024, with no replacement designed. The register records 'general discontent for the has|is current xxx properties, as they require a lot of curating and present a simplistic view of the world (to the extent that there have been proposals to underrepresent them - if at all - in the graphical overview of the CRM).' The 'current' properties therefore remain in the standard by inertia."
+    }
+  ],
+
+  "threads": ["t1029", "t1170", "t1171", "t1190", "t1269", "t1673", "t1677", "t0119"],
+
+  "citations": [
+    {
+      "id": "minutes:47th_joint_CIDOC-CRM_40th_FRBRoo_SIG_meeting_minutes_v1.5#s146-1",
+      "quote": "the CIDOC CRM always gives priority to modelling properties as time-neutral, and rather representing changes by events",
+      "context": "47th joint meeting of the CIDOC CRM SIG and ISO/TC46/SC4/WG9, 26 June 2020 - Monotonicity. This is the SIG's own one-sentence statement of the rationale, agreed in the room while drafting the Modelling Principles chapter (Issue 459)."
+    },
+    {
+      "id": "minutes:47th_joint_CIDOC-CRM_40th_FRBRoo_SIG_meeting_minutes_v1.5#s146-1",
+      "quote": "Time-neutral properties may be specialized in a future monotonic extension by time-specific properties, but not vice-versa",
+      "context": "Same meeting and section. The asymmetry argument: choosing time-neutral leaves the timed option open, choosing timed forecloses it."
+    },
+    {
+      "id": "minutes:crmsig_report_2001-10-1518#s021",
+      "quote": "We need rules for defining the semantics of the shortcuts in",
+      "context": "Report of the Second Joined Meeting, October 2001, under agenda item '23. Where does temporal validity fit in with short cuts and indirection?'. Full decision line reads '... the property scope notes'; action assigned to Martin Doerr."
+    },
+    {
+      "id": "minutes:4th_chios_meeting_minutes#s014",
+      "quote": "A guideline should be created describing a general extension mechanism compatible with the CRM, which provides temporal validity to any attribute",
+      "context": "Minutes of the 4th CHIOS/CIDOC CRM SIG meeting, 2002, Issue 23. Continues: 'The attribute becomes a shortcut of the temporal entity describing the range of validity.'"
+    },
+    {
+      "id": "minutes:8th_chios_meeting_minutes#s006",
+      "quote": "The model has been changed",
+      "context": "8th CHIOS/CIDOC CRM SIG meeting, 6-9 October 2003, Issue 23. Full line: 'Decision: The model has been changed - dealt with by Issue 127. Issue closed.'"
+    },
+    {
+      "id": "minutes:draft_minutes_-_39th-32nd_meeting_v2#s020",
+      "quote": "All properties having non-trivial validity in time to make timespan",
+      "context": "39th joined meeting, 9 October 2017, 'Open discussion about timed relations'. One of the options MD put on the table before the SIG rejected it."
+    },
+    {
+      "id": "minutes:draft_minutes_-_39th-32nd_meeting_v2#s020",
+      "quote": "To document the temporality of such properties we introduce activities and not PC classes",
+      "context": "Same section. The distinction that survived: temporality is carried by activities/events, while properties-of-properties (PC classes) are reserved for genuine relationships."
+    },
+    {
+      "id": "minutes:Lyon-minutesOftheMeeting_ver.4#s015",
+      "quote": "CRM properties whose temporal validity may be shorter than that of their domain and range",
+      "context": "41st joined meeting, Lyon, 22 May 2018, ISSUE 369: Timed Relations. The precise statement of the problem, arising from the FB/MD exchange."
+    },
+    {
+      "id": "minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s009",
+      "quote": "instead of modelling states for the continuation of which there exists positive evidence as properties on properties",
+      "context": "45th joint meeting, Heraklion, 22-25 October 2019, Issue 369. Continues '(which would mean that properties would hold over time spans), the sig resorted to the notions of: Phase ... Social Institution ... Mental Attitude.' This is the recorded refusal of timed properties."
+    },
+    {
+      "id": "minutes:55th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO#s042",
+      "quote": "They were originally introduced because they were used in museums back in the 90s",
+      "context": "55th joint meeting, Belval, 6-9 December 2022, Issue 616. Preceded by: '\"current\" properties need external curation and also break the basic assumption that a CIDOC CRM KB/database store accumulate history. CEO proposed to deprecate them.'"
+    },
+    {
+      "id": "minutes:58CIDOC_CRM_SIG_Minutes#s054",
+      "quote": "They require a lot of curating and present a simplistic view of the world",
+      "context": "58th joint meeting, Paris, 19-22 March 2024, Issue 634. The SIG's closing verdict on the 'current' properties, closed without designing a replacement."
+    },
+    {
+      "id": "crm732#s0058",
+      "quote": "The fourth consequence of monotonicity relates to the use of time dependent properties in a knowledge base",
+      "context": "CIDOC CRM v7.3.2, Modelling principles > Monotonicity. The published form of the rule, in substance the text accepted for Issue 204 in 2012 and re-edited under Issue 459 in 2020."
+    },
+    {
+      "id": "crm732#s0059",
+      "quote": "these properties have time-neutral superproperties by which respective instances can be reclassified if the validity becomes unknown or no longer holds",
+      "context": "CIDOC CRM v7.3.2, Modelling principles > Monotonicity. The escape hatch for the 'current' properties: demote to the time-neutral superproperty rather than delete."
+    }
+  ],
+
+  "caveats": "The Amersfoort 2012 minutes do NOT record the argument for Issue 204, contrary to what one might hope. Both meeting entries for that issue are bare agenda headings with no body: the 25th meeting (30 April 2012) records only 'ISSUE 204: We reviewed the scope notes of the properties P50, P52, P55, and ...' and the 27th meeting (Amersfoort, 22 November 2012) records only '204: The issue is done'. Issue 204 also has no mailing-list thread citing it by number. Its reasoning therefore still survives only as the register's transcript of Martin Doerr's 12 November 2012 proposal and Matthew Stiff's 13 November edit -- i.e. one participant's text that the SIG then accepted, not a recorded room debate. What the minutes corpus DOES add is everything around Issue 204: the 2001-2003 prehistory (Issue 23), the 2017-2019 attempt and refusal (Issue 369, 39th/41st/45th meetings), the 2020 drafting of the published justification (47th meeting, Issue 459), and the 2022-2024 second thoughts about the 'current' properties (Issues 616 and 634). The Issue 369 discussion is genuinely resolved as a closure, but the positive replacement it points to -- Phase, Social Institution, Mental Attitude -- was itself paused in Issue 422, so the CRM's answer for social and evolving states beyond simple event-derived facts is still incomplete. 'Settled' here means the time-neutral-properties-plus-events principle is settled and published; it does not mean the SIG considers the whole territory closed. The claim that the 'current' properties survive 'by inertia' is my inference from Issue 634 closing with discontent and no replacement, not a sentence the SIG wrote. Attributions marked MD, FB, CEO, GB in the minutes are initials used by the minute-takers; where I name Martin Doerr and Matthew Stiff I am following the register's own naming.",
+
+  "queries_run": [
+    "search.py issue 204",
+    "search.py issue 369",
+    "search.py issue 23",
+    "search.py issue 127",
+    "search.py issue 422",
+    "search.py issue 616",
+    "search.py issue 634",
+    "search.py docs \"temporal validity of properties current location current owner\" --kind minutes",
+    "search.py docs \"timed relations properties over time spans\" --kind minutes",
+    "search.py docs \"Open discussion about timed relations all properties having non-trivial validity in time to make timespan\" --kind minutes --json",
+    "search.py docs \"Where does temporal validity fit in with short cuts and indirection rules for defining the semantics of the shortcuts\" --kind minutes --json",
+    "search.py docs \"Monotonicity once entered in a knowledge base historical discourse collection point\" --kind minutes --json",
+    "search.py docs \"ISSUE 204\" --kind minutes --json",
+    "search.py docs \"reviewed the scope notes of the properties P50, P52, P55 and explanatory note for temporal validity and current properties\" --kind minutes --json",
+    "search.py docs \"P50 P52 P55 temporal validity current properties explanatory note\" --kind minutes --mode bm25 -k 40",
+    "search.py docs \"The fourth consequence of monotonicity relates to the use of time dependent properties in a knowledge base\" --kind narrative --json",
+    "search.py docs \"properties time-neutral priority modelling changes by events current location current owner\" --kind narrative",
+    "search.py threads \"timed relations properties valid only for part of the life of their domain and range\"",
+    "search.py thread t1029",
+    "search.py thread t1170",
+    "search.py thread t1100",
+    "search.py concept P55",
+    "search.py concept P53",
+    "search.py quote minutes:47th_joint_CIDOC-CRM_40th_FRBRoo_SIG_meeting_minutes_v1.5#s146-1 \"the CIDOC CRM always gives priority to modelling properties as time-neutral, and rather representing changes by events\"",
+    "search.py quote minutes:47th_joint_CIDOC-CRM_40th_FRBRoo_SIG_meeting_minutes_v1.5#s146-1 \"Time-neutral properties may be specialized in a future monotonic extension by time-specific properties, but not vice-versa\"",
+    "search.py quote minutes:55th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO#s042 \"They were originally introduced because they were used in museums back in the 90s\"",
+    "search.py quote minutes:58CIDOC_CRM_SIG_Minutes#s054 \"they require a lot of curating and present a simplistic view of the world\"",
+    "search.py quote minutes:crmsig_report_2001-10-1518#s021 \"We need rules for defining the semantics of the shortcuts in\"",
+    "search.py quote minutes:4th_chios_meeting_minutes#s014 \"A guideline should be created describing a general extension mechanism compatible with the CRM, which provides temporal validity to any attribute\"",
+    "search.py quote minutes:8th_chios_meeting_minutes#s006 \"temporal validity\"",
+    "search.py quote minutes:draft_minutes_-_39th-32nd_meeting_v2#s020 \"To document the temporality of such properties we introduce activities and not PC classes\"",
+    "search.py quote minutes:draft_minutes_-_39th-32nd_meeting_v2#s020 \"All properties having non-trivial validity in time to make timespan\"",
+    "search.py quote minutes:Lyon-minutesOftheMeeting_ver.4#s015 \"CRM properties whose temporal validity may be shorter than that of their domain and range\"",
+    "search.py quote minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s009 \"instead of modelling states for the continuation of which there exists positive evidence as properties on properties\"",
+    "search.py quote minutes:2012May-25th-meeting-Minutes_revPLB#s002 \"204\"  (to confirm the 2012 minutes carry no body text for issue 204)",
+    "search.py quote minutes:2012May-25th-meeting-Minutes_revPLB#s006 \"204\"",
+    "search.py quote minutes:2012May-25th-meeting-Minutes_revPLB#s003..s005 (chunk ids do not exist -- headings with no discussion text)"
+  ]
+}

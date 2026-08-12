@@ -1,0 +1,52 @@
+[
+  {
+    "question": "When a member wanted to record the language of things like place names and calendar-period names, and asked whether those appellation classes should become subclasses of the Linguistic Object class so the 'has language' property could apply, what did the SIG recommend instead?",
+    "gold_answer": "The SIG recommended against making appellation classes (place names, time appellations, and similar) into subclasses of E33 Linguistic Object, since most instances of these classes -- most place names, for example -- have no particular language at all, and permanently subclassing them would misrepresent that general case. Martin Doerr's recommended solution was multiple instantiation: a particular appellation that genuinely does have a natural-language form can simply also be declared an instance of E33 Linguistic Object, on a case-by-case basis, alongside its instantiation of the more specific appellation class. Stephen Stead endorsed this, noting that subclassing would effectively be a lie for the many instances where the language-related property doesn't apply, whereas multiple instantiation exists precisely to handle this kind of incidental overlap between classes.",
+    "key_facts": [
+      "The member asked how to apply the 'has language' property to time appellations, place names, and conceptual-object appellations, none of which are subclasses of E33 Linguistic Object.",
+      "Martin Doerr recommended multiple instantiation instead of subclassing -- declaring an individual appellation to also be an instance of E33 Linguistic Object when it genuinely has a natural-language form.",
+      "Stephen Stead agreed, arguing that making the appellation classes permanent subclasses of E33 would misrepresent the many instances (e.g., most place names) that are not language-specific."
+    ],
+    "gold_threads": ["t0785"],
+    "difficulty": "easy",
+    "why_this_is_hard": "The direct recommendation appears early, but the answer still requires the underlying rationale (why subclassing is wrong), not just the keyword 'multiple instantiation'."
+  },
+  {
+    "question": "The SIG debated whether coins should be modeled using the FRBRoo class for manifestation product types, treating a coin design the way a book edition is treated. What positions did people take, and what modelling solution did the group actually adopt instead?",
+    "gold_answer": "Christian-Emil Ore argued coins are information carriers and so belong in the library-oriented FRBRoo hierarchy, comparable to how books are modeled as instances of a Manifestation Product Type. Stephen Stead and Martin Doerr disagreed, arguing a coin's purpose is functional (enabling trade) rather than conveying an 'Expression' the way a text does, with Doerr concluding there was not enough similarity to classify a coin that way. Rather than stretching the FRBRoo manifestation class to cover coins, Maria Theodoridou described extension properties actually built for this purpose: PC1 'produced things of type' (on E12 Production) and PC2 'is example of' (on E22 Man-Made Object), both declared as subproperties of P2 has type, generalizing FRBR's R26 and R7 for categorical/mass production without relying on FRBRoo's information-carrier semantics. Whether the FRBRoo manifestation class itself should eventually be generalized to cover this case was explicitly left open for a future CRM-SIG discussion.",
+    "key_facts": [
+      "Christian-Emil Ore argued coins are information carriers and fit the FRBRoo manifestation-product-type hierarchy used for books; Stephen Stead and Martin Doerr disagreed, saying a coin's purpose is functional/trade-related rather than conveying an Expression.",
+      "Martin Doerr concluded there was not enough similarity to classify a coin as a Manifestation Product Type.",
+      "Maria Theodoridou described the actual solution adopted for coins: extension properties PC1 'produced things of type' (on E12 Production) and PC2 'is example of' (on E22 Man-Made Object), both subproperties of P2 has type, generalizing FRBR's R26 and R7.",
+      "Generalizing the FRBRoo manifestation-product-type class itself to cover coins was left open as a topic for future CRM-SIG discussion, not resolved in this thread."
+    ],
+    "gold_threads": ["t0804"],
+    "difficulty": "hard",
+    "why_this_is_hard": "Requires separating the rejected proposal (treating coins as Manifestation Product Type) from the actual adopted extension (PC1/PC2), which is introduced only briefly mid-thread."
+  },
+  {
+    "question": "When the SIG discussed how to classify a buried hoard of coins, what were the different positions on whether it should be modeled as a curated Collection, and how was the disagreement resolved?",
+    "gold_answer": "Members disagreed on whether a coin hoard should be an E78 Collection. Christian-Emil Ore suggested it could count as a Collection if a curator had buried their own collection, while Dan Matei worried that ordinary hoard burial does not fit the scope note's requirement of a 'collection development plan.' Stephen Stead argued the underlying problem was the misleading name 'Collection' itself (only half-jokingly proposing renaming the class 'Curated Set'), and Dan separately proposed adding a new intermediate class between Physical Object and Collection to distinguish functional assemblages (like a hoard or suit of armor) from purely physical wholes (like a car). Martin Doerr rejected adding any new class, restating the CRM's minimalism principle that a more specific class should only be introduced when needed to avoid ambiguous or noisy queries; his resolution was that a hoard should simply be treated as an E19 Physical Object typed 'Hoard', reserving E78 Collection (with its curator and curation-plan properties) only for cases where an actual curator and curation activity are documented.",
+    "key_facts": [
+      "Christian-Emil Ore proposed that a hoard qualifies as an E78 Collection only if it was assembled by an actual curator following a collection plan.",
+      "Stephen Stead argued the real problem was the class's name 'Collection' and suggested (semi-jokingly) renaming E78 to 'Curated Set'.",
+      "Dan Matei proposed a new intermediate class (an 'Assemblage') between E19 Physical Object and E78 Collection to separate functional part-whole relations (hoard, armor) from non-functional ones (car), but Martin Doerr rejected creating it.",
+      "Martin Doerr's resolution was that a hoard should default to being modeled as an E19 Physical Object with a type of 'Hoard', with E78 Collection reserved for cases where a documented curator and curation plan exist."
+    ],
+    "gold_threads": ["t0809"],
+    "difficulty": "hard",
+    "why_this_is_hard": "Requires tracing four distinct positions across a long thread and identifying which proposals were adopted, rejected, or left as unresolved asides rather than quoting any single message."
+  },
+  {
+    "question": "Did the SIG ever settle the question of whether a CIDOC CRM shortcut property (like a direct 'produced by' link) logically implies the existence of the fuller event-based path it stands in for?",
+    "gold_answer": "No, the archive shows this was left an open disagreement rather than a settled position. Martin Doerr, working with Carlo Meghini on a first-order-logic formalization of the CRM, argued from a pure-logic standpoint that if a longpath can be inferred, its intermediate nodes logically exist, independent of whether they are ever materialized in a database. Vladimir Alexiev pushed back hard, arguing shortcuts should never entail long-paths in practice: the intermediate node isn't unique, inferring it produces unlocatable 'Skolem' blank nodes that cause problems when integrating richer data later, and by a YAGNI-style principle nothing should be inferred that isn't needed. Christian-Emil Ore and Detlev Balzer largely sided with Doerr's logic-first framing, but the thread ends with Vladimir asking Doerr to clarify his 'soft' versus 'strict' classification of shortcuts, and no reply or resolution appears in the archive.",
+    "key_facts": [
+      "Martin Doerr argued that if a shortcut's underlying longpath can logically be inferred, its intermediate nodes logically exist, treating this as a question of logic separate from database/knowledge-base practice.",
+      "Vladimir Alexiev opposed inferring long-paths from shortcuts, citing non-unique intermediates, OWL-inferred blank ('Skolem') nodes that can't be matched during later data integration, and the YAGNI principle.",
+      "The thread ends with Vladimir asking Doerr to explain a 'soft' vs. 'strict' classification of shortcuts, and no answer or resolution is recorded."
+    ],
+    "gold_threads": ["t0780"],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "The debate has the shape of a resolved technical decision but never actually converges; a system could easily fabricate a false consensus."
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "case_id": "propertychoice-c1",
+  "answer": "The repair is an instance of E11 Modification (its scope note explicitly names 'the conservation treatment of an object'), documented via P31 has modified pointing at the cabinets. P14 carried out by is many-to-many with necessary participation ('implies causal or legal responsibility'), and CRM's own worked example for P14 is exactly this pattern: Michelangelo 'carried out' the Sistine Chapel painting 'in the role of master craftsman' even though assistants did much of the hands-on work. Following that pattern: both the studio principal and the two apprentices should be linked to the same E11 Modification via repeated P14 statements, disambiguated with the P14.1 in the role of qualifier (e.g. 'supervising conservator' for the principal, 'assistant'/'executant' for the apprentices) -- the principal carries causal/legal responsibility for the outcome, the apprentices carry the physical execution, and P14 is built to hold more than one actor at once. The museum's conservation officer did no hands-on work and had no responsibility for how the workshop executed the treatment -- her role was oversight of the commissioning institution, not participation in the activity -- so she should NOT be linked via P14 to this E11 Modification. If her two check-in visits are worth recording at all, they are a separate activity: E14 Condition Assessment fits ('may be carried out by inspection... during a particular period'), carried out by her, distinct from the workshop's E11 Modification.",
+  "classes_proposed": ["E11", "E14"],
+  "properties_proposed": ["P14", "P14.1", "P31"],
+  "rejected_alternatives": [
+    {"option": "P14 carried out by / the conservation officer", "why_not": "P14's scope note requires active participation implying causal or legal responsibility for the activity itself; two supervisory check-in visits with 'none of the hands-on work' do not meet that, per the E11/P14 scope notes read."},
+    {"option": "Generic E7 Activity for the repair", "why_not": "E11 Modification's own scope note names conservation treatment explicitly, so it is the more specific, applicable class -- E7 would under-specify what concept dossier for E11 already covers by name."},
+    {"option": "Recording only the studio principal (as the invoice does)", "why_not": "P14 is many-to-many and necessary (1,n:0,n) -- nothing in its scope note limits it to one named responsible party, and the Michelangelo example in the P14 dossier itself pairs a supervising 'master craftsman' role with implied hands-on assistants, which is the shape of this case."}
+  ],
+  "citations": ["E11", "P14", "P14.1", "E14", "P31"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept P14",
+    "concept E11",
+    "thread t1477",
+    "thread t1345",
+    "docs \"role of participation in an activity multiple actors\" --kind narrative",
+    "\"supervised approved conservation treatment workshop\"",
+    "\"multiple actors different roles same activity carried out by\"",
+    "threads \"role of master craftsman assistant supervisor P14.1\"",
+    "thread t0496",
+    "docs \"in the role of qualifying an actor's participation\" --kind declaration",
+    "docs \"causal or legal responsibility participation activity\" --kind narrative",
+    "concept E14"
+  ],
+  "confidence": "medium",
+  "notes": "The concept dossier for P14 was the load-bearing hit -- it surfaces the Michelangelo/master-craftsman worked example and the P14.1 qualifier unprompted, which mapped onto the supervisor-vs-apprentices split directly. Weaker: the mailing-list threads (t1477, t1345, t0496) are all near-misses -- they debate group attribution and on-behalf-of representation, not a named supervisor plus named executants -- so no SIG precedent squarely on this pattern was found, and free-text search.py queries for 'supervised/approved' terms returned mostly irrelevant hits (needed CRM abstractions, not the case's own vocabulary, confirming the doc's warning)."
+}

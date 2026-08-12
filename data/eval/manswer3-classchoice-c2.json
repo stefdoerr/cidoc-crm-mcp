@@ -1,0 +1,30 @@
+{
+  "case_id": "classchoice-c2",
+  "answer": "Document the trial as an E16 Measurement, not an E14 Condition Assessment. The observatory's actual procedure -- running the chronometer against its regulator clock for eleven days and noting the accumulated gain/loss at noon -- is exactly E16's scope: a systematic, objective procedure of direct observation yielding a quantifiable value. Model the chronometer as E22 Human-Made Object (P39 measured), the observatory (E39/E74 Actor, P14 carried out by) producing the daily rate as an E54 Dimension (P40 observed dimension; P90 has value / P91 has unit), over the eleven-day E52 Time-Span (P4 has time-span). E14 Condition Assessment is the wrong fit: its necessary property P35 has identified requires an E3 Condition State, and E3's own scope note and examples ('wrecked', 'ruined', 'cockled') are about prevailing physical/material preservation state, not functional performance or accuracy. 'Fit for sea service' is not a preservation judgment -- it is the practical conclusion drawn from the measured rate, not a separate act needing its own class. The certificate itself is an E31 Document that documents (P70, necessary on E31) the E16 Measurement; its 'fit for sea service' wording is the document's informational content, not evidence of a second, condition-assessment activity.",
+  "classes_proposed": ["E16", "E22", "E54", "E31"],
+  "properties_proposed": ["P39", "P40", "P14", "P4", "P90", "P91", "P70"],
+  "rejected_alternatives": [
+    {"option": "E14", "why_not": "concept E14 requires (necessary) P35 has identified -> E3 Condition State; concept E3's scope note and examples ('wrecked', 'ruined', 'the topography ... described as cockled') show E3 is about prevailing physical/material preservation state, not timekeeping accuracy or seaworthiness. Nothing in the case describes inspecting wear or damage -- the observatory only ever compares the chronometer's readings to its own regulator clock."}
+  ],
+  "citations": ["E16", "E14", "E3", "E31", "E54", "E22", "P39", "P40", "P35", "P70", "P44"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E14",
+    "concept E16",
+    "docs \"condition assessment measurement boundary\" --kind narrative",
+    "docs \"rate of gain or loss\" --kind narrative",
+    "docs \"dimension rate\" --kind declaration",
+    "\"chronometer\"",
+    "\"daily rate clock\"",
+    "\"fit for sea service certificate\"",
+    "thread t1631",
+    "connect E16 E18",
+    "connect E22 E3",
+    "connect E14 E3",
+    "connect E16 E31",
+    "concept E3"
+  ],
+  "confidence": "medium",
+  "notes": "No thread or issue directly discusses a chronometer trial or the E14/E16 boundary in these terms; the case is resolved from the class dossiers and connect output (E3's scope note/examples) rather than a mailing-list precedent, so I could not cite a SIG discussion of this exact boundary."
+}

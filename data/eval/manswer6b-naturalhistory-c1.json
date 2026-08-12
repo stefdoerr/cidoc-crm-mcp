@@ -1,0 +1,230 @@
+{
+  "case_id": "naturalhistory-c1",
+  "answer": "RECOMMENDATION: the second option. Record the frozen extract as a new entity brought into\nexistence by an event that also diminished the moth - not as a part carried under the specimen's\nexisting identity. And no, that choice is not what makes the extract \"from the paratype\": the\nparatype link is carried by events, and it is stronger, not weaker, for keeping the two identities\napart.\n\n1. WHY OPTION 1 IS NOT AVAILABLE IN THE MODEL\n\nIn the CRM a part and its whole are always two individuals. E80 Part Removal is quantified as\nnecessarily carrying both P112 diminished (the thing made smaller) and P113 removed (the thing\ntaken away), each ranging over E18 Physical Thing - the construct presupposes two instances, not\none identity wearing two catalogue numbers. Nothing lets one E18's identifier stand for a detached\npiece: P1 is identified by / P48 has preferred identifier attach an E42 Identifier to one entity.\nIf you gave the extract the moth's identity you would be asserting that the extract IS the moth,\nand you would then be unable to state the thing you actually want to state - that it CAME FROM the\nmoth.\n\nThe SIG has already settled the surrounding question. Issue 574 (thread t1536) relaxed the range of\nP112 diminished from E24 Physical Human-Made Thing to E18 Physical Thing precisely so that cutting\nparts from natural objects could be recorded; Martin Doerr's summary of the earlier debate there is\nthe governing principle - the SIG had considered whether a natural object becomes \"human made\" the\ninstant a part is broken off it for sampling and decided that this violates identity criteria of\nclasses: \"It just leaves a human-made feature on a natural object.\" Clipping the leg therefore\nchanges neither the moth's class nor its identity. It stays one E20 Biological Object, diminished,\nwith its original E42 Identifier.\n\n2. WHAT TO RECORD\n\nThe clipping - one event, two co-instantiated classes. This is not a choice between the sampling\nview and the modification view: CRMsci declares S2 Sample Taking and E80 Part Removal as the two\nsubclasses of S1 Matter Removal, and declares P112 diminished a subproperty of O1 diminished, so\nthe two views compose.\n\n  S2 Sample Taking + E80 Part Removal\n    O3 sampled from / P112 diminished -> the pinned moth (E20 Biological Object). CRMsci declares\n      E18 Physical Thing a subclass of S10 Material Substantial, so an E20 is a legitimate range\n      for O3 and O1.\n    O4 sampled at -> E53 Place, the spot on the specimen the leg came from\n    O5 removed / P113 removed -> the leg (S13 Sample; also E20, being matter from an organism)\n    P14 carried out by -> the graduate student; P4 has time-span -> last year\n  Both P112/P113 and P14/P4 are quantified as necessary on their domains, so record them.\n\nThe extraction - the leg ceases, the extract begins:\n\n  E81 Transformation + E12 Production\n    P124 transformed -> the leg\n    P123 resulted in / P108 has produced -> the extract\n  This is the pairing the CRM itself asks for. E12 Production's scope note says an event should\n  also be documented as an E81 Transformation if it destroys objects and simultaneously produces\n  others from their parts or material, and that in this case the new items have separate\n  identities: matter is preserved, identity is not. E80's scope note points the same way (part\n  removal plus production, where the removed matter has no discernible identity before removal but\n  does after), and S1 Matter Removal's scope note says such cases \"should be modelled by using\n  multiple instantiation with adequate concepts of creating the respective items\".\n  If you would rather not type a tube of eluate as an E24 Physical Human-Made Thing, drop P108 and\n  P123 and use the E63/E64 halves of E81 instead: P92 brought into existence -> the extract, P93\n  took out of existence -> the leg. Both range on E77 Persistent Item, and S13 Sample accepts them.\n\n  The extract: S13 Sample - taken from an S10 Material Substantial with the intention of being\n  representative of some of its material qualities - optionally also S12 Amount of Fluid for its\n  physical form, with its own new E42 Identifier via P1 is identified by / P48 has preferred\n  identifier.\n\n  Useful shortcut alongside the events: the moth O25 contains the extract. O25 was written for\n  exactly this situation - containment \"regardless of whether the identity of the involved\n  instances is based on the persistence of the form of material or on material substance that may\n  change form\" - and it generalises P46 is composed of. It survives the dissolution of the leg,\n  which P46 would not.\n\nIf your records genuinely never treated the leg as a thing, you may collapse the two events into a\nsingle S2 Sample Taking + E80 Part Removal + E12 Production whose O5 removed is the extract. The\ncost is that you lose the fact that what left the moth was a leg rather than an aliquot of DNA. I\nwould keep the two events, linked by the leg.\n\n3. THE PARATYPE\n\nBeing a paratype is not a material property, so it cannot travel with matter. In the CRM it is a\nrelation between the specimen and the taxon. The 1932 description is an E83 Type Creation - whose\nscope note names this case explicitly, noting that in the life sciences the type is a \"taxon\", the\ntype description a \"protologue\" and the exemplary specimens \"original element\" or \"holotype\" - with\nP135 created type -> the species as an E55 Type, and P136 was based on -> the pinned moth,\nqualified by its taxonomic role (\"paratype\"; P136's FOL declares the ternary role form). The\nstanding statement about the specimen is P137 exemplifies -> the species, using P137.1 in the\ntaxonomic role; P137's own example is a natural-history one, a Clayton Herbarium object (E20)\nexemplifying a species in the taxonomic role lectotype. Christian-Emil Ore's remark in t0375 -\n\"P137 was introduced to deal with type specimens in natural history\" - is where that construct\ncomes from.\n\nSo the answer to the second half is: the identity choice does not affect it, because \"from the\nparatype\" is a provenance claim, not an identity claim. What makes it true is a recorded chain from\nthe extract back to the entity that bears the P136/P137 taxonomic role - S2 Sample Taking O3\nsampled from the moth, O5 removed the leg, E81 Transformation from the leg to the extract, with\nO25 containment as the queryable shortcut. Option 1 would not strengthen that claim, it would\ndissolve it: an extract that IS the paratype cannot be FROM the paratype, and you would also lose\nthe ability to say that the paratype is intact in its drawer while a derivative sits at -80C.\n\nDo not attach P136 or P137 to the extract. The extract is not an exemplary specimen of the taxon;\nit is evidence derived from one. Martin Doerr's framing of split samples in t1080 is the right one:\nonce a unit of matter is taken it makes its own history, but the \"sampleness\" goes back to the\ninitial removal. The extract has its own number, store, keeper and condition history; what it\ninherits from the moth is derivation, not identity.\n\nOne trap to avoid: do not reach for S24 Sample Splitting with O27 split / O29 removed sub-sample\nfor the leg-to-extract step, even though it looks like sub-sampling. O29's scope note requires that\nthe sub-sample \"maintains the characteristic qualities of the original\", and a chemical extract of\none molecule class does not. That construct is for homogeneous division (see t1261, where fibres\nare split off a paper sample); dissolving a leg into a DNA extract is a transformation, not a\nsplit.",
+  "classes_proposed": [
+    "E20",
+    "S2",
+    "E80",
+    "S13",
+    "E81",
+    "E12",
+    "E42",
+    "E83",
+    "E55"
+  ],
+  "properties_proposed": [
+    "P1",
+    "P48",
+    "O3",
+    "O4",
+    "O5",
+    "P112",
+    "P113",
+    "P14",
+    "P4",
+    "P124",
+    "P123",
+    "P108",
+    "P92",
+    "P93",
+    "O25",
+    "P135",
+    "P136",
+    "P137"
+  ],
+  "rejected_alternatives": [
+    {
+      "option": "Carrying the extract under the specimen's existing identity (option 1 in the question): the moth's E42 Identifier / P1 is identified by reused for the extract",
+      "why_not": "E80 Part Removal necessarily has both P112 diminished and P113 removed, each ranging on E18 Physical Thing, so the construct already presupposes two individuals; and an E42 Identifier is attached to one entity. Reusing the number asserts the extract is the moth, which makes the statement you actually want - that it came from the moth - unsayable, and hides that the two now have divergent locations, keepers and condition histories."
+    },
+    {
+      "option": "P46 is composed of, to keep the extract as a part of the moth",
+      "why_not": "P46 relates two instances of E18 Physical Thing whose identity rests on stability of form, and the extract is neither part of the moth any more nor a form-stable thing. CRMsci's O25 contains, of which P46 is a subproperty, is the form-independent generalisation and covers matter that 'was or is contained' in another material substantial even when its form changes."
+    },
+    {
+      "option": "S24 Sample Splitting with O27 split / O29 removed sub-sample for the leg-to-extract step",
+      "why_not": "O29's scope note requires the resulting sub-sample to maintain the characteristic qualities of the original sample. A DNA extract does not maintain the leg's qualities; it isolates one component. Splitting is for homogeneous division (t1261's fibres off a paper sample)."
+    },
+    {
+      "option": "S3 Measurement by Sampling for the whole episode",
+      "why_not": "S3 covers sampling and analysis as one unit of activity where the sample is typically not identified or preserved beyond the activity. Here the sample is catalogued and kept at -80C, which is exactly the case S3's scope note excludes."
+    },
+    {
+      "option": "E17 Type Assignment classifying the moth as 'paratype'",
+      "why_not": "It would record a classification of the moth on its own and lose which taxon it is a paratype of. The CRM supplies the taxonomic-role qualifier on P136 was based on and P137 exemplifies precisely because paratype is a role in a relation between a specimen and a taxon, not a property of the specimen alone."
+    },
+    {
+      "option": "Staying in CRMbase only (E80 Part Removal + E12 Production, no CRMsci)",
+      "why_not": "CRMbase alone cannot say that the matter was taken to be representative of the specimen (S13 Sample / O3 sampled from), cannot record where on the specimen it was taken (O4 sampled at), and has no form-independent containment (O25) to survive the leg's dissolution. This is a sampling case, so use CRMsci; it is a proper extension of CRMbase, and E80 is declared a subclass of S1 Matter Removal there, so nothing is lost."
+    }
+  ],
+  "siblings_considered": [
+    {
+      "of": "E20",
+      "sibling": "E22",
+      "why_not": "A pinned, mounted specimen is a human preparation, so E22 Human-Made Object is tempting. But the SIG's conclusion in issue 574 / t1536 is that human intervention on a natural object does not make the object human-made - it 'just leaves a human-made feature on a natural object'. E20's scope note allows co-instantiating E22 for artificial assemblages such as Victorian butterfly frames, i.e. for the mount, but the moth that was clipped stays an E20 with its identity unchanged."
+    },
+    {
+      "of": "S2",
+      "sibling": "E80",
+      "why_not": "E80 Part Removal is S2's only sibling under S1 Matter Removal, and it is not a rival I can reject - it is the other aspect of the same event, which is why I co-instantiate both. Used alone it cannot express that the matter was taken to be representative of the specimen (O3 sampled from / O5 removed to an S13 Sample) nor where on the specimen it was taken (O4 sampled at)."
+    },
+    {
+      "of": "E80",
+      "sibling": "E12",
+      "why_not": "E80's own scope note pairs it with E12 Production when the removed part had no discernible identity before removal but has one after, so a reader will ask why the clipping is not also a Production. Because the leg never acquired a documented identity - it was consumed. The identity is acquired by the extract, which is created by the later extraction event, so that is where E12 belongs."
+    },
+    {
+      "of": "E12",
+      "sibling": "E65",
+      "why_not": "E65 Creation is for conceptual and immaterial products. The DNA extract is matter in a tube, not a proposition. (The barcode sequence eventually derived from it would be the E65 side of this story, but that is a later, separate event.)"
+    },
+    {
+      "of": "E81",
+      "sibling": "E6",
+      "why_not": "E6 Destruction would record that the leg lost its identity but leave the extract's origin unstated. E81 Transformation, being both E63 Beginning of Existence and E64 End of Existence, records the destruction and the causally connected creation as one event, which is what 'dissolved into an extract' is."
+    },
+    {
+      "of": "S13",
+      "sibling": "S12",
+      "why_not": "S12 Amount of Fluid says only that the thing is a confined liquid; it carries none of the sampled-from semantics that make the extract traceable to the specimen. It can be co-instantiated for the physical form, but S13 Sample is what does the work here."
+    },
+    {
+      "of": "E42",
+      "sibling": "E35",
+      "why_not": "No sibling of E42 is a plausible rival - a museum catalogue number is an identifier, not a title, a time primitive or a space primitive. E35 Title is the closest of them and I name it only because the rule asks."
+    },
+    {
+      "of": "E55",
+      "sibling": "E89",
+      "why_not": "E89 Propositional Object is a real rival here: in t0375 Christian-Emil Ore observed that a species can be regarded as a hypothetical set expressible by a logical proposition, which pulls the taxon towards E89. But the CRM's own construct for taxa is E55 - E83 Type Creation's scope note calls the created type a taxon, and P135 created type, P136 was based on and P137 exemplifies with their taxonomic-role qualifiers only work against E55."
+    }
+  ],
+  "citations": [
+    "E80",
+    "E20",
+    "E81",
+    "E12",
+    "E18",
+    "E42",
+    "E55",
+    "E83",
+    "P112",
+    "P113",
+    "P136",
+    "P137",
+    "S1",
+    "S2",
+    "S3",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "O1",
+    "O2",
+    "O3",
+    "O4",
+    "O5",
+    "O25",
+    "O27",
+    "O29",
+    "Issue 574",
+    "Issue 582",
+    "Issue 595",
+    "Issue 332",
+    "Issue 76",
+    "t1536",
+    "t1080",
+    "t1028",
+    "t1261",
+    "t0375",
+    "minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s067",
+    {
+      "id": "t1536",
+      "quote": "It just leaves a human-made feature on a natural object"
+    },
+    {
+      "id": "t1080",
+      "quote": "the \"sampleness\" goes back to the initial removal"
+    },
+    {
+      "id": "t0375",
+      "quote": "P137 was introduced to deal with type specimens in natural history"
+    }
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E80",
+    "concept S13",
+    "concept S2",
+    "concept S1",
+    "concept S10",
+    "concept S11",
+    "concept S3",
+    "concept S24  [failed: No such concept]",
+    "concept E20",
+    "concept E81",
+    "concept S12",
+    "concept S14",
+    "concept S15",
+    "docs \"sampling a specimen removing a part sample taking\" --kind narrative  [nothing useful]",
+    "docs \"part removed acquires its own identity Part Removal Production multiple instantiation\"",
+    "docs \"P113 removed was removed by\" --kind declaration",
+    "concept P113",
+    "thread t1536",
+    "issues \"range of P112 diminished E80 Part Removal scope note\"",
+    "issue 574",
+    "issue 582",
+    "issue 595",
+    "issues \"S2 Sample Taking sample identity destructive analysis\"",
+    "issue 332",
+    "\"DNA sample taken from a specimen natural history collection\"",
+    "thread t0066  [dead end]",
+    "thread t0065  [dead end]",
+    "\"holotype type specimen designated species description taxon\"",
+    "threads \"type specimen taxon species named after specimen\"",
+    "thread t0375",
+    "concept P137",
+    "quote t0375 \"P137 was introduced to deal with type specimens in natural history\"  [FOUND]",
+    "concept O3",
+    "concept O4",
+    "concept O5",
+    "concept O1",
+    "concept O2",
+    "connect S2 E20",
+    "connect S2 S13",
+    "connect E80 E20",
+    "connect S2 E18",
+    "concept E18",
+    "thread t1261",
+    "thread t1028",
+    "concept O25",
+    "thread t1080",
+    "docs \"sample splitting sub-sample provenance S24 S2 Sample Taking\" --kind minutes",
+    "docs \"The process of taking a sample can be described by the class S2 Sample Taking figure 3 place of sampling\" --kind minutes",
+    "docs \"sampling activity takes place at the location of the sampled material substantial not where the sample is later kept\" --kind minutes",
+    "quote \"minutes:55th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO\" \"The process of taking a sample\"  [UNKNOWN SOURCE - could not obtain the chunk id]",
+    "concept O27",
+    "concept O29",
+    "quote minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s067 \"Oxx split\"  [FOUND]",
+    "quote t1080 \"the \\\"sampleness\\\" goes back to the initial removal\"  [FOUND]",
+    "quote t1536 \"It just leaves a human-made feature on a natural object\"  [FOUND]",
+    "concept E42",
+    "concept E83",
+    "concept P136",
+    "docs \"P136.1 in the taxonomic role\" --kind declaration",
+    "quote P136 \"P136.1 in the taxonomic role\"  [UNKNOWN SOURCE - concept ids are not quotable]",
+    "quote P137 \"P137.1 in the taxonomic role\"  [UNKNOWN SOURCE]",
+    "issues \"natural history specimen extension biological collections\"",
+    "issue 76",
+    "docs \"Taxon Creation or Contemporary Naming Procedure protologue type specimen holotype\" --kind minutes",
+    "quote minutes:4th_chios_meeting_minutes#s003 \"taxonomic discourse\"  [NOT FOUND - wrong chunk]",
+    "threads \"sample removed from museum object gets its own inventory number identity of the part\"",
+    "concept E12",
+    "concept E55",
+    "quote decl:E12 / declaration:E12 / crm:E12 / docs:E12 / E12_Production \"matter is preserved\"  [all UNKNOWN SOURCE]"
+  ],
+  "confidence": "high",
+  "notes": "Three tool frictions. (1) The hierarchy is indexed asymmetrically across models: S10 Material Substantial's dossier says it is the superclass of E18, but E18's own dossier shows only 'Subclass of: E72', so `connect S2 E20` and `connect S2 E18` do not offer O3 sampled from or O1 diminished even though CRMsci declares them applicable to any E18. I had to read the relationship off S10's dossier. Anyone using `connect` alone would conclude, wrongly, that a museum specimen cannot be the source of an S2 Sample Taking. (2) `concept S24` returns 'No such concept' although O27 split and O29 removed sub-sample are declared with S24 Sample Splitting as their domain; I reconstructed S24 from those two property dossiers plus the 50th-meeting minutes surfaced by `docs --kind minutes`. (3) Class and property scope notes are not addressable as quotable chunk ids (`quote E12`, `quote decl:E12` etc. all return UNKNOWN SOURCE), so the E12/E80/S1/S13/O25/O29 scope-note wording I rely on is paraphrased or given as short fragments read verbatim from `concept` output rather than cited with the {id, quote} form. E83 Type Creation is exempt from siblings_considered: the tool reports it is the only subclass of E65. Residual uncertainty, which is why one detail is hedged in the answer rather than asserted: whether a tube of DNA eluate should be typed E24 Physical Human-Made Thing (letting P108 has produced and P123 resulted in apply) or kept strictly as S11/S13 amount of matter (forcing the P92/P93 route). I found no SIG decision on that boundary for laboratory extracts; the closest material is the S11 identity discussion in t1080, which settles that form stability is not required of a sample but does not settle the E18/S11 typing of a preparation."
+}

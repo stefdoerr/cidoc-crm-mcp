@@ -1,0 +1,138 @@
+{
+  "question_id": "no-linguistic-appellation",
+  "question": "Why does the CIDOC CRM not include a \"Linguistic Appellation\" class?",
+  "short_answer": "Because the CRM's economy rule says a class earns its place only if it does something its parents cannot already do together, and \"a name that is in a language\" does not: you get it simply by declaring the same thing to be both an appellation and a piece of language, and the language then hangs off the ordinary property P72 has language. The combination was nevertheless so common in practice that the SIG minted E33_E41_Linguistic_Appellation in November 2018 as a labour-saving shorthand inside the RDF encoding guideline only, explicitly \"not part of the crm as such\". A 2022 proposal to promote it into the standard split the group and was never decided; the issue was closed in October 2025 because it had gone idle, not because the argument was won.",
+  "explanation": "The CRM is deliberately small. Its Minimality principle lists the only three grounds on which a class may be declared, and the one that matters here is the test for classes that sit where two branches of the hierarchy meet: \"The class resulting from multiple IsA should be narrower in scope than the intersection of the scopes of the branch superclasses.\" A Linguistic Appellation is precisely that intersection and nothing more -- everything that is both an appellation and a linguistic object is one, and it brings no property of its own. The 41st meeting (Lyon, May 2018) had already stated the rule in plain terms: \"having a class solely for merging branches is not a good enough reason as we can simply do multiple instantiation.\" The scope note of E41 Appellation therefore hands the user the alternative directly: \"the respective instances of E41 Appellation should also be declared as instances of E33 Linguistic Object\", after which P72 has language applies.\n\nThe class exists anyway, but in a different document. At the 42nd meeting (Berlin, November 2018) the SIG adopted an RDF implementation guideline and accepted \"The proposal to document a subclass of E41 Appellation, namely “Linguistic Appellation”, in the rdf representation of the crm\", having first recorded that this document \"serves as an implementation guideline, it's not part of the crm as such\". Doerr's text on that issue gives the reason: \"In a local system that does not easily support multiple instantiation, the candidate cases for multiple instantiation may be combined in subclasses using multiple IsA\", labelled by concatenating the codes, and \"query compatible with the standard\". It is a serialisation convenience, not an ontological claim.\n\nGeorge Bruseker reopened the question in 2022 (Issue 624), arguing that hiding a majority-case concept in the RDFS creates \"arcana around what should be an open standard\". The 55th meeting recorded two camps and no winner; the deciding homework was never delivered, and the 61st meeting closed the issue on idleness.",
+  "real_world_example": "Robert Sanderson's example to the list in November 2022 (not invented): the person Douglas Adams is identified by the name \"Douglas Adams\", whose language is English, and by the name \"دوغلاس آدمز\", whose language is Arabic. In the standard you record each name as an instance of E41 Appellation that is *also* an instance of E33 Linguistic Object, and attach P72 has language to it; in an RDF store you may instead type both nodes E33_E41_Linguistic_Appellation, which the SIG's guideline treats as an interchangeable shorthand for the same two-class statement. Sanderson's point was that this is not an edge case -- \"*everything* has a Name\" -- while Martin Doerr's counter was that the language arguably attaches to the *use* of a name for a particular thing rather than to the name itself, which is why LRM models it as F12 Nomen and explicitly does not make that an E41 Appellation.",
+  "decision_status": "partly settled",
+  "issues": [
+    {
+      "id": 363,
+      "title": "Form and persistence of RDF identifiers",
+      "status": "Done (closed 2019-10-22)",
+      "outcome": "Produced the guideline 'Implementing the CIDOC Conceptual Reference Model in RDF'. Under this issue the 42nd meeting (Berlin, Nov 2018) accepted documenting a 'Linguistic Appellation' subclass of E41 in the RDF representation only, having stated that the document 'serves as an implementation guideline, it's not part of the crm as such'. Doerr's accompanying text justifies such concatenated classes as a convenience for systems that cannot easily express multiple instantiation, and as query-compatible with the standard. Closed at the 45th meeting (Heraklion, Oct 2019) because the title no longer matched the content."
+    },
+    {
+      "id": 361,
+      "title": "Recording an E41 in RDF",
+      "status": "Done (closed 2018-05-22)",
+      "outcome": "Merged into 363 at the 41st meeting (Lyon, May 2018) as covering the same ground; no separate resolution. No mailing-list thread cites it."
+    },
+    {
+      "id": 340,
+      "title": "Classes without properties",
+      "status": "Done (closed 2019-06-11)",
+      "outcome": "The issue that produced the Minimality text now in the specification. The 41st meeting (Lyon, May 2018) agreed 'having a class solely for merging branches is not a good enough reason as we can simply do multiple instantiation'; the 44th meeting (Paris, June 2019) settled the wording, including the test that a multiple-IsA class must be narrower than the intersection of its superclasses. The SIG noted the text was not final and that multiple inheritance vs. multiple instantiation should be revisited in a separate issue."
+    },
+    {
+      "id": 624,
+      "title": "Add E33_E41_Linguistic_Appellation to the Official Specification",
+      "status": "Done (closed 2025-10-17)",
+      "outcome": "Closed at the 61st meeting (Heraklion, Oct 2025) on procedural grounds only: idle for two years, and the proposer had implemented the class externally. The substantive question was never decided. At the 55th meeting (Dec 2022) the SIG split, assigned Doerr the homework of a formal counter-argument, and that homework was never delivered."
+    },
+    {
+      "id": 555,
+      "title": "RDFS Implementation and related issues",
+      "status": "Done",
+      "outcome": "Fixed the ordering convention for concatenated RDFS class names ('keeping numbers of the numeric identifier in order'), which is why the class is E33_E41_Linguistic_Appellation and not E41_E33_. Closed at the 52nd meeting (Feb 2022)."
+    }
+  ],
+  "threads": [
+    "t1649",
+    "t1682"
+  ],
+  "citations": [
+    {
+      "id": "crm732#s0053",
+      "quote": "The class resulting from multiple IsA should be narrower in scope than the intersection of the scopes of the branch superclasses.",
+      "note": "CIDOC CRM v7.3.2, Modelling principles > Minimality. Verified FOUND."
+    },
+    {
+      "id": "crm732#E41",
+      "quote": "the respective instances of E41 Appellation should also be declared as instances of E33 Linguistic Object",
+      "note": "E41 Appellation scope note, v7.3.2 -- the standard's prescribed alternative. Verified FOUND."
+    },
+    {
+      "id": "minutes:Lyon-minutesOftheMeeting_ver.4#s047",
+      "quote": "having a class solely for merging branches is not a good enough reason as we can simply do multiple instantiation",
+      "note": "41st joint meeting, Lyon, 22 May 2018, Issue 340. Verified FOUND."
+    },
+    {
+      "id": "minutes:002_berlin_crm-sig_meeting_minutes#s025",
+      "quote": "it serves as an implementation guideline",
+      "note": "42nd joint meeting, Berlin, 27-30 Nov 2018, Issue 363; full sentence continues 'it's not part of the crm as such.' Verified FOUND."
+    },
+    {
+      "id": "minutes:002_berlin_crm-sig_meeting_minutes#s025",
+      "quote": "The proposal to document a subclass of E41 Appellation, namely “Linguistic Appellation”, in the rdf representation",
+      "note": "Continues '...of the crm was accepted.' This is the decision that created the class, Berlin 2018. Verified FOUND."
+    },
+    {
+      "id": "issue363#current-s0003",
+      "quote": "In a local system that does not easily support multiple instantiation",
+      "note": "Doerr, Issue 363 Current Proposal (posted 11/12/2018, 22/3/2019); continues '...the candidate cases for multiple instantiation may be combined in subclasses using multiple IsA.' Verified FOUND."
+    },
+    {
+      "id": "t1649",
+      "quote": "we have a principle explicitly in the introduction of the CRM not to add classes without distinct properties of their own",
+      "note": "Martin Doerr, 8 Nov 2022. One member's statement of the principle, not a resolution. Verified FOUND."
+    },
+    {
+      "id": "t1649",
+      "quote": "Is \"E33 E41 Linguistic Appellation\" narrower in scope that the result of",
+      "note": "Athanasios Velios, 8 Nov 2022, applying the Minimality test; continues 'multiple instantiation of \"E33 Linguistic Object\" and \"E41 Appellation\"?' Verified FOUND."
+    },
+    {
+      "id": "t1649",
+      "quote": "*everything* has a Name",
+      "note": "Robert Sanderson, 8 Nov 2022, arguing for promotion. Verified FOUND."
+    },
+    {
+      "id": "t1649",
+      "quote": "The language of the name of Douglas Adams",
+      "note": "Robert Sanderson, 9 Nov 2022; the worked English/Arabic example. Verified FOUND."
+    },
+    {
+      "id": "minutes:55th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO#s077",
+      "quote": "the class should not be admitted since it does not come with a set of properties connecting it to other classes",
+      "note": "55th joint meeting, 6-9 Dec 2022, Issue 624; minutes add this 'seems to indicate that it is a form of classification, not ontology (principle 3.1 violation)'. Verified FOUND."
+    },
+    {
+      "id": "minutes:55th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO#s077",
+      "quote": "HW assigned to MD to formally make a counter-argument",
+      "note": "The deciding homework, never delivered; the issue went idle from this point. Verified FOUND."
+    },
+    {
+      "id": "minutes:61st_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_minutes_i#s088",
+      "quote": "has since implemented it externally and is no longer interested to pursue the issue",
+      "note": "61st joint meeting, 14-17 Oct 2025. Closure is procedural, not on the merits. Verified FOUND."
+    }
+  ],
+  "caveats": "Two limits on this answer. First, the CRM has never formally rejected a Linguistic Appellation class on the merits. The only recorded positive decision is Berlin 2018, which put it in the RDF encoding guideline; the 2022 proposal to promote it to CRMbase was closed in 2025 for inactivity after the counter-argument the SIG itself commissioned was never produced. Presenting the Minimality principle as 'the SIG's reason for refusing' would overstate the record: it is the principle the objectors invoked, and the 55th meeting minutes record that its priority relative to competing principles 'was also contested', with no ordering agreed. Second, the register does not record why the Berlin proposal was accepted for RDF specifically; the reasoning I give comes from Doerr's own text on Issue 363 and from the meeting's statement of the guideline's scope, which together make it clear but are not a minuted rationale for that line. The 55th meeting's references to 'principle 3.1' and 'principle 2.3' are the minutes' own numbering; I did not resolve them to specification sections. Attributions to individuals (Bruseker, Sanderson, Doerr, Velios, Fafalios, Beretta) are individual positions, not SIG positions. Whether the class is still present in the current RDFS release was not checked -- the archive shows it in v7.1.1.",
+  "queries_run": [
+    "issue 363",
+    "issue 624",
+    "issue 361",
+    "issue 340",
+    "issue 555",
+    "issues \"Linguistic Appellation name language class\"",
+    "docs \"E33_E41_Linguistic_Appellation RDF encoding multiple instantiation\" --kind minutes",
+    "docs \"Add E33_E41_Linguistic_Appellation to the Official Specification\" --kind minutes",
+    "docs \"ISSUE 363 Form and persistence of RDF identifiers implementation guideline Berlin 2018 Doerr Light\" --kind minutes",
+    "docs \"Minimality CRM class is declared merging point multiple IsA narrower in scope\" --kind narrative",
+    "docs \"combining E41 Appellation with E33 Linguistic Object local system multiple instantiation shortcut class\" --kind issue",
+    "docs \"E41 Appellation signs used to refer to and identify\" --kind declaration",
+    "concept E41",
+    "concept E33_E41 (no such concept)",
+    "thread t1649",
+    "thread t1682",
+    "quote minutes:002_berlin_crm-sig_meeting_minutes#s025 (several phrases)",
+    "quote minutes:55th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO#s077 (several phrases)",
+    "quote minutes:61st_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_minutes_i#s088 \"has since implemented it externally and is no longer interested to pursue the issue\"",
+    "quote minutes:Lyon-minutesOftheMeeting_ver.4#s047 \"having a class solely for merging branches...\"",
+    "quote crm732#s0053 \"The class resulting from multiple IsA should be narrower in scope than the intersection...\"",
+    "quote crm732#E41 \"the respective instances of E41 Appellation should also be declared as instances of E33 Linguistic Object\"",
+    "quote issue363#current-s0003 \"In a local system that does not easily support multiple instantiation\"",
+    "quote t1649 (four phrases)"
+  ]
+}

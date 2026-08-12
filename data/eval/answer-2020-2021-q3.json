@@ -1,0 +1,15 @@
+{
+  "question_id": "2020-2021-q3",
+  "answer": "The strict rule was NOT adopted. In the E37 Mark scope-note discussion (thread t1300, Issue 463, Jan-Jun 2020), Robert Sanderson listed five inheritance assertions (A-E), with E being 'No Marks which are not also Inscriptions are Linguistic Objects.' Ethan Gruber disagreed with E, citing mint marks like the letter 'P' on American coins (obviously linguistic but not necessarily classed as Inscriptions). Martin Doerr also explicitly rejected E, arguing it 'violates the Open World assumption' -- CRM knows Inscriptions are Linguistic Objects but that does not imply no OTHER Marks can be Linguistic Objects too -- and said he saw 'no particular utility in this statement,' while affirming 'All other rules A-D provided by Robert appear to be correct.' So the strict exclusion rule was dropped/rejected, not adopted. Separately, the disputed intent clause was reworded: the old scope note said marks are applied 'in order to indicate the creator, owner, dedications, purpose, etc.' (a phrasing Robert Sanderson objected to as implying ALL marks/inscriptions must carry that intent, citing counterexamples like 'Kilroy was here' and the Balliol 'Keep off the grass' sign). Martin Doerr's final revision (2020-06-11) changed this to a non-restrictive, illustrative clause: marks are applied 'by arbitrary techniques, often in order to indicate such things as creator, owner, dedications, purpose or to communicate information generally' -- adding the qualifier 'often' and 'such things as' so it reads as typical use rather than a defining restriction. This matches the current published E37 Mark scope note in the ontology.",
+  "found": true,
+  "cited_threads": ["t1300"],
+  "queries_run": [
+    "search \"mark inscription language encoding\" -k 10",
+    "thread t1300",
+    "search \"ISSUE 463 Mark accepted\" -k 10",
+    "search \"E37 Mark scope note accepted\" -k 10 --mode bm25",
+    "concept E37"
+  ],
+  "confidence": "high",
+  "notes": "Full thread t1300 (Issue 463) contained both parts of the answer: the A-E inheritance debate (messages 2, 5, 12, 13, 15) shows explicit rejection of rule E by Ethan Gruber and Martin Doerr; the final reworded scope note (messages 28-29, 2020-06-11) was cross-checked against `search.py concept E37`, whose current ontology text matches the archived final revision verbatim, confirming it was the adopted wording."
+}

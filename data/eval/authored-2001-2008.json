@@ -1,0 +1,54 @@
+[
+  {
+    "question": "How did the CIDOC CRM SIG revise the scope note for the property covering type/classification assignment (Issue 97), and why was the requirement that the classifying act be 'scientific' dropped?",
+    "gold_answer": "Martin Doerr's original wording restricted the class to entities that are 'scientifically' classified. Tony Gill objected that this would wrongly exclude everyday cataloguing acts such as assigning Dewey classmarks, subject headings, or iconographic classifications, which are squarely within the CRM's intended scope. Martin agreed, and the accepted revision dropped 'scientifically', instead describing the act simply as classifying an entity (an object, specimen, action, or concept), where the value of the classification depends on the identity of the classifier and the date it was made; the note kept its reference to biological 'determination' (systematic/molecular identification of a specimen) as a covered case.",
+    "key_facts": [
+      "The original scope note required the classifying act to be done 'scientifically'",
+      "Tony Gill argued this would exclude ordinary classification acts like Dewey classmarks, subject headings, and iconographic classifications",
+      "Martin Doerr agreed and the word 'scientifically' was removed from the accepted wording",
+      "The revised note explicitly retained biological 'determination' (systematic/molecular identification of a specimen) as an example within scope"
+    ],
+    "gold_threads": ["t0150"],
+    "difficulty": "easy",
+    "why_this_is_hard": "The class name alone suggests nothing about the word that was actually contested; the reasoning for the edit only shows up in the reply text."
+  },
+  {
+    "question": "How did the CIDOC CRM SIG's notion of 'CRM compatibility' evolve during 2008, and what did the resulting draft definition specify?",
+    "gold_answer": "In April 2008 Martin Doerr raised the issue because claims of CRM compatibility were increasing with no agreed criteria behind them; the ensuing discussion among Nicholas Crofts, Stephen Stead, Edmund Lee and Guenther Goerz surfaced sharp disagreement over whether compatibility should rest on independently verifiable tests, tiered levels of conformance, or certification by a trusted authority (plus a proposed compatibility logo), and concluded that none of this existed yet. By September 2008, acting on decisions taken at the May CRM-SIG meeting, Martin circulated a formal draft text, intended as an amendment to ISO 21127, defining compatibility as preserving data 'without loss of meaning with respect to the CRM concepts', distinguishing import/export compatibility from integrated-access compatibility, and letting communities restrict compatibility to an explicitly declared CRM subset. After Vladimir Ivanov pressed on how meaning-preservation could be judged, Martin added a concrete counterexample of an incompatible structure ('Physical Object has date: Time-Span' — importable into CRM form but not losslessly exportable back), while the mechanism for verifying or certifying such claims was still unresolved and left for further discussion.",
+    "key_facts": [
+      "Martin's April 2008 posting was prompted by rising compatibility claims with no agreed criteria; proposals discussed included independently verifiable tests, a certifying authority, tiered conformance levels, and a compatibility logo",
+      "By September 2008 Martin circulated a draft definition, based on decisions from the May CRM-SIG meeting, intended as an ISO 21127 amendment",
+      "The draft defined compatibility as no 'loss of meaning with respect to the CRM concepts' and allowed communities to restrict compatibility to an explicit CRM subset",
+      "Following Vladimir Ivanov's feedback, Martin added a counterexample of an incompatible structure: 'Physical Object has date: Time-Span', which can be imported but not losslessly exported"
+    ],
+    "gold_threads": ["t0383", "t0400"],
+    "difficulty": "hard",
+    "why_this_is_hard": "Requires tracing the same issue across two threads five months apart and recognizing the September draft as a direct, still-incomplete response to April's unresolved criteria."
+  },
+  {
+    "question": "When someone wanted to model the relationship between a manuscript's digital facsimile, its normalized transcription, and the original manuscript, what property did the SIG recommend for linking the transcription back to what it was derived from, and how did that recommendation relate to the alternative FRBRoo property that was also suggested?",
+    "gold_answer": "Dieter Köhler asked how to express that a transcription is not identical to, but derived from, a facsimile/scan of a manuscript, since neither 'refers to' nor 'represents' captured the relationship. Joao Oliveira suggested the FRBRoo property 'is derivative of' (R58), but Martin Doerr recommended the CRM's own property 'shows features of' (P130, with a P130.1 kind-of-similarity value such as 'Transcript'), and clarified that P130 is a generalization of R58, so both proposals were correct at their respective levels (CRM versus FRBRoo). Köhler then pushed back that R58 implies a substantial content modification, which felt too strong for a faithful transcription, and suggested 'is realised in' (R65) might fit better — a question the thread left as depending on how much the transcription changes or standardizes its source, without a single rule settling it for every case.",
+    "key_facts": [
+      "Dieter Köhler's problem was linking a transcription to the manuscript/facsimile it derives from, since neither P67 'refers to' nor P138 'represents' fit",
+      "Joao Oliveira proposed the FRBRoo property R58 'is derivative of'",
+      "Martin Doerr recommended CRM's P130 'shows features of' (with P130.1 kind of similarity, e.g. 'Transcript') and stated P130 is a generalization of R58, making both correct",
+      "Koehler argued R58 implies substantial content modification and suggested R65 'is realised in' might suit a faithful transcription better, leaving the exact choice dependent on how much the transcription alters its source"
+    ],
+    "gold_threads": ["t0368"],
+    "difficulty": "hard",
+    "why_this_is_hard": "The answer requires reconciling two competing property proposals across several messages and understanding the generalization relationship between a CRM property and an FRBRoo property, not just naming one."
+  },
+  {
+    "question": "Did the CIDOC CRM SIG add a way to qualify group membership by role (for example, distinguishing a 'master' from an 'apprentice' within a group) through new sub-properties of group membership, and how was that decided?",
+    "gold_answer": "Christian-Emil Ore raised the problem that E74 Group could express symmetric relations (e.g. siblings sharing membership of a family) but had no clean way to express asymmetric roles like master/client; Stephen Stead proposed adding role-qualifying sub-properties (P107.1 and P144.1, 'kind of member'), and he and Ore drafted full scope notes and examples ready for a vote. Once circulated, however, Martin reported a negative vote arguing the existing Group/subgroup mechanism (treating each role-holder as a singleton subgroup) already covered the case without any extension, which Ore called 'artificial'. The debate that followed turned on whether membership roles are best seen as 'offices' (a structural feature of the Group itself) or as relational sub-properties, and never reached a stated conclusion on whether to adopt P107.1/P144.1; it drifted instead into a related but separate fix — whether to drop the Group scope note's requirement of 'two or more members' — and the archive in this period records no final decision on the original proposal either way.",
+    "key_facts": [
+      "The trigger was an asymmetric relation (e.g. master/client) that E74 Group's symmetric-membership model could not express directly",
+      "Stephen Stead and Christian-Emil Ore drafted P107.1 and P144.1 ('kind of member') qualifiers with full scope notes, intending to bring them to a vote",
+      "Martin reported a negative vote proposing singleton subgroups as an alternative to the new properties, which Christian-Emil Ore called 'artificial'",
+      "No final decision adopting or rejecting P107.1/P144.1 appears in the discussion; it shifted instead into debating whether to drop the 'two or more members' requirement in the Group scope note"
+    ],
+    "gold_threads": ["t0426", "t0431"],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "The exchange has a concrete proposal, a drafted spec, and a rebuttal, but ends mid-argument with no vote tally or adopted text — the honest answer is that the SIG left it open."
+  }
+]

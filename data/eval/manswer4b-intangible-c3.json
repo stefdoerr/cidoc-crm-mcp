@@ -1,0 +1,44 @@
+{
+  "case_id": "intangible-c3",
+  "answer": "This is in scope, and its informality is not the obstacle it looks like. CIDOC CRM's own quantifier rules say every property -- including ones the model calls 'necessary' -- is implemented as optional, precisely to accommodate incomplete knowledge: an unspecified necessary property means the property exists in reality but its value is unknown, not that documentation must stop (crm732#s0037, crm732#s0040). So an undated, unwitnessed handover is simply a fire-keeper succession event whose time-span, place and P12 occurred-in-the-presence-of value are unrecorded -- the fuzzy-boundary primitives (P81/P82, section 'Temporal Relations') exist for exactly this: a transition known to have happened sometime in a stated year or two, with no sharp instant. Model each handover as a pair of E85 Joining / E86 Leaving activities: the outgoing keeper (P14 carried out by) leaves the office and the successor joins it, both P144/P146 joined-with/separated-from a group standing for 'fire-keeper of the village' -- exactly the scope note's own listed scenario, 'the inauguration of somebody into an official position.' E85/E86 were created by the SIG for this shape of case: Issue 149, 'Family relations,' proposed 'a CRM extension about being a member and ceasing to be a member of a group' and was accepted, becoming E85/E86 -- an informal, family-line succession is the class's origin case, not an edge case for it. Chaining the P146/P144 pairs across Leavings and Joinings gives the 'unbroken chain' the heritage project wants. The one genuine limitation, and it is real: CRMbase has no clean way to say *which* office was joined -- 'fire-keeper' as a role/position, as opposed to plain group membership. The SIG was asked this near-identical question in 2024 (thread t1806, a person holding 'the king's butler' position in a household) and the honest answer from the SIG itself was that CRMbase only offers the P144.1 property-class workaround, which several members called awkward, or points outside CRMbase entirely to extensions (CRMaaa/AAAo, SDHSS) built for exactly this gap. Christian-Emil Smith Ore went further, calling the group-based workaround itself 'not good ontological practice.' So: the succession chain (who preceded whom, roughly when) is modellable now, in CRMbase, despite the informality; naming and typing the office of 'fire-keeper' cleanly is the part CRMbase does not yet do well, and an honest answer should say that rather than force P144.1 to carry more than the SIG itself trusts it to.",
+  "classes_proposed": ["E85", "E86", "E74"],
+  "properties_proposed": ["P144", "P146", "P14", "P107"],
+  "rejected_alternatives": [
+    {"option": "E8 Acquisition / E10 Transfer of Custody", "why_not": "both are transfers of legal ownership or physical custody of objects (concept dossiers for E8 and E10); a right to hold a communal office is neither, so these siblings of E85 in the E7 hierarchy do not fit."},
+    {"option": "Treating the case as out of scope because it is undated/unwitnessed", "why_not": "the Property Quantifiers narrative (crm732#s0037, crm732#s0040) states quantifiers are semantic clarification only, all properties are implemented as optional, and an unspecified necessary property just means its value is unknown -- incompleteness is exactly what the model is designed to tolerate, so informality alone does not disqualify the event."},
+    {"option": "A bespoke 'Social Status' / role-embodiment class (CRMaaa ZE6, SDHSS Social Role Embodiment C13)", "why_not": "raised in thread t1806 as the clean way to express holding a named position, but both are extensions outside CRMbase; the task is to answer with what search.py's CRMbase/family indexes actually contain, and CRMbase's own answer (per Martin Doerr in t1806) is that it 'does not offer other constructs' beyond E85/P144.1 for this."}
+  ],
+  "citations": ["E85", "E86", "P144", "P146", "P107", "t1806",
+    {"id": "t1806", "quote": "CRMbase is minimal, deliberately"},
+    {"id": "t1806", "quote": "it is not good ontological practice and I consider the CRMaaa solution better"},
+    "issue 149",
+    {"id": "crm732#s0037", "quote": "all properties should be implemented as optional and repeatable"},
+    {"id": "crm732#s0040", "quote": "it means that the property exists, but the value on one side of the property is unknown"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E85",
+    "concept E86",
+    "ontology | grep role/position/office/succession/custom",
+    "docs \"necessary quantification property required documented\" --kind narrative",
+    "thread t1806",
+    "concept E30",
+    "ontology | grep P75/P107/P11/witness/presence",
+    "concept P107",
+    "concept P144",
+    "docs \"uncertain date fuzzy time span unknown\" --kind narrative",
+    "docs \"Property Quantifiers optional incomplete information\" --kind narrative",
+    "concept P12",
+    "docs \"Property Quantifiers optional incomplete information all properties should be implemented\" --kind narrative --json",
+    "quote crm732#s0037 \"all properties should be implemented as optional\"",
+    "quote crm732#s0040 \"it means the property exists, but the value on one side of the property is unknown\" (failed, wording mismatch)",
+    "quote crm732#s0040 \"it means that the property exists, but the value on one side of the property is unknown\"",
+    "quote t1806 \"it is not good ontological practice and I consider the CRMaaa solution better\"",
+    "quote t1806 \"CRMbase is minimal, deliberately\"",
+    "issues \"role position succession office informal transfer\"",
+    "issue 149"
+  ],
+  "confidence": "medium",
+  "notes": "The succession-as-event half of the question is well supported (E85/E86, Issue 149's origin story, the Property Quantifiers narrative). The 'name the office cleanly' half is where CRMbase itself, per the SIG's own 2024 discussion, has no fully orthodox answer short of the P144.1 property class or a non-CRMbase extension -- I reported that limitation rather than paper over it."
+}

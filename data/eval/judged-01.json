@@ -1,0 +1,66 @@
+[
+  {
+    "question_id": "2012-2013-q1",
+    "verdict": "correct",
+    "facts_hit": 3,
+    "facts_total": 3,
+    "reasoning": "All three gold facts are present: physical-carrier definition of E34/Inscriptions, the co-chair's redirect to objectDescriptionSet, and the FRBRoo Manifestation Product Type being a conceptual object. Nothing contradicts the gold.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2012-2013-q2",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "Captures Hopwood's ONIX-to-LIDO proposal, Le Boeuf's 'impossible in principle' objection and FRBRoo recommendation, Doerr's RDF/CRM-FRBRoo interoperability argument, and Stein's middle-ground crosswalk position, all consistent with gold.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2012-2013-q3",
+    "verdict": "partial",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "The E13 reification proposal, the RDF-reification/OAC alternative, and Doerr's 'possibly'-property supertyping recommendation are all present, but the answer dilutes Doerr's actual recommendation by adding an unsupported 'free-text note' as a co-equal fix and hedging that nothing was 'formally ratified' -- gold states the possibly-property approach plainly as his recommendation. It also never clearly draws Doerr's distinction between uncertainty/modality and provenance-of-statements.",
+    "missing_or_wrong": ["Doerr's recommendation is presented as an unratified option alongside an invented 'note-based qualifier' rather than as the stated recommendation; the uncertainty-vs-provenance distinction is only loosely implied"]
+  },
+  {
+    "question_id": "2012-2013-q4",
+    "verdict": "hallucinated",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "The proposal, the counter-argument about aboutness belonging to an intermediate object, and Doerr's 'new evidence for a future meeting' are all captured correctly. But gold is explicit that the thread ends with no confirmation either way -- neither accepted nor rejected -- while the produced answer asserts a definite outcome ('discussed but not accepted') based on the current ontology skeleton lacking these properties. That is exactly the invented-resolution pattern the rubric flags as hallucination rather than partial.",
+    "missing_or_wrong": ["gold: left open, neither accepted nor rejected, no reply recorded; produced: asserts a settled 'not accepted' outcome using out-of-thread ontology-state evidence"]
+  },
+  {
+    "question_id": "2014-2015-q1",
+    "verdict": "correct",
+    "facts_hit": 3,
+    "facts_total": 3,
+    "reasoning": "Correctly reports the has_language/appellation-subclassing question, Doerr's multiple-instantiation recommendation, and Stead's 'lie' argument, matching gold with a direct quote.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2014-2015-q2",
+    "verdict": "hallucinated",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Ore's info-carrier argument, Stead/Doerr's functional-purpose rebuttal, and even Theodoridou's PC1/PC2 properties are stated correctly. But the produced answer then declares -- by its own admission inferring from current ontology state rather than a retrieved adoption thread -- that a new class E99 Product Type is 'exactly what was adopted,' relegating PC1/PC2 to a mere aside about Maria's own project. Gold identifies PC1/PC2 as the actual adopted solution and says generalizing the manifestation class was explicitly left open, not resolved by a new class.",
+    "missing_or_wrong": ["asserts E99 Product Type (self-described as inferred, not retrieved) as the adopted resolution, contradicting gold's identification of PC1/PC2 as the actual solution and its 'left open for future discussion' framing"]
+  },
+  {
+    "question_id": "2014-2015-q3",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "All four positions and Doerr's default-to-E19-typed-'Hoard'/reserve-E78-for-curator resolution are captured accurately and without contradiction; extra detail about a later renaming issue does not conflict with the gold.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2014-2015-q4",
+    "verdict": "partial",
+    "facts_hit": 2,
+    "facts_total": 3,
+    "reasoning": "Doerr's logic-implies-intermediate-nodes position and Alexiev's Skolemization/YAGNI objection are both present, and the overall 'never universally settled' conclusion matches gold. But the specific gold fact -- the thread ending with Alexiev asking Doerr to clarify 'soft' vs 'strict' shortcuts, unanswered -- is missing, replaced by an uncorroborated claim that a separate 2015 thread 'concluded' a strong/weak case-by-case resolution.",
+    "missing_or_wrong": ["omits the thread's actual unresolved ending (soft vs strict classification, no reply) and substitutes a different, unverified resolution narrative"]
+  }
+]

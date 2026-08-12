@@ -1,0 +1,23 @@
+[
+  {
+    "case": "In 1938 our estate dismantled an early nineteenth-century threshing barn at Hollow Farm and re-erected it four miles away at Combe Farm, reusing roughly seventy per cent of the original oak frame but replacing the roof covering, the brick plinth walls, and one whole bay that had rotted through. The barn is described in an 1839 tithe survey at its original site, and the re-erected building at Combe Farm still carries an estate plaque reading 'rebuilt from Hollow Farm barn, 1938'. We are cataloguing historic farm buildings for the county survey and need to decide how to record the building at Combe Farm relative to the one described in 1839.",
+    "question": "Is the barn now standing at Combe Farm the same building recorded in the 1839 tithe survey, or a new building that reuses material from a demolished one, and how should the record reflect that?",
+    "kind": "identity",
+    "why_hard": "Tests whether persistent identity survives a move plus majority-but-not-total material replacement, or whether relocation plus partial loss creates a new item that merely incorporates spolia from the old one; there is no bright line and the two readings lead to opposite record structures.",
+    "distinctive_terms": ["threshing barn", "re-erected", "oak frame", "tithe survey", "estate plaque", "reused timbers"]
+  },
+  {
+    "case": "A windmill on our patch was recorded as 'Fen End Mill' on estate maps through most of the eighteenth century, then appears as 'Bell's Mill' in census returns from the 1850s onward after a long-serving tenant miller took it over - same structure, same site, just a different name in use. The mill stood inside Sedgewick Hundred until that unit was abolished and folded into the new Whitgate Rural District in 1894, so for part of its working life it belonged to an administrative area that no longer exists. We're building a county historic environment record and need to link the mill to both the changing name and the changing administrative geography without implying either change altered what the mill physically is.",
+    "question": "Can the mill's shifting administrative-area membership be recorded as a plain containment link to the hundred and then to the rural district, or does the fact that the hundred stopped existing require modelling each administrative unit as its own place with a bounded period, joined through a fuller chain?",
+    "kind": "shortcut vs full path",
+    "why_hard": "A direct containment link reads fine while the containing unit persists, but once the container itself is abolished and replaced, the shortcut cannot carry the information about when the relationship held; that needs the longer path through time-bound places and the events that redrew them.",
+    "distinctive_terms": ["Fen End Mill", "Bell's Mill", "tenant miller", "Sedgewick Hundred", "Whitgate Rural District", "1894 boundary change"]
+  },
+  {
+    "case": "A conservation trust that looks after a historic parkland is running an online public consultation about a proposed access road that would cut through part of the eighteenth-century designed landscape. The consultation platform reports that 1,340 people responded, with 58% opposed, 24% in favour and 18% undecided, plus several hundred anonymous free-text comments about how the road would 'ruin the feel of the place'. The trust wants this consultation outcome folded into the same heritage database that documents the landscape's design history, planting phases and historic views.",
+    "question": "Should the aggregate consultation results and anonymous public sentiment about the proposed road be recorded in the heritage documentation system at all, or does that kind of data fall outside what the model is meant to capture?",
+    "kind": "out of scope",
+    "why_hard": "The system is built to hold documented statements traceable to identifiable actors and sources, not anonymised percentages and aggregated sentiment from an open survey; forcing the consultation numbers into the same structure as attributed historical claims would misrepresent what is actually known and by whom.",
+    "distinctive_terms": ["public consultation", "access road", "designed landscape", "anonymous comments", "sentiment breakdown", "planting phases"]
+  }
+]

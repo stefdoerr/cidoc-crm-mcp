@@ -1,0 +1,47 @@
+{
+  "case_id": "technical-c1",
+  "answer": "The engine on display is the same E22 Human-Made Object that worked the quarry, not a new one. Its frame and cylinders were never dismantled or dispersed -- they sat in the shed as one coherent, identifiable whole for fifty years, just missing a part. That is squarely the scenario E80 Part Removal's own scope note describes (removal of a part from a composite object), and it explicitly redirects to E81 Transformation only 'if the instance of E80 Part Removal results in the total decomposition of the original object into pieces, such that the whole ceases to exist' -- which did not happen here. Model it as: (1) an E80 Part Removal (the wartime scrapping) with P112 diminished / P113 removed pointing at the engine; (2) the new boiler as an E22 produced by an E12 Production that P33 used specific technique the surviving drawings (E29 Design or Procedure) from the county record office; (3) an E79 Part Addition (the 1998 fitting) with P110 augmented / P111 added again pointing at the same engine. No E81 Transformation, and no new object identifier, is needed. I flag one genuine tension I could not fully resolve with the tools: in thread t1170, Martin Doerr, discussing this same 'ship of Theseus' question for E19, argues identity turns on 'continuity of coherence and functionality,' and treats a ship dismantled, stored for a century, and reassembled as a new object because 'the continuity of functionality is broken.' Our engine's functionality (raising steam, hauling wagons) was also absent for fifty years, which is longer than his 'temporarily on repair' carve-out -- so a stricter functionalist reading could push toward E81 after all. But that reasoning is Doerr's own working position in an unresolved thread, not language adopted into the E19/E22/E81 scope notes, whereas the E80-vs-E81 branching test I relied on is the standard's own text. On balance the textual test should govern: same object, documented through Part Removal and Part Addition.",
+  "classes_proposed": ["E22", "E80", "E79", "E12", "E29"],
+  "properties_proposed": ["P112", "P113", "P110", "P111", "P33"],
+  "rejected_alternatives": [
+    {
+      "option": "E81 Transformation",
+      "why_not": "E81 requires simultaneous destruction and creation of the whole; E80 Part Removal's own scope note (crm732#E80) only redirects to E81 when removal causes 'total decomposition of the original object into pieces, such that the whole ceases to exist.' Here the frame and cylinders remained one coherent, in-place, identifiable whole throughout the fifty years without a boiler, so that branch is not triggered. This is unlike the SIG's own 'ship reconstructed from stored parts after a century' border case (thread t1170), where the object had been fully dismantled and dispersed."
+    }
+  ],
+  "citations": [
+    "E22", "E80", "E79", "E12", "E29",
+    "crm732#E80",
+    {"id": "crm732#E80", "quote": "such that the whole ceases to exist"},
+    {"id": "t1170", "quote": "an instance of E19 with all parts replaced is identical"},
+    {"id": "t1170", "quote": "the continuity of functionality is broken"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E79",
+    "concept E80",
+    "docs \"identity through replacement of parts\" --kind narrative",
+    "thread t1396",
+    "\"restoration replica same object identity\"",
+    "issues \"ship of theseus\"",
+    "thread t1170",
+    "issue 369",
+    "concept E19",
+    "concept E22",
+    "docs \"continuity of identity replaced parts\" --kind narrative",
+    "\"boiler engine restoration parts\"",
+    "thread t1874",
+    "docs \"Minimality\" --kind narrative",
+    "connect E79 E22",
+    "connect E80 E22",
+    "connect E12 E29",
+    "docs \"total decomposition of the original object into pieces\" --kind declaration --json",
+    "quote crm732#E80 \"such that the whole ceases to exist\"",
+    "quote t1170 \"an instance of E19 with all parts replaced is identical\"",
+    "quote t1170 \"the continuity of functionality is broken\""
+  ],
+  "confidence": "medium",
+  "notes": "The clean answer comes from E80 Part Removal's own textual branching rule to E81. The complication is that the SIG's own mailing-list discussion of this exact paradox (t1170, unresolved into any scope note) uses a functionality-continuity criterion that, taken strictly, could cut the other way given the 50-year non-operational gap. I could not find a follow-up thread or issue outcome that settled which criterion (textual decomposition test vs. functional continuity) governs a case like this, so I reported both and explained why I weighted the textual test higher."
+}

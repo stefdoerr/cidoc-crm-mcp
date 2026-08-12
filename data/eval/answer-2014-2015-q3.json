@@ -1,0 +1,15 @@
+{
+  "question_id": "2014-2015-q3",
+  "answer": "In thread t0809 ('A hoard as crm:E78_Collection?', Nov 29-Dec 1 2014), Dan Matei asked whether a buried coin hoard could be modeled as E78 Collection, worried that the scope note's phrase 'according to a particular collection development plan' didn't fit someone burying coins to retrieve later. Positions varied: Christian-Emil Ore said it could count as a Collection only if a curator-like actor buried it with intent (analogous to a museum curator burying his collection); Simon Spero argued E78's definition was too restrictive, since assembling and curating/preserving roles are conflated in the CRM in a way that doesn't fit archival cases; Stephen Stead said the real problem was the class name 'Collection', which misleads people into thinking the defining trait is the act of collecting rather than curation, and proposed renaming it to something like 'Curated Set'. Martin Doerr took the strongest position: the CRM is not a terminological classification system but a tool for enabling queries, so a hoard should simply be typed as E19 Physical Object with 'type: Hoard' unless you specifically need curator/E87 Curation Activity properties, in which case E78 would be appropriate. He also rejected Dan Matei's proposal for a new intermediate class ('Fx_Assemblage') between E19 and E78, on the grounds that the assemblage/non-assemblage distinction is often undecidable and no concrete querying need had been demonstrated. The thread itself did not reach a clean resolution on the hoard-as-Collection question -- it trailed into a broader methodological debate about when new CRM classes/distinctions are justified, ending with Martin's call for the community to agree on general principles rather than decide this single case. However, Martin's message [6] in the same thread opened a formal issue ('Should we rename E78 Collection?', later Issue 270), and that disagreement was resolved over a year later: in thread t0907 (Feb 2016), the SIG voted and renamed E78 Collection to 'E78 Curated Holding', explicitly to shift the emphasis from 'collecting' to 'curating' (paralleling library usage of 'holdings' for physical copies), which addressed Stephen Stead's naming objection though not by directly re-litigating the hoard example.",
+  "found": true,
+  "cited_threads": ["t0809", "t0907"],
+  "queries_run": [
+    "search \"buried hoard of coins Collection\" -k 10",
+    "thread t0809",
+    "search \"rename E78 Collection\" -k 10",
+    "threads \"E78 Collection hoard rename\" -k 5",
+    "thread t0907"
+  ],
+  "confidence": "medium",
+  "notes": "t0809 itself ends unresolved (episode summary tags it 'unresolved'); the rename to 'E78 Curated Holding' in t0907 (Issue 270) is the closest thing to a resolution but it settles the naming/definitional dispute rather than explicitly re-deciding the buried-hoard example. No message explicitly says 'the hoard question is now resolved as X', so I present both the in-thread positions and the later formal resolution as the best-supported answer."
+}

@@ -1,0 +1,12 @@
+{
+  "question_id": "2001-2008-q3",
+  "answer": "In the January 2008 thread 'Relations between information objects', Dieter Köhler asked how to link a normalized transcription back to the manuscript/facsimile it was derived from, since neither P67 refers to nor P138 represents seemed accurate. Martin Doerr (for the SIG) recommended using P130 shows features of, with P130.1 kind of similarity set to \"Transcript\", to relate the transcription (an E33 Linguistic Object) to the manuscript. João Oliveira had independently suggested the FRBRoo property R58 is derivative of (has derivative) (with R58.1 type = \"transcription normalization\") as the analogous relation between F1 Works. Martin then explicitly reconciled the two: P130 shows features of is a generalization of R58 is derivative of, so both proposals were correct — P130 being the more general CRM-level property and R58 the more specific FRBRoo Work-level property capturing the same kind of relationship.",
+  "found": true,
+  "cited_threads": ["t0368"],
+  "queries_run": [
+    "search \"manuscript digital facsimile transcription\" -k 10",
+    "thread t0368"
+  ],
+  "confidence": "high",
+  "notes": "First hybrid search query surfaced the exact thread on top (Dieter Köhler, 'Relations between information objects', Jan 2008), and reading the full thread with `thread t0368` gave a complete, unambiguous answer with Martin Doerr's own reconciling statement ('P130 is a generalization of R58'). No further queries were needed."
+}

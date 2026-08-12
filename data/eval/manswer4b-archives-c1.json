@@ -1,0 +1,41 @@
+{
+  "case_id": "archives-c1",
+  "answer": "Record each handover as its own event -- do not collapse the chain down to creator + current holder. The ledgers are an E22 Human-Made Object. Each of the four moves (parish overseer -> council registry office in 1934, council -> county record office in 1988, county record office -> your archive in 2010, and the initial creation by the overseer) is a distinct instance of E10 Transfer of Custody, carrying P28 custody surrendered by / P29 custody received by the two institutions involved and P30 transferred custody of the ledgers. Each signed handover note is itself an E31 Document that P70 documents the corresponding E10 event -- you already hold the evidence for each link, so there is no reason to discard it. Since the 2010 move is described as a formal donation rather than a deposit, it also transfers legal title, not just physical custody: CIDOC CRM keeps these separate by design ('the CIDOC CRM therefore models legal ownership and physical custody separately' -- E8/E10 scope notes), so that step should additionally carry an E8 Acquisition (P22/P23/P24) alongside its E10. The 1934 and 1988 moves (absorption, deposit) read as custody-only unless you also have evidence of a title change there. Recording only 'created by X, now held by us' (via the shortcut properties P49/P50 has former/current keeper) is the weaker option and is not what the CRM recommends when the fuller history is known: those properties are documented as shortcuts of the longer path through E10 (Introduction > Applied Form > Shortcuts), meant for when the intervening events are NOT known -- and the SIG itself has moved against relying on 'current'-only properties, arguing in Issue 616 that they 'need external curation and also break the basic assumption that a CIDOC CRM KB/database store accumulate history,' to the point of proposing their deprecation. The mailing list frames the archival case directly: an archival institution's core mandate is to keep records 'completely and without gaps in an order reflecting the sequence of actions' (Martin Doerr, thread t1306) -- which is exactly a chain-of-custody requirement, and it maps onto one E10 per handover, not a single summary link.",
+  "classes_proposed": ["E22", "E10", "E8", "E31", "E74"],
+  "properties_proposed": ["P28", "P29", "P30", "P70", "P22", "P23", "P24"],
+  "rejected_alternatives": [
+    {"option": "P49/P50 has former or current keeper (recording only creator + current holder)", "why_not": "These are declared as shortcuts of the fuller path through E10 Transfer of Custody (Introduction > Applied Form > Shortcuts) -- intended for when the intermediate transfers are unknown. Here they are known and evidenced by signed notes, so using the shortcut would discard information you already have. Issue 616 also shows the SIG treating 'current'-only properties as being in tension with the basic assumption that a CRM store accumulates history, and floated deprecating P50/P52 for that reason."},
+    {"option": "A single E10 Transfer of Custody spanning the whole chain (overseer to us)", "why_not": "P30 transferred custody of / P28 / P29 describe one handover between named parties in one event; the documented examples for E10 in the SIG record (HW 516, the National Gallery/Issue 516 examples) are each written as one named handover per event, matching one signed note to one event rather than compressing four handovers with three different intermediate custodians into one."}
+  ],
+  "citations": ["E10", "E8", "E22", "E31", "P28", "P29", "P30", "P70", "P24",
+    "Introduction > Applied Form > Shortcuts", "Modelling principles > Monotonicity",
+    "Issue 616",
+    {"id": "t1306", "quote": "keeping records completely and without gaps in an order reflecting the sequence of actions"}],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E10",
+    "concept E8",
+    "docs \"chain of custody\" --kind narrative",
+    "docs \"chain of custody\" --kind declaration",
+    "docs \"provenance\" --kind narrative",
+    "docs \"custody history\" --kind narrative",
+    "docs \"current keeper\" --kind narrative",
+    "docs \"shortcut\" --kind narrative",
+    "docs \"current location current owner verify reality\" --kind narrative",
+    "docs \"shortcut property path through E10 Transfer of Custody\" --kind narrative",
+    "\"chain of custody\"",
+    "threads \"chain of custody archives\"",
+    "thread t1469",
+    "thread t1306",
+    "thread t1295",
+    "quote t1306 \"keeping records completely and without gaps in an order reflecting the sequence of actions\"",
+    "connect E22 E39",
+    "docs \"gaps in the sequence of custody\" --kind narrative",
+    "issues \"transfer of custody chain\"",
+    "issue 616",
+    "connect E10 E31"
+  ],
+  "confidence": "high",
+  "notes": "The docs search truncates snippets to ~250 chars, so I could only confirm the Monotonicity and Shortcuts passages by their gist, not verify a longer verbatim quote from them -- I therefore cited those by section path only, not with a quoted phrase. No narrative passage names 'chain of custody' or 'transfer of custody' directly by that phrase; the closest textual support is the Monotonicity discussion of 'current' properties and the Shortcuts section, plus Issue 616's outcome text and the t1306 mailing-list exchange."
+}

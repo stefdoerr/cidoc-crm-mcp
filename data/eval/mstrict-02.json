@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "built-c3",
+    "verdict": "correct",
+    "constraint_checked": "Intended Scope definition (crm732#s0004-s0005): scope is 'curated, factual knowledge about the past at a human scale'; 'Information required solely for the administration and management of cultural institutions, such as information relating to personnel, accounting, and visitor statistics, falls outside the Intended Scope.' Verified this quote actually exists verbatim in the ingested document (semantic search missed it; direct grep of data/documents.jsonl found it in chunk crm732#s0005) -- not fabricated.",
+    "better_modelling": null,
+    "evidence": ["crm732#s0004", "crm732#s0005", "E13"],
+    "reasoning": "Aggregate present-day opinion percentages and anonymous sentiment about a live proposal are neither 'factual knowledge about the past' nor attributable to an identifiable party as E13 requires ('whose opinion it was', verified in E13 scope note). The administrative-statistics exclusion is a real, exact quote, not invented. Tried E13, E31/E33 as alternatives per the answer's own rejection; found no better fit. The only-recording-the-E7-Activity fallback is domain/range-clean (P4: E2->E52, P7: E4->E53, both inherited by E7)."
+  },
+  {
+    "case_id": "classchoice-c1",
+    "verdict": "suboptimal",
+    "constraint_checked": "P123 resulted in (E81->E18) and P124 transformed (E81->E18) domains/ranges hold for the gown case. But checked the SIG's own canonical multi-instantiation examples (thread t1396 and the current E12/E81 dossiers): every case that co-instantiates E81 with E12 (Loggia->City Hall, Tut-Ankh-Amun mummification, Dominicanenkerk->stable/bookstore) pairs P123 resulted in with P108 has produced pointing at the *same* new object.",
+    "better_modelling": "Add P108 has produced (E12 -> the christening gown, E22), alongside P123/P124, matching the standard's own pattern whenever E12 is asserted together with E81. The answer names E12 as applicable ('can additionally be typed E12 Production') but never actually asserts the property that instantiation requires.",
+    "evidence": ["E81", "E12", "P123", "P108", "t1396"],
+    "reasoning": "The core class choice (E81 over E11/E17) is textually decisive and correct -- E11's own scope note redirects exactly this destruction+reuse-of-material pattern to E81. But proposing E12 without P108 has produced is an incomplete instantiation of the SIG's own worked pattern, a nameable, more direct construct that was overlooked."
+  },
+  {
+    "case_id": "classchoice-c2",
+    "verdict": "correct",
+    "constraint_checked": "P39 measured (E16->E18), P40 observed dimension (E16->E54), P34 concerned (E14->E18), P35 has identified (E14->E3) -- all four domain/range pairs verified against search.py concept output and hold for chronometer(E18)/daily-rate(E54)/condition-state(E3). Checked thread t1631 (Data Evaluation vs. direct comparative measurement) verbatim: Doerr's 'putting two figurines side by side... determining the exact difference in height' is quoted accurately, not paraphrased into a stronger claim than it supports.",
+    "better_modelling": null,
+    "evidence": ["P39", "P40", "P34", "P35", "E54", "E3", "t1631"],
+    "reasoning": "Daily rate is a calibrated E54 Dimension (E16 territory, not downstream Data Evaluation, since the observatory directly co-observed both clocks -- t1631 supports this exactly). No scope note excludes a functional-preservation state ('fit for sea service') from E14's broad 'state of preservation... assessed by inspection, measurement, or research'; E17 was correctly ruled out since its own examples are taxonomic (Lamentation cloth, plant species), not state-over-a-timespan. No archive thread contradicts the E14 choice, so no better modelling found."
+  },
+  {
+    "case_id": "classchoice-c3",
+    "verdict": "correct",
+    "constraint_checked": "E74 Group scope note explicitly names family and 'creating some common artifact' collectively as qualifying cases (verified in concept dossier); P14 carried out by (E7->E39) holds since E74 IS-A E39. Checked thread t1477 quote against the raw message: Sanderson's 'Workshop of/Circle of' text ('some member(s) of the group carried out the activity, but also not all members... group not necessarily named, rather constructed') is quoted near-verbatim, and the thread is genuinely unresolved (no P14 refinement was ever adopted), matching the answer's claim that plain P14-to-Group remains the only current construct.",
+    "better_modelling": null,
+    "evidence": ["E74", "P14", "t1477"],
+    "reasoning": "Named-persons P14 would overclaim per P14's own 'implies causal or legal responsibility' clause, since the case explicitly withholds confirmation of which women handled this basket. E74 Group is the textually closest fit and the t1477 citation is accurate rather than a manufactured resolution -- it's used as a parallel, not as false certainty of a decided SIG position."
+  }
+]

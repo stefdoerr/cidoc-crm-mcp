@@ -1,0 +1,32 @@
+{
+  "case_id": "archives-c3",
+  "answer": "This is mostly outside CRM's scope, and honestly so. The file itself can be a documented entity (E31 Document), but the retention schedule and its 'next review date' are a scheduled *future* action, and the CIDOC CRM is explicitly retrospective. When the SIG itself proposed a class for exactly this kind of thing -- an 'Activity Plan' for foreseen future activities, as a subclass of E29 Design or Procedure -- Christian-Emil Ore's objection was definitional: 'CRM is defined to be retrospective and not talk about the future' (thread t0483). The follow-on attempt to extend CRM to 'model planned events with temporal properties' (thread t0608) is likewise still unresolved. Neither ever entered the 241-class core (absent from `ontology`), so there is no core-CRM path for 'next review date' as a forward-looking field on the file. Separately, when a SIG member proposed a CRM-compatible conceptual model for records and archives management generally -- comparable to FRBRoo -- (Pekka Henttonen, thread t0603), the framing was of a distinct, complementary model, not an extension folded into core CRM. That is the community's own answer to this case's second question: retention/disposal-review bookkeeping is a different kind of system, related to CRM but not part of it. The one piece that *could* retroactively join the file's documented history is the disposal-review decision once it has actually happened: an E13 Attribute Assignment (an assertion event, with P17 was motivated by pointing at the statutory requirement or curatorial judgement, and P2 has type distinguishing the two) could record 'on this date, this officer decided to keep/destroy this file, for this reason' after the fact. But that only covers the retrospective decision record, not the schedule or the still-pending next review date the case actually asks to capture. So: keep the retention schedule and next-review-date tracking in a records-management system; do not stretch the file's CRM documentation to hold them.",
+  "classes_proposed": ["E31", "E13"],
+  "properties_proposed": ["P17", "P2"],
+  "rejected_alternatives": [
+    {"option": "E29 Design or Procedure / 'Activity Plan'", "why_not": "The SIG's own 2009 proposal to add an Activity Plan subclass of E29 for foreseen future activities was rejected on definitional grounds -- 'CRM is defined to be retrospective and not talk about the future' (thread t0483) -- and a 2012 follow-up to model planned events with temporal properties (thread t0608) is still unresolved. Neither exists in the current 241-item ontology, so there is no core-CRM class for a scheduled 'next review date'."},
+    {"option": "Folding retention/disposal bookkeeping into core CRM generally", "why_not": "When a SIG member proposed a CRM-compatible model for records and archives management (thread t0603), it was framed as a separate model comparable to FRBRoo -- a companion, not an extension merged into CRM itself -- which matches treating retention scheduling as belonging to a different kind of system."}
+  ],
+  "citations": ["E31", "E13", "E29", "P17", "P2", "t0483", "t0608", "t0603"],
+  "in_scope": false,
+  "queries_run": [
+    "ontology",
+    "docs \"retention schedule disposal review\"",
+    "docs \"retention schedule disposal review\" --kind narrative",
+    "docs \"scope of the CIDOC CRM administrative business process management systems\" --kind narrative",
+    "\"retention schedule\"",
+    "thread t0483",
+    "\"disposal destruction of records appraisal\"",
+    "concept E87",
+    "\"records management system business process\"",
+    "thread t0603",
+    "docs \"administrative or business functions of organizations excluded\" --kind narrative",
+    "concept E13",
+    "docs \"practical scope intended scope general applicability\" --kind narrative",
+    "docs \"not intended to model management processes\" --kind narrative",
+    "concept E29",
+    "concept E31"
+  ],
+  "confidence": "medium",
+  "notes": "The ontology list and concept dossiers made it easy to rule out a future-oriented class quickly (E29's episode list surfaced both relevant unresolved threads by title). The mailing-list free-text search was noisy for 'retention schedule' (mostly SIG meeting schedules) and never surfaced Ore's retrospective-principle remark directly -- I only found it because it showed up as a top hit inside the E29 concept dossier's debated-episodes list, then had to open the whole thread to get the quote. There is no docs --kind narrative passage that states the retrospective/no-future principle in the reference model itself; it only appears in mailing-list argument, so confidence on 'is this a hard rule or just one member's opinion' is medium rather than high."
+}

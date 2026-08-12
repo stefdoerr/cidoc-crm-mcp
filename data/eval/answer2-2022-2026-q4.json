@@ -1,0 +1,26 @@
+{
+  "question_id": "2022-2026-q4",
+  "answer": "No. The class is E33_E41_Linguistic_Appellation, a multiple-instantiation class of E33 Linguistic Object and E41 Appellation used for names in a particular language, which existed only in the RDFS (with even an inconsistent naming, E33_E41 vs E41_E33) and never had a scope note in the base standard. George Bruseker raised this in thread t1649 (Nov 2022, 'error in RDFS for 7.1.1...') and formally opened it as Issue 624 ('Add E33_E41_Linguistic_Appellation to the Official Specification', thread t1655), with Robert Sanderson also supporting adding it. Homework was produced (thread t1682) proposing alternatives (a new P.. property, LRM Nomen, Francesco Beretta's sdh:C11 'Appellation in a Language'), but Martin Doerr and others objected that no adequate scope note/semantics had been agreed (what exactly makes an Appellation 'language-specific', instance-specific vs universal use, etc.). The thread ends in Dec 2022 with Martin still working on a clarifying counter-example and no consensus reached. No later e-vote, decision, or closure of Issue 624 was found anywhere in the archive through Jan 2026 (the latest indexed messages). So the SIG discussed but never agreed to formally add this class with a scope note to CIDOC CRM Base -- it remains RDFS-only and the issue appears to still be open/unresolved.",
+  "found": true,
+  "cited_threads": ["t1649", "t1655", "t1682"],
+  "queries_run": [
+    "search \"multiple inheritance linguistic object appellation RDF class\" -k 10",
+    "thread t1649",
+    "search \"issue 624 linguistic appellation scope note\" -k 10 --after 2023",
+    "search \"E33_E41 Linguistic Appellation scope note decision\" -k 10 --after 2023",
+    "search \"Linguistic Appellation\" -k 10 --after 2023",
+    "search \"issue 624\" -k 10",
+    "concept E41",
+    "thread t1682",
+    "search \"Issue 624 close\" -k 10",
+    "search \"E33_E41 add official specification vote\" -k 10",
+    "threads \"linguistic appellation official specification\" -k 8",
+    "thread t1655",
+    "search \"Linguistic Appellation\" -k 15 --mode bm25",
+    "search \"add class to specification names languages Nomen\" -k 10 --after 2023 --before 2026",
+    "search \"issue 624 resolved closed decision e-vote\" -k 10 --mode bm25",
+    "search \"Name class Exx superclass E33 E41 P102\" -k 10"
+  ],
+  "confidence": "medium",
+  "notes": "The archive clearly documents the debate and the formal issue (Issue 624) being opened, but I found no message reporting a final SIG decision (e-vote result, meeting minutes closing the issue, or an approved scope note) for E33_E41_Linguistic_Appellation. Absence of a later resolution in a search-based archive is not airtight proof none exists (e.g. a decision could be recorded in a meeting-minutes document not captured as a mailing-list message), but repeated targeted queries across the full 2022-2026 date range turned up nothing beyond the unresolved Dec 2022 exchange, so I'm treating this as 'never formally agreed' per the archive."
+}

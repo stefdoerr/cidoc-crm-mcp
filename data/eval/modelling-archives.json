@@ -1,0 +1,23 @@
+[
+  {
+    "case": "Our regional archive holds ledgers of poor-relief payments created by the overseer of a small parish. When that parish was absorbed into a larger municipal council in 1934, the ledgers moved to the council's registry office. In 1988 the council deposited them with the county record office, and in 2010, when the county record office was wound up, they were formally donated to us. Each move is backed by a signed handover note listing what was transferred.",
+    "question": "Do we need to record every handover as its own event in the chain of custody, or is it enough to note who created the ledgers and who holds them now?",
+    "kind": "shortcut vs full path",
+    "why_hard": "Weighs a single current-holder shortcut against a full chain of transfer events, and whether intermediate custodians who never owned the material outright still deserve their own step.",
+    "distinctive_terms": ["poor-relief ledgers", "parish overseer", "registry office", "handover note", "county record office wound up"]
+  },
+  {
+    "case": "A bundle of nineteenth-century letters about a dispute over canal toll rights is catalogued as written by the Canal Company's secretary. Comparing the handwriting and letterheads, our cataloguer thinks a junior clerk actually drafted most of the letters and the secretary only signed them before they were sent. We have no clerk's name recorded anywhere else in the collection to confirm this.",
+    "question": "Should the letters' authorship be credited to the secretary, the clerk, or both, and how do we record our uncertainty about who actually composed the text versus who merely signed it?",
+    "kind": "uncertainty",
+    "why_hard": "Turns on separating the role of drafting from the role of signing within the same creation event, and on expressing a hunch backed by physical evidence rather than a named, confirmed second author.",
+    "distinctive_terms": ["canal toll rights", "Canal Company secretary", "junior clerk", "letterhead", "signed but not drafted"]
+  },
+  {
+    "case": "Under our retention schedule, planning-application case files older than fifteen years come up for a disposal review: a records officer decides whether each file is destroyed or kept permanently for historical value. We want to capture, alongside the description of each file, its next review date and whether the reason for keeping it was a statutory requirement or a curator's judgement of historical importance.",
+    "question": "Should the retention schedule and disposal-review decision be modelled as part of the file's documented history, or does that belong to a different kind of system altogether?",
+    "kind": "out of scope",
+    "why_hard": "Tempts a modeller to invent a heritage-documentation event for what is really an internal records-management workflow, so the real judgement is recognising the boundary rather than finding a class for it.",
+    "distinctive_terms": ["retention schedule", "disposal review", "records officer", "planning-application case files", "statutory requirement"]
+  }
+]

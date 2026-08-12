@@ -1,0 +1,156 @@
+{
+  "case_id": "archaeology-c2",
+  "answer": "Two records — but the CRM lets you say something sharper than either of your two options, because it forces the question apart into four layers that the card index had collapsed into one.\n\n1. THE THINGS ARE TWO. The Trench 3 posthole and the Trench 7 pit fill are two stratigraphic units, and not even of the same kind. A pit fill is a deposit: A2 Stratigraphic Volume Unit (\"connected portions of terrain ... completely bounded by surfaces or discontinuities\"). A posthole recorded as a cut is a negative feature: A3 Stratigraphic Interface, whose scope note explicitly covers interfaces \"formed by the removal or destruction of existing stratifications\". Both are instances of A8 Stratigraphic Unit, and each was produced by its own genesis event. Nothing about a shared number can make them one instance: identity in the CRM is not conferred by a code, it means that \"informed people are able to agree that they refer to the same, single thing\" (crm732#s0065). Two supervisors in two trenches never made any such agreement — they never even compared notes.\n\n2. THE NUMBER IS A SYMBOL AND MUST NOT BE PROMOTED INTO A THING. Do not create an archive node called \"context 56\" and hang two feature descriptions off it. The specification is blunt: the appellation and its relation to the referred item \"must not be confused with the referred item and its identity\" (crm732#s0044). \"56\" is an E42 Identifier — an E90 Symbolic Object carrying P190 has symbolic content \"56\". An E42 is defined by the intention to identify uniquely, not by success at it: the current scope note says codes are assigned \"in order to identify them uniquely and permanently within the context of one or more organisations\" (crm732#E42), which states a purpose, not a constraint your data must satisfy. The formal quantifications agree. P1 is identified by is many to many (0,n:0,n), and even P48 has preferred identifier is \"many to one (0,1:0,n)\" (crm732#P48) — each thing has at most one preferred identifier, but one identifier may be the preferred identifier of any number of things. The model has never promised that a code picks out one entity. When Martin Doerr drafted the E42 scope note in 2002 he wrote it out in as many words: an identifier \"may come out of use, and, by chance, it may be reused for another object\" (t0154, Issue 103, accepted at Rethymnon with only the actor wording changed — issue103#outcome). The sentence was dropped in the 2008 rewrite (Issue 159) but nothing replaced it with a uniqueness guarantee.\n\n3. THE ACTS OF NUMBERING ARE TWO, AND THAT IS WHERE THE CLASH ACTUALLY LIVES. Record each 1978 allocation as its own E15 Identifier Assignment: P14 carried out by the supervisor, P4 has time-span 1978, P7 took place at the trench, P37 assigned the E42 \"56\", and P140 assigned attribute to the stratigraphic unit that received it. (Use P140 for the receiving end — Christian-Emil Ore raised exactly this gap on the list: \"There is no subproperty of P140 for E15\", t0633.) This is not optional decoration. P1 is a shortcut, and connect prints its full path: E1 CRM Entity. P140i was attributed by: E15 Identifier Assignment. P37 assigned: E42 Identifier. P1's own scope note says the shortcut \"does not reveal anything about when, where and by whom this identifier was used\" and points to the developed path through E15 (crm732#P1). Your clash is precisely a fact about when, where and by whom. So keep P1 on both units — the number genuinely did identify both, badly — and unfold it into two E15 events. The collision then becomes a recorded historical fact with two authors and two trenches attached, instead of a data-integrity error to be papered over.\n\n4. THE NUMBER WAS ONE, NOT TWO. Both supervisors drew from the same book, i.e. from a single running site sequence. That sequence is an E29 Design or Procedure: the SIG resolved in Issue 159 that no separate Identifier Rule class was needed because \"this is covered by E29 Design or Procedure\" (issue159#outcome). Hang it on each E15 with P33 used specific technique. Because there was one scheme, the honest reading is one E42 \"56\" assigned twice — which is what makes this a clash rather than two unrelated systems that happen to collide. If you prefer instead to mint two E42 instances sharing the same P190 content, the CRM does not forbid it, and the SIG has argued (without ever settling) that appellation identity is content plus context — Martin Doerr in t0990: \"the identity of the title as described above consists of the string + context\". Either choice is workable downstream provided the two units are never merged; the one-identifier reading is the more faithful record of what the site actually did.\n\n5. THE CONTEXT SHEETS ARE TWO RECORDS. Two E31 Documents, each P70 documents its own unit. So to your question as posed: two records, not one record that turns out to describe two features. There was never one record — there were two sheets making two independent sets of propositions about two different things.\n\n6. WHAT TO DO NOW. Carry out a new E15 Identifier Assignment by the digitisation project, issuing a disambiguated identifier per unit (\"1978/T3/56\", \"1978/T7/56\"), each built with P142 used constituent from the original E42 \"56\" and the trench appellation — exactly the constituent mechanism Issue 159 introduced. Make each new identifier the P48 has preferred identifier of its unit, and type the new assignment with P2 has type, which is what both the E15 and P48 scope notes recommend over relying on P48 alone. Do not reach for P38 deassigned unless the archive genuinely withdraws the 1978 number from use: the two 1978 assignments remain true statements about 1978, and deassigning would destroy the evidence a future researcher needs to match a find bag labelled \"56\" back to a trench.\n\n7. AND DO NOT MERGE. If someone later argues on stratigraphic grounds that the two units are remains of one original thing, CRMarchaeo has a class for that interpretive act: A6 Group Declaration Event. That is a claim with an author and a date. A clerical number collision is not evidence for it, and keeping the two apart costs you nothing.\n\nCaveat: if the Trench 3 sheet records the posthole as a feature including its packing rather than as a cut, it is an A2 rather than an A3. The identity argument is unaffected either way — that is why the recommendation rests on A8 and its subclasses generally.",
+  "classes_proposed": ["A2", "A3", "E42", "E15", "E31", "E29"],
+  "properties_proposed": ["P1", "P37", "P140", "P142", "P190", "P48", "P70", "P14", "P4", "P7", "P33", "P2"],
+  "rejected_alternatives": [
+    {
+      "option": "A single E1/E77 instance standing for \"context 56\" itself, described by both sheets",
+      "why_not": "This is the \"one record, two features\" reading, and it makes the identifier into the entity. crm732#s0044 forbids exactly that: the appellation and its relation to the referred item \"must not be confused with the referred item and its identity\". A node keyed on the string would have to be simultaneously a cut and a deposit in two trenches, which no single instance can be."
+    },
+    {
+      "option": "A6 Group Declaration Event",
+      "why_not": "A6 is the CRMarchaeo class for the interpretive act of declaring that two or more stratigraphic units are remains of one original physical thing. It is the correct tool if there were a stratigraphic argument for unity — but a numbering accident between two supervisors in different trenches is not such an argument, and A6 requires an author and a reasoning that nobody here has offered."
+    },
+    {
+      "option": "E27 Site",
+      "why_not": "E27 comprises pieces of land or sea floor and would suit the excavation site as a whole, not a posthole or a pit fill. CRMarchaeo exists precisely because CRMbase has no class for a unit of stratification; A8 and its subclasses carry the genesis-event semantics (\"attributed to a single genesis event or process\") that make the two contexts individuable in the first place."
+    },
+    {
+      "option": "E62 String for \"56\"",
+      "why_not": "Recording the number only as a string throws away the assignment history that is the whole substance of this case: E62 is not in the domain of P37 or P48, so there would be nowhere to hang who allocated it, when, and to what. E42 keeps the code addressable as an identifier while P190 has symbolic content still gives you the literal \"56\"."
+    },
+    {
+      "option": "CRMdig L54 is same as, to link the two units",
+      "why_not": "L54 records \"a non-unique identification applied to E1 CRM Entity\" and would suggest the archive suspects the two contexts are the same entity. They are not; the only thing they share is a symbol. Sharing an E42 via P1 already says everything true here, and says it at the right level."
+    }
+  ],
+  "siblings_considered": [
+    {
+      "of": "A2",
+      "sibling": "A7",
+      "why_not": "A7 Embedding is the sibling subclass of A8 used when a unit is documented as the embedding of one or more physical things at a stable position. The Trench 7 sheet records the fill as a deposit in its own right, not as the setting of a particular find; if finds from within it are later documented positionally, an A7 can be added alongside without disturbing the identity of the A2."
+    },
+    {
+      "of": "A3",
+      "sibling": "A2",
+      "why_not": "A2 Stratigraphic Volume Unit is a bounded volume of matter; a posthole recorded as a cut is a boundary surface left where earlier stratification was removed, which is what A3's scope note describes. Using A2 for the Trench 3 context would assert that a negative feature is a body of deposited material — and would also, unhelpfully, make the two clashing contexts look like the same kind of thing when they are not."
+    },
+    {
+      "of": "E42",
+      "sibling": "E35",
+      "why_not": "E35 Title is the closest of E42's siblings under E41 (the others being the E61/E94/E95 primitives, which are for time, space and spacetime values), and it is frankly not a plausible rival: a context number is an administrative code allocated from a running sequence, not a string identifiable as a title by its form. E42 is also the class P37 and P48 are declared against, which is what this case needs."
+    },
+    {
+      "of": "E15",
+      "sibling": "E17",
+      "why_not": "E17 Type Assignment is a real rival because the 1978 supervisors did two things at once: they numbered the context and they classified it as \"posthole\" or \"pit fill\". Those are separate acts. The classification is an E17; the allocation of the code is an E15, and only E15 carries P37 assigned, which connect shows is declared on exactly the E15/E42 pair."
+    },
+    {
+      "of": "E31",
+      "sibling": "E33",
+      "why_not": "E33 Linguistic Object also fits a context sheet — the handwriting on it is an expression in natural language, and the same item can be both. But what makes each sheet a record of a stratigraphic unit is that it makes propositions about reality, which is E31's scope note, and P70 documents is declared on E31. E33 would only be needed if the wording itself, or its language, were the object of study."
+    },
+    {
+      "of": "E29",
+      "sibling": "E31",
+      "why_not": "The number book is tempting to model as an E31 Document, and the physical register and its pages certainly can be. But what the two E15 events used in common is the rule for allocating the next number in one site-wide sequence — a plan for the execution of future actions, not a proposition about reality. Issue 159 settled that this needs no class of its own because \"this is covered by E29 Design or Procedure\"."
+    }
+  ],
+  "citations": [
+    "A2",
+    "A3",
+    "A7",
+    "A8",
+    "A6",
+    "E42",
+    "E41",
+    "E15",
+    "E31",
+    "E29",
+    "P1",
+    "P190",
+    "Issue 103",
+    "Issue 159",
+    "t0154",
+    "t0633",
+    "t0990",
+    "minutes:5th_CHIOS_Meeting_Minutes#s027",
+    {"id": "crm732#s0044", "quote": "must not be confused with the referred item and its identity"},
+    {"id": "crm732#s0065", "quote": "informed people are able to agree that they refer to the same, single thing"},
+    {"id": "crm732#E42", "quote": "in order to identify them uniquely and permanently within the context of one or more organisations"},
+    {"id": "crm732#P1", "quote": "does not reveal anything about when, where and by whom this identifier was used"},
+    {"id": "crm732#P48", "quote": "many to one (0,1:0,n)"},
+    {"id": "issue103#outcome", "quote": "assigned by an actor to a physical object"},
+    {"id": "issue159#outcome", "quote": "this is covered by E29 Design or Procedure"},
+    {"id": "t0154", "quote": "by chance, it may be reused for another object"},
+    {"id": "t0633", "quote": "There is no subproperty of P140 for E15"},
+    {"id": "t0990", "quote": "the identity of the title as described above consists of the string + context"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E42",
+    "concept E15",
+    "concept A8",
+    "concept A2",
+    "concept A3",
+    "concept A7",
+    "concept A1",
+    "concept E41",
+    "\"same identifier assigned to two different objects ambiguity homonym\"",
+    "thread t0633",
+    "docs \"identifier does not guarantee unique identification ambiguity of appellations\" --kind narrative",
+    "docs \"notion of identity is key in the application\" --kind narrative",
+    "docs \"notion of identity is key in the application\" --kind narrative -k 2 --raw",
+    "docs \"notion of identity is key in the application\" --kind narrative -k 1 --json",
+    "docs \"refer to particulars by unique names titles constructed identifiers independent of the context\" --kind narrative -k 3 --json",
+    "issues \"identifier assigned to more than one object uniqueness\"",
+    "issue 103",
+    "issue 159",
+    "thread t0154",
+    "quote t0154 \"by chance, it may be reused for another object\"",
+    "quote minutes:5th_CHIOS_Meeting_Minutes#s027 \"identifier\"",
+    "quote crm732#s0044 \"must not be confused with the referred item and its identity\"",
+    "connect E15 A8",
+    "connect A8 E42",
+    "\"excavation context number stratigraphic unit identification recording\"",
+    "\"distinguish the record from the thing recorded database record identity integration\"",
+    "thread t0990",
+    "issue 260",
+    "concept P190",
+    "issue 502",
+    "issue 467",
+    "concept L54",
+    "docs \"two different objects were given the same inventory number by mistake\" --kind minutes",
+    "concept A4",
+    "concept A5",
+    "concept A6",
+    "concept A9",
+    "concept A10",
+    "concept A11",
+    "concept A12",
+    "concept S20",
+    "concept E29",
+    "concept E31",
+    "connect E31 A8",
+    "connect E15 E42",
+    "threads \"legacy excavation archive digitisation conflicting numbering of contexts\"",
+    "quote crm732#s0065 \"informed people are able to agree that they refer to the same, single thing\"",
+    "quote t0633 \"There is no subproperty of P140 for E15\"",
+    "quote t0990 \"the identity of the title as described above consists of the string + context\"",
+    "quote issue:159 \"this is covered by E29 Design or Procedure\"  [FAILED: unknown source id]",
+    "quote 159 \"this is covered by E29 Design or Procedure\"  [FAILED: unknown source id]",
+    "issues \"Constructing appellations identifier rule E29\" -k 3 --json",
+    "quote issue159#outcome \"this is covered by E29 Design or Procedure\"",
+    "quote issue103#outcome \"assigned by an actor to a physical object\"",
+    "docs \"E42 Identifier strings or codes assigned in order to identify them uniquely and permanently\" --kind declaration -k 3 --json",
+    "quote crm732#E42 \"in order to identify them uniquely and permanently within the context of one or more organisations\"",
+    "docs \"P48 has preferred identifier\" --kind declaration -k 1 --json",
+    "quote crm732#P48 \"many to one (0,1:0,n)\"",
+    "concept P1",
+    "quote crm732#P1 \"does not reveal anything about when, where and by whom this identifier was used\""
+  ],
+  "confidence": "high",
+  "notes": "Three friction points. (1) `concept` prints no Siblings block for extension classes (A2, A3, A8), so siblings for CRMarchaeo classes had to be reconstructed from the 'Superclass of:' line of the parent — A8's dossier gives 'Superclass of: A7, A2, A3', which is how the A2/A3/A7 sibling relations above were established. A8's own siblings could not be read off reliably: A8 declares 'Subclass of: S20', but S20's dossier lists only 'Superclass of: S22, E27' and does not mention A8 or A10, so the base and extension halves of that hierarchy are recorded asymmetrically. That is why I proposed the two concrete subclasses rather than A8. (2) `quote` will not accept an issue number as a source id ('issue:159' and '159' both return UNKNOWN SOURCE); the working id form is the chunk id 'issue159#outcome', which is only discoverable by running `issues` with --json. (3) `docs` truncates every hit to about 250 characters and there is no way to expand one; --raw did not help, and --json was the only route to full passage text plus chunk ids. Worth knowing before reasoning from a snippet. Substantively I found no SIG debate on identifier collision within a single archaeological numbering sequence — the closest the archive comes is Martin Doerr's 2002 draft of the E42 scope note (t0154) and the unresolved argument in t0990 about whether an appellation's identity is its content alone or content plus context. I have flagged the second as unresolved rather than leaning on it."
+}

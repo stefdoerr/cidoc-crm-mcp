@@ -1,0 +1,38 @@
+{
+  "case_id": "built-c1",
+  "ranking": ["B", "A", "C"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 5,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "t1396/t1411 -- cited as evidence that 'the SIG itself uses' the Dominicanenkerk example for dual (E81,E12) instantiation alongside the Loggia and Hephaisteion. t1411 is actually the message where Doerr withdraws the Dominicanenkerk example ('rather an example for reuse than transformation') and proposes Hephaisteion in its place; the current published E81 scope note (verified via concept E81) lists only Tut-Ankh-Amun, Pompeii and Hephaisteion -- Dominicanenkerk is not in it."
+      ],
+      "verdict": "Correct, well-argued two-record recommendation (E24 x2 joined by one E81/E12 event) with a genuinely sharp, verified point that E81 alone cannot carry P14/P16 (confirmed absent from E81's applicable-property list), which is why the event must also be typed E12. Loses ground for citing a withdrawn example as if it were still SIG-current, and for rejecting P53 on the grounds that its 'full path' runs through E9 Move -- true per the connect tool, but P53's own scope note explicitly carves out 'immobile objects' as a case where no Move is implied, which undercuts the stated reason for avoiding it."
+    },
+    {
+      "label": "B",
+      "class_count": 7,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Reaches the same correct two-record + E81/E12 conclusion as A, but on the strongest citation grounding of the three: the Abu Simbel / 'substantially new boundaries' rule is quoted verbatim from the *current* E19 scope note (verified via search.py quote, not merely from Doerr's unresolved Dec-2025 proposal), E80's 'total decomposition... should be modelled as E81' clause is cited directly and verified, and Issue 716 is surfaced showing this movability question has since moved from proposal toward formal adoption. Reifying the salvaged frame as its own E22, itself the subject of a legal E9 Move (P25/26/27), is the one place B has more classes than A, and it is load-bearing: it is what actually makes the case's central fact (70% of the frame survived) queryable rather than a narrative aside."
+    },
+    {
+      "label": "C",
+      "class_count": 3,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Reaches the same correct identity verdict with accurate, honestly-caveated thread quotes (t1170 message and t1874 both verified), but the record itself is too thin to catalogue anything with: neither barn gets a location property, no agent is typed, no time-span is given, and the plaque and the salvaged frame are both discussed in prose but never instantiated or attached by any property -- exactly the 'prose relies on an entity it never types' symptom the case is meant to expose."
+    }
+  ],
+  "decisive_difference": "All three converge on the same CRM-correct core answer: two E24 instances joined by a single event typed both E81 Transformation and E12 Production, with E9 Move/P25 correctly ruled out for the barn itself (confirmed illegal via connect E9 E24: P25's range is E19, not E24). The ranking is decided by what sits below that shared conclusion. B backs the identity argument with text that is already live in the current standard (E19's Abu Simbel clause, E80's total-decomposition clause) plus a freshly-discovered Issue 716, and it is the only answer to reify the surviving fabric as a queryable entity rather than leaving it as a note. A reaches the same place but with one demonstrably wrong citation (a withdrawn Dominicanenkerk example cited as if still SIG-current) and a P53 rejection that its own quoted scope note doesn't fully support. C is correct but skeletal: it never operationalizes location, agency, time-span, or the plaque into the model at all.",
+  "confident": true,
+  "notes": "No provenance guessed; I did not open any file under data/eval/ other than my own input. The hardest call was A vs B -- both are thorough, reach an identical well-reasoned conclusion, and use largely overlapping evidence. The separation rests on citation currency (B quotes text already standing in the current v7.3.2 E19/E80 scope notes where A leans on an unresolved Dec-2025 mailing-list proposal for the same point) and on B's discovery of Issue 716, which a thread-only search would not surface. Separately, and not a knock on any answer: Issue 716's own outcome text ('the scope note admitted following the evote on 24 February will remain in CIDOC CRM v7.4') suggests the movability question this whole case turns on has since moved from proposal to adopted text -- none of the three could be expected to have anticipated that, and B is the only one who even got close by finding the issue number."
+}

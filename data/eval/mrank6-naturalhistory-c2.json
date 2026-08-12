@@ -1,0 +1,41 @@
+{
+  "case_id": "naturalhistory-c2",
+  "ranking": ["B", "C", "A"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 4,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "S11/S13 (bundled) -- A cites 'S11 Amount of Matter / S13 Sample ... whose own scope notes give \"the sequence of layers of a bore core\" as a worked example of an identity criterion that survives splitting and physical separation.' Checked both scope notes directly: S11 says 'the sequence of layers of a bore core' as an example of an identity condition; S13 says a sample 'ceases to exist when the respective representative qualities become corrupted, such as ... the layering of a bore core' -- the opposite point (cessation on corruption, not survival). A collapses two distinct notes into one claim that only the first supports.",
+        "t1080 (transitive-property quote) -- the quote itself is accurate and verified verbatim ('we need to think about the identity and unity criteria. Probably we need a transitive property of its own'), but it is Doerr talking about tracking lineage when one sample is *split* into several; A repurposes it as evidence of a gap for the *reverse* case (two independently-taken samples found to correlate) without flagging that the thread's own subject is the mirror problem."
+      ],
+      "verdict": "Gets the headline call right (keep two specimens, preserve both numbers) but is the thinnest model of the three: it never types the stratigraphic body both boreholes struck (no A2/A8), so 'same fault zone' has no entity to attach to and the 40m-apart-boreholes-vs-'physically continuous' tension in the case is never even noticed, let alone resolved. It records the stratigrapher's claim with a bare E13 Attribute Assignment (P140/P141/P177) instead of the purpose-built CRMinf/CRMsci argumentation apparatus (I1/I5, I2 Belief, I6 Belief Value) that both rivals correctly locate and use, and rejects AP11 by testing it against specimens rather than against the stratigraphic unit it is actually built for."
+    },
+    {
+      "label": "B",
+      "class_count": 10,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Every proposed class does load-bearing work: E19/S13 (multiple instantiation, correctly grounded in S10 being a superclass of E18, verified in the ontology), S2 (individuates the two removals at two places), A2 (the shared fault-zone body), I5/I2 (a properly typed, revisable belief with a full, domain/range-checked J2/J4/J5 chain), E15/E42/E10/E31 (identifier assignment, custody, and the loan paperwork itself, all correctly cited). It is the only answer to explicitly type the 'old loan records' as E31 Document (P70/P67), which is what the case's second question is actually about. It also catches the case's internal tension (40m apart boreholes cannot yield literally continuous core) and applies its own P46/P132 spatial-overlap scrutiny consistently, including against its own optional 'reconstructed whole' proposal."
+    },
+    {
+      "label": "C",
+      "class_count": 9,
+      "breadth": "under-specified",
+      "illegal_properties": [
+        "P46 (section 3c, C's own proposal) -- C rejects a merged-specimen construction elsewhere in the corpus on the grounds that P46's FOL entails P132 spatiotemporal overlap and the two boxes are not co-located, but then proposes exactly the same mechanism (a new E19 'reconstructed interval' with P46 from each building-separated segment) without ever flagging that its own P46/P132 objection applies equally to its own recommendation. Domain/range (E18->E18) is technically satisfied, but the FOL precondition it itself relies on elsewhere is silently unmet here."
+      ],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Very close to B in conclusions and mostly as rigorous -- it independently catches the same 40m-apart tension and gives it the most explicit treatment of the three -- but is a notch less careful: it uses S6 Data Evaluation for the stratigrapher's correlation, whose scope note and examples (earthquake epicentre, volume from a 3D model) are about mathematical derivation of a quantity rather than a qualitative log correlation, where B's I5 Inference Making is the cleaner textual fit; its belief chain never types an I6 Belief Value (J5 'holds to be a belief value' is left untyped); it never models the loan paperwork itself as a document class, leaving 'the old loan records' -- the object of the case's own second question -- untyped; and it misses the self-inconsistency in its own P46 proposal noted above."
+    }
+  ],
+  "decisive_difference": "All three reach the same top-line answer (keep two specimens, preserve both 1968 numbers, route continuity through the ground not the boxes) but differ sharply in how load-bearing their machinery is. A never introduces the shared stratigraphic unit the case's own 'same fault zone' claim requires, never notices that two boreholes 40m apart cannot yield literally continuous core, and settles for a generic E13 Attribute Assignment where CRM has a purpose-built argumentation apparatus. B and C both introduce A2 Stratigraphic Volume Unit and both catch the 40m tension, so the real separation between them is precision under their own scrutiny: B types the loan paperwork itself (E31, directly answering the case's second question), gets the S11-vs-S13 scope-note distinction and the S5/I5 index mismatch exactly right, and applies its P46/P132 spatial-overlap objection evenly to its own alternative proposal; C does almost as well but leaves the loan records untyped, reaches for a weaker-fit inference class (S6), and misses that same P46/P132 problem in its own recommendation.",
+  "confident": true,
+  "notes": "All three answers are unusually strong and share a distinctive style (heavy self-reported tool friction, near-identical citation apparatus, similar structuring of alternatives_considered) that made we wonder whether they are same-system runs rather than three different systems -- I have no direct evidence of provenance beyond that stylistic similarity, so I ranked on the modelling as instructed rather than acting on the suspicion. The single biggest judgment call in this ranking is treating C's omission of a typed loan-record class as a real defect rather than a stylistic choice -- the case's second question is specifically about the old loan records, and only B gives them a class (E31) and properties (P70/P67); a re-read could reasonably discount this more heavily or less. The B-vs-C separation is real but narrow; the A-vs-{B,C} separation is not narrow at all."
+}

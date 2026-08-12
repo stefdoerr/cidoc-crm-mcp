@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="crm.xsl"?>
+<CRMset>
+
+<!-- ============================================================
+ 1. THE OBJECT
+ ============================================================ -->
+<CRM_Entity>Mao Gong ding
+  <in_class>E22: Human-Made Object</in_class>
+
+  <!-- identity -->
+  <is_identified_by>Mao Gong ding
+    <in_class>E41: Appellation</in_class>
+    <has_type>English romanised name
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </is_identified_by>
+  <is_identified_by>毛公鼎
+    <in_class>E41: Appellation</in_class>
+    <has_type>Chinese name, traditional characters
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_alternative_form>Máogōng dǐng
+      <in_class>E41: Appellation</in_class>
+      <has_type>Hanyu Pinyin romanisation
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_alternative_form>
+  </is_identified_by>
+  <is_identified_by>Lord Mao's cauldron
+    <in_class>E41: Appellation</in_class>
+    <has_type>literal translation of the Chinese name
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </is_identified_by>
+  <is_identified_by>the Duke Mao Tripod
+    <in_class>E41: Appellation</in_class>
+    <has_type>alternative English name
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <is_documented_in>Rubbings of Inscriptions on Mao Gong Ding, the Duke Mao Tripod (World Digital Library item 13542, Library of Congress)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </is_identified_by>
+  <has_note>Name origin. The name Mao Gong ding is taken from the Lord (公 gong) Yin of Mao, who gifted the ding to the King after being appointed to help run state affairs.</has_note>
+  <has_note>Absence of evidence. The article records no museum accession number, inventory number or other assigned code for this object. No instance of E42 Identifier and no P48 has preferred identifier is therefore asserted, although both published examples hang their records on exactly such a code.</has_note>
+
+  <!-- classification -->
+  <has_type>ding
+    <in_class>E55: Type</in_class>
+    <has_broader_term>Chinese ritual bronze
+      <in_class>E55: Type</in_class>
+    </has_broader_term>
+    <has_note>The article names the object type twice over: a "bronze tripod ding vessel", where "bronze" links to Chinese ritual bronzes and "ding" to the vessel form.</has_note>
+  </has_type>
+  <has_type>tripod vessel
+    <in_class>E55: Type</in_class>
+  </has_type>
+
+  <!-- material, dimensions, condition -->
+  <consists_of>bronze
+    <in_class>E57: Material</in_class>
+  </consists_of>
+  <has_dimension>height of the Mao Gong ding
+    <in_class>E54: Dimension</in_class>
+    <has_type>height
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_value>53.8
+      <in_class>E60: Number</in_class>
+    </has_value>
+    <has_unit>cm
+      <in_class>E58: Measurement Unit</in_class>
+    </has_unit>
+    <is_documented_in>Chinese Art Treasures, Exhibition Catalogue from the National Palace Museum, Taiwan in USA (1961-2), SKILA, Geneva, 1961
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </has_dimension>
+  <has_dimension>width of the Mao Gong ding
+    <in_class>E54: Dimension</in_class>
+    <has_type>width
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_value>47.9
+      <in_class>E60: Number</in_class>
+    </has_value>
+    <has_unit>cm
+      <in_class>E58: Measurement Unit</in_class>
+    </has_unit>
+    <is_documented_in>Chinese Art Treasures, Exhibition Catalogue from the National Palace Museum, Taiwan in USA (1961-2), SKILA, Geneva, 1961
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </has_dimension>
+  <has_dimension>weight of the Mao Gong ding
+    <in_class>E54: Dimension</in_class>
+    <has_type>weight
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_value>34.7
+      <in_class>E60: Number</in_class>
+    </has_value>
+    <has_unit>kg
+      <in_class>E58: Measurement Unit</in_class>
+    </has_unit>
+    <is_documented_in>Tan Danjiong, "The Mao Gong Ding", The National Palace Museum Monthly of Chinese Art vol. 4 no. 4, 127-136, 1986, Taipei
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </has_dimension>
+  <has_note>Absence of evidence. The article gives no depth or diameter, and no separate dimensions for any part. Height and width are cited to the 1961 exhibition catalogue; the weight is cited to Tan 1986. No measurement event, measurer or date is recorded for any of the three, so no instance of E16 Measurement is asserted and the values hang directly on the object as instances of E54 Dimension.</has_note>
+  <has_note>Absence of evidence. The article says nothing whatever about the condition of the object: no damage, corrosion, loss, repair or conservation assessment. No instance of E3 Condition State and no P44 has condition is asserted.</has_note>
+
+  <!-- parts and sections -->
+  <has_section>the interior surface of the Mao Gong ding
+    <in_class>E53: Place</in_class>
+    <has_note>The one part of the object the article singles out: "The interior surface of the ding is covered in an inscription of 500 characters". Modelled with P59 has section, whose scope note is explicitly for named areas of a physical thing ("the poop deck of H.M.S. Victory").</has_note>
+  </has_section>
+  <has_note>Absence of evidence. Beyond the interior surface, the article names no parts. It calls the vessel a tripod, which entails three legs, but it never describes them, so no P46 is composed of and no P57 has number of parts is asserted.</has_note>
+
+  <!-- what it carries; what it depicts -->
+  <bears_feature>the inscribed area on the interior surface of the Mao Gong ding
+    <in_class>TX1: Written Text</in_class>
+    <has_former_or_current_location>the interior surface of the Mao Gong ding
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+    <carries>the inscription of the Mao Gong ding
+      <in_class>E34: Inscription</in_class>
+    </carries>
+    <has_note>Modelling note. The physical inscribed surface and the text it bears are two things. CRMtex TX1 Written Text, a subclass of E25 Human-Made Feature, is the family's dedicated class for the marks themselves; the text those marks spell out is the instance of E34 Inscription, which the ding also carries directly. E34's own scope note insists on this split, and it is what lets Chen Jieqi's rubbings carry the same instance of E34 as the vessel does.</has_note>
+  </bears_feature>
+  <carries>the inscription of the Mao Gong ding
+    <in_class>E34: Inscription</in_class>
+    <has_type>Chinese bronze inscription
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_dimension>length in characters of the inscription of the Mao Gong ding
+      <in_class>E54: Dimension</in_class>
+      <has_type>number of characters
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>500
+        <in_class>E60: Number</in_class>
+      </has_value>
+      <has_unit>character
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+    <has_dimension>layout in lines of the inscription of the Mao Gong ding
+      <in_class>E54: Dimension</in_class>
+      <has_type>number of lines
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>32
+        <in_class>E60: Number</in_class>
+      </has_value>
+      <has_unit>line
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+    <has_note>Statement. 500 characters arranged in 32 lines, the longest inscription among the ancient Chinese bronze inscriptions and "the longest such inscription known today".</has_note>
+    <has_note>Content summary. The inscription text bears witness to the "King Xuan restoration" in Western Zhou history. The first part of the text consists of King Xuan's instructions to the Duke of Mao. The middle portion recounts how the King, upon taking the throne, fondly recalled how King Wen of Zhou and King Wu of Zhou had enjoyed the Mandate of Heaven and established the kingdom, as well as the King's vigilance and apprehension over inheriting the Mandate himself. The latter part lists in detail the generous gifts the King had bestowed upon the Duke of Mao. In closing, the Duke of Mao expresses his gratitude to the King, and presents the ding as an expression thereof for future generations.</has_note>
+    <is_documented_in>"Mao Gong Ding" [毛公鼎], description from the National Palace Museum, Taipei (sNo=04001041)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <is_documented_in>The Bell and Cauldron Inscriptions - A Feast of Chinese Characters: the Origin and Development: Mao Gong Ding (National Palace Museum, 5 February 2010)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <is_documented_in>Mao Gong ding inscription.png (rubbing of the inscriptions on the vessel)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <refers_to>King Xuan of Zhou
+      <in_class>E21: Person</in_class>
+    </refers_to>
+    <refers_to>Lord Yin of Mao, Duke of Mao
+      <in_class>E21: Person</in_class>
+    </refers_to>
+    <refers_to>King Wen of Zhou
+      <in_class>E21: Person</in_class>
+    </refers_to>
+    <refers_to>King Wu of Zhou
+      <in_class>E21: Person</in_class>
+    </refers_to>
+    <refers_to>the Mandate of Heaven
+      <in_class>E28: Conceptual Object</in_class>
+    </refers_to>
+    <refers_to>the King Xuan restoration
+      <in_class>E4: Period</in_class>
+      <has_note>The revitalization after the ascension of King Xuan, ending the Gonghe interregnum. The article supplies this gloss in editorial brackets inside the quoted museum summary.</has_note>
+    </refers_to>
+    <refers_to>the Gonghe interregnum
+      <in_class>E4: Period</in_class>
+    </refers_to>
+    <refers_to>the gifts bestowed by King Xuan of Zhou upon the Duke of Mao
+      <in_class>E7: Activity</in_class>
+      <carried_out_by>King Xuan of Zhou
+        <in_class>E21: Person</in_class>
+      </carried_out_by>
+      <has_note>The article says only that the latter part of the inscription "lists in detail the generous gifts the King had bestowed upon the Duke of Mao". Nothing is said about what the gifts were, so nothing beyond the bare activity is modelled.</has_note>
+    </refers_to>
+    <has_note>Absence of evidence. The article does not state the language of the inscription and gives no transcription or translation of its text. P72 has language, which the CRM quantifies as necessary on E33 Linguistic Object, is therefore left unfilled, and no P190 has symbolic content is asserted. Only the type "Chinese bronze inscription", which the article does assert by wikilink, is given.</has_note>
+  </carries>
+  <has_note>Absence of evidence. The article describes no ornament, relief, motif or figural decoration of any kind, and nothing that the object depicts. No P62 depicts and no P65 shows visual item is asserted. Everything the article says about the object's surface concerns the inscription, which is text and is modelled as E34 Inscription carried by the object, not as a visual item shown by it.</has_note>
+
+  <!-- making -->
+  <was_produced_by>the casting of the Mao Gong ding
+    <in_class>E12: Production</in_class>
+    <has_time-span>date of production of the Mao Gong ding
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>805 BCE
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+      <beginning_is_qualified_by>circa</beginning_is_qualified_by>
+      <end_is_qualified_by>circa</end_is_qualified_by>
+      <falls_within>time-span of the Western Zhou dynasty
+        <in_class>E52: Time-Span</in_class>
+      </falls_within>
+      <has_note>The article dates the object at two different grains and never reconciles them. The infobox gives "c. 805 BCE"; the running text says only that the vessel is "from the Western Zhou dynasty (c. 1045-771 BCE)" and "dates from the reign of King Xuan of Zhou". These are not presented as rival datings and the article cites no disagreement, so this is modelled as one time-span, carrying the narrowest claim (circa 805 BCE) with P82 at some time within and P79/P80 for the "circa", and nested inside the wider Western Zhou span with P86 falls within. The reign is attached to the production event itself with P10 falls within.</has_note>
+    </has_time-span>
+    <falls_within>the reign of King Xuan of Zhou
+      <in_class>E4: Period</in_class>
+    </falls_within>
+    <is_documented_in>Chinese Art Treasures, Exhibition Catalogue from the National Palace Museum, Taiwan in USA (1961-2), SKILA, Geneva, 1961
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <is_documented_in>The Bell and Cauldron Inscriptions - A Feast of Chinese Characters: the Origin and Development: Mao Gong Ding (National Palace Museum, 5 February 2010)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <has_note>Absence of evidence. The article names no maker, foundry or workshop, no place of production, and no technique. P14 carried out by, P7 took place at, P32 used general technique and P126 employed are therefore all left unfilled. The material bronze is asserted of the object (P45 consists of) rather than of the production event, because the article states the material and not the casting process.</has_note>
+    <has_note>Modelling note. The museum summary quoted by the article ends with the Duke of Mao presenting the ding "as an expression thereof for future generations", which implies but nowhere states that he had it cast. The implication is recorded here rather than asserted as P14 carried out by or P17 was motivated by on the production event.</has_note>
+    <has_note>Absence of evidence. The article records no contested attribution and no rival dating: no scholar, museum or source is reported as disputing when, where or by whom the vessel was made. Nothing is therefore modelled with E13 Attribute Assignment or with competing instances of E17 Type Assignment, which is the device the Clayton example uses for exactly that situation.</has_note>
+  </was_produced_by>
+
+  <!-- deposition and rediscovery -->
+  <was_object_encountered_through>the 1843 unearthing of the Mao Gong ding at Qishan
+    <in_class>S19: Encounter Event</in_class>
+    <encountered_at>Qishan County
+      <in_class>E53: Place</in_class>
+      <falls_within>Shaanxi province
+        <in_class>E53: Place</in_class>
+        <falls_within>China
+          <in_class>E53: Place</in_class>
+        </falls_within>
+      </falls_within>
+    </encountered_at>
+    <has_time-span>1843
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1843
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <falls_within>the reign of the Daoguang Emperor
+      <in_class>E4: Period</in_class>
+    </falls_within>
+    <is_documented_in>Chinese Art Treasures, Exhibition Catalogue from the National Palace Museum, Taiwan in USA (1961-2), SKILA, Geneva, 1961
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <is_documented_in>The Bell and Cauldron Inscriptions - A Feast of Chinese Characters: the Origin and Development: Mao Gong Ding (National Palace Museum, 5 February 2010)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <has_note>Absence of evidence. The article's whole statement is "The Mao Gong ding was excavated in Qishan County, Shaanxi province in 1843, during the Daoguang Emperor's reign." No excavator is named, so P14 carried out by is left unfilled even though the CRM quantifies it as necessary on S19 Encounter Event; no findspot finer than the county is given; and nothing is said about the circumstances, so no CRMarchaeo A9 Archaeological Excavation, A7 Embedding or AP17 is found by is asserted.</has_note>
+  </was_object_encountered_through>
+  <has_note>Absence of evidence. The article records no deposition. It says the object was excavated but never says that it was buried, when, by whom or why, and gives no burial context, hoard, tomb or stratigraphy. No burial event of any kind is modelled: there is no E9 Move into the ground, no S17 Physical Genesis and no A4 Stratigraphic Genesis. The roughly 2650 years between the casting and the 1843 unearthing are entirely blank in the source.</has_note>
+
+  <!-- ownership and custody -->
+  <changed_ownership_through>the gift of the Mao Gong ding by Lord Yin of Mao to King Xuan of Zhou
+    <in_class>E8: Acquisition</in_class>
+    <has_type>gift
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <transferred_title_from>Lord Yin of Mao, Duke of Mao
+      <in_class>E21: Person</in_class>
+    </transferred_title_from>
+    <transferred_title_to>King Xuan of Zhou
+      <in_class>E21: Person</in_class>
+    </transferred_title_to>
+    <was_motivated_by>the appointment of Lord Yin of Mao to help run state affairs
+      <in_class>E7: Activity</in_class>
+    </was_motivated_by>
+    <falls_within>the reign of King Xuan of Zhou
+      <in_class>E4: Period</in_class>
+    </falls_within>
+    <is_documented_in>The Bell and Cauldron Inscriptions - A Feast of Chinese Characters: the Origin and Development: Mao Gong Ding (National Palace Museum, 5 February 2010)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <is_documented_in>Full Rubbing of the Mao Gong Ding (National Palace Museum, January 2020)
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <has_note>"The ding dates from the reign of King Xuan of Zhou, and was presented to him by the Lord Yin of Mao" and "takes its name from the Lord (公 gong) Yin of Mao, who gifted the ding to the King after being appointed to help run state affairs". The article calls the same man Lord Yin of Mao in its own voice and the Duke of Mao inside the quoted museum summary; one person is modelled, under both appellations.</has_note>
+  </changed_ownership_through>
+
+  <changed_ownership_through>the acquisition of the Mao Gong ding by Chen Jieqi in 1852
+    <in_class>E8: Acquisition</in_class>
+    <transferred_title_to>Chen Jieqi
+      <in_class>E21: Person</in_class>
+    </transferred_title_to>
+    <has_time-span>1852
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1852
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <has_note>Absence of evidence. "The famous collector Chen Jieqi (1813-1884) acquired it in 1852." The article does not say from whom, or by what means. E8 Acquisition rather than E96 Purchase is used because no payment is reported, and P23 transferred title from is left unfilled. Nothing at all is recorded between the 1843 unearthing and this acquisition.</has_note>
+  </changed_ownership_through>
+
+  <changed_ownership_through>the purchase of the Mao Gong ding from the Chen family by Duanfang
+    <in_class>E96: Purchase</in_class>
+    <transferred_title_from>the Chen family
+      <in_class>E74: Group</in_class>
+    </transferred_title_from>
+    <transferred_title_to>Duanfang
+      <in_class>E21: Person</in_class>
+    </transferred_title_to>
+    <has_time-span>the Xuantong era, 1909-1911
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1909/1911
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <falls_within>the Xuantong era
+      <in_class>E4: Period</in_class>
+    </falls_within>
+    <has_note>"In the Xuantong era (1909-1911) Duanfang (1861-1911) bought it from the Chen family." E96 Purchase is used because the article says "bought"; no price is given, so no P179 had sales price. The date is the era, not a year within it, hence P82 at some time within over the whole 1909-1911 bracket.</has_note>
+  </changed_ownership_through>
+
+  <is_subject_to>the mortgage over the Mao Gong ding held by the Tianjin Dao Sheng Bank
+    <in_class>E30: Right</in_class>
+    <has_type>mortgage
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <is_possessed_by>the Tianjin Dao Sheng Bank
+      <in_class>E74: Group</in_class>
+    </is_possessed_by>
+    <has_note>"...friends who bought the tripod from the Tianjin Dao Sheng Bank, which had it as a mortgage." Modelled as the fully developed path E72 P104 is subject to, E30 Right, P75i is possessed by, E39 Actor, of which P105 right held by is the CRM's declared shortcut; the shortcut is not also asserted. The article does not say how or when the object passed from Duanfang, who died in 1911, to the bank, nor whether the bank ever held title or only physical custody, so no acquisition or transfer-of-custody event into the bank is modelled.</has_note>
+  </is_subject_to>
+
+  <changed_ownership_through>the purchase of the Mao Gong ding from the Tianjin Dao Sheng Bank by friends of Ye Gongchuo
+    <in_class>E96: Purchase</in_class>
+    <transferred_title_from>the Tianjin Dao Sheng Bank
+      <in_class>E74: Group</in_class>
+    </transferred_title_from>
+    <transferred_title_to>the friends of Ye Gongchuo who bought the ding from the Tianjin Dao Sheng Bank
+      <in_class>E74: Group</in_class>
+    </transferred_title_to>
+    <has_note>Undated in the article, and the buyers are identified only as "friends" of Ye Gongchuo. They are modelled as one unnamed instance of E74 Group because the article treats them collectively and as more than one person.</has_note>
+  </changed_ownership_through>
+
+  <changed_ownership_through>the presentation of the Mao Gong ding to Ye Gongchuo
+    <in_class>E8: Acquisition</in_class>
+    <has_type>gift
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <transferred_title_from>the friends of Ye Gongchuo who bought the ding from the Tianjin Dao Sheng Bank
+      <in_class>E74: Group</in_class>
+    </transferred_title_from>
+    <transferred_title_to>Ye Gongchuo
+      <in_class>E21: Person</in_class>
+    </transferred_title_to>
+    <has_note>"Ye Gongchuo (1881-1968) was presented with the ding by friends who bought the tripod from the Tianjin Dao Sheng Bank". Undated.</has_note>
+  </changed_ownership_through>
+
+  <changed_ownership_through>the sale of the Mao Gong ding by the Ye family to Chen Yon Ren
+    <in_class>E96: Purchase</in_class>
+    <transferred_title_from>the Ye family
+      <in_class>E74: Group</in_class>
+    </transferred_title_from>
+    <transferred_title_to>Chen Yon Ren
+      <in_class>E21: Person</in_class>
+    </transferred_title_to>
+    <falls_within>the Second Sino-Japanese War
+      <in_class>E4: Period</in_class>
+    </falls_within>
+    <took_place_at>Shanghai
+      <in_class>E53: Place</in_class>
+      <falls_within>China
+        <in_class>E53: Place</in_class>
+      </falls_within>
+    </took_place_at>
+    <is_documented_in>Tan Danjiong, "The Mao Gong Ding", The National Palace Museum Monthly of Chinese Art vol. 4 no. 4, 127-136, 1986, Taipei
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <has_note>"During the Second Sino-Japanese War, the Ye family sold it to Chen Yon Ren, a millionaire in Shanghai." The article gives no dates for the war, so the sale is placed inside the war with P10 falls within rather than being given a numeric time-span of its own; the war's own time-span is left unstated for the same reason. The seller is the Ye family, not Ye Gongchuo personally. Shanghai is where the article locates the buyer; treating it as the place of the sale is an inference and is flagged as such here.</has_note>
+  </changed_ownership_through>
+
+  <changed_ownership_through>the donation of the Mao Gong ding by Chen Yon Ren to the Kuomintang Shanghai Government
+    <in_class>E8: Acquisition</in_class>
+    <has_type>donation
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <transferred_title_from>Chen Yon Ren
+      <in_class>E21: Person</in_class>
+    </transferred_title_from>
+    <transferred_title_to>the Kuomintang Shanghai Government
+      <in_class>E74: Group</in_class>
+    </transferred_title_to>
+    <had_participant>an unnamed general of the Kuomintang army
+      <in_class>E21: Person</in_class>
+    </had_participant>
+    <has_time-span>April 1946
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1946-04
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <is_documented_in>Tan Danjiong, "The Mao Gong Ding", The National Palace Museum Monthly of Chinese Art vol. 4 no. 4, 127-136, 1986, Taipei
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <has_note>"In April 1946, Chen Yon Ren donated the tripod to the Kuomintang Shanghai Government through a general in their army." The general is an unnamed intermediary, modelled with P11 had participant rather than P14 carried out by, since the article does not say he performed the transfer.</has_note>
+  </changed_ownership_through>
+
+  <moved_by>the removal of the Mao Gong ding to Taiwan in 1949
+    <in_class>E9: Move</in_class>
+    <moved_to>Taiwan
+      <in_class>E53: Place</in_class>
+    </moved_to>
+    <carried_out_by>Chiang Kai-shek
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <carried_out_by>the Kuomintang
+      <in_class>E74: Group</in_class>
+    </carried_out_by>
+    <has_time-span>1949
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1949
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <is_documented_in>Tan Danjiong, "The Mao Gong Ding", The National Palace Museum Monthly of Chinese Art vol. 4 no. 4, 127-136, 1986, Taipei
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <has_note>"In 1949, Chiang Kai-shek and the Kuomintang moved it to Taiwan, where it remains housed at the National Palace Museum." The article gives no place of origin for the move, so P27 moved from is left unfilled. This is a change of location only: the article reports no transfer of title in 1949, and title had gone to the Kuomintang Shanghai Government in 1946.</has_note>
+  </moved_by>
+
+  <has_current_keeper>the National Palace Museum
+    <in_class>E74: Group</in_class>
+  </has_current_keeper>
+  <has_current_location>the National Palace Museum, Taipei
+    <in_class>E53: Place</in_class>
+    <falls_within>Taipei
+      <in_class>E53: Place</in_class>
+      <falls_within>Taiwan
+        <in_class>E53: Place</in_class>
+      </falls_within>
+    </falls_within>
+  </has_current_location>
+  <has_note>Absence of evidence. The article says the object "remains housed at" and "is currently located at" the National Palace Museum. It describes no deposit, loan or accession event, and no transfer of title after April 1946. The museum is therefore recorded as current keeper (P50) and the museum building as current location (P55); no E10 Transfer of Custody is asserted, and no current owner (P52) is asserted either, because the article never says whether the Kuomintang Shanghai Government's title passed on to the museum or to the state.</has_note>
+  <has_note>Modelling note. P51 has former or current owner and P105 right held by are both declared by the CRM as shortcuts for paths that this document spells out in full (through E8 Acquisition, and through E30 Right respectively). The shortcuts are deliberately not also asserted, so that each owner appears exactly once, inside the event that made him one.</has_note>
+
+  <!-- reconstruction, restoration, alteration -->
+  <has_note>Absence of evidence. The article records no reconstruction, restoration, repair, cleaning, re-mounting or alteration of any kind, and none that was later reversed or superseded. Nothing is modelled with E11 Modification, E79 Part Addition, E80 Part Removal or E81 Transformation. The one intervention the article does report - Chen Jieqi's rubbings of 1852 - leaves the object unchanged and is modelled below as an activity that used the object, not as one that modified it.</has_note>
+
+  <!-- the object as instrument: the 1852 rubbings -->
+  <was_used_for>the making of rubbings of the inscription of the Mao Gong ding by Chen Jieqi and his studio
+    <in_class>E12: Production</in_class>
+    <carried_out_by>Chen Jieqi
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <had_participant>the studio of Chen Jieqi
+      <in_class>E74: Group</in_class>
+    </had_participant>
+    <has_produced>the rubbings of the inscription of the Mao Gong ding made by Chen Jieqi
+      <in_class>E22: Human-Made Object</in_class>
+      <carries>the inscription of the Mao Gong ding
+        <in_class>E34: Inscription</in_class>
+      </carries>
+      <is_documented_in>Rubbings of Inscriptions on Mao Gong Ding, the Duke Mao Tripod (World Digital Library item 13542, Library of Congress)
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </has_produced>
+    <has_time-span>1852
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1852
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <has_note>Modelling note. "He and his studio made precise rubbings of the inscriptions." Included, although reproductions are otherwise outside the scope of this record, because the rubbings are one of the article's cited sources and are evidence of Chen Jieqi's custody. The rubbings carry the same instance of E34 Inscription as the ding does: E34's scope note is explicit that the class is the underlying text, not any one physical embodiment of it.</has_note>
+  </was_used_for>
+
+  <!-- documentation of the object as a whole -->
+  <is_documented_in>Ding cauldron of Duke Mao.jpg
+    <in_class>E31: Document</in_class>
+  </is_documented_in>
+  <is_documented_in>Mao Gong ding, English Wikipedia, revision consulted 2026
+    <in_class>E31: Document</in_class>
+  </is_documented_in>
+  <has_note>Modelling note. Every assertion in this document comes from the English Wikipedia article "Mao Gong ding" and from nothing else. Where the article attributes a statement to one of its own references, that reference is attached with P70i is documented in to the entity or event the statement is about, following the AMOL example's use of is_documented_in.</has_note>
+  <has_note>Scope decision. Deliberately left out of this record: the object's standing as one of the National Palace Museum's "three treasures" alongside the Jadeite Cabbage and the Meat-Shaped Stone, which is reception, and with it the article's reference 倪再沁, 神畫的形塑—論故宮三寶 (2007), which the article cites for that claim and for nothing else. Also left out: the See also links and the general link to the retreat of the government of the Republic of China to Taiwan.</has_note>
+</CRM_Entity>
+
+
+<!-- ============================================================
+ 2. PERSONS AND GROUPS, WITH WHAT THE ARTICLE DATES
+ ============================================================ -->
+<CRM_Entity>Lord Yin of Mao, Duke of Mao
+  <in_class>E21: Person</in_class>
+  <is_identified_by>Lord Yin of Mao
+    <in_class>E41: Appellation</in_class>
+    <has_type>the article's own usage
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </is_identified_by>
+  <is_identified_by>the Duke of Mao
+    <in_class>E41: Appellation</in_class>
+    <has_type>usage in the quoted museum summary
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </is_identified_by>
+  <has_note>The article gives no dates for him and no relationship to the object other than donor and eponym.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>King Xuan of Zhou
+  <in_class>E21: Person</in_class>
+  <has_note>The article gives no regnal dates. The reign is used purely as a dating bracket and is modelled separately as an instance of E4 Period.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>Chen Jieqi
+  <in_class>E21: Person</in_class>
+  <has_type>collector
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <was_born>the birth of Chen Jieqi
+    <in_class>E67: Birth</in_class>
+    <has_time-span>1813
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1813
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+  </was_born>
+  <died_in>the death of Chen Jieqi
+    <in_class>E69: Death</in_class>
+    <has_time-span>1884
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1884
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+  </died_in>
+</CRM_Entity>
+
+<CRM_Entity>Duanfang
+  <in_class>E21: Person</in_class>
+  <was_born>the birth of Duanfang
+    <in_class>E67: Birth</in_class>
+    <has_time-span>1861
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1861
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+  </was_born>
+  <died_in>the death of Duanfang
+    <in_class>E69: Death</in_class>
+    <has_time-span>1911
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1911
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+  </died_in>
+</CRM_Entity>
+
+<CRM_Entity>Ye Gongchuo
+  <in_class>E21: Person</in_class>
+  <was_born>the birth of Ye Gongchuo
+    <in_class>E67: Birth</in_class>
+    <has_time-span>1881
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1881
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+  </was_born>
+  <died_in>the death of Ye Gongchuo
+    <in_class>E69: Death</in_class>
+    <has_time-span>1968
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1968
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+  </died_in>
+</CRM_Entity>
+
+<CRM_Entity>Chen Yon Ren
+  <in_class>E21: Person</in_class>
+  <has_type>millionaire
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <has_current_or_former_residence>Shanghai
+    <in_class>E53: Place</in_class>
+  </has_current_or_former_residence>
+  <has_note>Called "Chen Yon Ren" in the article's own text, which links to the person under the name Chen Youren. No dates are given.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>the Ye family
+  <in_class>E74: Group</in_class>
+  <has_current_or_former_member>Ye Gongchuo
+    <in_class>E21: Person</in_class>
+  </has_current_or_former_member>
+</CRM_Entity>
+
+<CRM_Entity>the Chen family
+  <in_class>E74: Group</in_class>
+  <has_current_or_former_member>Chen Jieqi
+    <in_class>E21: Person</in_class>
+  </has_current_or_former_member>
+  <has_note>The article says Duanfang "bought it from the Chen family". Chen Jieqi is recorded as a member because he is the collector from whom the family holding descends; the article names no other member.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>the Tianjin Dao Sheng Bank
+  <in_class>E74: Group</in_class>
+</CRM_Entity>
+
+<CRM_Entity>the Kuomintang Shanghai Government
+  <in_class>E74: Group</in_class>
+</CRM_Entity>
+
+<CRM_Entity>the National Palace Museum
+  <in_class>E74: Group</in_class>
+  <has_current_or_former_residence>the National Palace Museum, Taipei
+    <in_class>E53: Place</in_class>
+  </has_current_or_former_residence>
+</CRM_Entity>
+
+
+<!-- ============================================================
+ 3. PERIODS USED AS DATING BRACKETS
+ ============================================================ -->
+<CRM_Entity>the Western Zhou dynasty
+  <in_class>E4: Period</in_class>
+  <has_time-span>time-span of the Western Zhou dynasty
+    <in_class>E52: Time-Span</in_class>
+    <at_some_time_within>1045 BCE/771 BCE
+      <in_class>E61: Time Primitive</in_class>
+    </at_some_time_within>
+    <beginning_is_qualified_by>circa</beginning_is_qualified_by>
+  </has_time-span>
+</CRM_Entity>
+
+<CRM_Entity>the reign of King Xuan of Zhou
+  <in_class>E4: Period</in_class>
+  <falls_within>the Western Zhou dynasty
+    <in_class>E4: Period</in_class>
+  </falls_within>
+  <has_note>The article gives no regnal dates, so this period carries no time-span. The CRM offers no property joining an instance of E4 Period to the instance of E39 Actor whose reign it is - the only path between E4 and E39 is L54 is same as - so King Xuan's connection to his own reign cannot be stated at all unless the reign is recast as an instance of E7 Activity that he carried out. The article uses the reign purely as a date bracket, so it is left as a period and the gap is recorded here.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>the reign of the Daoguang Emperor
+  <in_class>E4: Period</in_class>
+  <has_note>Undated in the article. See the note on the reign of King Xuan of Zhou for why the emperor is not linked to it.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>the Xuantong era
+  <in_class>E4: Period</in_class>
+  <has_time-span>1909-1911
+    <in_class>E52: Time-Span</in_class>
+    <at_some_time_within>1909/1911
+      <in_class>E61: Time Primitive</in_class>
+    </at_some_time_within>
+  </has_time-span>
+</CRM_Entity>
+
+<CRM_Entity>the Second Sino-Japanese War
+  <in_class>E4: Period</in_class>
+  <has_note>The article gives no dates for the war and none are supplied here.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>the Gonghe interregnum
+  <in_class>E4: Period</in_class>
+  <has_note>Named only inside the editorial gloss the article inserts into the quoted museum summary; referred to by the inscription, nothing more.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>the King Xuan restoration
+  <in_class>E4: Period</in_class>
+  <falls_within>the Western Zhou dynasty
+    <in_class>E4: Period</in_class>
+  </falls_within>
+</CRM_Entity>
+
+
+<!-- ============================================================
+ 4. THE SOURCES THE ARTICLE CITES
+ ============================================================ -->
+<CRM_Entity>Chinese Art Treasures, Exhibition Catalogue from the National Palace Museum, Taiwan in USA (1961-2), SKILA, Geneva, 1961
+  <in_class>E31: Document</in_class>
+  <has_type>exhibition catalogue
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <documents>Mao Gong ding
+    <in_class>E22: Human-Made Object</in_class>
+  </documents>
+  <was_created_by>the publication of Chinese Art Treasures
+    <in_class>E65: Creation</in_class>
+    <has_time-span>1961
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1961
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+  </was_created_by>
+  <has_note>Cited by the article for the height and width, for the dating to the reign of King Xuan, and for the 1843 excavation.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>Tan Danjiong, "The Mao Gong Ding", The National Palace Museum Monthly of Chinese Art vol. 4 no. 4, 127-136, 1986, Taipei
+  <in_class>E31: Document</in_class>
+  <has_type>journal article
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <documents>Mao Gong ding
+    <in_class>E22: Human-Made Object</in_class>
+  </documents>
+  <was_created_by>the writing of Tan Danjiong's article on the Mao Gong ding
+    <in_class>E65: Creation</in_class>
+    <carried_out_by>Tan Danjiong
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>1986
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1986
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+  </was_created_by>
+  <has_note>Cited by the article for the weight of 34.7 kg and for the whole twentieth-century ownership chain from Ye Gongchuo to the National Palace Museum.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>The Bell and Cauldron Inscriptions - A Feast of Chinese Characters: the Origin and Development: Mao Gong Ding (National Palace Museum, 5 February 2010)
+  <in_class>E31: Document</in_class>
+  <has_type>museum web page
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <documents>Mao Gong ding
+    <in_class>E22: Human-Made Object</in_class>
+  </documents>
+  <has_note>Cited by the article for the length of the inscription, for the gift by Lord Yin of Mao, for the name origin and for the 1843 excavation. The article records the link as dead and cites an Internet Archive capture of 27 July 2020.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>"Mao Gong Ding" [毛公鼎], description from the National Palace Museum, Taipei (sNo=04001041)
+  <in_class>E31: Document</in_class>
+  <has_type>museum web page
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <documents>the inscription of the Mao Gong ding
+    <in_class>E34: Inscription</in_class>
+  </documents>
+  <has_note>The source of the summary of the inscription's contents that the article quotes at length, in Chinese.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>Full Rubbing of the Mao Gong Ding (National Palace Museum, January 2020)
+  <in_class>E31: Document</in_class>
+  <has_type>museum web page
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <documents>Mao Gong ding
+    <in_class>E22: Human-Made Object</in_class>
+  </documents>
+</CRM_Entity>
+
+<CRM_Entity>Rubbings of Inscriptions on Mao Gong Ding, the Duke Mao Tripod (World Digital Library item 13542, Library of Congress)
+  <in_class>E31: Document</in_class>
+  <has_type>digital library record
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <documents>the rubbings of the inscription of the Mao Gong ding made by Chen Jieqi
+    <in_class>E22: Human-Made Object</in_class>
+  </documents>
+  <has_note>Dated 1852 by the article's citation, matching the year Chen Jieqi acquired the ding.</has_note>
+</CRM_Entity>
+
+<CRM_Entity>Ding cauldron of Duke Mao.jpg
+  <in_class>E31: Document</in_class>
+  <has_type>photograph
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <documents>Mao Gong ding
+    <in_class>E22: Human-Made Object</in_class>
+  </documents>
+</CRM_Entity>
+
+<CRM_Entity>Mao Gong ding inscription.png (rubbing of the inscriptions on the vessel)
+  <in_class>E31: Document</in_class>
+  <has_type>photograph
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <documents>the inscription of the Mao Gong ding
+    <in_class>E34: Inscription</in_class>
+  </documents>
+</CRM_Entity>
+
+<CRM_Entity>Mao Gong ding, English Wikipedia, revision consulted 2026
+  <in_class>E31: Document</in_class>
+  <has_type>encyclopaedia article
+    <in_class>E55: Type</in_class>
+  </has_type>
+  <documents>Mao Gong ding
+    <in_class>E22: Human-Made Object</in_class>
+  </documents>
+  <has_note>The single source of everything modelled in this document.</has_note>
+</CRM_Entity>
+
+</CRMset>

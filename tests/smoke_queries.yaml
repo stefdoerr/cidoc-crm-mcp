@@ -1,0 +1,48 @@
+# tests/smoke_queries.yaml
+# Each case: a query, and a subject substring that MUST appear in the top-k.
+# Subjects are lowercased normalized subjects measured from the corpus.
+- query: "relabel E22 to remove man-made"
+  expect_subject: "re-label e22"
+  why: "exact identifier + the renaming thread that produced Human-Made Object"
+
+- query: "non-human actors"
+  expect_subject: "non-human actors"
+  why: "34-message thread, the largest in the archive"
+
+- query: "scope note of E37 Mark"
+  expect_subject: "e37 mark"
+  why: "27-message thread; identifier plus label in one query"
+
+- query: "PC0 typed CRM property in CRMpc"
+  expect_subject: "crmpc"
+  why: "extension-model vocabulary that resolves against no core class"
+
+- query: "RDFS class identifiers"
+  expect_subject: "rdfs class identifiers"
+  why: "25-message thread, no CRM identifier in the query at all"
+
+- query: "ISO CRM ballot"
+  expect_subject: "iso crm ballot"
+  why: "the thread that drifts into 'next meetings' -- episode segmentation case"
+
+- query: "FRBRoo R10 superproperty"
+  expect_subject: "frbroo r10"
+  why: "subject arrives as an RFC 2047 encoded-word; fails if decoding regressed"
+
+- query: "modelling an event's general outcome"
+  expect_subject: "modelling an event"
+  why: "23-message thread; natural-language query with no identifier"
+
+- query: "teacher student relationship"
+  expect_subject: "asymmetric relations between people"
+  why: >
+    Vocabulary gap plus fusion. The thread contains no form of teach/learn/pupil
+    -- it says master-client and apprenticeship -- and it is where Martin Doerr
+    writes "Master-client should be activity mediated: Apprenticeship", the
+    answer to a real evaluation case the system missed. The dense ranking has it
+    6th of 8,855, but the ten result slots held only six distinct threads --
+    four spent on repeated messages -- and an even fusion with BM25 (rank 25,
+    matching only common words) did the rest. Fails if message-level dedup is
+    removed from Retriever.search. The vector weighting also recovers this case
+    on its own, so removing that alone will NOT fail here; see
+    lib.retrieve.vector_weight_for for the measured 2x2.

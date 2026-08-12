@@ -1,0 +1,14 @@
+{
+  "question_id": "2009-2011-q3",
+  "answer": "In thread t0554 (Crm-sig, 'Symmetry of P130 and P139', Mar-Apr 2011), Martin Scholz objected that the scope notes of P130 (shows features of/similar to) and P139 (has alternative form) called the properties 'dynamic, asymmetric' while also saying they behave symmetrically when no derivation direction can be established -- which he called a logical contradiction, since a relation cannot be both symmetric and asymmetric (though it can be neither). Martin Doerr (2011-04-01) resolved the apparent contradiction by distinguishing 'asymmetric' from 'antisymmetric': P130 itself is asymmetric (an instance does not imply its inverse holds), but specializations/subproperties of P130 can be defined as symmetric without creating a conflict, since a symmetric subproperty of an asymmetric superproperty is logically fine (he showed the inference chain). He also clarified 'dynamic' meant users are encouraged to create local subtypes, not that the relation itself switches between symmetric and asymmetric. Left unresolved: in his 2011-04-05 follow-up, Scholz noted Doerr's reply did not address the inconsistency that P130 has a defined inverse property while P139 (described identically regarding symmetry, and a subproperty of P130) does not -- he reiterated both should either have inverses or neither should. He also proposed renaming 'asymmetric' to 'nonsymmetric' to avoid the English-language ambiguity between strict mathematical asymmetry and mere absence of symmetry. Neither point received a reply within the thread. A 2021 thread (t1511, 'NEW ISSUE: Scope note of P139') later confirms the P139 side of the fix was still outstanding a decade on, since Doerr notes the asymmetry wording was reformulated for P130 but the corresponding correction was never carried out for P139.",
+  "found": true,
+  "cited_threads": ["t0554", "t1511"],
+  "queries_run": [
+    "search \"asymmetric relationship symmetric case similarity\" -k 10",
+    "thread t0554",
+    "search \"nonsymmetric P130 P139 inverse\" -k 10",
+    "search \"P130 P139 antisymmetric\" -k 10 --mode bm25"
+  ],
+  "confidence": "high",
+  "notes": "First query landed directly on the exact thread (t0554) on the first try; full thread read confirmed all details including the unresolved inverse-property and terminology points. Cross-check with t1511 (2021) confirms the P139 fix was still outstanding years later, corroborating that this part of Scholz's critique was left unaddressed."
+}

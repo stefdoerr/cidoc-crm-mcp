@@ -1,0 +1,55 @@
+{
+  "case_id": "propertychoice-c2",
+  "answer": "One E8 Acquisition (specifically E96 Purchase, since fully compensated by a monetary amount) with P23 transferred title from = the engineer and P22 transferred title to = the phone bidder: title runs straight from consignor to buyer. The auction house is not a party between whom title moved -- nothing in the case says it ever became legal owner of the instruments, it only handled money and controlled release of the goods. Its part is recorded via P14 carried out by (qualified with P14.1 in the role of, e.g. 'auctioneer'/'agent') on the same Purchase, plus separate E10 Transfer of Custody events for the physical/legal-custody side: engineer -> auction house (P28/P29) while it catalogued and sold the lot, and auction house -> buyer's courier for delivery. The ten-day hold on the buyer's payment and the lack of direct dealing between buyer and engineer are facts about custody, money-handling and agency, not evidence that the auction house ever held title -- CRM's own worked example for this exact configuration (Sotheby's receiving 'legal responsibility for physical custody' of a statue from its owner, to facilitate a sale) treats the auction house's role as custody only. Two separate Acquisitions would be the right model only if the auction house itself took title (e.g. a guaranteed/principal sale or a dealer buy-resell), which this case does not describe.",
+  "classes_proposed": ["E96", "E8", "E10"],
+  "properties_proposed": ["P22", "P23", "P24", "P14", "P28", "P29", "P30"],
+  "rejected_alternatives": [
+    {
+      "option": "Two E8 Acquisitions (engineer -> auction house, then auction house -> bidder)",
+      "why_not": "Would require the auction house to actually acquire legal title, which nothing in the case states -- it only held payment and controlled release of the goods. The SIG's own analogous example (thread t1376, Issue 475) models an auction house's part in a consignment sale as receiving only 'legal responsibility for physical custody' from the owner, not title; splitting title into two hops is the pattern for a dealer who genuinely buys and resells, not for an auctioneer acting as agent."
+    },
+    {
+      "option": "P14.1 in the role of alone, with no separate custody record",
+      "why_not": "concept P14 shows P14.1 qualifies the manner of an actor's participation in the Acquisition, but the case also asserts a distinct physical/legal-custody chain (auction house held the goods, then released them to a courier) which P22/P23/P14 do not capture; that needs its own E10 Transfer of Custody event(s) via P28/P29."
+    }
+  ],
+  "citations": [
+    "E8", "E96", "E10", "P22", "P23", "P24", "P14", "P28", "P29",
+    "t1376",
+    {"id": "t1376", "quote": "legal responsibility for physical custody of a large marble statue of Aphrodite"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E8",
+    "concept E96",
+    "\"auction\"",
+    "docs \"auction house consignment\"",
+    "issues \"auction\"",
+    "issue 475",
+    "thread t1394",
+    "thread t1370",
+    "thread t1375",
+    "thread t1376",
+    "\"consignment\"",
+    "\"auction house title\"",
+    "docs \"intermediary agent acting on behalf of\" --kind narrative",
+    "thread t1540",
+    "thread t1226",
+    "docs \"acting on behalf of another actor agent role\" --kind narrative",
+    "docs \"P14 carried out by\" --kind declaration",
+    "issue 273",
+    "concept P22",
+    "concept P23",
+    "concept P14",
+    "connect E8 E21",
+    "connect E8 E74",
+    "connect E10 E74",
+    "\"P14.1 in the role of\"",
+    "thread t1345",
+    "docs \"Minimality do not multiply entities\" --kind narrative",
+    "quote t1376 \"legal responsibility for physical custody of a large marble statue of Aphrodite\""
+  ],
+  "confidence": "medium",
+  "notes": "No mailing-list thread or issue addresses this exact question (single vs. double title transfer through an auction house) head-on with a stated SIG outcome; the answer is inferred from the E8/E10 scope-note split between legal ownership and custody, the P22/P23/P14(.1) properties, and the closest real precedent found -- the Sotheby's custody example built for Issue 475 (thread t1376) -- rather than from a decided issue naming this scenario."
+}

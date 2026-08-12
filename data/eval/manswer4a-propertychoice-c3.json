@@ -1,0 +1,43 @@
+{
+  "case_id": "propertychoice-c3",
+  "answer": "The CRM's answer is: no single E8 Acquisition instance can honestly represent both directions of this swap. E8 Acquisition's own properties -- P22 transferred title to and P23 transferred title from -- are declared on the acquisition event as a whole (each many:many to E39 Actor), and P24 transferred title of is likewise a flat, event-wide link to the E18 Physical Thing(s) involved (many:many, necessary). None of P22, P23 or P24 carries a per-object pairing to a specific actor. So if you tried to put both societies into P23 (as sources) and both into P22 (as recipients) of one Acquisition whose P24 lists both the tokens and the medals, the model would assert that each society both gave and received both objects -- it would no longer say which society gave the tokens and received the medals versus the reverse. That is a real loss of information, not a shortcut. The scope note itself frames E8 as transfers 'from one or more instances of E39 Actor to one or more other instances of E39 Actor' -- a single directional flow of a shared set of objects, not two independent directional flows bundled together. The honest model is therefore two E8 Acquisition instances, one per direction: Acquisition-1 has P23 transferred title from = Society A, P22 transferred title to = Society B, P24 transferred title of = the trade tokens; Acquisition-2 has P23 transferred title from = Society B, P22 transferred title to = Society A, P24 transferred title of = the medals. To preserve that these were agreed as one transaction rather than two independent donations, the two Acquisitions can be linked as parts of a common encompassing activity via P9 consists of / P10 falls within -- exactly the device Robert Sanderson proposed on the list for exactly this kind of case ('P9 is sufficient for asserting that the different activities are part of the overall Exchange', t1224). I flag, though, that the wider proposal he was making -- a first-class so:Exchange activity in CRMsoc to be that encompassing parent -- was contested by Martin Doerr in the same thread (he questioned whether 'exchange' is a valid primitive class at all, arguing the primitives should be provision/obligation) and the issue (420, folding in 173/273/385) is recorded as 'informational'/unresolved in the SIG debate, not a ratified CRMbase class. So within the current standard, the safe, fully-supported answer is: two Acquisitions, each with P22/P23 pointing in its own single direction and P24 scoped to only the object that actually moved in that direction; an explicit umbrella 'Exchange' class to hang both under is an unadopted SIG proposal, not something you can cite as current CRM.",
+  "classes_proposed": ["E8"],
+  "properties_proposed": ["P22", "P23", "P24", "P9"],
+  "rejected_alternatives": [
+    {"option": "One E8 Acquisition with both societies in P22 and both in P23 and both objects in P24", "why_not": "P22/P23 are event-wide (many:many on the whole Acquisition) and P24 is likewise event-wide with no per-object actor pairing, per concept E8/P22/P23/P24 output -- so this construction cannot record which society gave which specific object and received which other one; it asserts every actor gave/received every object."},
+    {"option": "CRMsoc so:Exchange as the encompassing class for the two directions", "why_not": "Proposed by Robert Sanderson in thread t1224 (issue 420, merging issues 173/273/385) but Martin Doerr disputed that 'Exchange' is a valid primitive class in the same thread, and the issue register shows this line of discussion as informational/unresolved, not a decided addition to the standard."},
+    {"option": "E10 Transfer of Custody instead of E8 Acquisition", "why_not": "The case describes societies permanently rounding out their collections with items handed over in lieu of the other's donation, i.e. a change of legal ownership, not merely a loan of physical custody -- E8's siblings list (concept E8) separates the two, and nothing in the case suggests custody without title passing."}
+  ],
+  "citations": ["E8", "P22", "P23", "P24", "P9", "t1224",
+    {"id": "t1224", "quote": "P9 is sufficient for asserting that the different activities are part of the overall Exchange"},
+    "Issue 420", "Issue 173"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E8",
+    "issues \"exchange\"",
+    "\"exchange of objects\"",
+    "docs \"exchange\" --kind narrative",
+    "thread t1224",
+    "issue 420",
+    "issue 173",
+    "issue 273",
+    "thread t0530",
+    "docs \"P23 transferred title from\" --kind declaration",
+    "docs \"several parties both giving and receiving\" --kind narrative",
+    "concept P23",
+    "concept P22",
+    "concept P24",
+    "thread t0634",
+    "\"barter\"",
+    "\"swap objects\"",
+    "issues \"gift exchange reciprocal\"",
+    "docs \"consists of\" --kind narrative",
+    "concept P9",
+    "connect E39 E39",
+    "quote t1224 \"P9 is sufficient for asserting that the different activities are part of the overall Exchange\"",
+    "quote t1224 \"In reality, the title is either transferred to or from someone, or both\""
+  ],
+  "confidence": "medium",
+  "notes": "The core answer (E8's P22/P23/P24 are event-scoped, not per-object, so a bidirectional swap needs two Acquisitions) is well grounded in the concept dossiers. The recommendation for how to link the two Acquisitions as one social transaction rests on an unresolved SIG thread (t1224/issue 420) rather than a ratified class, so I reported that honestly rather than presenting so:Exchange as settled CRM. My second quote-verification attempt (the P22/P23 scope-note line) returned NOT FOUND against t1224 because that text lives in the property declaration, not that thread -- I dropped it from the quoted citations rather than force it."
+}

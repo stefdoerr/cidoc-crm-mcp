@@ -1,0 +1,20 @@
+{
+  "question_id": "2018-2019-q4",
+  "answer": "Yes, the group settled on adding the property, though it landed in CRMsci rather than CRMbase. Stephen Stead and Robert Sanderson raised it as a NEW ISSUE (Issue 407) in January 2019, originally proposed for CRM base as 'Pxx is conceptually greater than (is conceptually less than)', domain and range both E55 Type, quantification many-to-many (0,n:0,n), for use cases like condition-report ranks (Good > Average), map scales, and fire-hazard ratings. The name went through several rounds of debate ('conceptually follows/precedes', 'ranked higher than/lower than', 'ordinally after/before'), and Martin Doerr argued it was out of scope for CRMbase and belonged in CRMsci instead (message 2019-01-08, thread t1156). By June 2019 (thread t1219, Issue 407 update), Robert Sanderson reported agreement at the Paris SIG meeting that the property would go into CRMsci, reverting to the 'greater than/less than' naming: 'Oxx is conceptually greater than', with a revised scope note adding the notion of concept schemes/vocabularies (e.g. 'good' in a conservation-report vocabulary is greater than 'average' in the same vocabulary). A later 2022 thread (t1631) confirms this settled as a numbered CRMsci property, 'O28 is conceptually greater than (is conceptually less than)', domain/range E55 Type -- though still marked 'draft' at that point, with Martin Doerr and Athanasios Velios discussing narrowing its domain to a new subclass ('Exx Sortable Type') for a future CRMsci version rather than all of E55 Type generally.",
+  "found": true,
+  "cited_threads": ["t1156", "t1219", "t1631"],
+  "queries_run": [
+    "search \"ranking property Type instances condition report\" -k 10",
+    "thread t1156",
+    "thread t1219",
+    "search \"Issue 407 Ordinal Property resolution accepted\" -k 10",
+    "search \"O is conceptually greater than CRMsci\" -k 10 --mode bm25",
+    "concept O28",
+    "search \"O28\" -k 10 --mode bm25 --entity O28",
+    "search \"O28 is conceptually greater than\" -k 10 --mode bm25",
+    "thread t1631",
+    "ontology (grepped for O28, no match -- confirms O28 lives in CRMsci spec, not CRMbase)"
+  ],
+  "confidence": "high",
+  "notes": "The initial hybrid search query surfaced the exact issue (Issue 407 / Ordinal Property for E55 Type) on the first try. Reading threads t1156 (Jan 2019 debate) and t1219 (June 2019 Paris SIG resolution) gave the in-period answer; a later thread t1631 (2022) that turned up in a follow-up bm25 search independently confirmed the final settled identifier (O28 in CRMsci) and showed it was still being refined (draft status, proposed domain narrowing) as of 2022."
+}

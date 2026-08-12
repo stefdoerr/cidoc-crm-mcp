@@ -1,0 +1,38 @@
+[
+  {
+    "case_id": "archaeology-c1",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t0674", "t1337"],
+    "reasoning": "P53 quote ('does not allow any indication of the Time-Span...') is exact; E93/P195/P164/P167 domains and ranges all fit as used; t1337 does confirm S19/O19/O21 are CRMsci extension, not core. Minor overreach: the t0674 Martin Doerr quote is real, but in the thread he explicitly frames it as an unadopted fix to a scope note he calls unclear ('There is an ISSUE here... it actually should say...'), not settled text -- the answer presents it as 'how the SIG itself talks about this property' slightly more confidently than the source (an open issue) warrants, though it does correctly hedge with medium confidence and flags the E9-actor tension itself.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "archaeology-c2",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t0633"],
+    "reasoning": "Both narrative quotes are verbatim in the reference doc (crm732#s0065 'informed people are able to agree...'; crm732#s0045 'the formal instances in a knowledge base are the identifiers, not the real things or phenomena'). E42/E77/P1/P48 domains/ranges all fit the two-record modelling. t0633 (misfiled coin labels) is honestly flagged in the notes as tangential and isn't actually leaned on in the prose, so it's weak-but-not-misrepresented.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "archaeology-c3",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1118"],
+    "reasoning": "E94 scope note verified verbatim including the literal WKT POLYGON example and 'not further elaborated upon within this model'; P168/P171/P172 scope notes confirm the approximation-vs-exact-definition distinction used to reject P171/P172. t1118 is Martin Doerr's own thread rewriting the E94 scope note around this exact declarative-place/geometry distinction -- directly on point, not just adjacent.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "archives-c1",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1469"],
+    "reasoning": "E10 and P50 scope notes verified; t1469 is confirmed to be the literal origin of the 'Mrs. Fitzherbert... Knoedler from Parke-Bernet' example that now sits verbatim in E10's own scope note -- a strong, precise citation. One imprecision: the answer says P50 is a shortcut used 'when intervening custodians are NOT separately recorded,' but P50's actual iff-clause is about whether custody was later surrendered (i.e. currency), not about documentation completeness -- doesn't change the correctness of the recommendation, which is independently supported by the general shortcut principle (fully-articulated path always implies the shortcut, not vice versa).",
+    "what_is_wrong": ["P50's 'if and only if' condition is about current vs. surrendered custody, not about whether intervening handovers were separately documented -- the answer conflates the two to justify using full E10 events, though the conclusion is still right for other reasons."]
+  }
+]

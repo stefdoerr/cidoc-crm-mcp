@@ -1,0 +1,113 @@
+{
+  "question_id": "e27-site",
+  "question": "Why does the CIDOC CRM have the class E27 Site? Why is a site a Physical Feature (E26) rather than a Place (E53)?",
+  "short_answer": "E27 Site exists so that a named piece of ground - an excavation, a landscape, a harbour, an island - can be documented as a piece of matter, something you can photograph, own, dig, damage and destroy. E53 Place is deliberately the opposite: a purely geometric extent, \"independent from temporal phenomena and matter\", which nothing can be made of and nothing can happen to. The SIG settled Site's position as Issue 10 \"Revise position of E27 Site\", closed at the Monterey (Asilomar) meeting on 21 February 2002; rather than move Site under Place, it widened E26 Physical Feature to cover \"fiat objects\" - stretches of a larger body marked off by imaginary borders - so that a site sits there naturally, as a fiat part of the Earth.",
+  "explanation": "The CRM keeps two different things apart that ordinary language runs together. E53 Place is a patch of space: it is \"in the pure sense of physics: independent from temporal phenomena and matter\" (v7.3.2, E53). It has no substance, no history and no owner; it cannot be excavated, and strictly it cannot even be photographed - a photograph records the stuff that happens to be there. E27 Site is that stuff: \"constellations of matter on the surface of the Earth or other celestial body, which can be represented by photographs, paintings and maps\" (v7.3.2, E27).\n\nThe practical difficulty was fitting such a thing into the physical branch of the model. A site has no crisp edges. It is not a Physical Object, because E19 requires \"physical boundaries that separate them completely in an objective way from other objects\", and a site's boundaries are drawn by archaeologists, not by nature. Rather than invent a home for it, the SIG rewrote the class above it. Martin Doerr circulated a new scope note for E26 Physical Feature on 11 January 2002, following an action item from the Paris meeting (t0042). Its move was to say that features come in two grades: the narrow kind (scratches, holes, a density change in a piece of wood) and a wider kind - \"portions of particular objects with partially imaginary borders, like the core of earth, a real estate on the surface of earth, a landscape\" - and to identify the whole class with Smith and Varzi's \"fiat objects\", artificially delimited parts of matter, as against the \"bona fide objects\" that are Physical Objects. On that definition the Earth is the carrier object and a site is a fiat piece of it: matter, inseparable from its bearer, with borders we impose. Site therefore stays under E26.\n\nThe Monterey minutes record the room taking it: \"Issue 10. Decision: To the proposed scope note for Issue 10 add that the door hole is a feature, but the door, being attached by hinges, is not. Otherwise proposal was approved.\" That amendment is the door/doorway sentence still in the E26 scope note today, and the register's outcome text is Doerr's proposal as amended.\n\nWhat the distinction buys: sites inherit everything E18 Physical Thing carries. They can be owned and kept (P52, P51, P105), composed of other physical things (P46), given a condition (P44), begin and cease to exist. None of that is true of a geometric extent, which is why Issue 33 (\"How to model the depiction of a place\", Barcelona 2001) was resolved by redirecting the question: \"This needs to be modified to 'site' - Places cannot be depicted.\"",
+  "real_world_example": "A real SIG case: in December 2006 Edmund Lee of English Heritage asked the list how to model the polygons produced by historic landscape characterisation for the UK MIDAS standard - the whole landscape and sea-bed carved into areas described by settlement pattern and date of boundaries (thread t0334). Stephen Stead's answer was \"each is an E27 Site with a P53 link to E53 Place\", and Martin Doerr spelled out why the two are not the same thing: \"With a landslide or vulcano eruption a complete E27 Site may end to exist, but the polygons still mark an existing area = Place on the surface on earth.\" The polygon survives the landslide; the site does not. That is the whole argument in one sentence. (Both are individual list posts, not SIG resolutions.)",
+  "decision_status": "settled",
+  "issues": [
+    {
+      "id": 10,
+      "title": "Revise position of E27 Site",
+      "status": "Done",
+      "outcome": "Closed at Monterey, 21 February 2002. The SIG did not relocate E27 Site; it approved a rewritten scope note for its parent E26 Physical Feature that admits fiat objects - \"portions of particular objects with partially imaginary borders, like the core of earth, a real estate on the surface of earth, a landscape\" - so that a piece of land is a physical feature of the Earth. Approved with one amendment made in the room (the door-hole / door example)."
+    },
+    {
+      "id": 33,
+      "title": "How to model the depiction of a place",
+      "status": "Done",
+      "outcome": "\"No action. Depiction of Sites is covered by the CRM.\" Barcelona, 5 July 2001. The issue page's proposal note gives the reason the question was redirected to Site: \"Places cannot be depicted.\""
+    },
+    {
+      "id": 311,
+      "title": "CRMsci inconsistency: physical feature IsA Place",
+      "status": "Done",
+      "outcome": "Closed at the 38th meeting, Crete, April 2017. CRMsci had made a physical feature a subclass of Place, which conflicted with CRM core. Resolved by confining the move to the extension: S20 Rigid Physical Feature is declared a subclass of both E26 Physical Feature and E53 Place and a superclass of E27 Site, while in CRM core E26 remains a subclass of E18 Physical Thing only."
+    },
+    {
+      "id": 432,
+      "title": "add \"islands\" to E27 Site",
+      "status": "Done",
+      "outcome": "Closed at the 45th meeting, Heraklion, October 2019. The island of Crete was added to the examples of E27 Site, following a list debate on Place vs Spacetime Volume - i.e. the SIG reaffirming that an island is matter, not a geometric extent."
+    }
+  ],
+  "threads": ["t0042", "t0334"],
+  "citations": [
+    {
+      "id": "minutes:3rd_crm_meeting_minutes#s027",
+      "quote": "Issue 10. Decision: To the proposed scope note for Issue 10 add that the door hole is a feature, but the door, being attached by hinges, is not. Otherwise proposal was approved."
+    },
+    {
+      "id": "minutes:3rd_crm_meeting_minutes#s000",
+      "quote": "Report of the 3rd joined meeting of the CIDOC Special Interest Group and ISO/TC46/SC4/WG9 ... Venue: Asilomar Conference Centre, Monterey Peninsula, CA, USA"
+    },
+    {
+      "id": "t0042",
+      "quote": "This class was introduced in order to avoid the counter-intuitive sense of referring to holes and similar features of objects as physical objects."
+    },
+    {
+      "id": "t0042",
+      "quote": "In the wider sense, they are portions of particular objects with partially imaginary borders, like the core of earth, a real estate on the surface of earth, a landscape, the head of a contiguous marble statue."
+    },
+    {
+      "id": "issue10#outcome",
+      "quote": "portions of particular objects with partially imaginary borders, like the core of earth, a real estate on the surface of earth, a landscape"
+    },
+    {
+      "id": "t0334",
+      "quote": "With a landslide or vulcano eruption a complete E27 Site may end to exist, but the polygons still mark an existing area = Place on the surface on earth."
+    },
+    {
+      "id": "issue33#current-s0000",
+      "quote": "In scope. This needs to be modified to \"site\" - Places cannot be depicted. Once modified this issue is complete."
+    },
+    {
+      "id": "crm732#E27",
+      "quote": "In contrast to the purely geometric notion of E53 Place, this class describes constellations of matter on the surface of the Earth or other celestial body, which can be represented by photographs, paintings and maps."
+    },
+    {
+      "id": "crm732#E53",
+      "quote": "in the pure sense of physics: independent from temporal phenomena and matter"
+    },
+    {
+      "id": "crm732#E26",
+      "quote": "This definition coincides with the definition of \"fiat objects\" (Smith & Varzi, 2000, pp.401-420)"
+    }
+  ],
+  "caveats": "The register's own thread pointer for Issue 10 is a false positive: it lists only t0683 (29 April 2013), which is FRBRoo Issue 10 about F2 Expression and has nothing to do with Site. The real discussion is t0042 (January 2002), which the register does not link at all - it was found by searching the list for the scope-note text, not by following the issue.\n\nThe Monterey minute is a single sentence. It proves the SIG resolved the issue, names the amendment it made, and shows the approved text is the proposal circulated on the list a month earlier; it does not argue the case. So the reasoning here comes from the proposal (one person's draft, Martin Doerr's) that the meeting then adopted - which is a legitimate route to a SIG position, but the argument was written by an individual, not debated in the recorded minutes.\n\nNowhere does the archive state in so many words \"Site is a Physical Feature and not a Place because X\". The contrast with E53 is asserted in the scope note, not derived in any recorded debate. The \"Places cannot be depicted\" reason sits in the proposal field of the Issue 33 page, not in a meeting decision - the Barcelona 2001 outcome is only \"No action. Depiction of Sites is covered by the CRM.\" The landslide/polygon argument is Martin Doerr's 2007 list post, not a resolution. The inheritance argument (sites can be owned, kept, composed, destroyed; places cannot) is mine, inferred from the property sets, not quoted from the archive.\n\nI could not recover what E27's superclass was before Monterey, so I cannot confirm that Site was ever actually moved. The issue is titled \"Revise position of E27 Site\", but what the record shows the SIG doing is rewriting E26 around it. The v3.2 scope note quoted in t0042 shows E26 previously covered only narrow features (holes, scratches) - a site would have been an awkward fit under it - which is consistent with the position having been in genuine doubt, but that is inference.\n\nThe boundary was contested again later: Issue 311 (2016-17) over CRMsci making a physical feature also a Place, and Issue 432 (2019) over islands. Both were resolved in favour of the Monterey line for CRM core.",
+  "queries_run": [
+    "issue 10",
+    "concept E27",
+    "concept E26",
+    "concept E53",
+    "docs \"Monterey site E27 physical feature place\" --kind minutes",
+    "docs \"Monterey meeting February 2002\" --kind minutes",
+    "quote minutes:3rd_crm_meeting_minutes#s027 \"Issue 10\" / \"add that\" / \"hinges\"",
+    "quote minutes:3rd_crm_meeting_minutes#s026 / #s028 \"Issue\"",
+    "docs \"Site should be a subclass of Physical Feature not Place\" --kind minutes",
+    "docs \"E27 Site subclass position revise\" --kind issue",
+    "docs \"Site\" --kind minutes --mode bm25",
+    "issues \"Site\" --mode bm25",
+    "issues \"E27 Site place physical feature position\"",
+    "issue 311",
+    "issue 33",
+    "issue 74",
+    "\"E27 Site is not a Place why subclass of Physical Feature\"",
+    "\"fiat objects bona fide Smith Varzi feature\"",
+    "thread t0334",
+    "thread t0042",
+    "thread t0683",
+    "docs \"Places cannot be depicted\" --kind issue --json",
+    "docs \"E27 Site constellations of matter photographs paintings maps\" --kind declaration",
+    "quote t0042 \"referring to holes and similar features of objects as physical objects\"",
+    "quote t0042 \"a real estate on the surface of earth, a landscape\"",
+    "quote t0334 \"the polygons still\"",
+    "quote issue33#current-s0000 \"Places cannot be depicted\"",
+    "quote issue10#outcome \"real estate on the surface of earth\"",
+    "quote crm732#E27 \"In contrast to the purely geometric notion of E53 Place\"",
+    "quote crm732#E53 \"independent from temporal phenomena and matter\"",
+    "quote crm732#E26 \"fiat objects\"",
+    "quote minutes:minutes_of_37th_meeting_Berlin_draft_2#s031 / minutes_of_38th_meeting_Crete#s086 \"311\"",
+    "quote minutes:2011May-23rd-meeting-Minutes#s050 \"Sites\""
+  ]
+}

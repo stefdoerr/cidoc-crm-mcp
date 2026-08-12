@@ -1,0 +1,34 @@
+{
+  "case_id": "archaeology-c3",
+  "answer": "This is in scope. The cut's extent is an E53 Place, and the exact surveyed outline is an E94 Space Primitive (the scope note gives WKT 'POLYGON ((...))' as a direct example, i.e. exactly a closed total-station polygon), linked to the Place with P168 place is defined by (E53 -> E94). This is the 'declarative place' case the E94 scope note describes: identity of the Place is derived from the geometric definition itself, not approximated from it, which fits a surveyor's precise polygon used to compute exact area/orientation. That means the outline can be stored inside the CRM catalogue as data in its own right -- an E94 value attached via P168 -- rather than only as an external linked GIS layer; E94 is explicitly built to 'link CRM encoded data to the kinds of geometries used in maps or Geoinformation systems.' The one real limit: E94 'is not further elaborated upon within this model' -- CRM will hold the geometry as an opaque primitive value (a WKT/GML string with its coordinate reference system) but does not model vertices, area or orientation computation internally; those stay GIS/OGC-side operations on the stored value, with CRM only being asked to hold the value and its identity link, which is exactly what the archivist wants.",
+  "classes_proposed": ["E53", "E94"],
+  "properties_proposed": ["P168"],
+  "rejected_alternatives": [
+    {"option": "P171 at some place within / P172 contains", "why_not": "Both scope notes say they express only the maximum/minimum spatial extent when a Place's exact extent is *not* precisely known ('Since instances of E53 Place may not have precisely known spatial extents...'). The surveyor's polygon is an exact closed outline, not a bound, so P168 (defines) is the right property, not the approximation pair."},
+    {"option": "E92 Spacetime Volume / P161 has spatial projection", "why_not": "E92 and P161 bring in the temporal dimension (an occupied 4-D volume over a time-span). The case is a static geometric survey of a cut's plan shape for area/orientation, not a claim about spacetime occupation, so E53/E94 via P168 is the closer fit and avoids unneeded modelling weight."},
+    {"option": "Keep the outline only as an external linked GIS layer, out of scope for CRM", "why_not": "The E94 Space Primitive scope note explicitly targets this: 'appropriate validation, precision and references to spatial coordinate systems to express geometries... relevant to cultural and scientific documentation' and 'provide the ability to link CIDOC CRM encoded data to the kinds of geometries used in maps or Geoinformation systems,' with a WKT polygon given as the literal example. The model anticipates holding exactly this value, so treating it as necessarily external is not supported by the tools."}
+  ],
+  "citations": [
+    "E94",
+    "E53",
+    "P168",
+    "P171",
+    "P172",
+    "t1118"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E94",
+    "concept E53",
+    "docs \"geometry GIS surveyed outline coordinates\" --kind narrative",
+    "docs \"spatial coordinates place primitive geometry\" --kind declaration",
+    "\"total station survey outline excavation polygon GIS\"",
+    "threads \"storing exact geometry coordinates in CRM vs GIS layer\"",
+    "thread t1118",
+    "thread t1312",
+    "docs \"E53 Place is used to document declarative place derived from geometry\" --kind narrative"
+  ],
+  "confidence": "high",
+  "notes": "concept E94's siblings block and scope note (with the literal WKT POLYGON example) made the mapping easy -- it's almost a direct hit for 'exact surveyed outline'. What was harder: the docs narrative snippets truncate mid-sentence, so I had to lean on the declaration/concept dossiers for the full P168 vs P171/P172 distinction rather than the narrative prose; and the mailing-list search for concrete excavation/GIS language (t1312, t0334) surfaced CRMarchaeo/CRMsci terms (A8, S20) that the 'ontology' listing itself doesn't include, which was a useful cross-check that those extension classes are outside this system's 241-item core scope."
+}

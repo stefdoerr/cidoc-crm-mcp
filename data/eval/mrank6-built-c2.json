@@ -1,0 +1,38 @@
+{
+  "case_id": "built-c2",
+  "ranking": ["C", "B", "A"],
+  "per_answer": [
+    {
+      "label": "C",
+      "class_count": 7,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Gets both halves of the case right at the CRM's own level of specificity: units as E4 Period (Issue 312, verified closed 2018-01-18 with the exact scope-note wording quoted), membership as E93 Presence + P164 + P10 falls within (which matches crm732#s0084's own description of Presence as 'the basic construct to describe exactly where something was or happened at a particular time', and correctly invokes the Mesopotamia warning at s0085 against the trap the case sets). Its naming solution (E7 Activity + P16, via Issue 147) is the SIG's own specific, verified resolution for dated vernacular name-usage -- confirmed word for word against issue147#background-s0000 and Nuremberg/Heraklion dates, and matches P16's own worked example ('the people of Iraq calling... Quyunjig') almost exactly. All 7 classes are load-bearing; nothing is decorative."
+    },
+    {
+      "label": "B",
+      "class_count": 8,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Reaches the identical, correct core solution to C (E4 for the units, E93/P164/P10 for time-sliced membership) with equally solid, verified citations (issue312, issue204, crm732#s0084/s0085/P89/P1), plus a nice touch using P89 correctly where it does belong (extent-of-hundred falls within extent-of-district, echoing the case's own 'folded into' language). Its one weaker spot: for dating the two names it reaches for E15 Identifier Assignment, which is P1's declared 'more detailed' path but models a deliberate assignment act, not the gradual vernacular adoption the case describes -- Issue 147 (which B does not engage) exists precisely because the SIG decided usage-dating belongs on an E7 Activity via P16, not on identifier assignment. All 8 classes still do real work; the extra length is alternatives explored, not padding."
+    },
+    {
+      "label": "A",
+      "class_count": 3,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [
+        "P89 falls within, with why: A's own resolution reads administrative membership off 'the site's P89 falls within relation to whichever unit's spatial-projection Place applied at the time' -- but P89's scope note (crm732#P89, quoted independently and correctly by both B and C to rule out exactly this move) says the property 'addresses spatial containment only and does not imply any relationship between things or phenomena occupying these places.' A correctly moves the administrative unit itself to E4 Period (matching Issue 312), but then reintroduces the disallowed reading for the membership link it was supposed to fix."
+      ],
+      "unsupported_citations": [],
+      "verdict": "Half of a correct answer. The E4-for-the-unit move is right and well-cited (t1090, t1243, Issue 312 all check out). But A never introduces any time-sliced construct for the mill's own membership -- no E93, no P164 -- so the 'administrative membership... whichever unit applied at the time' is asserted in prose with no CRM construct actually carrying the 'at the time' qualifier; it depends on this case's membership window happening to coincide with each unit's own existence window, a coincidence the answer never flags. It cites t1090 but not the second half of Doerr's own reply there ('P161, E93, P164... cover all cases'), which is exactly the guidance it needed and did not follow. It also never addresses the naming half of the case at all."
+    }
+  ],
+  "decisive_difference": "A recombines the unit correctly as E4 Period but then puts administrative membership back on a bare P89 link -- the identical move its own scope note (and B's and C's citation of it) rules out, so it ends up committing the case's central trap rather than avoiding it. B and C both catch this and both build the SIG's actual prescribed construct (E93 Presence + P164 + P10, directly matching crm732#s0084's description of what Presence is for), so A is clearly last. B and C are very close on the core question -- near-indistinguishable there -- and separate only on the secondary naming sub-problem, where C's E7 Activity + P16 (grounded in the verified text of Issue 147) is the more specifically-attested SIG answer to dated vernacular name usage than B's E15 Identifier Assignment route, and C closes with a sharper reframing of the question itself.",
+  "confident": false,
+  "notes": "High confidence that A ranks last: the P89 scope-note violation is concrete and independently confirmed by both rivals' own citations, not a matter of taste. Lower confidence in the B-over-C order specifically: the case's literal 'question' is only about administrative membership, where B and C are essentially tied in correctness and citation quality; the tiebreak used here (the naming sub-question, which is case background rather than the posed question) is real but secondary, and a re-read that weighted it less could plausibly put B first. No provenance guessed; did not attempt to infer which system produced which answer."
+}

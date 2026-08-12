@@ -1,0 +1,276 @@
+{
+  "case_id": "archives-c2",
+  "answer": "Don't choose between them. \"Authorship\" is not a CRM property; it is a role in an event, and your case contains three different events with three different actors and three different evidential situations. Separate the events and the question dissolves; keep them fused into one \"author\" field and it is unanswerable.\n\n1. THE OBJECTS. Each letter sheet is an E22 Human-Made Object; the wording it carries is an E33 Linguistic Object; join them with P128 carries. This is how the SIG itself models a letter -- Robert Sanderson's Issue 426 homework has an archival folder holding \"the piece of paper (E22) carrying the text of a letter\" (t1377). If you need the bundle it is an E78 Curated Holding of those sheets, but attributions attach to individual letters, not to the aggregate.\n\n2. THREE EVENTS.\n   (a) Composition of the wording: E65 Creation, P94 has created -> the E33 Linguistic Object, P14 carried out by -> the person who framed the words. The CRM's own example of this is \"the writing of 'Faust' by Goethe (E65)\" (crm732#E7).\n   (b) Writing the sheet out: E12 Production, P108 has produced -> the E22. This, and only this, is what the handwriting evidences: whoever's hand it is held the pen. E12 covers exactly this kind of making, where an item \"becomes relevant to documentation by a modification\" (the potsherd-into-voting-token example). If you judge that one and the same act did both, instantiate a single event as both E12 and E65 -- the CRM does this in its own Rembrandt etching example, typed (E12, E65, E81).\n   (c) The signing: an E7 Activity with P2 has type 'signing', P14 carried out by -> the secretary. Give the signature itself an E37 Mark, whose scope note is written for precisely this (\"signatures ... applied to instances of E24 Physical Human-Made Thing\" to indicate creator or owner), linked from the sheet by P65 shows visual item. (Strictly, E37 is the archetype; if you ever need the individual ink trace on one sheet, that is an E25 Human-Made Feature.)\n   Tie the three together with P9 consists of under one E7 Activity, 'the issuing of the letter', carried out by the Canal Company (E74 Group) or by the secretary as its responsible officer. Event partitioning is the pattern the SIG reached for in the nearest discussion I could find -- a named individual acting in an official capacity for an organisation -- where Robert Sanderson wrote \"I think the event partitioning pattern is not so unreasonable\" (t1345). It was never formalised (no property for 'on behalf of' was agreed in that thread), but it needs no extension and no invented property.\n   Lighter alternative: keep one making-of-the-letter activity and distinguish the two men by P14.1 in the role of ('drafter', 'signatory'), whose declared job is to specify \"the nature of an actor's participation in an activity\" (crm732#P14). I recommend against it here, for the reason in point 4.\n\n3. SO WHO GETS CREDITED? The clerk gets (a) and (b); the secretary gets (c). Nothing is credited to \"both\" and nothing is taken away from the secretary: his documented relation to the letters -- signing them, and answering for them as the company's officer -- survives intact, it just stops masquerading as composition. This is the whole benefit of the event-centric model: you never have to decide what a single 'creator' field means.\n\n4. RECORDING THE UNCERTAINTY. Your cataloguer's clerk hypothesis is an opinion, so do not assert P14 flat. Wrap it in an E13 Attribute Assignment:\n     E13 -- P14 carried out by -> the cataloguer; P4 has time-span -> when\n          -- P140 assigned attribute to -> the E12 Production (and, separately, the E65 Creation)\n          -- P141 assigned -> the clerk (E21 Person)\n          -- P177 assigned property of type -> P14 carried out by, as an instance of E55 Type\n          -- P3 has note -> the handwriting and letterhead argument\n   The CRM's P177 declaration shows a CRM property being used as the assigned type in exactly this way (\"assigned property of type P52 has former or current owner\"). And this is the specification's own recommended practice, not my invention: statements of responsibility \"are expressed through knowledge creation events such as E13 Attribute Assignment\" (Modelling principles > Authorship of Knowledge Base Contents), and E13 exists to document \"how the respective assignment came about, and whose opinion it was\".\n   Do it twice and keep both. The inherited catalogue attribution to the secretary is also an E13, carried out by whoever catalogued the bundle; the new one does not overwrite it. Contradictory attributions sitting side by side is the intended behaviour, not a defect -- E13's scope note anticipates that \"multiple use of instances of E13 Attribute Assignment may possibly lead to a collection of contradictory values\", and the model's monotonicity stance is to add rather than replace.\n   The payoff of splitting (a) from (b) shows up here: the hand is close to directly observed, so the E13 on the E12 Production is strong; that the same person also composed the text is a further inference, so the E13 on the E65 Creation is weak. One attribution per event lets you say that. A single 'author' statement cannot.\n\n5. GRADED CONFIDENCE ('probably'). The CRM has no agreed way to attach a degree of belief to one property instance, and you should know that before you build one. Issue 349 Belief Values is still Open; it was deliberately reopened in 2020 because the SIG had not \"provided guidelines on how to express uncertainty of statements\", four candidate mechanisms were tabled in 2019 (a .2 property; typed attribute assignments carrying an ordinal value; Reliability as a subclass of E16 Measurement; and CRMinf's \"J4_that and J5_holds_to_be together with I4\" Proposition Set with I6 Belief Values), and it was still being presented unresolved in 2024, where the objection recorded was \"Why not use CRMinf to represent uncertainty?\" -- with the answer that one rarely wants to qualify a single statement in isolation. If you do need machine-readable degrees, CRMinf is the route with a published vocabulary: an I5 Inference Making carried out by the cataloguer, J1 used as premise the belief about the hand, J2 concluded that an I2 Belief whose J4 that is an I4 Proposition Set (\"the clerk composed these texts\") and whose J5 holds to be is an I6 Belief Value. For ordinary archival practice, one E13 per attribution with the palaeographic argument in P3 has note is what the standard actually supports today, and it is honest about being an opinion.\n\n6. THE NAMELESS CLERK. Instantiate him anyway. E21 Person comprises persons who live \"or are assumed to have lived\", so an individual known only from a hand is a legitimate instance. Give him an E42 Identifier that your archive coins -- 'Canal Company letters, Hand A' -- via P1 is identified by, and let that be what the E13s point at with P141. Two limits to state in your documentation: the CRM will not help you merge him with a named person if one turns up later, because \"the CIDOC CRM does not propose a specific form to support reasoning about possible identity\" (crm732#E21) -- you would create a second instance and relate them informally; and the class that used to serve this, E91 Co-Reference Assignment, is no longer defined in the current standard, with the SIG closing Issue 316 (moving co-reference into CRMinf) in 2025 as too complex. So do not design around it. If you are unwilling even to posit an individual, the weaker fallback is to attribute the composition to the Canal Company (E74 Group) and record the hand only as a note; that asserts less but also discriminates less.\n\nIn short: E65 Creation (clerk, composition) + E12 Production (clerk, the hand) + typed E7 Activity (secretary, signing) + E37 Mark (the signature), partitioned under one issuing activity, with every actor claim that rests on the cataloguer's judgement carried by its own E13 Attribute Assignment. That records who did what, records that you inferred it, records what you inferred it from, and leaves the received attribution standing.",
+  "classes_proposed": [
+    "E22",
+    "E33",
+    "E65",
+    "E12",
+    "E7",
+    "E37",
+    "E21",
+    "E42",
+    "E13"
+  ],
+  "properties_proposed": [
+    "P128",
+    "P65",
+    "P94",
+    "P108",
+    "P14",
+    "P9",
+    "P2",
+    "P1",
+    "P140",
+    "P141",
+    "P177",
+    "P3",
+    "P4"
+  ],
+  "rejected_alternatives": [
+    {
+      "option": "F27 Work Creation / F28 Expression Creation (LRMoo)",
+      "why_not": "Genuinely tempting: F28 is declared a subclass of both E12 and E65, which is exactly the double aspect of writing a letter, and F27/F28 would separate conceiving the content from putting it into words. Rejected as the primary answer because an administrative letter has one text and one witness, so the work/expression split buys no discrimination the case needs, while committing the archive to a bibliographic apparatus. The same separation is available in CRMbase by instantiating one event as E12 and E65, or two events, as recommended."
+    },
+    {
+      "option": "TX2 Writing (CRMtex)",
+      "why_not": "TX2 is the scribal act as such (a subclass of F28) and TX1 Written Text is the physical hand on the sheet, so this would be the right refinement if the archive were doing palaeographic analysis at grapheme level. Rejected here because CRMtex's machinery (TX3 Writing System, TX8 Grapheme) is aimed at script-level study and the case only needs to say which person's hand it is, which E12 Production plus P14 already says."
+    },
+    {
+      "option": "E17 Type Assignment",
+      "why_not": "A subclass of E13 and a natural reflex for 'catalogue says X'. But E17 records classifying an item under an E55 Type; what is being asserted here is a relation between two individuals (an event and a person). P140/P141/P177 on a plain E13 states that directly, with P177 naming P14 carried out by as the relation asserted."
+    },
+    {
+      "option": "E34 Inscription for the signature",
+      "why_not": "E34 is for recognisable texts attached to a physical thing, and a signature is text. But E37 Mark's scope note names signatures explicitly and frames them as indicating creator or owner, which is precisely the evidential role the secretary's signature plays here. E34 is a subclass of E37, so nothing is lost by staying at E37 unless the signature's wording itself needs transcription."
+    },
+    {
+      "option": "E91 Co-Reference Assignment (to link 'Hand A' with a person identified later)",
+      "why_not": "Not available. The current standard no longer defines E91, and the SIG closed Issue 316, which was to move co-reference statements into CRMinf, on the grounds of it being too complex. Any hand-to-person identification must be handled outside the model or as a further E13."
+    },
+    {
+      "option": "A property-level certainty qualifier, e.g. a '.2' property or 'probably carried out by'",
+      "why_not": "Issue 349 Belief Values remains Open with no SIG guidelines; four rival mechanisms have been tabled since 2019 and none adopted. The SIG's position in the analogous fakes discussion (t0840) was that whether a recorded fact is wrong is an epistemological question about maintaining a knowledge base rather than something the ontology should carry, and that the answer is annotation via CRMinf, not a new property. Inventing one would be non-interoperable."
+    },
+    {
+      "option": "One event, two participants distinguished only by P14.1 in the role of",
+      "why_not": "Legitimate and lighter, and correct if you only want to say 'drafter' and 'signatory'. Rejected because with a single event there is only one thing to attribute, so you cannot record that the hand is well evidenced while the composition is inferred -- which is the actual question asked."
+    },
+    {
+      "option": "Asserting P14 carried out by from the creation event to the clerk as a plain fact",
+      "why_not": "It would read as the institution's own view (per the specification, unattributed statements are read as the maintaining institution's position) and would hide that this rests on one cataloguer's reading of handwriting and letterheads. The E13 wrapper exists so the KB can register someone's opinion while staying neutral on it."
+    }
+  ],
+  "siblings_considered": [
+    {
+      "of": "E22",
+      "sibling": "E78",
+      "why_not": "E78 Curated Holding is the right class for the bundle as an archival aggregate the repository curates, and you may well want it. But the hand, the letterhead and the signature are properties of individual sheets, and every attribution in this case is per letter; attaching them to the aggregate would assert that the whole bundle was written by one hand, which is exactly what is in doubt."
+    },
+    {
+      "of": "E33",
+      "sibling": "E31",
+      "why_not": "E31 Document (immaterial items that make propositions about reality) fits the letters' function in the toll dispute, and nothing stops the same text being both. But the authorship question is about who framed the wording, and E33 is the class that carries the linguistic aspect (P72 has language, P190 has symbolic content), so it is the correct range of P94 has created here. Also worth noting E31's scope note is itself under revision (Issue 707 is Open)."
+    },
+    {
+      "of": "E65",
+      "sibling": "E11",
+      "why_not": "E11 Modification would let you say the clerk altered the sheet by writing on it. Rejected because E11's effect is on an E24 Physical Human-Made Thing only; it cannot express that a text -- a conceptual object -- came into being, which is the thing the authorship claim is actually about. E12 Production, its other subclass, is used, for the physical side."
+    },
+    {
+      "of": "E12",
+      "sibling": "E79",
+      "why_not": "E79 Part Addition would treat writing as augmenting a blank sheet with a part. Rejected because a text is not a physical part being added, and E12's own scope note already covers the case of an object becoming a documentable item through being written on (the potsherd-into-voting-token example), which is the letter exactly."
+    },
+    {
+      "of": "E7",
+      "sibling": "E63",
+      "why_not": "E63 Beginning of Existence is arguable for the signing, since a signature does come into being. Rejected because what the archive needs to record is the secretary's responsible participation in issuing the letter, not the coming-into-existence of ink; a typed E7 Activity states just that and no more, which matches the evidence (a signature on a sheet)."
+    },
+    {
+      "of": "E21",
+      "sibling": "E74",
+      "why_not": "E74 Group is the honest fallback if you refuse to posit an individual clerk -- attribute the composition to the Canal Company. Rejected as the primary modelling because the cataloguer's evidence is a single consistent hand, which is a claim about one human being, and E21 explicitly admits persons only 'assumed to have lived'. E74 is offered in the answer as the more cautious option."
+    },
+    {
+      "of": "E13",
+      "sibling": "E87",
+      "why_not": "E87 Curation Activity does cover the cataloguing work as an activity of managing the holding, and the re-cataloguing of this bundle is one. Rejected for this purpose because E87 records custodial management, not the making of a specific assertion about one property; only E13 has P140/P141/P177 to say which relation was asserted between which two things and on whose authority."
+    },
+    {
+      "of": "E42",
+      "sibling": "E35",
+      "why_not": "E35 Title is the other appellation subclass one might reach for, but 'Canal Company letters, Hand A' is not a culturally recognisable title; it is a code the archive assigns to an entity so it can be referred to, which is what E42 Identifier covers."
+    }
+  ],
+  "citations": [
+    "E22",
+    "E33",
+    "E65",
+    "E12",
+    "E7",
+    "E37",
+    "E34",
+    "E21",
+    "E42",
+    "E13",
+    "E91",
+    "P14",
+    "P177",
+    "P140",
+    "P141",
+    "I2",
+    "I4",
+    "I5",
+    "I6",
+    "F27",
+    "F28",
+    "TX1",
+    "TX2",
+    "Modelling principles > Authorship of Knowledge Base Contents",
+    "t0840",
+    "t1345",
+    "t1377",
+    {
+      "id": "crm732#s0046",
+      "quote": "statements of responsibility are expressed through knowledge creation events such as E13 Attribute Assignment"
+    },
+    {
+      "id": "crm732#E13",
+      "quote": "how the respective assignment came about, and whose opinion it was"
+    },
+    {
+      "id": "crm732#E21",
+      "quote": "The CIDOC CRM does not propose a specific form to support reasoning about possible identity"
+    },
+    {
+      "id": "crm732#E37",
+      "quote": "signatures or short texts applied to instances of E24 Physical Human-Made Thing"
+    },
+    {
+      "id": "crm732#E12",
+      "quote": "becomes relevant to documentation by a modification"
+    },
+    {
+      "id": "crm732#E12",
+      "quote": "creating of the seventh state of his etching"
+    },
+    {
+      "id": "crm732#E7",
+      "quote": "by Goethe"
+    },
+    {
+      "id": "crm732#P14",
+      "quote": "specifies the nature of an actor's participation in an activity"
+    },
+    {
+      "id": "t1345",
+      "quote": "I think the event partitioning pattern is not so unreasonable"
+    },
+    {
+      "id": "t1377",
+      "quote": "carrying the text of a letter"
+    },
+    {
+      "id": "minutes:46th_joint_meeting_of_the_CIDOC_CRM_SIG_minutes_v1#s052",
+      "quote": "provided guidelines on how to express uncertainty of statements"
+    },
+    {
+      "id": "minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s002",
+      "quote": "J4_that and J5_holds_to_be together with I4"
+    },
+    {
+      "id": "minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s002",
+      "quote": "treating Reliability as a subclass of E16"
+    },
+    {
+      "id": "minutes:58CIDOC_CRM_SIG_Minutes#s001",
+      "quote": "Why not use CRMinf to represent uncertainty"
+    }
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E65",
+    "concept E13",
+    "docs \"Authorship of Knowledge Base Contents\" --kind narrative",
+    "docs \"attribution of authority statements responsibility knowledge creation event\" --kind narrative",
+    "threads \"author of a text versus the scribe who wrote it down\"",
+    "threads \"uncertain attribution of authorship to a person, attributed to, possibly by\"",
+    "thread t0840",
+    "concept I2",
+    "concept I5",
+    "concept I4",
+    "concept I6",
+    "concept P14",
+    "concept E33",
+    "docs \"creation of the intellectual content versus production of the physical carrier text and document\" --kind narrative",
+    "issues \"attribution of authorship uncertain creator opinion\"",
+    "issue 349",
+    "docs \"Issue 349 Belief Values\" --kind minutes",
+    "quote minutes:58CIDOC_CRM_SIG_Minutes#s001 \"Why not use CRMinf to represent uncertainty\"",
+    "quote minutes:58CIDOC_CRM_SIG_Minutes#s001 \"Making individual assertions about the probability of one particular statement is\"",
+    "quote minutes:58CIDOC_CRM_SIG_Minutes#s001 \"Usually one wants to assert the probability\"",
+    "quote minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s002 \"4 alternatives were presented\"",
+    "quote minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s002 \"which can in their turn have so\"",
+    "quote minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s002 \"treating Reliability as a subclass of E16\"",
+    "quote minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s002 \"CRMinf\"",
+    "quote minutes:45th_joint_meeting_of_the_CIDOC_CRM_SIG_v3#s002 \"J4_that and J5_holds_to_be together with I4\"",
+    "docs \"uncertainty of statements guidelines how to express\" --kind minutes",
+    "concept F28",
+    "concept F27",
+    "\"anonymous actor unknown person known only from handwriting hand identification\" (mailing list; nothing useful)",
+    "concept E34",
+    "concept E37",
+    "connect E22 E33",
+    "connect E7 E37",
+    "connect E12 E37",
+    "concept E12",
+    "concept E21",
+    "concept E22",
+    "quote E21 \"real persons who live or are assumed to have lived\" (UNKNOWN SOURCE -- concept ids are not quotable)",
+    "quote E13 \"whose opinion it was\" (UNKNOWN SOURCE)",
+    "quote \"Modelling principles > Authorship of Knowledge Base Contents\" \"attribution of authority\" (UNKNOWN SOURCE -- section paths are not quotable)",
+    "--help",
+    "docs \"Authorship of Knowledge Base Contents recommended good practice relate authority\" --kind narrative --json -k 2 (to obtain chunk ids)",
+    "quote crm732#s0046 \"statements of responsibility are expressed through knowledge creation events such as E13 Attribute Assignment\"",
+    "docs \"E21 Person real persons who live or are assumed to have lived\" --kind declaration --json -k 2",
+    "quote crm732#E21 \"The CIDOC CRM does not propose a specific form to support reasoning about possible identity\"",
+    "quote crm732#E13 \"how the respective assignment came about, and whose opinion it was\"",
+    "quote crm732#E37 \"symbols, signs, signatures, or short texts applied to instances of E24 Physical Human-Made Thing\" (NOT FOUND -- no comma after 'signatures' in 7.3.2)",
+    "quote crm732#E37 \"signatures or short texts applied to instances of E24 Physical Human-Made Thing\"",
+    "quote crm732#E12 \"Rembrandt\"",
+    "quote crm732#P14 \"The P14.1 in the role of property of the property specifies the nature\" (NOT FOUND -- 7.1.3 wording differs from 7.3.2)",
+    "quote crm732#P14 \"specifies the nature of an actor's participation in an activity\"",
+    "thread t1345",
+    "concept TX1",
+    "concept TX2",
+    "concept TX3",
+    "concept TX4 (no such concept)",
+    "concept TX5",
+    "concept TX6",
+    "concept TX7",
+    "concept TX8",
+    "concept TX9 (no such concept)",
+    "concept P177",
+    "concept P140",
+    "concept P141",
+    "concept E7",
+    "quote crm732#E12 \"an item is considered\"",
+    "\"archival letter drafted by clerk signed by official responsibility for the document\" (mailing list)",
+    "quote t1377 \"carrying the text of a letter\"",
+    "issue 707",
+    "concept E91",
+    "quote minutes:46th_joint_meeting_of_the_CIDOC_CRM_SIG_minutes_v1#s052 \"provided guidelines on how to express uncertainty of statements\"",
+    "issue 316",
+    "concept I12 (no such concept)",
+    "concept I13 (no such concept)",
+    "concept I14 (no such concept)",
+    "quote crm732#E12 \"becomes relevant to documentation by a modification\"",
+    "quote crm732#E12 \"creating of the seventh state of his etching\"",
+    "quote crm732#E7 \"by Goethe\"",
+    "quote t1345 \"I think the event partitioning pattern is not so unreasonable\""
+  ],
+  "confidence": "high",
+  "notes": "E37 Mark is exempt from the sibling requirement: concept E37 reports 'Siblings: none -- E37 is the only subclass of E36', so there is no rival at its level (E34 Inscription is a subclass, and is handled in rejected_alternatives instead). Two friction points with the tools. First, scope notes are only quotable through their reference-document chunk ids (crm732#E21, crm732#s0046); 'quote E21' and 'quote \"Modelling principles > ...\"' both return UNKNOWN SOURCE, and the chunk ids are only discoverable via 'docs ... --json'. Second, the wording in the v7.1.3 dossier printed by 'concept' sometimes differs from the v7.3.2 text that 'quote' checks against -- P14's .1 sentence and E37's comma both tripped this -- so every quotation here was re-verified against the 7.3.2 chunk. One index inconsistency worth flagging: concept I2 lists 'Superclass of: I12, I13, I14' but 'concept I12/I13/I14' all return 'No such concept', so I could not inspect the CRMinf belief subclasses; that is why the CRMinf route is described only at the level of I2/I4/I5/I6, which I did inspect. Substantively, the one thing I could not resolve from the corpus is a settled way to express a degree of confidence: Issue 349 is still Open with no guidelines, and Issue 316 (co-reference) was closed as too complex, so the answer above deliberately stops at 'one E13 per attribution plus a prose note', with CRMinf offered as an option rather than a recommendation."
+}

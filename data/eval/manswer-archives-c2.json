@@ -1,0 +1,49 @@
+{
+  "case_id": "archives-c2",
+  "answer": "This is in scope, but the case splits into two acts that CRM keeps deliberately separate: composing the text versus signing the sheet. P94 has created's own scope note says it 'represents the act of conceiving the intellectual content ... It does not represent the act of creating the first physical carrier ... this is the composition of a poem, not its commitment to paper.' That licenses exactly the distinction the cataloguer is drawing. Model the letter as an E22 Human-Made Object that carries (P128 carries) an E33 Linguistic Object -- the composed text -- and bears a signature, best modelled as E34 Inscription (subclass of both E33 and E37 Mark, per the t1300 scope-note revision, since a named signature is textual, not a bare symbol). Two E65 Creation events then apply: one, P94 has created -> the E33 text, P14 carried out by -> the clerk (role: drafter); the other, P94 has created -> the E34 signature-inscription, P14 carried out by -> the secretary (role: signatory). Because the clerk's identity is only inferred (handwriting/letterhead comparison, no name anywhere in the collection), do not assert P14 to the clerk as settled fact -- either instantiate an unnamed E21 Person for 'the drafter' and route the attribution through an E13 Attribute Assignment carrying the cataloguer's opinion (P14 carried out by -> cataloguer, P141 assigned, P177 assigned property of type 'drafted by'), or record it as a note. The Monotonicity modelling principle explicitly allows this alternative opinion to sit alongside, rather than overwrite, the traditional catalogue attribution to the secretary -- both can be stored as competing, non-contradictory-by-design assertions. What CRM does not give you is a single ready-made property for 'X performed this in Y's name/under Y's authority': the SIG raised exactly that shape of problem twice (t1345, 'Modelling an Actor carrying out an action at the Behest of Another', and t1477, 'Groups and carried out by' -- the President's-aide example is the same structure as a secretary's clerk) and left both unresolved, with event-partitioning and a possible new P14.1-style property floated but never adopted into CRMbase. So the two-event/two-role workaround above is the closest fit the model currently offers, not a perfect, named solution.",
+  "classes_proposed": ["E22", "E33", "E34", "E65", "E21", "E13"],
+  "properties_proposed": ["P128", "P94", "P14", "P141", "P177"],
+  "rejected_alternatives": [
+    {
+      "option": "Single E65 Creation / P14 carried out by, forced to pick either the secretary or the clerk as sole author",
+      "why_not": "P94's own scope note separates conceiving intellectual content from committing it to a physical carrier, and the Monotonicity principle allows storing both the traditional and the revised attribution as coexisting opinions rather than one replacing the other -- collapsing to one actor throws away exactly the distinction the case is about."
+    },
+    {
+      "option": "Bare E37 Mark for the secretary's signature",
+      "why_not": "Thread t1300 (E37 Mark scope-note revision) worked through whether marks with readable text should be Mark or Inscription; a signature carries a name (linguistic content), so per that discussion it is better modelled as E34 Inscription, which is a subclass of both E33 and E37, not a plain E37 Mark."
+    },
+    {
+      "option": "Asserting P14 carried out by directly to a named 'clerk' entity",
+      "why_not": "No clerk's name is recorded anywhere in the collection; the identification is the cataloguer's inference from handwriting/letterhead, not a documented fact, so asserting it as a plain P14 fact would overstate certainty. It belongs behind an E13 Attribute Assignment recording whose opinion it is."
+    },
+    {
+      "option": "Inventing a dedicated 'ghost-authored by' / 'signed on behalf of' property",
+      "why_not": "The SIG considered this exact need (t1345, t1477) and never added such a property to CRMbase; using an invented property would be exactly the kind of fabrication this evaluation is meant to catch."
+    }
+  ],
+  "citations": ["E22", "E33", "E34", "E37", "E65", "E21", "E13", "P94", "P128", "P14", "P141", "P177", "Modelling principles > Monotonicity", "t1300", "t1345", "t1477"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E65",
+    "concept E33",
+    "concept E37",
+    "docs \"authorship of a document\" --kind narrative",
+    "docs \"uncertain attribution of authorship\" --kind narrative",
+    "\"amanuensis scribe wrote on behalf of\"",
+    "\"letter signed by secretary but written by clerk\"",
+    "thread t0840",
+    "thread t1300",
+    "concept E34",
+    "concept P14",
+    "thread t1477",
+    "thread t1345",
+    "thread t0701",
+    "concept E13",
+    "docs \"recording a hypothesis or inference about identity of an actor\" --kind narrative",
+    "concept P94",
+    "\"dictated letter secretary clerk composed text\""
+  ],
+  "confidence": "medium",
+  "notes": "concept dossiers (siblings blocks for E65/E33/E37/E34) made the composition-vs-signature class boundary fast to nail down, and P94's scope note gave a direct, citable line for the intellectual/physical split. The mailing-list search was hit-or-miss for the exact 'ghostwriting' framing (had to try several phrasings before 'amanuensis'/'behest' language surfaced t1345/t1477), and docs --kind narrative returned mostly Terminology/Works-Cited boilerplate rather than a direct passage on uncertain attribution -- Monotonicity was found via a broad query, not a targeted one."
+}

@@ -1,0 +1,66 @@
+{
+  "case_id": "archaeology-c1",
+  "answer": "Do not keep linking the axe to the context with the same flat relationship used for every other find in it, and above all do not let the context's date stand in for the object's own date. This exact ambiguity -- 'is a find just part of the layer, or an object sitting inside it?' -- was argued out on the CRM-SIG list in November 2018 (thread t1123, 'CRMarcheo Typos'). Christian-Emil Ore asked whether a find could be modeled as an instance of A8 Stratigraphic Unit. Martijn van Leusen answered that 'a find should not normally be modeled as a stratigraphic unit', since A8 represents a chronologically separable genesis process, not an artefact. Martin Doerr's reply was that 'finds are described as objects embedded in Stratigraphic Units (A7 Embedding)', and Achille Felicetti confirmed the route as 'AP18 + A7 or AP15 + S10'. So the axe should be an E22 Human-Made Object linked, via AP18 'is embedding of', to an A7 Embedding instance, which is in turn linked to the colluvial layer (modelled as A2 Stratigraphic Volume Unit) via AP19 'is embedding in', and to the excavation event that recovered it via AP17 'is found by' -> S19 Encounter Event. Crucially, A7's own scope note already anticipates your case: an embedding is normally taken to be contemporary with the genesis of the A2 unit that surrounds it, 'however, it may also be due to later intrusion', and the expert may only be able to establish that the embedding has persisted longer than the activity that encountered it -- i.e. CRMarchaeo already treats 'physically inside this layer' and 'dates from when this layer formed' as two separate claims, not one. The second half of the fix is to keep the axe's own dating off the context entirely: attach it to its own E12 Production (via P108 has produced, with the Neolithic date carried on E12's own P4 has time-span, argued from typology), independent of the deposit. That independence is what the CRM's basic endurant/perdurant split is for: the axe (an E77 Persistent Item) is party to two unrelated perdurants -- its production, centuries before the colluvium existed, and its embedding, which is contemporary with the colluvium's genesis -- and collapsing both into one 'found in context X' link is exactly the shortcut that misrepresents it. Net advice: keep recording that the axe was recovered from that context (that spatial/physical fact is true and worth keeping), but route it through A7 Embedding rather than a bare containment or location property, and give the axe an independent, typologically-argued E12 Production so nothing downstream can misread 'embedded in the post-Roman colluvium' as 'made in the post-Roman period'.",
+  "classes_proposed": ["E22", "A2", "A7", "E12", "S19"],
+  "properties_proposed": ["AP18", "AP19", "AP17", "P108", "P4"],
+  "rejected_alternatives": [
+    {
+      "option": "Model the axe itself as an instance of A8 Stratigraphic Unit (double-instantiation of the find as its own SU)",
+      "why_not": "This was the actual question raised in thread t1123 and it was rejected by Martin Doerr, Achille Felicetti and Martijn van Leusen: an A8 Stratigraphic Unit represents a chronologically separable genesis process, and 'a find should not normally be modeled as a stratigraphic unit' -- finds are objects embedded in SUs, not SUs themselves."
+    },
+    {
+      "option": "AP15 'is or contains remains of' + S10 Material Substantial",
+      "why_not": "Achille Felicetti offered this in the same thread as the alternative for bulk or commingled material, not for a single, individually catalogued object. Issue 299's outcome ('the stratigraphic interface cannot contain finds') also shows the SIG deliberately keeps remains-containment properties narrow rather than a general finds-to-context link, so this fits a mixed deposit better than one identifiable axe fragment."
+    },
+    {
+      "option": "Keep the existing flat containment/location link (e.g. AP21 'contains' or P53 'has former or current location' to the deposit) with no independent dating of the object",
+      "why_not": "This is the status quo the case describes. It is not factually wrong -- the axe genuinely is inside that context -- but on its own it discards exactly the distinction A7 Embedding exists to carry (embedded-at-genesis vs. later intrusion / older material), and invites readers to infer the axe's period from the context's period, which is the misrepresentation the question is worried about."
+    }
+  ],
+  "citations": [
+    "A7",
+    "A2",
+    "A8",
+    "S19",
+    "AP18",
+    "AP19",
+    "AP17",
+    "P108",
+    "Issue 303",
+    "Introduction to the basic concepts",
+    {"id": "t1123", "quote": "finds are described as objects embedded in Stratigraphic Units"},
+    {"id": "t1123", "quote": "AP18 + A7 or AP15 + S10"},
+    {"id": "t1123", "quote": "a find should not normally be modeled as a stratigraphic unit"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"residual find stratigraphy\" --kind narrative",
+    "docs \"found in context excavation\" --kind narrative",
+    "docs \"stratigraphic unit\" --kind declaration",
+    "\"residual find\"",
+    "issues \"residual find stratigraphy\"",
+    "issues \"find spot context\"",
+    "issue 251",
+    "concept S19",
+    "concept A8",
+    "connect E22 A8",
+    "connect E19 A8",
+    "thread t1123",
+    "issue 303",
+    "concept A7",
+    "connect E22 A7",
+    "connect A7 A2",
+    "connect E22 A2",
+    "concept A2",
+    "threads \"modeling finds as objects versus stratigraphic units in CRMarcheo\"",
+    "\"residual find intrusive object embedding stratigraphy\"",
+    "quote t1123 \"finds are described as objects embedded in Stratigraphic Units\"",
+    "quote t1123 \"AP18 + A7 or AP15 + S10\"",
+    "quote t1123 \"a find should not normally be modeled as a stratigraphic unit\"",
+    "quote A7 \"has been persisting for longer than the activity that encountered it\"",
+    "connect E12 E22"
+  ],
+  "confidence": "high",
+  "notes": "The concept-dossier episode list for A7/A8 tags thread t1123 with the summary 'Modeling finds as objects versus stratigraphic units in CRMarcheo', but the first messages of that same thread id are actually an unrelated Sept-2018 sub-thread about E41 Appellation vs rdfs:label; the real finds-vs-SU exchange (messages [26]-[31], the 'CRMarcheo Typos' subject) only appears much later in the same thread output. Had to read the full thread rather than trust the episode summary's placement. The A7 Embedding scope note's 'persisting for longer than the activity that encountered it' line is real (seen in the concept A7 dossier) but `search.py quote` only accepts thread/message/doc-chunk ids, not class ids like A7, so that phrase is described in the answer without quotation marks rather than cited as a verified quote."
+}

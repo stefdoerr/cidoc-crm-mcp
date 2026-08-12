@@ -1,0 +1,44 @@
+{
+  "case_id": "intangible-c3",
+  "answer": "CRM can name the underlying office cleanly: the right to strike the first flame is an E30 Right, held by a fire-keeper (E21 Person, an E39 Actor) via P75 possesses. That part is not stretched -- it is exactly what E30/P75 exist for, and neither undated timing nor the absence of outside witnesses blocks it: E5 Event's own scope note only requires SOME evidence (witnesses, traces, or products), and the community's gradual, eventual recognition of the new fire-keeper is itself a trace, satisfying that bar without needing a formal ceremony. What CRM cannot responsibly give you is a dedicated class for the ACT of transfer. E8 Acquisition is explicitly restricted to legal ownership of E18 Physical Things and says outright it 'does not... imply changes of any other kinds of rights,' so it cannot be repurposed for an intangible right. The CRM community hit this exact wall repeatedly and failed to solve it: Issue 172 (Temporality of rights) and Issue 335 (a proposed 'Right Holding' class to add timespans to P75/E30) were folded into the CRMsoc extension via Issue 421, and CRMsoc itself was discontinued outright in April 2025 (Issue 408, 'the group has resolved to discontinue work on CRMsoc'). The one workaround anyone offered on-list -- an ad hoc E5/E7 typed via P2 as 'succession' or 'ownership' -- was floated and explicitly disowned by its own author ('I don't like that solution', t0507). Given that, the honest model is: assert P75 possesses between each successive fire-keeper and the E30 Right (an ordered chain of static holding-facts), and if the multi-year period of community recognition needs its own node, use E4 Period -- which, unlike E5 Event/E7 Activity, does not require P12 occurred in the presence of, so it does not force a witnessed, delimited occurrence onto a phenomenon that was neither. Reifying the handover itself as a discrete, evidenced transfer-event is the one move the CRM's own SIG tried and gave up on; I would not repeat it for this project.",
+  "classes_proposed": ["E30", "E21", "E4"],
+  "properties_proposed": ["P75"],
+  "rejected_alternatives": [
+    {"option": "E8 Acquisition (typed as a rights transfer)", "why_not": "Its own scope note restricts it to legal ownership of E18 Physical Thing and explicitly states it 'does not, however, imply changes of any other kinds of rights' -- ruling out reuse for an intangible customary right."},
+    {"option": "E85 Joining / E86 Leaving", "why_not": "Domain/range is E39 Actor joining/leaving an E74 Group; there is no group here, just one right passing between two individuals, so the pattern doesn't fit without inventing a group that doesn't exist in the case."},
+    {"option": "A dedicated 'Right Holding' / rights-transfer event class", "why_not": "The SIG proposed exactly this (Issue 335) to add timespans to E30/P75, folded it into CRMsoc (Issue 421), and then discontinued CRMsoc entirely in 2025 (Issue 408) -- the construct needed to model this cleanly was tried and abandoned, not merely absent."},
+    {"option": "E7 Activity typed via P2 as 'succession'", "why_not": "Workable as a forced fit but explicitly disliked by the person who proposed it on-list (t0507); also E7/E5 both make P12 occurred in the presence of necessary, which overstates the evidentiary basis for a privately-decided, unwitnessed handover."}
+  ],
+  "citations": [
+    "E30", "E39", "E21", "P75", "E8", "E5", "E4", "E7",
+    "issue 172", "issue 335", "issue 421", "issue 408",
+    {"id": "t0507", "quote": "although I don't like that solution"}
+  ],
+  "in_scope": false,
+  "queries_run": [
+    "ontology",
+    "concept E30",
+    "concept E7",
+    "concept E8",
+    "docs \"right\" --kind declaration",
+    "docs \"custom informal succession\" --kind narrative",
+    "issues \"succession\"",
+    "thread t1806",
+    "thread t1701",
+    "issues \"right holding temporal\"",
+    "thread t1022",
+    "issue 335",
+    "issue 369",
+    "issue 172",
+    "issue 421",
+    "issue 408",
+    "concept E5",
+    "docs \"occurred in the presence of witness\" --kind declaration",
+    "docs \"Minimality\" --kind narrative",
+    "concept E4",
+    "connect E39 E30",
+    "quote t0507 \"although I don't like that solution\""
+  ],
+  "confidence": "medium",
+  "notes": "No thread mentions the case's concrete nouns (bonfire, fire-keeper) since none should. The strongest evidence is negative: three linked SIG issues (172, 335, 421) tried to give E30/P75 a temporal/transfer semantics and the whole effort (CRMsoc) was shut down in 2025 (issue 408), which is a cleaner signal than anything I could infer from base CRM alone. I did not find a thread discussing informal/undocumented succession specifically -- that inference (E4 over E5/E7 because P12 isn't required) is mine, built from the concept dossiers' Required blocks, not something a thread stated outright."
+}

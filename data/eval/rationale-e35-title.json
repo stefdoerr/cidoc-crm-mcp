@@ -1,0 +1,168 @@
+{
+  "question_id": "e35-title",
+  "question": "Why does the CIDOC CRM have the class E35 Title? Why is a title not just an appellation (E41) or a linguistic object (E33)?",
+  "short_answer": "E35 Title exists because a title is two things at once: a name that picks out one particular work, and a piece of natural language that is in some language and can be translated. The CRM keeps those two ideas in separate branches -- E41 Appellation for signs used to identify, E33 Linguistic Object for expressions in natural language -- and neither branch on its own can describe a title. E35 is therefore declared as a subclass of both at the same time, one of the very few places in CRMbase where two branches are deliberately merged, and it has survived two attempts to delete it.",
+  "explanation": "Titles are awkward for the same reason they are useful. A title names one particular work, so it belongs with names. But a title is also written in a language, and it gets translated -- and the translation still functions as the title. In the CRM those two facts live in different places. E41 Appellation covers signs 'used or can be used to refer to and identify' something (rewritten under issue 437, 46th SIG, Athens, February 2020). E33 Linguistic Object covers 'identifiable expressions in natural language or languages', and it is the only branch that carries P72 has language and P73 has translation. E41 alone cannot say what language 'La Gioconda' is in; E33 alone does not say the string names anything.\n\nSo E35 sits under both parents. That placement is not an accident of convenience: the CRM's own Minimality rule permits a class that 'serves as a merging point of two CIDOC CRM class branches via multiple IsA', provided the merged class is narrower in scope than the plain intersection of its parents. E35 is narrower -- not every name that happens to be in a language is a title.\n\nThe class began pragmatically. Issue 71 (Done, Monterey, February 2002) fixed the boundary that still matters most in museums: a title is the proper name of a work ('Mona Lisa', 'Lucy in the Sky with Diamonds'), not a generic object name like 'chair' or 'book', which are common nouns and belong to E55 Type. Christian-Emil Ore later recalled the class 'was intrudeced for practical-pragmatical purposes in CRM at an early stage and from a museum point of view' (t0990).\n\nIt then survived two purges. Under issue 260 the 37th SIG meeting (Berlin, December 2016) deleted E75, E82 and E46 while resolving only 'E35: to update the scope note'; the replacement wording was accepted at the 40th meeting (Cologne, January 2018). In November 2022 Robert Sanderson proposed deleting E35 outright because 'It does not have its own properties'; Martin Doerr refused on procedure, citing the minimality review of issue 340 -- 'Currently, I see no new evidence' (t1653). It was never registered as a numbered issue.",
+  "real_world_example": "The SIG's own case, from Franco Niccolucci's August 2016 review of every subclass of E41 (t0937): 'Leonardo's Masterpiece' is an appellation of the painting in the Louvre, but it is not a title -- whereas 'Mona Lisa' (English) and 'La Gioconda' / 'La Joconde' (Italian and French) are two titles of the same painting that are not translations of each other. That is exactly the distinction E35 encodes and E41 cannot. The specification's own P102 examples show the other half: Monet's painting held by the Musee d'Orsay under inventory number RF 1984 164 has title 'La Pie' (creator's title) and has title 'The Magpie' (translated title) -- the language and translation statements only make sense because E35 inherits P72 has language and P73 has translation from E33 Linguistic Object.",
+  "decision_status": "partly settled",
+  "issues": [
+    {
+      "id": 71,
+      "title": "Guidance to distinguish between titles and other appellations",
+      "status": "Done",
+      "outcome": "Monterey, 21 February 2002. Fixed E35 as 'the name of a work, such as a textual work, artwork or piece of music', and ruled that titles are proper nouns and 'should not be confused with generic object names (such as chair, painting, book) which are common nouns and are modelled in the CRM as instances of E55 Type'. The register states the resolution but records no discussion; no mailing-list thread cites the issue by number."
+    },
+    {
+      "id": 260,
+      "title": "Review specializations of Appellation",
+      "status": "Done",
+      "outcome": "The systematic review that culled the E41 branch. The 32nd meeting (Oxford, February 2015) laid down the principle that 'a class definition in CRM must not depend on the incidental association of its instances with another entity instance', which is what condemned the object-type-based appellation subclasses. The 37th meeting (Berlin, December 2016) then deleted E75, E82 and E46 but resolved only 'E35: to update the scope note'. The 38th meeting rejected the proposed replacement wording pending an unresolved discussion of the identity conditions of information objects; the 40th meeting (Cologne, January 2018) 'reviewed the proposal by Oyvind for E35 Title and accepted it'. Closed noting that the remaining subclasses of E41 were deprecated via issues 290, 305 and 317."
+    },
+    {
+      "id": 290,
+      "title": "Conceptual Objects and their Appellations",
+      "status": "Done",
+      "outcome": "37th meeting, Berlin, December 2016: E75 Conceptual Object Appellation deleted, resolving issue 260. Establishes that E35 was kept by choice, not by oversight, in the same session that removed its siblings."
+    },
+    {
+      "id": 305,
+      "title": "Actor Appellation",
+      "status": "Done",
+      "outcome": "37th meeting, Berlin, December 2016: E82 Actor Appellation deleted, resolving issue 260. The background records the mailing-list review in which each subclass of E41 was assessed one by one."
+    },
+    {
+      "id": 340,
+      "title": "Classes without properties",
+      "status": "Done",
+      "outcome": "44th meeting, Paris, June 2019. Settled the Minimality text that governs whether a class like E35 may exist without properties of its own: a CRM class is declared when it is required as the domain or range of a property not appropriate to its superclass, OR when 'It serves as a merging point of two CIDOC CRM class branches via multiple IsA', OR when it 'is useful as a leaf class ... to domain communities'. This is the clause under which E35, E34 Inscription and E27 Site were kept, and the clause Martin Doerr invoked in 2022 to refuse the deletion of E35."
+    },
+    {
+      "id": 437,
+      "title": "Scope note and examples of E41 Appellation",
+      "status": "Done",
+      "outcome": "46th meeting, Athens, February 2020: new scope note for E41 accepted, defining appellations as 'signs, either meaningful or not, or arrangements of signs following a specific syntax, that are used or can be used to refer to and identify a specific instance'. Confirms that E41 says nothing about language -- which is precisely the gap E35's second parent fills."
+    },
+    {
+      "id": 624,
+      "title": "Add E33_E41_Linguistic_Appellation to the Official Specification",
+      "status": "Done",
+      "outcome": "Heraklion, October 2025: closed on the grounds that it had been idle for two years and the proposer had implemented the class externally. The generalisation of E35's pattern -- a named class for any name in a language -- was therefore never decided on its merits; E33_E41_Linguistic_Appellation exists only in the RDFS encoding, not in the standard."
+    },
+    {
+      "id": 483,
+      "title": "7.0 preparation - CRMbase review for inconsistencies",
+      "status": "Done",
+      "outcome": "47th meeting, June 2020: reviewed and replaced the examples of P102 has title, producing the 'La Pie' / 'The Magpie' pair with P102.1 has type creator's title / translated title that appears in the current specification."
+    }
+  ],
+  "threads": ["t0937", "t0990", "t1010", "t1024", "t1649", "t1653"],
+  "citations": [
+    {
+      "id": "t0937",
+      "quote": "E35 Title - Remain. Of course."
+    },
+    {
+      "id": "t0990",
+      "quote": "for practical-pragmatical purposes in CRM at an early stage and from a museum point of view"
+    },
+    {
+      "id": "t0990",
+      "quote": "it is decided to keep the Title, to update scope note"
+    },
+    {
+      "id": "t1024",
+      "quote": "Is there a reason why only Titles are also Linguistic Objects?"
+    },
+    {
+      "id": "t1024",
+      "quote": "Title in the CRM has a more specific sense than just being a Linguistic Object and Appellation"
+    },
+    {
+      "id": "t1024",
+      "quote": "We do not declare subclasses of combinations of classes just for the sake of an accidental combination"
+    },
+    {
+      "id": "t1024",
+      "quote": "If title were indeed regarded only an accidental combination of Appellation and Linguistic Object, it has to be deleted from the CRM"
+    },
+    {
+      "id": "t1653",
+      "quote": "It does not have its own properties"
+    },
+    {
+      "id": "t1653",
+      "quote": "Currently, I see no new evidence."
+    },
+    {
+      "id": "t1649",
+      "quote": "*everything* has a Name"
+    },
+    {
+      "id": "issue260#current-s0000",
+      "quote": "a class definition in CRM must not depend on the incidental association of its instances with another entity instance"
+    },
+    {
+      "id": "issue260#current-s0003",
+      "quote": "E35: to update the scope note. This HW is assigned to Oyvind"
+    },
+    {
+      "id": "issue260#current-s0014",
+      "quote": "the sig reviewed the proposal by Oyvind for E35 Title and accepted it"
+    },
+    {
+      "id": "crm732#s0053",
+      "quote": "It serves as a merging point of two CIDOC CRM class branches via multiple IsA"
+    },
+    {
+      "id": "crm732#E35",
+      "quote": "Being a subclass of E41 Appellation, E35 Title can only be used when such a string is actually used as a title of a work"
+    }
+  ],
+  "caveats": "What is settled is the outcome, not a stated rationale. The register records that the SIG kept E35 (37th meeting, Berlin, December 2016) and later accepted its revised scope note (40th meeting, Cologne, January 2018), but no minute says in so many words why a title needs its own class. The sharpest 'why' statements in the archive are individual mailing-list posts, not resolutions: Franco Niccolucci's per-class review (t0937) and Martin Doerr's reply to Robert Sanderson (t1024) are arguments by one participant each, however well they match the register's outcome. The connection I draw between E35's dual parentage and the Minimality clause on 'merging point of two class branches' is an inference: the clause (issue 340, 2019) postdates the class by nearly two decades and names E25 Human-Made Feature, not E35, as its example -- although Doerr's 2022 refusal to delete E35 does invoke issue 340 directly.\n\nThree things are genuinely open. (1) The identity conditions of a title -- whether a title's identity is the string alone or the string plus its context or sender, which is what makes 'translation of a title' coherent -- were explicitly not decided: the 38th meeting withheld the scope note pending 'an e-mail discussion about identity conditions of information objects in general', and that discussion (t0990, Doerr's 'mehr Licht' argument) trails off without resolution. (2) The 2022 proposal to delete E35 was rejected on procedural grounds and was never registered as a numbered issue, so there is no register status for it at all -- only thread t1653. (3) The complementary gap that E35 exposes -- that ordinary names, unlike titles, cannot carry a language in CRMbase -- remains unfilled: issue 624 was closed in October 2025 for inactivity rather than on the merits, and E33_E41_Linguistic_Appellation lives only in the RDFS. I also found no register entry recording when E33 Linguistic Object was added as a parent of E35; that parentage is simply present in the specification.",
+  "queries_run": [
+    "search.py concept E35",
+    "search.py issues \"E35 Title\"",
+    "search.py issues \"E35 Title subclass of E33 Linguistic Object\"",
+    "search.py issues \"Delete E35 Title classes without properties\"",
+    "search.py issues \"propose delete E35 Title does not have its own properties can be replaced without semantic loss\"",
+    "search.py issues \"E33_E41 Linguistic Appellation RDFS class\"",
+    "search.py issues \"37th meeting decided E35 Title remain E82 delete review specializations appellation decided the following\"",
+    "search.py issues \"crm-sig reviewed the proposals made by Oyvind and decided the following E35 E42 E44 E46 E49 E50 E51 E75 E82\" --json",
+    "search.py issue 71",
+    "search.py issue 258",
+    "search.py issue 260",
+    "search.py issue 290",
+    "search.py issue 305",
+    "search.py issue 340",
+    "search.py issue 437",
+    "search.py issue 483",
+    "search.py issue 533",
+    "search.py issue 624",
+    "search.py \"E35 Title Remain appellation subclasses delete\"",
+    "search.py \"why is Title a subclass of Linguistic Object language of a title translation\"",
+    "search.py thread t0937",
+    "search.py thread t0990",
+    "search.py thread t1010",
+    "search.py thread t1024",
+    "search.py thread t1649",
+    "search.py thread t1653",
+    "search.py docs \"E35 Title\" --kind declaration",
+    "search.py docs \"E33 Linguistic Object\" --kind declaration --json",
+    "search.py docs \"P102 has title is title of\" --kind declaration --json",
+    "search.py docs \"minimality a CRM class is declared when merging point of two class branches multiple IsA\" --kind narrative",
+    "search.py quote t0937 \"E35 Title - Remain. Of course.\"",
+    "search.py quote t0990 \"for practical-pragmatical purposes in CRM at an early stage and from a museum point of view\"",
+    "search.py quote t0990 \"it is decided to keep the Title, to update scope note\"",
+    "search.py quote t1024 \"Title in the CRM has a more specific sense than just being a Linguistic Object and Appellation\"",
+    "search.py quote t1024 \"We do not declare subclasses of combinations of classes just for the sake of an accidental combination\"",
+    "search.py quote t1024 \"If title were indeed regarded only an accidental combination of Appellation and Linguistic Object, it has to be deleted from the CRM\"",
+    "search.py quote t1653 \"It does not have its own properties\"",
+    "search.py quote t1653 \"Currently, I see no new evidence.\"",
+    "search.py quote t1649 \"everything* has a Name\"",
+    "search.py quote issue260#current-s0000 \"a class definition in CRM must not depend on the incidental association of its instances with another entity instance\"",
+    "search.py quote issue260#current-s0003 \"E35: to update the scope note. This HW is assigned to Oyvind\"",
+    "search.py quote issue260#current-s0014 \"the sig reviewed the proposal by Oyvind for E35 Title and accepted it\"",
+    "search.py quote crm732#E35 \"Being a subclass of E41 Appellation, E35 Title can only be used when such a string is actually used as a title of a work\"",
+    "search.py quote crm732#s0053 \"It serves as a merging point of two CIDOC CRM class branches via multiple IsA\""
+  ]
+}

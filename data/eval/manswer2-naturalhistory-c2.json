@@ -1,0 +1,52 @@
+{
+  "case_id": "naturalhistory-c2",
+  "answer": "Keep the two accessioned core segments as two distinct specimens, and do not retroactively merge their identities. E19 Physical Object's own scope note ties an object's identity to a documentation-unit boundary that is often 'purely administrative,' fixed by the act of accessioning -- and the Monotonicity modelling principle says a characterization correctly made in the past (here, 'these are two separate accessioned specimens') must not later be retracted. Each segment keeps its own P1 is identified by -> E42 Identifier (its original accession number), so the fifty years of loan paperwork that already cites those numbers stays resolvable without any migration. The stratigrapher's claim is not really about that administrative identity at all -- it is a claim about material/stratigraphic continuity, which CRMsci treats as a separate identity layer with its own criteria (S11 Amount of Matter's scope note gives exactly this case, the sequence of layers of a bore core, as the paradigm for identity conditions that are independent of E18/E19 object boundaries; S13 Sample specializes S11 for material taken for analysis). The two segments can each be an S13 Sample of the same continuous natural feature, with the shared continuity documented explicitly -- e.g. as a shared S22 Segment of Matter (a geological layer/fault-zone unit, S20 Rigid Physical Feature's subclass) that both samples are drawn from, linked via O25 contains (S10 -> S10) -- rather than collapsing the two E19 identities into one. This mirrors a position Martin Doerr states directly on the CRMsci list: samples can be split (or, symmetrically, recognized as sharing origin) 'without loosing their identity' as objects, because 'there is some complexity in the object-ness of the sample versus its substance.' P130 shows features of was considered and rejected as the link, because its own scope note says that when the reason for a similarity is a known derivation/formation process, that process should be modelled explicitly rather than asserted as a bare similarity -- which is exactly what the CRMsci Amount-of-Matter/Segment-of-Matter route does instead.",
+  "classes_proposed": ["E19", "S13", "S11", "S22", "S20", "E42"],
+  "properties_proposed": ["P1", "O25", "P46"],
+  "rejected_alternatives": [
+    {"option": "Merge into a single E19 Physical Object identity", "why_not": "E19's scope note makes the documentation-unit boundary an administrative decision already taken at accessioning, and the Monotonicity principle blocks retracting a previously correct identification; merging would also orphan the old loan records' two accession numbers."},
+    {"option": "P130 shows features of, linking the two specimens directly", "why_not": "P130's own scope note says that where the reason for similarity is a known derivation/formation process, that process should be explicitly modelled rather than left as a bare P130 assertion -- here the process (shared geological formation) is exactly what is known, so CRMsci's Amount-of-Matter/Segment-of-Matter classes fit better."}
+  ],
+  "citations": [
+    "E19", "E26", "S10", "S11", "S13", "S22", "S20", "O25", "E42", "P46", "P130",
+    "Modelling principles > Monotonicity",
+    "Modelling principles > Minimality",
+    "t1080",
+    {"id": "t1080", "quote": "an interesting aspect of samples is that they can be split without loosing their identity"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"specimen\"",
+    "docs \"physical join of fragments\" --kind narrative",
+    "concept E19",
+    "concept E26",
+    "docs \"identity of a physical object\" --kind narrative",
+    "docs \"same specimen two accession numbers\"",
+    "concept P130",
+    "concept P46",
+    "\"refit\"",
+    "\"conjoin fragments\"",
+    "\"two accession numbers same object\"",
+    "\"discovered later that two objects are one\"",
+    "thread t1483",
+    "issues \"identity of physical object merge\"",
+    "issues \"co-reference\"",
+    "concept S10",
+    "concept S11",
+    "concept S22",
+    "issue 332",
+    "thread t1080",
+    "concept S20",
+    "concept O25",
+    "concept S13",
+    "quote S11 \"the sequence of layers of a bore core\" (failed: UNKNOWN SOURCE -- concept ids are not quotable, only thread/message/doc-chunk ids)",
+    "quote t1080 \"an interesting aspect of samples is that they can be split without loosing their identity\" (FOUND)",
+    "quote E19 \"The decision as to what is documented as a complete item\" (failed: UNKNOWN SOURCE)",
+    "docs \"bore core\" --kind declaration",
+    "docs \"Minimality principle\" --kind narrative",
+    "concept E42"
+  ],
+  "confidence": "medium",
+  "notes": "search.py quote only accepts thread/message/doc-chunk ids, not CRM(sci) concept ids -- so the vivid S11 scope-note phrase 'the sequence of layers of a bore core' and the E19 scope-note phrase about administrative decisions could not be run through quote verification, and are therefore paraphrased rather than quoted verbatim. The final procedural choice (formally split-book the accession records vs. leave them as-is and add a cross-reference) is a curatorial/administrative policy call that CRM does not itself mandate; what the tools do settle is that CRM's own constructs (E19 identity criteria, Monotonicity, and CRMsci's S10/S11/S13/S22 line) all point toward keeping the two accession identities intact and expressing the newly recognized continuity as an added relationship rather than a merge."
+}

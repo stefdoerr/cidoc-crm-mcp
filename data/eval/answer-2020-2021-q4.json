@@ -1,0 +1,15 @@
+{
+  "question_id": "2020-2021-q4",
+  "answer": "No, the SIG did not settle on a new class structure. The thread 'New Issue: Non-human Actors' (started by Robert Sanderson, Sept 2021, using the bird-nest example) produced a detailed proposal from George Bruseker/Rob Sanderson for a new sibling hierarchy to E39 Actor (a general 'Agent' superclass splitting into Individual Agent/Collective Agent, with Biological Agent siblings to the human-only branch, and E39/E21/E74 renamed to 'Human' variants). Martin Doerr did not accept this as a starting point: he argued CRM methodology requires starting from concrete use-case properties and domain-expert input rather than positing a class top-down, and that the bird-nest case is better handled (if at all) via a new 'S17 Physical Genesis' subclass ('Biological Genesis') with a property like 'done by species' (E55 Type) rather than a full non-human Actor/Agent class - individual-animal agency was, in his view, a much weaker and unresolved case. Left unresolved by the end of the thread (last substantive message Nov 2021, later message just shares background slides): (1) whether any new class is needed at all, versus using P12 'occurred in the presence of' plus type-level description; (2) the scope of any such extension - animals only, or also plants/bacteria/machines (Doerr argued machines/robots should be a separate 'reaction' category, not agents); (3) how to handle individual vs. species/type-level identity for animals, given the lack of a stable cross-domain concept of animal individuality; and (4) the need for domain experts (biologists) and real use-case data, which the SIG felt it still lacked. Rob Sanderson noted the group would take the sketched proposal to Linked.Art instead, pending any future SIG resolution. The archive's own concept chronology for E39 Actor tags this thread as 'unresolved'.",
+  "found": true,
+  "cited_threads": ["t1500"],
+  "queries_run": [
+    "search \"animal actor non-human\" -k 10",
+    "thread t1500",
+    "search \"non-human actor issue\" --after 2021-11 -k 10",
+    "search \"biological agent class\" -k 10",
+    "concept E39"
+  ],
+  "confidence": "high",
+  "notes": "search.py thread t1500 returned the full 35-message thread (Sept-Nov 2021) with clear back-and-forth; concept E39's chronology independently confirms the thread is tagged 'unresolved', corroborating the read. No later thread picks the issue back up in the corpus."
+}

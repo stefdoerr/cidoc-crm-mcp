@@ -1,0 +1,27 @@
+# The corpus is fetched from Hugging Face during the build, not copied from
+# the host: a 876MB build context would be sent to the daemon on every build,
+# and an image built from whatever happened to be on one laptop is not
+# reproducible. `build.py fetch` pins it to a published dataset instead.
+data/
+stores/
+*.mbox
+
+# Rebuilt inside the image from tracked sources/ in 0.9s. Copying it in would
+# let a stale host copy shadow the inputs it is supposed to derive from --
+# the same reason tools/publish_corpus.py does not publish it.
+data/ontology.json
+
+.venv/
+.git/
+.superpowers/
+docs/superpowers/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+!.env.example
+*.zip
+*.tar.gz
+*.html
+Classes_and_properties_version_*_files/

@@ -1,0 +1,43 @@
+{
+  "case_id": "naturalhistory-c3",
+  "answer": "The collection database should stop at documenting that the sequencing happened and pointing to the external accession number; it should not try to become the authoritative store of the raw sequence or the tree statistics. Model the fish as E20 Biological Object, the sequencing as a generic E7 Activity (base CRM has no 'Sequencing' subclass -- that is exactly the kind of concrete-domain step the model deliberately leaves unenumerated per its own Minimality principle) that P16 used specific object (the specimen) and was P14 carried out by the genomics lab. The sequence itself is an E73 Information Object / E90 Symbolic Object, and the fact that the public database gave it its own accession number is exactly the E42 Identifier / P1 is identified by pattern (E15 Identifier Assignment is the activity of the external database's naming authority, not ours). This is not a stretch: the reference model's own worked example for a natural-history museum (BM000038850.JPG, Clayton Herbarium) uses precisely this shape -- an E31/E73 information object identified by a string (E41/E42), found in the E73, E90 and E42 concept dossiers. Two lines of CRM's own reasoning argue against also inlining the raw content: (1) the Introduction's Objectives passage says the model 'has not been optimised for implementation specific storage and processing factors' -- CRM deliberately does not decide where bytes physically live, so duplicating the sequence locally is never something the ontology requires; and (2) CRM-SIG's own Issue 490 discussion (thread t1736) worked through exactly this file/content-vs-reference problem for information objects with an authoritative external copy, converging on referencing the external, guaranteed copy (via URL/DOI) rather than re-hosting it, with P190 has symbolic content reserved for when the string really is meant to live inside the KB. If the curator wants the string in the local DB too, P190 on the E90 Symbolic Object is available and CRM-compatible -- that is a curatorial choice, not an ontological requirement either way. The bootstrap-support values are a harder case and genuinely strain the model: they are statistics about a computed phylogenetic tree (an inferred, abstract construct), not a measured property of the physical fish. E16 Measurement's own scope note and the Appendix migration note for its reduced scope confirm that P39 measured / P40 observed dimension apply only to E18 Physical Thing since v7.1.1 (also affirmed by the 2021 e-vote in thread t1444) -- so attaching bootstrap values to the specimen as an E16 Measurement/E54 Dimension is wrong, not just awkward. Base CRM (this corpus is the 7.3.2 reference model, no CRMsci extension) has no purpose-built class for a derived analytical statistic; the closest honest placement is a generic P3 has note on an E73 Information Object representing the tree/analysis itself, not a formal Dimension of the fish.",
+  "classes_proposed": ["E20", "E7", "E73", "E90", "E42", "E15"],
+  "properties_proposed": ["P1", "P16", "P14", "P37", "P190", "P3"],
+  "rejected_alternatives": [
+    {"option": "E16 Measurement / P39 measured / P40 observed dimension for the bootstrap-support values", "why_not": "E16's scope note and the Appendix > Deprecated classes and properties > Migration Instructions for the reduced scope of E16 Measurement both state that since v7.1.1 E16 pertains only to instances of E18 Physical Thing, not E1 CRM Entity in general (confirmed again by the 2021 e-vote in thread t1444 reducing P39's range from E1 to E18). A bootstrap-support value characterises a computed tree, not the fish specimen, so it cannot be the target of an E16 Measurement."},
+    {"option": "Storing the raw sequence inline as a mandatory modelling requirement", "why_not": "The Introduction > Objectives passage explicitly says CRM 'has not been optimised for implementation specific storage and processing factors' -- it does not prescribe local-vs-external storage. CRM-SIG's Issue 490 discussion (thread t1736) worked through this exact question for information objects with an authoritative external copy and favoured referencing the guaranteed external copy over duplicating it, using P190 has symbolic content only when the string is meant to live in the KB itself."},
+    {"option": "E31 Document for the raw sequence", "why_not": "E31's scope note frames it as items that 'make propositions about reality' (catalogues, encyclopaedias); a bare nucleotide string is closer to the plain symbolic content described for E90 Symbolic Object / E73 Information Object, which is the class used in the CRM's own Natural History Museum digital-image example (Clayton Herbarium, BM000038850.JPG) for comparable raw digital content identified by a string."}
+  ],
+  "citations": [
+    "E20", "E7", "E73", "E90", "E42", "E15", "P1", "P16", "P14", "P37", "P190", "P67", "P70",
+    "Introduction > Objectives of the CIDOC CRM",
+    "Modelling principles > Minimality",
+    "Appendix > Deprecated classes and properties > Deprecated Property Migration Instructions > Migration Instructions for the reduced scope of E16 Measurement",
+    "t1736", "t1444"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"genetic sequence\"",
+    "docs \"biological specimen DNA\" --kind narrative",
+    "docs \"accession number external database identifier\"",
+    "concept E31",
+    "concept E73",
+    "concept E90",
+    "concept E42",
+    "\"GenBank accession sequence database\"",
+    "threads \"external database reference vs local copy of data\"",
+    "docs \"scope of the model what CIDOC CRM does not cover\" --kind narrative",
+    "docs \"not optimised for implementation specific storage and processing factors\" --kind narrative",
+    "thread t1736",
+    "concept E16",
+    "thread t1444",
+    "concept E20",
+    "docs \"Minimality principle avoid duplication of data available elsewhere\" --kind narrative",
+    "concept P67",
+    "concept P70",
+    "threads \"natural history specimen genetic data scope of CRM biodiversity\""
+  ],
+  "confidence": "medium",
+  "notes": "The concept dossiers' siblings blocks and FOL clauses made ruling out E16 for the bootstrap values fast and certain (a scope-reduction fact, not a judgment call). The threads/thread tools were the real payoff: threads \"external database reference vs local copy of data\" surfaced t1736 (Issue 490, files vs external representative copies), which mapped almost exactly onto the curator's storage-vs-pointer question -- without that hit this would have been a much weaker guess. Hardest part: this corpus is base CRM only (241 elements, no CRMsci/biodiversity extension visible in `ontology`), so there is no purpose-built class for a derived statistic like bootstrap support, and I could not search my way to a class that doesn't exist -- only rule out the nearest wrong one (E16) by its own declared scope."
+}

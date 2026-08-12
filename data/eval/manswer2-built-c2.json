@@ -1,0 +1,46 @@
+{
+  "case_id": "built-c2",
+  "answer": "A plain containment link is not enough. E53 Place is explicitly defined as a timeless geometric extent, 'independent from temporal phenomena and matter' -- it cannot itself represent something that comes into and goes out of existence, which is exactly what happened when Sedgewick Hundred was abolished in 1894. The CRM SIG settled this in Issue 312 ('Mapping Geopolitical Units to Period', closed 2018-01-18): administrative/geopolitical units are modelled as specializations of E4 Period, a subclass of E92 Spacetime Volume, whose scope note now says explicitly that 'a geopolitical unit as a specific case of an instance of E4 Period is the set of activities and phenomena related to the claim of power, the consequences of belonging to a jurisdictional area and an administrative system.' Martin Doerr states the same principle directly on the list: 'All examples you gave of things with a political identity are instances of E4 Period', reserving E53 only for the bare geometric snapshot ('It is correct to regard \"Extent of Czechoslovakia 2000\" as an instance of E53'). So: model Sedgewick Hundred and Whitgate Rural District as two separate E4 Period instances, each with its own P4 has time-span bounding when it actually governed (...-1894 and 1894-...), and each with its own spatial extent reached via P7 took place at / P161 has spatial projection to an E53 Place. The mill itself keeps a single, unchanging E53 Place (P53 has former or current location) -- the CRM has no property linking a physical thing directly to a Period as 'administered by', so containment is expressed geometrically: the mill's Place P89 falls within each administrative unit's Place, while the separate P4 time-spans on the two Period instances are what actually carry the fact that the hundred stopped existing and the district began. That fuller chain (two Periods, each time-bounded and each with its own place-projection) is required; a single evolving Place with two containment edges would misrepresent an administrative extinction as mere geometry, and would not let a query distinguish 'when' the mill belonged to which unit.",
+  "classes_proposed": ["E4", "E53", "E22"],
+  "properties_proposed": ["P4", "P7", "P161", "P89", "P53"],
+  "rejected_alternatives": [
+    {
+      "option": "Model Sedgewick Hundred and Whitgate Rural District as ordinary E53 Place instances joined by a plain P89 falls within chain (mill -> hundred -> rural district)",
+      "why_not": "E53's own scope note makes it 'independent from temporal phenomena and matter' -- an eternal geometric extent. It cannot express that the hundred's jurisdiction ended in 1894; P89 falls within carries no time qualifier. The SIG explicitly closed this question in Issue 312 and Martin Doerr states on-list that entities 'with a political identity' belong to E4 Period, not E53."
+    }
+  ],
+  "citations": [
+    "E4",
+    "E53",
+    "P4",
+    "P7",
+    "P89",
+    "P161",
+    "Issue 312",
+    "t1243",
+    "t1093",
+    {"id": "t1243", "quote": "All examples you gave of things with a political identity are instances of E4 Period"},
+    {"id": "t1243", "quote": "It is correct to regard \"Extent of Czechoslovakia 2000\" as an instance of E53"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E53",
+    "concept E41",
+    "thread t1090",
+    "thread t1019",
+    "docs \"administrative area boundary change\" --kind narrative",
+    "docs \"administrative unit ceases to exist\" --kind narrative",
+    "threads \"administrative boundary change hundred parish\"",
+    "issues \"administrative area\"",
+    "issue 312",
+    "thread t1243",
+    "thread t1093",
+    "concept E4",
+    "concept P161",
+    "quote t1243 \"All examples you gave of things with a political identity are instances of E4 Period\"",
+    "quote t1243 \"It is correct to regard \\\"Extent of Czechoslovakia 2000\\\" as an instance of E53\""
+  ],
+  "confidence": "high",
+  "notes": "t1019 in the E53/E41 'debated in' listings pointed to unrelated content (an 'End of Existence for Rights' thread) rather than the 'populated places' topic its episode summary implied -- a retrieval mismatch worth flagging, not used in the answer. No CRM property links a physical thing directly to a Period as 'administered by'; the containment has to be assembled from Place-to-Place P89 plus the Periods' own P4 time-spans, which is exactly the 'fuller chain' the case asks about. Thread t1093 shows the SIG still treats the socio-legal side of administrative units (F11 Corporate Body / CRMsoc) as unresolved and deferred, but the base Period-not-Place mapping used here is the settled part (Issue 312)."
+}

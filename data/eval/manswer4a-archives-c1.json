@@ -1,0 +1,47 @@
+{
+  "case_id": "archives-c1",
+  "answer": "Record every handover as its own event -- do not collapse the chain down to creator-plus-current-holder. CIDOC CRM already gives you both options and the choice is explicit: the full path is E18/E22 Physical Thing -- P30i custody transferred through -- E10 Transfer of Custody -- P28 custody surrendered by / P29 custody received by -- E39 Actor, and P49 has former or current keeper / P50 has current keeper are declared, verbatim in their own scope notes, as shortcuts that stand for exactly that path when the detail isn't known or isn't wanted. That is the honest description of 'note who created it and who holds it now': it is the shortcut form, and CRM sanctions it -- but only as a fallback for when the intervening history is unrecorded. Here it is recorded: each of the three moves (parish into municipal council 1934, council to county record office 1988, county record office to us 2010) is backed by its own signed handover note, i.e. its own piece of documentary evidence naming a specific surrendering party, receiving party and date. Collapsing that to a single current-keeper statement would discard information the archive already holds for no modelling gain. The pattern for using that evidence is the one the SIG itself confirmed on-list (thread t0872): the handover note is an E31 Document, related to its own E10 Transfer of Custody event by P70 documents; the same pattern was used in the SIG's own worked provenance example (thread t1469, the Getty 'Mrs Fitzherbert' case), which models a named sale/transfer as a discrete event with its own actors and date rather than summarising the whole ownership history as start/end points. So: model three separate E10 Transfer of Custody events, each with P28 custody surrendered by / P29 custody received by naming that move's two institutions, P4 has time-span for its date, P30 transferred custody of the ledgers (E22 Human-Made Object), and its own E31 Document (the handover note) linked by P70 documents. The original creation is a separate, prior E12 Production carried out by the parish overseer, P108 has produced the ledgers -- independent of how many custody events follow it. One caveat worth flagging: the 1988 move is described as a 'deposit' and the 2010 move as a 'formal donation', which in archival practice usually differ in legal character (custody-only vs. an actual transfer of ownership/E8 Acquisition) -- that distinction is outside what this question asked, but it is itself an argument for keeping the moves as separate events rather than merging them, since merging would hide precisely that difference.",
+  "classes_proposed": ["E10", "E31", "E22", "E12", "E39"],
+  "properties_proposed": ["P28", "P29", "P30", "P4", "P70", "P108"],
+  "rejected_alternatives": [
+    {
+      "option": "P49 has former or current keeper / P50 has current keeper (creator + current holder only)",
+      "why_not": "Both are declared by the CRM itself as shortcuts for the full E18-P30i-E10-P28/P29-E39 path, meant for when that detailed path isn't known. Here it is known -- each move has a dated, named, evidenced handover -- so using the shortcut would erase distinctions (different actor pairs, different dates, different legal character of deposit vs. donation) that the archive's own records already establish."
+    }
+  ],
+  "citations": [
+    "E10", "P28", "P29", "P30", "P49", "P50", "E31", "P70", "E12", "P108", "E22",
+    "Introduction > Applied Form > Shortcuts",
+    "Modelling principles > Monotonicity",
+    "t0872", "t1469", "Issue 174"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E10",
+    "docs \"chain of custody\" --kind narrative",
+    "docs \"shortcut properties\" --kind narrative",
+    "docs \"current keeper\" --kind narrative",
+    "docs \"level of detail\" --kind narrative",
+    "concept P49",
+    "concept P50",
+    "docs \"Monotonicity\" --kind narrative",
+    "\"chain of custody\" (mailing list)",
+    "threads \"provenance chain custody events\"",
+    "issue 382",
+    "thread t1409",
+    "thread t1469",
+    "thread t0872",
+    "docs \"current state means that the database manager\" --kind narrative",
+    "docs \"shortcuts should be used\" --kind narrative",
+    "docs \"custody surrendered by custody received by\" --kind declaration",
+    "connect E10 E22",
+    "connect E31 E10",
+    "connect E12 E22",
+    "issues \"shortcut property full path\"",
+    "issue 174",
+    "docs \"allow the user to describe\" --kind narrative"
+  ],
+  "confidence": "high",
+  "notes": "docs --kind narrative never surfaced a passage mentioning E10 or P49/P50 directly by ID (concept dossiers said so explicitly), so the 'use the full path when the detail is known' reasoning rests on the shortcut definitions themselves (in P49/P50's own scope notes and the FOL 'full path' block) plus the SIG's on-list practice (t0872, t1469), not on a narrative passage that states the principle in so many words. Issue 382 ('where to stop documenting the provenance') looked promising by title but turned out to be about knowledge-base/data provenance (who asserted a fact), not physical custody chains -- a dead end worth flagging so it isn't mistaken for a hit."
+}

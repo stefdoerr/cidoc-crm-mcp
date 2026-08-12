@@ -1,0 +1,31 @@
+{
+  "case_id": "archaeology-c2",
+  "answer": "Two records, not one. The posthole cut in Trench 3 and the pit fill in Trench 7 are physically distinct features in different trenches; nothing about them meets CRM's own identity test for being 'the same, single thing' (Introduction to the basic concepts: identity means 'informed people are able to agree that they refer to the same, single thing in its distinction from others, both in its extent and over its time of existence'; E77 Persistent Item's scope note reinforces that identity criteria are class-specific and grounded in the real thing, not in a label). What actually clashed here is not the entities but the identifier layer: E42 Identifier's own scope note only promises uniqueness 'within the context of one or more organisations' -- it never claims global uniqueness -- and the modelling-principles narrative on Reality, Knowledge Bases and CIDOC CRM is explicit that 'the formal instances in a knowledge base are the identifiers, not the real things or phenomena.' So the string '56' failing to disambiguate two things is exactly the kind of appellation/entity mismatch the model is built to keep apart (E41 Appellation is described as a cultural-convention sign, not a determinant of identity). Model two separate physical-feature entities (E25 Human-Made Feature, the intentionally-dug posthole and the intentionally-backfilled pit both fitting E24/E26's 'purposely created... physically attached' framing; fall back to plain E26 Physical Feature if 'purposely created' feels too strong for the fill), each carrying its own P1 is identified by / P48 has preferred identifier pointing to its own E42 Identifier instance with the string '56'. Document the two numbering acts as separate E15 Identifier Assignment activities, each P14 carried out by the respective site supervisor and P4 has time-span 1978, so the record shows two independent people independently drawing '56' from the same book rather than implying a single coordinated assignment. That keeps the clash visible and diagnosable instead of silently merging two real features into one.",
+  "classes_proposed": ["E25", "E26", "E42", "E41", "E15"],
+  "properties_proposed": ["P1", "P48", "P37", "P14", "P4"],
+  "rejected_alternatives": [
+    {"option": "One E25/E26 record for 'context 56' that turns out to describe two features", "why_not": "CRM ties identity to the real thing being recognizably 'the same, single thing... in its distinction from others' (Introduction to the basic concepts) and to class-specific identity criteria (E77 Persistent Item scope note). A posthole cut in Trench 3 and a pit fill in Trench 7 share no spatial, temporal, or feature-type basis for that judgement -- merging them would misrepresent two distinct physical realities as one just because a label collided."},
+    {"option": "Treat the shared string as proof of a single E42 Identifier instance assigned twice", "why_not": "E42's own scope note scopes uniqueness only 'within the context of one or more organisations,' and the two supervisors were not coordinating within a shared context -- they were drawing independently from the same book. Two independent E15 Identifier Assignment activities producing two E42 Identifier instances with coincidentally identical string content fits what was actually described; forcing one shared E42 instance would overstate the coordination that didn't happen."}
+  ],
+  "citations": ["E42", "E41", "E15", "E25", "E26", "E77", "P48", "Modelling principles > Reality, Knowledge Bases and CIDOC CRM", "Introduction to the basic concepts", "t0633"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E42",
+    "concept E41",
+    "concept E15",
+    "docs \"identity criteria of an entity\" --kind narrative",
+    "docs \"identifier not unique duplicate\" --kind narrative",
+    "docs \"appellation same string different things\" --kind narrative",
+    "docs \"notion of identity is key evolution of real-world items through time\" --kind narrative --json",
+    "concept E25",
+    "concept E26",
+    "\"same identifier accidentally assigned to two different objects\"",
+    "threads \"duplicate number clash same identifier two entities\"",
+    "thread t0633",
+    "concept P48",
+    "concept E77"
+  ],
+  "confidence": "high",
+  "notes": "The concept dossiers' scope notes (E42's 'within the context of one or more organisations', E77's class-specific identity criteria) directly answered the question without needing a mailing-list precedent -- the hard part was that a literal search for 'duplicate identifier'/'same number two objects' returned only tangential threads (t0633 misfiled coin labels), so the real evidence came from the reference-document narrative on identity and on identifiers-vs-real-things, not from thread history."
+}

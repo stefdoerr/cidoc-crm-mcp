@@ -1,0 +1,38 @@
+[
+  {
+    "case_id": "intangible-c1",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1128", "t1475", "t1701"],
+    "reasoning": "P130's scope note and its own worked example ('audio recording ... shows features of the text') match the case almost verbatim; t1128 confirms the P130+E65/used-specific-object pattern; t1475 (Doerr, Issue 527) and t1701 (Doerr rejecting the 'All Tango Performances' E7 aggregate) both check out exactly as characterized, and the unresolved status is accurately reported.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "intangible-c2",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t0834", "t0772", "t0225", "t1701"],
+    "reasoning": "All four threads verified verbatim: t0834 has Ore's exact 'not necessary ... a student and a teacher should be seen as members of an E74 Group' line using the same ULAN example; t0772 and t0225 genuinely show the SIG raising and dropping person-relation shortcuts in 2014 and 2003; t1701 again supports the E7-aggregate rejection. The 'no shortcut was ever adopted' claim is honestly hedged as an absence, not overclaimed.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "intangible-c3",
+    "verdict": "unsupported",
+    "modelling_works": true,
+    "citations_support_claims": false,
+    "checked_threads": ["t0431", "t1022", "t0976", "t0507"],
+    "reasoning": "The E74-singleton-office / E85/E86 succession modelling is excellent and precisely grounded (t0431 is literally the thread that established this reading; E85/E86 scope notes match verbatim down to 'inauguration into an official position' and 'George Washington's leaving office'). But the rejection of E30 Right rests on a fabricated citation: the quote attributed to Christian-Emil in t1022 ('There is no separate class ... for giving somebody a right ... is not a shortcut') does not exist anywhere in that thread or in the archive at all -- Christian-Emil never posts in t1022, which is Robert Sanderson's 'Passive Activities' thread about ownership states, not about a missing 'give a right' property.",
+    "what_is_wrong": ["Fabricated quote misattributed to a real person in a real but unrelated thread (t1022), used to justify rejecting E30 Right"]
+  },
+  {
+    "case_id": "naturalhistory-c1",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1536", "t1396"],
+    "reasoning": "E80's live scope note carries the exact Darwin/coral example the answer cites, and its 'no discernible identity prior to removal -> also E12' clause is verbatim. t1536 (Doerr, 2021-12-05) explicitly says letting the diminished/removed natural specimen take on a new identity 'violates identity criteria of classes' -- matches the claim. Current E81 scope note pairs mummification with (E81, E12) exactly as used. Minor overstatement: the answer credits the identity-violation conclusion to 'Doerr and Sanderson' but only Doerr states it; Sanderson's posts in the thread are about range technicalities, not that conclusion.",
+    "what_is_wrong": ["Minor: attributes the 'violates identity criteria' conclusion jointly to Doerr and Sanderson when only Doerr's message states it"]
+  }
+]

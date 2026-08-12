@@ -1,0 +1,13 @@
+{
+  "question_id": "2012-2013-q1",
+  "answer": "The archive discusses this directly in thread t0615 (March-April 2012). Michael Hopwood (EDItEUR) asked whether descriptions/transcriptions of text of published books, song lyrics, film/TV dialogue, and words in photos could be recorded as LIDO:Inscriptions, given the object in question is a FRBRoo 'Manifestation Product Type' (a mass-produced conceptual object), not a physical item. Regine Stein answered that an inscription (LIDO's Inscriptions element, aligned with CRM's E34 Inscription) is explicitly bound to a *physical* carrier -- 'physical lettering... affixed, inscribed, or attached to the object/work' -- so this content-description use case does not fit E34/LIDO:Inscriptions; instead it should go into LIDO's objectDescriptionSet, typed as needed. Patrick Le Boeuf offered an alternative FRBRoo-based route for the quoted text itself: model it via F23 Expression Fragment with P3 has note (P3.1 has type E55 Type {quotation}) rather than as an inscription. Hopwood then pushed further, specifically asking to what degree on-screen subtitles in a digital download could be considered an 'inscription' -- but this follow-up question was not answered in the thread; it was left open/unresolved.",
+  "found": true,
+  "cited_threads": ["t0615"],
+  "queries_run": [
+    "uv run python search.py \"inscription mass-produced published work\" -k 10",
+    "uv run python search.py thread t0615",
+    "uv run python search.py \"subtitles inscription digital\" -k 10 --mode bm25"
+  ],
+  "confidence": "high",
+  "notes": "Thread t0615 (subject: LIDO semantics - \"Inscriptions\" on/in mass-produced media) is a direct, on-topic match found on the first query. The consensus answer is 'no, not in the strict CRM/LIDO sense, because E34/Inscription requires a physical carrier' -- but the specific subtitle edge-case Hopwood raised at the end was never resolved on-list, so the topic is only partially settled."
+}

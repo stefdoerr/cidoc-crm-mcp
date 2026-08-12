@@ -1,0 +1,23 @@
+[
+  {
+    "case": "We excavated a colluvial deposit sealing a Roman corn-drying oven and recovered a broken polished stone axe amid post-Roman pottery. The axe is clearly Neolithic and residual, washed in from an eroding surface upslope, not contemporary with the oven or the deposit around it. Our finds database currently just records that it came from that context, the same as everything else pulled from it.",
+    "question": "Should we link the axe fragment straight to the context it was found in, the way we do for every other find, or does that shortcut misrepresent an object that's thousands of years older than the layer it ended up in?",
+    "kind": "shortcut vs full path",
+    "why_hard": "A direct find-to-context link works for ordinary finds but implies contemporaneity, so residual material may need the fuller event chain that keeps original deposition separate from final recovery location.",
+    "distinctive_terms": ["colluvial deposit", "corn-drying oven", "polished stone axe", "residual find", "post-Roman pottery"]
+  },
+  {
+    "case": "We're digitizing the card index from a 1978 rescue excavation and just found that context number 56 was written on two different context sheets: one for a posthole in Trench 3, one for a pit fill in Trench 7. Two site supervisors were clearly drawing numbers from the same book without checking each other, and nobody caught the clash at the time. Now we have to decide what 'context 56' means when we bring it into the digital archive.",
+    "question": "Do we treat context 56 as one record that turns out to describe two different features, or as two records that happen to share a number by accident?",
+    "kind": "identity",
+    "why_hard": "The shared identifier suggests one entity but the physical evidence is of two, so the fix has to separate the identifier from the thing it names without silently rewriting the original 1978 archive.",
+    "distinctive_terms": ["card index", "context number", "posthole", "pit fill", "rescue excavation", "site supervisor"]
+  },
+  {
+    "case": "Our surveyor recorded the plan of an oval grave cut with several dozen total-station points, closing them into a polygon so we can calculate its exact area and orientation in GIS. Everything else about the context, the finds and the interpretation lives in our CRM-based site database, and our archivist wants the precise surveyed outline stored in the same place rather than as a separate linked file.",
+    "question": "Should the exact surveyed outline of the cut live inside our CRM-based catalogue as data in its own right, or is that something the model was never meant to hold, so it stays outside as a linked GIS layer?",
+    "kind": "out of scope",
+    "why_hard": "The model can assert that a feature exists and reference documentation about it, but it has no native way to carry precise vector geometry, so the test is whether an answer forces coordinate geometry into a class meant for named or approximate places instead of pointing outside the model.",
+    "distinctive_terms": ["total station", "grave cut", "polygon outline", "GIS layer"]
+  }
+]

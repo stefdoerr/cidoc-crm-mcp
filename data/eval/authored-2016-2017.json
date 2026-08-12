@@ -1,0 +1,54 @@
+[
+  {
+    "question": "The CIDOC CRM class originally named 'E78 Collection' was put to a SIG vote on renaming it. Was the renaming proposal accepted, and if so what name did the SIG settle on and why?",
+    "gold_answer": "Yes, the SIG approved renaming E78 Collection to E78 Curated Holding (singular, without a trailing 's'), with the change tied to resolving issue 270 at the Prato meeting in February 2016. The rationale, given by Martin Doerr during the vote, was that librarians already use 'holdings' to mean the physical copies making up library content, which supported treating the class as fundamentally about physical, curated material -- so that properties like location and destruction remain meaningful for it -- rather than about the intangible content those items carry. The vote initially ran on the plural 'Curated Holdings', but after a side debate about English usage (whether the plural reads as the collection-as-a-whole or as its individual items), several members switched their vote to the singular 'Curated Holding', which became the adopted form.",
+    "key_facts": [
+      "E78 Collection was renamed to E78 Curated Holding as part of resolving issue 270.",
+      "The renaming was tied to the Prato SIG meeting in February 2016.",
+      "The stated rationale (from Martin Doerr) was that 'holdings' is the librarians' term for the physical copies of library content, supporting a physical (not purely intentional/content-based) definition of the class.",
+      "The adopted form was the singular 'Curated Holding', after some members initially voted for the plural 'Curated Holdings'."
+    ],
+    "gold_threads": ["t0907", "t1004"],
+    "difficulty": "easy",
+    "why_this_is_hard": "Confirming the final adopted name and its rationale means following a vote thread where opinions shift mid-stream, plus a later thread that names the resolved issue number and meeting."
+  },
+  {
+    "question": "The SIG discussed deprecating the actor-appellation class because its scope note failed to convincingly justify treating actor names as a distinct, recognizable kind of appellation. How did the community's position on this class evolve, and what was its fate by the following year, including any loose ends left behind?",
+    "gold_answer": "The SIG largely converged on deprecating E82 Actor Appellation, because there is no reliable way to tell from the form of a name alone that it 'characteristically' belongs to an actor rather than a place or a work -- conventions about what a personal or corporate name looks like vary by culture and change over time, undermining the scope note's core claim. By the following year, a SIG member confirmed E82 had indeed been deprecated in favor of using the general E41 Appellation directly, but pointed out that dependent parts of the documentation -- the property P131 and its scope-note wording, plus references to E82 in the property hierarchy and in the entries for P1 and E39 -- had not yet been updated to match. Robert Sanderson pushed the reasoning further, arguing nearly all subclasses of E41 besides E42 Identifier add no real semantic value over plain Appellation and should likewise be deprecated.",
+    "key_facts": [
+      "E82 Actor Appellation was deprecated in favor of using E41 Appellation directly.",
+      "The core objection was that the 'characteristic form' test for actor names is unreliable, since what counts as a personal or corporate name form depends on cultural convention and changes over time.",
+      "As of the following year, dependent references to E82 (including property P131 and mentions in the property hierarchy, P1, and E39) had not yet been updated in the documentation despite the deprecation.",
+      "Robert Sanderson argued the same reasoning implied nearly all subclasses of E41 (other than E42 Identifier) should also be deprecated."
+    ],
+    "gold_threads": ["t0937", "t1015"],
+    "difficulty": "hard",
+    "why_this_is_hard": "The class's actual fate only becomes clear by connecting a debate with no explicit final vote to a follow-up thread nearly a year later that confirms the outcome and flags unfinished cleanup work."
+  },
+  {
+    "question": "A modeller argued that the class for curated collections and the class for physical objects create a logical inconsistency, since the physical-object class's scope note already claims to cover 'all aggregates of objects... of whatever kind', yet the collections class is not classified as a subclass of it. What different fixes did SIG members propose for this, and was the class hierarchy actually changed as a result?",
+    "gold_answer": "The class hierarchy was not changed. The member who raised the issue proposed making the curated-collections class (E78 Curated Holding) a subclass of Man-Made Object (so it would inherit from Physical Object through that route), or alternatively creating a new generic 'Set' class under Physical Object. Another member objected, since curated holdings must be able to include curated physical features (not just discrete objects), which would wrongly be excluded if the class were tied to Man-Made Object; he suggested using multiple instantiation instead whenever something genuinely needs to be classified as both. A third member added counter-examples -- such as a collection of dispersed structures, or curated rock art left in situ -- that would be awkward or wrong to force into the physical-object class's requirement of a single item with objective physical boundaries. The senior modeller closed the discussion by appealing to CRM's open-world, bottom-up modelling principle instead: ordinary cases like auction lots and hoards already qualify as plain physical-object aggregates, and the remaining edge cases (like objects that just happen to appear together in one photograph) simply fall outside the ontology's current scope and can be handled by an extension without touching the core hierarchy.",
+    "key_facts": [
+      "No change was made to the class hierarchy as a result of this debate; E78 Curated Holding remained a non-subclass of E19 Physical Object.",
+      "One proposed fix was making E78 a subclass of E22 Man-Made Object (or introducing a new generic 'Set' class under E19), which was intended to resolve the inconsistency directly.",
+      "This was opposed on the grounds that curated holdings must be able to contain curated features (not just objects), and that some curated holdings (e.g. dispersed structures, in-situ rock art) don't satisfy E19's requirement of objective physical boundaries; multiple instantiation was proposed instead for individual overlapping cases.",
+      "The discussion was closed with an appeal to CRM's open-world/bottom-up principle rather than a hierarchy fix: ordinary aggregates like auction lots and hoards are treated as plain E19s, and edge cases are left out of scope for later extension."
+    ],
+    "gold_threads": ["t1004"],
+    "difficulty": "hard",
+    "why_this_is_hard": "Answering requires tracking four participants' distinct and partly conflicting positions across one long thread, and recognizing the debate ended in an informal methodological answer rather than an actual change to the class hierarchy."
+  },
+  {
+    "question": "Over the course of a year, the SIG repeatedly discussed what CIDOC CRM's class for rights actually represents -- the abstract legal concept of a right, or a specific instance of someone holding a right over an object for a bounded period -- along with how to handle joint or partial ownership shares. Did the SIG ever settle on a single answer?",
+    "gold_answer": "No -- the archive shows this was never resolved. One member repeatedly pressed the SIG on whether the Right class denotes the concept of a right (which, as a Conceptual Object, cannot simply cease to exist just because its legal validity lapses) or the concrete holding of a right by a specific actor over a specific object for a limited time, and the two readings kept producing contradictory answers about things like the end of an ownership right after resale. Two members separately floated adding a new property or class to capture the period during which a right is actually in force, distinct from the right's existence as a concept, but this stayed an unadopted suggestion rather than an agreed change. The senior modeller's final word was that 'right' is simply an ambiguous natural-language term with multiple legitimate senses, that modelling joint or fractional ownership and the legal domain generally was too complex to settle by email, and that a dedicated working group would need to be restarted -- noting that an earlier such effort had already stalled once its partner organization withdrew. No resumption of that group, nor any scope-note change or new property, appears in the archive for this period.",
+    "key_facts": [
+      "Whether the Right class (E30) denotes the abstract legal concept or a concrete, time-bounded holding of a right was never formally resolved -- no scope-note change or SIG vote is recorded in this period.",
+      "A proposal to add a new property or class capturing a right's period of legal validity, separate from its existence as a concept, was raised by more than one member but remained an unadopted suggestion.",
+      "The discussion also raised joint/partial ownership (e.g. two parties each holding a percentage share of a right) as unresolved, with no modelling solution agreed.",
+      "The senior modeller proposed restarting a dedicated rights-modelling working group, noting a prior effort had already stalled after a partner organization withdrew; no such group is shown reconvening."
+    ],
+    "gold_threads": ["t0972", "t1019"],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "The debate recurs across two threads months apart with several plausible partial fixes proposed along the way, making it tempting to report one of those fixes as settled rather than recognizing the SIG never actually converged."
+  }
+]

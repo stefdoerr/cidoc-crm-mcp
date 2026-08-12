@@ -1,0 +1,33 @@
+{
+  "case_id": "naturalhistory-c1",
+  "answer": "Model this as two chained events, not as the extract inheriting the moth's identity. (1) E80 Part Removal: P112 diminished -> the pinned moth (stays E20 Biological Object, keeps its original catalogue number, unaffected as the paratype); P113 removed -> the leg (a new E18/E20 physical thing with its own identity, distinct from the moth). (2) E81 Transformation (paired with E12 Production, the pattern the docs use for intentional lab/preparation procedures such as mummification): P124 transformed -> the leg (destroyed as a discrete tissue object); P123 resulted in -> the frozen DNA extract (a new object, E20 Biological Object and, since it was purposely produced by a lab technique, also E22 Human-Made Object; P108 has produced also holds). CRM's identity/disjointness rules mean the extract can never literally be 'the paratype' -- E80 Part Removal only diminishes the original and spins the removed part off as its own instance, and the CRM-SIG themselves rejected the alternative of letting a removed/diminished natural specimen's part carry the original's identity, calling it a violation of identity criteria (thread t1536, Martin Doerr's message). So the first framing in the question -- recording the extract 'using the specimen's existing identity' -- is not how CRM would model it. The second framing (a new object from a sampling event that also modified the original) is correct, and the extract's derivation from the paratype is fully traceable, just as documented provenance through the P112/P113 and P124/P123 chain back to the moth, not as shared identity. Whether it 'still counts as coming from the paratype' is therefore a provenance question, answerable yes via that chain, and this is true regardless of which framing is chosen since CRM rules out the identity-preserving framing outright.",
+  "classes_proposed": ["E20", "E80", "E81", "E12", "E22"],
+  "properties_proposed": ["P112", "P113", "P124", "P123", "P108"],
+  "rejected_alternatives": [
+    {"option": "Recording the extract under the moth's existing identity/catalogue number (Part Removal extending the original's identity onto the removed/transformed material)", "why_not": "E80 Part Removal's P112/P113 split explicitly separates the diminished original from the removed part as two distinct instances; thread t1536 records Martin Doerr and Rob Sanderson concluding that letting a removed natural-history part (or the diminished original) take on a new identity mid-removal 'violates identity criteria of classes' -- the moth stays E20 Biological Object, unaffected, and the removed leg is its own instance from the start."},
+    {"option": "Plain E11 Modification of the moth, with no new object for the extract", "why_not": "the E81 Transformation scope note says instances of Transformation are 'distinct from ... modifications ... that do not fundamentally change their nature or identity'; dissolving a leg into a liquid DNA extract is exactly the fundamentally-different-nature case E81 exists for, so a bare Modification undercounts what happened."},
+    {"option": "Also modelling the removal step as E80+E12 (Production) per the 'no discernible identity prior to removal' clause in E80's scope note", "why_not": "that combined classification is reserved for parts with no discernible identity before removal (e.g. a carved-off meteorite fragment); a moth's leg is already a discernible anatomical part before removal, so plain E80 covers that step and E12 is reserved for the later, clearly production-like dissolution/extraction step (paired with E81, matching the docs' mummification example)."}
+  ],
+  "citations": [
+    "E20", "E80", "E81", "E12", "E22", "P112", "P113", "P123", "P124", "P108",
+    "t1536", "t1396",
+    "Modelling principles > Disjointness",
+    "Modelling principles > Monotonicity"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E80",
+    "concept E81",
+    "concept E20",
+    "docs \"part removed identity\" --kind narrative",
+    "docs \"sampling specimen\"",
+    "concept E83",
+    "docs \"type specimen paratype\" --kind declaration",
+    "\"DNA sample specimen\"",
+    "thread t1536",
+    "thread t1396"
+  ],
+  "confidence": "medium",
+  "notes": "The concept dossier's siblings/applicable-properties blocks and the archive-mentions pointer were what made this answerable -- they led straight to E80's own scope-note caveat about parts with/without prior discernible identity, and to a SIG thread (t1536) where Doerr and Sanderson argue this precise natural-history-sampling identity question and reject identity-transfer. What was hard: the default mailing-list search for 'DNA sample specimen' mostly surfaced CRMsci extension threads (S2 Sample Taking, S13 Sample, O27 split -- t1261, t1225, t1318) which is arguably the more natural home for 'a sample derived from a source object', but those S/O-prefixed classes never appear in the 241-class 'ontology' listing, so there was no way to open them with `concept` or confirm they're in scope for this evaluation; I fell back to core E80/E81/E12 instead of guessing at S2/S13/O27's definitions."
+}

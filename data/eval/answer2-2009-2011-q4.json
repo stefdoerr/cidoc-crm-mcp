@@ -1,0 +1,14 @@
+{
+  "question_id": "2009-2011-q4",
+  "answer": "No. The CIDOC CRM SIG explicitly declined to publish a comprehensive list of disjoint class pairs. In thread t0590 (Nov 2011, 'Implementation recommendation for disjointness'), Martin Scholz (Erlangen CRM) pointed out that the CRM standard's 'Disjointness' section states a comprehensive declaration of all disjoint class combinations 'has not been provided here; it would be of questionable practical utility, and may easily become inconsistent with the goal of providing a concise definition,' and that ISSUE 92 concluded the SIG 'should abandon the idea of disjoint class declarations altogether.' Martin Doerr confirmed this directly, saying 'In the past the CRM-SIG team gave up to define a comprehensive list of disjoint classes, because there were too many exceptions.' He named only two fundamental, uncontroversial disjoint pairs (E2 Temporal Entity/E77 Persistent Item, and E18 Physical Thing/E28 Conceptual Object), plus Time-Span/Place/Dimension as obvious but not worth stating. Beyond that, he explained many candidate pairs are only 'likely' or context-dependent disjoint (e.g. a Physical Feature vs. the Place it occupies, or getting rid of Time-Spans in practice) or are genuinely combinable in a true ontological sense (e.g. destruction and activity, Image and Linguistic Object). For events especially, he said it is 'very difficult to state any useful disjointness' since that would require excluding any possible immediate interaction between event types and separating their participants and space-time volumes -- illustrated with an example of removing and re-adding a chair leg being either one event or two depending on interpretation. Aldo Gangemi separately suggested disjointness axioms, if added, be kept in an optional pluggable module rather than the core ontology, precisely because they cause problems when CRM is aligned with other ontologies for unforeseen uses. This position was raised again unresolved in 2019 (thread t1247) when a user asked the same question about a comprehensive disjointness list.",
+  "found": true,
+  "cited_threads": ["t0590", "t1247"],
+  "queries_run": [
+    "search \"disjoint class pairs OWL\" -k 10",
+    "thread t0590",
+    "thread t1247",
+    "search \"issue 92 disjoint class declarations abandon\" -k 10"
+  ],
+  "confidence": "high",
+  "notes": "First query hit the answer directly on the first try (thread t0590, Nov 2011). Martin Doerr's reply gives both the negative confirmation ('gave up to define a comprehensive list') and the detailed reasoning (too many exceptions, context-dependent 1-1 relationships, genuine event combinability, difficulty for events generally). Thread t1247 (2019) shows the same question resurfacing later with no reversal of the position, corroborating that no comprehensive list was ever committed to."
+}

@@ -1,0 +1,37 @@
+{
+  "case_id": "archives-c2",
+  "answer": "Split 'authorship' into the two acts the cataloguer is actually distinguishing: composing the wording, and signing the sheet. The letters' wording is an E33 Linguistic Object brought about by an E65 Creation event; P14 carried out by on that event names whoever actually drafted the text. The signature is a different kind of fact: an E37 Mark shown by the physical letter (P65 shows visual item, since the letter is an E24/E22 Human-Made Object), and P138 represents links that Mark to the person it visually stands for. These two are independent in the model -- nothing forces the P14 participant of the drafting event to be the same person as the P138 target of the signature Mark -- which is exactly the cataloguer's suspicion: the secretary is the represented signatory, the clerk may be the actual P14 participant of the E65 Creation. E37's own scope note says signatures are applied 'often in order to indicate creator, owner, dedications, purpose, or to communicate information generally' -- i.e. the CRM itself does not treat a signature as proof of composition, so recording the secretary as the Mark's represented actor does not commit you to also recording him as the Creation's participant. Checking connect E33 E39 and connect E22 E39 turned up no direct authorship property in either direction; every path to 'who wrote it' or 'whose signature is it' runs through an event (E65) or a Mark (E37), never a direct link from letter to person, which is itself informative about how the CRM wants this documented. For the uncertainty itself: keep the secretary-as-signatory as a normal assertion (it's what's physically on the page), but do not assert the clerk as a flat P14 fact, since there is no name and no corroborating evidence beyond a handwriting comparison. CRMbase has no native graded-certainty property to attach to P14 -- Issue 349 'Belief Values', which exists precisely for cases like 'probably author of', is still Open in the SIG's own register as of its most recent meetings. The honest options are: (a) create an unnamed E21 Person for 'the presumed drafter', link it with P14 to the E65 Creation, and carry the cataloguer's reasoning in P3 has note rather than presenting it as settled, or (b) wrap that same P14 statement in an E13 Attribute Assignment so the knowledge base is explicit that this is an attributed opinion rather than a plain fact -- E13's scope note says exactly this: it exists so 'the maintaining team is in general neutral to the validity of the respective assertion, but registers someone else's opinion and how it came about.' A numeric confidence value is not something CRMbase itself offers; that would mean stepping into CRMinf (I2 Belief), which is a different model.",
+  "classes_proposed": ["E33", "E65", "E37", "E36", "E21", "E22", "E13"],
+  "properties_proposed": ["P94", "P14", "P65", "P138", "P128", "P3"],
+  "rejected_alternatives": [
+    {"option": "Asserting the clerk as a plain P14 carried_out_by fact on the E65 Creation", "why_not": "Issue 349 'Belief Values' -- the SIG's own mechanism for cases like 'probably author of' -- is still Open as of its most recent meetings, confirming CRMbase has no native way to grade this; a flat P14 statement would misrepresent a handwriting-based hypothesis, with no clerk name anywhere in the collection, as settled fact."},
+    {"option": "Treating the signature (E37 Mark) as proof of who composed the text", "why_not": "E37's own scope note lists creator, owner, dedication, purpose, and general communication as reasons a mark/signature is applied -- it is deliberately not narrowed to authorship, and P138 represents only records whose signature it visually is, not who ran the E65 Creation event that produced the wording."},
+    {"option": "Using E22 Human-Made Object's own properties (P51/P52 has former or current owner, P49/P50 has current keeper) as a stand-in for authorship", "why_not": "connect E22 E39 shows only ownership/custody/depicts properties link the physical letter directly to an actor -- none of them represent composing the text, confirming that authorship has to route through an event (E65), not a direct property on the object."}
+  ],
+  "citations": ["E33", "E65", "E37", "E36", "E21", "E13", "P94", "P14", "P65", "P138", "P128", "Issue 349", "t1263", "t0840"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E65",
+    "concept E33",
+    "thread t0840",
+    "concept E13",
+    "connect E33 E39",
+    "docs \"authorship\" --kind narrative",
+    "docs \"attributed creator uncertain\"",
+    "\"clerk drafted letter signed secretary\"",
+    "concept E37",
+    "concept E21",
+    "issues \"uncertain attribution creator\"",
+    "\"amanuensis scribe secretary signed letter\"",
+    "issue 349",
+    "issue 694",
+    "concept I2",
+    "docs \"signature signed\" --kind narrative",
+    "concept E36",
+    "connect E22 E39",
+    "thread t1263"
+  ],
+  "confidence": "medium",
+  "notes": "No mailing-list thread on the exact scenario (a clerk drafting, a secretary signing) turned up -- both mailing-list searches for that scenario returned unrelated meeting/voting mail, so this mapping is built by combining E65/E33 (composition) with E37/P138 (signature-as-Mark) rather than found ready-made in the archive. Confidence is medium because the CRMbase-only path for the uncertainty itself (E21 with P3 note, or wrapping P14 in E13) is a reasonable construction from the scope notes rather than a directly attested precedent, and because true graded certainty falls outside CRMbase into CRMinf, which the case doesn't ask about but which Issue 349 points to."
+}

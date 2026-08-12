@@ -1,0 +1,52 @@
+# Source archive — 143MB, shipped out of band
+*.mbox
+
+# Generated pipeline artifacts (rebuildable from the mbox in minutes)
+data/*
+stores/
+
+# ...except the evaluation set. These are NOT rebuildable: the questions were
+# written by readers who were blind to the search system, and regenerating them
+# would produce a different benchmark, so scores would stop being comparable
+# across runs. Answers are kept beside them as the record of what the system
+# actually returned on a given day.
+!data/eval/
+!data/eval/**
+
+# Secrets. .env holds API keys and must never reach a remote.
+.env
+.env.*
+!.env.example
+
+# Rendered review pages, regenerable from the models beside them by
+# tools/render_crm_models.py. The models and their notes ARE tracked -- those
+# are the source, and the notes double as the record of what each modelling
+# run found.
+crm_models_review.html
+eval-review*.html
+
+# A saved copy of a cidoc-crm.org page, kept locally while working. Browser
+# cruft (js/css/png), not input to anything.
+Classes_and_properties_version_*_files/
+
+# Agent working directory: briefs, reports, review packages and the progress
+# ledger for in-flight plans.
+.superpowers/
+
+# Design specs and implementation plans stay local by preference. Ignored
+# rather than merely unstaged so `git add -A` cannot sweep them in.
+docs/superpowers/
+
+# Bundles made to send the models elsewhere. Regenerable from models/rdf/ in
+# one command, and one was committed by a blanket `git add -A` that swept up
+# a file nobody had looked at.
+*.zip
+*.tar.gz
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/

@@ -1,0 +1,284 @@
+@prefix crm:    <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
+@prefix mgd:    <http://example.org/maogong-ding/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+# =========================================================================
+# The object itself
+# =========================================================================
+
+mgd:MaoGongDing a crm:E22_Human-Made_Object ;
+    rdfs:label "Mao Gong ding" ;
+    crm:P1_is_identified_by mgd:Name_En, mgd:Name_Zh ;
+    crm:P2_has_type mgd:Type_Ding, mgd:Type_ThreeTreasures ;
+    crm:P45_consists_of mgd:Material_Bronze ;
+    crm:P43_has_dimension mgd:Dim_Height, mgd:Dim_Width, mgd:Dim_Weight ;
+    crm:P128_carries mgd:Inscription ;
+    crm:P50_has_current_keeper mgd:NationalPalaceMuseum ;
+    crm:P55_has_current_location mgd:Place_Taipei .
+
+mgd:Name_En a crm:E41_Appellation ;
+    rdfs:label "Mao Gong ding" .
+
+mgd:Name_Zh a crm:E41_Appellation ;
+    rdfs:label "毛公鼎 (Máogōng dǐng)" ;
+    crm:P139_has_alternative_form mgd:Name_En .
+
+mgd:Type_Ding a crm:E55_Type ;
+    rdfs:label "ding (bronze tripod ritual vessel)" .
+
+mgd:Type_ThreeTreasures a crm:E55_Type ;
+    rdfs:label "one of the National Palace Museum's 'three treasures'" .
+
+mgd:Material_Bronze a crm:E57_Material ;
+    rdfs:label "bronze" .
+
+# --- Dimensions ---
+
+mgd:Dim_Height a crm:E54_Dimension ;
+    crm:P2_has_type mgd:Type_Height ;
+    crm:P90_has_value "53.8"^^xsd:decimal ;
+    crm:P91_has_unit mgd:Unit_Centimetre .
+
+mgd:Dim_Width a crm:E54_Dimension ;
+    crm:P2_has_type mgd:Type_Width ;
+    crm:P90_has_value "47.9"^^xsd:decimal ;
+    crm:P91_has_unit mgd:Unit_Centimetre .
+
+mgd:Dim_Weight a crm:E54_Dimension ;
+    crm:P2_has_type mgd:Type_Weight ;
+    crm:P90_has_value "34.7"^^xsd:decimal ;
+    crm:P91_has_unit mgd:Unit_Kilogram .
+
+mgd:Type_Height a crm:E55_Type ; rdfs:label "height" .
+mgd:Type_Width  a crm:E55_Type ; rdfs:label "width" .
+mgd:Type_Weight a crm:E55_Type ; rdfs:label "weight" .
+
+mgd:Unit_Centimetre a crm:E58_Measurement_Unit ; rdfs:label "centimetre" .
+mgd:Unit_Kilogram   a crm:E58_Measurement_Unit ; rdfs:label "kilogram" .
+
+# --- Inscription: what the object carries and what it is about ---
+
+mgd:Inscription a crm:E34_Inscription ;
+    rdfs:label "inscription of the Mao Gong ding" ;
+    crm:P3_has_note "500 characters arranged in 32 lines; the longest inscription among ancient Chinese bronze inscriptions." ;
+    crm:P72_has_language mgd:Language_Chinese ;
+    crm:P129_is_about mgd:KingXuan, mgd:LordYinOfMao, mgd:KingWen, mgd:KingWu,
+        mgd:Event_Restoration, mgd:Event_Presentation .
+
+mgd:Language_Chinese a crm:E56_Language ; rdfs:label "Chinese" .
+
+mgd:Event_Restoration a crm:E5_Event ;
+    rdfs:label "King Xuan restoration" ;
+    crm:P3_has_note "Revitalization of Western Zhou royal authority after King Xuan's ascension, ending the Gonghe interregnum, as recounted in the inscription; King Xuan's recollection of King Wen and King Wu enjoying the Mandate of Heaven is part of this same recounting." .
+
+mgd:Event_Presentation a crm:E7_Activity ;
+    rdfs:label "Lord Yin of Mao's expression of gratitude and presentation of the ding" ;
+    crm:P14_carried_out_by mgd:LordYinOfMao ;
+    crm:P11_had_participant mgd:KingXuan ;
+    crm:P3_has_note "The inscription closes with the Duke of Mao's gratitude to the King and his presentation of the ding as an expression of that gratitude, for future generations. The source text is ambiguous about whether the vessel physically changed hands at this point (see report); no E8 Acquisition is asserted for it." .
+
+# =========================================================================
+# People and groups named in the source
+# =========================================================================
+
+mgd:LordYinOfMao a crm:E21_Person ;
+    rdfs:label "Lord (Duke) Yin of Mao" .
+
+mgd:KingXuan a crm:E21_Person ; rdfs:label "King Xuan of Zhou" .
+mgd:KingWen  a crm:E21_Person ; rdfs:label "King Wen of Zhou" .
+mgd:KingWu   a crm:E21_Person ; rdfs:label "King Wu of Zhou" .
+
+mgd:ChenJieqi a crm:E21_Person ;
+    rdfs:label "Chen Jieqi" ;
+    crm:P3_has_note "1813-1884; described in the source as a famous collector." .
+
+mgd:Duanfang a crm:E21_Person ;
+    rdfs:label "Duanfang" ;
+    crm:P3_has_note "1861-1911." .
+
+mgd:YeGongchuo a crm:E21_Person ;
+    rdfs:label "Ye Gongchuo" ;
+    crm:P3_has_note "1881-1968." .
+
+mgd:ChenYonRen a crm:E21_Person ;
+    rdfs:label "Chen Yon Ren" ;
+    crm:P3_has_note "Described in the source as a millionaire in Shanghai." .
+
+mgd:ChiangKaiShek a crm:E21_Person ; rdfs:label "Chiang Kai-shek" .
+
+mgd:UnnamedGeneral a crm:E21_Person ;
+    rdfs:label "an unnamed general of the Kuomintang army" .
+
+mgd:ChenFamily a crm:E74_Group ;
+    rdfs:label "the Chen family (heirs of Chen Jieqi)" .
+
+mgd:TianjinDaoShengBank a crm:E74_Group ;
+    rdfs:label "Tianjin Dao Sheng Bank" .
+
+mgd:FriendsOfYe a crm:E74_Group ;
+    rdfs:label "friends of Ye Gongchuo" .
+
+mgd:YeFamily a crm:E74_Group ;
+    rdfs:label "the Ye family" .
+
+mgd:Kuomintang a crm:E74_Group ;
+    rdfs:label "the Kuomintang" .
+
+mgd:KMTShanghaiGovernment a crm:E74_Group ;
+    rdfs:label "the Kuomintang Shanghai Government" .
+
+mgd:NationalPalaceMuseum a crm:E74_Group ;
+    rdfs:label "National Palace Museum" .
+
+# =========================================================================
+# Places
+# =========================================================================
+
+mgd:Place_Qishan a crm:E53_Place ;
+    rdfs:label "Qishan County" ;
+    crm:P89_falls_within mgd:Place_Shaanxi .
+
+mgd:Place_Shaanxi a crm:E53_Place ; rdfs:label "Shaanxi" .
+
+mgd:Place_Taipei a crm:E53_Place ;
+    rdfs:label "Taipei" ;
+    crm:P89_falls_within mgd:Place_Taiwan .
+
+mgd:Place_Taiwan a crm:E53_Place ; rdfs:label "Taiwan" .
+
+# =========================================================================
+# Making: commissioning and production
+# =========================================================================
+
+mgd:Production a crm:E12_Production ;
+    rdfs:label "production of the Mao Gong ding" ;
+    crm:P108_has_produced mgd:MaoGongDing ;
+    crm:P14_carried_out_by mgd:LordYinOfMao ;
+    crm:P17_was_motivated_by mgd:Event_Appointment ;
+    crm:P4_has_time-span mgd:TimeSpan_Production ;
+    crm:P3_has_note "Lord Yin of Mao is named here as the party responsible for the vessel's making (its commissioner/dedicator); the source does not identify the artisans who actually cast it." .
+
+mgd:Event_Appointment a crm:E7_Activity ;
+    rdfs:label "King Xuan's appointment of the Lord of Mao to help run state affairs" ;
+    crm:P14_carried_out_by mgd:KingXuan ;
+    crm:P11_had_participant mgd:LordYinOfMao .
+
+mgd:TimeSpan_Production a crm:E52_Time-Span ;
+    rdfs:label "during the reign of King Xuan of Zhou" ;
+    crm:P86_falls_within mgd:TimeSpan_WesternZhou .
+
+mgd:TimeSpan_WesternZhou a crm:E52_Time-Span ;
+    rdfs:label "Western Zhou dynasty (c. 1045 - c. 771 BCE)" ;
+    crm:P3_has_note "The source itself hedges both ends of the dynasty with 'c.'; no exact xsd:date bound is asserted for either end, both to honour that hedge and because BCE years are not representable as a plain xsd:date literal in this toolchain." .
+
+# =========================================================================
+# Finding: the 1843 encounter/excavation
+# =========================================================================
+
+mgd:Encounter a crmsci:S19_Encounter_Event ;
+    rdfs:label "1843 excavation of the Mao Gong ding" ;
+    crmsci:O19_encountered_object mgd:MaoGongDing ;
+    crmsci:O21_encountered_at mgd:Place_Qishan ;
+    crm:P4_has_time-span mgd:TimeSpan_1843 ;
+    crm:P3_has_note "Excavated during the reign of the Daoguang Emperor; the source does not name who carried out the excavation." .
+
+mgd:TimeSpan_1843 a crm:E52_Time-Span ;
+    rdfs:label "1843" ;
+    crm:P82a_begin_of_the_begin "1843-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1843-12-31"^^xsd:date .
+
+# =========================================================================
+# Ownership history since the excavation
+# =========================================================================
+
+# 1852: Chen Jieqi acquired it (mode of acquisition not stated)
+mgd:Acq1 a crm:E8_Acquisition ;
+    rdfs:label "1852 acquisition by Chen Jieqi" ;
+    crm:P24_transferred_title_of mgd:MaoGongDing ;
+    crm:P22_transferred_title_to mgd:ChenJieqi ;
+    crm:P4_has_time-span mgd:TimeSpan_1852 .
+
+mgd:TimeSpan_1852 a crm:E52_Time-Span ;
+    rdfs:label "1852" ;
+    crm:P82a_begin_of_the_begin "1852-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1852-12-31"^^xsd:date .
+
+# Xuantong era (1909-1911): Duanfang bought it from the Chen family
+mgd:Acq2 a crm:E96_Purchase ;
+    rdfs:label "purchase by Duanfang from the Chen family" ;
+    crm:P24_transferred_title_of mgd:MaoGongDing ;
+    crm:P22_transferred_title_to mgd:Duanfang ;
+    crm:P23_transferred_title_from mgd:ChenFamily ;
+    crm:P4_has_time-span mgd:TimeSpan_Xuantong .
+
+mgd:TimeSpan_Xuantong a crm:E52_Time-Span ;
+    rdfs:label "Xuantong era (1909-1911)" ;
+    crm:P82a_begin_of_the_begin "1909-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1911-12-31"^^xsd:date .
+
+# Undated: friends of Ye Gongchuo bought it from Tianjin Dao Sheng Bank,
+# which had held it as loan collateral
+mgd:Acq3a a crm:E96_Purchase ;
+    rdfs:label "purchase by friends of Ye Gongchuo from Tianjin Dao Sheng Bank" ;
+    crm:P24_transferred_title_of mgd:MaoGongDing ;
+    crm:P22_transferred_title_to mgd:FriendsOfYe ;
+    crm:P23_transferred_title_from mgd:TianjinDaoShengBank ;
+    crm:P3_has_note "No date is given. The source does not state how or when the bank came to hold the ding as a mortgage, nor from whom; that gap, and the gap between Duanfang's purchase and this one, are not modelled." .
+
+# Undated: the friends gave the ding to Ye Gongchuo
+mgd:Acq3b a crm:E8_Acquisition ;
+    rdfs:label "gift to Ye Gongchuo" ;
+    crm:P24_transferred_title_of mgd:MaoGongDing ;
+    crm:P22_transferred_title_to mgd:YeGongchuo ;
+    crm:P23_transferred_title_from mgd:FriendsOfYe ;
+    crm:P2_has_type mgd:Type_Gift .
+
+# During the Second Sino-Japanese War: the Ye family sold it to Chen Yon Ren
+mgd:Acq4 a crm:E96_Purchase ;
+    rdfs:label "purchase by Chen Yon Ren from the Ye family" ;
+    crm:P24_transferred_title_of mgd:MaoGongDing ;
+    crm:P22_transferred_title_to mgd:ChenYonRen ;
+    crm:P23_transferred_title_from mgd:YeFamily ;
+    crm:P4_has_time-span mgd:TimeSpan_SinoJapaneseWar .
+
+mgd:TimeSpan_SinoJapaneseWar a crm:E52_Time-Span ;
+    rdfs:label "during the Second Sino-Japanese War" .
+
+# April 1946: Chen Yon Ren donated it to the Kuomintang Shanghai Government,
+# through a general
+mgd:Acq5 a crm:E8_Acquisition ;
+    rdfs:label "1946 donation to the Kuomintang Shanghai Government" ;
+    crm:P24_transferred_title_of mgd:MaoGongDing ;
+    crm:P22_transferred_title_to mgd:KMTShanghaiGovernment ;
+    crm:P23_transferred_title_from mgd:ChenYonRen ;
+    crm:P2_has_type mgd:Type_Donation ;
+    crm:P4_has_time-span mgd:TimeSpan_1946_04 ;
+    crm:P14_carried_out_by mgd:UnnamedGeneral ;
+    crm:P3_has_note "Chen Yon Ren donated the tripod 'through a general' in the Kuomintang army; that general is named here as the one who carried out the handover, distinct from Chen Yon Ren and the government, who are the legal parties to the title transfer." .
+
+mgd:TimeSpan_1946_04 a crm:E52_Time-Span ;
+    rdfs:label "April 1946" ;
+    crm:P82a_begin_of_the_begin "1946-04-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1946-04-30"^^xsd:date .
+
+mgd:Type_Gift a crm:E55_Type ; rdfs:label "gift" .
+mgd:Type_Donation a crm:E55_Type ; rdfs:label "donation" .
+
+# =========================================================================
+# 1949: move to Taiwan
+# =========================================================================
+
+mgd:Move1949 a crm:E9_Move ;
+    rdfs:label "1949 move to Taiwan" ;
+    crm:P25_moved mgd:MaoGongDing ;
+    crm:P26_moved_to mgd:Place_Taiwan ;
+    crm:P14_carried_out_by mgd:ChiangKaiShek, mgd:Kuomintang ;
+    crm:P4_has_time-span mgd:TimeSpan_1949 ;
+    crm:P3_has_note "The source does not state the place the ding was moved from; that is deliberately left unasserted rather than guessed." .
+
+mgd:TimeSpan_1949 a crm:E52_Time-Span ;
+    rdfs:label "1949" ;
+    crm:P82a_begin_of_the_begin "1949-01-01"^^xsd:date ;
+    crm:P82b_end_of_the_end "1949-12-31"^^xsd:date .

@@ -1,0 +1,37 @@
+{
+  "case_id": "technical-c3",
+  "answer": "Yes, this is in scope. The miller's personal dressing technique can be modelled as its own E29 Design or Procedure, distinct from each re-dressing event. E29 does not require the plan to be written down: the CRM SIG mailing list explicitly addresses this ('tribal knowledge' case) -- a recognisable, singular methodology followed by a person or observed in their products can be an E29 instance even with no document behind it, as long as documenters wish to treat the methodology itself as a topic of discourse rather than just tag events with a classificatory term. That is exactly the museum's situation: visitors are asking about 'the way it's always been ground' as a thing in itself, not just logging events. Model: the millstone as E22 Human-Made Object; each re-cutting as an E11 Modification (P31 has modified -> the millstone, P14 carried out by -> the miller as E21 Person); and P33 used specific technique linking each E11 Modification to a single persisting E29 Design or Procedure representing this miller's personal dressing technique. Because the miller adjusts the pattern each time, successive variants of the technique can optionally be chained with P69 has association with (E29 -> E29) to show evolution/inspiration between versions, rather than inventing a new unrelated E29 for every session. The required properties of E11 (P31 has modified, P14 carried out by, P12 occurred in the presence of, P7 took place at, P4 has time-span, P160/P161 projections) still need to be carried on each Modification event; P33 itself is optional/many-to-many, which fits the technique being known but not documented as a schema.",
+  "classes_proposed": ["E29", "E22", "E11", "E21"],
+  "properties_proposed": ["P33", "P31", "P14", "P69"],
+  "rejected_alternatives": [
+    {"option": "E55 Type via P32 used general technique", "why_not": "P32 (E7 -> E55 Type) treats the technique as a classificatory tag drawn from an external thesaurus of general methods (e.g. 'gilding', 'embroidery'), not as a distinct, examinable object of discourse. Stephen Stead's mailing-list explanation (thread t0761) draws exactly this line: E55+P32 is for when you just want to characterise activities by a shared general method; E29+P33 is for when you want the singular methodology itself -- personal to this miller, comparable to his predecessor's, and askable-about by visitors -- to be a first-class thing. The case explicitly wants the latter."},
+    {"option": "Treat each re-dressing purely as an E11 Modification with no separate technique entity", "why_not": "This is the status quo the museum already has and finds insufficient ('capture the technique itself, not just log each re-dressing as an event') -- it cannot answer 'has it always been ground the same way' because there is nothing persisting across events to compare."}
+  ],
+  "citations": [
+    "E29", "E55", "E11", "P33", "P32", "P69",
+    "t0761",
+    {"id": "t0761", "quote": "we (as documenters) recognise the homogeneity of the resulting products and wish to characterise this as being caused by a singular methodology"},
+    {"id": "t0761", "quote": "So this recognisable way of making \"blue-slipped ware\" vases is an E29 Design or Procedure, even though we do not have a document that tells us how it is done."}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E29",
+    "concept E55",
+    "thread t0761",
+    "thread t0916",
+    "docs \"technique\" --kind narrative",
+    "docs \"craft skill\"",
+    "issues \"technique\"",
+    "connect E7 E29",
+    "issues \"tribal knowledge\"",
+    "docs \"design or procedure\" --kind declaration",
+    "concept E11",
+    "quote t0761 \"we recognise the homogeneity of the resulting products and wish to characterise this as being caused by a singular methodology\" (initial attempt, NOT FOUND due to missing '(as documenters)')",
+    "quote t0761 \"we (as documenters) recognise the homogeneity of the resulting products and wish to characterise this as being caused by a singular methodology\"",
+    "quote t0761 \"So this recognisable way of making \\\"blue-slipped ware\\\" vases is an E29 Design or Procedure, even though we do not have a document that tells us how it is done.\"",
+    "issues \"intangible cultural heritage\""
+  ],
+  "confidence": "high",
+  "notes": "concept E29's declared scope note says 'documented plans', which on its own reads as excluding an undocumented personal skill; the resolution only surfaces in the mailing list (t0761), where Stephen Stead states explicitly that undocumented 'tribal knowledge' still counts as E29 as long as documenters want to treat the methodology as a singular, discourse-worthy thing. Without pulling that thread the honest-sounding answer would have been 'out of scope', which would have been wrong."
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "propertychoice-c2",
+  "answer": "Model this as a single E8 Acquisition transferring title directly from the engineer (P23 transferred title from) to the phone bidder (P22 transferred title to), not as two chained Acquisitions. The auction house's role is captured two other ways: (1) as an additional carrying-out party of that same Acquisition via P14 carried out by, qualified P14.1 in the role of 'agent'/'mediator' -- this is exactly the pattern Martin Doerr proposed for a purchase with a go-between (t0914, msg 7: '... can have additional parties carried out by ... in the role of Mediator?'); and (2) as a separate E10 Transfer of Custody chain (engineer -> auction house -> courier/bidder) via P28 custody surrendered by / P29 custody received by, which is squarely what E10 is for -- its own scope-note example is literally an auction consignment ('transfer of custody ... to the Auction House Heldevier ... for the purpose of sale'). Holding the buyer's payment for ten days and controlling release of the goods is custody and payment administration under a consignment contract; nothing in the case establishes the auction house ever held legal ownership of the instruments, which is the only thing that would justify a second E8. Robert Sanderson's model in t1540 backs the same separation: the auction/sale-activity is a distinct E7 Activity from the E8 Acquisition it may trigger, so an intermediary's activity does not itself have to be an ownership-transferring event.",
+  "classes_proposed": ["E8", "E10", "E39"],
+  "properties_proposed": ["P22", "P23", "P14", "P28", "P29"],
+  "rejected_alternatives": [
+    {"option": "Two chained E8 Acquisitions (engineer -> auction house, then auction house -> bidder)", "why_not": "Would require the auction house to have held legal title itself. The case only gives custody-of-goods and control-of-payment under standard consignment terms; E8's own scope note keeps 'legal ownership' and E10's keeps 'physical custody / legal responsibility for custody' deliberately separate, and the SIG's own mediator pattern (t0914) handles an intermediary within one Acquisition via a P14 role rather than by inserting a second Acquisition."}
+  ],
+  "citations": ["E8", "E10", "P22", "P23", "P14", "P28", "P29", "t0914", "t1540"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E8",
+    "concept E10",
+    "docs \"auction house agent intermediary title transfer\" --kind narrative",
+    "\"auction house consignment sale\"",
+    "concept P23",
+    "\"agent acting on behalf of seller in acquisition\"",
+    "thread t1405",
+    "docs \"role of agent in an activity\" --kind declaration",
+    "thread t1540",
+    "concept P14",
+    "thread t1345",
+    "thread t0914",
+    "ontology (re-run, grepped for P14/P22/P23/P28/P29)"
+  ],
+  "confidence": "medium",
+  "notes": "concept's siblings block and the E10 scope-note example (an auction-house consignment, verbatim) made the custody/title split easy to find unprompted; the mediator-within-one-Acquisition pattern only surfaced by chasing a tangential 'Homework, Purchase' thread (t0914) via full-text search, and that thread's outcome is tagged unresolved, so confidence stays medium rather than high."
+}

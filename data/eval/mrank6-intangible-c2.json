@@ -1,0 +1,36 @@
+{
+  "case_id": "intangible-c2",
+  "ranking": ["B", "C", "A"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 2,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Correctly rules out a direct Person-Person property (verified: `connect E21 E21` really does mark only P152 as 'declared on exactly this pair') and correctly warns against a gratuitous master activity, citing Martin Doerr's t1701 objection to 'All Tango Performances' verbatim and accurately. But it never checks whether that caution actually applies here: it misses Issue 518 (Lerna), the SIG's own precedent for treating a period with 'a distinct identity and unity' as one E7 Activity -- precisely the case for one teacher, one pupil, three weekly years -- which B and C both find and use to reach the opposite, better-supported conclusion. Its recommended fallback (infer the relationship 'from the pattern of shared participation' across forty P11/P14 sessions) is not actually licensed by the model: P11's own scope note says participation 'does not imply any causal relationship,' and CRM only produces a summary link where a shortcut property is formally declared over a specific path -- none is declared for tuition. A never checks this, so its central recommendation quietly promises a queryable inference the typed model cannot deliver. It also cites t0834 (the E74-Group thread) accurately but never engages the Group alternative that thread actually discusses, leaving a real rival unconsidered. Legal properties throughout; no scope-note violations; the defect is a load-bearing asymmetry (teacher vs. learner) the model never types."
+    },
+    {
+      "label": "B",
+      "class_count": 4,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Asserts the relationship as a single mediating E7 Activity with P14/P14.1 role qualifiers (teacher/learner), backed by the Lerna precedent (Issue 518, verified) for treating a coherent, intentional run as one Activity with 'a distinct identity and unity' (t1471 quote verified verbatim), keeps the forty sessions as P9 parts, and correctly explains why bare chaining fails (P11 non-causal, fragility under Monotonicity). It is the only answer to find and properly dispose of the genuine rival construct the SIG actually drafted for this exact problem -- the CRMsoc 'Formal Social Binding' class (Issue 385/t1169, scope note quote verified verbatim) -- and the only one to note it was formally discontinued (Issue 580, Bern April 2025, verified word for word). Its E13 fallback and E13 scope-note claims ('neutral to the validity... must not individually be registered') check out exactly. Its bookkeeping is the most disciplined of the three: it explicitly keeps 'routine' classes (E52, E55, E22, E10) out of classes_proposed and says why, rather than padding the count. Weakest point: several reference-document claims (Monotonicity, the Issue 256/518 wording) are paraphrased rather than chunk-verified, by its own admission -- a tooling gap C solved."
+    },
+    {
+      "label": "C",
+      "class_count": 7,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Reaches the same structurally correct answer as B (mediating E7 Activity, P14/P14.1 roles, forty sessions as P9 parts) and grounds it in an unusually rigorous set of chunk-verified quotations -- I independently re-verified more than a dozen of its exact quotes (crm732#s0032/s0033/s0053/P152/E31, issue527#current-s0001, t1268's weak-shortcut definition, t0337's 'no direct link between... E39') and every one matches the source precisely, including its explicit technical point that CRM shortcuts are declared per-path and 'weak' (long implies short only), so forty undeclared P11/P14 joins cannot produce a queryable teach relation -- a sharper version of the objection B raises informally via Monotonicity. It also gives the most precise provenance split (I7 Belief Adoption for the family's account vs. I5 for an audio-derived inference), verified against I7's scope note including the 'Pers.Comm' convention. Against this: its alternatives_considered list pads itself with near-duplicate entries (E29 rejected twice, E4 rejected twice, E74 rejected twice) that add the appearance of thoroughness without new substance, and it misses the CRMsoc Formal Social Binding alternative that B catches. classes_proposed (7) includes E55 as a counted class where B treats the equivalent 'Type' plumbing as routine and excludes it -- a minor inflation of the count for the same underlying model."
+    }
+  ],
+  "decisive_difference": "A settles for treating the teach/learn relationship as an inference over forty co-participation events without checking that CRM's own rules forbid drawing that inference (P11 is declared non-causal; shortcuts require a specific declared path, and none exists for tuition) -- the exact trap the case is built to expose. B and C both catch this and both assert the relationship instead, as a single role-differentiated E7 Activity backed by the Lerna precedent, with the forty tapes kept as evidence rather than as the only trace. B and C are close to indistinguishable: B is the tighter, better-organized answer and uniquely surfaces the one genuine, on-topic rival construct the SIG itself drafted (CRMsoc's Formal Social Binding) plus its later discontinuation; C is the more rigorously source-verified answer but pads its alternatives list with three duplicated rejections. That B/C gap is real but narrow -- a re-read could plausibly swap them.",
+  "confident": false,
+  "notes": "Extensive independent verification (search.py connect/concept/quote/docs, and direct reads of data/issues.json) confirmed essentially every checkable factual claim in B and C -- issue outcomes, thread quotes, and scope notes all matched exactly, including several unusual/exact-typo quotes (t0337's 'between between E39', t1169's 'may by shortcut by') that are strong evidence the quotes are genuine rather than fabricated. I found no illegal property usage and no scope-note violations in any of the three answers; the separating factor was entirely about whether the chaining approach actually works under CRM's own declared semantics (it doesn't, per P11 and the shortcut mechanism) and how disciplined vs. redundant each answer's breadth was. I did not detect any provenance signal indicating which system produced which answer."
+}

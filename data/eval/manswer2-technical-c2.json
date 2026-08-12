@@ -1,0 +1,48 @@
+{
+  "case_id": "technical-c2",
+  "answer": "Model the beam engine as a single, continuing E22 Human-Made Object whose identity survives the 1932 beam swap -- do not re-produce it. The 1876 build is one E12 Production (P108 has produced -> Engine). The 1932 event is documented as a modification of that same engine, not as a new production of the whole: type it as E80 Part Removal (P112 diminished -> Engine, P113 removed -> the old cast-iron beam) together with E79 Part Addition (P110 augmented -> Engine, P111 added -> the new steel beam), and separately give the new beam its own E12 Production (P108 has produced -> new beam, by the second firm) since E79/E80/E12 can multiply-instantiate the same or linked activities. All three (E12, E79, E80) are subclasses of E11 Modification, so the engine only ever appears as P31 has modified target, never as a second P108 has produced target -- that is the 'more direct' route the question is asking about, and it is exactly why the catalogue will not read as 'built twice'. This is licensed directly by the CRM's own position on part replacement: in thread t1170 Martin Doerr states that an E19-class object 'with all parts replaced is identical' in CRM terms, because 'identity criteria for E19 ... are based on the continuity of coherence and functionality of the physical thing, and not on its substance.' That is precisely this engine's situation (cylinder, flywheel, pump rods unchanged; only the beam replaced), so the engine keeps one identity across 1876 and 1932.",
+  "classes_proposed": ["E22", "E12", "E79", "E80"],
+  "properties_proposed": ["P108", "P110", "P111", "P112", "P113", "P31"],
+  "rejected_alternatives": [
+    {
+      "option": "E81 Transformation",
+      "why_not": "E11's scope note says E81 Transformation applies when an event 'results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities.' The engine is not destroyed and the beam swap does not break its continuity of coherence/functionality per the t1170 discussion, so a fresh identity is wrong here."
+    },
+    {
+      "option": "Plain E12 Production of the engine in 1932",
+      "why_not": "Would give the engine a second P108 has produced event, i.e. exactly the 'built twice' reading the trust wants to avoid; the CRM's own identity criteria (continuity of coherence/functionality, not substance -- t1170) say the engine is unchanged in identity, so only the beam gets a Production, not the engine."
+    },
+    {
+      "option": "Treat the new beam only as raw material used (P126/P16) rather than a produced part",
+      "why_not": "E11 Modification's scope note reserves P68/P126-style material-of-design links for cases where a design foresees specific materials; here a discrete, dimensioned, separately-made component (a steel beam, cast by a named second firm) is exactly what E79 Part Addition + E12 Production is for -- it has its own identity as an E22 Human-Made Object, not merely consumed material."
+    }
+  ],
+  "citations": [
+    "E22", "E12", "E79", "E80", "E11", "E81",
+    "P108", "P110", "P111", "P112", "P113", "P31",
+    {"id": "t1170", "quote": "an instance of E19 with all parts replaced is identical"},
+    {"id": "t1170", "quote": "identity criteria for E19 which are based on the continuity of coherence and functionality"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "ontology (grepped for P31/P46/P108/P130/P150)",
+    "concept E11",
+    "ontology (grepped for P100-P119)",
+    "concept E79",
+    "concept E80",
+    "docs \"replacing a part\"",
+    "docs \"part replacement\" --kind narrative",
+    "\"beam engine replaced part\"",
+    "thread t1170",
+    "issue 369",
+    "docs \"continuity of identity of an object over time\" --kind narrative",
+    "concept E22",
+    "quote t1170 \"an instance of E19 with all parts replaced is identical\"",
+    "quote t1170 \"identity criteria for E19 which are based on the continuity of coherence and functionality\"",
+    "thread t0654",
+    "docs \"multiple instantiation\" --kind narrative"
+  ],
+  "confidence": "high",
+  "notes": "issue 369's own SIG outcome text turned out to be about Phases, not part-replacement identity -- t1170 (which sits under that issue) is where the actually relevant Doerr statement lives, so I cited the thread, not the issue outcome. E79/E80's scope notes already anticipate exactly this pattern (part added/removed while the whole keeps its identity), so no thread search for 'beam' or 'engine' concrete nouns was needed once those classes surfaced from `ontology`."
+}

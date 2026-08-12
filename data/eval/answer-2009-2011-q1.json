@@ -1,0 +1,14 @@
+{
+  "question_id": "2009-2011-q1",
+  "answer": "No — the CRM has no direct 'caused' property between two events/E5 Events. In the October 2011 'Causation and events' thread, Martin Scholz asked how to model that event A caused event B, noting P15_influenced is restricted to E7 Activity (not general E5 Events), P20_had_specific_purpose implies intentional/willful causation only, and P123_resulted_in is restricted to E81 Transformation with an E77 Persistent Item as range — none of them give a general event-to-event 'caused' link, and he proposed inventing a new property. Martin Doerr replied on behalf of the group that this had been discussed repeatedly before and that CRM-SIG deliberately decided NOT to add a causal property: causation is treated as an interpretation/inference concept (comparable to a judge's ruling) that lies outside the CRM's scope of documenting facts. Instead, the CRM-SIG's recommended handling is to describe the concrete facts/processes with existing properties (e.g. treat the cause and effect as one co-occurring process/transformation, using properties like P13_destroyed, P100_was_death_of, P123_resulted_in, or P15_influenced/P17_motivated for activities involving agents) and to let causal inference be left to the data consumer's interpretation rather than asserted directly in the model.",
+  "found": true,
+  "cited_threads": ["t0579"],
+  "queries_run": [
+    "search \"event caused another event\" -k 10",
+    "thread t0579",
+    "search \"Issue 45 causal\" -k 10 --after 2009 --before 2012",
+    "thread t0582"
+  ],
+  "confidence": "high",
+  "notes": "Thread t0579 (Oct 2011, 'Causation and events') directly and fully answers the question with Martin Doerr's explicit CRM-SIG rationale. Thread t0582 was just a digest repost of the same content, no new information. A 2002 thread t0049 ('Causality') on the same topic exists but falls outside the 2009-2011 question window, so was not used as the primary source."
+}

@@ -1,0 +1,32 @@
+{
+  "case_id": "propertychoice-c3",
+  "answer": "No single E8 Acquisition can hold both directions at once. P22 transferred title to and P23 transferred title from are both many-to-many on the whole Acquisition event, and P24 transferred title of does not bind a particular object to a particular direction within that event -- so putting both societies on both sides of one Acquisition would not encode 'tokens A-to-B, medals B-to-A' but the ambiguous/wrong claim that both societies jointly surrendered and jointly acquired title to everything transferred. The dual-event pattern is structural across CRM (E8 from/to, E9 moved from/to, E10 custody surrendered/received -- confirmed via the SIG's own 'dual events' thread t0654), and a SIG proposal to add a unifying 'Exchange' activity that would let both parties be simultaneously giving and receiving was explicitly floated and rejected by Martin Doerr in thread t1224 ('I would question Exchange as so general an activity... I think it is not necessary'), even for CRMsoc, the business extension -- it never entered base CRM. So the correct model is two E8 Acquisition instances: one with P23 transferred title from = Society A, P22 transferred title to = Society B, P24 transferred title of = the trade tokens; the other with P23 = Society B, P22 = Society A, P24 = the medals. To preserve the fact that this was one agreement rather than two unrelated donations, link both Acquisitions as parts of a single overarching E7 Activity (representing the exchange agreement/letters) via P9 consists of -- P9's domain/range is E4 Period, which E8 Acquisition inherits through E7/E5, and the E8 concept dossier itself lists P9 among the properties E8 can be subject or object of, so no new class is needed for this part.",
+  "classes_proposed": ["E8", "E7"],
+  "properties_proposed": ["P22", "P23", "P24", "P9"],
+  "rejected_alternatives": [
+    {"option": "Single E8 Acquisition with both societies as both P22 and P23", "why_not": "P22/P23 apply to the whole Acquisition, not per object, and P24's quantification is many-to-many without a per-actor-per-object binding -- this would erase which object moved which way, not just under-specify it."},
+    {"option": "A dedicated 'Exchange' class merging both transfers into one activity", "why_not": "Proposed in thread t1224 (SOC: Exchange Activity proposal) as a container that could hold both directions -- explicitly rejected by Martin Doerr as unnecessary and not an accomplished-fact class; never adopted even in CRMsoc, let alone base CRM."},
+    {"option": "E96 Purchase", "why_not": "Its scope note requires the transferring party be 'completely compensated by the payment of a monetary amount' -- no money changed hands here, so E96 does not apply and plain E8 is correct."}
+  ],
+  "citations": ["E8", "E96", "P22", "P23", "P24", "P9", "t0654", "t1224"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E8",
+    "concept E96",
+    "docs \"exchange of goods\" --kind narrative",
+    "docs \"barter exchange transaction\"",
+    "docs \"P22 transferred title to\" --kind declaration",
+    "docs \"P24 transferred title of\" --kind declaration",
+    "\"exchange of objects between two parties\"",
+    "docs \"P9 consists of\" --kind declaration",
+    "\"two museums swapped objects single agreement\"",
+    "threads \"barter exchange no money reciprocal donation\"",
+    "docs \"P70 documents\" --kind declaration",
+    "\"one document records two acquisition events same transaction\"",
+    "thread t1224",
+    "thread t0654"
+  ],
+  "confidence": "high",
+  "notes": "The 'dual events' thread (t0654) and the rejected 'Exchange Activity' thread (t1224) surfaced only through mailing-list free-text search, not through concept/ontology browsing -- ontology and concept E8 alone would have left the 'can one event do both directions' question unanswered. Concept dossiers were fast for confirming quantifications (P22/P23/P24) but gave no hint that a unifying container class had already been proposed and rejected; that only showed up once I searched the mailing list with the case's own vocabulary (swap/exchange/reciprocal)."
+}

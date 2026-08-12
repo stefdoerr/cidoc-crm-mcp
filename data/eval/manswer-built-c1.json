@@ -1,0 +1,34 @@
+{
+  "case_id": "built-c1",
+  "answer": "Do not record the Combe Farm barn as the same E22 Human-Made Object as the 1839 Hollow Farm barn, even though ~70% of the oak frame survives. Model the 1938 rebuild as an E81 Transformation: the Hollow Farm barn (E22) is linked via P124 transformed, and the Combe Farm barn (a new, distinct E22) via P123 resulted in the same E81 event -- the shared event is exactly how CRM expresses the physical/material continuity without treating them as one identity. The E81 scope note names 'reconstructions ... of historical buildings' as a characteristic case, and explicitly distinguishes E81 from E11 Modification, which is for changes that do NOT fundamentally change identity -- this rebuild (new site, new plinth, new roof, one rebuilt bay) goes well past that threshold. This reading is reinforced by Martin Doerr's own position in the archive (thread t0821): moving/re-erecting a building designed to be immobile should 'by rule' be treated as a new building, 'regardless how much similarity and old substance it carries', because the act of dismantling and re-founding it elsewhere is itself destructive of the original. The physical construction work at Combe Farm can additionally be typed E12 Production (P108 has produced the new barn), following the SIG's own dual-instantiation pattern for E81 cases (thread t1396). The 1839 tithe survey record documents the original barn only; it should be linked (P70 documents) to the Hollow Farm E22, not to the Combe Farm one.",
+  "classes_proposed": ["E81", "E22", "E12"],
+  "properties_proposed": ["P124", "P123", "P108", "P70"],
+  "rejected_alternatives": [
+    {"option": "E11 Modification / P31 has modified", "why_not": "E81's own scope note contrasts itself with E11: 'Instances of E81 Transformation are therefore distinct from ... modifications (documented using E11 Modification) of objects that do not fundamentally change their nature or identity.' Losing the plinth, roof and a whole bay, and being re-founded on a different site, is more than a modification that leaves identity intact."},
+    {"option": "E9 Move / P25 moved / P26 moved to / P27 moved from", "why_not": "In thread t0821, Martin Doerr argues explicitly against treating relocated immobile buildings as a mere E9 Move: 'any moving of buildings should be regarded as a reconstruction or resurrection at another side ... I'd argue that we should by rule define such a building as new, regardless how much similarity and old substance it carries.' The thread's episode summary marks this unresolved as formal SIG policy, but it is the model's own editor's stated reasoning on this exact scenario, not an invented rule."},
+    {"option": "Treating it as one continuous E22 identified twice (1839 and 1938) via P1/documentation only", "why_not": "The mailing list thread on the Dominicanenkerk E81 example (t1411) shows the SIG rejecting a case as 'rather an example for reuse than transformation' when the physical continuity was too strong to justify a full identity break, then swapping in a case (Hephaisteion/Theseion) with clearer destructive intervention. Our case sits closer to the accepted E81 side of that line than to 'reuse': the frame was dismantled and re-erected on new foundations, with fabric replaced, not merely repurposed in place."}
+  ],
+  "citations": [
+    "E81", "E22", "E12", "P123", "P124", "P108", "E11",
+    "t1396", "t1411", "t0821",
+    "[Appendix > Deprecated classes and properties > Deprecated Property Migration Instructions > Migration Instructions for the reduced scope of E81 Transformation]"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E22",
+    "docs \"reconstruction of a building identity\" --kind narrative",
+    "thread t1396",
+    "rebuilt barn moved materials reused same building",
+    "thread t1411",
+    "docs \"minimality abstraction level\" --kind narrative",
+    "building moved to new site open air museum relocated",
+    "threads \"identity of a building through reconstruction\"",
+    "thread t0821",
+    "concept P123",
+    "concept P124"
+  ],
+  "confidence": "high",
+  "notes": "concept <id> was the workhorse: the E81 scope note itself named 'reconstructions of historical buildings' as a characteristic case, so the abstraction jump from 'barn' to E18/E22 was easy. The genuinely hard part -- whether physical continuity of the frame overrides site relocation -- was only answerable by finding the archive's own boundary disputes over near-identical cases (moved church, Dominicanenkerk reuse-vs-transformation); ontology and concept alone would have left this a coin flip. threads search on 'identity through reconstruction' surfaced t0821 directly, which was the single most decisive hit."
+}

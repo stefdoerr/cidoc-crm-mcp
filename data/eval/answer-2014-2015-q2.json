@@ -1,0 +1,30 @@
+{
+  "question_id": "2014-2015-q2",
+  "answer": "The debate started when Dan Matei asked whether a coin/coin-issue could be treated as an F3 Manifestation Product Type (with F5 Item R7_is_example_of F3), by analogy to a book edition (thread t0804, 'Coins 2 CRM (again)', Nov 2014). Christian-Emil Smith Ore initially argued yes: coins are information carriers (they carry a design/image) and belong 'in the category of objects found and stored in a library', so FRBRoo's F3 could apply if you care about that aspect. Martin Doerr and Stephen Stead opposed this: Martin argued a coin is acquired for its function as a value token, not to 'get access to the Expression on it' (you don't own 'more Shakespeare' by owning 10 Euro coins), so there is 'not enough similarity to classify a coin as a Manifestation Product Type'; Stephen Stead said a coin's purpose is to enable trade/authenticity, not to carry information, and that F3's scope note would need revising to fit coins. Maria Theodoridou (FORTH) reported that for their own coin project they had NOT reused F3/F5, but instead generalized FRBRoo's R26/R7 into two new CRM-base properties, PC1 'produced things of type' (on E12 Production) and PC2 'is example of' (on E22 Man-Made Object), both declared as subproperties of P2 has type -- explicitly avoiding FRBRoo because 'FRBR is not suitable for our coin modeling since it refers to bibliographic information'. In 2015 homework (threads t0829, t0854, t0856, issues 268/269), Christian-Emil concluded that F3 Manifestation Product Type is inherently publication-specific (its scope note ties it to F24 Publication Expression, hardcover/paperback editions, etc.) and is the wrong place to put coins; he proposed instead modeling mass production in plain, un-extended CIDOC CRM using E12 Production categorized by E55 Type, with the production method captured via E11 Modification. P33 used specific technique: E29 Design or Procedure, and suggested that if this analysis held, CRM should get a new general 'E?? Product Type' class (subclass of E55 Type) rather than stretching F3. This is exactly what the ontology now shows was adopted: CIDOC CRM base contains E99 Product Type (subclass of E55), with properties P186 produced thing of product type (E12 Production -> E99), P187 has production plan (E99 -> E29 Design or Procedure) and P188 requires production tool (E99 -> E19) -- mirroring the E12/E29 model Christian-Emil proposed. E99's own examples explicitly include a coin ('1937 Edward VIII brass threepenny bit') alongside other mass-produced items (a Dragendorff samian vessel, a Qin crossbow part, a Nokia phone, a VW Beetle), while FRBRoo's F3 was left scoped to publications and was later renamed plain 'F3 Manifestation' (in LRMoo); its now-redundant direct link R26 to product type was deprecated in 2022 (thread t1568) once the generic E99-based path took over. So: the group did not extend FRBRoo's manifestation class to cover coins -- it split mass production out into a new CRM-base class, E99 Product Type, used generically for coins and other mass-produced artefacts, leaving F3 Manifestation as a publication-specific class. Note: I could not find the specific proposal/vote thread in which E99 Product Type was formally introduced/accepted -- that step is inferred from the surviving ontology state (concept E99, ontology skeleton) plus the clear trajectory of the 2014-2015 debate, not from a directly retrieved adoption email.",
+  "found": true,
+  "cited_threads": ["t0804", "t0807", "t0829", "t0854", "t0856", "t1568"],
+  "queries_run": [
+    "search \"FRBRoo manifestation product type coin\" -k 10",
+    "thread t0804",
+    "thread t0829",
+    "thread t0854",
+    "thread t0856",
+    "thread t0807",
+    "concept F3",
+    "search \"coin issue 268 269 resolution decision\" -k 10",
+    "search \"coin modelling new class type production\" -k 10 --after 2015 --before 2017",
+    "threads \"coins FRBRoo manifestation product type\" -k 8",
+    "thread t1568",
+    "search \"E99 Product Type coins introduce new class\" -k 10",
+    "concept E99",
+    "search \"Product Type new class scope note vote accept\" -k 10 --after 2015 --before 2020",
+    "threads \"E99 product type coins mass production\" -k 8",
+    "search \"generalize F3 Manifestation Product Type CRM base class\" -k 10",
+    "thread t1211",
+    "ontology (grepped for E99/F3 lines)",
+    "search \"E99 Product Type\" -k 10 --mode bm25",
+    "search \"coin type generic class homework issue closed decided\" -k 10 --after 2015"
+  ],
+  "confidence": "medium",
+  "notes": "The debate/positions (t0804, t0807, t0829, t0854, t0856) are directly and richly documented in the archive. The eventual adopted solution -- a new CRM-base class E99 Product Type, generic across coins/pottery/tools/etc., leaving FRBRoo's F3 scoped to publications -- is strongly corroborated by `concept E99` and `ontology` (matching Christian-Emil's E12+E29 proposal almost exactly, and explicitly listing a coin as an E99 example) and by the 2022 R26-deprecation thread (t1568) which presupposes E99 already exists. However, I never found the actual SIG issue/vote thread where E99 Product Type was proposed and accepted -- that specific email does not appear to be retrievable via search.py, so the 'adopted' half of the answer rests on ontology-state inference rather than a directly read decision message."
+}

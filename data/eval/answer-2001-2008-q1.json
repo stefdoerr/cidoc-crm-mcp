@@ -1,0 +1,14 @@
+{
+  "question_id": "2001-2008-q1",
+  "answer": "Issue 97 concerned E17 Type Assignment (subclass of Attribute Assignment). Martin Doerr's original proposed scope note (2002-10-09) read: 'This entity describes the act of scientifically classifying some entity, an object, a work, an action or whatever. The value of classification depends critically on general and personal knowledge and the scientific system used... This entity comprises also the process of \"determination\", i.e. the systematic and molecular identification of a specimen in biology.' Tony Gill (2002-10-15) recommended dropping the word 'scientifically' because it could be read to exclude assignments such as Dewey classmarks, subject headings, and iconographic classifications, which were meant to be well within the CRM's practical and intended scope. He proposed rewording to: 'This entity describes the act of classifying another entity, for example an object, a specimen, an action or a concept. The value of classification depends critically on the identity of the classifier and the date that the classification was assigned. This entity also comprises the process of \"determination\"...' Martin agreed the same day ('I agree'). Edmund Lee then raised a follow-up question about whether 'indexing' should also be mentioned or is covered by the superclass. The word 'scientific/scientifically' does not appear in the current (v7.1.3) E17 scope note retrieved via `search.py concept E17`, confirming the change was adopted.",
+  "found": true,
+  "cited_threads": ["t0150"],
+  "queries_run": [
+    "search \"Issue 97 scope note type assignment\" -k 10",
+    "thread t0150",
+    "search \"E17 Type Assignment scientifically classifying\" -k 10 --mode bm25",
+    "concept E17"
+  ],
+  "confidence": "high",
+  "notes": "Thread t0150 fully contains the proposal, the objection, and the agreement in 4 messages dated Oct 2002; concept E17's current scope note and chronology (marked 'decided') corroborate that the revision was adopted."
+}

@@ -1,0 +1,52 @@
+{
+  "case_id": "naturalhistory-c1",
+  "answer": "Model the leg-clipping-and-DNA-extraction as a single S2 Sample Taking activity on the pinned moth, not as a modification that keeps the specimen's own identifier. The moth is an E20 Biological Object, which is itself reachable as an S10 Material Substantial (S10 is declared superclass of E18, hence of E19/E20). The S2 Sample Taking activity has O1 diminished pointing at the moth (S10) -- the moth is only made smaller, it keeps its own identity and its own catalogue number, exactly as described (\"stays in its original drawer with its original number\") -- and O5 removed pointing at a new S13 Sample instance, which is the frozen DNA extract. O3 sampled from links that S13 Sample directly back to the S10/E20 source. The extract gets its own preferred identifier (P1/P48), which matches the real-world practice described (\"its own new catalogue number\") and matches S13/S11's identity criteria, which are explicitly NOT the E18 kind of stable-form identity: S11's scope note and the SIG's S11 homework thread (t1080) establish that samples are identified by preserved representative composition, not physical form, and 'can be split without loosing their identity' (Martin Doerr, t1080) -- a completely different identity condition from the moth's. So the honest answer to the first question is the second option: record the extract as a new object created by a sampling event that also diminished (not replaced or destroyed) the original specimen. Reusing the specimen's existing identity for the extract is the option the SIG itself rejected in a closely parallel debate about natural-history sampling under E80 Part Removal/P112 (thread t1536, discussing Darwin's Porites coral specimen): Martin Doerr wrote that giving the diminished/removed matter the same identity/nature as its source 'violates identity criteria of classes.' A pinned insect and a frozen liquid DNA extract do not share identity conditions and cannot be the same E1 instance. On the second question: because the moth's own identity is preserved through the event (it is diminished, never transformed (E81) or destroyed (E6)), any paratype designation on it -- a biological determination, which Issue 97's accepted scope-note change for E17 Type Assignment explicitly treats as a Type Assignment in the biological sciences -- continues to attach to that same E20 instance regardless of the sampling. The extract's derivation from the paratype is preserved too, but through the documented O3 sampled from / O5 removed chain of the S2 event, not through sharing the specimen's identifier. Collapsing the two into one identity (the 'existing identity' option) would instead make it ambiguous which object the paratype determination binds to. The equivalent path in CRM base alone (E80 Part Removal + E12 Production for detaching the leg, then E81 Transformation for its dissolution into extract) reaches the same structural conclusion but CRMsci's S2 Sample Taking / S13 Sample is the more precise, purpose-built fit for a laboratory sample.",
+  "classes_proposed": ["S2", "S13", "E20", "E17"],
+  "properties_proposed": ["O1", "O3", "O5", "P1", "P48"],
+  "rejected_alternatives": [
+    {
+      "option": "Recording the extract under the pinned moth's existing identity/identifier (treating it as a continuation of the same specimen record rather than a new instance)",
+      "why_not": "Thread t1536 shows the SIG considering and rejecting exactly this move for natural-history sampling (cutting parts from natural objects): 'We later ultimately decided that this violates identity criteria of classes' (Martin Doerr). S11/S13's identity criteria (preserved representative composition) are also fundamentally different from E18/E20's (relative stability of physical form), so the extract cannot correctly carry the moth's identity."
+    },
+    {
+      "option": "E81 Transformation of the moth itself",
+      "why_not": "E81 requires the source to be simultaneously destroyed as the new item is created ('simultaneous destruction ... and the creation ...'). The moth is not destroyed or replaced -- it stays in its drawer under its original number, only diminished -- so E81 does not apply to the moth; E80/S2's diminishing (not destroying) semantics fit instead."
+    }
+  ],
+  "citations": [
+    "S2", "S13", "S10", "E20", "E80", "E81", "E12",
+    "O1", "O3", "O5",
+    "t1080",
+    {"id": "t1536", "quote": "this violates identity criteria of classes"},
+    "Issue 97"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E80",
+    "concept E20",
+    "concept E79",
+    "thread t1536",
+    "concept E81",
+    "docs \"sample specimen\" --kind narrative",
+    "docs \"continuity of identity\" --kind narrative",
+    "issues \"sampling\"",
+    "issues \"specimen\"",
+    "\"paratype\"",
+    "\"DNA sample\"",
+    "connect E80 E20",
+    "concept E12",
+    "concept S2",
+    "concept S13",
+    "issue 332",
+    "concept S10",
+    "connect S2 E20",
+    "connect S13 E20",
+    "thread t1080",
+    "quote t1536 \"this violates identity criteria of classes\"",
+    "docs \"sample taking\" --kind declaration",
+    "issue 97"
+  ],
+  "confidence": "high",
+  "notes": "search.py 'paratype' and 'DNA sample' free-text mailing-list searches did not surface anything about paratypes or DNA barcoding specifically -- the mailing list has no thread on this exact scenario, so the answer leans on the general S2 Sample Taking / S13 Sample declarations plus the closely analogous E80/P112 natural-history-sampling debate (t1536) and the S11 identity-criteria debate (t1080). docs --kind declaration did not index the CRMsci S2/S13/S10 scope notes (it only returned CRM-base declarations for a 'sample taking' query), so those scope notes were read via `concept`, not `docs`, and are cited as concept ids rather than doc-chunk quotes."
+}

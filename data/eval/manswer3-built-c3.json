@@ -1,0 +1,40 @@
+{
+  "case_id": "built-c3",
+  "answer": "This falls outside the Intended Scope of the CIDOC CRM and should not be modelled as structured heritage documentation. The Scope of the CIDOC CRM narrative defines the Intended Scope as documentation about the past at a human scale, and explicitly states that 'information required solely for the administration and management of cultural institutions, such as information relating to personnel, accounting, and visitor statistics, falls outside the Intended Scope of the CIDOC CRM.' Aggregate consultation figures (1,340 respondents, 58%/24%/18% splits) about a proposed future road are the same kind of institutional-management statistic as 'visitor statistics' -- they describe present-day public reaction to a live proposal, not documented evidence of the past. The anonymous free-text sentiment fails for a second, independent reason: every CRM mechanism for recording an assertion or opinion about something (E13 Attribute Assignment and its subclasses) requires P14 carried out by : E39 Actor, because the model is built to register 'whose opinion it was' -- E13's own scope note frames it around a single identifiable opinion-holder, not an anonymous aggregate of hundreds of unidentified commenters. There is also no CRM extension that models social/public-opinion phenomena: CRMsoc, the one family model whose scope would have been the closest fit, was discontinued by the SIG (Issue 580, closed Bern April 2025) rather than developed further, and Issue 581's revision of the Intended Scope text did not add public-opinion or consultation data to it. The consultation event itself (that a consultation took place, over what time-span, concerning what proposal) could legitimately be logged as an E7 Activity producing an E31 Document, but that is not what was asked -- the question is about the aggregate results and sentiment content, and that content has no structured home in the model. Forcing it in as free text on P3 has note would not be 'capturing' it in the CRM's sense; it would just be a place to park data the model isn't built to represent.",
+  "classes_proposed": [],
+  "properties_proposed": [],
+  "rejected_alternatives": [
+    {"option": "E13 Attribute Assignment", "why_not": "Requires P14 carried out by : E39 Actor and is scoped around recording a single identifiable person's opinion ('whose opinion it was'); an anonymous aggregate of hundreds of commenters and a 58/24/18 percentage split does not fit that shape."},
+    {"option": "E16 Measurement", "why_not": "Subclass of E13 for measuring physical/quantifiable properties of an object with an identified actor carrying out the measurement; public sentiment is not a physical property and has no such actor."},
+    {"option": "CRMsoc (social phenomena extension)", "why_not": "The one family model whose remit would have been closest to social/public data was discontinued by the SIG rather than developed (Issue 580, closed April 2025), so no supported extension covers this."},
+    {"option": "E31 Document with P3 has note as a catch-all", "why_not": "Recording the consultation report as a document is in scope, but dumping the percentages and comments into a free-text note is not the structured capture the case is asking about; it sidesteps rather than answers the scope question."}
+  ],
+  "citations": [
+    "crm732#s0005",
+    "crm732#s0004",
+    "crm732#s0053",
+    "crm732#s0024",
+    "E13",
+    "Issue 580",
+    "Issue 581",
+    {"id": "crm732#s0005", "quote": "Information required solely for the administration and management of cultural institutions, such as information relating to personnel, accounting, and visitor statistics, falls outside the Intended Scope of the CIDOC CRM."}
+  ],
+  "in_scope": false,
+  "queries_run": [
+    "ontology",
+    "docs \"public consultation opinion\" --kind narrative",
+    "docs \"opinion sentiment survey\"",
+    "\"public consultation\"",
+    "docs \"curated factual knowledge about the past intended scope\" --kind narrative",
+    "issues \"public opinion survey consultation\"",
+    "issue 581",
+    "docs \"information intended for presentation to members of the public\" --kind narrative",
+    "docs \"information intended for presentation to members of the public\" --kind narrative --json",
+    "docs \"CRMsoc social phenomena belief actor stance\"",
+    "issue 580",
+    "docs \"Minimality principle CIDOC CRM\" --kind narrative",
+    "concept E13"
+  ],
+  "confidence": "medium",
+  "notes": "No query for 'consultation', 'opinion', 'sentiment' or 'survey' turned up any class, property or SIG issue actually addressing public-opinion data head-on; the case is resolved by analogy to the explicit 'visitor statistics' exclusion in the Scope narrative plus the actor-attribution requirement baked into E13, and by the fact that CRMsoc (the only extension that might have covered social/opinion phenomena) was discontinued. That is inference from adjacent text, not a direct hit, hence medium rather than high confidence."
+}

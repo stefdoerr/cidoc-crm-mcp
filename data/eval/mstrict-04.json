@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "naturalhistory-c2",
+    "verdict": "suboptimal",
+    "constraint_checked": "P46 is composed of: FOL is P46(x,y) => E18(x) ∧ E18(y) ∧ P132(x,y) -- the spatiotemporal-overlap clause binds a PART to its WHOLE, not one part to the other part. The answer tests P46 directly between segment A and segment B ('P46 is composed of (segment A + segment B into one whole)'), finds that fails since the two boxes don't overlap today, and stops there -- it never tries P46 via a third 'whole' instance, which is the actual shape the property is built for.",
+    "better_modelling": "Instantiate a third E18/E19 (the original continuous rock body/fault-zone unit both segments were extracted from) and assert P46(segment_A, whole) and P46(segment_B, whole); each holds because the segment overlaps the whole, exactly as P132 requires. Use E80 Part Removal for each borehole extraction to bound the time each segment was actually part of the whole (P46's own scope note names this mechanism). This gives a real, purpose-built 'documented physical relationship' rather than falling back to a generic E13 Attribute Assignment, and it directly answers the question's second option in the CRM's own vocabulary.",
+    "evidence": ["P46", "P132", "t1080"],
+    "reasoning": "The rejection of P46 is based on testing the wrong pair of arguments; a whole-mediated P46 pair is not disqualified by the FOL and is more specific than the E13 fallback the answer settled for. t1080 genuinely supports caution about identity/unity ('we need... a transitive property... any good idea?', unresolved), but that bears on whether to merge identity, not on whether P46 is available to record the physical relationship."
+  },
+  {
+    "case_id": "naturalhistory-c3",
+    "verdict": "correct",
+    "constraint_checked": "P39 measured: domain -> range is E16 Measurement -> E18 Physical Thing (confirmed in the concept dossier and by the 2021 e-vote in t1444, Issue 511, which reduced P39's range from E1 CRM Entity to E18). Bootstrap-support values characterize a computed phylogenetic tree, not the fish specimen (an E18/E20 instance), so E16/P39 cannot take them as their object -- verified, not just argued.",
+    "better_modelling": "None found. Base CRM 7.3.2 (no CRMsci/biodiversity extension present in this corpus) has no purpose-built class for a derived analytical statistic; the answer's fallback to P3 has note on an E73 is flagged as strained rather than presented as a clean fit, which is the right posture per the exception clause rather than manufactured certainty.",
+    "evidence": ["P39", "E16", "t1444"],
+    "reasoning": "Domain/range check holds exactly as claimed, and the sequence/accession-pointer part of the answer (E73/E90/E42, P16, P37, P190) checks out against each property's declared domain and range with no misuse found."
+  },
+  {
+    "case_id": "propertychoice-c1",
+    "verdict": "correct",
+    "constraint_checked": "P14 carried out by: domain -> range E7 -> E39, quantification many-to-many NECESSARY (1,n:0,n), scope note 'implies causal or legal responsibility'; the dossier's own worked example (Michelangelo 'in the role of master craftsman' on the Sistine ceiling, assistants doing hands-on work) is verbatim as cited. This licenses repeated P14 statements with P14.1 role qualifiers for the principal and both apprentices on the same E11 Modification (E11's scope note names conservation treatment explicitly), and excludes the conservation officer, whose two check-in visits show no active participation or causal/legal responsibility for the activity itself.",
+    "better_modelling": "None found.",
+    "evidence": ["P14", "E11", "E14"],
+    "reasoning": "Every property/class pairing was checked against its declared domain, range and quantification and holds; the officer's exclusion from P14 and optional placement under E14 Condition Assessment is consistent with E14's scope note ('carried out by inspection... during a particular period'), even though 'checking progress' is a slightly loose fit for 'assessing state of preservation' -- a minor imprecision on a footnote, not a domain/range violation."
+  },
+  {
+    "case_id": "propertychoice-c2",
+    "verdict": "correct",
+    "constraint_checked": "E8 Acquisition's own scope note declares legal ownership and physical custody modeled separately from E10 Transfer of Custody. E10's own scope-note example is a verbatim match for this case: 'the transfer of custody of the work... to the Auction House Heldevier (Jacob) for the purpose of sale.' P22/P23 (domain->range E8->E39) and P28/P29 (domain->range E10->E39) were checked and used correctly. A second chained E8 would require the auction house to have held legal title, which nothing in the case establishes (it only had custody and payment-administration under consignment terms).",
+    "better_modelling": "None found; the P14/'Mediator' addition (t0914) is correctly flagged as an unresolved SIG proposal, not settled doctrine, so it doesn't inflate confidence beyond what the citation supports.",
+    "evidence": ["E8", "E10", "P22", "P23", "P28", "P29", "t0914"],
+    "reasoning": "Single-Acquisition-plus-separate-custody-chain is the split the model's own scope notes and worked example prescribe for a consignment sale; no more specific or more direct construct was found."
+  }
+]

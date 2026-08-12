@@ -1,0 +1,30 @@
+[project]
+name = "cidoc-crm-mcp"
+version = "0.1.0"
+description = "CIDOC CRM modelling tools: ontology lookup, model validation, and 26 years of CRM-SIG discussion, over MCP"
+requires-python = ">=3.11"
+# huggingface_hub is core, not part of the `archive` extra: `build.py
+# fetch --no-vectors` exists so the archive can be had without torch or
+# an embedding model, and it cannot need the extra that carries them.
+dependencies = ["pyyaml", "rdflib>=7.6.0", "mcp>=2.0.0",
+                "huggingface_hub>=1.0"]
+
+[project.optional-dependencies]
+archive = ["anthropic", "langchain-core", "langchain-chroma",
+           "langchain-huggingface", "langchain-text-splitters",
+           "sentence-transformers", "transformers>=4.48"]
+ingest  = ["python-docx>=1.2.0", "beautifulsoup4>=4.15.0",
+           "pypdf>=6.15.0", "olefile>=0.47"]
+
+[dependency-groups]
+dev = [
+    "cidoc-crm-mcp[archive,ingest]",
+    "pytest",
+    "pytest-asyncio>=1.4.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv]
+package = false

@@ -1,0 +1,21 @@
+{
+  "question_id": "2016-2017-q4",
+  "answer": "No, the SIG never settled on a single answer. Starting Feb 2017 (thread t0972, 'Rights model'), Robert Sanderson asked whether E30 Right is an instance of the *holding* of a right by a specific actor over a specific object (making it look like it should be a temporally-bounded Period/Activity) or the *concept/content* of a right (consistent with its current status as a subclass of E89/E28 Conceptual Object, which never truly ceases to exist). Stephen Stead argued for the 'content of the right' reading; Martin Doerr agreed the model conflates 'the holding of the right, the content of the right, and the concept of the right' and said which of these E30 should be 'is to be discussed.' The joint/partial-ownership question (raised by Sanderson in thread t0972 on 2017-03-20, e.g. two dealers splitting profit, divorced couples splitting a shared object) was proposed to be handled via P148_has_component sub-Rights each carrying a percentage Dimension, or alternatively via a Group holding the Right (Stephen Stead's suggestion) -- but Martin Doerr explicitly declined to resolve it over email, calling it 'too complex for an e-mail discussion,' and proposed instead restarting a dormant business-transaction-modeling team effort (whose partners from the Collection Trust had already dropped out once). A related informational proposal for a new 'Right Holding' entity was floated by Athina Kritsotaki in thread t0976 (2017-03-09/10) to carry the time interval, echoing Martin's own suggestion in t0978 that the P75/P104/P105 triangle implies an unnamed 'Right Holding' state class -- but this was never adopted. The debate continued into August 2017 (thread t1019, 'End of Existence for Rights?'), where Sanderson, George Bruseker, and Stephen Stead debated whether E30's begin/end-of-existence should track the legal validity period or the conceptual-object lifespan, again without consensus; Sanderson explicitly asked 'It cannot be both. Which is it?' and no agreed answer was recorded in the thread. The formal ISSUE Martin opened ('Physical Ownership and Right', t0984, 2017-03-21) asked for use cases and scope but was left open, deferred to the never-restarted extension team. I found no later thread where the SIG reconvened and voted on or closed this issue.",
+  "found": true,
+  "cited_threads": ["t0972", "t0976", "t0978", "t0983", "t0984", "t1019", "t1022"],
+  "queries_run": [
+    "threads \"E30 Right ownership joint partial share\" -k 5",
+    "concept E30",
+    "thread t0972",
+    "thread t1019",
+    "thread t1022",
+    "\"E30 Right scope note revision joint ownership\" -k 10 --after 2017",
+    "\"Right Holding entity temporal\" -k 10",
+    "threads \"E30 Right resolution decided\" -k 8",
+    "thread t0984",
+    "\"ISSUE Physical Ownership and Right\" -k 15",
+    "thread t0978"
+  ],
+  "confidence": "high",
+  "notes": "Strong, consistent evidence across multiple threads (t0972, t1019, t1022, t0984, t0976, t0978) spanning Feb-Aug 2017 (with earlier roots in 2010 thread t0507) that the holding-vs-concept question and the joint/partial-ownership modeling question were both raised repeatedly and explicitly deferred/left open rather than resolved. No later 'decided' or e-vote thread on E30's core semantics turned up in searches through the archive's later years, and the current ontology scope note for E30 (checked via `concept E30`) is unchanged from what was being questioned, consistent with no resolution having been adopted."
+}

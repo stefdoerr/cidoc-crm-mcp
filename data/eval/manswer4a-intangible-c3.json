@@ -1,0 +1,53 @@
+{
+  "case_id": "intangible-c3",
+  "answer": "Yes, this is in scope, and the CRM already has a sanctioned idiom for it that does not require a ceremony, a witness, or a precise date. Model 'fire-keeper' not as a Right held by a Person but as an office: an E74 Group in the sense the scope note explicitly allows -- 'official positions which used to be regarded in certain contexts as one actor, independent of the current holder of the office ... it may happen that the group never had more than one member.' Each fire-keeper's tenure is then P107 has current or former member of that office-Group, and the succession itself is documented as a pair of E7 Activity subclasses built for exactly this: E85 Joining (P143 joined / P144 joined with) for the successor taking up the office, and E86 Leaving (P145 separated / P146 separated from) for the predecessor giving it up. Both classes' own scope notes give 'the inauguration of somebody into an official position' and 'the end of tenure of somebody in an official position' (with George Washington leaving office as the worked example) as typical scenarios, and neither class 'implies initiative by either party' -- language that was written to cover exactly the kind of informal, third-party-driven, non-ceremonial handover described here. The unbroken chain the heritage project wants falls out of the sequence of P107 memberships of the one office-Group. The informal, undated, unwitnessed character of the handover does not push it out of scope: CRM's own temporal-relations guidance only asks for P4 has time-span 'when some absolute dates ... are known' and lets a Time-Span carry fuzzy/unknown bounds; you can date the Joining/Leaving pair to nothing more precise than the multi-year window in which the community came to accept the new fire-keeper, and leave participant/witness properties empty where nothing is preserved. That is a documentation gap, not a category error. I flag one honest complication: the E85/E86 dossier lists P12 occurred in the presence of, P7 took place at and P4 has time-span as class-level 'necessary' properties, and a 2024 thread on exactly this office-modelling pattern has a senior SIG member (Christian-Emil Smith Ore) calling the office-as-Group construct 'ad hoc' and 'not good ontological practice,' preferring an external extension (CRMaaa/AAAo) built for social status. So the pattern I'm recommending is simultaneously the SIG's own 2008-accepted resolution (Issue 149, with the official-position examples baked into the current scope notes) and a construct at least one architect of the CRM is now unhappy with. For a heritage-documentation project that wants to stay in CRMbase, E74/E85/E86/P107 is the supported answer; if they want to assert the social-status nature of 'fire-keeper' more directly, that lives outside CRMbase in an extension.",
+  "classes_proposed": ["E74", "E85", "E86"],
+  "properties_proposed": ["P107", "P143", "P144", "P145", "P146", "P4"],
+  "rejected_alternatives": [
+    {
+      "option": "E30 Right (P75 possesses / P105 right held by), treating 'the right to strike the first flame' as the thing that gets transferred",
+      "why_not": "E30 Right fits the privilege itself, but CRM has no adopted event class for transferring a Right between holders. A 2017 proposal to add a 'Right Holding' entity with temporal properties (thread t0976) went nowhere beyond a slide deck, and a 2010 thread on exactly this gap (t0507, 'CRM Right and Time-Span: ISSUE') ended with Christian-Emil and Martin agreeing that rights-transfer/business-transaction modelling was out of CRM's practical scope and would need an external extension that was never folded into CRMbase."
+    },
+    {
+      "option": "E8 Acquisition for the handover, by analogy with title transfer",
+      "why_not": "P22/P23/P24 (transferred title to/from/of) declare their range as E39 Actor and their object-side range as E18 Physical Thing, not E30 Right or E72 Legal Object generally. Christian-Emil's suggestion in t0507 to lift P24's range to E72 Legal Object was never adopted in the current declarations (confirmed via the ontology listing). Acquisition also carries a legal-ownership/commercial register that is the wrong fit for a customary, non-transactional office."
+    },
+    {
+      "option": "A bespoke E7 Activity ('handover') linking the two people directly, without the office-as-Group construct",
+      "why_not": "This is close to what Robert Sanderson and Yu Lee sketch in thread t1806 for a similar 'who held what position when' problem, but it can't cleanly name the office itself or produce the 'unbroken chain of fire-keepers' the project wants -- that requires something the successive holders are all members of, which is what P107/E74 gives you. The alternative CRMaaa/AAAo extension (ZE6 Social Status, ZE22/ZE23 Declarative Joining/Leaving) raised in the same thread is a legitimate fuller answer but sits outside CRMbase, so I did not propose it as the primary recommendation."
+    }
+  ],
+  "citations": [
+    "E74", "E85", "E86", "P107", "P143", "P144", "P145", "P146",
+    "E30", "P75", "P105", "E8", "P22", "P23", "P24",
+    "t0701", "t0976", "t0507", "t1806", "t0431",
+    "issue 149",
+    "Introduction to the basic concepts > Relations with Events > Temporal Relations"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E30",
+    "concept E13",
+    "thread t0701",
+    "thread t0976",
+    "thread t1022",
+    "thread t0507",
+    "concept E85",
+    "concept E86",
+    "concept E74",
+    "connect E39 E74",
+    "connect E21 E74",
+    "thread t1806",
+    "thread t0431",
+    "thread t1701",
+    "docs \"intangible cultural heritage\" --kind narrative",
+    "docs \"unknown time-span\" --kind narrative",
+    "docs \"informal\" --kind narrative",
+    "issues \"office succession position\"",
+    "issues \"singleton group role\"",
+    "issue 149"
+  ],
+  "confidence": "medium",
+  "notes": "The office-as-singleton-Group pattern (E74/E85/E86/P107) is textually sanctioned in the current scope notes and traces to an accepted 2008 SIG issue (149), but it is also the exact construct a senior SIG member called 'ad hoc' in a 2024 thread (t1806), preferring an external extension. Both things are true at once and I reported both rather than picking the more comfortable one. I did not find any thread or issue discussing a customary/non-institutional office specifically (only presidencies, MPs, corporate officers, family roles), so the fit to a village custom is an analogy I am drawing, not something the SIG debated directly -- flagged as medium rather than high confidence for that reason. I also did not find CRM guidance that directly addresses 'the community only recognises the new holder retrospectively over a year or two,' which is a real gap between the case and anything the tools surfaced."
+}

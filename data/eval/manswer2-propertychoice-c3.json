@@ -1,0 +1,49 @@
+{
+  "case_id": "propertychoice-c3",
+  "answer": "Model the swap as two E8 Acquisition instances, not one. Acquisition-1: P24 transferred_title_of = the trade tokens, P23 transferred_title_from = Society A, P22 transferred_title_to = Society B. Acquisition-2: P24 transferred_title_of = the medals, P23 transferred_title_from = Society B, P22 transferred_title_to = Society A. P22/P23/P24 are properties of the E8 event as a whole (many-to-many, but not object-to-actor paired) -- putting both societies in as both P22 and P23 on a single Acquisition loses the information about which object went which way, since nothing binds a given P24 item to a given P22/P23 actor within one event. E8's own subclass E96 Purchase carries the CRM's answer to this exact structural problem in its current scope note: 'Purchase activities which define individual sales prices per object can be modelled by instantiating E96 Purchase for each object individually and as part of an overall instance of E96 Purchase transaction' -- i.e. decompose by object, then re-group. The re-grouping mechanism is P9 consists_of (E8 is an E7 Activity, which inherits P9 from E4 Period), so the single letter-agreement can be represented as one parent E8 Acquisition (or plain E7 Activity) that P9-consists_of the two directional child Acquisitions, recording that both societies treated it as one transaction. E96 Purchase itself is the wrong class for either child event: its scope note requires the transferring party to be 'completely compensated by payment of a monetary amount,' and no money changed hands here -- confirmed on the mailing list by Siegfried Krause, who lists 'exchange of objects' alongside gifts and bequests as a normal, non-monetary trigger of plain E8 Acquisition. A dedicated 'Exchange' activity class was proposed for CRMsoc (thread t1224) to bundle reciprocal provisions under one class, but it was contested by Martin Doerr on ontological grounds and never adopted into CRMbase -- Doerr's objection was to the new class, not to the P9 grouping mechanism itself, which he did not dispute. So within the base model actually indexed here, two directional E8 Acquisitions plus P9 consists_of is the supported construction; a standalone 'Exchange' class is not available to cite.",
+  "classes_proposed": ["E8"],
+  "properties_proposed": ["P22", "P23", "P24", "P9"],
+  "rejected_alternatives": [
+    {
+      "option": "Single E8 Acquisition with both societies listed as both P22 transferred_title_to and P23 transferred_title_from",
+      "why_not": "P22/P23/P24 scope notes describe actor-level and object-level participants in the Acquisition event as a whole, with no per-item actor pairing; a single event with both societies on both sides cannot recover which object (tokens vs. medals) moved in which direction."
+    },
+    {
+      "option": "E96 Purchase",
+      "why_not": "E96's scope note (current standard) restricts it to transfers 'completely compensated by payment of a monetary amount'; the case states no money changed hands, so E96 does not apply -- confirmed by Krause on the mailing list (t0914) that non-monetary 'exchange of objects' is handled by plain E8 Acquisition, not Purchase."
+    },
+    {
+      "option": "CRMsoc 'Exchange Activity' as a single umbrella class for the transaction",
+      "why_not": "Proposed in thread t1224 by Robert Sanderson; Martin Doerr disputed the need for a distinct 'Exchange' class on ontological grounds (identity condition, plan-vs-reality) and it was not carried into CRMbase -- not a citable adopted class. Its grouping mechanism (P9 consists_of) is uncontested and already usable directly in CRMbase without the new class."
+    }
+  ],
+  "citations": [
+    "E8", "P22", "P23", "P24", "P9", "E96",
+    {"id": "t0914", "quote": "Purchase activities which define individual sales prices per object can be modelled by instantiating Exx Purchase for each object individually and as part of an overall transaction"},
+    {"id": "t0914", "quote": "exchange of objects"},
+    "t1224"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E8",
+    "docs \"exchange of ownership\" --kind narrative",
+    "docs \"exchange\"",
+    "\"exchange of objects between two parties\"",
+    "thread t1224",
+    "concept P22",
+    "concept P23",
+    "issues \"exchange barter swap two directions single acquisition\"",
+    "issues \"acquisition multiple actors both directions\"",
+    "\"barter swap trade exchange gift no money changed hands\"",
+    "thread t0634",
+    "thread t0826",
+    "thread t0914",
+    "quote t0914 \"Purchase activities which define individual sales prices per object can be modelled by instantiating Exx Purchase for each object individually and as part of an overall transaction\"",
+    "quote t0914 \"exchange of objects\"",
+    "concept P9",
+    "concept E96"
+  ],
+  "confidence": "medium",
+  "notes": "The per-object decomposition + P9 regrouping technique is explicitly attested only for E96 Purchase's scope note; extending it to plain E8 Acquisition is a reasonable analogy (E96 is a subclass of E8 with the identical P22/P23/P24 structure) but I found no thread or issue applying it to E8 by name for a non-monetary barter, so the umbrella-typing choice (parent E8 vs. plain E7) is my inference rather than a directly cited SIG statement."
+}

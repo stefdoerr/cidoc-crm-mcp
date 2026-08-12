@@ -1,0 +1,12 @@
+{
+  "question_id": "2022-2026-q3",
+  "answer": "In the Dec 2025 thread \"[Crm-sig] E24 Physical Human-Made Thing\" (t1874), Dominic Oldman questioned E24's scope note, which uses a sword as an example even though a sword is really an E22 Man-Made Object, not an E25 Man-Made Feature. Christian-Emil Ore noted this is not the only scope note where a superclass example is really a subclass instance, and wondered if the 'no explicit subclass reference' rule is more an ideal than a followed practice. Martin Doerr then explained the SIG's rationale directly: they \"deliberately decided to use instances of subclasses as examples, because it is the only way to make people aware what a superclass is. Otherwise, they typically regard it as a complement of the subclasses\" -- citing the recurring question \"what is the difference between a physical thing and a physical object?\" as the problem this practice is meant to prevent. He added that if the E-number of the most adequate subclass isn't given in parentheses next to the example, that should be corrected. On movability specifically, the discussion surfaced a real gap: neither E18 Physical Object's nor E24's scope notes said anything about which classes can actually be moved. Doerr proposed adding to E18's scope note that many instances of physical-thing classes 'cannot be moved as a whole independently from surrounding or attached matter... Therefore, the class E9 Move applies only to adequate subclasses as targets of a move' (using the Temple of Abu Simbel before its transfer as the example of an unmovable-as-is instance). He also proposed clarifying that an item permanently attached/incorporated into another object may still count as an E18 Physical Object if it could in principle be detached along its original natural boundaries, but that if moving requires cutting new boundaries (again, Abu Simbel), a new E18 instance is created instead, documented via E81 Transformation. The email subject line was updated to '... NEW ISSUE scope notes on movability', indicating this gap was spun off as a new SIG issue.",
+  "found": true,
+  "cited_threads": ["t1874"],
+  "queries_run": [
+    "search \"E22 Man-Made Object sword example\" -k 10",
+    "thread t1874"
+  ],
+  "confidence": "high",
+  "notes": "First query surfaced the exact thread on the first try (t1874, 'E24 Physical Human-Made Thing', Dec 2025); reading the full thread gave both the SIG's rationale (Martin Doerr's reply) and the movability gap that became a new issue, so no further queries were needed."
+}

@@ -1,0 +1,60 @@
+{
+  "case_id": "intangible-c2",
+  "answer": "Do not assert a direct relationship between the two fiddlers. `connect E21 E21` shows the only property CIDOC CRM declares directly between two E21 Person instances is P152 has parent -- and its own scope note says it is a shortcut standing for the fully articulated path through E67 Birth (P98i was born, P96 by mother / P97 from father). CRM only licenses a shortcut when it is formally entailed by such a longer, already-expressible path; there is no comparable path here that a 'taught by'/'learned from' property could be shortcutting, so inventing one would be an unwarranted shortcut, not a modelling choice the CRM supports. What the archive actually has evidence for is the forty tapes, each documenting one dated occasion on which the pair performed together. That is squarely representable: one E7 Activity per session, dated via P4 has time-span from the tape, with P11 had participant linking both E21 Person instances to each activity. If the archive wants the continuity across sessions made explicit rather than left to co-occurrence of participants and dates, P134 continued (E7 -> E7, asymmetric, 'implies a coherence of intentions and outcomes') can chain session N to session N-1 -- but it links activity to activity, never fiddler to fiddler, and it must not be collapsed into one master activity standing for all forty: in thread t1701, discussing an analogous case (relating a community to a whole tradition such as Tango), Martin Doerr explicitly rejects reifying a summary activity for a set of individual performances, because such a construct has no 'clear identity, unity and distinction from others' apart from the performances that compose it -- the same objection rules out one 'teaching relationship' Activity replacing the forty real sessions. 'The grandnephew learned his repertoire from his granduncle' is a conclusion drawn from that chain of evidence, not a directly documented fact, and the SIG's own unresolved issue 527 (modelling provenance of intangible heritage) is consistent with this: Martin Doerr's own framing there (t1475) is that transmission of this kind 'would need a specific activity of transferring such' knowledge -- grounded in activities, not a direct link -- and the issue remains open because no general mechanism has been settled. Issue 429, which explored a comparable direct Person-to-skill shortcut ('has ability/aptitude'), was closed unadopted for lack of a supported proposal, reinforcing the same preference for events over shortcuts. If the archive wants the inference itself preserved and traceable to its evidence, rather than left as unstated curatorial narrative, CRMinf offers the honest place for it: an I5 Inference Making using the forty P11-documented E7 Activities (via J1 used as premise) to draw an I2 Belief as its conclusion (via J2 concluded that) -- that is, record the reasoning as reasoning, rather than forcing it into CRMbase as a bare property between the two Person instances.",
+  "classes_proposed": ["E7", "E21", "I2", "I5"],
+  "properties_proposed": ["P11", "P4", "P134", "J1", "J2"],
+  "rejected_alternatives": [
+    {
+      "option": "A direct CRMbase property between the two E21 Person instances (an invented 'taught by'/'learned from' shortcut)",
+      "why_not": "connect E21 E21 shows only P152 has parent declared on this pair, and P152's own scope note frames it as a shortcut standing for the fully articulated E67 Birth path (P98i/P96/P97). CRM only declares a shortcut when such a longer path is already expressible; no comparable path exists for teaching, so a new direct property would be an unentailed, invented shortcut."
+    },
+    {
+      "option": "A single aggregate E7 Activity for 'the teaching relationship' spanning all three years, standing in for the forty sessions",
+      "why_not": "In t1701, Martin Doerr rejects exactly this move for an analogous intangible-heritage case (treating a whole tradition of performances as one activity): such an aggregate has no 'clear identity, unity and distinction from others' apart from the individual performances that make it up."
+    },
+    {
+      "option": "Treating the whole case as out of CRM's scope and modelling nothing",
+      "why_not": "The individual sessions are squarely representable as E7 Activity with P11 had participant and P4 has time-span; only the higher-order summary relationship needs care, not the case as a whole."
+    }
+  ],
+  "citations": [
+    "E7", "E21", "P11", "P4", "P134", "P152", "I2", "I5", "J1", "J2",
+    "t1701",
+    {"id": "t1701", "quote": "clear identity, unity and distinction from others"},
+    "t1475",
+    {"id": "t1475", "quote": "would need a specific activity of transferring such"},
+    {"id": "t1475", "quote": "Paths of tradition may be known"},
+    "527",
+    "429",
+    "Modelling principles > Minimality"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"teaching learning transmission of skill\"",
+    "docs \"intangible cultural heritage\"",
+    "connect E21 E21",
+    "concept E7",
+    "docs \"shortcut property derived from events\" --kind narrative",
+    "issues \"intangible heritage oral tradition transmission\"",
+    "thread t1701",
+    "thread t1239",
+    "issue 527",
+    "issue 648",
+    "thread t1475",
+    "issue 429",
+    "docs \"Minimality principle\" --kind narrative",
+    "quote t1701 \"I cannot imagine, how an\"",
+    "quote t1475 \"a specific activity of transferring such\"",
+    "quote t1475 \"Paths of tradition may be known\"",
+    "concept P134",
+    "docs \"P152 has parent shortcut\" --kind declaration",
+    "concept I5",
+    "concept I2",
+    "concept P152",
+    "quote t1701 \"clear identity, unity and distinction from others\"",
+    "quote t1475 \"would need a specific activity of transferring such\""
+  ],
+  "confidence": "medium",
+  "notes": "Issue 527 (provenance/transmission of intangible heritage) is registered Open, and t1475/t1701 are exploratory mailing-list discussion, not ratified SIG decisions -- so there is no single settled doctrine to cite, only converging principles (Shortcuts must be entailed by an articulated path; Minimality; the SIG's repeated caution against reifying summary relationships not grounded in discrete activities). The CRMinf I5/I2 route for recording the inference itself is my own synthesis from the I5/I2 dossiers, not from a thread discussing this exact case, hence medium rather than high confidence."
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "technical-c3",
+  "answer": "Yes, the miller's personal dressing technique can be documented as a thing in its own right, distinct from each re-dressing. Model each act of re-cutting the furrows as an E11 Modification (P31 has modified -> the millstone, an E22 Human-Made Object), and link it via P33 used specific technique to a single E29 Design or Procedure standing for the miller's recognisable, personal way of dressing the stone. E29's own scope note calls it 'documented plans', which on its face implies a written plan, and P32's scope note explicitly says 'specific documented techniques should be described as instances of E29' -- suggesting E29 is for written/codified procedures. But the SIG has directly addressed exactly this gap: in thread t0761, Stephen Stead argues E29 also covers technique that is never written down but exists as 'tribal knowledge' in the practitioner or in observers of the results, giving the example of a recognised 'blue-slipped ware' technique nobody documented -- precisely the miller-by-feel case here. The key test he gives is whether the documenter wants to treat the recognisable methodology itself as a topic of discourse (E29 via P33), rather than just tagging the activity with a general technique term (E55 Type via P32). Since the mill wants to capture 'the technique itself', not just classify each event, E29/P33 is the better fit than P32/E55. If the miller's practice visibly differs from his predecessor's, model each as a separate E29 instance and relate them with P69 has association with (e.g. 'inspired by' or successor relation) rather than trying to force one identity across two distinct personal styles.",
+  "classes_proposed": ["E29", "E11", "E22"],
+  "properties_proposed": ["P33", "P31", "P69"],
+  "rejected_alternatives": [
+    {"option": "P32 used general technique / E55 Type", "why_not": "P32's own scope note reserves E55 Type for a technique 'drawn from an external Type hierarchy of consistent terminology' (e.g. 'embroidery', 'gilding') -- a shared classificatory term, not a singular personal methodology one wants to talk about as its own entity. The case wants the opposite: a technique distinguishable from generic re-dressing, which is what P33/E29 is for per Stephen Stead's explicit contrast between the two properties in thread t0761."},
+    {"option": "Treat it as simply out of scope / log only the events", "why_not": "Rejected because thread t0761 shows the SIG considered and accepted (informally, via Stephen Stead, uncontested on-list) that an undocumented, tradition-held technique still qualifies as E29 as long as the documenter recognises it as a singular, recurring methodology -- so the model does have a place for it, it just isn't a 'document' in the literal sense."}
+  ],
+  "citations": [
+    "E29", "P32", "P33", "E11", "P69",
+    "t0761",
+    {"id": "t0761", "quote": "exist as a set of \"tribal knowledge\""},
+    {"id": "t0761", "quote": "this recognisable way of making"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E29",
+    "concept P33",
+    "concept P32",
+    "thread t0761",
+    "issues \"technique\"",
+    "docs \"technique\" --kind narrative",
+    "issue 232",
+    "issue 42",
+    "thread t0430",
+    "\"craft skill tradition undocumented technique\"",
+    "issue 527",
+    "thread t1475",
+    "docs \"design or procedure technique\" --kind declaration",
+    "concept E11",
+    "quote t0761 \"exist as a set of \\\"tribal knowledge\\\"\"",
+    "quote t0761 \"this recognisable way of making\""
+  ],
+  "confidence": "medium",
+  "notes": "The literal scope notes of E29 ('documented plans') and P32 ('specific documented techniques should be E29') read as if E29 requires a written document, which would push an oral/tacit technique toward E55/P32 instead. The only place the corpus resolves this is one 2014 mailing-list exchange (t0761) where Stephen Stead argues undocumented 'tribal knowledge' techniques still count as E29 -- persuasive and uncontested in that thread, but it is one contributor's clarification, not a voted SIG decision, and the still-open Issue 527 (Modelling Provenance of Intangible Heritage, 2021, unresolved) shows the SIG itself treats craft/technique traditions as an unsettled modelling area more broadly. So the E29/P33 answer is well-supported but not iron-clad."
+}

@@ -1,0 +1,13 @@
+{
+  "question_id": "2020-2021-q4",
+  "answer": "No, the SIG did not settle on a new class structure. The topic ('New Issue: Non-human Actors', started by Robert Sanderson on 2021-09-21, using exactly the bird-building-a-nest example) was discussed through mid/late November 2021 but ended without agreement. Martin Doerr supported adding non-human (specifically living, biological) actors in principle, suggesting they belong in CRMsci as a sibling generalization to human actors, but insisted the SIG first needed real documented use-case data tracing individuals and domain (biology) experts before committing to new classes - he stated the reason animal actors were never modeled was precisely the lack of an experts group to consult. George Bruseker and Robert Sanderson produced a concrete draft class sketch (a new top class 'Agent' generalizing E39 Actor and a new sibling 'Biological Agent' branch, with parallel Individual Agent/Collective Agent and Individual Biological Agent/Collective Biological Agent classes, and renaming E39/E21/E74 to 'Human Agent'/'Human Person' accordingly), but this was only a discussion proposal, not adopted. Left unresolved: (1) whether/how to formally define 'individuality' and 'collectivity' for animals across the animal kingdom, (2) whether machines/robots/software should be treated similarly (Martin argued machines are not actors, just reactive instruments akin to traps, a separate modeling problem), (3) the cost/benefit and recall-precision methodological questions Martin posed about whether 'P12 occurred in the presence of' plus text is already sufficient versus needing new 'done by'-type properties/classes, and (4) finding biology/natural-history domain experts to validate the model. The thread's last message (2021-11-19) is just Martin sharing a background PowerPoint example of CRM-compatible animal tracking 'for future discussion' - no decision was recorded.",
+  "found": true,
+  "cited_threads": ["t1500"],
+  "queries_run": [
+    "threads \"non-human animal actor bird nest activity\" -k 5",
+    "thread t1500",
+    "search \"biological agent sibling class E39 animal actor\" -k 10"
+  ],
+  "confidence": "high",
+  "notes": "search.py threads immediately surfaced the exact thread (t1500, labeled [unresolved]) on the first query, using the bird-nest example verbatim from the question. Reading the full thread via search.py thread t1500 confirmed no resolution was reached; the proposed George Bruseker/Rob Sanderson class sketch (Agent/Biological Agent/Individual Agent/Collective Agent) was a discussion draft only, and Martin Doerr's closing methodological questions were left open at the final 2021-11-19 message."
+}

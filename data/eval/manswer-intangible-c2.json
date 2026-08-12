@@ -1,0 +1,36 @@
+{
+  "case_id": "intangible-c2",
+  "answer": "Do not assert a direct 'learned repertoire from' relationship between the two E21 Person instances. Model what is actually evidenced: forty distinct E7 Activity instances (one teaching/performance session per tape), each with P11 had participant linking both the granduncle and the grandnephew, and each anchored by P4 has time-span to the date on its tape. The 'grandnephew learned his repertoire from his granduncle' claim is then a synthesis a cataloguer or researcher draws from the pattern across the forty events, not a fact to reify as a single CRM property. CIDOC CRM has no declared shortcut for teacher/student or transmission relationships between two E21 Person instances, unlike the biological/legal parent-child case (P152 has parent), which is explicitly declared as a shortcut of an agreed full path (via E67 Birth, P96/P97) precisely because parenthood was judged a 'key concept in the practical scope' (Minimality). The CRM-SIG has raised the general need for person-to-person relationship properties at least three times (family relations in 2003, an explicit ULAN 'student of/teacher of' case in 2015, and intangible-heritage transmission in 2023) and each time left it unresolved rather than adding a shortcut. Given that history, inventing one now would be exactly the kind of unjustified shortcut Minimality forbids. The event-chain is therefore the correct and sufficient CRM answer, not a fallback.",
+  "classes_proposed": ["E21", "E7", "E22"],
+  "properties_proposed": ["P11", "P4"],
+  "rejected_alternatives": [
+    {"option": "A direct shortcut property between the two E21 Person instances (a 'taught by'/'learned from' analog to P152 has parent)", "why_not": "No such property exists in the 241-item ontology listing. P152 has parent is only justified as a shortcut because it stands for an agreed full path (E67 Birth via P96/P97) and parenthood was deemed a key practical concept (docs: Introduction > Applied Form > Shortcuts; Modelling principles > Minimality). The SIG considered the equivalent need for 'student of/teacher of' directly (thread t0834, using this exact ULAN example) and reached no consensus, and raised person-to-person relations generally in t0772 with the same outcome -- no new property or class was adopted in either case."},
+    {"option": "E74 Group with both fiddlers as P107 members, representing the pair as a relationship-group", "why_not": "E74 Group's scope note requires 'organizational characteristics ... actions performed together' as one unit acting collectively. In thread t0834, discussing this very ULAN 'student of/teacher of' pattern, Christian-Emil Ore states 'it is not necessary that a student and teacher should be seen as members of an E74 Group,' and the SIG's proposed alternative ('relationship group' subclass of E28) was never adopted."},
+    {"option": "A single aggregate E7 Activity standing for 'all forty sessions' (P9i forms part of a master activity), with the two persons as participants in that one activity", "why_not": "Proposed for an analogous intangible-heritage transmission case in thread t1701 (Steve's 'master E7 Activity' for all Tango performances). Martin Doerr rejected it there as 'quite overstretching what an activity is,' lacking 'clear identity, unity and distinction from others' -- the forty sessions must stay forty distinct E7 Activity instances."}
+  ],
+  "citations": [
+    "E21", "E7", "E22", "P11", "P4", "P152", "E74",
+    "Introduction > Applied Form > Shortcuts",
+    "Modelling principles > Minimality",
+    "t0834", "t0772", "t1701", "t0225"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"direct relationship inferred from chain of events\" --kind narrative",
+    "docs \"shortcut property redundant path\" --kind narrative",
+    "concept E7",
+    "concept P152",
+    "docs \"minimality shortcut properties declared for inference\" --kind narrative",
+    "\"teacher student apprentice relationship inferred from repeated events\"",
+    "threads \"direct relationship versus chain of events shortcut\"",
+    "concept P11",
+    "thread t0834",
+    "thread t0225",
+    "threads \"issue 256 relationship group between persons\"",
+    "thread t1701",
+    "concept E74"
+  ],
+  "confidence": "medium",
+  "notes": "threads/thread search was the strongest tool here -- it surfaced three separate SIG discussions (2003, 2015, 2023) that all hit this exact boundary (person-to-person relations, teacher/student ULAN case, intangible-heritage transmission) and consistently show no shortcut was ever adopted, which is hard evidence for a 'do not invent one' answer rather than a guess. What was hard: no single query surfaces an absence -- confirming 'no such property exists' required cross-checking the full ontology listing plus three separate unresolved threads spanning decades, and there is no final SIG ruling to point to, only a consistent pattern of declining to standardize."
+}

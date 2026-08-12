@@ -1,0 +1,51 @@
+{
+  "case_id": "propertychoice-c2",
+  "answer": "The record should show ONE transfer of title (E8 Acquisition, engineer -> phone bidder) but TWO transfers of custody (E10 Transfer of Custody: engineer -> auction house, then auction house -> buyer's courier). CIDOC CRM keeps legal ownership (E8/P22/P23/P24) and physical/legal custody (E10/P28/P29/P30) as separate axes precisely so a consignment sale does not have to be modelled as the intermediary taking title. The auction house holding the buyer's payment for ten days and controlling release of the goods is exactly the 'legal responsibility for custody, not physical possession' case E10's own scope note calls out for P2 has type qualification -- it is custody-side control, not evidence of a title-holding middleman. The strongest support is that the SIG's own worked examples for E10 are this exact scenario: Robert Sanderson's accepted homework example for Issue 475 is 'The legal responsibility for physical custody of a large marble statue of Aphrodite (E22) was transferred from the 12th Duke of Northumberland (E21) to Sotheby's Auction House (E74) in July 2014' (thread t1376) -- a private owner consigning to an auction house, modelled as custody only. The current E10 dossier carries two more Getty Provenance Index examples of the identical pattern: 'the transfer of custody of the work ... from Johann Matthaus von Merian to the Auction House Heldevier (Jacob) for the purpose of sale' and 'the transfer of custody of the painting Mrs. Fitzherbert to the art dealer Knoedler from Parke-Bernet Galleries.' None of these treat the consignee gallery/auction house as a title-holder in a second E8 Acquisition. So: engineer P23-transferred-title-from / bidder P22-transferred-title-to on a single E8 (P24 the instruments); auction house appears only via P28/P29/P30 on the two custody events, and optionally via P14 carried out by on the Acquisition itself to record that it conducted the sale on the engineer's behalf. That last part -- how to attach the auction house's facilitating role to the Acquisition event itself -- is a genuinely open corner of CRM: Issue 488 / thread t1345 ('Modelling an Actor carrying out an action at the Behest of Another') shows the SIG has not settled on a clean property for 'acted for X' beyond ad hoc P14.1 role pairs, so I would not force that detail with high confidence. The buyer never dealing directly with the engineer is not a problem for P22/P23 -- those properties record a legal fact, not personal contact.",
+  "classes_proposed": ["E8", "E10"],
+  "properties_proposed": ["P23", "P22", "P24", "P28", "P29", "P30", "P14"],
+  "rejected_alternatives": [
+    {"option": "Two E8 Acquisitions (engineer -> auction house, auction house -> bidder)", "why_not": "Would assert the auction house held legal title. The SIG's own canonical worked examples for exactly this consignment pattern (Duke of Northumberland -> Sotheby's; von Merian -> Auction House Heldevier 'for the purpose of sale'; Parke-Bernet Galleries -> Knoedler) model the owner-to-auction-house leg as E10 Transfer of Custody, not E8 Acquisition."},
+    {"option": "E96 Purchase in place of plain E8 Acquisition", "why_not": "E96 is a valid subclass (transfer fully compensated by a monetary amount) and would also fit the bidder's side, but nothing in the case turns on that specialization, and the plain E8 dossier's own examples (e.g. the Amoudruz collection) already cover a direct owner-to-acquirer title transfer without needing the Purchase subclass; kept it as an optional refinement, not the load-bearing choice."}
+  ],
+  "citations": [
+    "E8", "E10", "P22", "P23", "P24", "P28", "P29", "P30", "P14",
+    "t1376", "t1370", "t1394", "t1345",
+    {"id": "t1376", "quote": "The legal responsibility for physical custody of a large marble statue of Aphrodite (E22) was transferred from the 12th Duke of Northumberland (E21) to Sotheby's Auction House (E74) in July 2014"},
+    "E96",
+    "Issue 475", "Issue 516", "Issue 488"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E8",
+    "\"auction\"",
+    "\"consignment\"",
+    "\"intermediary title transfer\"",
+    "docs \"acquisition through an intermediary or agent\" --kind narrative",
+    "thread t1611",
+    "concept P14",
+    "thread t1345",
+    "thread t1477",
+    "thread t1469",
+    "issues \"agent acting on behalf of\"",
+    "docs \"on behalf of\" --kind narrative",
+    "concept P23",
+    "concept P22",
+    "concept E10",
+    "docs \"for the purpose of sale\" --kind declaration",
+    "concept E96",
+    "docs \"auctioneer agent principal\" --kind narrative",
+    "\"phone bidder\"",
+    "\"escrow held funds\"",
+    "issue 488",
+    "issues \"consignor consignment sale through dealer\"",
+    "issues \"custody without title auction house\"",
+    "issue 475",
+    "issue 516",
+    "thread t1376",
+    "thread t1370",
+    "thread t1394"
+  ],
+  "confidence": "medium",
+  "notes": "High confidence on the custody/title split itself -- it is directly and repeatedly precedented in the SIG's own E10 examples and Issue 475/516 discussion. Lower confidence on how to attach the auction house's facilitating role onto the E8 Acquisition event itself (P14 / P14.1 in the role of): thread t1345 and Issue 488 show the SIG never settled a clean pattern for 'actor acting at the behest of another,' so that detail of the answer is offered tentatively, not as settled doctrine."
+}

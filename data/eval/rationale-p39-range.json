@@ -1,0 +1,138 @@
+{
+  "question_id": "p39-range",
+  "question": "Why is the range of P39 measured restricted?",
+  "short_answer": "P39 measured now runs from E16 Measurement only to E18 Physical Thing, having previously pointed at E1 CRM Entity -- that is, at anything at all. The SIG narrowed it in 2021 because the model let you measure things it would not then let you record a measurement for, and because it decided that measuring, strictly speaking, means physically observing something that is there in front of you. Counting the words in a text or pricing a coin collection is still recordable, but as an E13 Attribute Assignment rather than a measurement.",
+  "explanation": "The declared domain of P39 has always been E16 Measurement; only the range moved, and it moved three times. In the earliest model the range was E18 Physical Stuff. Issue 36 (Copenhagen, July 2002) widened it to E70 Stuff so that sequences of conceptual as well as physical objects could carry dimensions. Issue 156 (Crete, May 2008) widened it again to E1 CRM Entity, so that processes could be measured too. That left an asymmetry which Robert Sanderson flagged in September 2020: dimensions attach to things via P43 has dimension, whose domain is E70 Thing, so a Place cannot have a dimension -- yet P39 with range E1 happily allowed a Place to be measured. You could record the measuring event but had nowhere to hang the result.\n\nThere were two ways out: widen P43 to E1, or narrow P39. The SIG narrowed P39, and the reason it gave was not merely tidiness. Martin Doerr argued that E16's scope note had always described measurement as 'direct observation of particular states of physical reality', so a measurement presupposes the physical presence of an object of evidence -- one of the CRM's basic reasoning primitives. Determining the word count of a text or the nominal value of a coin hoard is an inference from observation, not an observation; E13 Attribute Assignment already covers it. A second, practical reason was that P39's over-wide range blocked CRMsci from generalising measurement properly under S4 Observation.\n\nThe decision was taken by majority at the 49th joint CIDOC CRM SIG / ISO TC46/SC4/WG9 meeting (March 2021) and implemented in v7.1.1. The follow-up e-vote on the consequent scope-note edits drew a VETO from Francesco Beretta on monotonicity grounds -- projects had used E16 in the wider sense for years -- which he withdrew, downgrading it to a NO; George Bruseker also objected that the change was rushed. The register records the motion as passed in May 2021, with a loss-free migration path published in the specification appendix.",
+  "real_world_example": "The SIG's own retained example is the carbon-14 dating of the 'Schoeninger Speer II' in 1996, an approximately 400,000-year-old Palaeolithic wooden spear excavated at Schoeningen, Lower Saxony, in 1995 (Kouwenhoven, 1997). The spear is a physical object physically present to the dating apparatus, so this remains a textbook E16 Measurement of an E22. The same e-vote deleted two examples that no longer qualify: the pixel size (581,600 pixels) of the National Gallery's downloadable JPEG of Titian's 'Bacchus and Ariadne', and the observation that the scope note of E21 Person in CRM v5.0.4 'consists of 77 words'. Both are now E13 Attribute Assignments, since what is counted is an abstract symbolic object, not a physical carrier. Christian-Emil Ore made the point vividly in the thread with a third case: counting occurrences of 'the' in Shakespeare is a measurement of a particular manuscript, printed sheet or recorded sound -- from which a property of the abstract work may then be deduced.",
+  "decision_status": "settled",
+  "issues": [
+    {
+      "id": 36,
+      "title": "How to model sequences of physical and conceptual objects",
+      "status": "Done",
+      "outcome": "Copenhagen, 3 July 2002: the range of P39 measured was promoted from E18 Physical Stuff to E70 Stuff, alongside the same promotion for the domain of P43 has dimension."
+    },
+    {
+      "id": 156,
+      "title": "Measuring activities",
+      "status": "Done",
+      "outcome": "Crete, May 2008: in order to allow processes and their dimensions to be measured, the range of P39 was changed from E70 Thing to E1 CRM Entity. This is the widening that issue 511 later reversed."
+    },
+    {
+      "id": 229,
+      "title": "Correcting issue 156 (introduction of CRMsci)",
+      "status": "Done",
+      "outcome": "Heraklion, 4 August 2016: the inconsistency created by issue 156 between P39 (range E1) and P43 (domain E70) was acknowledged; harmonisation of measurement between CRMsci and CIDOC CRM was deferred to issue 307 and the issue closed without fixing the range."
+    },
+    {
+      "id": 511,
+      "title": "Measurements and Dimensions",
+      "status": "Done",
+      "outcome": "49th joint SIG meeting, March 2021: MD and RS argued for reducing the range of P39 to E18, to be implemented in v7.1.1; the SIG accepted by majority and sent the consequent scope-note edits to an e-vote. May 2021: 'the motion to reduce the range of P39 to E18 passed', following Francesco Beretta's retraction of his veto. Issue closed."
+    },
+    {
+      "id": 536,
+      "title": "Properties for assigning dimensions to places and temporal entities",
+      "status": "Done",
+      "outcome": "Spun off from 511 to give Places and Periods their own dimension properties, since P39 could no longer reach them. Later stopped by editorial decision: OGC standards such as GeoSPARQL and GML, used with CRMgeo, cover the need without new CRM properties."
+    },
+    {
+      "id": 537,
+      "title": "How does reducing the range of P39 affect CRMsci?",
+      "status": "Done",
+      "outcome": "Spun off from 511. At the 50th joint SIG meeting the SIG accepted the consequent changes to S21 Measurement, O16, O24, O12 and O9, and opened a further issue on O12's definition. Closed 24 June 2021."
+    },
+    {
+      "id": 681,
+      "title": "scope notes P40 P43",
+      "status": "Done",
+      "outcome": "Oxford, March 2026: exclusion statements approved for P43, P40, O12 and O39 so that one instance of E54 Dimension cannot simultaneously pertain to an E70 Thing, an E52 Time-Span and an E96 Purchase. To appear in CIDOC CRM v7.4 / CRMsci v3.2. Later housekeeping on the same cluster, not a re-opening of the range question."
+    }
+  ],
+  "threads": [
+    "t1433",
+    "t1444",
+    "t1388",
+    "t0681"
+  ],
+  "citations": [
+    {
+      "id": "issue36#outcome",
+      "quote": "P39 measured (was measured by) to E70: Stuff"
+    },
+    {
+      "id": "issue156#outcome",
+      "quote": "we decided to change the range of P39 to be E1 CRM Entity instead of E70 Thing"
+    },
+    {
+      "id": "t1433",
+      "quote": "while (for example) an E53 Place cannot have a dimension, it can be measured to have a dimension"
+    },
+    {
+      "id": "issue511#current-s0001",
+      "quote": "the change allows non-monotonic reasoning"
+    },
+    {
+      "id": "t1444",
+      "quote": "voted to accept the reduction of the range of property P39 measured from E1 CRM Entity to E18 Physical Thing"
+    },
+    {
+      "id": "t1444",
+      "quote": "a measurement implies the"
+    },
+    {
+      "id": "t1444",
+      "quote": "The reduction was decided in the last CRM-SIG with good majority after considering all pros and cons."
+    },
+    {
+      "id": "t1444",
+      "quote": "I withdraw it and simply vote NO"
+    },
+    {
+      "id": "t1444",
+      "quote": "measuring the nominal monetary value of a collection of coins"
+    },
+    {
+      "id": "t1444",
+      "quote": "consists of 77 words"
+    },
+    {
+      "id": "issue511#outcome",
+      "quote": "the motion to reduce the range of P39 to E18 passed"
+    },
+    {
+      "id": "crm732#s0129",
+      "quote": "only physical things can be observed for quantitative measurements"
+    }
+  ],
+  "caveats": "The e-vote of 19-26 March 2021 was on the consequential scope-note and FOL edits, not on the range reduction itself -- that had already been carried by majority at the 49th SIG meeting, as both Christian-Emil Ore and Martin Doerr pointed out to Francesco Beretta when he cast his VETO. The archive does not give a tally of the e-vote; it shows six explicit YES votes in the thread (Sanderson, Ore, Eide, Weiss, Hiebel, Gradmann), one NO (Beretta, converted from VETO) and a stated objection from George Bruseker on process grounds. The 'summary of changes' the register links to is not in this archive, so the exact set of implemented edits is known only from the e-vote message. Martin Doerr's posts are the fullest statement of the rationale, but they are one participant's argument; what the register records as decided is the range reduction itself, and the specification's migration appendix is the only place where the SIG states the reasoning in its own institutional voice ('the reason is twofold'). The claim that the earliest range was E18 Physical Stuff is read off issue 36's outcome wording, which describes the promotion away from it, rather than from an early version of the specification. Issue 156's 2008 outcome records the widening to E1 but not the argument for it; the two threads attached to that issue date from 2013-2014 and discuss the resulting inconsistency rather than the original motivation, so the reason for the 2008 widening is recorded only as 'about measuring the process and the dimension of process'.",
+  "queries_run": [
+    "search.py concept P39",
+    "search.py issues \"P39 measured range\"",
+    "search.py issue 511",
+    "search.py issue 156",
+    "search.py issue 229",
+    "search.py issue 223",
+    "search.py issue 36",
+    "search.py issue 536",
+    "search.py issue 537",
+    "search.py issue 681",
+    "search.py thread t1433",
+    "search.py thread t1444",
+    "search.py docs \"Migration Instructions reduced scope of E16 Measurement\"",
+    "search.py docs \"From version 7.1.1 on the class E16 Measurement pertains only to instances of E18 Physical Thing reason is twofold\"",
+    "search.py issues \"e-vote reduce range P39 E18 49th meeting\"",
+    "search.py quote issue36#outcome \"P39 measured (was measured by) to E70: Stuff\"",
+    "search.py quote issue156#outcome \"we decided to change the range of P39 to be E1 CRM Entity instead of E70 Thing\"",
+    "search.py quote issue511#outcome \"the motion to reduce the range of P39 to E18 passed\"",
+    "search.py quote issue511#current-s0001 \"the change allows non-monotonic reasoning\"",
+    "search.py quote t1444 \"voted to accept the reduction of the range of property P39 measured from E1 CRM Entity to E18 Physical Thing\"",
+    "search.py quote t1444 \"a measurement implies the\"",
+    "search.py quote t1444 \"The reduction was decided in the last CRM-SIG with good majority after considering all pros and cons.\"",
+    "search.py quote t1444 \"I withdraw it and simply vote NO\"",
+    "search.py quote t1444 \"measuring the nominal monetary value of a collection of coins\"",
+    "search.py quote t1444 \"consists of 77 words\"",
+    "search.py quote t1433 \"while (for example) an E53 Place cannot have a dimension, it can be measured to have a dimension\"",
+    "search.py quote crm732#s0129 \"only physical things can be observed for quantitative measurements\""
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "case_id": "built-c1",
+  "answer": "Record the 1839 Hollow Farm barn and the building now standing at Combe Farm as two distinct E24 Physical Human-Made Thing instances linked by an E81 Transformation, not as one object that simply moved. E81's scope note names 'reconstructions ... of historical buildings' as a characteristic case, and E24's own scope note addresses this exact threshold: a product that reuses 'larger parts or most of the original matter and structure' still gets 'a new, distinct identity' once the intervention is obvious and sufficient, with the material continuity captured by also documenting the event as E81. E11 Modification's scope note draws the same boundary from the other side: when destruction of the old and production of the new 'using parts or material from the originals' co-occur, 'the new items have separate identities' and E81 applies instead of mere Modification. Here the move plus the ~70% frame reuse, the whole rotted bay replaced, and the new roof covering and plinth walls push the case over that line -- this is not conservation/repair of one continuing object. A 2015 mailing-list exchange on exactly this scenario (moving/rebuilding immobile buildings) corroborates the reading: Martin Doerr argued the SIG should treat any such re-erection as new construction 'regardles how much simiarity and old substance it carries' because it requires new foundations and breaks the building's natural boundary with the ground (thread t0821) -- though that thread records no formal SIG vote, so it is his argued position, not a ratified rule; the officially adopted E81/E24/E11 scope notes are the primary basis here. Suggested structure: Hollow Farm barn (E24) --P124 transformed <-- [E81 Transformation, 1938] --P123 resulted in--> Combe Farm barn (E24). The 1839 tithe survey documents the former instance; the estate plaque is evidence asserting the latter's derivation from the former, not proof they are the same instance.",
+  "classes_proposed": ["E24", "E81"],
+  "properties_proposed": ["P123", "P124"],
+  "rejected_alternatives": [
+    {
+      "option": "E11 Modification (treat Combe Farm barn as the same object, merely modified)",
+      "why_not": "E11's own scope note says that when destruction of the old and production of the new from its parts/material co-occur, 'the new items have separate identities' and the event should be documented as E81 Transformation instead"
+    },
+    {
+      "option": "Same E24 instance, merely relocated (e.g. via P53 has former or current location)",
+      "why_not": "Thread t0821: Martin Doerr argued moved/rebuilt immobile buildings should by rule be treated as new construction because re-erection requires new foundations and does not preserve the building's natural boundary with the ground -- consistent with E81's scope note listing building reconstruction as a characteristic case"
+    }
+  ],
+  "citations": [
+    "E81",
+    "E24",
+    "E11",
+    "t0821",
+    {"id": "t0821", "quote": "we should by rule define such a building as new, regardles how much simiarity and old substance it carries"},
+    "t1170",
+    {"id": "t1170", "quote": "an instance of E19 with all parts replaced is identical"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E79",
+    "concept E80",
+    "concept E24",
+    "concept E22",
+    "docs \"identity of a physical thing over time\" --kind narrative",
+    "docs \"rebuilt from reused material\" --kind narrative",
+    "docs \"same object different parts\" --kind narrative",
+    "\"moved building reconstructed identity\"",
+    "threads \"ship of theseus identity building reconstruction\"",
+    "thread t1396",
+    "thread t0821",
+    "thread t1170",
+    "quote t1170 \"an instance of E19 with all parts replaced is identical\"",
+    "quote t0821 \"I'd argue that we should by rule define such a building as new, regardless how much similarity and old substance it carries\"",
+    "quote t0821 \"we should by rule define such a building as new, regardles how much simiarity and old substance it carries\"",
+    "concept E11"
+  ],
+  "confidence": "high",
+  "notes": "Thread t0821 is marked unresolved (no formal SIG vote recorded) -- its 'treat moved buildings as new by rule' stance is Martin Doerr's argued position, used here as corroboration, not as the ruling itself; the ratified basis is the E81/E24/E11 scope notes. The t1170 E19 quote is general background on CRM's amount-of-matter-vs-identity reasoning (not about buildings specifically) and is cited only as supporting context, not as a proposed class."
+}

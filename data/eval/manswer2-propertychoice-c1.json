@@ -1,0 +1,40 @@
+{
+  "case_id": "propertychoice-c1",
+  "answer": "Model the repair as an E11 Modification (its scope note explicitly covers conservation treatment of a physical human-made thing). P14 carried out by is many-to-many, so it is not a choice between the three people -- more than one can and should be recorded, distinguished by P14.1 in the role of (P14's own definition already models exactly this: 'the painting of the Sistine Chapel carried out by Michelangelo ... in the role of master craftsman'). Link the two apprentices via P14 (role: executant/hands-on conservator) since they performed the actual filling, regluing and touch-up. Also link the studio principal via P14 (role: supervisor), because P14's scope note requires 'causal or legal responsibility' rather than hands-on execution, and the SIG's own 2022-01-12 clarification (t1546) confirms this: Martin Doerr distinguishes actors with causal/legal responsibility for an activity's outcome (P14) from actors whose presence is merely necessary without sharing that responsibility (P11 had participant) -- his example is a surgery patient, who is necessary but does not carry out the surgery. The studio principal, named on the invoice as having supervised and approved the work and bearing the workshop's responsibility for it, sits on the P14 side of that line, just as a supervising master craftsman does; a role-controlled vocabulary term such as 'supervisor' on P14.1 keeps her contribution distinguishable from the apprentices' hands-on execution. The museum's conservation officer is the clearest case of the other side of that same line: she did no hands-on work and bears no causal or legal responsibility for the treatment itself -- she is the museum's monitor, not the workshop's agent. She should not be linked via P14 to this E11 Modification. If her check-in visits need to be documented at all, that is a separate activity (e.g. her own monitoring/inspection acts, or P12 occurred in the presence of if she is simply recorded as present), not a carrying-out of the treatment.",
+  "classes_proposed": ["E11", "E39"],
+  "properties_proposed": ["P14", "P11", "P12"],
+  "rejected_alternatives": [
+    {"option": "Recording only the studio principal via P14 (invoice attribution)", "why_not": "P14 is many-to-many and explicitly supports multiple actors distinguished by role (P14.1); collapsing to the named invoice signatory would erase the apprentices who actually performed the modification, which the model has no reason to force."},
+    {"option": "P14 for the conservation officer", "why_not": "t1546 (Martin Doerr, 2022-01-12) draws the line at causal/legal responsibility for carrying out the activity, using a surgery patient as the paradigm of necessary-but-not-carrying-out presence; the officer's check-in visits are the same kind of non-causal presence, with no hands-on work and no responsibility for the treatment's execution."},
+    {"option": "Treat 'workshop of the studio principal' as a single E74 Group carried-out-by, without naming the apprentices", "why_not": "The Groups-and-carried-out-by discussion (t1477) reserves that pattern for cases where the actual individual doer is unknown (e.g. 'workshop of Rembrandt'); here the two apprentices are specifically identified, so the more precise per-actor P14 + P14.1 modelling applies instead."}
+  ],
+  "citations": [
+    "E11",
+    "P14",
+    "P11",
+    "P12",
+    {"id": "t1546", "quote": "patients in a surgery are necessary, but do not carry it out"},
+    {"id": "t1477", "quote": "Scriptorium of, Workshop of, Circle of, Studio of"},
+    "t1477",
+    "t1546"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept P14",
+    "concept E11",
+    "thread t1477",
+    "thread t1546",
+    "concept P11",
+    "docs \"role of participation supervisor\" --kind narrative",
+    "issues \"carried out by role supervisor workshop\"",
+    "\"conservator supervised apprentice repair\"",
+    "issue 488",
+    "docs \"P14 carried out by\" --kind declaration",
+    "quote t1477 \"Scriptorium of, Workshop of, Circle of, Studio of\"",
+    "quote t1546 \"patients in a surgery are necessary, but do not carry it out\"",
+    "quote P14 \"master craftsman\""
+  ],
+  "confidence": "high",
+  "notes": "P14.1 in the role of has no standalone id in this corpus's 241-item ontology listing (it only appears inline in P14's own scope note/FOL), so it is cited as text seen in the P14 concept dossier rather than as an independent identifier. Issue 488 (CRMsoc, 'acting at the behest of another') looked tempting but is a heavier delegation-between-organizations mechanism aimed at a different problem (agent acting for a principal's decisions); it was not needed here since P14 + P14.1 already covers a supervisor/executant split directly, per its own worked example."
+}

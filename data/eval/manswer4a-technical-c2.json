@@ -1,0 +1,36 @@
+{
+  "case_id": "technical-c2",
+  "answer": "Record the engine (E22 Human-Made Object) as produced once, in 1876, by one E12 Production. Do not give it a second E12 Production in 1932 -- that is exactly what would make the catalogue read as 'built twice'. Instead, model the 1932 event as a pair of E11 Modification subclasses acting on the engine itself: an E80 Part Removal that removed (P113) the cracked cast-iron beam and diminished (P112) the engine, and an E79 Part Addition that added (P111) the new steel beam and augmented (P110) the engine. Both E79 and E80 inherit P31 has modified from E11 Modification, so the engine is directly asserted as the thing modified -- that IS the 'more direct way of saying the engine itself was modified' the question is looking for; it does not have to be spelled out as a separate, generic modification statement. The new steel beam should still get its own E12 Production (1932, by the second firm) producing it as its own E22/E19 -- this is what carries the 'made by a different local firm' fact -- but that production event's P108 has produced points only at the beam, never at the engine, so it cannot be read as re-building the engine. So the answer to the literal question is: yes, treat the beam as a new part that is produced and then fitted (via Part Addition, paired with Part Removal of the old one) -- and this construction already gives you the direct 'engine was modified' statement for free, via P31 has modified on the E79/E80 events, without any separate mechanism needed. This matches the CIDOC CRM's own stated identity criteria: the archive confirms the SIG's position (Martin Doerr, thread t1170) that an object 'with all parts replaced is identical' as long as continuity of functionality/coherence holds, which is exactly this engine's situation (cylinder, flywheel, pump rods unchanged; only the beam swapped for one of the same dimensions and function).",
+  "classes_proposed": ["E22", "E12", "E79", "E80"],
+  "properties_proposed": ["P108", "P31", "P110", "P111", "P112", "P113"],
+  "rejected_alternatives": [
+    {"option": "E81 Transformation", "why_not": "concept E81's scope note explicitly distinguishes it from this kind of case: 'Instances of E81 Transformation are therefore distinct from re-classifications ... or modifications (documented using E11 Modification) of objects that do not fundamentally change their nature or identity.' The engine's nature/identity is unchanged (same cylinder, flywheel, pump rods, same function); only a like-for-like component was swapped, so E81 -- which requires the old thing to lose its identity and a fundamentally different new thing to result -- does not apply."},
+    {"option": "A second E12 Production for the engine in 1932", "why_not": "would give the engine two P108 has produced / P92 brought into existence events, which is precisely the 'built twice' reading the trust wants to avoid; E12 Production is for bringing a new item into existence, not for a component swap on a persisting object."},
+    {"option": "Treat the beam replacement only as an unstructured E11 Modification with no E79/E80 detail", "why_not": "possible but less direct than E79/E80: those are the CRM's own subclasses of E11 built specifically for the augment/diminish pattern of swapping a part, and they already carry the required P31 has modified on the engine, so nothing is gained by dropping to the more generic parent class."}
+  ],
+  "citations": ["E11", "E12", "E79", "E80", "E81", "P31", "P108", "P110", "P111", "P112", "P113",
+    {"id": "t1170", "quote": "an instance of E19 with all parts replaced is identical"}],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E11",
+    "concept E79",
+    "concept E80",
+    "search.py \"replacing a part of an object\"",
+    "threads \"replacement of a part\"",
+    "docs \"part replacement\" --kind narrative",
+    "thread t1170",
+    "connect E22 E18",
+    "connect E12 E22",
+    "connect E79 E22",
+    "connect E80 E22",
+    "docs \"identity of a physical object through part replacement\" --kind narrative",
+    "concept E81",
+    "quote t1170 \"an instance of E19 with all parts replaced is identical\"",
+    "connect E22 E22",
+    "search.py \"P46 is composed of\"",
+    "concept E12"
+  ],
+  "confidence": "high",
+  "notes": "The mailing-list find (t1170, Martin Doerr on Issue 369/E19 scope note) was the load-bearing piece: it gave the SIG's own stated identity criterion for physical objects surviving part replacement, which is the real crux of the case, not just a class lookup. Everything else followed from concept/connect on E11/E12/E79/E80/E81."
+}

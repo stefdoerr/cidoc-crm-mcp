@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "archives-c2",
+    "verdict": "wrong",
+    "constraint_checked": "P94 has created's scope note: 'It does not represent the act of creating the first physical carrier of the instance of E28... this is the composition of a poem, not its commitment to paper.' The answer posits a second P94/E65 event for the secretary -- 'P94 has created -> the E34 signature-inscription, P14 carried out by -> the secretary' -- but signing this letter is exactly a commitment of an already-existing signature to a new physical carrier, the case P94 explicitly excludes. (Domain/range formally hold: E34=>E33=>E73=>E28, so this is a scope-note exclusion, not a type error.)",
+    "better_modelling": "Reserve P94/E65 Creation for the clerk's composition of the text only. Treat the secretary's signature as an already-existing E34 Inscription (its own scope note: 'not ... an individual physical embodiment ... but the underlying prototype'); the letter (E22) simply P128 carries it -- no fresh creation event per letter. Any one-time creation of the signature-prototype itself is decoupled from this letter; the physical act of inking this sheet belongs to the object's production/modification, not to P94.",
+    "evidence": ["P94", "E34", "E28"],
+    "reasoning": "The rest of the answer (drafter/signer split via P94's own exclusion clause, E13-gated uncertainty, monotonicity, t1345/t1477 citations) checks out, but the mechanical construct for the secretary's half misapplies the very property whose exclusion clause justified the split."
+  },
+  {
+    "case_id": "archives-c3",
+    "verdict": "correct",
+    "constraint_checked": "E29 Design or Procedure / 'Activity Plan' rejected per t0483: Christian-Emil Ore's line 'CRM is defined to be retrospective and not talk about the future' is verified verbatim in the thread; no forward-looking class exists in the current 241-class core. E13 (subclass of E7) / P17 (E7->E1) / P2 (E1->E55) all satisfy domain/range for the retrospective decision-record path.",
+    "better_modelling": "None found -- tried E29 and a merged records-management extension; both independently ruled out by the archive's own quoted positions.",
+    "evidence": ["t0483", "E29", "E13", "P17", "P2"],
+    "reasoning": "The core claim (no core-CRM home for a scheduled future review date) rests on a verbatim-checked quote, and the fallback retrospective-decision model uses properties within their declared domain/range."
+  },
+  {
+    "case_id": "built-c1",
+    "verdict": "correct",
+    "constraint_checked": "E81's scope note names 'reconstructions ... of historical buildings' as characteristic and contrasts itself with E11 Modification ('objects that do not fundamentally change their nature or identity') -- verified verbatim. P123/P124 domain->range E81->E18 holds (E22 is subclass of E18). The dual E81+E12/P108 instantiation mirrors CRM's own worked example (Venetian Loggia -> City Hall) verbatim. t0821 (Doerr: relocated buildings 'by rule ... new, regardless how much similarity and old substance') and t1411 (Dominicanenkerk swapped out as 'rather an example for reuse than transformation') both verified verbatim.",
+    "better_modelling": "None found.",
+    "evidence": ["E81", "P123", "P124", "t0821", "t1411"],
+    "reasoning": "Every load-bearing citation checked out verbatim against the archive; the construct is the CRM's own canonical pattern for this exact scenario type."
+  },
+  {
+    "case_id": "built-c2",
+    "verdict": "correct",
+    "constraint_checked": "E4's scope note assigns geopolitical/administrative units to E4 Period (not E53), with a worked example of a unit persisting through spatial discontinuity (Capital of Russia). t1090 Doerr quote 'multiple inheritance yes, but with E92, not E53' verified verbatim. t1243 Doerr quote 'It is correct to regard \"Extent of Czechoslovakia 2000\" as an instance of E53 ... the solution is E4 or E27 for all those guys' verified verbatim. P89 scope note 'addresses spatial containment only' verified verbatim; P161 domain->range E92->E53 holds since E4 is subclass of E92.",
+    "better_modelling": "None found; the answer itself declines to invent a missing 'administratively succeeded by' property rather than fabricate one -- correct restraint.",
+    "evidence": ["E4", "P89", "P161", "t1090", "t1243"],
+    "reasoning": "Every load-bearing quote and domain/range chain checked out exactly; this is the CRM's own settled ruling on the identical Place-vs-Period question."
+  }
+]

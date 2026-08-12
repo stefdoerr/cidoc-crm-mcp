@@ -1,0 +1,13 @@
+{
+  "question_id": "2009-2011-q4",
+  "answer": "No. The CRM-SIG never committed to a comprehensive list of disjoint class pairs. Martin Scholz's 2011-11-22 post to crm-sig ('Implementation recommendation for disjointness', thread t0590) notes that the CIDOC CRM standard explicitly states 'A comprehensive declaration of all possible disjoint class combinations afforded by the CRM has not been provided here; it would be of questionable practical utility, and may easily become inconsistent with the goal of providing a concise definition,' and that issue 92 even proposed to 'abandon the idea of disjoint class declarations altogether.' Martin Doerr's reply in the same thread confirms this was a deliberate decision: 'In the past the CRM-SIG team gave up to define a comprehensive list of disjoint classes, because there were too many exceptions.' He explains only a few pairs are fundamental/unambiguous (E2 Temporal Entity vs E77 Persistent Item; E18 Physical Thing vs E28 Conceptual Object; Time-Span/Place/Dimension), while most other combinations are ambiguous: some classes can legitimately co-apply depending on context (e.g. a Physical Feature treated as synonymous with the Place it occupies), some combine in a genuine ontological sense (e.g. Destruction and Activity), and for events in general it is very hard to assert disjointness because doing so would require excluding any possible interaction between event types and separating their participants/space-time volumes -- he gives the chair-leg mending example (removal + addition documented as two events but possibly one action) to show why. He suggests disjointness statements be handled case-by-case as issues with use cases rather than as a blanket comprehensive list. A 2019-10-08 message from Maria Jose de Almeida (thread t1247, 'Disjointness') shows the same question being asked again years later, indicating no comprehensive list was ever produced in the interim either.",
+  "found": true,
+  "cited_threads": ["t0590"],
+  "queries_run": [
+    "search \"disjoint class pairs OWL\" -k 10",
+    "thread t0590",
+    "search \"comprehensive declaration disjoint class combinations\" -k 10 --after 2009 --before 2012"
+  ],
+  "confidence": "high",
+  "notes": "First query hit the exact thread directly on the first try (t0590, Nov 2011). Reading the full thread confirmed both the standard's own stated rationale (quoted by Martin Scholz) and Martin Doerr's detailed first-person explanation of why CRM-SIG abandoned the comprehensive-list idea. A later thread (t1247, 2019) shows the same question resurfacing, consistent with no list ever being finalized."
+}

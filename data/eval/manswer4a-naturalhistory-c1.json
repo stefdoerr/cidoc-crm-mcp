@@ -1,0 +1,61 @@
+{
+  "case_id": "naturalhistory-c1",
+  "answer": "Model this as a sampling event that creates a new object and modifies the original specimen -- not as a part removal that lets the extract inherit the moth's own identity. CRMsci makes this a real, named fork: S1 Matter Removal ('taking a tissue sample from a body' is one of its own examples) is the direct superclass of exactly two siblings, S2 Sample Taking and E80 Part Removal. S2's scope note is written for this case almost verbatim: sample taking removes 'an amount of matter... from a material substantial', and 'the removed matter may acquire a persistent identity of different nature beyond the act of its removal, such as becoming a physical object in the narrower sense.' The moth (E20 Biological Object, which is a subclass -- through E19/E18 -- of CRMsci's S10 Material Substantial) is only diminished by the S2 event (property O1 'diminished', declared on S1->S10 and inherited by S2), not destroyed, so it keeps its own catalogue number and its paratype status: E18/E20 identity criteria explicitly tolerate this kind of gradual material loss (S11 Amount of Matter's scope note draws the contrast: 'an instance of E18 Physical Thing may gradually change form and chemical composition preserving its identity... whereas an instance of S11 Amount of Matter may loose its identifying features by such processes'). The extract itself is exactly the case S11/S13 exist for: a confined amount of matter with no required stability of form ('The content may be put into another bottle without loosing its identity'), best read as S13 Sample (subclass of S11), and, being literally dissolved into a liquid, also as S12 Amount of Fluid -- both siblings under S11, multiply instantiable. Even staying strictly in CRMbase without CRMsci, E80 Part Removal's own scope note rules out the 'keep the specimen's identity' reading: 'In cases where the part removed has no discernible identity prior to its removal but does have an identity subsequent to its removal, the activity should be modelled as both an instance of E80 Part Removal and E12 Production.' The leg had no catalogue identity before clipping and does have one now, so CRM's own rule forces a new-object reading regardless of which option feels more natural to a curator. Choosing the new-object reading does not sever the extract's derivation from the paratype -- it is what makes that derivation an explicit, checkable statement instead of an implicit assumption: the same S2 Sample Taking event carries O3 'sampled from' (declared exactly on S2->S10, confirmed via connect) to the moth, and O5 'removed' (declared exactly on S2->S13) to the extract, giving a real path Extract --O5--> S2 Sample Taking --O3--> moth-still-identified-as-paratype. Folding the extract into the moth's own identity would instead blur the distinction curators care about: that type status attaches to the specimen, not to everything ever taken from it (the mailing list traces P137 'exemplifies' back to exactly this natural-history type-specimen use case).",
+  "classes_proposed": ["S2", "S13", "S12", "S11", "S10", "E20"],
+  "properties_proposed": ["O1", "O3", "O5"],
+  "rejected_alternatives": [
+    {
+      "option": "E80 Part Removal alone, with the extract continuing the moth's existing catalogue identity",
+      "why_not": "E80's own scope note requires pairing it with E12 Production (i.e. a new item) whenever the removed part 'has no discernible identity prior to its removal but does have an identity subsequent to its removal' -- exactly this case. It also cannot represent the extract's material nature: E18 Physical Thing identity presumes 'relative stability of material form', which a dissolved liquid extract does not have, per S11 Amount of Matter's contrast between E18 and S11 identity criteria."
+    },
+    {
+      "option": "E81 Transformation applied to the moth itself",
+      "why_not": "E81 requires 'the simultaneous destruction of one or more... Physical Thing and the creation of one or more... Physical Thing' -- the moth is not destroyed, it continues to exist under its own number, only diminished. That is what S1 Matter Removal / E80 (not E81) is for; E81's own examples (taxidermy, ruined buildings) are about the source object itself losing its old identity, which does not happen to the moth here."
+    }
+  ],
+  "citations": ["S1", "S2", "S10", "S11", "S12", "S13", "E80", "E81", "E20", "E83",
+    {"id": "t0375", "quote": "P137 was introduced to deal with type specimens in natural history"},
+    {"id": "t1080", "quote": "an interesting aspect of samples is that they can be split without loosing their identity"},
+    "Issue 332"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E80",
+    "concept E79",
+    "concept E20",
+    "concept E81",
+    "docs \"sample\" --kind narrative",
+    "docs \"specimen\"",
+    "docs \"DNA extraction sampling\"",
+    "concept S19",
+    "concept S4",
+    "docs \"paratype\"",
+    "docs \"type specimen taxonomy\"",
+    "concept E83",
+    "issues \"specimen sample\"",
+    "issues \"paratype voucher\"",
+    "threads \"DNA sample specimen collection\"",
+    "concept S2",
+    "concept S10",
+    "concept S11",
+    "concept S12",
+    "concept S13",
+    "concept S1",
+    "issue 717",
+    "\"holotype paratype specimen identity\" (mailing list)",
+    "issue 332",
+    "thread t1080",
+    "thread t0375",
+    "quote t0375 \"P137 was introduced to deal with type specimens in natural history\"",
+    "connect S2 E20",
+    "connect E80 E20",
+    "docs \"multiple instantiation\" --kind narrative",
+    "connect S13 E20",
+    "connect S2 S10",
+    "connect S2 S11",
+    "connect S2 S13",
+    "quote t1080 \"an interesting aspect of samples is that they can be split without loosing their identity\""
+  ],
+  "confidence": "high",
+  "notes": "connect S2/E80/S13 against E20 directly returned no O-prefixed properties (O1/O3/O5), even though CRMsci declares S10 as a superclass of E18 (hence E20); the same properties surfaced correctly once I ran connect against S10/S11/S13 directly. That looks like a gap in how `connect` traverses the CRMbase<->CRMsci cross-model hierarchy edge, not a real absence of the property -- worth knowing if you rely on `connect` for family-model classes against base classes."
+}

@@ -1,0 +1,46 @@
+{
+  "case_id": "classchoice-c1",
+  "answer": "Model the 1950s alteration as an E81 Transformation, not an E11 Modification / P31 has modified. The bodice was unpicked, the silk and lace panels recut and restitched, and the worn skirt fabric discarded outright -- the original wedding gown (E22 Human-Made Object) does not survive intact as the same unit of documentation; a new, distinct object (the christening gown, E22) comes into existence that preserves recognizable substance (the silk/lace) but has a fundamentally different nature and identity (different garment, different structure, part of the original matter discarded rather than retained). The E11 declaration itself carves this out of its own scope: 'An event should also be documented using an instance of E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities.' Use P124 transformed (E81 -> the wedding gown, taken out of existence) and P123 resulted in (E81 -> the christening gown, brought into existence). Two SIG decisions confirm this reading: Issue 12, which created the Transformation class in the first place, gives 'a piece of money becoming a piece of jewelry' as its own worked example of an object that 'preserves some recognizable identity' while becoming a new thing -- structurally identical to fabric from one garment becoming another garment. And Issue 287 records the SIG choosing E81 over E11 for a materially analogous case (print matrices) precisely because 'the matrix has a distinct identity both before and after the change... [even though] there can be considerable physical change to the plate.'",
+  "classes_proposed": ["E22", "E81"],
+  "properties_proposed": ["P123", "P124"],
+  "rejected_alternatives": [
+    {"option": "E11 Modification / P31 has modified", "why_not": "E11's own scope note excludes this case: 'An event should also be documented using an instance of E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities.' E11 is for changes that leave one object's identity intact; here the wedding gown as a unit of documentation ends (skirt fabric discarded, bodice unpicked) and a different garment begins."},
+    {"option": "E17 Type Assignment (re-classification only)", "why_not": "E81's declaration distinguishes itself from 're-classifications (documented using E17 Type Assignment)... of objects that do not fundamentally change their nature or identity.' The change here is not a re-typing of one persisting physical unit -- material was physically cut, recombined, and partly discarded -- so E17 alone would understate what happened."}
+  ],
+  "citations": [
+    "E81", "E11", "E22", "P123", "P124",
+    {"id": "crm732#E11", "quote": "In this case, the new items have separate identities"},
+    {"id": "issue12#current-s0000", "quote": "how to model, when things undergo a change of nature"},
+    {"id": "issue12#current-s0000", "quote": "a piece of money becoming a piece of jewelry"},
+    {"id": "issue287#outcome", "quote": "the matrix has a distinct identity both before and after the change"},
+    "t1396"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E11",
+    "docs \"transformation modification boundary\" --kind narrative",
+    "docs \"new items separate identities recut material\"",
+    "thread t1396",
+    "issue 509",
+    "issues \"modification versus transformation reused material\"",
+    "issue 287",
+    "issue 386",
+    "issue 12",
+    "concept P123",
+    "concept P124",
+    "concept E22",
+    "docs \"change of nature transformation\" --kind declaration --json",
+    "issues \"how to model, when things undergo a change of nature\" --json",
+    "issues \"matrix has a distinct identity both before and after the change\" --json",
+    "quote crm732#E11 \"the new items have separate identities\"",
+    "quote issue12#current-s0000 \"how to model, when things undergo a change of nature\"",
+    "quote issue12#current-s0000 \"a piece of money becoming a piece of jewelry\"",
+    "quote issue287#outcome \"the matrix has a distinct identity both before and after the change\"",
+    "quote crm732#E81 \"In this case, the new items have separate identities\" (NOT FOUND -- wrong chunk, right text is under E11 not E81)",
+    "quote t0936 \"the matrix has a distinct identity both before and after the change\" (NOT FOUND -- wrong id, right id is issue287#outcome)"
+  ],
+  "confidence": "high",
+  "notes": "First attempts to verify quotes against the wrong ids failed (t0936, plain '287', plain 'E81', plain '12') because concept dossiers and issue-register text aren't quote-checkable by their short id -- only the underlying doc chunk_id works, found via the --json flag on docs/issues search. Once I used the actual chunk ids (crm732#E11, issue287#outcome, issue12#current-s0000) every quote came back FOUND."
+}

@@ -1,0 +1,147 @@
+{
+  "case_id": "archives-c1",
+  "answer": "Record every handover as its own event. That is not archival maximalism; it is the construction the CRM is built around, and the \"creator plus current holder\" alternative is precisely the shape the SIG has spent years trying to get rid of.\n\n1. THE THREE HANDOVERS ARE THREE INSTANCES OF E10 TRANSFER OF CUSTODY. 1934 parish -> municipal council registry office; 1988 council -> county record office; 2010 county record office -> you. Each instance carries P30 transferred custody of (the ledgers), P28 custody surrendered by (the outgoing body), P29 custody received by (the incoming body) and P4 has time-span (an E52 Time-Span for the year). The E10 scope note lists exactly this among the situations it covers: \"the transfer of custody (transfer from one custodian to the next)\". P30 is quantified as necessary on E10, so an instance of E10 that does not say what was handed over is incomplete by the model's own reckoning.\n\n2. CUSTODY AND OWNERSHIP ARE DIFFERENT EVENTS, AND YOUR CASE CONTAINS BOTH. The E10 declaration states that \"The CIDOC CRM therefore models legal ownership and physical custody separately\". 1988 was a deposit: custody moved, title did not, so it is an E10 alone. 2010 was a formal donation: model the title transfer as an E8 Acquisition (P24 transferred title of, P23 transferred title from, P22 transferred title to) alongside the E10 for the physical handover. Without that pair you have no way to express the difference between \"deposited\" and \"donated\", which for an archive is the whole legal question. E10 also spans both physical possession and legal responsibility for custody; where only one of the two actually moved, the scope note directs that \"this difference should be expressed using the property P2 has type\". That is useful for 1934 if the council assumed responsibility on absorption before or without the volumes physically moving.\n\n3. WHY \"CREATOR AND CURRENT HOLDER\" IS NOT ENOUGH. P50 has current keeper is defined as a shortcut for exactly the path you would be omitting - E18 Physical Thing, P30i, E10 Transfer of Custody, P29, E39 Actor - and only holds if custody was never surrendered afterwards. Its FOL is a weak implication (P50 <= the path, not <=>), so the events cannot be recovered from the shortcut. The specification's own definition of a shortcut says they exist \"for the cases where common documentation practice refers only to the deduction rather than to the fully developed path\", i.e. for documenting less than you know. You have four signed notes with dates: you are not in that case. Modelling principles > Monotonicity is more direct still: \"If a more specific temporal knowledge is required/available, it is recommended to explicitly describe the events leading to the assertion of that property for that item\", and the CRM \"gives priority to modelling properties as time-neutral, and rather representing changes by events\". The same section warns that \"the use of such properties in the CRM is only recommended if they can be maintained consistently\", and singles out export to another repository - which is what your 2010 accession was, three times over.\n\nThe SIG has gone further than the spec text. Issue 616 (closed Belval, December 2022) records that \"current\" properties \"need external curation and also break the basic assumption that a CIDOC CRM KB/database store accumulate history\", with a proposal to deprecate P50, P52 and P55; the SIG held off only because no replacement mechanism for expressing current validity existed, and opened Issue 634 for that. Issue 634 was itself closed (Paris, March 2024) noting general discontent with the \"has|is current xxx\" properties because they \"require a lot of curating and present a simplistic view of the world\". Building a chain-of-custody record on P50 means building it on a property its own maintainers have twice recommended against.\n\nP49 has former or current keeper is the safer half-measure - it \"leaves open the question as to whether the specified keepers are current\" - but it is itself declared a shortcut for the same E10 path, and it yields an unordered set of four bodies with no dates, no direction, and no way to attach the right handover note to the right handover.\n\n4. THE HANDOVER NOTES ARE WHAT MAKES THE CHAIN AUDITABLE, AND THEY NEED THE EVENTS TO POINT AT. Each signed note is an E31 Document with P70 documents -> the E10 (and, for 2010, the E8) that it evidences; connect confirms P70 is the property joining E31 to E10, and it is quantified as necessary on E31. If you also want the physical signed sheet, that is an E22 Human-Made Object which P128 carries the E31. This is the practical payoff of modelling the transfers as events: collapse them and there is nothing for the notes to attach to, and the custody statement becomes an unsourced assertion by you.\n\n5. THE REST OF THE PICTURE. The ledgers are instances of E22 Human-Made Object (a subclass of E18, so P30 applies). \"Who created them\" is an E12 Production, P108 has produced the ledgers, P14 carried out by the overseer - and note that E74 Group explicitly covers \"official positions which used to be regarded in certain contexts as one actor, independent of the current holder of the office\", so the office of overseer of the poor can be the creator, which is usually what an archivist means, rather than whichever individual held the post. The parish, the council, the county record office and your own archive are likewise instances of E74 Group.\n\nOne judgement call the tools do not settle: whether the 1934 absorption makes the parish and the council two actors or one continuing actor. If your registry treats the council as the parish's legal successor, the 1934 note may evidence an internal transfer rather than a change of custodian. The CRM will record the E10 either way but will not decide it for you; P134 continued (E7 -> E7) is available if you want to assert that one custodial regime intentionally continued another, though it speaks to continuation of activity, not identity of actor.\n\nBOTTOM LINE: yes, record each handover, with its date, its surrendering and receiving actor, and its note. It costs three E10s plus one E8. What it buys is the only representation in which \"deposited in 1988\" and \"donated in 2010\" are different facts, in which the 1934 and 1988 custodians survive at all, and in which the chain can be audited against the signed notes. You may still keep P50 as a maintained convenience index over the events, but not as the record itself.",
+  "classes_proposed": ["E10", "E8", "E22", "E31", "E12", "E74", "E52"],
+  "properties_proposed": ["P30", "P28", "P29", "P4", "P2", "P24", "P23", "P22", "P70", "P128", "P108", "P14", "P49"],
+  "rejected_alternatives": [
+    {
+      "option": "P50 has current keeper alone (record only who holds them now)",
+      "why_not": "It is declared a shortcut for the very path being omitted (E18, P30i, E10, P29, E39) and its FOL is a weak implication, so the 1934 and 1988 custodians are simply unrecoverable. Modelling principles > Monotonicity permits such properties only where they can be maintained consistently, and the SIG's own register (Issue 616, Belval Dec 2022; Issue 634, Paris Mar 2024) records a proposal to deprecate P50/P52/P55 because they break the assumption that a CRM knowledge base accumulates history."
+    },
+    {
+      "option": "P49 has former or current keeper, listing all four custodians without events",
+      "why_not": "Better than P50 because it is time-neutral, but it is also a declared shortcut for the E10 path and it produces an unordered set: no dates, no direction of transfer, no pairing of surrenderer with receiver, and nowhere to hang the signed handover note that evidences each step."
+    },
+    {
+      "option": "One E10 Transfer of Custody covering 1934 to 2010",
+      "why_not": "P28 and P29 would then name four actors on a single event with no way to pair each surrender with the matching receipt, and P4 would give a 76-year time-span for an instantaneous handover. Each signed note also evidences one specific transfer, and P70 would have nothing specific to document."
+    },
+    {
+      "option": "E13 Attribute Assignment to record the archive's belief about who held the ledgers",
+      "why_not": "It would document your act of asserting custody rather than the custody transfer itself. The handover notes are contemporary evidence of real events, not your attributions, and E10 with a documenting E31 already carries the evidential link."
+    }
+  ],
+  "siblings_considered": [
+    {
+      "of": "E10",
+      "sibling": "E9",
+      "why_not": "E9 Move records change of physical location, not of responsibility. The three handovers are about who is answerable for the ledgers; a record office could shift them between strongrooms with no custody change, and the 1934 absorption could transfer responsibility without immediate physical movement. Where a handover was also a physical relocation, an E9 can be recorded in addition, but it cannot carry P28/P29."
+    },
+    {
+      "of": "E8",
+      "sibling": "E87",
+      "why_not": "E87 Curation Activity covers management and preservation of an E78 Curated Holding under a curation plan. Accessioning the ledgers in 2010 is such an activity, but it says nothing about legal title, which is exactly what the formal donation changed and what distinguishes 2010 from the 1988 deposit. Only E8 carries P22/P23/P24."
+    },
+    {
+      "of": "E22",
+      "sibling": "E78",
+      "why_not": "E78 Curated Holding is for aggregations assembled and maintained \"according to a particular collection development plan\". The parish ledgers were accumulated as the by-product of poor-relief administration, not assembled to a collection plan; E78 fits your archive's holdings as a whole. The volumes handed over are ordinary persistent physical objects, so E22. Either would satisfy P30 (both are E18), so this is a choice about what the ledgers are, not about whether the custody path works."
+    },
+    {
+      "of": "E31",
+      "sibling": "E33",
+      "why_not": "The handover notes are also linguistic objects, but E33 Linguistic Object says only that they are expressions in language. What matters here is that they make propositions about what was transferred, and only E31 Document carries P70 documents to link a note to the transfer event it evidences. E33 can be co-instantiated if the language of the note matters."
+    },
+    {
+      "of": "E12",
+      "sibling": "E65",
+      "why_not": "E65 Creation results in conceptual or immaterial items. Custody applies to instances of E18 Physical Thing, so what must be brought into existence for the chain to have a subject is the physical volumes, which is E12 Production (P108 has produced). The writing of the ledgers can be recorded as both, as the CRM's own E12 example does by tagging the Rembrandt etching state (E12, E65, E81), but E65 alone would leave the transferred object unaccounted for."
+    },
+    {
+      "of": "E74",
+      "sibling": "E21",
+      "why_not": "The custodians in this chain are corporate bodies that persist across staff turnover - a parish, a council's registry office, a county record office, your archive - and E74 Group explicitly extends to offices held independently of the current holder, which is what \"the overseer\" is in archival terms. The individuals who signed the notes are instances of E21 Person and can be recorded as P14 carried out by on the same events, but they are not the custodians."
+    },
+    {
+      "of": "E52",
+      "sibling": "E2",
+      "why_not": "E2 Temporal Entity is the closest sibling and is not really a rival: the happenings themselves are already covered by E10 and E8, which are subclasses of E2. 1934, 1988 and 2010 are temporal extents with no phenomena of their own, which is exactly what E52 Time-Span is for; the CRM says instances of E52 \"have no semantic connotations about phenomena happening within the temporal extent they represent\"."
+    }
+  ],
+  "citations": [
+    "E10",
+    "E8",
+    "E22",
+    "E31",
+    "E12",
+    "E74",
+    "E52",
+    "E78",
+    "E9",
+    "E87",
+    "E65",
+    "P30",
+    "P28",
+    "P29",
+    "P49",
+    "P50",
+    "P134",
+    "Modelling principles > Monotonicity",
+    "Introduction > Applied Form > Shortcuts",
+    {"id": "crm732#E10", "quote": "The CIDOC CRM therefore models legal ownership and physical custody separately"},
+    {"id": "crm732#E10", "quote": "this difference should be expressed using the property P2 has type"},
+    {"id": "crm732#s0058", "quote": "it is recommended to explicitly describe the events leading to the assertion of that property for that item"},
+    {"id": "crm732#s0058", "quote": "rather representing changes by events"},
+    {"id": "crm732#s0059", "quote": "the use of such properties in the CRM is only recommended if they can be maintained consistently"},
+    {"id": "crm732#s0018", "quote": "Shortcuts are introduced for the cases where common documentation practice refers only to the deduction rather than to the fully developed path"},
+    {"id": "crm732#P49", "quote": "leaves open the question as to whether the specified keepers are current"},
+    {"id": "crm732#E74", "quote": "official positions which used to be regarded in certain contexts as one actor, independent of the current holder of the office"},
+    {"id": "t1673", "quote": "the basic assumption that a CIDOC-CRM KB/database store accumulate history"},
+    {"id": "minutes:55th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO#s042", "quote": "need external curation and also break the basic assumption that a CIDOC CRM KB/database store accumulate history"},
+    {"id": "minutes:58CIDOC_CRM_SIG_Minutes#s054", "quote": "require a lot of curating and present a simplistic view of the world"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E10",
+    "concept P50",
+    "thread t1673",
+    "issue 616",
+    "concept P49",
+    "concept P30",
+    "docs \"shortcut properties and the fully developed path they stand for\" --kind narrative",
+    "docs \"monotonicity time dependent properties change many times asserting\" --kind narrative",
+    "docs \"knowledge base accumulates history events rather than current state\" --kind narrative",
+    "--help",
+    "docs \"fourth consequence of monotonicity time dependent properties\" --kind narrative --raw -k 3",
+    "docs \"fourth consequence of monotonicity time dependent properties\" --kind narrative --json -k 2",
+    "docs \"current state relative to some property such as current location or current owner database manager\" --kind narrative --json -k 2",
+    "docs \"shortcuts declared as shortcuts of longer more comprehensively articulated paths\" --kind narrative --json -k 2",
+    "concept E8",
+    "concept E31",
+    "docs \"current state relative to some property such as current location or current owner database manager\" --kind narrative --json -k 1",
+    "docs \"shortcuts declared as shortcuts of longer more comprehensively articulated paths\" --kind narrative --json -k 1",
+    "connect E10 E31",
+    "connect E10 E22",
+    "issue 473",
+    "issue 475",
+    "threads \"archival chain of custody provenance of records deposit transfer between repositories\"",
+    "thread t1409",
+    "issues \"when to stop documenting provenance chain of custody\"",
+    "concept E12",
+    "concept E22",
+    "concept E74",
+    "concept P134",
+    "concept P28",
+    "concept P29",
+    "quote crm732#s0058 \"it is recommended to explicitly describe the events leading to the assertion of that property for that item\"",
+    "quote crm732#s0058 \"rather representing changes by events\"",
+    "quote crm732#s0018 \"Shortcuts are introduced for the cases where common documentation practice refers only to the deduction rather than to the fully developed path\"",
+    "quote crm732#s0059 \"the use of such properties in the CRM is only recommended if they can be maintained consistently\"",
+    "quote t1673 \"the basic assumption that a CIDOC-CRM KB/database store accumulate history\"",
+    "quote minutes:55th_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO#s042 \"need external curation and also break the basic assumption that a CIDOC CRM KB/database store accumulate history\"",
+    "docs \"E10 Transfer of Custody legal responsibility physical possession P2 has type\" --kind declaration --json -k 2",
+    "quote crm732#E10 \"The CIDOC CRM therefore models legal ownership and physical custody separately\"",
+    "quote crm732#E10 \"this difference should be expressed using the property P2 has type\"",
+    "issue 634",
+    "issues \"current keeper shortcut deprecate accumulate history\" --json -k 2",
+    "quote minutes:58CIDOC_CRM_SIG_Minutes#s054 \"they require a lot of curating and present a simplistic view of the world\"",
+    "concept E52",
+    "quote minutes:58CIDOC_CRM_SIG_Minutes#s054 \"require a lot of curating and present a simplistic view of the world\"",
+    "quote crm732#E74 \"official positions which used to be regarded in certain contexts as one actor, independent of the current holder of the office\"",
+    "quote crm732#P49 \"leaves open the question as to whether the specified keepers are current\"",
+    "connect E22 E31"
+  ],
+  "confidence": "high",
+  "notes": "Three friction points. (1) `docs` truncates each hit to roughly 300 characters and `--raw` does not change that; the only way to read a full passage, and the only way to obtain the chunk id needed for `quote`, was `--json`. That is not discoverable from the brief. (2) `concept E10` reports \"No CIDOC CRM v7.3.2 narrative passages mention E10 directly\", so the guidance that actually decides this case had to be assembled from the Monotonicity and Shortcuts principles plus the issue register, none of which name E10. The path from the question to those sections was not something search over the case's own vocabulary found; I had to guess at 'monotonicity' and 'shortcut' as the operative abstractions. (3) `threads` on archival custody mostly returned CIDOC/EGAD liaison discussions about Records in Contexts rather than modelling guidance (t1306, t0952); I did not open them, so I make no claim about RiC alignment. One substantive point I could not settle with the tools: whether an actor that absorbs another is the same actor for custody purposes. Issue 473 (Normal Custodian Of, closed Oct 2020) is the nearest thing and was dropped as too museum-specific."
+}

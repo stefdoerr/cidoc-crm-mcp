@@ -1,0 +1,43 @@
+{
+  "case_id": "naturalhistory-c3",
+  "ranking": ["B", "C", "A"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 5,
+      "breadth": "under-specified",
+      "illegal_properties": [
+        "P16 used specific object (domain E7 Activity -> range E70 Thing): A's S4 observation is said to have 'P16 used specific object -> the sample', where 'the sample' is the entity A just typed as an instance of S2 Sample Taking. S2 is the removal *activity*, not an E70 Thing, so pointing P16 at it is a domain/range violation -- a direct consequence of the S2/S13 conflation below."
+      ],
+      "scope_note_violations": [
+        "S2 Sample Taking: A writes 'the tissue removed for sequencing is an S2 Sample Taking.' S2's scope note defines the class as 'the activity that results in taking an amount of matter as sample' -- it is the removal event, not the removed matter. The removed tissue itself is S13 Sample (confirmed: concept S13, 'amount of matter... taken... for further analysis', linked from S2 via O5 removed). A never introduces S13 and instead types the physical tissue as an event."
+      ],
+      "unsupported_citations": [
+        "Issue 241: cited as the source for 'information outside the CRM's formally defined semantics can at best be parked as an unstructured P3 has note, never as a modelled fact.' Issue 241 ('Wider practical scope note of CRM') is actually about broadening the Introduction's description of the CRM's practical scope to cover sciences generally -- its background/outcome text (checked directly) says nothing resembling a note-only restriction. The citation does not support the claim it is attached to.",
+        "Modelling principles > Minimality: cited for the same claim. Minimality is about not declaring redundant complement classes under Open World semantics; it says nothing about disallowing content-bearing properties. In fact P190 has symbolic content (domain E90 Symbolic Object, range E62 String, confirmed live in crm732#P190) exists precisely to hold the content of a Symbolic Object, and E31/E73/D9 are all subclasses of E90. A never considers typing the sequence as its own Document/Data Object (the move both B and C make) and so never encounters P190; its claim that no modelled-fact option exists is false, not merely a defensible judgment call."
+      ],
+      "verdict": "A's headline claim -- that the CRM offers no way to hold the sequence as a modelled fact, only an unstructured note -- is factually wrong (P190 has symbolic content exists for exactly this, reachable from any E90 Symbolic Object including E31/E73/D9) and the two citations offered for it do not say what A implies. Separately, A types the physical tissue sample as an instance of S2 Sample Taking, which is the removal event, not the removed matter, producing a class that violates its own scope note and an illegal P16 range. A's collection-management/pointer framing is reasonable in outline, but it is built on a false claim about what the model can do and a category error in its one CRMsci construction."
+    },
+    {
+      "label": "B",
+      "class_count": 6,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "All six classes (E20, S4, D9, E42, E15, E17) do distinct, checkable work, and every spot-checked quote (crm732#P190, crm732#P200, issue77#background-s0000, issue76#background-s0000, t1736, t0610) matched the source verbatim and in the sense B uses it. B independently catches a real tool defect (concept reports P200 as 'deprecated' from the v7.1.3 XML, while the v7.3.2 docs corpus shows it live and traces it correctly to Issue 490/t1736, the actual proposal that became P200) and is transparent about a genuine uncertainty (falling back to O16+P140 instead of O8 for the S4-observes-specimen link because `connect S4 E20` does not surface O8, even though the S10/S15 hierarchy supports it). Its closing move -- replace the bootstrap number with the taxonomic determination as an E17 Type Assignment -- is anchored in Issue 77's own settled outcome ('determination is an example of Type assignment in the biological sciences'), the single most on-point piece of SIG history in the whole case, and it explicitly rejects the CRMinf per-clade-belief route by citing the unresolved P141-precision problem (t0610) on point."
+    },
+    {
+      "label": "C",
+      "class_count": 8,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "S4, D9, E42, E15, S6, I2, I4, I6 each do real work (S6/I2/I4/I6 is the minimal legal chain CRMinf requires to hold one attributed confidence value: J2/J4/J5 all check out against the concept dossiers and connect output, including I4-P129->E20). Every spot-checked quote (crm732#s0050, crm732#E13, t0231, t1494, t1035, minutes:...#s126) matched verbatim, and C is unusually careful to flag where its own citations don't fully transfer (noting the Sanderson/Doerr belief-quantification exchange is about subjective confidence, not a reproducible bootstrap statistic, and using it anyway only as background). One real defect: E20 Biological Object is used throughout the prose ('an E20 Biological Object') but is missing from classes_proposed -- exactly the under-specification symptom the brief warns about, though here it is a bookkeeping gap rather than a modelling one, since the prose does type it. C also confidently asserts O8 observed -> E20 where the connect tool doesn't confirm it (like B, it found the same S10/S15 gap, but chose to trust the concept dossier rather than fall back)."
+    }
+  ],
+  "decisive_difference": "A is separated from B and C by concrete, checkable errors, not by taste: its central 'the CRM cannot represent the sequence content, only a note' claim is false (P190 has symbolic content exists for exactly this on any E90 Symbolic Object, which is what B and C both use via D9), the two citations offered for that claim do not say what A implies on inspection, and its one CRMsci construction types a physical tissue sample as an instance of the *removal activity* (S2) rather than the sample (S13), producing an illegal P16 application downstream. B and C are close: both are exhaustively checkable, both independently surfaced real defects in the search tooling and reported them honestly, and both handle the bootstrap-value half of the case as a genuine judgment call rather than manufacturing false certainty. B edges ahead because its resolution of that half -- record the taxonomic determination as an E17 Type Assignment instead of the raw statistic -- rests on Issue 77's own settled SIG outcome, the most directly on-point piece of history in the archive for this case, used as the decisive move rather than as background; C's parallel construction (S6 -> I2/I4/I6) is elegant and legal but more speculative and explicitly hedged ('if the placement matters curatorially'), and C's answer has a minor under-specification tell (E20 typed in prose but absent from classes_proposed) that B does not have.",
+  "confident": false,
+  "notes": "The A-vs-{B,C} split is well-evidenced and I would not expect it to move on a re-read. The B-vs-C order is a closer call: both pass every mechanical check I could run (legality, scope notes, citation fidelity), and the case for C over B (a more precisely scoped answer that avoids the taxonomic-determination scope-add, and a genuinely correct CRMinf construction for the harder half of the question) is nearly as strong as the case for B over C. I resolved it toward B on the strength of Issue 77's outcome being used as B's decisive move rather than background, but a re-read could plausibly flip this pair. No provenance guess: nothing in the three answers' style, tool-call patterns, or self-reported friction pointed to a particular system or run."
+}

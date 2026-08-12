@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="crm.xsl"?>
+<!-- CIDOC CRM encoding of the Houmuwu ding, after the form of
+     https://old.cidoc-crm.org/docs/amol/crm_amol_1.xml and
+     https://old.cidoc-crm.org/docs/clayton/crm_clayton1.xml
+     Source of content: https://en.wikipedia.org/wiki/Houmuwu_ding
+     Instances co-refer by their label text, as in the clayton example.
+     Encoding is UTF-8 rather than the examples' ISO-8859-1 because the
+     subject requires Chinese characters. -->
+<CRMset>
+
+  <!-- ============================================================
+       1. THE OBJECT
+       ============================================================ -->
+  <CRM_Entity>Houmuwu ding
+    <in_class>E22: Human-Made Object</in_class>
+
+    <!-- identity: the name changed, and the reading behind it is disputed -->
+    <is_identified_by>后母戊鼎 (Houmuwu ding)
+      <in_class>E42: Identifier</in_class>
+      <has_type>current accepted name of the vessel
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_note>Hòumǔwù dǐng. In use as the accepted designation since the National Museum of China renamed the vessel in March 2011.</has_note>
+      <has_alternative_form>司母戊鼎 (Simuwu ding)
+        <in_class>E42: Identifier</in_class>
+        <has_type>reading of the same three-character inscription
+          <in_class>E55: Type</in_class>
+        </has_type>
+      </has_alternative_form>
+    </is_identified_by>
+
+    <is_identified_by>司母戊鼎 (Simuwu ding)
+      <in_class>E42: Identifier</in_class>
+      <has_type>superseded name of the vessel
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_note>Sīmǔwù dǐng. The accepted designation from Guo Moruo's naming until March 2011; still cited in the literature.</has_note>
+    </is_identified_by>
+
+    <is_identified_by>司母戊大方鼎 (Simuwu Large Square Ding)
+      <in_class>E42: Identifier</in_class>
+      <has_type>superseded name of the vessel
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_note>The name given by Zhang Feng in November 1946.</has_note>
+    </is_identified_by>
+
+    <has_preferred_identifier>后母戊鼎 (Houmuwu ding)
+      <in_class>E42: Identifier</in_class>
+    </has_preferred_identifier>
+
+    <was_attributed_by>Naming of the vessel by Zhang Feng, November 1946
+      <in_class>E15: Identifier Assignment</in_class>
+    </was_attributed_by>
+    <was_attributed_by>Naming of the vessel by Guo Moruo
+      <in_class>E15: Identifier Assignment</in_class>
+    </was_attributed_by>
+    <was_attributed_by>Renaming of the vessel by the National Museum of China, March 2011
+      <in_class>E15: Identifier Assignment</in_class>
+    </was_attributed_by>
+
+    <!-- classification and intended use -->
+    <has_type>rectangular ding (fangding)
+      <in_class>E55: Type</in_class>
+      <has_broader_term>ding (vessel)
+        <in_class>E55: Type</in_class>
+        <has_broader_term>Chinese ritual bronze
+          <in_class>E55: Type</in_class>
+        </has_broader_term>
+      </has_broader_term>
+    </has_type>
+    <had_as_general_use>sacrifice
+      <in_class>E55: Type</in_class>
+      <has_note>The article calls the ding a "sacrificial vessel, one of the common types of Chinese ritual bronzes". No individual act of use is recorded.</has_note>
+    </had_as_general_use>
+    <was_classified_by>Confirmation as a Shang dynasty bronze vessel, October 1946
+      <in_class>E17: Type Assignment</in_class>
+    </was_classified_by>
+
+    <!-- material -->
+    <consists_of>bronze
+      <in_class>E57: Material</in_class>
+    </consists_of>
+
+    <!-- dimensions (amol convention, with the real P90/P91 labels) -->
+    <has_dimension>Houmuwu ding H
+      <in_class>E54: Dimension</in_class>
+      <has_type>Height
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>133.0</has_value>
+      <has_unit>cm
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+    <has_dimension>Houmuwu ding W
+      <in_class>E54: Dimension</in_class>
+      <has_type>Width
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>110.0</has_value>
+      <has_unit>cm
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+    <has_dimension>Houmuwu ding D
+      <in_class>E54: Dimension</in_class>
+      <has_type>Depth
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>79.0</has_value>
+      <has_unit>cm
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+    <has_dimension>Houmuwu ding Weight
+      <in_class>E54: Dimension</in_class>
+      <has_type>Weight
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_value>832.84</has_value>
+      <has_unit>kg
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+      <is_referred_to_by>Li Song, Chinese Bronze Ware (2011)
+        <in_class>E31: Document</in_class>
+        <has_note>Page 28.</has_note>
+      </is_referred_to_by>
+    </has_dimension>
+
+    <!-- parts the article names -->
+    <is_composed_of>Legs of the Houmuwu ding
+      <in_class>E24: Physical Human-Made Thing</in_class>
+      <has_note>Four legs. The vessel is of the rectangular type, with four legs.</has_note>
+    </is_composed_of>
+    <is_composed_of>Handles of the Houmuwu ding
+      <in_class>E24: Physical Human-Made Thing</in_class>
+      <has_note>Two handles.</has_note>
+      <shows_visual_item>Tiger-pair-and-human-head motif of the Houmuwu ding handles
+        <in_class>E36: Visual Item</in_class>
+      </shows_visual_item>
+    </is_composed_of>
+    <has_section>Interior wall of the Houmuwu ding
+      <in_class>E53: Place</in_class>
+      <has_note>The surface bearing the three-character inscription.</has_note>
+    </has_section>
+    <has_section>Outer sides of the Houmuwu ding
+      <in_class>E53: Place</in_class>
+      <has_note>Each side has a blank space in the middle, surrounded by a band of decoration.</has_note>
+    </has_section>
+
+    <!-- decoration and inscription -->
+    <shows_visual_item>Taotie and kuilong decorative band of the Houmuwu ding
+      <in_class>E36: Visual Item</in_class>
+    </shows_visual_item>
+    <bears_feature>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </bears_feature>
+
+    <!-- making -->
+    <was_produced_by>Production of the Houmuwu ding
+      <in_class>E12: Production</in_class>
+    </was_produced_by>
+
+    <!-- rediscovery -->
+    <was_object_encountered_through>Unearthing of the Houmuwu ding, 1939
+      <in_class>S19: Encounter Event</in_class>
+    </was_object_encountered_through>
+
+    <!-- custody -->
+    <has_current_keeper>National Museum of China
+      <in_class>E74: Group</in_class>
+    </has_current_keeper>
+    <has_current_location>National Museum of China, Beijing
+      <in_class>E53: Place</in_class>
+    </has_current_location>
+    <was_present_at>Inspection of the ding by Chiang Kai-shek, 1948
+      <in_class>E7: Activity</in_class>
+    </was_present_at>
+    <was_used_for>Special display "ancient Chinese bronze art", National Museum of China, from March 2011
+      <in_class>E7: Activity</in_class>
+    </was_used_for>
+
+    <!-- free-text statements the article makes about the object -->
+    <has_note>Rectangular bronze ding (sacrificial vessel), one of the common types of Chinese ritual bronzes, of the ancient Chinese Shang dynasty; 12th century BC.
+      <has_type>Statement
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The heaviest piece of bronzeware to survive from anywhere in the ancient world; the largest and heaviest ancient Chinese bronzeware yet discovered; the only one of its kind in the world, and a representative work of Shang bronzeware.
+      <has_type>Statement
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>Compared to earlier ding, such as the Duling fangdings, it is wider and its walls are thicker, making it much more massive. (The Duling fangdings are not modelled here; the comparison is recorded as a descriptive statement about this vessel.)
+      <has_type>Description
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article records no condition state, no conservation report and no assessment of the vessel's state of preservation. Nothing is modelled for condition.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article records no reconstruction, restoration, repair or physical alteration of the vessel, whether current, later reversed or superseded. Nothing is modelled for alteration. What did change and was superseded is the vessel's name, which is modelled under identity.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article records no acquisition, no transfer of legal title, no purchase, no gift and no legal determination of ownership at any date. No instance of E8 Acquisition is modelled. Custody is asserted only to the extent the article supports it: the vessel is at the National Museum of China.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article records no depositional event for the vessel: no burial, no tomb, no stratigraphic context, no grave assemblage. It is said only to have been "unearthed". Tomb 260 at Yinxu, the tomb of Fu Jing, is mentioned but is NOT stated to be the vessel's findspot; the article in fact contrasts the two, the vessel having been found in 1939 at Wuguan Village and the tomb only located in 1959. No deposition is modelled.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+
+    <!-- sources and images -->
+    <is_documented_in>HouMuWuDingFullView.jpg
+      <in_class>E31: Document</in_class>
+      <has_note>Photograph: the Houmuwu ding at the National Museum of China.</has_note>
+    </is_documented_in>
+    <is_documented_in>Chiang and HouMuWu Ding.jpg
+      <in_class>E31: Document</in_class>
+      <has_note>Photograph: Chiang Kai-shek (right) inspecting the Houmuwu ding in 1948.</has_note>
+    </is_documented_in>
+    <is_referred_to_by>Li Song, Chinese Bronze Ware (2011)
+      <in_class>E31: Document</in_class>
+      <has_note>Cambridge: Cambridge University Press, ISBN 978-0-521-18685-8, pages 28-30. Cited for the dimensions, the reading of the inscription as "Queen Mother Wu", and the decoration.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>The National Museum of China (China Culture, Ministry of Culture PRC)
+      <in_class>E31: Document</in_class>
+      <has_note>Web page, archived 2014-05-27. Cited for the claim that this is the heaviest bronzeware to survive from anywhere in the ancient world.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>Yu Chenglong (ed.), "Houmuwu" bronze rectangular ding, National Museum of China
+      <in_class>E31: Document</in_class>
+      <has_note>Museum catalogue web page, in Chinese. Cited for the 1939 unearthing at Wuguan Village, Anyang, Henan.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>《文化百科》 20120702 司母戊鼎, 央视网 (CCTV), 2012-07-02
+      <in_class>E31: Document</in_class>
+      <has_note>Cited for the claim that the vessel is the largest and heaviest ancient Chinese bronzeware yet discovered and the only one of its kind.</has_note>
+    </is_referred_to_by>
+  </CRM_Entity>
+
+  <!-- ============================================================
+       2. ITS MAKING
+       ============================================================ -->
+  <CRM_Entity>Production of the Houmuwu ding
+    <in_class>E12: Production</in_class>
+    <has_produced>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </has_produced>
+    <carried_out_by>Zu Geng of Shang
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <employed>bronze
+      <in_class>E57: Material</in_class>
+    </employed>
+    <used_general_technique>bronze casting
+      <in_class>E55: Type</in_class>
+    </used_general_technique>
+    <has_time-span>after the death of Fu Jing; 12th century BC
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1200 BC/1101 BC</at_some_time_within>
+      <beginning_is_qualified_by>after the death of Fu Jing</beginning_is_qualified_by>
+    </has_time-span>
+    <starts_after_or_with_the_end_of>Death of Fu Jing
+      <in_class>E69: Death</in_class>
+    </starts_after_or_with_the_end_of>
+    <forms_part_of>Shang dynasty
+      <in_class>E4: Period</in_class>
+    </forms_part_of>
+    <has_note>The attribution of the making to Zu Geng is presumptive, not established: the article says the ding "was made after her death, presumably by her son, Zu Geng of Shang". The maker is modelled with P14 carried out by because that is the only relation the article offers, and the presumption is recorded here rather than by silently asserting or silently omitting it.
+      <has_type>Attribution note
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article gives no place of production. Anyang is where the vessel was found, not where the article says it was made. No P7 took place at is asserted.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>Casting is taken from the article's statement that "the tripod was cast by Wu's son to worship his mother", which is reported there as part of Guo Moruo's reading of the inscription rather than as an independent technical finding. No mould, no workshop and no piece-mould procedure is described.
+      <has_type>Technique note
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The dating rests on two article statements that are not reconciled with each other: the article's own summary describes the vessel as 12th century BC, while the body dates the making only relatively, as after the death of Fu Jing, queen of Wu Ding. Both are recorded; neither is resolved into the other.
+      <has_type>Dating note
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_referred_to_by>Li Xueqin, 谈新出现的妇妌爵 (On the newly discovered jue of Fu Jing), Wenbo 2012 no. 3
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 13-14. Cited for the making of the ding after Fu Jing's death, presumably by Zu Geng, and for the 1959 location of tomb 260.</has_note>
+    </is_referred_to_by>
+  </CRM_Entity>
+
+  <CRM_Entity>Shang dynasty
+    <in_class>E4: Period</in_class>
+    <has_note>The last Shang capital was at Yinxu, near Anyang, Henan.</has_note>
+  </CRM_Entity>
+
+  <!-- ============================================================
+       3. WHAT IT IS DECORATED WITH, AND WHAT IT CARRIES
+       ============================================================ -->
+  <CRM_Entity>Taotie and kuilong decorative band of the Houmuwu ding
+    <in_class>E36: Visual Item</in_class>
+    <is_shown_by>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </is_shown_by>
+    <represents_instance_of_type>taotie (animal-faced creature)
+      <in_class>E55: Type</in_class>
+    </represents_instance_of_type>
+    <represents_instance_of_type>kuilong (one-legged dragon)
+      <in_class>E55: Type</in_class>
+    </represents_instance_of_type>
+    <has_note>Each side has a blank space in the middle, surrounded by a band of decoration featuring taotie (animal faced creatures) and kuilong (one-legged dragons).</has_note>
+    <is_referred_to_by>Li Song, Chinese Bronze Ware (2011)
+      <in_class>E31: Document</in_class>
+      <has_note>Page 30.</has_note>
+    </is_referred_to_by>
+  </CRM_Entity>
+
+  <CRM_Entity>Tiger-pair-and-human-head motif of the Houmuwu ding handles
+    <in_class>E36: Visual Item</in_class>
+    <is_shown_by>Handles of the Houmuwu ding
+      <in_class>E24: Physical Human-Made Thing</in_class>
+    </is_shown_by>
+    <represents_instance_of_type>tiger
+      <in_class>E55: Type</in_class>
+    </represents_instance_of_type>
+    <represents_instance_of_type>human head
+      <in_class>E55: Type</in_class>
+    </represents_instance_of_type>
+    <has_note>Two handles, each decorated on the exterior with two tigers facing each other, their jaws closing around a human head in between them.</has_note>
+    <has_note>The article notes that this image is also found on Fu Hao battle axes. Those axes are not modelled: they lie outside the fixed scope, and the statement is recorded here rather than as a P130 shows features of link to an object this document does not otherwise describe.
+      <has_type>Scope note
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_referred_to_by>Li Song, Chinese Bronze Ware (2011)
+      <in_class>E31: Document</in_class>
+      <has_note>Page 30.</has_note>
+    </is_referred_to_by>
+  </CRM_Entity>
+
+  <CRM_Entity>Inscription on the interior wall of the Houmuwu ding
+    <in_class>TX1: Written Text</in_class>
+    <is_found_on>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </is_found_on>
+    <has_former_or_current_location>Interior wall of the Houmuwu ding
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+    <has_type>bronzeware script (jinwen)
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <has_note>There are a total of three characters inscribed on the vessel, on the interior wall, in bronzeware script. Their reading is disputed; no P190 has symbolic content is asserted for the written text itself, because every transcription of it in the article is somebody's reading and is modelled as such.</has_note>
+    <has_note>The article names the script (bronzeware script) but not the language of the text. No P72 has language is asserted, although the CRM quantifies it as necessary on E34/TX1's ancestors.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <was_read_by>Original transcription of the inscription as 司母戊 (simuwu)
+      <in_class>TX14: Reading</in_class>
+    </was_read_by>
+    <was_read_by>Reading of the inscription as "Queen Wu" or "Wife Wu", October 1946
+      <in_class>TX14: Reading</in_class>
+    </was_read_by>
+    <was_read_by>Reading of the inscription as "Simu Wu" by Zhang Feng, November 1946
+      <in_class>TX14: Reading</in_class>
+    </was_read_by>
+    <was_read_by>Reading of the inscription as 司母戊 (simuwu) by Guo Moruo
+      <in_class>TX14: Reading</in_class>
+    </was_read_by>
+    <was_read_by>Reading of the first glyph as 后 (hou) by Li Xueqin, 1977
+      <in_class>TX14: Reading</in_class>
+    </was_read_by>
+    <was_read_by>Reading of 后 as the horizontal reflection of 司 by Sun Ji
+      <in_class>TX14: Reading</in_class>
+    </was_read_by>
+  </CRM_Entity>
+
+  <!-- ============================================================
+       4. THE DISPUTED READINGS OF THE INSCRIPTION
+       ============================================================ -->
+  <CRM_Entity>Original transcription of the inscription as 司母戊 (simuwu)
+    <in_class>TX14: Reading</in_class>
+    <read>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </read>
+    <concluded_that>Belief that the inscription reads 司母戊 (simuwu), original transcription
+      <in_class>I2: Belief</in_class>
+      <that>The inscription reads 司母戊, simuwu
+        <in_class>I17: One-Proposition Set</in_class>
+        <has_note>The inscription was originally transcribed as sīmǔwù (司母戊).</has_note>
+      </that>
+      <holds_to_be>true</holds_to_be>
+    </concluded_that>
+    <has_note>The article attributes this earliest transcription to no named person and gives it no date. No P14 carried out by and no P4 has time-span are asserted.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>中国古代冶金与金属文物 (1998)
+      <in_class>E31: Document</in_class>
+      <has_note>陕西科学技朮出版社, ISBN 978-7-5369-2886-2, page 103.</has_note>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <CRM_Entity>Reading of the inscription as "Queen Wu" or "Wife Wu", October 1946
+    <in_class>TX14: Reading</in_class>
+    <read>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </read>
+    <has_time-span>October 1946
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1946-10</at_some_time_within>
+    </has_time-span>
+    <was_motivated_by>On-site interview by the reporter Shao Shenzhi, October 1946
+      <in_class>E7: Activity</in_class>
+    </was_motivated_by>
+    <concluded_that>Belief that the inscription means "Queen Wu" or "Wife Wu"
+      <in_class>I2: Belief</in_class>
+      <that>The inscription means "Queen Wu", or alternatively "Wife Wu"
+        <in_class>I17: One-Proposition Set</in_class>
+        <has_note>The article reports two alternative senses at this stage and does not choose between them.</has_note>
+      </that>
+      <holds_to_be>true</holds_to_be>
+    </concluded_that>
+    <has_note>The article names no reader for this interpretation. No P14 carried out by is asserted.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Reading of the inscription as "Simu Wu" by Zhang Feng, November 1946
+    <in_class>TX14: Reading</in_class>
+    <read>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </read>
+    <carried_out_by>Zhang Feng
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>November 1946
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1946-11</at_some_time_within>
+    </has_time-span>
+    <concluded_that>Belief that the inscription reads "Simu Wu"
+      <in_class>I2: Belief</in_class>
+      <that>The inscription reads Simu Wu
+        <in_class>I17: One-Proposition Set</in_class>
+      </that>
+      <holds_to_be>true</holds_to_be>
+    </concluded_that>
+  </CRM_Entity>
+
+  <CRM_Entity>Reading of the inscription as 司母戊 (simuwu) by Guo Moruo
+    <in_class>TX14: Reading</in_class>
+    <read>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </read>
+    <carried_out_by>Guo Moruo
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>1949/1959, date reported inconsistently
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1949/1959</at_some_time_within>
+    </has_time-span>
+    <concluded_that>Belief that 司 (si) means "sacrifice" and 戊 (Wu) is a temple name
+      <in_class>I2: Belief</in_class>
+      <that>The first glyph is 司 si, meaning "sacrifice", and 戊 Wu is the temple name of the owner of the tomb; the vessel was cast by Wu's son to worship his mother
+        <in_class>I17: One-Proposition Set</in_class>
+      </that>
+      <holds_to_be>true</holds_to_be>
+    </concluded_that>
+    <has_note>The article dates this reading twice and inconsistently: the Discovery section says "In 1959, Guo Moruo believed...", the Epigraphic readings section says "After 1949, Guo Moruo, then president of the Chinese Academy of Sciences, interpreted...". The time-span is left as the interval the two statements jointly allow rather than choosing one.
+      <has_type>Source conflict
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The Discovery section's wording of this reading is corrupt in the article as it stands - "Guo Moruo believed that 'Si' is the same as 'Si'" - and cannot be transcribed as a proposition. The proposition modelled here is taken from the Epigraphic readings section, which is coherent. The Discovery section also carries the article's own dead-link and better-source-needed flags.
+      <has_type>Source conflict
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>殷墟婦好墓 (1980), Chinese Academy of Sciences, Archaeological Research Institute
+      <in_class>E31: Document</in_class>
+      <has_note>文物出版社, 中国田野考古报告集: 考古学专刊, page 96. Cited both for Guo Moruo's interpretation and for the statement that Li Xueqin's counter-proposal provoked much discussion among scholars.</has_note>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <CRM_Entity>Reading of the first glyph as 后 (hou) by Li Xueqin, 1977
+    <in_class>TX14: Reading</in_class>
+    <read>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </read>
+    <carried_out_by>Li Xueqin
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>1977
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1977</at_some_time_within>
+    </has_time-span>
+    <concluded_that>Belief that the first glyph is 后 (hou, "queen")
+      <in_class>I2: Belief</in_class>
+      <that>The first glyph in the inscription should be read as 后 hou, "queen", and not as 司 si, because simuwu is a verb-object construction rare in the epigraphic record
+        <in_class>I17: One-Proposition Set</in_class>
+      </that>
+      <holds_to_be>true</holds_to_be>
+    </concluded_that>
+    <was_influenced_by>Reading of the inscription as 司母戊 (simuwu) by Guo Moruo
+      <in_class>TX14: Reading</in_class>
+    </was_influenced_by>
+    <has_note>This interpretation provoked much discussion among scholars. The dispute is not settled in the article; it is recorded as competing beliefs about the same written text, each with its holder where the article names one.
+      <has_type>Dispute note
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>李学勤集: 追溯・考据・古文明 (1989), Li Xueqin
+      <in_class>E31: Document</in_class>
+      <has_note>黑龙江教育出版社, 中青年学者文库, page 116.</has_note>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <CRM_Entity>Reading of 后 as the horizontal reflection of 司 by Sun Ji
+    <in_class>TX14: Reading</in_class>
+    <read>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </read>
+    <carried_out_by>Sun Ji
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <concluded_that>Belief that 后 is the horizontal reflection of 司
+      <in_class>I2: Belief</in_class>
+      <that>Many oracle bone inscriptions can be written in horizontal reflection, and 后 hou is the horizontal reflection of 司 si
+        <in_class>I17: One-Proposition Set</in_class>
+      </that>
+      <holds_to_be>true</holds_to_be>
+    </concluded_that>
+    <has_note>The article gives no date for Sun Ji's argument; it is reported in obituaries of 2023 which credit him with securing the name 后母戊鼎. No P4 has time-span is asserted for the reading itself.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>为"后母戊鼎"正名的考古学家孙机病逝, 南方都市报, 2023-06-15
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <is_documented_in>文物考古界泰斗孙机逝世 曾为"后母戊鼎"正名, 大众日报, 2023-06-15
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <!-- ============================================================
+       5. THE NAMING ACTS THEMSELVES
+       ============================================================ -->
+  <CRM_Entity>Chinese bronzeware naming convention
+    <in_class>E29: Design or Procedure</in_class>
+    <has_note>The naming of bronzeware generally follows this principle: the last character is usually the type of the ware, e.g. ding, dou, hu, pan, or zun. Since this bronzeware is a ding, it is called XX ding. The specific type of ding depends on whether the ware has an inscription. If there is an inscription, the character in the inscription that can reflect the name of the owner of the ware is used as the name of the ding.</has_note>
+    <is_documented_in>网易, 郭沫若：此鼎叫司母戊鼎，专家：是后母戊，郭沫若：你们会后悔的, 2020-06-23
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <CRM_Entity>Naming of the vessel by Zhang Feng, November 1946
+    <in_class>E15: Identifier Assignment</in_class>
+    <assigned_attribute_to>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </assigned_attribute_to>
+    <assigned>司母戊大方鼎 (Simuwu Large Square Ding)
+      <in_class>E42: Identifier</in_class>
+    </assigned>
+    <assigned_property_of_type>P1 is identified by
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <carried_out_by>Zhang Feng
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>November 1946
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1946-11</at_some_time_within>
+    </has_time-span>
+    <used_specific_technique>Chinese bronzeware naming convention
+      <in_class>E29: Design or Procedure</in_class>
+    </used_specific_technique>
+    <was_motivated_by>Reading of the inscription as "Simu Wu" by Zhang Feng, November 1946
+      <in_class>TX14: Reading</in_class>
+    </was_motivated_by>
+  </CRM_Entity>
+
+  <CRM_Entity>Naming of the vessel by Guo Moruo
+    <in_class>E15: Identifier Assignment</in_class>
+    <assigned_attribute_to>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </assigned_attribute_to>
+    <assigned>司母戊鼎 (Simuwu ding)
+      <in_class>E42: Identifier</in_class>
+    </assigned>
+    <assigned_property_of_type>P1 is identified by
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <carried_out_by>Guo Moruo
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>1949/1959, date reported inconsistently
+      <in_class>E52: Time-Span</in_class>
+    </has_time-span>
+    <used_specific_technique>Chinese bronzeware naming convention
+      <in_class>E29: Design or Procedure</in_class>
+    </used_specific_technique>
+    <was_motivated_by>Reading of the inscription as 司母戊 (simuwu) by Guo Moruo
+      <in_class>TX14: Reading</in_class>
+    </was_motivated_by>
+  </CRM_Entity>
+
+  <CRM_Entity>Renaming of the vessel by the National Museum of China, March 2011
+    <in_class>E15: Identifier Assignment</in_class>
+    <assigned_attribute_to>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </assigned_attribute_to>
+    <assigned>后母戊鼎 (Houmuwu ding)
+      <in_class>E42: Identifier</in_class>
+    </assigned>
+    <deassigned>司母戊鼎 (Simuwu ding)
+      <in_class>E42: Identifier</in_class>
+    </deassigned>
+    <assigned_property_of_type>P1 is identified by
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <has_type>preferred identifier assignment
+      <in_class>E55: Type</in_class>
+      <has_note>Typed this way on the advice of the scope note of E15 Identifier Assignment, which recommends recording the preferred status of an identifier as a P2 has type on the assignment event rather than only as a P48 has preferred identifier on the entity.</has_note>
+    </has_type>
+    <carried_out_by>National Museum of China
+      <in_class>E74: Group</in_class>
+    </carried_out_by>
+    <has_time-span>March 2011
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>2011-03</at_some_time_within>
+    </has_time-span>
+    <took_place_at>National Museum of China, Beijing
+      <in_class>E53: Place</in_class>
+    </took_place_at>
+    <was_motivated_by>Reading of the first glyph as 后 (hou) by Li Xueqin, 1977
+      <in_class>TX14: Reading</in_class>
+    </was_motivated_by>
+    <has_note>In March 2011, after the renovation of the National Museum of China reopened, in the special display of "ancient Chinese bronze art", Simuwu was renamed as Houmuwu.</has_note>
+    <is_documented_in>"Houmuwu Quadripod" debuts at National Museum of China, CCTV, 28 March 2011
+      <in_class>E31: Document</in_class>
+      <has_note>Archived 2014-02-02.</has_note>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <CRM_Entity>Confirmation as a Shang dynasty bronze vessel, October 1946
+    <in_class>E17: Type Assignment</in_class>
+    <classified>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </classified>
+    <assigned>Shang dynasty bronze vessel
+      <in_class>E55: Type</in_class>
+    </assigned>
+    <assigned_property_of_type>P2 has type
+      <in_class>E55: Type</in_class>
+    </assigned_property_of_type>
+    <has_time-span>October 1946
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1946-10</at_some_time_within>
+    </has_time-span>
+    <was_motivated_by>On-site interview by the reporter Shao Shenzhi, October 1946
+      <in_class>E7: Activity</in_class>
+    </was_motivated_by>
+    <has_note>The article says only that "it was confirmed to be a bronze vessel from the Shang Dynasty" and names no one who confirmed it. No P14 carried out by is asserted.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>On-site interview by the reporter Shao Shenzhi, October 1946
+    <in_class>E7: Activity</in_class>
+    <carried_out_by>Shao Shenzhi
+      <in_class>E21: Person</in_class>
+      <has_type>reporter
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </carried_out_by>
+    <has_time-span>October 1946
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1946-10</at_some_time_within>
+    </has_time-span>
+  </CRM_Entity>
+
+  <!-- ============================================================
+       6. REDISCOVERY, FINDSPOT, AND THE TOMB THAT IS NOT THE FINDSPOT
+       ============================================================ -->
+  <CRM_Entity>Unearthing of the Houmuwu ding, 1939
+    <in_class>S19: Encounter Event</in_class>
+    <encountered_object>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </encountered_object>
+    <encountered_at>Wuguan Village (五官村), Anyang, Henan
+      <in_class>E53: Place</in_class>
+    </encountered_at>
+    <took_place_at>Wuguan Village (五官村), Anyang, Henan
+      <in_class>E53: Place</in_class>
+    </took_place_at>
+    <has_time-span>1939
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1939</at_some_time_within>
+    </has_time-span>
+    <has_note>The article says only that the ding was "unearthed in 1939 in Wuguan Village, Anyang, Henan, near Yinxu". It names no finder, no excavator and no institution, gives no month, and describes no excavation. No P14 carried out by is asserted, and the event is modelled as an S19 Encounter Event rather than an A9 Archaeological Excavation or A1 Excavation Processing Unit, neither of which the article supports.
+      <has_type>Documentation gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>Yu Chenglong (ed.), "Houmuwu" bronze rectangular ding, National Museum of China
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <CRM_Entity>Wuguan Village (五官村), Anyang, Henan
+    <in_class>E53: Place</in_class>
+    <falls_within>Anyang
+      <in_class>E53: Place</in_class>
+      <falls_within>Henan
+        <in_class>E53: Place</in_class>
+      </falls_within>
+    </falls_within>
+    <has_note>Near Yinxu, the site of the last Shang dynasty capital. "Near" is recorded as a note: the CRM offers P89 falls within, P121 overlaps with and P122 borders with between places, but no property for unquantified proximity, and Yinxu is modelled as an E27 Site rather than an E53 Place in any case.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Yinxu
+    <in_class>E27: Site</in_class>
+    <has_former_or_current_location>Yinxu (place), Anyang, Henan
+      <in_class>E53: Place</in_class>
+      <falls_within>Anyang
+        <in_class>E53: Place</in_class>
+      </falls_within>
+    </has_former_or_current_location>
+    <is_composed_of>Tomb 260 at Yinxu
+      <in_class>E27: Site</in_class>
+    </is_composed_of>
+    <has_note>The site of the last Shang dynasty capital.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Tomb 260 at Yinxu
+    <in_class>E27: Site</in_class>
+    <forms_part_of>Yinxu
+      <in_class>E27: Site</in_class>
+    </forms_part_of>
+    <has_note>The tomb of Fu Jing.</has_note>
+    <has_condition>Looted state of tomb 260
+      <in_class>E3: Condition State</in_class>
+      <has_type>looted
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_note>The tomb was found to have been looted. The article gives no time-span for the looting and describes no looting event; only the state in which the tomb was found is recorded.</has_note>
+    </has_condition>
+    <was_object_encountered_through>Location of tomb 260 at Yinxu, 1959
+      <in_class>S19: Encounter Event</in_class>
+    </was_object_encountered_through>
+    <has_note>Tomb 260 is modelled because the article introduces it to place this vessel in relation to Fu Jing. It is NOT modelled as the vessel's findspot: the article gives no such link, and states the opposite chronology, the vessel having been unearthed in 1939 and the tomb located only in 1959.
+      <has_type>Scope note
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Location of tomb 260 at Yinxu, 1959
+    <in_class>S19: Encounter Event</in_class>
+    <encountered_object>Tomb 260 at Yinxu
+      <in_class>E27: Site</in_class>
+    </encountered_object>
+    <has_time-span>1959
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1959</at_some_time_within>
+    </has_time-span>
+    <has_note>Fu Jing's tomb (tomb 260 at Yinxu) was not located until 1959, and was found to have been looted. No finder is named.</has_note>
+    <is_documented_in>Li Xueqin, 谈新出现的妇妌爵 (On the newly discovered jue of Fu Jing), Wenbo 2012 no. 3
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 13-14.</has_note>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <!-- ============================================================
+       7. CUSTODY
+       ============================================================ -->
+  <CRM_Entity>National Museum of China
+    <in_class>E74: Group</in_class>
+    <is_current_keeper_of>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </is_current_keeper_of>
+    <performed>Renaming of the vessel by the National Museum of China, March 2011
+      <in_class>E15: Identifier Assignment</in_class>
+    </performed>
+    <performed>Special display "ancient Chinese bronze art", National Museum of China, from March 2011
+      <in_class>E7: Activity</in_class>
+    </performed>
+  </CRM_Entity>
+
+  <CRM_Entity>Special display "ancient Chinese bronze art", National Museum of China, from March 2011
+    <in_class>E7: Activity</in_class>
+    <has_type>exhibition
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <used_specific_object>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </used_specific_object>
+    <carried_out_by>National Museum of China
+      <in_class>E74: Group</in_class>
+    </carried_out_by>
+    <took_place_at>National Museum of China, Beijing
+      <in_class>E53: Place</in_class>
+    </took_place_at>
+    <has_time-span>from March 2011
+      <in_class>E52: Time-Span</in_class>
+      <beginning_is_qualified_by>March 2011, on the reopening of the museum after renovation</beginning_is_qualified_by>
+    </has_time-span>
+  </CRM_Entity>
+
+  <CRM_Entity>Inspection of the ding by Chiang Kai-shek, 1948
+    <in_class>E7: Activity</in_class>
+    <has_type>inspection
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <carried_out_by>Chiang Kai-shek
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <occurred_in_the_presence_of>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </occurred_in_the_presence_of>
+    <has_time-span>1948
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1948</at_some_time_within>
+    </has_time-span>
+    <is_documented_in>Chiang and HouMuWu Ding.jpg
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+    <has_note>Recorded by the article only as a photograph caption. It is included because it is the sole datum the article offers on the vessel's whereabouts between the 1939 find and the museum, and it is deliberately NOT modelled as a transfer of title or of custody, which the article does not report.
+      <has_type>Scope note
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+  <!-- ============================================================
+       8. PEOPLE
+       ============================================================ -->
+  <CRM_Entity>Fu Jing
+    <in_class>E21: Person</in_class>
+    <is_identified_by>Fu Jing
+      <in_class>E41: Appellation</in_class>
+    </is_identified_by>
+    <is_identified_by>后母戊 (Houmuwu, "Queen Mother Wu")
+      <in_class>E41: Appellation</in_class>
+      <has_type>temple name
+        <in_class>E55: Type</in_class>
+      </has_type>
+      <has_note>The ding is named for the inscription on its interior wall, which reads "Queen Mother Wu" (后母戊); this is the temple name of Fu Jing. The identification of the temple name with Fu Jing is itself a scholarly position, sourced by the article to Zeng 1993.</has_note>
+    </is_identified_by>
+    <has_type>queen and primary wife of Wu Ding
+      <in_class>E55: Type</in_class>
+    </has_type>
+    <died_in>Death of Fu Jing
+      <in_class>E69: Death</in_class>
+    </died_in>
+    <has_note>The article states that Fu Jing was the queen and primary wife of Wu Ding, and the mother of Zu Geng. The CRM base model has P152 has parent for the second relation but no property for spouse or consort; the marriage is recorded here as a note rather than forced into P107 has current or former member or an E85 Joining.
+      <has_type>Coverage gap
+        <in_class>E55: Type</in_class>
+      </has_type>
+    </has_note>
+    <is_referred_to_by>Zeng Wenqing, 关于"司母戊""司母辛"大方鼎的"司"字质疑, Huaihua Shizhuan Xuebao 21:4 (1993)
+      <in_class>E31: Document</in_class>
+      <has_note>Pages 71-73. Cited for the identification of 后母戊 as the temple name of Fu Jing.</has_note>
+    </is_referred_to_by>
+  </CRM_Entity>
+
+  <CRM_Entity>Death of Fu Jing
+    <in_class>E69: Death</in_class>
+    <was_death_of>Fu Jing
+      <in_class>E21: Person</in_class>
+    </was_death_of>
+    <ends_before_or_with_the_start_of>Production of the Houmuwu ding
+      <in_class>E12: Production</in_class>
+    </ends_before_or_with_the_start_of>
+    <has_note>The article gives no date for the death; it is used only to date the making relatively, the ding having been made after it.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Zu Geng of Shang
+    <in_class>E21: Person</in_class>
+    <has_parent>Fu Jing
+      <in_class>E21: Person</in_class>
+    </has_parent>
+    <performed>Production of the Houmuwu ding
+      <in_class>E12: Production</in_class>
+    </performed>
+  </CRM_Entity>
+
+  <CRM_Entity>Wu Ding
+    <in_class>E21: Person</in_class>
+    <has_note>Shang king; the article identifies Fu Jing as his queen and primary wife. Modelled only to place Fu Jing, and so the vessel.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Guo Moruo
+    <in_class>E21: Person</in_class>
+    <has_note>Then president of the Chinese Academy of Sciences.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Li Xueqin
+    <in_class>E21: Person</in_class>
+  </CRM_Entity>
+
+  <CRM_Entity>Sun Ji
+    <in_class>E21: Person</in_class>
+    <has_note>Archaeologist, died 2023; credited by the cited obituaries with securing the name 后母戊鼎.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Zhang Feng
+    <in_class>E21: Person</in_class>
+    <has_type>scholar
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </CRM_Entity>
+
+  <CRM_Entity>Shao Shenzhi
+    <in_class>E21: Person</in_class>
+    <has_type>reporter
+      <in_class>E55: Type</in_class>
+    </has_type>
+  </CRM_Entity>
+
+  <CRM_Entity>Chiang Kai-shek
+    <in_class>E21: Person</in_class>
+  </CRM_Entity>
+
+  <!-- ============================================================
+       9. SOURCES CITED FOR CONTESTED POINTS
+       ============================================================ -->
+  <CRM_Entity>Li Song, Chinese Bronze Ware (2011)
+    <in_class>E31: Document</in_class>
+    <documents>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </documents>
+    <has_note>Cambridge: Cambridge University Press, 2011, ISBN 978-0-521-18685-8, pages 28-30.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Li Xueqin, 谈新出现的妇妌爵 (On the newly discovered jue of Fu Jing), Wenbo 2012 no. 3
+    <in_class>E31: Document</in_class>
+    <documents>Production of the Houmuwu ding
+      <in_class>E12: Production</in_class>
+    </documents>
+    <documents>Tomb 260 at Yinxu
+      <in_class>E27: Site</in_class>
+    </documents>
+    <has_note>Journal article in Chinese, pages 13-14.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Zeng Wenqing, 关于"司母戊""司母辛"大方鼎的"司"字质疑, Huaihua Shizhuan Xuebao 21:4 (1993)
+    <in_class>E31: Document</in_class>
+    <documents>Fu Jing
+      <in_class>E21: Person</in_class>
+    </documents>
+    <has_note>Journal article in Chinese, pages 71-73; the title translates as "On the question of the si character on the Simuwu / Simuxin great rectangular ding". The article cites it for the identification of the temple name.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>中国古代冶金与金属文物 (1998)
+    <in_class>E31: Document</in_class>
+    <is_about>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </is_about>
+    <has_note>陕西科学技朮出版社, 1998, ISBN 978-7-5369-2886-2, page 103. Cited for the original transcription of the inscription as simuwu.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>殷墟婦好墓 (1980), Chinese Academy of Sciences, Archaeological Research Institute
+    <in_class>E31: Document</in_class>
+    <is_about>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </is_about>
+    <has_note>文物出版社, 1980, page 96.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>李学勤集: 追溯・考据・古文明 (1989), Li Xueqin
+    <in_class>E31: Document</in_class>
+    <is_about>Inscription on the interior wall of the Houmuwu ding
+      <in_class>TX1: Written Text</in_class>
+    </is_about>
+    <has_note>黑龙江教育出版社, 1989, page 116.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>为"后母戊鼎"正名的考古学家孙机病逝, 南方都市报, 2023-06-15
+    <in_class>E31: Document</in_class>
+    <is_about>Reading of 后 as the horizontal reflection of 司 by Sun Ji
+      <in_class>TX14: Reading</in_class>
+    </is_about>
+  </CRM_Entity>
+
+  <CRM_Entity>文物考古界泰斗孙机逝世 曾为"后母戊鼎"正名, 大众日报, 2023-06-15
+    <in_class>E31: Document</in_class>
+    <is_about>Reading of 后 as the horizontal reflection of 司 by Sun Ji
+      <in_class>TX14: Reading</in_class>
+    </is_about>
+  </CRM_Entity>
+
+  <CRM_Entity>"Houmuwu Quadripod" debuts at National Museum of China, CCTV, 28 March 2011
+    <in_class>E31: Document</in_class>
+    <documents>Renaming of the vessel by the National Museum of China, March 2011
+      <in_class>E15: Identifier Assignment</in_class>
+    </documents>
+  </CRM_Entity>
+
+  <CRM_Entity>网易, 郭沫若：此鼎叫司母戊鼎，专家：是后母戊，郭沫若：你们会后悔的, 2020-06-23
+    <in_class>E31: Document</in_class>
+    <documents>Chinese bronzeware naming convention
+      <in_class>E29: Design or Procedure</in_class>
+    </documents>
+  </CRM_Entity>
+
+  <CRM_Entity>独吟山人, 司母戊鼎铭文考释, Weixin Official Accounts Platform
+    <in_class>E31: Document</in_class>
+    <documents>Reading of the inscription as 司母戊 (simuwu) by Guo Moruo
+      <in_class>TX14: Reading</in_class>
+    </documents>
+    <has_note>The article's sole source for its Discovery section, and the source of the 1946 Shao Shenzhi and Zhang Feng statements and of the "In 1959, Guo Moruo" dating. The article itself flags it as a dead link and as insufficiently reliable per WP:NOTRS. Recorded here because the points it carries are contested and their evidential standing matters.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Yu Chenglong (ed.), "Houmuwu" bronze rectangular ding, National Museum of China
+    <in_class>E31: Document</in_class>
+    <documents>Unearthing of the Houmuwu ding, 1939
+      <in_class>S19: Encounter Event</in_class>
+    </documents>
+    <has_note>Museum catalogue web page, in Chinese.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>The National Museum of China (China Culture, Ministry of Culture PRC)
+    <in_class>E31: Document</in_class>
+    <documents>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </documents>
+    <has_note>Web page, archived 2014-05-27.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>《文化百科》 20120702 司母戊鼎, 央视网 (CCTV), 2012-07-02
+    <in_class>E31: Document</in_class>
+    <documents>Houmuwu ding
+      <in_class>E22: Human-Made Object</in_class>
+    </documents>
+  </CRM_Entity>
+
+</CRMset>

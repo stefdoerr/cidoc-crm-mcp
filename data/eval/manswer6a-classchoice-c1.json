@@ -1,0 +1,126 @@
+{
+  "case_id": "classchoice-c1",
+  "answer": "Record it the second way: the wedding gown ended and a new, distinct garment came into existence from its material. Model the 1950s remaking as a single event instantiated as both E81 Transformation and E12 Production, and keep two E22 Human-Made Object records.\n\nWhy. The CRM writes an explicit three-way decision into the scope notes of E6, E11 and E12, and it turns on identity, not on how much matter survives. E6 Destruction states that \"The decision to document an object as destroyed, transformed or modified is context sensitive\", and then enumerates: (1) if the matter remaining is not documented, use E6 alone; (2) if the event destroys objects and simultaneously produces others from their parts or material, use E81 Transformation, because -- in E12's wording -- \"the new items have separate identities and matter is preserved, but identity is not\"; (3) \"When the initial identity of the changed instance of E18 Physical Thing is preserved, the event should be documented as an instance of E11 Modification\". This is the same three-way split the SIG drew when it invented the class under Issue 12, where branch (3) is \"The object changes but preserves its nature and identity\" (replacing a computer's hard disc) and the transformation branch is \"The object preserves some recognizable identity\" -- illustrated there by Tutankhamun becoming a mummy, a windmill becoming a house, and a coin becoming a piece of jewellery. A wedding gown becoming a christening gown is the same shape of case as the coin becoming jewellery.\n\nYour facts put you in branch (2). The bodice was unpicked, the panels recut and restitched, the skirt fabric discarded: nothing survives that answers to \"the 1920s wedding gown\" as a unit of documentation. What survives is silk and lace, now an infant's baptismal garment -- a different kind of thing with a different intended function. E81's scope note anticipates the obvious objection that this is \"merely\" repurposing: \"substantial material changes should justify the documentation of the result as a new instance of E18 Physical Thing and not just the change of function.\" Here the change of function is accompanied by physical remaking, so both halves of the test are satisfied. That insistence on a physical, not merely functional, change is exactly what the SIG argued over when it revised this scope note: in the Issue 404 e-vote Robert Sanderson objected that \"the transformation should be physical\" and voted against examples that were only about use, and George Bruseker agreed that \"the examples should unequivocally point to a physical change\"; the resulting minute of the 48th joint meeting records the amendment as following \"a change in the intended use of an object can motivate transformations of the object itself\". Unpicking and recutting is unambiguously physical, so the caveat that sinks the church-into-a-stable examples does not touch your case.\n\nE24's scope note states the criterion positively and is the closest passage in the specification to your problem: where a human-made thing results from modifying pre-existing physical things while \"preserving larger parts or most of the original matter and structure\", the interventions must be \"obvious and sufficient to regard that the product has a new, distinct identity and intended function\" -- and then \"Substantial continuity of the previous matter and structure in the new product can be documented by describing the production process also as an instance of E81 Transformation.\" That sentence is the warrant for the dual instantiation, and the current examples under E81, P123 and P124 all use it (the Venetian Loggia into the City Hall of Heraklion, the Hephaisteion into a church, the mummification of Tut-Ankh-Amun, all marked E81, E12). Note also P108's principle that the identity of an E24 \"is not defined by its matter, but by its existence as a subject of documentation\" -- which is precisely why preserving the silk does not preserve the gown.\n\nWhy both classes rather than E81 alone. E81 is a subclass only of E63 Beginning of Existence and E64 End of Existence, not of E7 Activity, so it has no P14 carried out by among its applicable properties. On a bare E81 you cannot attach the local seamstress your fitting notes name. E12 Production is the E11 Modification branch that can, and it also supplies P108 has produced. So:\n\n  the 1950s remaking (E81, E12)\n    P124 transformed -> the 1920s silk wedding gown (E22)\n    P123 resulted in -> the christening gown (E22)\n    P108 has produced -> the christening gown (E22)\n    P14 carried out by -> the local seamstress (E39)\n    P4 has time-span -> the 1950s (E52)\n\nWhat this buys a costume collection. Both E22 records are kept. The wedding gown record is not deleted or overwritten; it persists as an object that no longer exists, and as P124's scope note puts it, \"The continuity between both items, the new and the old, is expressed by the links to the common instance of E81 Transformation.\" This is the practical argument for E81 over E11 here: it is the only option that lets you keep the 1920s gown as a searchable subject in its own right -- with its own 1920s production, its own bride, its own wedding photograph -- while separately cataloguing the garment you physically hold, with its own maker, date and function. Recording the 1950s work as an E11 Modification would collapse two documented garments into one record and force you to decide which of them that record is about; every attribute of the wedding gown (its type, its wearer, its date, its measurements) would then be an attribute of a christening gown, which is false.\n\nTwo loose ends. The discarded skirt fabric needs nothing extra: the whole gown is already the object of P124 transformed, hence taken out of existence, so there is no residual documented object left to destroy separately. And do not reach for E80 Part Removal for the unpicking, even as a component activity -- E80's own scope note redirects you, saying that if a part removal \"results in the total decomposition of the original object into pieces, such that the whole ceases to exist\", the activity should instead be modelled as an E81 Transformation.\n\nOne honest caveat. The CRM calls this decision \"context sensitive\", so it is a curatorial judgement supported by criteria, not a derivation. The judgement to make is whether your catalogue needs the 1920s gown as a subject in its own right. Given that you hold a photograph of the original wedding and the seamstress's fitting notes, and that the donation's whole significance is the two-garment story, it plainly does.",
+  "classes_proposed": ["E81", "E12", "E22"],
+  "properties_proposed": ["P124", "P123", "P108", "P14", "P4"],
+  "rejected_alternatives": [
+    {
+      "option": "E11 Modification (the wedding gown persists, altered)",
+      "why_not": "E6's scope note reserves E11 for the case where \"the initial identity of the changed instance of E18 Physical Thing is preserved\", and E11's own note redirects to E81 when an event destroys objects and simultaneously produces others from their material, because \"the new items have separate identities\". The gown was wholly unpicked and part of its fabric discarded; nothing survives as that gown. Modelling it as E11 would also force the 1920s gown's attributes onto a christening gown."
+    },
+    {
+      "option": "E6 Destruction of the wedding gown plus an unrelated E12 Production of the christening gown",
+      "why_not": "Factually close but it throws away the causal and material link. E6 alone is for when \"the matter remaining from the destruction is not documented\"; here it is documented, as the christening gown. Splitting the event into two unconnected records loses what P124's scope note says the transformation exists to express: \"The continuity between both items, the new and the old, is expressed by the links to the common instance of E81 Transformation.\""
+    },
+    {
+      "option": "E17 Type Assignment (recatalogue the same object as a christening gown)",
+      "why_not": "E81's scope note explicitly distinguishes transformations from \"re-classifications (documented using E17 Type Assignment) ... of objects that do not fundamentally change their nature or identity\". Nothing here is a change of our opinion about an unchanged object; the object itself was cut up and resewn."
+    },
+    {
+      "option": "E79 Part Addition for the restitching",
+      "why_not": "P110 augmented requires a surviving whole that is increased or enlarged. There is no surviving whole to augment: the panels were assembled into a new garment, not added to a persisting one."
+    },
+    {
+      "option": "E81 Transformation alone, without E12 Production",
+      "why_not": "E81 is a subclass only of E63 and E64, not of E7 Activity, so P14 carried out by is not among its applicable properties and the local seamstress could not be recorded as the agent. E24's scope note licenses the pairing (\"describing the production process also as an instance of E81 Transformation\") and the specification's own E81/P123/P124 examples are all dual-instantiated (E81, E12)."
+    }
+  ],
+  "siblings_considered": [
+    {
+      "of": "E81",
+      "sibling": "E6",
+      "why_not": "Both are subclasses of E64 End of Existence, and E6 is the rival a curator would reach for once persuaded the gown ceased to exist. But E6 alone applies when the remaining matter is not documented; here the matter continues as a catalogued object. E6 would end the wedding gown without linking it to the christening gown, losing exactly the causal and material continuity the case needs recorded."
+    },
+    {
+      "of": "E12",
+      "sibling": "E80",
+      "why_not": "Both are subclasses of E11 Modification, and the unpicking of the bodice and discarding of the skirt look like part removal. E80's own scope note rules itself out: if the removal \"results in the total decomposition of the original object into pieces, such that the whole ceases to exist\", the activity should instead be modelled as an E81 Transformation. That is what happened."
+    },
+    {
+      "of": "E22",
+      "sibling": "E25",
+      "why_not": "Both are subclasses of E24 Physical Human-Made Thing. E25 Human-Made Feature covers purposely created features such as scratches and carvings, which are not separable from their carrier. Both garments are free-standing objects with \"physical boundaries that separate them completely in an objective way from other objects\", which is E22's own criterion."
+    }
+  ],
+  "citations": [
+    "E81",
+    "E12",
+    "E11",
+    "E6",
+    "E80",
+    "E79",
+    "E22",
+    "E25",
+    "E24",
+    "P123",
+    "P124",
+    "P108",
+    "P126",
+    "t1396",
+    "t1390",
+    {"id": "crm732#E24", "quote": "obvious and sufficient to regard that the product has a new, distinct identity and intended function"},
+    {"id": "crm732#E24", "quote": "Substantial continuity of the previous matter and structure in the new product can be documented by describing the production process also as an instance of E81 Transformation"},
+    {"id": "crm732#E81", "quote": "substantial material changes should justify the documentation of the result as a new instance of E18 Physical Thing and not just the change of function"},
+    {"id": "crm732#E6", "quote": "The decision to document an object as destroyed, transformed or modified is context sensitive"},
+    {"id": "crm732#E6", "quote": "When the initial identity of the changed instance of E18 Physical Thing is preserved, the event should be documented as an instance of E11 Modification"},
+    {"id": "crm732#E12", "quote": "the new items have separate identities and matter is preserved, but identity is not"},
+    {"id": "crm732#E11", "quote": "the new items have separate identities"},
+    {"id": "crm732#E80", "quote": "results in the total decomposition of the original object into pieces, such that the whole ceases to exist"},
+    {"id": "crm732#P108", "quote": "is not defined by its matter, but by its existence as a subject of documentation"},
+    {"id": "crm732#P124", "quote": "The continuity between both items, the new and the old, is expressed by the links to the common instance of E81 Transformation"},
+    {"id": "issue12#current-s0000", "quote": "The object changes but preserves its nature and identity"},
+    {"id": "issue12#current-s0001", "quote": "The object preserves some recognizable identity"},
+    {"id": "t1396", "quote": "the transformation should be physical"},
+    {"id": "t1396", "quote": "the examples should unequivocally point to a physical change"},
+    {"id": "minutes:48th_CIDOC_CRM_41st_FRBRoo_SIG_meeting_minutes#s049", "quote": "a change in the intended use of an object can motivate transformations of the object itself"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E11",
+    "concept E12",
+    "concept E6",
+    "concept E22",
+    "concept E80",
+    "docs \"when does an object lose its identity transformation versus modification\" --kind narrative",
+    "docs \"The notion of identity is key in the application of CIDOC CRM\" --kind narrative",
+    "issues \"transformation versus modification identity of physical thing\"",
+    "issue 386",
+    "issue 12",
+    "quote issue:12 \"a piece of money becoming a piece of jewelry\"  (failed - wrong id form)",
+    "quote --help",
+    "docs \"piece of money becoming a piece of jewelry transformation new entity instance\" --kind issue --json",
+    "quote issue12#current-s0000 \"The object changes but preserves its nature and identity\"",
+    "quote issue12#current-s0001 \"The object preserves some recognizable identity\"",
+    "threads \"object remade or recut into a different object does it keep its identity\"",
+    "\"E81 Transformation destruction and production new identity reuse of material\"",
+    "thread t1390",
+    "thread t1396",
+    "quote t1396 \"the transformation should be physical\"",
+    "quote t1396 \"the examples should unequivocally point to a physical change\"",
+    "connect E81 E22",
+    "concept P124",
+    "concept E25",
+    "concept P108",
+    "concept P126",
+    "docs \"The identity of an instance of E24 Physical Human-Made Thing is not defined by its matter\" --kind declaration --json",
+    "quote crm732#E24 \"obvious and sufficient to regard that the product has a new, distinct identity and intended function\"",
+    "quote crm732#E24 \"Substantial continuity of the previous matter and structure in the new product can be documented by describing the production process also as an instance of E81 Transformation\"",
+    "quote crm732#P108 \"is not defined by its matter, but by its existence as a subject of documentation\"",
+    "quote crm732#E80 \"results in the total decomposition of the original object into pieces, such that the whole ceases to exist\"",
+    "quote crm732#E6 \"When the initial identity of the changed instance of E18 Physical Thing is preserved, the event should be documented as an instance of E11 Modification\"",
+    "quote crm732#E81 \"substantial material changes should justify the documentation of the result as a new instance of E18 Physical Thing and not just the change of function\"",
+    "quote crm732#E6 \"The decision to document an object as destroyed, transformed, or modified is context-sensitive\"  (NOT FOUND - 7.3.2 has no comma and no hyphen)",
+    "quote crm732#E12 \"the new items have separate identities and matter is preserved, but identity is not\"",
+    "quote crm732#E6 \"The decision to document an object as destroyed, transformed or modified is context sensitive\"",
+    "docs \"E81 Transformation new identity criteria substantial physical change not just function\" --kind minutes",
+    "docs \"Following the discussion on how a change in the intended use of an object can motivate transformations of the object itself\" --kind minutes --json",
+    "quote minutes:48th_CIDOC_CRM_41st_FRBRoo_SIG_meeting_minutes#s049 \"change in the intended use\"",
+    "quote minutes:48th_CIDOC_CRM_41st_FRBRoo_SIG_meeting_minutes#s049 \"a change in the intended use of an object can motivate transformations of the object itself\"",
+    "quote crm732#P124 \"The continuity between both items, the new and the old, is expressed by the links to the common instance of E81 Transformation\"",
+    "quote crm732#E11 \"the new items have separate identities\""
+  ],
+  "confidence": "high",
+  "notes": "Deliberately scoped to the question asked -- which class the 1950s alteration takes -- so I have not proposed classes for the donation itself (E8/E10) or for the accompanying photograph and fitting notes (E31 with P70 documents would be the obvious route, and I mention their evidential role in the answer, but adding them to the proposal lists would be padding). Two tool frictions worth reporting. First, `search.py issues` prints section paths like \"[Issue 12 > Current Proposal]\" but `quote` will not accept anything of that shape; `quote issue:12 ...` returns \"unknown source id\". I only got the verifiable chunk ids (issue12#current-s0000) by rerunning the same search as `docs --kind issue --json`, which is not documented in the brief. Second, `docs` truncates each hit to roughly 300 characters, so the passage that actually decides this case -- the second paragraph of E24's scope note -- was invisible from the narrative search and only surfaced when I pulled the declaration chunk with --json. The tools did carry the case: the E6/E11/E12/E24/E80 scope notes give an explicit decision procedure, Issue 12 gives its origin, and the Issue 404 e-vote thread plus the 48th-meeting minute give the physical-versus-functional qualification that stops this being decided on \"it is now used for christenings\" alone. Residual uncertainty is only the one the CRM itself declares: the specification calls the destroyed/transformed/modified decision \"context sensitive\", so a collection that regarded the christening gown as the same object continuing would not be violating the model, merely reading its own identity criteria differently. On these facts -- whole garment unpicked, skirt fabric discarded, different garment type and function -- the criteria come down clearly on transformation."
+}

@@ -1,0 +1,42 @@
+{
+  "case_id": "built-c2",
+  "answer": "A plain P89 falls within chain treating Sedgewick Hundred and Whitgate Rural District each as an E53 Place is the wrong shape, but not because you need to invent 'a place with a bounded period.' CRM already has a built-in answer: administrative/geopolitical units are modelled as instances of E4 Period, not E53 Place. E4's scope note says exactly this ('a geopolitical unit as a specific case of an instance of E4 Period is the set of activities and phenomena related to the claim of power... jurisdictional area and an administrative system... The spatiotemporal properties of Geopolitical units can be modelled through the properties inherited from E92 Spacetime Volume'), and gives worked examples of an administrative unit's territory changing without the unit itself being fragmented (the Capital of Russia moving Moscow->St Petersburg->Moscow; Japan as a multi-island E4). This is also the CRM-SIG's settled position: in thread t1090 Martin Doerr tells Richard Light 'a geopolitical entity is indeed regarded as a case... of E4 Period... multiple inheritance yes, but with E92, not E53' (i.e. do not fuse Place+time into a subclass of Place; let E4 be a Period that is also, via inheritance, an E92 Spacetime Volume). In t1243 (decided) Doerr rules explicitly on this exact question ('is Czechoslovakia a Place or a SpacetimeVolume'): 'It is correct to regard \"Extent of Czechoslovakia 2000\" as an instance of E53... It is wrong to regard [the geopolitical unit] as an E53... the solution is E4... for all those guys.' P89 falls within itself is spatial-containment-only and atemporal ('addresses spatial containment only and does not imply any relationship between things or phenomena occupying these places') so it cannot itself carry the fact that the Hundred ceased to exist in 1894 -- that fact belongs on the Period's own P4 has time-span, not smuggled into a containment edge. So: yes, you need the fuller chain, but its shape is Period-to-Place, not Place-to-Place-with-a-tacked-on-date. Model Sedgewick Hundred and Whitgate Rural District as two distinct E4 Period instances (their E52 Time-Spans meeting at 1894, via P4 has time-span), each with P161 has spatial projection to an E53 Place (its territorial extent). The mill (E22 Human-Made Object) keeps one unchanging E53 Place as its location (P156 occupies / P53 has former or current location) -- this Place never changes, which is exactly the point: the site's physical identity is untouched. That location-Place is linked with P89 falls within to the spatial-projection-Place of whichever administrative Period was current at the time; because the two Periods are temporally disjoint E4 instances rather than one continuing E53, the record shows two successive, non-overlapping jurisdictional memberships over one unmoved site, with no implication that the mill or its ground changed when the Hundred was abolished.",
+  "classes_proposed": ["E4", "E53", "E52", "E22"],
+  "properties_proposed": ["P161", "P89", "P4", "P156", "P53"],
+  "rejected_alternatives": [
+    {
+      "option": "Model Sedgewick Hundred / Whitgate Rural District directly as E53 Place instances, chained with plain P89 falls within",
+      "why_not": "E4's own scope note assigns geopolitical/administrative units to E4 Period, and thread t1243 has Martin Doerr explicitly rule that a territory-with-jurisdiction ('Czechoslovakia') is wrong as E53 -- only its dated 'Extent of X' is an E53. P89's scope note also says it 'addresses spatial containment only' and is silent on the fact of a unit's existence starting/ending, so a bare P89 chain cannot express that the Hundred stopped existing in 1894 without additional, non-existent machinery."
+    },
+    {
+      "option": "Declare a new class that is a subclass of both E53 Place and E4 Period ('a place with a bounded period')",
+      "why_not": "Thread t1090: Richard Light asked exactly this (subclass of E53 vs E4 for a geopolitical entity with duration) and Doerr answered 'multiple inheritance yes, but with E92, not E53' -- E4 already inherits E92 Spacetime Volume, whose P161 has spatial projection reaches E53 without needing a merged Place/Period class."
+    }
+  ],
+  "citations": [
+    "E4",
+    "E53",
+    "E92",
+    "P89",
+    "P161",
+    "t1090",
+    "t1093",
+    "t1243",
+    "Introduction to the basic concepts > Relations with Events > Spatiotemporal Relations"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E53",
+    "concept P89",
+    "thread t1090",
+    "thread t1093",
+    "concept E4",
+    "concept P161",
+    "docs \"administrative unit geopolitical entity\" --kind narrative",
+    "concept E93",
+    "thread t1243"
+  ],
+  "confidence": "high",
+  "notes": "concept <id> was excellent here: the E4 scope note already contains a worked example ('Capital of Russia' moving without discontinuity) almost isomorphic to the case, so the siblings/FOL dossier did most of the work. thread lookups on the exact ids surfaced in E53/P89's episode lists (t1090, t1093, t1243) were the other half -- Doerr's replies are direct rulings, not just discussion, which made citation easy. The one friction point: nothing in search.py surfaces a property for 'unit X was administratively succeeded by unit Y' (only spatial P89/overlap relations), so I could not check whether CRM has anything for the succession itself beyond adjacent time-spans -- I left that out rather than guess."
+}

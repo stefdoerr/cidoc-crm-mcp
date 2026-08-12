@@ -1,0 +1,40 @@
+{
+  "case_id": "technical-c1",
+  "answer": "Record the engine on display today as the same E22 Human-Made Object as the one that worked the quarry, not a new object. CIDOC CRM does not fix identity on substance: the frame and cylinders were never dismantled or dispersed, they sat together in the shed as one coherent physical unit for fifty years, and only the boiler -- one part -- was missing and later replaced. Model the 1998 work as an E79 Part Addition on the (continuing) Engine: P110 augmented the Engine (E22), P111 added the new boiler (E22, itself the product of an E12 Production carried out to the original drawings). The wartime loss of the original boiler is a separate, earlier event that only ever destroyed a part (the old boiler, P13 destroyed, removed from the Engine via E80 Part Removal / P112 diminished / P113 removed) -- it never triggered the Engine's own E64 End of Existence. Do not reach for E81 Transformation: P123/P124's own scope note treats the earlier item as ceasing to exist as a unit of documentation and being replaced by something new under only structural continuity (a church becoming a stable, a corpse becoming a mummy). That is not this case -- the Engine persisted throughout as the same documented unit, just moving through a boiler-less condition and back, which is a change of E3 Condition State, not a change of identity.",
+  "classes_proposed": ["E22", "E79", "E12"],
+  "properties_proposed": ["P110", "P111", "P46", "P13"],
+  "rejected_alternatives": [
+    {"option": "E81 Transformation (P123 resulted in / P124 transformed) -- treating the restored engine as a new object distinct from the one that worked the quarry", "why_not": "The SIG's own worked example for exactly this paradox (thread t1170, Martin Doerr on the scope note of E19) only calls for a new object when 'the continuity of functionality is broken' -- his test case is a ship fully dismantled and its planks dispersed to a warehouse for a century before reassembly. The winding engine's frame and cylinders were never dispersed; they remained one coherent unit the whole time, which is the more favourable case for continuity, not the borderline one."},
+    {"option": "E78 Curated Holding for the engine (treating the frame/cylinders/boiler as an aggregation rather than a single object)", "why_not": "E22's siblings block lists E78 as an aggregation assembled and maintained by an actor per a collection plan -- it does not fit a single integrated working machine with physical boundaries separating it from other objects, which is exactly E22's own scope note."}
+  ],
+  "citations": [
+    "E22", "E79", "E80", "E81", "P110", "P111", "P46", "P13",
+    {"id": "t0891", "quote": "It is task of each type of E18 to define its own identity conditions"},
+    {"id": "t1170", "quote": "an instance of E19 with all parts replaced is identical"},
+    {"id": "t1170", "quote": "the continuity of functionality is broken"},
+    {"id": "t1170", "quote": "identity criteria for E19 which are based on the continuity of coherence and functionality"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E79",
+    "concept E80",
+    "concept E22",
+    "docs \"identity of an object after replacement of parts\" --kind narrative",
+    "docs \"restoration replacement of parts same object\"",
+    "thread t1396",
+    "thread t0646",
+    "ship of theseus",
+    "restoration rebuilt replica same object identity",
+    "thread t1170",
+    "issue 369",
+    "thread t0891",
+    "quote t0891 \"It is task of each type of E18 to define its own identity conditions\"",
+    "quote t1170 \"an instance of E19 with all parts replaced is identical\"",
+    "quote t1170 \"the continuity of functionality is broken\"",
+    "quote t1170 \"identity criteria for E19 which are based on the continuity of coherence and functionality\""
+  ],
+  "confidence": "medium",
+  "notes": "The mailing list carries a directly on-point precedent (thread t0891, 2015, explicitly invoking the Ship of Theseus and a Ferrari with a replaced chassis) and a follow-up (t1170, 2019) where Doerr states the identity test for E19/E22 is continuity of coherence and functionality, not substance, with a worked example distinguishing 'repaired in place' from 'fully dispersed and reconstructed.' Mapping the quarry engine onto that example is my own reasoning, not something search.py returned pre-packaged -- the corpus never mentions boilers or winding engines. Also worth flagging: Niccolucci and Doerr both say in t0891 that fixing identity criteria for a given object type is ultimately the curating body's job, not the CRM's -- so the recommendation above is the modelling pattern that best fits CRM precedent, but the institution should still document its own identity call explicitly (e.g. via a note) rather than treat this as settled by the ontology alone."
+}

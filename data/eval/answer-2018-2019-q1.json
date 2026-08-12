@@ -1,0 +1,15 @@
+{
+  "question_id": "2018-2019-q1",
+  "answer": "The class was E46 Section Definition, used to name a specific named section of a physical object (the standard example was 'poop deck of HMS Victory'), reached via P58 has section definition (E18 Physical Thing -> E46 Section Definition) and the shortcut P59 has section (E18 Physical Thing -> E53 Place). E46 Section Definition was deprecated (raised by Robert Sanderson in thread t1012, May 2017, confirmed by Martin Doerr) in favor of using appellations/place identification directly. As a consequence, in November 2018 (Issue 345) the CIDOC CRM SIG deprecated P58 has section definition entirely (voted YES unanimously, thread t1137), and revised the scope note of P59 has section (is located on or within) (thread t1139) so it is now the sole recommended way to record named sections. The new P59 scope note (proposed by Martin Doerr, agreed by the group) says the property links an E53 Place to the E18 Physical Thing it is found on/in, and that this area 'may either be identified by a name, or by a geometry in terms of a coordinate system adapted to the shape of the respective instance of E18 Physical Thing.' It explicitly gives the same ship example, noting that names for such sections are typically composed of the name of a kind of part plus the name of the object itself, e.g. 'The poop deck of H.M.S. Victory' = 'poop deck' + 'H.M.S. Victory'. So the CRM's recommendation is: drop the dedicated E46 Section Definition class/P58 property, and instead use P59 has section to link the object (E18 Physical Thing) directly to an E53 Place representing the named or geometrically-defined section.",
+  "found": true,
+  "cited_threads": ["t1012", "t1137", "t1139"],
+  "queries_run": [
+    "search \"poop deck named section physical object\" -k 10",
+    "concept E46",
+    "thread t1012",
+    "thread t1137",
+    "thread t1139"
+  ],
+  "confidence": "high",
+  "notes": "First free-text search hit the exact topic immediately (via P59/E46 message and the P58i poop-deck example). concept E46 confirmed it as a deprecated identifier and listed the relevant episodes/threads. No dead ends encountered."
+}

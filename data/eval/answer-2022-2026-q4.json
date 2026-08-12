@@ -1,0 +1,22 @@
+{
+  "question_id": "2022-2026-q4",
+  "answer": "No. The class is E33_E41_Linguistic_Appellation (multiple-inherits from E33 Linguistic Object and E41 Appellation), and George Bruseker raised exactly this problem in Nov 2022 ('error in RDFS for 7.1.1...'), arguing it should be a full documented class rather than an RDFS-only construct. This became Issue 624 ('Add E33_E41_Linguistic_Appellation to the Official Specification'). Robert Sanderson and George pushed for adding it with a scope note; Martin Doerr and Pavlos Fafalios pushed back, citing the CRM minimality principle (no class without properties distinctly its own) and demanding disambiguating examples before any scope note could be written. Alternative proposals (Francesco Beretta's sdh:C11 'Appellation in a Language', a new property 'E41 is used in E56 Language', LRM Nomen) were floated as substitutes but were themselves contested (Robert Sanderson said they didn't meet the requirement that the Appellation itself carry the language). By the last message found (19 Dec 2022, Athanasios Velios), the issue was still open, with Martin Doerr saying he was still working on a disambiguating example. No e-vote, scope note, or closure of Issue 624 appears anywhere in the archive through the most recent threads searched (into 2025/early 2026), and the search tool's own episode chronology for E41 marks both relevant episodes (t1649, t1682) as 'unresolved' with no later 'decided' entry for this topic. So the SIG discussed and never agreed to formally add this class to the base standard; it remains RDF-only.",
+  "found": true,
+  "cited_threads": ["t1649", "t1682", "t1655"],
+  "queries_run": [
+    "search \"RDF multiple inheritance linguistic object appellation\" -k 10",
+    "thread t1649",
+    "search \"issue 624 linguistic appellation decision\" -k 10 --after 2022",
+    "thread t1682",
+    "search \"Issue 624\" -k 15 --after 2023",
+    "search \"E33_E41 scope note approved\" -k 10",
+    "search \"linguistic appellation official specification\" -k 10 --after 2023",
+    "concept E41",
+    "thread t1655",
+    "search \"Linguistic Appellation scope note vote CRMbase\" -k 10",
+    "search \"E33_E41 CRMbase\" -k 10 --after 2023",
+    "search \"issue 624 status\" -k 10"
+  ],
+  "confidence": "high",
+  "notes": "Direct hits came fast from a plain hybrid search on 'RDF multiple inheritance linguistic object appellation', which surfaced thread t1649 (the core debate) and t1655/t1682 (the formal issue and homework threads) immediately. The concept E41 chronology corroborated the finding by tagging both relevant episodes 'unresolved' with no subsequent 'decided' entry. No search for a later e-vote or closure of Issue 624 (into 2023-2026 archives) turned up any resolution, which is itself informative rather than a retrieval failure."
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "question": "Does the CIDOC CRM provide a direct way to say that one event caused another, and if not, how did the CRM-SIG say causal relationships between events should be handled instead?",
+    "gold_answer": "No — the SIG declined to add a general 'caused' property between events, arguing that pinning down a single cause is an interpretive, almost judicial act (deciding blame or cause is not the same job as recording facts, likened to the difference between police work and a judge's ruling) and so falls outside what CRM should assert as documented fact. The recommended approach instead is to describe the causing and resulting occurrence as one overlapping process — for example, modelling an event as an E81 Transformation that P123 resulted in the resulting persistent state (an E77 Persistent Item) — or, where a human actor's will is involved, to use P15 influenced/P17 motivated, which is why those properties are restricted to E7 Activities rather than events in general. The position was that CRM should stick to documentable co-occurrence and leave causal interpretation to models built on top of it.",
+    "key_facts": [
+      "CRM-SIG did not add a general 'caused' property between two events",
+      "Causation was treated as belonging to interpretation/judgement rather than documentable fact, illustrated by the analogy of police (facts) versus judges (cause/blame)",
+      "The recommended workaround is to model cause and effect as a single process, e.g. an E81 Transformation linked via P123 resulted in to the resulting E77 Persistent Item, or to use P15 influenced/P17 motivated when a willing human actor is involved"
+    ],
+    "gold_threads": ["t0579"],
+    "difficulty": "easy",
+    "why_this_is_hard": "The answer is a design rationale assembled from several replies, not a property name a keyword search would hand you directly."
+  },
+  {
+    "question": "When the CIDOC community drafted a recommendation for assigning persistent web identifiers (URIs) to museum objects, what disagreement arose over who should be allowed to mint or aggregate those identifiers, and how did the recommendation's author respond to the objection?",
+    "gold_answer": "Several reviewers objected that the draft implicitly set up a hierarchy in which one 'best' institution held authority over an object's identifier, when in practice secondary players — art-trade databases, scholarly catalogues, auction indices — often do useful identification work of their own, sometimes ahead of the museum, and competition between identifier-providers can be a healthy part of scholarship rather than a mess to be eliminated. The author held that the recommendation's scope was deliberately narrow — for museums specifically, not for the art trade or scholarship in general — and pointed out it already allowed a delegated 'aggregator' role for a leading community or research index, provided that aggregator publishes a mapping back to the museum's own URI and maintains a documented relationship with the curating institution. He further defended keeping authority concentrated rather than distributed by arguing, from his own published work on co-reference networks, that reconciling identifiers only stays tractable if the network of equivalence links is centered on a small number of focal points rather than spread arbitrarily, since correcting cross-links in an uncontrolled network scales explosively.",
+    "key_facts": [
+      "Reviewers (e.g. Maximilian Schich, Detlev Balzer) objected that the recommendation implied an artificial hierarchy of 'best' identifier authority, when secondary sources like the art trade and scholarly indices often identify objects effectively in practice",
+      "The recommendation's author (Martin Doerr) restricted its scope to museums only, not the art trade or research community generally",
+      "The recommendation permits a delegated aggregator (a community or research-led index) as long as it publishes a mapping to the museum's own URIs and has a documented relationship with the curating institution",
+      "The author argued that identifier reconciliation only remains tractable if kept centered on a small number of focal identifiers in a star-like structure, rather than distributed across many competing peer sources"
+    ],
+    "gold_threads": ["t0552"],
+    "difficulty": "hard",
+    "why_this_is_hard": "The objection, the scope defence, and the reconciliation argument are made by different correspondents across many separate messages rather than stated together anywhere."
+  },
+  {
+    "question": "The scope notes for the CRM property covering object similarity/derivation, and the parallel property for equivalent alternate names, both described the property as an asymmetric relationship that could nonetheless behave symmetrically in certain cases. A reviewer objected that this was a logical contradiction, since a relation cannot be both symmetric and asymmetric at once. How was this apparent contradiction addressed, and what part of the reviewer's critique was left unresolved?",
+    "gold_answer": "The response distinguished 'asymmetric' from 'antisymmetric': the property itself is asymmetric, but nothing prevents a narrower subproperty of it from being fully symmetric, and that specialization does not create a logical conflict at the level of the general property — the apparent contradiction came from conflating those two mathematical notions. The word 'dynamic' in the scope notes was clarified to mean that users are expected to create their own subtypes for local semantics, not that a single property instance could be both symmetric and asymmetric simultaneously. However, the reviewer's separate, more concrete objection — that the similarity/derivation property has a defined inverse while the equivalent-appellation property, despite being described in identical terms and being a subproperty of the first, does not — was never addressed, and the reviewer's follow-up proposal to replace the word 'asymmetric' with 'nonsymmetric' throughout also went unanswered.",
+    "key_facts": [
+      "The core contradiction was resolved by distinguishing 'asymmetric' from 'antisymmetric', noting an asymmetric property can have fully symmetric subproperties without logical conflict",
+      "'Dynamic' was clarified to mean the property is meant to be subtyped by users for local semantics, not that instances are simultaneously symmetric and asymmetric",
+      "The inconsistency that the similarity/derivation property (P130) has a defined inverse while its subproperty for equivalent appellations (P139) does not was left unaddressed",
+      "A follow-up proposal to rename 'asymmetric' to 'nonsymmetric' in the scope notes also received no reply"
+    ],
+    "gold_threads": ["t0554"],
+    "difficulty": "hard",
+    "why_this_is_hard": "Requires following a multi-step logical argument about relation types across several messages and separating the part that got a real answer from the part that didn't."
+  },
+  {
+    "question": "Did the CIDOC CRM SIG ever commit to a comprehensive list of disjoint class pairs (classes that can never share a common instance) for the benefit of OWL-style implementations, and if not, what was the reasoning for not doing so?",
+    "gold_answer": "No — the SIG explicitly and repeatedly declined to produce a comprehensive list of disjoint classes, judging such a list of doubtful practical value and likely to conflict with keeping the standard's class definitions concise. The published guidance confirms only two genuinely fundamental disjoint pairs (Temporal Entity vs. Persistent Item, and Physical Thing vs. Conceptual Object); an earlier effort toward a fuller list was abandoned, with the recommendation on record being to give up on formal disjointness declarations altogether. The stated reasoning was that most other candidate disjoint pairs have real counter-examples in practice — for instance, a single uninterrupted repair act that is simultaneously a removal and an addition of a part, or real linked-data mappings that deliberately model one node as both an Actor and a Collection — so a blanket list would misrepresent how the classes are actually used; the suggested path forward was to evaluate proposed disjoint pairs individually, case by case, with supporting use cases, rather than adopt any general list.",
+    "key_facts": [
+      "Only two disjoint class pairs are confirmed as fundamental in the published guidance: Temporal Entity/Persistent Item and Physical Thing/Conceptual Object",
+      "An earlier attempt at a fuller disjointness list was abandoned, with the recorded recommendation being to abandon formal disjoint class declarations altogether",
+      "The reasoning given was that most other candidate disjoint pairs have genuine counter-examples in practice (e.g. a single repair event that is both a part removal and a part addition, or real mappings that overload one node as both an Actor and a Collection)",
+      "The suggested resolution mechanism was case-by-case evaluation of individually proposed disjoint pairs with use cases, not a comprehensive standing list"
+    ],
+    "gold_threads": ["t0590"],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "A keyword search on 'disjoint' would surface the two confirmed pairs, but would not reveal that the SIG treated a full list as fundamentally undesirable rather than merely unfinished."
+  }
+]

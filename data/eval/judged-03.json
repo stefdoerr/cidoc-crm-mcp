@@ -1,0 +1,66 @@
+[
+  {
+    "question_id": "2020-2021-q1",
+    "verdict": "correct",
+    "facts_hit": 3,
+    "facts_total": 3,
+    "reasoning": "All three gold facts are present: unanimous e-vote with editorial caveats, the redefinition to physical-or-legal custody rather than physical alone, and use of P2 has type to flag the single-kind case. No contradictions.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2020-2021-q2",
+    "verdict": "wrong",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Gold states the SIG decided the Rigid Physical Feature reclassification (a settled fact); the produced answer instead asserts the archive's concept chronology marks the Issue 447 classification change as 'unresolved,' directly contradicting a decided outcome (Rule 3: gold resolved + produced says open = wrong). The temporal-bounds, property-range-widening, and 2D-interface-objection facts are otherwise present.",
+    "missing_or_wrong": ["Produced answer claims the Rigid Physical Feature reclassification (Issue 447) is marked 'unresolved,' contradicting gold's statement that the SIG decided this reclassification."]
+  },
+  {
+    "question_id": "2020-2021-q3",
+    "verdict": "correct",
+    "facts_hit": 3,
+    "facts_total": 3,
+    "reasoning": "Correctly reports the strict-exclusion rule was rejected as an open-world violation, that the other proposed relationships (A-D) were affirmed as correct, and that the intent clause was loosened to illustrative 'often' wording. No contradictions.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2020-2021-q4",
+    "verdict": "partial",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Correctly reports no new class was adopted, describes the rejected sibling-hierarchy proposal, and covers the need for domain experts/use cases and the machines-are-not-agents position. It omits entirely the librarian's point that an analogous animal-as-agent proposal was already considered and rejected in FRBR/LRM.",
+    "missing_or_wrong": ["A librarian's note that an analogous animal-as-agent proposal had already been proposed and rejected in the FRBR/LRM bibliographic community is not mentioned."]
+  },
+  {
+    "question_id": "2022-2026-q1",
+    "verdict": "correct",
+    "facts_hit": 3,
+    "facts_total": 3,
+    "reasoning": "Accurately reproduces the false dichotomy, the P152 has parent counterexample, the redundancy-with-Terminology-section rationale for trimming the text down to the symmetric/P122-borders-with point, and the unanimous March 2025 e-vote (issue 686) for v7.3. No contradictions.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2022-2026-q2",
+    "verdict": "hallucinated",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Gets the 'never true' framing, the unbounded-derivation/inverse-shortcut rationale, and the narrowest-approximation principle right, and correctly names Schmidle's intersection/overlap proposal. But it then asserts 'The SIG's settled position was to keep S1-style containment... but drop S2-style upward inference' -- an invented resolution -- where gold explicitly says 'the discussion did not converge on a single revised formal rule to replace the removed one' (Rule 3: invented resolution to an open debate = hallucinated).",
+    "missing_or_wrong": ["Produced answer invents a 'settled position' (keep S1-style P161/P89 containment, drop S2) that gold says was never reached; the thread ends without SIG convergence on a replacement rule."]
+  },
+  {
+    "question_id": "2022-2026-q3",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "Covers all four facts: the E24/E22/E25 example pedagogy and the agreed fix of naming the subclass in parentheses, E18 (not E24) being the sole Move target, Doerr's proposed detachable-boundary and Abu Simbel/E81 Transformation text, and the framing as a new unresolved issue with no vote taken.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2022-2026-q4",
+    "verdict": "partial",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Correctly identifies the RDF-only class, Doerr's minimality-principle objection and unresolved disambiguation request, and Beretta's rejected 'appellation in a language' alternative, ending with no scope note or vote agreed. It omits Sanderson/Bruseker's specific counter-argument that the minimality principle is already applied inconsistently elsewhere, citing E27 Site as the counterexample.",
+    "missing_or_wrong": ["Sanderson and Bruseker's argument that the minimality principle is applied inconsistently elsewhere, using E27 Site as the counterexample, is not mentioned."]
+  }
+]

@@ -1,0 +1,191 @@
+{
+  "question_id": "time-dependent-relations",
+  "question": "How does the CIDOC CRM handle time-dependent relations, and why?",
+  "short_answer": "The CIDOC CRM deliberately refuses to hang a date on a relationship. Saying \"this stone is part of that crown\" or \"this painting has owner X\" means only that the relation held at some undetermined time during the thing's existence; if you need to know when, you describe the event that started or ended it — the part addition, the sale, the move — because in this model events, not properties, are what carry time. The rule was written into the standard by Issue 204 (accepted at Amersfoort, November 2012), and when Issue 369 proposed genuine \"timed relations\" that would hold over time-spans, the SIG closed it rather than adopt them (Heraklion, October 2019).",
+  "explanation": "The reason is a rule the CRM calls monotonicity: adding information must never force you to delete information already there. A dated property breaks that rule the moment two records meet. If one catalogue says the owner is the dealer and a later one says the owner is the museum, a timeless \"has owner\" link simply accumulates both — each was true at some point — whereas a single \"owner as of\" slot has to be overwritten. So the CRM keeps relations time-neutral by design: \"the CIDOC CRM always gives priority to modelling properties as time-neutral, and rather representing changes by events\" (v7.3.2, Modelling principles > Monotonicity, the text accepted as Issue 204). Time lives on an event — an E79 Part Addition, an E8 Acquisition, an E10 Transfer of Custody, an E9 Move — which has a time-span of its own, and the relation is read off the event.\n\nIf you ignore this, three things break. First, merging fails: your two sources contradict rather than accumulate. Second, you cannot say when you are wrong — a stale statement looks exactly like a fresh one. Third, you get a category error about places. Administrative and geopolitical units are not instances of E53 Place, which is timeless geometry, but of E4 Period, a spacetime volume (Issue 312); to pin one down at a moment you cut a slice, an E93 Presence tied to a time-span by P164 and to a geometry by P161, \"the basic construct to describe exactly where something was or happened at a particular time\" (v7.3.2).\n\nThe exceptions are the \"current\" properties — P50 has current keeper, P52 has current owner, P55 has current location — inherited from 1990s museum databases. The standard admits they are non-monotonic and \"require deletion when the state changes\", gives each a time-neutral superproperty (P49, P51, P53) to fall back on, and defines each only as a weak shortcut for its event path, so the event cannot be inferred back from the shortcut. In Issue 616 the SIG recorded that they \"break the basic assumption that a CIDOC CRM KB/database store accumulate history\" and considered deprecating them; it has not, for want of a replacement.",
+  "real_world_example": "The clearest case is the one the standard itself uses for parts. P46 is composed of carries no dates at all — its scope note states flatly that it \"does not specify when and for how long a component element resided in the respective whole\", and then tells you what to do instead: \"the classes E79 Part Addition and E80 Part Removal can be used to document when a component became part of a particular whole and/or when it stopped being a part of it\". The standard's own example of E79 Part Addition is the setting of the Koh-i-Noor diamond into the crown of Queen Elizabeth the Queen Mother (cited to Dalrymple, 2017), and E80 Part Removal's scope note names exactly this scenario — \"precious gemstones being extracted from different items of jewellery\". So to say that the diamond was part of one crown and later part of another, you do not write two dated parthood links; you write one E79 Part Addition and one E80 Part Removal per crown, each with its own P4 has time-span, and the undated P46 links follow. A second, SIG-endorsed case is administrative: Issue 554 accepted \"The Capital of Russia\" as an instance of E4 Period on the ground that \"the capital of Russia in the sense of an administrative unit moved in historical times from Moscow to St Petersburg and then back to Moscow\". You cannot state \"the capital of Russia is at Moscow from date A to date B\" as a property; the capital is a period-shaped thing whose extent moves, and you ask where it was in a given year by building an E93 Presence for that year and reading its P161 spatial projection. Neither example is invented; the historical dates of the capital's moves are common knowledge rather than anything the archive establishes.",
+  "decision_status": "partly settled",
+  "issues": [
+    {
+      "id": 204,
+      "title": "Clarification on scope notes of P50, P52, P55 and explanatory note for temporal validity and \"current\" properties",
+      "status": "Done",
+      "outcome": "Accepted by the CRM-SIG at Amersfoort on 20/11/2012. An explanatory text for the CRM introduction was agreed stating that asserting a changeable property means only that it held at some time-span; that finer temporal detail must be given by describing the acquiring or losing events (E9 Move etc.); that this is what secures monotonicity; and that \"current\" properties are non-monotonic and should be reclassified to their time-neutral superproperties when they cannot be maintained, especially on export. This text now appears, lightly edited, as the fourth consequence of monotonicity in v7.3.2."
+    },
+    {
+      "id": 369,
+      "title": "Timed relations",
+      "status": "Done",
+      "outcome": "Closed at Heraklion, October 2019. The register records the SIG turning away from \"modelling states for the continuation of which there exists positive evidence as properties on properties (which would mean that properties would hold over time spans)\", in favour of Phase, Social Institution and Mental Attitude, and transferring the discussion to Issue 422. This is the register's own record of a proposal for time-stamped relations being declined."
+    },
+    {
+      "id": 422,
+      "title": "Phases",
+      "status": "Done",
+      "outcome": "Heraklion, October 2019. The SIG decided against linking Phases or States to the events that initialise them via O14, judged Martin Doerr's proposed Phase scope note too narrow to cover physical, social and mental states, and resolved that \"issue 422 is paused\". The successor mechanism for durative states is therefore not settled."
+    },
+    {
+      "id": 312,
+      "title": "Mapping Geopolitical Units to Period",
+      "status": "Done",
+      "outcome": "Closed at the 40th joint CIDOC CRM SIG / ISO TC46/SC4/WG9 meeting. Text by Christian-Emil Ore and Gerald Hiebel was added to the E4 Period scope note declaring a geopolitical unit to be a specific case of E4 Period, with spatiotemporal properties inherited from E92 Spacetime Volume. Administrative units are thus modelled as things with a temporal extent, not as timeless places."
+    },
+    {
+      "id": 554,
+      "title": "Examples for E4 Period",
+      "status": "Done",
+      "outcome": "53rd CIDOC CRM & 46th FRBRoo SIG meeting: examples accepted into v7.1.2/v7.2.1, including \"The Capital of Russia\", annotated as exemplifying \"an administrative unit changing place over time without temporal discontinuity\"."
+    },
+    {
+      "id": 276,
+      "title": "FOL representation",
+      "status": "Done",
+      "outcome": "Closed at Iraklio, October 2017. Item (c) of the 36th joint meeting had accepted Steve Stead's proposal that \"the definition of the property in the terminology section should be updated in order to indicate this aspect of timelessness with regards to properties\", homework assigned to Wolfgang Schmidle, Steve Stead and Martin Doerr. The same record notes Martin Doerr arguing that properties are never current and that currentness should be inferred, and Steve Stead suggesting the \"current\" properties be deprecated."
+    },
+    {
+      "id": 616,
+      "title": "shortcuts in P50 has current keeper, P52 has current owner, P55 has current location",
+      "status": "Done",
+      "outcome": "Belval, December 2022. The SIG recorded that the first-order-logic form of P50/P52/P55 (a weak shortcut) is inconsistent with the \"if and only if\" of their scope notes, and that \"current\" properties \"need external curation and also break the basic assumption that a CIDOC CRM KB/database store accumulate history\". Christian-Emil Ore proposed deprecating them; the SIG declined to act until an alternative existed and opened Issue 634 instead."
+    },
+    {
+      "id": 634,
+      "title": "What is required for expressing current knowledge?",
+      "status": "Done",
+      "outcome": "Paris, March 2024. Closed with no proposal, the register noting that no homework had ever been assigned to it and recording \"a general discontent for the “has|is current xxx” properties, as they require a lot of curating and present a simplistic view of the world\". P50/P52/P55 survive undeprecated and unreplaced."
+    },
+    {
+      "id": 720,
+      "title": "a new example for P46 and E13, P140, P141, P177",
+      "status": "Open",
+      "outcome": "No SIG resolution. In March 2026 Christian-Emil Ore asked on this issue whether P46 should get a temporal formulation like P49/P51/P53; Martin Doerr replied that \"the question of temporal aspects have been discussed for years, and there are severe reasons not to add temporal validity to all properties\" and proposed turning the past exchanges into a didactic document. That is one participant's position on an open issue, not a decision."
+    }
+  ],
+  "threads": [
+    "t1170",
+    "t1243",
+    "t1509",
+    "t1632",
+    "t1673"
+  ],
+  "citations": [
+    {
+      "id": "crm732#s0058",
+      "quote": "the CIDOC CRM always gives priority to modelling properties as time-neutral, and rather representing changes by events"
+    },
+    {
+      "id": "crm732#s0059",
+      "quote": "this information is non-monotonic, i.e., it requires deletion when the state changes"
+    },
+    {
+      "id": "crm732#s0084",
+      "quote": "the basic construct to describe exactly where something was or happened at a particular time"
+    },
+    {
+      "id": "crm732#P46",
+      "quote": "This property does not specify when and for how long a component element resided in the respective whole"
+    },
+    {
+      "id": "crm732#P46",
+      "quote": "the classes E79 Part Addition and E80 Part Removal can be used to document when a component became part of a particular whole"
+    },
+    {
+      "id": "crm732#P50",
+      "quote": "at the time of validity of the record or database containing the statement"
+    },
+    {
+      "id": "issue204#outcome",
+      "quote": "the CRM recommends to explicitly describe the events of acquiring or loosing such property instances"
+    },
+    {
+      "id": "issue369#outcome",
+      "quote": "instead of modelling states for the continuation of which there exists positive evidence as properties on properties"
+    },
+    {
+      "id": "issue554#outcome",
+      "quote": "the capital of Russia in the sense of an administrative unit moved in historical times from Moscow to St Petersburg"
+    },
+    {
+      "id": "issue616#outcome",
+      "quote": "break the basic assumption that a CIDOC CRM KB/database store accumulate history"
+    },
+    {
+      "id": "issue276#current-s0007",
+      "quote": "the definition of the property in the terminology section should be updated in order to indicate this aspect of timelessness"
+    },
+    {
+      "id": "issue276#current-s0007",
+      "quote": "Martin said that properties are never current"
+    },
+    {
+      "id": "issue720#current-s0003",
+      "quote": "there are severe reasons not to add temporal validity to all properties"
+    },
+    {
+      "id": "t1243",
+      "quote": "No \"named place\" exists forever, hence it changes in time"
+    },
+    {
+      "id": "t1632",
+      "quote": "the \"current\" status cannot be inferred"
+    },
+    {
+      "id": "t1673",
+      "quote": "The original reason for introducing the current properties was they were used in some museum databases in the 1990ies"
+    }
+  ],
+  "caveats": "Three things the archive does not establish. (1) The principle is settled and in the standard, but its consequences are not. Issue 369 closed by handing durative states to Issue 422 Phases, which the SIG then explicitly \"paused\"; so the CRM has no agreed way to say \"this state held from A to B\" other than by bracketing it with two events. (2) The \"current\" properties are unresolved rather than settled. Issue 616 (2022) and Issue 634 (2024) both record dissatisfaction and a proposal to deprecate P50/P52/P55, and both closed without deprecating them; the register gives no positive rationale for keeping them beyond the absence of an alternative. Note also that the calls to deprecate are attributed in the register to individuals (Christian-Emil Ore, and earlier Steve Stead), not adopted as SIG positions. (3) I checked the Terminology section of v7.3.2 for the timelessness wording that Issue 276 item (c) assigned as homework in 2017; the definition of \"property\" there still says nothing about time, so that decision appears not to have reached the text — an observation from comparing the register with the current specification, not something the archive states. Two smaller points: Issue 204 has no mailing-list thread attached, so its reasoning is known only from the register's own transcript of Martin Doerr's proposal and Mathew Stiff's edit; and Martin Doerr's 2026 remark in Issue 720 that there are \"severe reasons\" against timed properties is a post on an open issue, not a resolution, and he does not enumerate the reasons there.",
+  "queries_run": [
+    "search.py issue 204",
+    "search.py issues \"time-dependent relation\"",
+    "search.py issue 369",
+    "search.py issues \"properties cannot have a time-span shortcut full path\"",
+    "search.py issue 616",
+    "search.py issue 634",
+    "search.py issue 422",
+    "search.py issue 312",
+    "search.py issue 554",
+    "search.py issue 276",
+    "search.py issue 720",
+    "search.py issues \"administrative unit as period place changes over time\"",
+    "search.py issues \"why not add time-span to property reification timestamp on relation\"",
+    "search.py issues \"E93 Presence introduce where something was at a time\"",
+    "search.py issues \"current properties need external curation deprecate P50 P52 P55\"",
+    "search.py issues \"a general issue in CRM that the temporal aspect is not expressed for properties like P46\"",
+    "search.py docs \"temporal validity of properties monotonicity current\" --kind narrative",
+    "search.py docs \"fourth consequence of monotonicity time dependent properties having a part owner location\"",
+    "search.py docs \"current state non-monotonic requires deletion time-neutral superproperties\" --kind narrative",
+    "search.py docs \"shortcuts declared as single properties longer path P52 has current owner\" --kind narrative",
+    "search.py docs \"E93 Presence where was a physical thing during a time-span P195 P196\" --kind narrative",
+    "search.py docs \"P50 has current keeper scope note Iveagh Bequest National Gallery\" --kind declaration",
+    "search.py docs \"property serves to define a relationship of a specific kind between two classes intensional extensional\" --kind narrative",
+    "search.py concept E93",
+    "search.py concept P50",
+    "search.py concept P49",
+    "search.py concept P51",
+    "search.py concept P46",
+    "search.py concept E79",
+    "search.py concept E80",
+    "search.py threads \"administrative unit changed over time part of province county boundary\"",
+    "search.py thread t1243",
+    "search.py thread t1632",
+    "search.py thread t1673",
+    "search.py thread t1170",
+    "search.py \"property holds only for a period of time part of from 1850 to 1894\"",
+    "search.py quote crm732#s0058 \"the CIDOC CRM always gives priority to modelling properties as time-neutral, and rather representing changes by events\"",
+    "search.py quote crm732#s0059 \"this information is non-monotonic, i.e., it requires deletion when the state changes\"",
+    "search.py quote crm732#s0084 \"the basic construct to describe exactly where something was or happened at a particular time\"",
+    "search.py quote crm732#P46 \"This property does not specify when and for how long a component element resided in the respective whole\"",
+    "search.py quote crm732#P50 \"at the time of validity of the record or database containing the statement\"",
+    "search.py quote issue204#outcome \"the CRM recommends to explicitly describe the events of acquiring or loosing such property instances\"",
+    "search.py quote issue369#outcome \"instead of modelling states for the continuation of which there exists positive evidence as properties on properties\"",
+    "search.py quote issue554#outcome \"the capital of Russia in the sense of an administrative unit moved in historical times from Moscow to St Petersburg\"",
+    "search.py quote issue616#outcome \"break the basic assumption that a CIDOC CRM KB/database store accumulate history\"",
+    "search.py quote issue276#current-s0007 \"the definition of the property in the terminology section should be updated in order to indicate this aspect of timelessness\"",
+    "search.py quote issue276#current-s0007 \"Martin said that properties are never current\"",
+    "search.py quote issue720#current-s0003 \"there are severe reasons not to add temporal validity to all properties\"",
+    "search.py quote t1243 \"No \\\"named place\\\" exists forever, hence it changes in time\"",
+    "search.py quote t1632 \"the \\\"current\\\" status cannot be inferred\"",
+    "search.py quote t1673 \"The original reason for introducing the current properties was they were used in some museum databases in the 1990ies\""
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "case_id": "archaeology-c3",
+  "answer": "This is in scope, and the CRM has a purpose-built place for exactly this. E94 Space Primitive is meant to hold a validated, coordinate-referenced geometry expressed in an OGC-standard form (its own scope note gives GML and Well-Known Text examples, including a WKT POLYGON, as the canonical illustration for this class). An instance of E94 links to an E53 Place via P168 'place is defined by' (declared exactly on this E53->E94 pair, confirmed with connect), and that instance of E53 Place is itself a first-class CRM entity, distinct from the 'phenomenal' place of the grave cut, whose identity is derived purely from the geometry. So the surveyed polygon does not have to be exiled to a linked GIS file: it can be stored as an E94 Space Primitive value inside the catalogue, defining a declarative E53 Place, which the grave-cut feature record then points to (e.g. via P53/P157). The CRM explicitly designs this class 'to link CIDOC CRM encoded data to the kinds of geometries used in maps or Geoinformation systems,' rather than to force a choice between the two. Issue 390/391 in the SIG register show this scope note was deliberately debated and ratified, not an incidental afterthought, and E94 is officially declared IsA E41 Appellation and E59 Primitive Value with real applicable-property machinery (P168/P171/P172), so this is a settled part of the model, not a stretch.",
+  "classes_proposed": ["E53", "E94"],
+  "properties_proposed": ["P168"],
+  "rejected_alternatives": [
+    {"option": "E95 Spacetime Primitive", "why_not": "sibling of E94 for geometries that vary over time (its scope note says 'limited and varying over time'); the surveyed outline is a single fixed plan, not a time-varying spacetime volume, so E94 is the right sibling, not E95"},
+    {"option": "Treat the outline as necessarily external, with only a pointer from the CRM record", "why_not": "the E94 scope note, and the ratified Issue 390 rewrite of it, exist specifically so that OGC-standard geometries (GML/WKT) can be carried as data inside a CRM-compatible catalogue and still define a real E53 Place with P168 -- the model does not require pushing the geometry itself outside"}
+  ],
+  "citations": [
+    "E94",
+    "E53",
+    "P168",
+    "Introduction to the basic concepts > Relations with Events > Spatial Relations",
+    "Modelling principles > Minimality",
+    "t1118"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"geometry\"",
+    "docs \"spatial coordinates\" --kind narrative",
+    "concept E94",
+    "docs \"CRMarchaeo\"",
+    "\"GIS\"",
+    "connect E53 E94",
+    "thread t1118",
+    "docs \"declarative place\" --kind narrative",
+    "issues \"space primitive\"",
+    "docs \"Minimality\" --kind narrative"
+  ],
+  "confidence": "high",
+  "notes": "The plain mailing-list search for 'GIS' surfaced mostly old, tangential 2001-2002 topology threads; the useful history came from the 'issues' register (Issue 275/390/391/400/467) and the docs geometry search, which hit E94's scope note directly, including its WKT POLYGON worked example. concept E94 and connect E53 E94 did the load-bearing work of confirming P168 is declared on exactly the E53->E94 pair."
+}

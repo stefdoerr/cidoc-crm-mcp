@@ -1,0 +1,41 @@
+{
+  "case_id": "propertychoice-c1",
+  "answer": "Model this as an E11 Modification (conservation treatment is explicitly named in the E11 scope note). E11 < E7 Activity, and P14 carried out by (E7 -> E39) is the necessary property for who carried the activity out; P14.1 in the role of lets several actors be named with different roles on the same activity, since P14 is many-to-many (its own worked example is Michelangelo 'in the role of master craftsman' -- a supervisory role, not a claim he touched every brushstroke). The 2022 SIG thread t1546 revised the P14 scope note precisely to separate active/causal-or-legally-responsible participation (P14) from passive or merely necessary presence, which should instead use P11 had participant. Applying that: the two apprentices did the hands-on filling, regluing and touch-up, so both get P14 carried out by (role: e.g. conservator/assistant carrying out the treatment). The studio principal is recorded on the invoice as having supervised and approved the repairs -- she holds documented professional/legal responsibility for the outcome even without doing the physical work herself, which is exactly the 'causal or legal responsibility' the P14 scope note names and the master-craftsman example models -- so she also gets P14 carried out by, with a distinct P14.1 role (e.g. supervising conservator) from the apprentices. The museum's conservation officer, by contrast, visited twice only to check progress and did none of the hands-on work and held no responsibility for producing the result; per the t1546 clarification her presence is passive/inactive with no causal contribution to the activity, so she should NOT be linked with P14. If her presence is worth recording at all, P11 had participant (or P12 occurred in the presence of) is the correct property, not P14. So: yes, more than one person should be recorded as having carried out the treatment (principal + both apprentices, each P14 with their own P14.1 role), and the conservation officer should be excluded from P14.",
+  "classes_proposed": ["E11", "E7", "E39"],
+  "properties_proposed": ["P14", "P14.1", "P11"],
+  "rejected_alternatives": [
+    {"option": "P14 carried out by for the museum's conservation officer", "why_not": "t1546 (SIG-agreed scope-note revision by Athanasios Velios, endorsed by Martin Doerr) reserves P14 for active participation with causal or legal responsibility; an actor whose presence is inactive/checking-only without sharing responsibility for the activity should be recorded with P11 had participant instead."},
+    {"option": "Recording only the studio principal as having carried out the work (single carrier)", "why_not": "P14 carried out by is quantified many to many (1,n:0,n) in the concept dossier, and its own canonical example (Michelangelo 'in the role of master craftsman') shows a supervisory carrier being named via P14.1 alongside the possibility of others who did the physical work -- nothing in the property restricts it to one actor."},
+    {"option": "Recording only the apprentices and dropping the principal", "why_not": "The principal's supervision and formal approval is documented as her responsibility for the outcome, which is the 'causal or legal responsibility' the P14 scope note names as sufficient for P14, distinct from the merely-checking role of the conservation officer."}
+  ],
+  "citations": [
+    "E11", "P14", "P11",
+    {"id": "t1546", "quote": "whose inactive presence has a causal impact to the activity or they are active without sharing the responsibility of the activity, the property P11 had participant"},
+    {"id": "t1546", "quote": "Necessary participation is definitey not meant by"},
+    "Issue 170"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept P14",
+    "concept E11",
+    "thread t1477",
+    "thread t1546",
+    "docs \"supervision\" --kind narrative",
+    "docs \"supervised\"",
+    "\"supervised approved conservation\"",
+    "threads \"workshop apprentice master craftsman role\"",
+    "threads \"supervised approved responsibility carried out\"",
+    "connect E11 E39",
+    "connect E7 E39",
+    "concept P11",
+    "issues \"carried out by role responsibility supervision\"",
+    "issues \"approval quality control conservation\"",
+    "issue 488",
+    "concept E39",
+    "quote t1546 \"whose inactive presence has a causal impact to the activity or they are active without sharing the responsibility of the activity, the property P11 had participant\"",
+    "quote t1546 \"Necessary participation is definitey not meant by\""
+  ],
+  "confidence": "medium",
+  "notes": "The exact P14.1 role-type vocabulary for a supervising-but-not-hands-on conservator was not found in the corpus (only the generic 'master craftsman' example and the still-open CRMsoc-linked Issue 488 on acting-at-the-behest-of-another, closed without a general rule). The P14-vs-P11 boundary itself, however, is a decided SIG position (t1546), which is the load-bearing citation here."
+}

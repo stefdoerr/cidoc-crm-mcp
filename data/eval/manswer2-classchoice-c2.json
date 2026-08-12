@@ -1,0 +1,37 @@
+{
+  "case_id": "classchoice-c2",
+  "answer": "Document the eleven-day trial as an E16 Measurement, not as an E14 Condition Assessment. The daily noon comparison against the regulator clock is a systematic, objective observation procedure that yields a quantifiable value -- the chronometer's daily rate -- which is exactly an E54 Dimension observed via P40 observed dimension (with P39 measured pointing at the chronometer, P16 used specific object for the regulator clock used as reference, and P4 has time-span for the eleven days). E14 Condition Assessment was ruled out: its range via P35 has identified is E3 Condition State, whose scope note and the archive's own worked examples (Issue 503 / thread t1406) are about the *physical/material* state of preservation -- 'fine', 'broken', 'damage', 'quality' of a binding or cover -- not a functional performance metric like timekeeping accuracy. A chronometer's rate is a measured Dimension, not a preservation state. The certificate's further conclusion, 'fit for sea service,' is a separate evaluative step built on top of the measured rate rather than part of what makes the eleven-day trial itself a measurement; if it is modelled at all, Issue 482's discussion of an analogous evaluative judgment drawn from measurements (an 'Exposure Assessment') shows the SIG reaching for E17 Type Assignment or a CRMinf/CRMsci inference-making class, not E14, when the object of the assessment is a judgement rather than an observed physical state. So: the trial = E16 Measurement of an E54 Dimension (the daily rate); the fitness declaration, if captured at all, is a distinct downstream E17-style classification, not a Condition Assessment of the chronometer itself.",
+  "classes_proposed": ["E16", "E54", "E17"],
+  "properties_proposed": ["P39", "P40", "P16", "P4"],
+  "rejected_alternatives": [
+    {
+      "option": "E14",
+      "why_not": "E14's range via P35 has identified is E3 Condition State, whose scope note and the SIG's own examples (Issue 503, thread t1406: 'fine', 'broken', 'damage', 'quality') concern the physical/material state of preservation of an object, not a functional performance value like a chronometer's daily rate; the accumulated gain/loss the observatory records is a quantified Dimension (E54), not a condition state."
+    }
+  ],
+  "citations": ["E16", "E14", "E54", "E17", "E3", "P39", "P40", "P16", "P4", "Issue 503", "Issue 482", "t1406", "t1432"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E16",
+    "concept E14",
+    "docs \"condition assessment measurement fitness\" --kind narrative",
+    "\"chronometer rate trial fitness\"",
+    "thread t1700",
+    "thread t0231",
+    "docs \"state of preservation condition assessment scope\" --kind declaration",
+    "\"fitness for sea service certificate rate\"",
+    "concept E17",
+    "concept E54",
+    "concept I2",
+    "docs \"attribute assignment interpretation conclusion single activity\" --kind narrative",
+    "thread t1406",
+    "thread t1432",
+    "concept S4",
+    "concept S21",
+    "docs \"P39 measured P40 observed dimension\" --kind declaration",
+    "issues \"measurement versus condition assessment boundary\""
+  ],
+  "confidence": "medium",
+  "notes": "The E16-vs-E14 split is clean and well-supported by the siblings block and archive examples. The 'fitness for sea service' half of the certificate has no dedicated CRM class in what the tools surfaced -- Issue 482 shows the SIG treating a comparable evaluative judgement as E17 or an inference-making extension class rather than E14, but no thread addresses a chronometer-rate-certification case directly, so that half of the answer is the weaker, medium-confidence part."
+}

@@ -1,0 +1,21 @@
+{
+  "question_id": "2016-2017-q2",
+  "answer": "In August 2016 (thread t0937, 'E82 Actor Appellation Issue'), Stephen Stead opened the issue: E82's scope note/examples failed to convey that an actor appellation must have a form characteristic of naming an actor, causing user confusion, and he proposed either a revised scope note or outright deprecation, favoring deprecation. The community's position hardened quickly toward removal: Dominic Oldman said he'd already assumed it would be retired; Pat Riva argued the actor/appellation distinction is not inherent to the form of a name but depends on cultural knowledge and usage context, so it can't be reliably drawn; Christian-Emil Smith Ore noted the original 2001-2002 rationale (that actor and place names have detectable, distinguishing characteristics) had been disproven; Martin Doerr voted for removing E82 and nearly all E41 subclasses except Title, Address, and Spatial Coordinates. Franco Niccolucci then proposed a general rule (R1: needed as domain/range of a property inappropriate to its superclass, or R2: a key concept in practical scope) for deciding which E41 subclasses to keep, and under that rule explicitly voted 'Leave'/'Bye bye E82' for Actor Appellation, a judgment Martin Doerr endorsed. Only Dan Matei registered dissent, saying he'd regret losing E82 since he used a subtype ('Anthroponym') in his own application. By the following year, the class's fate was effectively settled: in a June 2017 thread (t1015, 'Deprecation of Actor appellation'), Philip Carlisle wrote that 'E82 has been deprecated in favour of E41' and flagged that the property P131 (is identified by: E82 Actor Appellation) and other textual references to E82 (in the CRM Compatibility introduction, the property hierarchy, and the entries for P1 and E39) had not been updated to reflect the deprecation. Robert Sanderson agreed, adding that essentially all E41 subclasses besides E42 Identifier should likewise be deprecated as adding no new semantics. This exposed the loose end: E82 itself was treated as gone, but P131 (and related documentation cross-references) were left dangling, unresolved. That loose end persisted well past 2017 -- a January 2019 thread (t1158, 'Deprecate P78, P87?') has Robert Sanderson explicitly proposing that 'P131 / E82 also fits the same pattern, and should have the same treatment as P78 and P87' (which were being deprecated alongside E49/E44), indicating the formal property-level cleanup for E82/P131 still hadn't happened even two-plus years after the original 2016 scope-note complaint.",
+  "found": true,
+  "cited_threads": ["t0937", "t1015", "t1158"],
+  "queries_run": [
+    "search.py \"actor appellation\" -k 10",
+    "search.py thread t0937",
+    "search.py concept E82",
+    "search.py thread t1015",
+    "search.py \"P131 is identified by E82\" -k 10",
+    "search.py \"E82 deprecated issue\" -k 10",
+    "search.py threads \"actor appellation deprecation\" -k 8",
+    "search.py \"SIG meeting minutes E82\" -k 10",
+    "search.py thread t1158",
+    "search.py \"E82 Actor Appellation deprecated vote\" -k 10",
+    "search.py \"actor appellation\" --after 2016 --before 2018 -k 15"
+  ],
+  "confidence": "high",
+  "notes": "No single message contains an explicit formal vote/motion record for E82's deprecation between Aug 2016 and mid-2017; the 2016-08 thread t0937 shows the community converging on removal and the 2017-06 thread t1015 treats it as a settled fact ('since E82 has been deprecated'), so the exact formal decision point (e.g. a SIG meeting vote) was not found in the archive -- only the before/after community consensus. The P131/property loose end is well documented and confirmed still open in a 2019 thread."
+}

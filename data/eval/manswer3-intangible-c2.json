@@ -1,0 +1,35 @@
+{
+  "case_id": "intangible-c2",
+  "answer": "The catalogue should not assert a direct 'learned repertoire from' property between the two Persons (E21). CRM has no such property, and P152 has parent -- the one property the SIG did sanction directly between two E21 instances despite an event path existing (P98i/E67/P96/P97) -- shows that direct actor-to-actor shortcuts are only added when the SIG deliberately decides a relation is universally query-relevant (Minimality; Extensions of CIDOC CRM: 'only concepts to be used for selecting multiple instances ... by formal querying need to be explicitly modelled'). No comparable decision exists for teaching/apprenticeship. Instead, each of the 40 tapes documents a session, modelled as an E7 Activity (both fiddlers as P11 had participant / P14 carried out by), each tape as a document (E31/E22) that P70 documents the activity. 'Grandnephew learned his repertoire from his granduncle' is the community-level pattern that this population of individual activities is evidence for -- exactly Martin Doerr's answer in the 'Recording Intangible Cultural Heritage' thread (t0916), which splits intangible heritage into (A) particular performances, (B) a type of activity characteristic of a community/tradition, evidenced by individual events, and (C) oral tradition as an Information Object carried by people. This case is sense (B): 'Each pattern is supported by evidence by individual events.' So: represent the sessions as events; let the teacher/student relation be an inference over them, not a base-CRM property.",
+  "classes_proposed": ["E7", "E21", "E31", "E22"],
+  "properties_proposed": ["P11", "P14", "P70"],
+  "rejected_alternatives": [
+    {"option": "A direct E21->E21 shortcut property (analogous to P152 has parent) for 'learned from'/'taught by'", "why_not": "connect E21 E21 shows the only property the CRM declares directly on the Person-Person pair is P152 has parent, created by explicit SIG decision as a shortcut for the birth-event path; no equivalent shortcut for teaching/apprenticeship exists in the ontology, and Minimality/Extensions of CIDOC CRM narrative says such shortcuts are added only when needed for general querying, not per-case."},
+    {"option": "Treating the relationship as fully out of scope for CRM", "why_not": "t0916 (Martin Doerr, Christian-Emil Ore, Nicola Carboni) establishes CRM can and does represent this kind of intangible transmission -- as events with participants plus a supported higher-level pattern -- so it is in scope, just not via a direct property."}
+  ],
+  "citations": ["E21", "P152", "P11", "P14", "E7",
+    {"id": "t0916", "quote": "Each pattern is supported by evidence by individual events."},
+    "Modelling principles > Minimality",
+    "Modelling principles > Extensions of CIDOC CRM"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept P152",
+    "docs \"teaching\" --kind narrative",
+    "docs \"apprentice\"",
+    "docs \"oral tradition\"",
+    "\"learned from\"",
+    "issues \"teaching\"",
+    "\"shortcut property justification\"",
+    "connect E21 E21",
+    "thread t0916",
+    "docs \"minimality\" --kind narrative",
+    "thread t0794",
+    "docs \"pattern typically evidence\" --kind narrative",
+    "docs \"generalization pattern\" --kind narrative",
+    "docs \"Extensions of CIDOC CRM\" --kind narrative",
+    "quote t0916 \"Each pattern is supported by evidence by individual events.\""
+  ],
+  "confidence": "medium",
+  "notes": "No direct hit for 'apprentice'/'oral tradition' via docs semantic search; the decisive material came from the mailing-list thread t0916 (Recording Intangible Cultural Heritage) rather than the reference model itself, and from contrasting connect E21 E21 against P152's dossier. Did not find a SIG issue number specifically for P152's creation, only the mailing-list thread t0794."
+}

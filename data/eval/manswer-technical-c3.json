@@ -1,0 +1,30 @@
+{
+  "case_id": "technical-c3",
+  "answer": "Yes, this is in scope. Each re-cutting of the furrows is an activity that alters an existing physical object (the millstone), which is exactly what E11 Modification covers ('conservation treatment', 'renewal' -- its own examples include the periodic renewal of the Toshogu shrine's gold coating, the same recurring-renewal shape as re-dressing a millstone). The miller's personal technique itself -- distinct from any single re-dressing event -- is an E29 Design or Procedure: the concept dossier for E29 lists P33 among E11's applicable properties, so an E11 Modification can point at a specific E29 via P33 used specific technique. Crucially, E29 does not require the procedure to be written down: in thread t0761, Stephen Stead explicitly addresses this ('these could be codified in a document or exist as a set of tribal knowledge in either the performers of the task or in the observers of the results') -- a recognisable, singular methodology can be treated as a topic of discourse in its own right even with no document behind it, which is precisely the miller's undocumented, by-feel technique. Because the miller adjusts the technique slightly each time and it differs from his predecessor's, it need not be modelled as one static E29: P69 has association with (E29->E29, typed e.g. 'follows'/'inspired by') is built for chaining or deriving one procedure from another, so the mill could record the current technique as one E29 associated with the predecessor's E29, or as a short lineage of E29 instances, each linked from the re-dressing activities that used it via P33. Either granularity keeps the technique as a first-class entity separate from the log of individual re-dressing events, which is what was asked for.",
+  "classes_proposed": ["E29", "E11"],
+  "properties_proposed": ["P33", "P69", "P31"],
+  "rejected_alternatives": [
+    {
+      "option": "E55 Type (classifying the activity via P32 used general technique)",
+      "why_not": "P32's scope note (seen in the docs search) says the technique 'should be drawn from an external' controlled vocabulary/thesaurus -- it is meant for a categorical, shared label like 'gilding', not for one person's idiosyncratic, evolving method. It lets you tag the activity with a term but gives the technique no identity of its own to associate with predecessor versions or reason about across re-dressings, which is what the question specifically asks for ('a thing in its own right')."
+    }
+  ],
+  "citations": ["E29", "E55", "P32", "P33", "P69", "E11", "t0761"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E29",
+    "concept E55",
+    "docs \"technique\"",
+    "docs \"craft skill\" --kind narrative",
+    "docs \"intangible heritage\"",
+    "thread t0761",
+    "thread t0916",
+    "thread t0430",
+    "concept P69",
+    "docs \"identity through change\" --kind narrative",
+    "concept E11"
+  ],
+  "confidence": "high",
+  "notes": "The concept dossier's 'Applicable properties' list on E11 (which included P33) was what pointed straight at E29 without needing to guess; the ontology one-liners alone would not have surfaced P33/E29 as the pairing. The mailing-list thread search was what settled the undocumented-technique worry -- t0761 is a direct, on-point SIG ruling that E29 covers 'tribal knowledge' with no document behind it. Harder part: nothing in the corpus gives a crisp rule for whether a technique that changes every time should be one evolving E29 or a chain of them; P69 has association with supports the chain reading but I had to infer that from its scope note and examples rather than finding a case discussing exactly this granularity question."
+}

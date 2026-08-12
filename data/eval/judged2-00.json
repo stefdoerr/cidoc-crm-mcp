@@ -1,0 +1,82 @@
+[
+  {
+    "question_id": "2001-2008-q4",
+    "verdict": "hallucinated",
+    "facts_hit": 2,
+    "facts_total": 4,
+    "reasoning": "Gold says no final decision on P107.1/P144.1 was ever recorded and the thread drifted into a separate 'two or more members' debate; the produced answer instead invents a vote history (approved 2008-11-14, would 'stand as accepted' by Monday) and asserts the property 'was adopted', contradicting the gold's unresolved conclusion.",
+    "missing_or_wrong": [
+      "No final decision adopting or rejecting P107.1/P144.1 appears in the discussion; it shifted instead into debating whether to drop the 'two or more members' requirement"
+    ]
+  },
+  {
+    "question_id": "2009-2011-q4",
+    "verdict": "partial",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Correctly says no comprehensive list was ever produced, names the two fundamental disjoint pairs, and gives consistent reasoning (event disjointness hard to state, chair-leg repair example), but never states the suggested resolution mechanism of case-by-case evaluation of individually proposed pairs, and omits the Actor/Collection real-mapping counter-example.",
+    "missing_or_wrong": [
+      "The suggested resolution mechanism was case-by-case evaluation of individually proposed disjoint pairs with use cases, not a comprehensive standing list"
+    ]
+  },
+  {
+    "question_id": "2012-2013-q4",
+    "verdict": "correct",
+    "facts_hit": 4,
+    "facts_total": 4,
+    "reasoning": "Matches the proposal, the counter-argument that aboutness belongs to an intermediate conceptual object, Martin Doerr's 'new evidence for a future meeting' response, and the thread ending with no confirmation of logging/acceptance; the added note about the current standard lacking the properties is corroborating, not a fabricated SIG decision.",
+    "missing_or_wrong": []
+  },
+  {
+    "question_id": "2014-2015-q4",
+    "verdict": "hallucinated",
+    "facts_hit": 2,
+    "facts_total": 3,
+    "reasoning": "Gold says the thread ends with Vladimir asking Doerr to clarify 'soft' vs 'strict' shortcuts with no reply ever recorded; the produced answer instead invents a multi-year resolution arc (Ore's 2015 strong/weak classification, a 2019 'define all shortcuts as weak' simplification, ISSUE 357/420/613) presented as how the SIG actually settled the practical question, which the gold does not support.",
+    "missing_or_wrong": [
+      "The thread ends with Vladimir asking Doerr to explain a 'soft' vs. 'strict' classification of shortcuts, and no answer or resolution is recorded"
+    ]
+  },
+  {
+    "question_id": "2016-2017-q4",
+    "verdict": "partial",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Correctly conveys that whether E30 is concept-vs-holding was never resolved and that joint/partial ownership was left unsolved, and cites an unadopted new-class proposal, but never mentions the senior modeller's proposal to restart a dedicated rights working group that had stalled after a partner organization withdrew.",
+    "missing_or_wrong": [
+      "The senior modeller proposed restarting a dedicated rights-modelling working group, noting a prior effort had already stalled after a partner organization withdrew; no such group is shown reconvening"
+    ]
+  },
+  {
+    "question_id": "2018-2019-q4",
+    "verdict": "hallucinated",
+    "facts_hit": 1,
+    "facts_total": 3,
+    "reasoning": "Gold is explicit that this was never settled and no vote was ever taken; the produced answer opens with 'Yes, the group settled on it' and describes a 'Resolution... at the Paris SIG' fixing the property's final name and placement in CRMsci, directly contradicting the gold's core claim that Doerr's base-vs-SKOS objection and the property's mathematical nature were left open with no vote.",
+    "missing_or_wrong": [
+      "Martin Doerr repeatedly questioned whether the property belonged in CRM base versus being left to SKOS, and this was never resolved",
+      "No vote was ever taken"
+    ]
+  },
+  {
+    "question_id": "2020-2021-q4",
+    "verdict": "partial",
+    "facts_hit": 3,
+    "facts_total": 4,
+    "reasoning": "Correctly states no new class was adopted, accurately describes the unadopted sibling-superclass/biological-agent proposal, and captures Doerr's experts-and-practice-first position plus his machines-are-not-actors stance, but omits the librarian's point that an analogous animal-as-agent proposal was already rejected in FRBR/LRM.",
+    "missing_or_wrong": [
+      "A librarian noted that an analogous animal-as-agent proposal had already been considered and rejected in the FRBR/LRM bibliographic model for similar reasons"
+    ]
+  },
+  {
+    "question_id": "2022-2026-q4",
+    "verdict": "partial",
+    "facts_hit": 2,
+    "facts_total": 4,
+    "reasoning": "Correctly concludes no scope note/vote was ever agreed and the class remains RDFS-only, but never names Doerr's minimality-principle objection explicitly, omits Sanderson/Bruseker's specific counter-argument that minimality is already applied inconsistently (their E27 Site example), and doesn't mention Rob rejecting Beretta's 'appellation in a language' alternative as not meeting the requirement.",
+    "missing_or_wrong": [
+      "Robert Sanderson and George Bruseker argued the minimality principle is applied inconsistently elsewhere (their counterexample was E27 Site)",
+      "Francesco Beretta's alternative proposal was rejected by Rob as not meeting the stated requirement"
+    ]
+  }
+]

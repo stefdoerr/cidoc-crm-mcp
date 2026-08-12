@@ -1,0 +1,24 @@
+{
+  "question_id": "2016-2017-q4",
+  "answer": "No, the SIG never settled on a single answer. In the 'Rights model' thread (t0972, Feb-Mar 2017), Robert Sanderson raised the question of whether E30 Right is the abstract right/content of a right, or the instance of holding it, and Martin Doerr replied that there are really three distinct things -- the holding of the right, the content of the right, and the concept of the right -- and that whether holding can be merged with content 'is to be discussed.' The joint/partial ownership question (e.g., two people each owning 50% of an object, via P148_has_component) was raised in the same thread but Martin called it 'horribly complicated,' said the CRM was not built for such business-transaction modeling, and proposed splitting it off into a separate extension effort ('CRM social') rather than resolving it in CRM core. A related proposal for a new 'Right Holding' class with temporal properties (thread t0976) was submitted as an issue but not adopted. The follow-up thread 'End of Existence for Rights?' (t1019, Aug-Sep 2017) revisited the same abstract-concept-vs-instance dilemma; Martin's final reply there says a Right 'can be both' senses depending on context, suggests renaming E30 to something like 'Right Terms' and improving the scope note, but no e-vote or scope-note change is recorded closing the issue. The archive's own chronology for E30 marks both the 2017-02-28 and 2017-08-14 episodes as 'unresolved.'",
+  "found": true,
+  "cited_threads": ["t0972", "t1019", "t0976", "t0978"],
+  "queries_run": [
+    "search \"E30 Right instance abstract legal concept\" -k 10",
+    "concept E30",
+    "search \"joint ownership shares partial right\" -k 10",
+    "search \"share of ownership percentage right holder\" -k 10",
+    "thread t0972",
+    "thread t1019",
+    "thread t1022",
+    "search \"Right Holding new entity proposal\" -k 10",
+    "search \"E30 Right scope note revision decision\" -k 10 --after 2017",
+    "thread t0976",
+    "thread t0978",
+    "search \"E30 Right scope note change adopted\" -k 10 --after 2017 --before 2020",
+    "search \"Right Holding issue closed decision\" -k 10",
+    "threads \"E30 Right joint ownership resolution\" -k 8"
+  ],
+  "confidence": "high",
+  "notes": "All key queries returned directly relevant hits on the first or second try; the concept E30 chronology's own outcome tags ('unresolved') independently corroborate the reading from the full thread text."
+}

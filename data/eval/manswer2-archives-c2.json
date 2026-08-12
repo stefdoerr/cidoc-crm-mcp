@@ -1,0 +1,37 @@
+{
+  "case_id": "archives-c2",
+  "answer": "In scope, without stretching CRM base. Separate the intellectual composition of the letters' text from the physical act of signing them. Model the text as an E33 Linguistic Object brought into being by an E65 Creation event (P94 has created), with P14 carried out by (many-to-many) naming whoever is credited with composing it -- this is the property whose own scope note distinguishes conceiving the intellectual content from committing it to paper, which is exactly the secretary/clerk split here. The secretary's signature is a separate fact about the physical carrier: the letter as E22 Human-Made Object shows an E37 Mark (P65 shows visual item) -- that the secretary's signature appears on the object says who signed, not who composed. Do not conflate the two by defaulting to 'secretary = author' just because the signature is what survives. Because the clerk's identity is the cataloguer's inference from handwriting/letterhead comparison with no corroborating record, wrap that attribution in an E13 Attribute Assignment (P140/P141) pointing at an unnamed E21 Person -- CRM does not require an identifier for an actor to exist as an instance -- with P3 has note carrying the cataloguer's evidence and its limits. That keeps 'clerk drafted, secretary signed' recorded as a documented opinion rather than an asserted fact, revisable later without contradiction (Monotonicity/Open World). The SIG itself has not settled a single best pattern for multi-actor/multi-role attribution on one activity (t0796, t1477 both unresolved), so treat the P14 role split as the workable base-CRM answer, not the only defensible one.",
+  "classes_proposed": ["E65", "E33", "E22", "E37", "E13", "E21"],
+  "properties_proposed": ["P94", "P14", "P65", "P140", "P141", "P3"],
+  "rejected_alternatives": [
+    {"option": "P108 has produced / E12 Production as the sole home for authorship", "why_not": "P94's scope note (concept P94) explicitly says the property covers conceiving the intellectual content, 'not its commitment to paper' -- routing authorship only through physical production of the object conflates writing-out with composing, which is the exact distinction the case turns on."},
+    {"option": "Keep crediting the secretary alone via P14 on the Creation event", "why_not": "that just re-asserts the existing catalogue entry the cataloguer now doubts; it discards the handwriting/letterhead evidence instead of recording it."},
+    {"option": "CRMinf belief/argumentation apparatus (I7 Belief Adoption etc.)", "why_not": "seen in play for competing formal scholarly hypotheses (threads t1704, t0840, t1035), but this case is one cataloguer's working hypothesis with no rival claim to argue against -- E13 Attribute Assignment plus P3 has note is proportionate; escalating to CRMinf would be over-modelling."}
+  ],
+  "citations": ["E65", "E33", "E22", "E37", "E13", "E21", "P94", "P14", "P65", "P140", "P141", "P3", "t0796", "t1477", "t0840", "t1035"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E65",
+    "concept E13",
+    "docs \"authorship attribution uncertain\" --kind narrative",
+    "docs \"false attribution uncertain creator\"",
+    "docs \"signed\"",
+    "\"letter signed by secretary but written by clerk\"",
+    "\"scribe amanuensis authorship\"",
+    "threads \"uncertain attribution of authorship\"",
+    "concept E33",
+    "concept E37",
+    "concept P14",
+    "concept P94",
+    "\"scribe copying manuscript dictation author\"",
+    "thread t1046",
+    "docs \"commitment to paper composition intellectual content\" --kind narrative",
+    "issues \"authorship attribution creator\"",
+    "threads \"multiple actors different roles same activity P14.1\"",
+    "quote P94 \"composition of a poem\" (failed: P94 is not a citable chunk id)",
+    "quote P94 \"It does not represent the act of creating the first physical carrier\" (failed: same reason)"
+  ],
+  "confidence": "medium",
+  "notes": "The P94 scope note text (the 'composition of a poem, not its commitment to paper' language) came from the concept dossier, not a chunk with its own citable id -- search.py quote rejected 'P94' as an unknown source, so that wording is paraphrased in the answer rather than quoted, and only the bare identifier P94 is cited. The multi-role reification pattern (drafter vs signatory on one event) is itself an open SIG question (t0796, t1477), so confidence is medium rather than high on the exact mechanics, though the class/property choices themselves are well supported."
+}

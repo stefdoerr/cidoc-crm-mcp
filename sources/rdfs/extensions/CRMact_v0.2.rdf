@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <!--
+RDFs implementation of CRMact v0.2 March, 2022 (https://www.cidoc-crm.org/crmact/ModelVersion/version-0.2).
+
+Created by FORTH-ICS - February, 2024
+CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
+
+-->
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionInfo xml:lang="en">CRMact Ontology next version preparation (DRAFT). Based on draft version 0.2 (March 2022) which included references to Cidoc-CRM 7.1.1 and CRMsci 1.2.6. Current encoding (February, 2024) references Cidoc-CRM 7.1.3, CRMinf 1.0 and CRMsci 2.0 and can only be used as DRAFT.</owl:versionInfo>
+    <rdfs:comment xml:lang="en">CRMact defines the classes and properties which are necessary for integrating documentation records about plans for future activities and future events. The development of this extension follows discussions of the CIDOC-CRM SIG meetings on modelling legal rules and the application of laws as well as modelling treatment proposals for conservation of cultural heritage objects. 
+
+The resulting model is a high level construct extending the CIDOC-CRM to handle documentation of projected future events with regards to their form and intention at the time of their projection and documentation.
+
+The main elements of this extension are the declaration and modelling of the classes and properties related to ‘Activity Plan’, ‘Event Template’ and ‘Intention to Apply’.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actE2_Activity_Plan">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Activity Plan</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises plans foreseeing specific predefined activities or kinds of activities taking place. They consist of descriptions of specific constraints, patterns or types of activities that could be realized. They may also foresee that the planned activities are realized at times explicitly foreseen by the actor intending the application of the plan, for instance, to organize a conference, in which case we may talk about “active plans”. Alternatively, times of realization may be foreseen in reaction to external events of a kind foreseen by the plan, for instance the rescue activity after an earthquake following a rescue plan, or a penal action in the case of criminal activity according to a penal code, in which case we may talk about “reactive plans”. The existence of an instance of Activity Plan does not necessarily imply the intention of any Actor to apply it. It may be created together, before or without the will to apply it. For instance, laws are created before they are passed by parliament. Any Activity Plan may require specific conditions for it to be applicable. For example, a plan to excavate a river bank may require that the river is flooded, or my plan to lime plaster my stone wall requires that it is winter (i.e. wet and cold).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E29_Design_or_Procedure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Intention to Apply</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises the mental states of individual instances of E39 Actor that intend to or want to apply a particular instance of Activity Plan. This can be understood as the period of time when an individual or group holds a particular will. It binds the activity plan to the actor. The ‘intention to apply’ may be abandoned before the realization of the plan. When the plan is actually realized, the ‘intention to apply’ must necessarily still exist. Characteristically, the passing of a law initiates the intention of a parliament to apply the law. In many cases, the creation of the plan initiates the intention to apply it, and in the case of “active plans” the completed realization of the plan ends the intention. Often, the existence of the ‘intention to apply’ cannot be determined other than by the realization of the plan.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Event Template</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises templates of events for Activity Plans by providing necessary or desirable constraints to the properties of the foreseen instance of an event, be it on the level of particular items involved or on the level of kinds of processes, items or qualities and quantities involved. Instances of Event Template may be used to recognize that a past event fitted the specification, or for specifying future events. Characteristically, instances of this class are created in association with instances of actE2 Activity Plan, as templates for the events that should trigger the execution of an Activity Plan or as templates for the activities that should take place during the execution of an Activity Plan. For example, we expect a disaster plan for a library to be executed when the disaster happens or the disaster readiness plan to be triggered on the readiness exercise test day.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E89_Propositional_Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP10_was_intention_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was intention of</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of apE3 Intention to Apply with an instance or instances of the E39 Actors intending to apply a apE2 Activity Plan.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP10i_had_intention"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP12_was_intended_to_apply_within/from">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was intended to apply within/from</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE3 Intention to Apply with the declarative time constraint foreseen by the intending party for the actual application of the activity plan. The intending party may alter the time constraint over time. In case the newly set time constraint narrows a previously set time constraint, one may regard both constraints as being simultaneously true and consistent. In the case that the newly set time constraint does not just narrow the previous one (typically delaying the foreseen time of application), it should be regarded as a modification of the overall ‘intention to apply’. The result of this modification should be regarded as an ‘intention to apply’ in its own right that is part of an overall instance of actE3 Intention to Apply, which continues to be held.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP10i_had_intention">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">had intention</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP10_was_intention_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP11_is_expressed_in">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is expressed in</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE3 Intention to Apply with an instance of E31 Document that formally represents and externalizes this intention in a symbolic form.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E31_Document"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP11i_expresses"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP11i_expresses">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">expresses</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E31_Document"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP11_is_expressed_in"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP13_was_initiated_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was initiated by</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates the beginning of an instance of actE3 Intention to Apply with an explicit event initiating it. Often, the initiation of the ‘intention to apply’ is implicit in the creation of the activity plan.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E5_Event"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP13i_initiated"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP13i_initiated">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">initiated</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E5_Event"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP13_was_initiated_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP14_was_ended_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was ended by</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE3 Intention to Apply with an explicit activity or event terminating it. Often, the termination of the ‘intention to apply’ is implicit in the realization of the activity plan. In some cases, it may be silently forgotten.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E5_Event"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP14i_ended"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP14i_ended">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">ended</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E5_Event"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP14_was_ended_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP15_realised">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">realised</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of E7 Activity with the instance of actE2 Activity Plan of which it is regarded as being a valid execution by the actors holding the ‘intention to apply’. To be valid the E61 Time Primitive associated with the instance of E7 Activity must fall within the E61 Time Primitive foreseen in the actE3 Intention to Apply.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E7_Activity"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE2_Activity_Plan"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP15i_was_realised_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP15i_was_realised_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was realised by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE2_Activity_Plan"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E7_Activity"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP15_realised"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP16_intended_to_apply">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">intended to apply</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE3 Intention to Apply with the instance of actE2 Activity Plan that it intended to realize.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE2_Activity_Plan"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP16i_was_intended_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP16i_was_intended_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was intended by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE2_Activity_Plan"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE3_Intention_to_Apply"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP16_intended_to_apply"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP17_has_trigger">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has trigger</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE2 Activity Plan with an instance of actE4 Event Template, which specifies the qualities of the event that will trigger the activity plan. This property can be used to describe the kind of event that should cause a reactive activity plan to be executed.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE2_Activity_Plan"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P67_refers_to"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP17i_is_trigger_for"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP17i_is_trigger_for">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is trigger for</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE2_Activity_Plan"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P67i_is_referred_to_by"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP17_has_trigger"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP18_specifies_event_type">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">specifies event type</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE4 Event Template with the E55 Type of the E5 Event, which the template specifies.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP18i_is_specified_event_type_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP18i_is_specified_event_type_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is specified event type of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP18_specifies_event_type"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP19_specifies_the_role_type_of_a_required_actor">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">specifies the role type of a required actor</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE4 Event Template with the E55 Type of the role required by the template for the participation of some instance of E39 Actor. The property does not require a specific instance of E39 Actor to be specified by actP23 specifies actor (is specified actor of). This property corresponds to the CIDOC-CRM property P14.1 in the role of.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP19i_is_the_role_type_of_a_required_actor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP19i_is_the_role_type_of_a_required_actor">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is the role type of a required actor</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP19_specifies_the_role_type_of_a_required_actor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP20_specifies_type_of_thing">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">specifies type of thing</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE4 Event Template with the type (E55 Type) of a thing, which the template specifies be used or be present for the specified event. On the other hand, a particular instance of a thing that is required should be specified using the property actP24 specifies material substantial (is specified material substantial).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP20i_is_specified_type_of_thing_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP20i_is_specified_type_of_thing_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is specified type of thing of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP20_specifies_type_of_thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP21_specifies_place">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">specifies place</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE4 Event Template with the instance of E53 Place which is specified by the template as the place of the specified event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP21i_is_specified_place_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP21i_is_specified_place_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is specified place of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP21_specifies_place"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP22_specifies_time-span">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">specifies time-span</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE4 Event Template with the instance of E52 Time-span which is specified by the template as being the time-span for the specified event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP22i_is_specified_time-span_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP22i_is_specified_time-span_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is specified time-span of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP22_specifies_time-span"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP23_specifies_actor">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">specifies actor</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE4 Event Template with the instance of E39 Actor specified by the template as taking part in the specified event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP23i_is_specified_actor_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP23i_is_specified_actor_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is specified actor of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP23_specifies_actor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP24_specifies_material_substantial">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">specifies material substantial</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE4 Event Template with an instance of S10 Material Substantial, which the template specifies be used or be present during the specified event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmsci/S10_Material_Substantial"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP24i_is_specified_material_substantial_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP24i_is_specified_material_substantial_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is specified material substantial of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmsci/S10_Material_Substantial"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP24_specifies_material_substantial"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP25_specifies_situation">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">specifies situation</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE4 Event Template with the instance of I11 Situation which the template specifies be observed. This property can be used to describe the properties and values to be observed for an event to trigger a reactive plan. It can also be used to describe the properties and values to monitor while working towards fulfilling an active plan.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crminf/I11_Situation"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP25i_is_specified_situation_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP25i_is_specified_situation_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is specified situation of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crminf/I11_Situation"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP25_specifies_situation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP26_matched_template">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">matched template</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of E5 Event with an instance of actE4 Event Template which it matches. The event matches the specified template when all of the instances recorded by the event template properties are observed during the event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E5_Event"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP26i_is_template_for"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP26i_is_template_for">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is template for</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E5_Event"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP26_matched_template"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP27_foresees">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">foresees</rdfs:label>
+    <rdfs:comment xml:lang="en">This property associates an instance of actE2 Activity Plan with an instance of actE4 Event Template, which specifies constraints for the activity intended or foreseen by that instance of actE2 Activity Plan.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE2_Activity_Plan"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP27i_is_foreseen_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmact/actP27i_is_foreseen_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is foreseen by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE4_Event_Template"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actE2_Activity_Plan"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmact/actP27_foresees"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CIDOC CRM encoding of the Bianzhong of Marquis Yi of Zeng.
+     XML form follows the two published CIDOC CRM examples
+     (crm_amol_1.xml and crm_clayton1.xml): a <CRMset> of <CRM_Entity>
+     elements, each whose leading text is the instance label, whose class is
+     given by a nested <in_class>, and whose properties are elements named
+     with the CRM property label, underscored, in either direction.
+     Encoding is UTF-8, not the examples' ISO-8859-1, because the object's
+     Chinese names cannot be represented in ISO-8859-1.
+     Every statement below is taken from the English Wikipedia article
+     "Bianzhong of Marquis Yi of Zeng"; see crm_marquis_yi_notes.md for what
+     the article does not say and therefore is not modelled here. -->
+<CRMset>
+
+  <!-- ============================================================ -->
+  <!-- 1. The instrument                                             -->
+  <!-- ============================================================ -->
+  <CRM_Entity>Bianzhong of Marquis Yi of Zeng
+    <in_class>E22: Human-Made Object</in_class>
+
+    <is_identified_by>Bianzhong of Marquis Yi of Zeng
+      <in_class>E41: Appellation</in_class>
+      <has_type>English name
+        <in_class>E55: Appellation Type</in_class>
+      </has_type>
+      <has_symbolic_content>Bianzhong of Marquis Yi of Zeng</has_symbolic_content>
+      <has_alternative_form>Zenghouyi Bells
+        <in_class>E41: Appellation</in_class>
+        <has_type>English name, alternative
+          <in_class>E55: Appellation Type</in_class>
+        </has_type>
+        <has_symbolic_content>Zenghouyi Bells</has_symbolic_content>
+      </has_alternative_form>
+    </is_identified_by>
+
+    <is_identified_by>曾侯乙编钟
+      <in_class>E41: Appellation</in_class>
+      <has_type>Chinese name, simplified script
+        <in_class>E55: Appellation Type</in_class>
+      </has_type>
+      <has_symbolic_content>曾侯乙编钟</has_symbolic_content>
+      <has_alternative_form>曾侯乙編鐘
+        <in_class>E41: Appellation</in_class>
+        <has_type>Chinese name, traditional script
+          <in_class>E55: Appellation Type</in_class>
+        </has_type>
+        <has_symbolic_content>曾侯乙編鐘</has_symbolic_content>
+      </has_alternative_form>
+      <has_alternative_form>Zēnghóuyǐ Biānzhōng
+        <in_class>E41: Appellation</in_class>
+        <has_type>Chinese name, Hanyu Pinyin romanisation
+          <in_class>E55: Appellation Type</in_class>
+        </has_type>
+        <has_symbolic_content>Zēnghóuyǐ Biānzhōng</has_symbolic_content>
+      </has_alternative_form>
+    </is_identified_by>
+
+    <has_type>bianzhong
+      <in_class>E55: Object Type</in_class>
+      <has_note>A Chinese set of tuned bells hung on a rack and struck to sound.
+        <has_type>Scope
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_type>
+
+    <had_as_general_use>musical instrument
+      <in_class>E55: Use Type</in_class>
+    </had_as_general_use>
+
+    <has_note>The Bianzhong of Marquis Yi of Zeng, or Zenghouyi Bells, is the name given to an ancient musical instrument made of bells (called bianzhong) unearthed in 1978 in the Tomb of Marquis Yi of Zeng in Leigudun Community, Nanjiao Subdistrict, Zengdu District, Suizhou (then "Sui County"), Hubei Province, China. The bianzhong were made in 433 B.C.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+
+    <has_note>The instrument is a single functional aggregate: 64 bells hung on two sets of wooden racks. The bells are hung at three levels and are divided into eight groups: 19 bells in three groups at the top level, 33 bells in three groups in the middle level, and 12 bells in two groups at the bottom level. The two racks are perpendicular to each other.
+      <has_type>Description
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+
+    <has_note>Each bell can play two tones with three degrees' interval between them. The tonal range is from C2 to D7. In the middle area of the tonal range the instrument can play all twelve half tones.
+      <has_type>Sound
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+
+    <is_composed_of>The 64 bells of the Bianzhong of Marquis Yi of Zeng
+      <in_class>E22: Human-Made Object</in_class>
+      <has_type>bell
+        <in_class>E55: Object Type</in_class>
+      </has_type>
+      <has_number_of_parts>64
+        <in_class>E60: Number</in_class>
+      </has_number_of_parts>
+      <consists_of>bronze
+        <in_class>E57: Material</in_class>
+      </consists_of>
+      <has_note>The prose of the article does not state the material of the bells. Bronze is taken from the article's own classification of the object under "Zhou dynasty bronzeware"; it is recorded here as the article's classification, not as a statement of its text.
+        <has_type>Source Note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_composed_of>The upper level bells of the Bianzhong of Marquis Yi of Zeng
+        <in_class>E22: Human-Made Object</in_class>
+        <has_number_of_parts>19
+          <in_class>E60: Number</in_class>
+        </has_number_of_parts>
+        <has_note>19 bells in three groups, hung at the top level.
+          <has_type>Description
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+      </is_composed_of>
+      <is_composed_of>The middle level bells of the Bianzhong of Marquis Yi of Zeng
+        <in_class>E22: Human-Made Object</in_class>
+        <has_number_of_parts>33
+          <in_class>E60: Number</in_class>
+        </has_number_of_parts>
+        <has_note>33 bells in three groups, hung at the middle level.
+          <has_type>Description
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+      </is_composed_of>
+      <is_composed_of>The lower level bells of the Bianzhong of Marquis Yi of Zeng
+        <in_class>E22: Human-Made Object</in_class>
+        <has_number_of_parts>12
+          <in_class>E60: Number</in_class>
+        </has_number_of_parts>
+        <has_note>12 bells in two groups, hung at the bottom level.
+          <has_type>Description
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+      </is_composed_of>
+      <is_composed_of>The largest bell of the Bianzhong of Marquis Yi of Zeng
+        <in_class>E22: Human-Made Object</in_class>
+        <has_type>bell
+          <in_class>E55: Object Type</in_class>
+        </has_type>
+        <has_note>The article names this bell only as "the biggest bell" and does not say at which of the three levels it hangs.
+          <has_type>Source Note
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+        <has_dimension>Height of the largest bell of the Bianzhong of Marquis Yi of Zeng
+          <in_class>E54: Dimension</in_class>
+          <has_type>Height
+            <in_class>E55: Dimension Type</in_class>
+          </has_type>
+          <value>153.4</value>
+          <unit>CM</unit>
+        </has_dimension>
+        <has_dimension>Weight of the largest bell of the Bianzhong of Marquis Yi of Zeng
+          <in_class>E54: Dimension</in_class>
+          <has_type>Weight
+            <in_class>E55: Dimension Type</in_class>
+          </has_type>
+          <value>203.6</value>
+          <unit>KG</unit>
+        </has_dimension>
+      </is_composed_of>
+      <is_composed_of>The smallest bell of the Bianzhong of Marquis Yi of Zeng
+        <in_class>E22: Human-Made Object</in_class>
+        <has_type>bell
+          <in_class>E55: Object Type</in_class>
+        </has_type>
+        <has_note>The article names this bell only as "the smallest bell" and does not say at which of the three levels it hangs.
+          <has_type>Source Note
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+        <has_dimension>Height of the smallest bell of the Bianzhong of Marquis Yi of Zeng
+          <in_class>E54: Dimension</in_class>
+          <has_type>Height
+            <in_class>E55: Dimension Type</in_class>
+          </has_type>
+          <value>20.4</value>
+          <unit>CM</unit>
+        </has_dimension>
+        <has_dimension>Weight of the smallest bell of the Bianzhong of Marquis Yi of Zeng
+          <in_class>E54: Dimension</in_class>
+          <has_type>Weight
+            <in_class>E55: Dimension Type</in_class>
+          </has_type>
+          <value>2.4</value>
+          <unit>KG</unit>
+        </has_dimension>
+      </is_composed_of>
+    </is_composed_of>
+
+    <is_composed_of>The bell racks of the Bianzhong of Marquis Yi of Zeng
+      <in_class>E22: Human-Made Object</in_class>
+      <has_type>bell rack
+        <in_class>E55: Object Type</in_class>
+      </has_type>
+      <has_number_of_parts>2
+        <in_class>E60: Number</in_class>
+      </has_number_of_parts>
+      <consists_of>wood
+        <in_class>E57: Material</in_class>
+      </consists_of>
+      <has_note>Two sets of wooden racks, perpendicular to each other, on which the bells are hung.
+        <has_type>Description
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <holds_or_supports>The 64 bells of the Bianzhong of Marquis Yi of Zeng
+        <in_class>E22: Human-Made Object</in_class>
+      </holds_or_supports>
+      <is_composed_of>The larger bell rack of the Bianzhong of Marquis Yi of Zeng
+        <in_class>E22: Human-Made Object</in_class>
+        <has_type>bell rack
+          <in_class>E55: Object Type</in_class>
+        </has_type>
+        <consists_of>wood
+          <in_class>E57: Material</in_class>
+        </consists_of>
+        <has_dimension>Length of the larger bell rack of the Bianzhong of Marquis Yi of Zeng
+          <in_class>E54: Dimension</in_class>
+          <has_type>Length
+            <in_class>E55: Dimension Type</in_class>
+          </has_type>
+          <value>7.48</value>
+          <unit>M</unit>
+        </has_dimension>
+        <has_dimension>Width of the larger bell rack of the Bianzhong of Marquis Yi of Zeng
+          <in_class>E54: Dimension</in_class>
+          <has_type>Width
+            <in_class>E55: Dimension Type</in_class>
+          </has_type>
+          <value>2.65</value>
+          <unit>M</unit>
+        </has_dimension>
+      </is_composed_of>
+      <is_composed_of>The smaller bell rack of the Bianzhong of Marquis Yi of Zeng
+        <in_class>E22: Human-Made Object</in_class>
+        <has_type>bell rack
+          <in_class>E55: Object Type</in_class>
+        </has_type>
+        <consists_of>wood
+          <in_class>E57: Material</in_class>
+        </consists_of>
+        <has_dimension>Length of the smaller bell rack of the Bianzhong of Marquis Yi of Zeng
+          <in_class>E54: Dimension</in_class>
+          <has_type>Length
+            <in_class>E55: Dimension Type</in_class>
+          </has_type>
+          <value>3.35</value>
+          <unit>M</unit>
+        </has_dimension>
+        <has_dimension>Width of the smaller bell rack of the Bianzhong of Marquis Yi of Zeng
+          <in_class>E54: Dimension</in_class>
+          <has_type>Width
+            <in_class>E55: Dimension Type</in_class>
+          </has_type>
+          <value>2.73</value>
+          <unit>M</unit>
+        </has_dimension>
+      </is_composed_of>
+    </is_composed_of>
+
+    <!-- Making: the article gives a date and nothing else. No maker, no
+         place of making, no technique, and no rival date are recorded. -->
+    <was_produced_by>Production of the Bianzhong of Marquis Yi of Zeng
+      <in_class>E12: Production</in_class>
+      <has_time_span>433 BC
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>433 BC
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time_span>
+      <has_note>The article states only "The bianzhong were made in 433 B.C." It names no producer, no place of production and no technique, and records no competing date or attribution.
+        <has_type>Source Note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </was_produced_by>
+
+    <!-- Rediscovery -->
+    <was_object_encountered_through>The 1978 excavation of the Tomb of Marquis Yi of Zeng
+      <in_class>S19: Encounter Event</in_class>
+      <has_type>archaeological excavation
+        <in_class>E55: Activity Type</in_class>
+      </has_type>
+      <has_time_span>1978
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1978
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time_span>
+      <encountered_at>The place of the Tomb of Marquis Yi of Zeng
+        <in_class>E53: Place</in_class>
+        <falls_within>Leigudun Community (擂鼓墩社区)
+          <in_class>E53: Place</in_class>
+          <falls_within>Nanjiao Subdistrict (南郊街道)
+            <in_class>E53: Place</in_class>
+            <falls_within>Zengdu District
+              <in_class>E53: Place</in_class>
+              <falls_within>Suizhou
+                <in_class>E53: Place</in_class>
+                <is_identified_by>Suizhou
+                  <in_class>E41: Appellation</in_class>
+                  <has_type>current name
+                    <in_class>E55: Appellation Type</in_class>
+                  </has_type>
+                  <has_alternative_form>Sui County
+                    <in_class>E41: Appellation</in_class>
+                    <has_type>former name
+                      <in_class>E55: Appellation Type</in_class>
+                    </has_type>
+                    <has_note>The name the place bore at the time of the 1978 excavation; the article gives it as "then 'Sui County'".
+                      <has_type>Source Note
+                        <in_class>E55: Note Type</in_class>
+                      </has_type>
+                    </has_note>
+                  </has_alternative_form>
+                </is_identified_by>
+                <falls_within>Hubei Province
+                  <in_class>E53: Place</in_class>
+                  <falls_within>China
+                    <in_class>E53: Place</in_class>
+                  </falls_within>
+                </falls_within>
+              </falls_within>
+            </falls_within>
+          </falls_within>
+        </falls_within>
+      </encountered_at>
+      <took_place_on_or_within>Tomb of Marquis Yi of Zeng
+        <in_class>E27: Site</in_class>
+        <occupies>The place of the Tomb of Marquis Yi of Zeng
+          <in_class>E53: Place</in_class>
+        </occupies>
+      </took_place_on_or_within>
+      <has_note>The article says only that the object was "unearthed in 1978" in the tomb. It names no excavator, no excavating body and no month or day.
+        <has_type>Source Note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </was_object_encountered_through>
+
+    <!-- Deposition: the article asserts no burial event, only that the
+         object was unearthed from the tomb. That supports a former
+         location and nothing more. -->
+    <has_former_or_current_location>The place of the Tomb of Marquis Yi of Zeng
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+
+    <!-- Custody -->
+    <has_current_permanent_location>Hubei Provincial Museum (premises)
+      <in_class>E53: Place</in_class>
+      <falls_within>Wuhan
+        <in_class>E53: Place</in_class>
+        <falls_within>Hubei Province
+          <in_class>E53: Place</in_class>
+        </falls_within>
+      </falls_within>
+    </has_current_permanent_location>
+
+    <has_current_keeper>Hubei Provincial Museum
+      <in_class>E74: Group</in_class>
+      <is_identified_by>Hubei Provincial Museum
+        <in_class>E41: Appellation</in_class>
+      </is_identified_by>
+    </has_current_keeper>
+
+    <has_note>The original bells are on permanent display at the Hubei Provincial Museum in Wuhan.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+
+    <!-- Sources -->
+    <is_documented_in>Wikipedia: Bianzhong of Marquis Yi of Zeng
+      <in_class>E31: Document</in_class>
+      <has_note>https://en.wikipedia.org/wiki/Bianzhong_of_Marquis_Yi_of_Zeng — the source of every statement in this file.
+        <has_type>Source Note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_documented_in>
+
+    <is_documented_in>湖北博物館曾侯乙編鐘.jpg
+      <in_class>E31: Document</in_class>
+      <has_type>Photograph
+        <in_class>E55: Document Type</in_class>
+      </has_type>
+      <has_note>The photograph illustrating the article, captioned "Zenghouyi Bells".
+        <has_type>Source Note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_documented_in>
+
+    <is_referred_to_by>Hubei Provincial Museum website
+      <in_class>E31: Document</in_class>
+      <has_type>Cited source
+        <in_class>E55: Document Type</in_class>
+      </has_type>
+      <has_note>http://www.hbww.org/home/EnglishIndex.aspx, accessed 2019-08-26, archived 2019-03-08 at https://web.archive.org/web/20190308201850/http://www.hbww.org/Home/EnglishIndex.aspx, original link dead. The only inline citation in the article; it is attached to the statement that the original bells are on permanent display at the museum. No point in the article is presented as contested.
+        <has_type>Source Note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_referred_to_by>
+
+    <is_referred_to_by>Lee, Yuan-Yuan and Shen, Sinyan (1999), Chinese Musical Instruments (Chinese Music Monograph Series), Chinese Music Society of North America Press, ISBN 1-880464-03-9
+      <in_class>E31: Document</in_class>
+      <has_type>Further reading
+        <in_class>E55: Document Type</in_class>
+      </has_type>
+      <has_note>Listed by the article under "Further reading"; not cited in support of any statement.
+        <has_type>Source Note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_referred_to_by>
+
+    <is_referred_to_by>Shen, Sinyan (1987), Acoustics of Ancient Chinese Bells, Scientific American 256, 94
+      <in_class>E31: Document</in_class>
+      <has_type>Further reading
+        <in_class>E55: Document Type</in_class>
+      </has_type>
+      <has_note>Listed by the article under "Further reading"; not cited in support of any statement.
+        <has_type>Source Note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_referred_to_by>
+
+    <is_referred_to_by>von Falkenhausen, Lothar (1993), Suspended music: chime-bells in the culture of Bronze Age China, University of California Press
+      <in_class>E31: Document</in_class>
+      <has_type>Further reading
+        <in_class>E55: Document Type</in_class>
+      </has_type>
+      <has_note>Listed by the article under "Further reading"; not cited in support of any statement.
+        <has_type>Source Note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_referred_to_by>
+  </CRM_Entity>
+
+  <!-- ============================================================ -->
+  <!-- 2. The wooden hammers found with it                           -->
+  <!-- ============================================================ -->
+  <CRM_Entity>The wooden hammers from the Tomb of Marquis Yi of Zeng
+    <in_class>E22: Human-Made Object</in_class>
+    <has_type>hammer
+      <in_class>E55: Object Type</in_class>
+    </has_type>
+    <consists_of>wood
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <was_intended_for>striking the bells of the Bianzhong of Marquis Yi of Zeng
+      <in_class>E55: Use Type</in_class>
+    </was_intended_for>
+    <has_note>The wooden hammers used to strike the bells were also unearthed from the Tomb of Marquis Yi of Zeng.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article does not say how many hammers there are, does not give their dimensions, and does not say that they form part of the instrument. No part relation to the Bianzhong of Marquis Yi of Zeng is therefore asserted here; the association recorded is their intended use and their common findspot.
+      <has_type>Source Note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <was_object_encountered_through>The 1978 excavation of the Tomb of Marquis Yi of Zeng
+      <in_class>S19: Encounter Event</in_class>
+      <encountered_at>The place of the Tomb of Marquis Yi of Zeng
+        <in_class>E53: Place</in_class>
+      </encountered_at>
+    </was_object_encountered_through>
+    <has_former_or_current_location>The place of the Tomb of Marquis Yi of Zeng
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+    <is_documented_in>Wikipedia: Bianzhong of Marquis Yi of Zeng
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </CRM_Entity>
+
+</CRMset>

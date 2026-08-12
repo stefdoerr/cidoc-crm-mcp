@@ -1,0 +1,546 @@
+[
+  {
+    "question_id": "2001-2008-q1",
+    "slice": "2001-2008",
+    "question": "How did the CIDOC CRM SIG revise the scope note for the property covering type/classification assignment (Issue 97), and why was the requirement that the classifying act be 'scientific' dropped?",
+    "gold_answer": "Martin Doerr's original wording restricted the class to entities that are 'scientifically' classified. Tony Gill objected that this would wrongly exclude everyday cataloguing acts such as assigning Dewey classmarks, subject headings, or iconographic classifications, which are squarely within the CRM's intended scope. Martin agreed, and the accepted revision dropped 'scientifically', instead describing the act simply as classifying an entity (an object, specimen, action, or concept), where the value of the classification depends on the identity of the classifier and the date it was made; the note kept its reference to biological 'determination' (systematic/molecular identification of a specimen) as a covered case.",
+    "key_facts": [
+      "The original scope note required the classifying act to be done 'scientifically'",
+      "Tony Gill argued this would exclude ordinary classification acts like Dewey classmarks, subject headings, and iconographic classifications",
+      "Martin Doerr agreed and the word 'scientifically' was removed from the accepted wording",
+      "The revised note explicitly retained biological 'determination' (systematic/molecular identification of a specimen) as an example within scope"
+    ],
+    "gold_threads": [
+      "t0150"
+    ],
+    "difficulty": "easy",
+    "why_this_is_hard": "The class name alone suggests nothing about the word that was actually contested; the reasoning for the edit only shows up in the reply text."
+  },
+  {
+    "question_id": "2001-2008-q2",
+    "slice": "2001-2008",
+    "question": "How did the CIDOC CRM SIG's notion of 'CRM compatibility' evolve during 2008, and what did the resulting draft definition specify?",
+    "gold_answer": "In April 2008 Martin Doerr raised the issue because claims of CRM compatibility were increasing with no agreed criteria behind them; the ensuing discussion among Nicholas Crofts, Stephen Stead, Edmund Lee and Guenther Goerz surfaced sharp disagreement over whether compatibility should rest on independently verifiable tests, tiered levels of conformance, or certification by a trusted authority (plus a proposed compatibility logo), and concluded that none of this existed yet. By September 2008, acting on decisions taken at the May CRM-SIG meeting, Martin circulated a formal draft text, intended as an amendment to ISO 21127, defining compatibility as preserving data 'without loss of meaning with respect to the CRM concepts', distinguishing import/export compatibility from integrated-access compatibility, and letting communities restrict compatibility to an explicitly declared CRM subset. After Vladimir Ivanov pressed on how meaning-preservation could be judged, Martin added a concrete counterexample of an incompatible structure ('Physical Object has date: Time-Span' — importable into CRM form but not losslessly exportable back), while the mechanism for verifying or certifying such claims was still unresolved and left for further discussion.",
+    "key_facts": [
+      "Martin's April 2008 posting was prompted by rising compatibility claims with no agreed criteria; proposals discussed included independently verifiable tests, a certifying authority, tiered conformance levels, and a compatibility logo",
+      "By September 2008 Martin circulated a draft definition, based on decisions from the May CRM-SIG meeting, intended as an ISO 21127 amendment",
+      "The draft defined compatibility as no 'loss of meaning with respect to the CRM concepts' and allowed communities to restrict compatibility to an explicit CRM subset",
+      "Following Vladimir Ivanov's feedback, Martin added a counterexample of an incompatible structure: 'Physical Object has date: Time-Span', which can be imported but not losslessly exported"
+    ],
+    "gold_threads": [
+      "t0383",
+      "t0400"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "Requires tracing the same issue across two threads five months apart and recognizing the September draft as a direct, still-incomplete response to April's unresolved criteria."
+  },
+  {
+    "question_id": "2001-2008-q3",
+    "slice": "2001-2008",
+    "question": "When someone wanted to model the relationship between a manuscript's digital facsimile, its normalized transcription, and the original manuscript, what property did the SIG recommend for linking the transcription back to what it was derived from, and how did that recommendation relate to the alternative FRBRoo property that was also suggested?",
+    "gold_answer": "Dieter Köhler asked how to express that a transcription is not identical to, but derived from, a facsimile/scan of a manuscript, since neither 'refers to' nor 'represents' captured the relationship. Joao Oliveira suggested the FRBRoo property 'is derivative of' (R58), but Martin Doerr recommended the CRM's own property 'shows features of' (P130, with a P130.1 kind-of-similarity value such as 'Transcript'), and clarified that P130 is a generalization of R58, so both proposals were correct at their respective levels (CRM versus FRBRoo). Köhler then pushed back that R58 implies a substantial content modification, which felt too strong for a faithful transcription, and suggested 'is realised in' (R65) might fit better — a question the thread left as depending on how much the transcription changes or standardizes its source, without a single rule settling it for every case.",
+    "key_facts": [
+      "Dieter Köhler's problem was linking a transcription to the manuscript/facsimile it derives from, since neither P67 'refers to' nor P138 'represents' fit",
+      "Joao Oliveira proposed the FRBRoo property R58 'is derivative of'",
+      "Martin Doerr recommended CRM's P130 'shows features of' (with P130.1 kind of similarity, e.g. 'Transcript') and stated P130 is a generalization of R58, making both correct",
+      "Koehler argued R58 implies substantial content modification and suggested R65 'is realised in' might suit a faithful transcription better, leaving the exact choice dependent on how much the transcription alters its source"
+    ],
+    "gold_threads": [
+      "t0368"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "The answer requires reconciling two competing property proposals across several messages and understanding the generalization relationship between a CRM property and an FRBRoo property, not just naming one."
+  },
+  {
+    "question_id": "2001-2008-q4",
+    "slice": "2001-2008",
+    "question": "Did the CIDOC CRM SIG add a way to qualify group membership by role (for example, distinguishing a 'master' from an 'apprentice' within a group) through new sub-properties of group membership, and how was that decided?",
+    "gold_answer": "Christian-Emil Ore raised the problem that E74 Group could express symmetric relations (e.g. siblings sharing membership of a family) but had no clean way to express asymmetric roles like master/client; Stephen Stead proposed adding role-qualifying sub-properties (P107.1 and P144.1, 'kind of member'), and he and Ore drafted full scope notes and examples ready for a vote. Once circulated, however, Martin reported a negative vote arguing the existing Group/subgroup mechanism (treating each role-holder as a singleton subgroup) already covered the case without any extension, which Ore called 'artificial'. The debate that followed turned on whether membership roles are best seen as 'offices' (a structural feature of the Group itself) or as relational sub-properties, and never reached a stated conclusion on whether to adopt P107.1/P144.1; it drifted instead into a related but separate fix — whether to drop the Group scope note's requirement of 'two or more members' — and the archive in this period records no final decision on the original proposal either way.",
+    "key_facts": [
+      "The trigger was an asymmetric relation (e.g. master/client) that E74 Group's symmetric-membership model could not express directly",
+      "Stephen Stead and Christian-Emil Ore drafted P107.1 and P144.1 ('kind of member') qualifiers with full scope notes, intending to bring them to a vote",
+      "Martin reported a negative vote proposing singleton subgroups as an alternative to the new properties, which Christian-Emil Ore called 'artificial'",
+      "No final decision adopting or rejecting P107.1/P144.1 appears in the discussion; it shifted instead into debating whether to drop the 'two or more members' requirement in the Group scope note"
+    ],
+    "gold_threads": [
+      "t0426",
+      "t0431"
+    ],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "The exchange has a concrete proposal, a drafted spec, and a rebuttal, but ends mid-argument with no vote tally or adopted text — the honest answer is that the SIG left it open."
+  },
+  {
+    "question_id": "2009-2011-q1",
+    "slice": "2009-2011",
+    "question": "Does the CIDOC CRM provide a direct way to say that one event caused another, and if not, how did the CRM-SIG say causal relationships between events should be handled instead?",
+    "gold_answer": "No — the SIG declined to add a general 'caused' property between events, arguing that pinning down a single cause is an interpretive, almost judicial act (deciding blame or cause is not the same job as recording facts, likened to the difference between police work and a judge's ruling) and so falls outside what CRM should assert as documented fact. The recommended approach instead is to describe the causing and resulting occurrence as one overlapping process — for example, modelling an event as an E81 Transformation that P123 resulted in the resulting persistent state (an E77 Persistent Item) — or, where a human actor's will is involved, to use P15 influenced/P17 motivated, which is why those properties are restricted to E7 Activities rather than events in general. The position was that CRM should stick to documentable co-occurrence and leave causal interpretation to models built on top of it.",
+    "key_facts": [
+      "CRM-SIG did not add a general 'caused' property between two events",
+      "Causation was treated as belonging to interpretation/judgement rather than documentable fact, illustrated by the analogy of police (facts) versus judges (cause/blame)",
+      "The recommended workaround is to model cause and effect as a single process, e.g. an E81 Transformation linked via P123 resulted in to the resulting E77 Persistent Item, or to use P15 influenced/P17 motivated when a willing human actor is involved"
+    ],
+    "gold_threads": [
+      "t0579"
+    ],
+    "difficulty": "easy",
+    "why_this_is_hard": "The answer is a design rationale assembled from several replies, not a property name a keyword search would hand you directly."
+  },
+  {
+    "question_id": "2009-2011-q2",
+    "slice": "2009-2011",
+    "question": "When the CIDOC community drafted a recommendation for assigning persistent web identifiers (URIs) to museum objects, what disagreement arose over who should be allowed to mint or aggregate those identifiers, and how did the recommendation's author respond to the objection?",
+    "gold_answer": "Several reviewers objected that the draft implicitly set up a hierarchy in which one 'best' institution held authority over an object's identifier, when in practice secondary players — art-trade databases, scholarly catalogues, auction indices — often do useful identification work of their own, sometimes ahead of the museum, and competition between identifier-providers can be a healthy part of scholarship rather than a mess to be eliminated. The author held that the recommendation's scope was deliberately narrow — for museums specifically, not for the art trade or scholarship in general — and pointed out it already allowed a delegated 'aggregator' role for a leading community or research index, provided that aggregator publishes a mapping back to the museum's own URI and maintains a documented relationship with the curating institution. He further defended keeping authority concentrated rather than distributed by arguing, from his own published work on co-reference networks, that reconciling identifiers only stays tractable if the network of equivalence links is centered on a small number of focal points rather than spread arbitrarily, since correcting cross-links in an uncontrolled network scales explosively.",
+    "key_facts": [
+      "Reviewers (e.g. Maximilian Schich, Detlev Balzer) objected that the recommendation implied an artificial hierarchy of 'best' identifier authority, when secondary sources like the art trade and scholarly indices often identify objects effectively in practice",
+      "The recommendation's author (Martin Doerr) restricted its scope to museums only, not the art trade or research community generally",
+      "The recommendation permits a delegated aggregator (a community or research-led index) as long as it publishes a mapping to the museum's own URIs and has a documented relationship with the curating institution",
+      "The author argued that identifier reconciliation only remains tractable if kept centered on a small number of focal identifiers in a star-like structure, rather than distributed across many competing peer sources"
+    ],
+    "gold_threads": [
+      "t0552"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "The objection, the scope defence, and the reconciliation argument are made by different correspondents across many separate messages rather than stated together anywhere."
+  },
+  {
+    "question_id": "2009-2011-q3",
+    "slice": "2009-2011",
+    "question": "The scope notes for the CRM property covering object similarity/derivation, and the parallel property for equivalent alternate names, both described the property as an asymmetric relationship that could nonetheless behave symmetrically in certain cases. A reviewer objected that this was a logical contradiction, since a relation cannot be both symmetric and asymmetric at once. How was this apparent contradiction addressed, and what part of the reviewer's critique was left unresolved?",
+    "gold_answer": "The response distinguished 'asymmetric' from 'antisymmetric': the property itself is asymmetric, but nothing prevents a narrower subproperty of it from being fully symmetric, and that specialization does not create a logical conflict at the level of the general property — the apparent contradiction came from conflating those two mathematical notions. The word 'dynamic' in the scope notes was clarified to mean that users are expected to create their own subtypes for local semantics, not that a single property instance could be both symmetric and asymmetric simultaneously. However, the reviewer's separate, more concrete objection — that the similarity/derivation property has a defined inverse while the equivalent-appellation property, despite being described in identical terms and being a subproperty of the first, does not — was never addressed, and the reviewer's follow-up proposal to replace the word 'asymmetric' with 'nonsymmetric' throughout also went unanswered.",
+    "key_facts": [
+      "The core contradiction was resolved by distinguishing 'asymmetric' from 'antisymmetric', noting an asymmetric property can have fully symmetric subproperties without logical conflict",
+      "'Dynamic' was clarified to mean the property is meant to be subtyped by users for local semantics, not that instances are simultaneously symmetric and asymmetric",
+      "The inconsistency that the similarity/derivation property (P130) has a defined inverse while its subproperty for equivalent appellations (P139) does not was left unaddressed",
+      "A follow-up proposal to rename 'asymmetric' to 'nonsymmetric' in the scope notes also received no reply"
+    ],
+    "gold_threads": [
+      "t0554"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "Requires following a multi-step logical argument about relation types across several messages and separating the part that got a real answer from the part that didn't."
+  },
+  {
+    "question_id": "2009-2011-q4",
+    "slice": "2009-2011",
+    "question": "Did the CIDOC CRM SIG ever commit to a comprehensive list of disjoint class pairs (classes that can never share a common instance) for the benefit of OWL-style implementations, and if not, what was the reasoning for not doing so?",
+    "gold_answer": "No — the SIG explicitly and repeatedly declined to produce a comprehensive list of disjoint classes, judging such a list of doubtful practical value and likely to conflict with keeping the standard's class definitions concise. The published guidance confirms only two genuinely fundamental disjoint pairs (Temporal Entity vs. Persistent Item, and Physical Thing vs. Conceptual Object); an earlier effort toward a fuller list was abandoned, with the recommendation on record being to give up on formal disjointness declarations altogether. The stated reasoning was that most other candidate disjoint pairs have real counter-examples in practice — for instance, a single uninterrupted repair act that is simultaneously a removal and an addition of a part, or real linked-data mappings that deliberately model one node as both an Actor and a Collection — so a blanket list would misrepresent how the classes are actually used; the suggested path forward was to evaluate proposed disjoint pairs individually, case by case, with supporting use cases, rather than adopt any general list.",
+    "key_facts": [
+      "Only two disjoint class pairs are confirmed as fundamental in the published guidance: Temporal Entity/Persistent Item and Physical Thing/Conceptual Object",
+      "An earlier attempt at a fuller disjointness list was abandoned, with the recorded recommendation being to abandon formal disjoint class declarations altogether",
+      "The reasoning given was that most other candidate disjoint pairs have genuine counter-examples in practice (e.g. a single repair event that is both a part removal and a part addition, or real mappings that overload one node as both an Actor and a Collection)",
+      "The suggested resolution mechanism was case-by-case evaluation of individually proposed disjoint pairs with use cases, not a comprehensive standing list"
+    ],
+    "gold_threads": [
+      "t0590"
+    ],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "A keyword search on 'disjoint' would surface the two confirmed pairs, but would not reveal that the SIG treated a full list as fundamentally undesirable rather than merely unfinished."
+  },
+  {
+    "question_id": "2012-2013-q1",
+    "slice": "2012-2013",
+    "question": "Can the printed or spoken content of a mass-produced published work (the text of a book, song lyrics, film dialogue, on-screen subtitles) be recorded as an 'inscription' in the CIDOC CRM / LIDO sense?",
+    "gold_answer": "No. Both the LIDO Inscriptions element and the CRM's E34 Inscription class are defined as physical lettering or markings affixed to a specific physical carrier, not as the abstract textual content shared by a whole class of mass-produced items. When this was asked about a FRBRoo Manifestation Product Type (which is itself a conceptual, not physical, object), the LIDO co-chair replied that an inscription must be bound to a physical carrier, and that this kind of descriptive or quoted textual content belongs instead in lido:objectDescriptionSet, typed as needed. The exchange also surfaced the questioner's own doubt about whether a conceptual Manifestation Product Type should be described with item-level physical attributes at all, but that side issue was not settled.",
+    "key_facts": [
+      "LIDO's Inscriptions element and the CRM's E34 Inscription are defined as physical lettering/markings affixed to a physical carrier",
+      "The LIDO co-chair's answer was that such textual content should go in lido:objectDescriptionSet rather than Inscriptions",
+      "The object in question was a FRBRoo Manifestation Product Type, a conceptual (not physical) object, which is why treating it as having a physical inscription was questioned"
+    ],
+    "gold_threads": [
+      "t0615"
+    ],
+    "difficulty": "easy",
+    "why_this_is_hard": "requires connecting the LIDO spec wording to CRM's E34 physical-carrier requirement and the FRBRoo conceptual/physical distinction, not just quoting one line."
+  },
+  {
+    "question_id": "2012-2013-q2",
+    "slice": "2012-2013",
+    "question": "A book-industry data specialist wanted to map commercial publishing metadata (ONIX) into the museum-oriented LIDO schema. What objections were raised against this, and what range of positions did SIG members take on whether and how it could be done?",
+    "gold_answer": "Michael Hopwood (representing EDItEUR and the Linked Heritage project) proposed mapping ONIX for Books into LIDO, which required treating a generic manifestation/product as though it were a unique physical item and treating printed text as a kind of 'inscription'; he justified this by the project's mandate to feed book/music/AV data into Europeana. Patrick Le Boeuf objected that the mapping was conceptually impossible, since ONIX describes abstract publications while LIDO is designed for unique physical objects, and argued that stretching 'manifestation as item' or 'text as inscription' was not helpful; he suggested FRBRoo was the correct target instead. Martin Doerr agreed LIDO was not intended for this material and that real interoperability should come from mapping everything to RDF under CRM/FRBRoo rather than repurposing LIDO. Regine Stein took a middle position: she agreed LIDO was not meant to hold this data, but argued the crosswalk exercise was still valuable as an analysis of where LIDO's schema does and doesn't fit bibliographic data, useful for practitioners feeding data to Europeana, provided it stayed grounded in the schemas' proper definitions (e.g., inscriptions bound to a physical carrier).",
+    "key_facts": [
+      "Michael Hopwood proposed mapping ONIX for Books to LIDO for the Linked Heritage project, including modelling a manifestation/product as if it were a unique item",
+      "Patrick Le Boeuf called the mapping impossible in principle because ONIX describes abstractions and LIDO describes unique physical objects, and recommended FRBRoo as the proper target instead",
+      "Martin Doerr agreed LIDO was not designed for this and argued interoperability should come from mapping to CRM/FRBRoo-based RDF, not from repurposing LIDO",
+      "Regine Stein took a middle position, endorsing the crosswalk as a useful analysis of LIDO's fit and limits without endorsing using LIDO to store this data"
+    ],
+    "gold_threads": [
+      "t0628",
+      "t0630"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "the disagreement runs across two linked threads (the subject line changed mid-discussion) with four participants holding at least three distinguishable positions, none of which is a simple yes/no."
+  },
+  {
+    "question_id": "2012-2013-q3",
+    "slice": "2012-2013",
+    "question": "The SIG discussed how to represent uncertainty about where an archaeological find or activity took place (e.g. 'found near Ankara'). What approaches were proposed for expressing that kind of uncertainty, and which approach did the SIG actually recommend going forward?",
+    "gold_answer": "The original question proposed reifying the location statement with an E13 Attribute Assignment plus an ad hoc certainty flag. One respondent, drawing on ResearchSpace's practice, argued that E13/P141 lacked precision for annotating a specific statement and described instead using plain RDF reification (rdf:Statement/subject/property/object) combined with the OAC annotation ontology, which had the advantage of letting the object be omitted to talk about a role in general. Martin Doerr explained that P141's range was never defined as 'Property' simply for lack of implementation support at the time, noted that E13/P140/P2/P141 is isomorphic to RDF reification, and said he now regards Named Graphs as a cleaner mechanism than reification for grouping statements together - but stressed that provenance-of-statement machinery like reification or named graphs is a heavy-handed way to express mere certainty/uncertainty. His actual recommendation for uncertainty going forward was not reification or named graphs, but to systematically give CRM properties explicit 'possibly' counterparts (e.g. treating P7_took_place_at as a subproperty of a P7_possibly_took_place_at), guided by a 'recall first' principle so queries still return possibly-correct results instead of nothing under strict open-world semantics.",
+    "key_facts": [
+      "The original proposal was to reify P7_took_place_at via an E13 Attribute Assignment with a custom surety/certainty flag",
+      "An alternative described (from ResearchSpace practice) used plain RDF reification (rdf:Statement) combined with the OAC annotation ontology rather than E13, so the object could be omitted to discuss a role generically",
+      "Martin Doerr's actual recommendation for uncertainty was to supertype/subtype CRM properties with explicit 'possibly' variants (e.g. a P7_possibly_took_place_at), not reification or named graphs",
+      "Martin explicitly distinguished uncertainty/modality from provenance-of-statements, treating reification/named graphs as suited to the latter, not the former"
+    ],
+    "gold_threads": [
+      "t0610"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "requires tracking three distinct technical proposals across the thread and separating the reification/named-graph machinery Martin describes from the 'possibly' supertyping he actually recommends for uncertainty."
+  },
+  {
+    "question_id": "2012-2013-q4",
+    "slice": "2012-2013",
+    "question": "CIDOC CRM has a shortcut property letting a physical object 'depict' something directly, bypassing the conceptual image or inscription it carries. Was a parallel proposal to add equivalent shortcuts for physical objects that merely 'refer to' or are 'about' something (rather than depict it) accepted by the SIG?",
+    "gold_answer": "No resolution is recorded. A member proposed adding physical-domain siblings of the existing depiction shortcut, so a physical object could state a 'refers to' or 'is about' relationship directly instead of first creating an empty conceptual node just to carry that property. Several members supplied real-world examples meant to establish practice (CRM's usual bar for adding constructs): a gravestone epitaph, a blue plaque referring to both a person and a building, and a museum drawing whose documentation names a play and its scriptwriter. Two members initially argued that in every example the 'aboutness' really belongs to an intermediate conceptual object (such as an inscription) being carried by the physical object, so no new shortcut was needed; the proposer countered that this same argument, if valid, would equally invalidate the existing depiction shortcut, so it could not be used selectively against the new proposal. Martin Doerr laid out CRM's general principle that shortcuts over information-bearing intermediate objects are usually avoided because they can work against information integration, but acknowledged the examples were new evidence CRM-SIG would need to take up at a future meeting. The thread ends with the proposer asking whether the issue had even been logged on the CRM issues list, and no reply on the matter appears in the record - the proposal was left open, neither accepted nor rejected.",
+    "key_facts": [
+      "A member proposed new physical-domain shortcut properties, siblings of the existing 'depicts' shortcut, to avoid creating an empty conceptual node just to carry a 'refers to'/'is about' statement",
+      "Two other members argued the 'aboutness' in the examples given (gravestone epitaph, blue plaque, museum drawing referencing a scriptwriter) belongs to an intermediate conceptual object carried by the physical object, not the physical object itself",
+      "Martin Doerr said the examples counted as new evidence that CRM-SIG would need to take up at a future meeting, per CRM's practice-based justification principle",
+      "The thread ends with no confirmation that the proposal was logged, accepted, or rejected"
+    ],
+    "gold_threads": [
+      "t0630"
+    ],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "the thread contains a live technical disagreement with examples and counter-arguments on both sides and simply stops without a recorded outcome, so a system must recognize the absence of resolution rather than inventing one from the debate."
+  },
+  {
+    "question_id": "2014-2015-q1",
+    "slice": "2014-2015",
+    "question": "When a member wanted to record the language of things like place names and calendar-period names, and asked whether those appellation classes should become subclasses of the Linguistic Object class so the 'has language' property could apply, what did the SIG recommend instead?",
+    "gold_answer": "The SIG recommended against making appellation classes (place names, time appellations, and similar) into subclasses of E33 Linguistic Object, since most instances of these classes -- most place names, for example -- have no particular language at all, and permanently subclassing them would misrepresent that general case. Martin Doerr's recommended solution was multiple instantiation: a particular appellation that genuinely does have a natural-language form can simply also be declared an instance of E33 Linguistic Object, on a case-by-case basis, alongside its instantiation of the more specific appellation class. Stephen Stead endorsed this, noting that subclassing would effectively be a lie for the many instances where the language-related property doesn't apply, whereas multiple instantiation exists precisely to handle this kind of incidental overlap between classes.",
+    "key_facts": [
+      "The member asked how to apply the 'has language' property to time appellations, place names, and conceptual-object appellations, none of which are subclasses of E33 Linguistic Object.",
+      "Martin Doerr recommended multiple instantiation instead of subclassing -- declaring an individual appellation to also be an instance of E33 Linguistic Object when it genuinely has a natural-language form.",
+      "Stephen Stead agreed, arguing that making the appellation classes permanent subclasses of E33 would misrepresent the many instances (e.g., most place names) that are not language-specific."
+    ],
+    "gold_threads": [
+      "t0785"
+    ],
+    "difficulty": "easy",
+    "why_this_is_hard": "The direct recommendation appears early, but the answer still requires the underlying rationale (why subclassing is wrong), not just the keyword 'multiple instantiation'."
+  },
+  {
+    "question_id": "2014-2015-q2",
+    "slice": "2014-2015",
+    "question": "The SIG debated whether coins should be modeled using the FRBRoo class for manifestation product types, treating a coin design the way a book edition is treated. What positions did people take, and what modelling solution did the group actually adopt instead?",
+    "gold_answer": "Christian-Emil Ore argued coins are information carriers and so belong in the library-oriented FRBRoo hierarchy, comparable to how books are modeled as instances of a Manifestation Product Type. Stephen Stead and Martin Doerr disagreed, arguing a coin's purpose is functional (enabling trade) rather than conveying an 'Expression' the way a text does, with Doerr concluding there was not enough similarity to classify a coin that way. Rather than stretching the FRBRoo manifestation class to cover coins, Maria Theodoridou described extension properties actually built for this purpose: PC1 'produced things of type' (on E12 Production) and PC2 'is example of' (on E22 Man-Made Object), both declared as subproperties of P2 has type, generalizing FRBR's R26 and R7 for categorical/mass production without relying on FRBRoo's information-carrier semantics. Whether the FRBRoo manifestation class itself should eventually be generalized to cover this case was explicitly left open for a future CRM-SIG discussion.",
+    "key_facts": [
+      "Christian-Emil Ore argued coins are information carriers and fit the FRBRoo manifestation-product-type hierarchy used for books; Stephen Stead and Martin Doerr disagreed, saying a coin's purpose is functional/trade-related rather than conveying an Expression.",
+      "Martin Doerr concluded there was not enough similarity to classify a coin as a Manifestation Product Type.",
+      "Maria Theodoridou described the actual solution adopted for coins: extension properties PC1 'produced things of type' (on E12 Production) and PC2 'is example of' (on E22 Man-Made Object), both subproperties of P2 has type, generalizing FRBR's R26 and R7.",
+      "Generalizing the FRBRoo manifestation-product-type class itself to cover coins was left open as a topic for future CRM-SIG discussion, not resolved in this thread."
+    ],
+    "gold_threads": [
+      "t0804"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "Requires separating the rejected proposal (treating coins as Manifestation Product Type) from the actual adopted extension (PC1/PC2), which is introduced only briefly mid-thread."
+  },
+  {
+    "question_id": "2014-2015-q3",
+    "slice": "2014-2015",
+    "question": "When the SIG discussed how to classify a buried hoard of coins, what were the different positions on whether it should be modeled as a curated Collection, and how was the disagreement resolved?",
+    "gold_answer": "Members disagreed on whether a coin hoard should be an E78 Collection. Christian-Emil Ore suggested it could count as a Collection if a curator had buried their own collection, while Dan Matei worried that ordinary hoard burial does not fit the scope note's requirement of a 'collection development plan.' Stephen Stead argued the underlying problem was the misleading name 'Collection' itself (only half-jokingly proposing renaming the class 'Curated Set'), and Dan separately proposed adding a new intermediate class between Physical Object and Collection to distinguish functional assemblages (like a hoard or suit of armor) from purely physical wholes (like a car). Martin Doerr rejected adding any new class, restating the CRM's minimalism principle that a more specific class should only be introduced when needed to avoid ambiguous or noisy queries; his resolution was that a hoard should simply be treated as an E19 Physical Object typed 'Hoard', reserving E78 Collection (with its curator and curation-plan properties) only for cases where an actual curator and curation activity are documented.",
+    "key_facts": [
+      "Christian-Emil Ore proposed that a hoard qualifies as an E78 Collection only if it was assembled by an actual curator following a collection plan.",
+      "Stephen Stead argued the real problem was the class's name 'Collection' and suggested (semi-jokingly) renaming E78 to 'Curated Set'.",
+      "Dan Matei proposed a new intermediate class (an 'Assemblage') between E19 Physical Object and E78 Collection to separate functional part-whole relations (hoard, armor) from non-functional ones (car), but Martin Doerr rejected creating it.",
+      "Martin Doerr's resolution was that a hoard should default to being modeled as an E19 Physical Object with a type of 'Hoard', with E78 Collection reserved for cases where a documented curator and curation plan exist."
+    ],
+    "gold_threads": [
+      "t0809"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "Requires tracing four distinct positions across a long thread and identifying which proposals were adopted, rejected, or left as unresolved asides rather than quoting any single message."
+  },
+  {
+    "question_id": "2014-2015-q4",
+    "slice": "2014-2015",
+    "question": "Did the SIG ever settle the question of whether a CIDOC CRM shortcut property (like a direct 'produced by' link) logically implies the existence of the fuller event-based path it stands in for?",
+    "gold_answer": "No, the archive shows this was left an open disagreement rather than a settled position. Martin Doerr, working with Carlo Meghini on a first-order-logic formalization of the CRM, argued from a pure-logic standpoint that if a longpath can be inferred, its intermediate nodes logically exist, independent of whether they are ever materialized in a database. Vladimir Alexiev pushed back hard, arguing shortcuts should never entail long-paths in practice: the intermediate node isn't unique, inferring it produces unlocatable 'Skolem' blank nodes that cause problems when integrating richer data later, and by a YAGNI-style principle nothing should be inferred that isn't needed. Christian-Emil Ore and Detlev Balzer largely sided with Doerr's logic-first framing, but the thread ends with Vladimir asking Doerr to clarify his 'soft' versus 'strict' classification of shortcuts, and no reply or resolution appears in the archive.",
+    "key_facts": [
+      "Martin Doerr argued that if a shortcut's underlying longpath can logically be inferred, its intermediate nodes logically exist, treating this as a question of logic separate from database/knowledge-base practice.",
+      "Vladimir Alexiev opposed inferring long-paths from shortcuts, citing non-unique intermediates, OWL-inferred blank ('Skolem') nodes that can't be matched during later data integration, and the YAGNI principle.",
+      "The thread ends with Vladimir asking Doerr to explain a 'soft' vs. 'strict' classification of shortcuts, and no answer or resolution is recorded."
+    ],
+    "gold_threads": [
+      "t0780"
+    ],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "The debate has the shape of a resolved technical decision but never actually converges; a system could easily fabricate a false consensus."
+  },
+  {
+    "question_id": "2016-2017-q1",
+    "slice": "2016-2017",
+    "question": "The CIDOC CRM class originally named 'E78 Collection' was put to a SIG vote on renaming it. Was the renaming proposal accepted, and if so what name did the SIG settle on and why?",
+    "gold_answer": "Yes, the SIG approved renaming E78 Collection to E78 Curated Holding (singular, without a trailing 's'), with the change tied to resolving issue 270 at the Prato meeting in February 2016. The rationale, given by Martin Doerr during the vote, was that librarians already use 'holdings' to mean the physical copies making up library content, which supported treating the class as fundamentally about physical, curated material -- so that properties like location and destruction remain meaningful for it -- rather than about the intangible content those items carry. The vote initially ran on the plural 'Curated Holdings', but after a side debate about English usage (whether the plural reads as the collection-as-a-whole or as its individual items), several members switched their vote to the singular 'Curated Holding', which became the adopted form.",
+    "key_facts": [
+      "E78 Collection was renamed to E78 Curated Holding as part of resolving issue 270.",
+      "The renaming was tied to the Prato SIG meeting in February 2016.",
+      "The stated rationale (from Martin Doerr) was that 'holdings' is the librarians' term for the physical copies of library content, supporting a physical (not purely intentional/content-based) definition of the class.",
+      "The adopted form was the singular 'Curated Holding', after some members initially voted for the plural 'Curated Holdings'."
+    ],
+    "gold_threads": [
+      "t0907",
+      "t1004"
+    ],
+    "difficulty": "easy",
+    "why_this_is_hard": "Confirming the final adopted name and its rationale means following a vote thread where opinions shift mid-stream, plus a later thread that names the resolved issue number and meeting."
+  },
+  {
+    "question_id": "2016-2017-q2",
+    "slice": "2016-2017",
+    "question": "The SIG discussed deprecating the actor-appellation class because its scope note failed to convincingly justify treating actor names as a distinct, recognizable kind of appellation. How did the community's position on this class evolve, and what was its fate by the following year, including any loose ends left behind?",
+    "gold_answer": "The SIG largely converged on deprecating E82 Actor Appellation, because there is no reliable way to tell from the form of a name alone that it 'characteristically' belongs to an actor rather than a place or a work -- conventions about what a personal or corporate name looks like vary by culture and change over time, undermining the scope note's core claim. By the following year, a SIG member confirmed E82 had indeed been deprecated in favor of using the general E41 Appellation directly, but pointed out that dependent parts of the documentation -- the property P131 and its scope-note wording, plus references to E82 in the property hierarchy and in the entries for P1 and E39 -- had not yet been updated to match. Robert Sanderson pushed the reasoning further, arguing nearly all subclasses of E41 besides E42 Identifier add no real semantic value over plain Appellation and should likewise be deprecated.",
+    "key_facts": [
+      "E82 Actor Appellation was deprecated in favor of using E41 Appellation directly.",
+      "The core objection was that the 'characteristic form' test for actor names is unreliable, since what counts as a personal or corporate name form depends on cultural convention and changes over time.",
+      "As of the following year, dependent references to E82 (including property P131 and mentions in the property hierarchy, P1, and E39) had not yet been updated in the documentation despite the deprecation.",
+      "Robert Sanderson argued the same reasoning implied nearly all subclasses of E41 (other than E42 Identifier) should also be deprecated."
+    ],
+    "gold_threads": [
+      "t0937",
+      "t1015"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "The class's actual fate only becomes clear by connecting a debate with no explicit final vote to a follow-up thread nearly a year later that confirms the outcome and flags unfinished cleanup work."
+  },
+  {
+    "question_id": "2016-2017-q3",
+    "slice": "2016-2017",
+    "question": "A modeller argued that the class for curated collections and the class for physical objects create a logical inconsistency, since the physical-object class's scope note already claims to cover 'all aggregates of objects... of whatever kind', yet the collections class is not classified as a subclass of it. What different fixes did SIG members propose for this, and was the class hierarchy actually changed as a result?",
+    "gold_answer": "The class hierarchy was not changed. The member who raised the issue proposed making the curated-collections class (E78 Curated Holding) a subclass of Man-Made Object (so it would inherit from Physical Object through that route), or alternatively creating a new generic 'Set' class under Physical Object. Another member objected, since curated holdings must be able to include curated physical features (not just discrete objects), which would wrongly be excluded if the class were tied to Man-Made Object; he suggested using multiple instantiation instead whenever something genuinely needs to be classified as both. A third member added counter-examples -- such as a collection of dispersed structures, or curated rock art left in situ -- that would be awkward or wrong to force into the physical-object class's requirement of a single item with objective physical boundaries. The senior modeller closed the discussion by appealing to CRM's open-world, bottom-up modelling principle instead: ordinary cases like auction lots and hoards already qualify as plain physical-object aggregates, and the remaining edge cases (like objects that just happen to appear together in one photograph) simply fall outside the ontology's current scope and can be handled by an extension without touching the core hierarchy.",
+    "key_facts": [
+      "No change was made to the class hierarchy as a result of this debate; E78 Curated Holding remained a non-subclass of E19 Physical Object.",
+      "One proposed fix was making E78 a subclass of E22 Man-Made Object (or introducing a new generic 'Set' class under E19), which was intended to resolve the inconsistency directly.",
+      "This was opposed on the grounds that curated holdings must be able to contain curated features (not just objects), and that some curated holdings (e.g. dispersed structures, in-situ rock art) don't satisfy E19's requirement of objective physical boundaries; multiple instantiation was proposed instead for individual overlapping cases.",
+      "The discussion was closed with an appeal to CRM's open-world/bottom-up principle rather than a hierarchy fix: ordinary aggregates like auction lots and hoards are treated as plain E19s, and edge cases are left out of scope for later extension."
+    ],
+    "gold_threads": [
+      "t1004"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "Answering requires tracking four participants' distinct and partly conflicting positions across one long thread, and recognizing the debate ended in an informal methodological answer rather than an actual change to the class hierarchy."
+  },
+  {
+    "question_id": "2016-2017-q4",
+    "slice": "2016-2017",
+    "question": "Over the course of a year, the SIG repeatedly discussed what CIDOC CRM's class for rights actually represents -- the abstract legal concept of a right, or a specific instance of someone holding a right over an object for a bounded period -- along with how to handle joint or partial ownership shares. Did the SIG ever settle on a single answer?",
+    "gold_answer": "No -- the archive shows this was never resolved. One member repeatedly pressed the SIG on whether the Right class denotes the concept of a right (which, as a Conceptual Object, cannot simply cease to exist just because its legal validity lapses) or the concrete holding of a right by a specific actor over a specific object for a limited time, and the two readings kept producing contradictory answers about things like the end of an ownership right after resale. Two members separately floated adding a new property or class to capture the period during which a right is actually in force, distinct from the right's existence as a concept, but this stayed an unadopted suggestion rather than an agreed change. The senior modeller's final word was that 'right' is simply an ambiguous natural-language term with multiple legitimate senses, that modelling joint or fractional ownership and the legal domain generally was too complex to settle by email, and that a dedicated working group would need to be restarted -- noting that an earlier such effort had already stalled once its partner organization withdrew. No resumption of that group, nor any scope-note change or new property, appears in the archive for this period.",
+    "key_facts": [
+      "Whether the Right class (E30) denotes the abstract legal concept or a concrete, time-bounded holding of a right was never formally resolved -- no scope-note change or SIG vote is recorded in this period.",
+      "A proposal to add a new property or class capturing a right's period of legal validity, separate from its existence as a concept, was raised by more than one member but remained an unadopted suggestion.",
+      "The discussion also raised joint/partial ownership (e.g. two parties each holding a percentage share of a right) as unresolved, with no modelling solution agreed.",
+      "The senior modeller proposed restarting a dedicated rights-modelling working group, noting a prior effort had already stalled after a partner organization withdrew; no such group is shown reconvening."
+    ],
+    "gold_threads": [
+      "t0972",
+      "t1019"
+    ],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "The debate recurs across two threads months apart with several plausible partial fixes proposed along the way, making it tempting to report one of those fixes as settled rather than recognizing the SIG never actually converged."
+  },
+  {
+    "question_id": "2018-2019-q1",
+    "slice": "2018-2019",
+    "question": "The CIDOC CRM used to have a dedicated class for naming a specific section of a physical object (for example, 'the poop deck' of a ship). What happened to this class and the properties built on it, and how does the CRM now recommend recording such named sections?",
+    "gold_answer": "The class used to represent a named section of a physical object (e.g. 'the poop deck of HMS Victory') was deprecated by the CRM SIG. As a direct consequence, the property that linked a Physical Thing to that class was also deprecated, in a vote the SIG passed unanimously in November 2018. The surviving property for locating sections, which links a Physical Thing directly to a Place, had its scope note rewritten at the same time: a named or geometrically-defined section of an object is now represented simply as a Place, identified either by a name (such as 'the poop deck of H.M.S. Victory') or by a geometry/coordinate system, rather than through a separate section-definition entity.",
+    "key_facts": [
+      "E46 Section Definition was deprecated",
+      "P58 has section definition, which depended on E46, was deprecated by a unanimous SIG vote in November 2018",
+      "P59 has section (is located on or within)'s scope note was rewritten so sections are now represented directly as E53 Place instances identified by a name or a geometry, without a separate Section Definition entity"
+    ],
+    "gold_threads": [
+      "t1137",
+      "t1139"
+    ],
+    "difficulty": "easy",
+    "why_this_is_hard": "It is mostly a lookup, but the full picture (what was deprecated, and what replaced it) only emerges from combining two companion items: the property deprecation vote and the separate scope-note rewrite of the surviving property."
+  },
+  {
+    "question_id": "2018-2019-q2",
+    "slice": "2018-2019",
+    "question": "The community debated removing the word 'Man' from class labels such as 'Man-Made Object'. What options were on the table, what objections were raised, and which option did the standards body actually adopt?",
+    "gold_answer": "In April 2019 a proposal was made to rename the CRM's 'Man-Made' classes (covering man-made objects, features, and things) by dropping 'Man-' entirely, e.g. turning 'Man-Made Object' into 'Made Object'; replacing 'Man-' with 'Human-' was offered only as a fallback second choice. Several members objected that 'Made X' on its own was too broad and ambiguous -- it could be read as covering marks or things produced by non-human agents (one member's example was a cat's claw scratch on a painting), and 'Made Object'/'Made Thing' carried unwanted slang connotations. Others raised the cost of breaking existing URIs and labels in deployed data, and some questioned whether 'man' was really gender-biased in English at all. The SIG then put the fallback option to a formal vote, and it passed essentially unanimously, so the labels were changed to 'Human-Made Object', 'Human-Made Feature', and 'Human-Made Thing' -- the fallback option, not the original first choice of simply dropping 'Man-'.",
+    "key_facts": [
+      "The original first-choice proposal was to drop 'Man-' entirely (e.g. 'Man-Made Object' to 'Made Object'), with 'Human-Made' offered only as a fallback",
+      "Objections to 'Made X' included that it was too broad/ambiguous (could include non-human-made marks) and carried unwanted connotations",
+      "The formal vote was on the fallback 'Human-Made' wording specifically, and it passed unanimously, so CRM adopted 'Human-Made Object/Feature/Thing' rather than the original 'Made X' proposal"
+    ],
+    "gold_threads": [
+      "t1194",
+      "t1196"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "The outcome can only be recovered by connecting the original two-option proposal in one thread (where the preferred choice was to drop the word entirely) to a separate vote thread that quietly voted on the fallback option instead -- the vote thread alone does not mention that a different first choice existed or was passed over."
+  },
+  {
+    "question_id": "2018-2019-q3",
+    "slice": "2018-2019",
+    "question": "The CRM community discussed how to handle the fact that both a dedicated appellation entity and a plain RDF text label can be used to name the same thing. Why did the group resist simply treating the RDF text-label mechanism as directly equivalent to (a super- or sub-property of) the appellation-identification property, and what alternative did they move toward instead?",
+    "gold_answer": "Martin Doerr proposed technically declaring the CRM's 'is identified by' property (P1) to be a superproperty of rdfs:label, so that a single query for P1 would also pick up names expressed as plain rdfs:label literals, and tested this in Virtuoso. Richard Light objected on technical grounds: because CRM data commonly coexists in the same triple store with unrelated RDF data that also happens to use rdfs:label, asserting that all rdfs:label statements are also P1 relationships would produce incorrect or spurious inferences over that unrelated data; he argued CRM should only define sub-classes/sub-properties of standard RDFS constructs, never super-classes/super-properties of them. Rather than resolve the P1/rdfs:label relationship by punning the two together, the discussion moved toward defining a new, separate CRM property ('has symbolic content', domain E90 Symbolic Object, range E62 String, related to rdfs:value) so that simple appellations could be given a literal value directly within the CRM's own model, without conflating CRM's identification property with the generic RDF labelling mechanism.",
+    "key_facts": [
+      "Martin Doerr's proposal was to make P1 is identified by a superproperty of rdfs:label so that querying for P1 would also return rdfs:label-based names",
+      "Richard Light's objection was that this could cause spurious P1 inferences over unrelated RDF data elsewhere in the same triple store that also uses rdfs:label, and that CRM should only define sub-properties of RDFS constructs, not super-properties",
+      "Instead of linking P1 and rdfs:label directly, the SIG moved toward proposing a new property, 'has symbolic content' (domain E90 Symbolic Object, range E62 String), to represent simple appellation values as literals"
+    ],
+    "gold_threads": [
+      "t1123"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "The reasoning is spread across a long back-and-forth involving a technical RDF experiment, a self-corrected mistake by the proposer, and a rejection on grounds specific to how CRM data interacts with unrelated RDF data in the same store -- it is not a single quotable objection, and the eventual pivot to a differently-named property is easy to miss."
+  },
+  {
+    "question_id": "2018-2019-q4",
+    "slice": "2018-2019",
+    "question": "The community considered adding a property to let two instances of the general Type class be ranked relative to each other (for example, to say a condition-report value like 'Good' outranks 'Average'). Did the group settle on this property, and if so, in what final form?",
+    "gold_answer": "No, this was never settled. The idea was raised in January 2019 as a new property on E55 Type, and its proposed name changed repeatedly during discussion: first 'is conceptually greater than', then 'conceptually follows/precedes', then a suggestion of 'ranked higher than/ranked lower than'. Martin Doerr repeatedly questioned, on methodological grounds, whether such a property belonged in CRM base at all rather than being left to SKOS's existing broader/narrower relation or its OrderedCollection mechanism, and this scope question was never resolved. By June 2019 the property (again called 'is conceptually greater than') had been shifted out of CRM base into the CRMsci extension, with homework assigned to add concept-scheme context to its scope note, but the discussion ends with Martin raising further open mathematical questions about whether the relation is a partial or total order and how transitivity and part-of relations interact with it. No vote was ever taken.",
+    "key_facts": [
+      "The proposed ranking property for E55 Type went through several candidate names ('is conceptually greater than', 'conceptually follows/precedes', 'ranked higher than/lower than', then back to 'is conceptually greater than')",
+      "Martin Doerr repeatedly questioned whether the property belonged in CRM base versus being left to SKOS, and this was never resolved",
+      "By mid-2019 the property had been moved from CRM base to the CRMsci extension, but no vote adopted it and open questions about its precise mathematical nature (partial vs. total order) remained unanswered"
+    ],
+    "gold_threads": [
+      "t1156",
+      "t1219"
+    ],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "Several plausible-sounding 'final' names and a reassignment to a different sub-model appear along the way, any of which could be mistaken for a settled outcome; the archive never records a vote or final adoption, only continued evolution and open questions."
+  },
+  {
+    "question_id": "2020-2021-q1",
+    "slice": "2020-2021",
+    "question": "The scope note for the class covering transfer of custody of museum objects was found to contain an internal contradiction about whether it always covered physical possession. Was a fix accepted, and what was the reasoning behind it?",
+    "gold_answer": "Yes, the fix was accepted. The original wording described the class as being about transfer of physical custody, but a later paragraph in the same note allowed for transfers of only legal custody, contradicting the opening line. The proposed fix redefined the class to cover transfer of physical custody or of legal responsibility for custody, with the specific case (physical-only, legal-only, or both) to be expressed separately using the P2 has type property rather than being baked into the base definition. The e-vote passed with every respondent voting yes, several attaching minor editorial caveats (a missing verb, punctuation, and a request to clarify the examples), and those caveats were folded into a revised note read out at the following SIG meeting.",
+    "key_facts": [
+      "The e-vote to revise the Transfer of Custody scope note passed with unanimous yes votes, some with minor wording caveats",
+      "The fix redefined the class to cover transfer of physical custody or of legal responsibility for custody, rather than physical custody alone",
+      "The distinction between a physical-only, legal-only, or combined transfer is meant to be expressed using the P2 has type property, not stated directly in the base scope note"
+    ],
+    "gold_threads": [
+      "t1394"
+    ],
+    "difficulty": "easy",
+    "why_this_is_hard": "The scope-note text alone doesn't say why the change was needed; the contradiction and the P2-has-type workaround are only explained in the proposal and vote discussion."
+  },
+  {
+    "question_id": "2020-2021-q2",
+    "slice": "2020-2021",
+    "question": "In CRMarchaeo, how did the classification of an 'embedding' (a physical thing being buried or set within surrounding matter) change, and what follow-on property problem did that change create?",
+    "gold_answer": "The SIG decided to reclassify embedding from a subclass of a generic condition-state class to a subclass of the Rigid Physical Feature class, following a proposal that the surrounding matter is itself often what is used to infer things like the time of deposition; this was backed despite an objection that embedding felt more immaterial than a physical feature and better suited to the condition-state framing. Once reclassified this way, the class's own temporal-bounds aspect effectively disappeared, since a Rigid Physical Feature's genesis event was expected to carry that information instead. That change then created a follow-on problem: the property linking an embedding to the stratigraphic unit that contains it was still restricted to a single kind of stratigraphic volume, but many excavation records only record embeddings loosely, without distinguishing an actual layer from a stratigraphic interface. One member proposed broadening that property's range to the shared parent class covering both, but this drew an objection that letting an embedding be 'in' an interface is conceptually odd since an interface is essentially two-dimensional; the counter-argument, using examples like a mass grave with bones embedded across multiple layers, was that embeddings spanning several layers and interfaces are real and should be representable, and by the end of the exchange the proposer of the range change had come around to supporting the broader range.",
+    "key_facts": [
+      "The SIG decided to make the embedding class a subclass of the Rigid Physical Feature class rather than keeping it under the generic condition-state class",
+      "This reclassification removed the class's own explicit temporal-bounds handling, since a Rigid Physical Feature's genesis event was expected to cover timing instead",
+      "The reclassification triggered a debate over widening the range of the 'is embedding in' property from a specific stratigraphic-layer class to the broader stratigraphic-unit class covering both layers and interfaces, to match how excavators often record finds without distinguishing the two",
+      "The objection to the broader range was that an embedding being 'in' an interface is conceptually odd because an interface is essentially two-dimensional; this was countered with real examples of embeddings spanning multiple layers"
+    ],
+    "gold_threads": [
+      "t1431",
+      "t1445"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "The decision is only stated in passing at the start of the second thread and its rationale has to be reconstructed from the full argument in the first thread; the follow-on property debate is a separate, later disagreement that depends on understanding why the first decision was made."
+  },
+  {
+    "question_id": "2020-2021-q3",
+    "slice": "2020-2021",
+    "question": "A modeller proposed a strict rule that any 'mark' applied to an object which is not also an inscription can never be treated as encoding actual language. Was that rule adopted, and separately, how was the disputed clause about the intent behind marks (indicating a creator, owner, dedication, etc.) eventually reworded?",
+    "gold_answer": "The strict rule was rejected. It was pointed out that just because inscriptions (marks known to carry language) are a subset of marks does not license the reverse closed-world claim that no other marks could also happen to carry language — doing so would conflict with the open-world assumption the model is built on. Other proposed relationships in the same discussion, such as marks being a kind of symbolic/information object and inscriptions being the subset of marks that are also linguistic objects, were accepted as correct. Separately, the scope note's language about intent was reworded after members objected that examples like a casual graffito or a warning sign didn't fit a definition requiring intent to indicate a creator, owner, dedication, or purpose. The fix loosened that clause from a defining condition into an illustration of typical use, ending up with wording to the effect that marks are applied 'often' to indicate such things, or more generally just to communicate information.",
+    "key_facts": [
+      "The proposed rule that non-inscription marks can never be linguistic objects was rejected as an inappropriate closed-world assumption",
+      "Other proposed class relationships from the same discussion (marks as symbolic/information objects, inscriptions as the linguistic-object subset of marks) were accepted as correct",
+      "The scope note's intent clause was reworded from a defining condition into an illustrative one, using wording like marks being applied 'often' to indicate a creator, owner, dedication or purpose, or more generally to communicate information"
+    ],
+    "gold_threads": [
+      "t1300"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "The thread runs from January to June with several competing proposals in play at once; distinguishing which specific claims were accepted, which were rejected, and which wording actually ended up in the final revision requires tracking the whole exchange rather than any single message."
+  },
+  {
+    "question_id": "2020-2021-q4",
+    "slice": "2020-2021",
+    "question": "The community discussed extending the CRM so that non-human animals (for example, a bird building a nest) could be documented as having carried out an activity, the way a human actor would. Did the SIG settle on a new class structure for this, and if not, what was left unresolved?",
+    "gold_answer": "No, the SIG did not settle on or adopt any new class structure for non-human actors, despite substantial discussion. The case was raised using the example of a bird (or dinosaur) building a nest, for which the model had no adequate way to assign agency short of a weak 'occurred in the presence of' relation. Two members sketched a detailed proposal for a monotonic extension, introducing a sibling superclass to the human-actor class with parallel individual and collective biological-agent subclasses, and suggested eventually renaming the existing human-specific classes accordingly. However, another member consistently held that any such extension needed an established community documentation practice and willing domain experts first, neither of which existed yet, and separately drew a firm line that machines or robots should never count as actors regardless of their apparent agency, since they act on behalf of human instructions much like a trap does. A librarian on the list added that an analogous 'animal as agent' idea had already been proposed and rejected in the bibliographic (FRBR/LRM) community for similar reasons. The discussion ended with a proposal to document the debate itself as methodological material and the sharing of a real-world animal-tracking use case, but no class or property was ever adopted.",
+    "key_facts": [
+      "No new class or property for non-human actors was adopted; the discussion ended without the SIG reaching a decision",
+      "A detailed extension proposal was put forward (a sibling agent superclass with individual/collective biological-agent subclasses, and renaming existing human-actor classes), but it was not adopted",
+      "One member's stated position was that such an extension requires an established documentation practice and domain experts first, which the group had not yet found, and that machines/robots should never count as actors",
+      "A librarian noted that an analogous animal-as-agent proposal had already been considered and rejected in the FRBR/LRM bibliographic model for similar reasons"
+    ],
+    "gold_threads": [
+      "t1500"
+    ],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "A fully worked, detailed proposal is on the table and reads as though it could have been adopted, so confirming that the SIG actually never ratified it (rather than assuming the proposal was the outcome) requires reading the whole exchange, including the later messages where the original proposer's own methodological objections remain unanswered."
+  },
+  {
+    "question_id": "2022-2026-q1",
+    "slice": "2022-2026",
+    "question": "The CIDOC CRM introduction has a passage about properties whose domain and range are the same class, discussing when such properties are symmetric versus transitive. This passage was flagged as flawed and eventually revised. What was wrong with the original wording, and how was it finally changed?",
+    "gold_answer": "The original bullet under Naming Conventions claimed that properties with identical domain and range are 'either symmetric or transitive', which is both a false dichotomy and, once corrected, still redundant with material already covered elsewhere. A reviewer pointed out the counterexample P152 has parent (is parent of), which has identical domain and range but is neither symmetric nor transitive. After discussion, the SIG agreed the paragraph was trying to restate concepts (symmetry, transitivity, reflexivity) that are already defined precisely in the Terminology section, and that the only thing actually relevant to Naming Conventions is that symmetric properties get no parenthetical inverse label. The text was trimmed down to just that point, illustrated with P122 borders with (E53 Place), with a pointer back to the Terminology section's definition of 'symmetric'. This shortened wording was put to an e-vote (issue 686) in March 2025 and passed unanimously, to be adopted in CIDOC CRM v7.3.",
+    "key_facts": [
+      "The original text wrongly asserted that identical-domain/range properties are 'either symmetric or transitive', disproved by the counterexample P152 has parent (is parent of), which is neither.",
+      "The agreed fix removed the redundant discussion of transitivity/reflexivity from Naming Conventions (already covered in the Terminology section) and kept only the point that symmetric properties (e.g. P122 borders with) have no parenthetical inverse label.",
+      "The revised wording was passed by unanimous e-vote (issue 686) in March 2025 for adoption in CIDOC CRM v7.3."
+    ],
+    "gold_threads": [
+      "t1797",
+      "t1817"
+    ],
+    "difficulty": "easy",
+    "why_this_is_hard": "The fix only makes sense once you connect the October 2024 objection thread to its resolution in a separately-titled e-vote thread five months later, rather than reading either message alone."
+  },
+  {
+    "question_id": "2022-2026-q2",
+    "slice": "2022-2026",
+    "question": "Within CIDOC CRM, is it valid to infer that if an event took place at a place Y, and place Y falls within a larger place Z, then the event also took place at Z? What did the CRM-SIG conclude about this, and what reasoning came up around it?",
+    "gold_answer": "No, this chained inference is not treated as valid. The SIG had already decided, per homework prepared for issue 606, that the rule combining 'took place at' with the containment property for places should not appear in the formal logic, and Martin Doerr argued it had never been ontologically sound in the first place rather than merely inconvenient: it conflated an 'inverse shortcut' with an ordinary shortcut, and mechanically closing the location property under the entire containment hierarchy above an attested place would flood a knowledge base with unbounded, unhelpful derived statements. The intended reading is that the location property should express the narrowest reasonable outer approximation of where something happened (illustrated with Caesar's murder being narrowed from Rome to the Forum Romanum to a specific building), not an arbitrarily wide one produced by walking up the containment chain. In the ensuing exchange, Wolfgang Schmidle argued a restricted version of widening is still needed — via the intersection of multiple attested locations for the same event, using a proposed 'overlap' function — mainly to detect contradictions between differing attestations rather than to derive new, previously-unknown locations; the discussion did not converge on a single revised formal rule to replace the removed one.",
+    "key_facts": [
+      "The SIG had already decided, in homework for issue 606, that the location-property/containment-chaining inference does not hold, and Martin Doerr stated it was never true rather than newly disallowed.",
+      "The stated rationale is that closing the location property under the full containment hierarchy would generate unbounded, unhelpful derived statements, and conflates an inverse shortcut with a genuine shortcut.",
+      "The location property is meant to express the narrowest reasonable outer approximation of where something happened (illustrated by narrowing Caesar's murder from Rome to the Forum Romanum to a specific building), not the widest possible containing place.",
+      "Wolfgang Schmidle argued a restricted form is still needed, via the intersection of multiple attested locations for an event, mainly to catch contradictions between attestations rather than to derive new ones, and the thread ends without the SIG settling on a replacement formal rule."
+    ],
+    "gold_threads": [
+      "t1637"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "The 'no' answer only makes sense once connected to a decision made in a separate homework document (issue 606) that this thread references but never restates, and it requires tracking a lengthy first-order-logic argument to see which parts were settled and which stayed open."
+  },
+  {
+    "question_id": "2022-2026-q3",
+    "slice": "2022-2026",
+    "question": "CIDOC CRM's class for physical human-made things gives a sword as an example, even though a sword is really an instance of the more specific movable-object subclass, not the immovable-feature subclass that shares the same parent. How did the SIG explain why a superclass's scope note can cite subclass-level examples like this, and what specific gap about movability did the discussion turn up?",
+    "gold_answer": "The SIG explained that CRM deliberately uses subclass-level examples (a sword for the movable-object subclass, rock art for the feature subclass) when writing a superclass's scope note, because otherwise users tend to misread the superclass as some kind of leftover category rather than as the generalization that actually includes its subclasses' instances; this is a known didactic tradeoff, and the SIG agreed it would help to name the responsible subclass in parentheses next to each example. The deeper issue the discussion surfaced is that this superclass itself says nothing about movability: only the class for physical objects with well-defined, separable boundaries (and its adequate subclasses) can properly be the target of a Move event, while human-made features generally cannot be moved independently of what they are attached to. To close that gap, Martin Doerr proposed adding text making explicit that Move applies only to that physical-object class or suitable subclasses, that a permanently attached item can still count as such an object if it could in principle be detached along its original boundaries, and that moving something whose boundaries must be redefined (his example was relocating the Temple of Abu Simbel) instead creates a new physical-object instance via a transformation event. This was opened as a fresh issue about movability in scope notes rather than settled by a vote within the thread.",
+    "key_facts": [
+      "The shared superclass (E24) covers both the movable-object subclass (E22, exemplified by a sword) and the generally-immovable feature subclass (E25, exemplified by rock art); citing subclass-level examples in a superclass's scope note is intentional CRM pedagogy, and the SIG agreed naming the responsible subclass in parentheses would reduce confusion.",
+      "Only E18 Physical Object (and its adequate subclasses) can be the target of E9 Move; the superclass E24 by itself carries no movability information.",
+      "Martin Doerr proposed new scope-note text stating a permanently attached item can still count as E18 if it could in principle be detached along its original boundaries, and that a move requiring newly-defined boundaries (e.g. the Temple of Abu Simbel) instead produces a new E18 instance via E81 Transformation.",
+      "This was raised as a new issue on scope notes about movability; no vote or final text was recorded within the thread."
+    ],
+    "gold_threads": [
+      "t1874"
+    ],
+    "difficulty": "hard",
+    "why_this_is_hard": "Answering well means tracing relationships across four related classes and one event class rather than reading a single scope note, and recognizing the thread ends in a proposal, not a ratified fix."
+  },
+  {
+    "question_id": "2022-2026-q4",
+    "slice": "2022-2026",
+    "question": "CIDOC CRM's RDF implementation has long included a combined class for a name that is also treated as an expression in a particular language (formed by multiple inheritance from the classes for linguistic objects and for appellations), but this class exists only in the RDF files, without a documented scope note in the base standard. Did the SIG ever agree to formally add this class, with a proper scope note, to the standard itself?",
+    "gold_answer": "No, and the archive never settles this. A 2022 thread pointed out that the RDF-only class for a name-that-is-also-a-linguistic-expression is inconsistently labelled and has no documentation outside the RDFS file, and proposed promoting it to a fully specified class in CRMbase. This produced an extended and ultimately unresolved debate: Martin Doerr held that CRM's minimality principle bars adding classes that contribute nothing beyond what multiple inheritance already implies, and repeatedly asked for a scope note and disambiguating examples showing that 'the language of a name' is a well-defined, non-arbitrary notion, raising counterexamples about transliterated and multi-language names that were never fully answered. Robert Sanderson and George Bruseker countered that the class is ubiquitously used in practice and that the minimality principle is already applied inconsistently to other classes (their example was E27 Site), so it should simply be documented rather than left informal. Francesco Beretta proposed reframing the concept instead as a kind of 'appellation in a language' activity/state class, which Rob argued did not meet the original requirement. The discussion carried into a formal issue at the following SIG meeting, but by the last messages in this exchange Martin was still preparing the disambiguating examples he considered necessary, and no scope note, wording, or vote had been agreed.",
+    "key_facts": [
+      "The disputed class is the RDF-only combined class for a name expressed in a language (linked via the property for language of expression), which has no scope note or agreed single name in the base CRM standard, only inconsistent labels in the RDFS file.",
+      "Martin Doerr's objection rests on CRM's minimality principle (no class from multiple inheritance alone without its own distinguishing properties), and his repeated request for disambiguating examples of 'the language of a name' was never resolved.",
+      "Robert Sanderson and George Bruseker argued the class is already in wide practical use and that the minimality principle is applied inconsistently elsewhere (their counterexample was E27 Site), so it should be documented rather than left informal.",
+      "Francesco Beretta's alternative proposal to model it as an 'appellation in a language' activity/state class was rejected by Rob as not meeting the stated requirement, and the thread ends with no scope note, wording, or vote agreed."
+    ],
+    "gold_threads": [
+      "t1649"
+    ],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "It is tempting to answer 'yes, it already has a name and is in wide use, so it's settled' — but the archive shows the SIG explicitly declined to close the question, disagreeing over whether the underlying concept is even well-defined enough to formalize."
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "case_id": "built-c2",
+  "answer": "Neither a plain P89-chain treating the hundred and the rural district as themselves E53 Place instances, nor the case's own fallback of a hybrid 'place with a bounded period' class, is right -- the CRM has no such hybrid, because E53 Place is deliberately kept timeless (search.py connect confirms P89 falls within is declared strictly E53->E53, and Martin Doerr states the principle directly discussing an equivalent case: '\"E53 Place\" is not a \"place\"' and 'It is wrong to regard the Desert as an E53', t1243). The SIG's actual, closed resolution for exactly this situation is Issue 312 (Mapping Geopolitical Units to Period): an administrative unit such as a hundred or a rural district is a specialization of E4 Period -- 'the set of activities and phenomena related to the claim of power, the consequences of belonging to a jurisdictional area and an administrative system that establishes a geopolitical unit' (E4's scope note, which even gives 'the Capital of Russia' as a worked example of an administrative unit changing over time without breaking identity). Because E4 IsA both E2 Temporal Entity and E92 Spacetime Volume, it carries its own bounded existence via the necessary P4 has time-span, and reaches into space only through the inherited, necessary P161 has spatial projection -> E53 Place (Martin Doerr, t1090: 'a geopolitical entity is indeed regarded as a case (type, specialization) of E4 Period... multiple inheritance yes, but with E92, not E53'). So: model Sedgewick Hundred and Whitgate Rural District each as their own E4 Period, each with P4 has time-span (Hundred ending 1894, Rural District beginning 1894) and P161 has spatial projection to its own E53 Place extent. The mill's site is a separate, stable E53 Place reached from the building via P53 has former or current location -- unaffected by either the name change or the reorganisation. Administrative membership is then the site's P89 falls within relation to whichever unit's spatial-projection Place applied at the time, not a direct link from the mill to the unit itself: search.py connect E18 E4 finds no property joining a physical thing straight to a period-like unit, confirming the link has to run through Place, i.e. the fuller chain the question anticipates, just with the class correction that boundedness lives on the Period (P4), not on the Place.",
+  "classes_proposed": ["E4", "E53", "E52"],
+  "properties_proposed": ["P4", "P161", "P89", "P53", "P7"],
+  "rejected_alternatives": [
+    {
+      "option": "Plain P89 falls-within chain straight from the mill's location to 'the hundred' and 'the rural district' treated as E53 Place instances",
+      "why_not": "search.py connect E53 E53 and connect E18 E4 show P89 is declared only E53->E53, with no property joining a physical thing directly to an E4-typed unit; treating a unit that starts and stops existing as itself an eternal E53 Place is exactly what Martin Doerr rules out in t1243: 'E53 Place is not a place' / 'It is wrong to regard the Desert as an E53'."
+    },
+    {
+      "option": "Administrative unit as E7 Activity or as E74 Group (Richard Light's first guesses in t1093)",
+      "why_not": "Martin Doerr rejects E7 in t1093 ('not all things having a temporal dimension are activities... I'd not think results of activities can be activities'), and Richard Light himself rules out E74 Group in the same message; the SIG's closed decision (Issue 312) is E4 Period, not either of these."
+    },
+    {
+      "option": "A hybrid 'Place with a bounded period' class, as floated in the case question",
+      "why_not": "No such class exists in the CRM. E53 Place stays timeless by design; the time-boundedness belongs to E4 Period (necessary P4 has time-span), and the unit's extent is only reached as that Period's spatial projection (P161), never the other way round."
+    }
+  ],
+  "citations": [
+    "E4", "E53", "E92", "E52", "P89", "P161", "P4", "P53", "P7",
+    "t1090", "t1093", "t1243",
+    {"id": "t1243", "quote": "E53 Place\" is not a \"place\""},
+    {"id": "t1243", "quote": "It is wrong to regard the Desert as an E53"},
+    {"id": "t1090", "quote": "geopolitical entity is indeed regarded as a case"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E53",
+    "concept E92",
+    "thread t1093",
+    "thread t1090",
+    "thread t1243",
+    "issues \"administrative unit\"",
+    "concept E4",
+    "docs \"geopolitical unit\" --kind declaration",
+    "issue 312",
+    "connect E22 E53",
+    "connect E53 E4",
+    "connect E18 E53",
+    "connect E18 E4",
+    "connect E53 E53",
+    "docs \"falls within\" --kind declaration",
+    "quote t1243 \"E53 Place is not a\"",
+    "quote t1090 \"geopolitical entity is indeed regarded as a case\"",
+    "quote t1243 \"E53 Place\\\" is not a \\\"place\\\"\"",
+    "quote t1243 \"It is wrong to regard the Desert as an E53\"",
+    "docs \"administrative unit\" --kind narrative"
+  ],
+  "confidence": "high",
+  "notes": "Issue 312 is closed and its outcome text was folded directly into the current E4 scope note, so 'concept E4' and 'issue 312' triangulate on the same answer independently. E93 Presence (seen in the E53/E92/E4 dossiers and in P89's declaration) offers a further refinement -- pinning the site's temporal window within a unit explicitly via P164/P167/P195 instead of leaving the time-scoping entirely on the unit's own P4 -- but was not needed to answer the question as posed."
+}

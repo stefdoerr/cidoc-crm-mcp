@@ -1,0 +1,26 @@
+{
+  "case_id": "classchoice-c1",
+  "answer": "Model the 1950s event as an E81 Transformation, not an E11 Modification: P124 transformed the wedding gown (E22 Human-Made Object) and P123 resulted in the christening gown (E22 Human-Made Object). The seamstress preserved recognizable substance and structure (the silk and lace panels) while discarding other material (the worn skirt fabric) and produced an object of a fundamentally different nature -- a christening gown, not an altered wedding gown. That is exactly the line E11's own scope note draws: modification covers changes that do not fundamentally change an object's nature/identity, but 'an event should also be documented using an instance of E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities.' The wedding gown ceases to exist as a unit of documentation (P93/P124) and the christening gown begins existence (P92/P123), causally and materially linked through the one E81 event.",
+  "classes_proposed": ["E22", "E81"],
+  "properties_proposed": ["P124", "P123", "P92", "P93"],
+  "rejected_alternatives": [
+    {
+      "option": "E11 Modification (treat as the same wedding gown, merely altered)",
+      "why_not": "E11's own scope note explicitly excludes this case: it says modification is for changes that do not fundamentally change an object's nature or identity, and directs exactly this pattern (destruction of an object with production of a new one from its parts/material) to E81 Transformation, noting 'the new items have separate identities.' The bodice was unpicked, panels recut and restitched, and the skirt fabric discarded to make a categorically different garment -- not a repaired or adjusted wedding gown."
+    }
+  ],
+  "citations": ["E81", "E11", "t1396"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E11",
+    "thread t1396",
+    "docs \"identity of physical objects\" --kind narrative",
+    "quote E11 \"should also be documented using an instance of E81 Transformation\"",
+    "quote E81 \"preserves recognizable substance and structure\"",
+    "connect E22 E22"
+  ],
+  "confidence": "high",
+  "notes": "quote checks against E11/E81 returned UNKNOWN SOURCE -- the class dossier text isn't a thread/message/doc-chunk id in the quote tool's index, so the scope-note wording above is reported in my own words rather than as a verified direct quotation; only E81, E11 and t1396 are cited as plain identifiers. connect E22 E22 does not surface P123/P124 because those properties' domain is E81 (the event), not E22 directly -- consistent with the event-centric pattern: the two garments are linked through the Transformation, not a direct property."
+}

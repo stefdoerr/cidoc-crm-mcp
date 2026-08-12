@@ -1,0 +1,36 @@
+{
+  "case_id": "classchoice-c3",
+  "answer": "This is in scope, and the household should be recorded as the maker, not the three named women. Model the communal work session as a single E12 Production (an E12 'can be collective', e.g. many baskets made in one session) with P14 carried out by pointing to the extended-family household modelled as an E74 Group -- the E74 scope note explicitly includes 'concepts of family' as a case of Group, and the CIDOC-SIG's own 'Groups and carried out by' discussion (t1477) describes exactly this shape: a named/constructed group where 'some member(s) of the group carried out the activity, but also not all members of the group did it' (their 'Scriptorium of/Workshop of' case) -- P14 on the Group is the sanctioned reading for that situation, and no subproperty distinguishing partial participation was ever adopted, so plain P14 to the Group is the current standard's answer. The three later-identified women should not be asserted as makers via P14: the case says it could not be confirmed which of them, if any, handled this particular basket, so naming them as makers would overstate the evidence. If their attendance needs to be recorded at all, P11 had participant on the same event is the right, weaker property for it -- P11's own scope note notes that 'Collective actors, i.e. instances of E74 Group, may physically participate in events via their representing instances of E21 Persons only', which is precisely this case: participation short of authorship. A bare, unspecified E39 Actor is too vague given that the identity of the group (the named household) actually is known; collapsing to the generic superclass would discard information the diary supports.",
+  "classes_proposed": ["E12", "E74", "E21"],
+  "properties_proposed": ["P14", "P11"],
+  "rejected_alternatives": [
+    {"option": "E21 Person (naming the three later-identified women as the makers via P14)", "why_not": "The case states the consultation could not confirm which of them, if any, handled this particular basket; P14 carried out by asserting individual authorship would overstate evidence the case does not have. P11 had participant is available for recording their confirmed presence without that overstatement."},
+    {"option": "bare/unspecified E39 Actor", "why_not": "The field diary names the household, a specific and identifiable E74 Group (family/household is explicitly within E74's scope note); using the unspecified superclass would throw away known, evidenced information rather than reflect genuine uncertainty."}
+  ],
+  "citations": ["E12", "E74", "P14", "P11", "t1477", {"id": "t1477", "quote": "not all members of the group did it"}],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E39",
+    "concept E74",
+    "docs \"uncertain identity of actor\" --kind narrative",
+    "docs \"unknown maker\" --kind narrative",
+    "docs \"group of persons acting collectively\"",
+    "connect E12 E74",
+    "connect E12 E39",
+    "connect E12 E21",
+    "docs \"the most specific class the evidence supports\" --kind narrative",
+    "docs \"P14.1 in the role of\"",
+    "docs \"collective production by a group\"",
+    "\"unknown maker group attribution uncertain\"",
+    "threads \"collective authorship uncertain individuals\"",
+    "thread t1477",
+    "thread t0834",
+    "quote t1477 \"not all members of the group did it\"",
+    "concept P11",
+    "connect E7 E21",
+    "concept E12"
+  ],
+  "confidence": "medium",
+  "notes": "The exact fine-grained distinction this case turns on -- a named group where only some, unidentified, members did the specific work -- was raised by the SIG itself (t1477, 'Groups and carried out by', 2021) as an open gap: no subproperty of P14 for partial-membership attribution was ever adopted, so the model offers only plain P14 to the Group, which is a slightly blunter instrument than the case's nuance deserves. Flagging that as a known limitation rather than a clean fit."
+}

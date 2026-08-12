@@ -1,0 +1,35 @@
+{
+  "case_id": "built-c1",
+  "answer": "This is in scope, and it is not the same building. The 1938 work reused ~70% of the original oak frame but replaced the roof covering, the brick plinth walls, and one whole bay -- and relocated the assembly four miles. CRM's own guidance on exactly this problem (E24's scope note, and the mailing-list 'Ship of Theseus' discussion in thread t1170) treats substantial-but-partial matter reuse as producing a new, distinct E22 Human-Made Object, not a continuation of the old one: identity for physical things is judged on continuity of coherence and functionality, not on substance, and Martin Doerr states directly that once 'the continuity of functionality is broken,' the result should be 'regard[ed] ... as a new E19 object.' A full dismantling, four-mile move, rebuilt bay and replaced envelope breaks that continuity far more than an in-place repair would. E81 Transformation's own scope note gives the structurally identical case as a worked example: the Hephaisteion-into-church conversion, 'which actually helped preserving part of the antique temple structure' -- old and new are 'discrete entities having separate, unique identities' even though 'causally connected' by preserved material. So: model the Hollow Farm barn and the Combe Farm building as two instances of E22 Human-Made Object, linked by one instance of E81 Transformation (P124 transformed the Hollow Farm barn, P123 resulted in the Combe Farm building; P92/P93 for brought-into/taken-out-of existence). The 1839 tithe survey (E31 Document) documents (P70) only the original barn, not the Combe Farm building -- that is precisely the distinction the catalogue record needs to preserve. The estate plaque is evidence *for* the transformation claim (it names the origin) but is not grounds to collapse the two identities into one.",
+  "classes_proposed": ["E22", "E81", "E31"],
+  "properties_proposed": ["P123", "P124", "P92", "P93", "P70"],
+  "rejected_alternatives": [
+    {"option": "E11 Modification (treat Combe Farm building as the same object, repaired/modified in place)", "why_not": "E6's scope note is explicit: 'When the initial identity of the changed instance of E18 Physical Thing is preserved, the event should be documented as an instance of E11 Modification' -- but that is for cases where continuity is not broken. The mailing-list thread t1170 (message [10]) rules this out for a reconstruction where 'the continuity of functionality is broken', which fits a full dismantling, relocation, and rebuilt bay, not a repair."},
+    {"option": "E6 Destruction of the old barn + unrelated E12 Production of a new one, with no link between them", "why_not": "Both E6's and E12's scope notes point away from this: 'An event should also be documented using E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals.' Treating them as unrelated would lose the documented material continuity (70% of the original oak frame) that the estate itself wants recorded via the plaque."},
+    {"option": "Same E22 instance, unchanged, just relocated (P53 has former or current location updated)", "why_not": "This is the position the Ship-of-Theseus thread (t1170) was convened to test. Martin Doerr's resolution proposes a new instance once functional/coherence continuity breaks, and E24's own scope note treats 'substantial continuity of the previous matter and structure in the new product' as something to document via E81 precisely because the product is a new, distinct entity, not the old one relabelled."}
+  ],
+  "citations": [
+    "E24", "E81", "E19", "E6", "E12", "P123", "P124", "P92", "P93", "P70",
+    "t1170",
+    {"id": "t1170", "quote": "I propose to regard the \"reconstructed\" as a new E19 object"},
+    {"id": "t1170", "quote": "the continuity of functionality is broken"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E24",
+    "concept E81",
+    "docs \"reconstruction of a building preserving identity\" --kind narrative",
+    "issues \"ship of theseus identity rebuilt\"",
+    "concept E6",
+    "concept E12",
+    "\"moved building reconstructed reused material identity\"",
+    "thread t1170",
+    "quote t1170 \"I propose to regard the \\\"reconstructed\\\" as a new E19 object\"",
+    "quote t1170 \"the continuity of functionality is broken\"",
+    "connect E31 E22",
+    "connect E22 E81"
+  ],
+  "confidence": "high",
+  "notes": "Strong convergence between the E24/E81 scope notes (which give a structurally identical worked example, the Hephaisteion-into-church conversion) and an actual SIG mailing-list debate (t1170) that argues the Ship of Theseus case by name and lands on 'new object once functional continuity breaks'. No tool friction; connect E31/E22 confirmed P70 as the right link for the tithe survey."
+}

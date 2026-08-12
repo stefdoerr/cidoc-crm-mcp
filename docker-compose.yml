@@ -1,0 +1,66 @@
+# One always-warm CIDOC CRM MCP server.
+#
+#   docker compose up -d          # pulls the published image
+#   docker compose up -d --build  # builds it from this checkout instead
+#
+# Then point a client at http://127.0.0.1:8000/mcp and nothing else: no
+# project path, no venv, no corpus to fetch.
+
+services:
+  cidoc-crm:
+    # The published image is the default path: it is ~1.3GB over the wire
+    # against a build that downloads 1.4GB of wheels, an 876MB corpus and a
+    # model, and takes the better part of an hour. `build:` stays for anyone
+    # changing the code -- `--build` prefers it.
+    image: ghcr.io/stefdoerr/cidoc-crm-mcp:latest
+    build:
+      context: .
+      args:
+        # A fork with its own corpus overrides this; the default is public
+        # and needs no credential.
+        CORPUS_REPO: stefdoerr/cidoc-crm-corpus
+
+    # Bound to the host's loopback, not 0.0.0.0. The server inside listens on
+    # 0.0.0.0 because a container port is unreachable otherwise, but there is
+    # no authentication in it -- publishing this straight onto a public
+    # interface hands anyone who can reach the port a search engine over the
+    # whole archive. Put a reverse proxy with a token in front before you
+    # change the left-hand side of this line.
+    ports:
+      - "127.0.0.1:8000:8000"
+
+    # Always-warm has two halves. --warm (in the image's CMD) loads the vector
+    # stores before the port opens, so no request pays the ~9.5s; restart
+    # keeps the process alive so that cost is paid once per host boot rather
+    # than once per crash.
+    restart: unless-stopped
+
+    # NOT read_only. This project's code writes nothing at runtime, but Chroma
+    # opens its SQLite read-write even to query it and refuses to start
+    # otherwise ("attempt to write a readonly database"). Tried, measured,
+    # reverted -- so the container keeps the defences that do hold: an
+    # unprivileged user and no privilege escalation.
+    security_opt:
+      - no-new-privileges:true
+
+    # Measured in the container, warm, all three stores loaded: ~1.0GB. (The
+    # Python process itself is 0.52GB of that; the rest is page cache for the
+    # mmap'd vector indexes, which cgroup accounting counts and ru_maxrss does
+    # not.) The limit is headroom over the number the container actually
+    # reports, not the flattering one.
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+
+    # The modelling prompt, editable without a rebuild. `prompts/` in this
+    # repo is the default and stays baked into the image; anything you put in
+    # ./prompts overrides it per file, is re-read on every request, and so
+    # takes effect on the next `model_an_object` call with no restart. The
+    # prompt is advice that gets better by being argued with -- a rebuild per
+    # paragraph would stop that happening.
+    #
+    # Pulling the image rather than cloning? Drop this line, or point it at
+    # any directory holding a model_an_object.md.
+    volumes:
+      - ./prompts:/prompts:ro

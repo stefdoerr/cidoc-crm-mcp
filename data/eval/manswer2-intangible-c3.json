@@ -1,0 +1,41 @@
+{
+  "case_id": "intangible-c3",
+  "answer": "In scope, with a base-CRM (not extension) modelling. Treat 'fire-keeper' as an E74 Group in the CRM's 'official position' sense: E74's own scope note explicitly covers 'official positions which used to be regarded ... as one actor, independent of the current holder of the office, such as the president of a country', adding 'it may happen that the group never had more than one member' -- exactly the fire-keeper post. Each succession is then an E85 Joining (P143 joined = the incoming fire-keeper, P144 joined with = the fire-keeper office) paired with an E86 Leaving for the outgoing fire-keeper (P145 separated / P146 separated from the same office); P107 has current or former member is the available shortcut if the full path is overkill. The informality is not a blocker: E85/E86 are E7 Activities, so each gets its own E52 Time-Span via P4 has time-span, and CRM's fuzzy-boundary primitives (P81a/b, P82a/b) are built precisely for 'somewhere in this multi-year window, no exact date' -- the mailing list shows this same pattern used for an informally-dated 18th-century club election (thread t0873). No ceremony, document, or witness is required by the model: the CIDOC CRM's own objectives note counts oral tradition as valid evidence, and CRM property quantifiers are optional so as to accommodate incomplete information. I did not reach for an extension (CRMaaa/SDHSS Social Role/Status classes), which the SIG itself points to for richer 'position within an institution' modelling (thread t1806, a 2024 case about a king's butler) -- but that thread also confirms CRMbase already has the two events needed here, just not a slicker way to bind the office-type to the Group's internal structure, which this case doesn't need.",
+  "classes_proposed": ["E74", "E85", "E86", "E39", "E21", "E52"],
+  "properties_proposed": ["P143", "P144", "P145", "P146", "P107", "P4"],
+  "rejected_alternatives": [
+    {"option": "E8 Acquisition", "why_not": "E8's scope note restricts it to transfers of legal ownership and says explicitly 'it does not, however, imply changes of any other kinds of rights' -- a customary, non-legal right to light the fire first does not fit."},
+    {"option": "E30 Right / P105 right held by", "why_not": "E30 can tag the privilege itself, but CRMbase has no modelled 'transfer of a Right' event distinct from E8 (which is ownership-only); the SIG's own 2024 thread on an analogous single-office case (t1806) says CRMbase 'does not offer other constructs' for this and points to extensions (CRMaaa/SDHSS) outside the family models this tool indexes, so I left it out rather than invent a shortcut."},
+    {"option": "P107.1 / P144.1 'kind of member' qualifier", "why_not": "Proposed in 2008 (thread t0426) but met a formal negative vote arguing the office-as-singleton-Group reading (thread t0431) makes it redundant, and it does not appear in the current v7.3.2 property list via docs search -- not safe to cite as a standing construct."}
+  ],
+  "citations": ["E74", "E85", "E86", "P143", "P144", "P145", "P146", "P107", "E8", "t0873", "t1806", "t0426", "t0431"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E30",
+    "concept E7",
+    "concept E85",
+    "docs \"role succession\" --kind narrative",
+    "docs \"informal transfer of a right\" --kind narrative",
+    "concept E86",
+    "thread t1701",
+    "thread t0426",
+    "thread t0431",
+    "thread t1806",
+    "docs \"kind of member\"",
+    "docs \"P107.1\"",
+    "docs \"P144.1\"",
+    "issues \"role succession office\"",
+    "issues \"informal social role membership\"",
+    "concept E74",
+    "issue 385",
+    "issue 420",
+    "issue 149",
+    "concept E8",
+    "docs \"uncertain fuzzy date of an event\" --kind narrative",
+    "thread t0873",
+    "docs \"Minimality principle do not model what cannot be documented\" --kind narrative"
+  ],
+  "confidence": "medium",
+  "notes": "No thread argues this exact scenario (informal, unwitnessed office succession); the E74-as-office reading and the fuzzy-timespan precedent are each solid individually but I found no single episode where the SIG combined them for a case this informal, so I composed the answer from two separate lines of evidence rather than one on-point discussion."
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "intangible-c3",
+  "ranking": ["A", "C", "B"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 3,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "Issue 149 — the register and the archived minutes (chunk minutes:Meeting10_Minutes#s015) show Issue 149 is titled and resolved as 'modelling family relations': the SIG accepted E85 Joining/E86 Leaving and revised E74's scope note there specifically to cover families/personas ('it is possible for a group to have members or not'). The answer attributes the scope note's 'official position ... independent of the current holder' language to this same issue; the archive's own dedicated debate over singleton offices/positions is a separate, later 2008 thread (t0431, 'Debate over necessity of P107.1/P144.1 vs. alternative singleton group'), not Issue 149 itself. The underlying point (2008 SIG activity legitimized this pattern) holds up; the specific attribution is stretched."
+      ],
+      "verdict": "Tight, three-class model built entirely on the CRM's own sanctioned singleton-office idiom (E74 Group + E85 Joining/E86 Leaving + P107), with unusually well-verified provenance work — it correctly traces E85/E86 to their actual originating SIG discussion and honestly discloses Christian-Emil Ore's 2024 'ad hoc, not good ontological practice' objection to that same idiom at medium (not inflated) confidence. Its real gap: it never engages the case's central ask, the 'unbroken chain,' against CRM's own open-world/monotonicity principle, so an overclaim the case is explicitly worried about is left standing unchallenged — the one class this answer needed and omitted is an E13 Attribute Assignment to mark that claim as the project's opinion, not the model's."
+    },
+    {
+      "label": "B",
+      "class_count": 5,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "The most rigorously verified answer of the three under direct checking — the empty connect E7/E30 and E8/E30 results, the exact Issue 87 scope-note addition, the P75/P134 scope notes, and the t1019 quotes all check out precisely — and the only one to name the real property gap (no property exists that says who gave up a right and who received it) as the actual crux, with an apt use of CRMinf for the project's own irreducible uncertainty. But it is the one answer that declines the CRM's textually-sanctioned office/succession idiom (E74 Group + E85/E86 + P107) entirely, rejecting it on the strength of one architect's real but unratified 2024 objection, in favor of a legal but more roundabout Activity + P134 + CRMinf construction that gives the heritage project a chain that must be reconstructed by traversal rather than the direct P107 membership list the standard built for exactly this purpose."
+    },
+    {
+      "label": "C",
+      "class_count": 7,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Reaches the same sanctioned office idiom as A and executes the surrounding detail more completely than either rival: fuzzy dating anchored to the publicly witnessed annual lightings, P79/P80 uncertainty notes, a defensible reading of P12 as satisfied by the two participants themselves, and — unlike A — an explicit monotonicity-based refusal to let 'unbroken' stand as fact. Its flaw is that it never surfaces the 2024 senior-SIG 'ad hoc'/'group trick' objection to the very construct it recommends, despite both rivals finding and weighing it, and despite this answer itself searching adjacent territory (t1302) that should have surfaced it; it then claims 'high' confidence, which the gap does not support."
+    }
+  ],
+  "decisive_difference": "A and C converge on the modelling the CRM's current scope notes actually prescribe for a singleton office: E74 Group for the position, E85 Joining/E86 Leaving for the transitions, P107 for the resulting chain. B alone abandons that idiom, on the strength of a real but unratified 2024 SIG-mailing-list objection, for a bespoke and more defensively-hedged but harder-to-query Activity/P134/CRMinf construction — which is why it ranks last despite being the most thoroughly self-verified answer under direct checking. What separates A from C is honesty about that same objection: A discloses Christian-Emil Ore's criticism of the office-as-Group construct and still recommends it, at a calibrated medium confidence; C uses the identical construct without ever mentioning the criticism and calls itself high confidence anyway.",
+  "confident": false,
+  "notes": "This case is built around a genuine, still-open disagreement inside the SIG itself: Christian-Emil Ore has objected to using singleton E74 Groups for offices/roles both in 2008 ('very artificial like epicycle models of the planet orbits,' thread t0431) and again in 2024 ('ad hoc... not good ontological practice,' thread t1806), while the current published scope notes still explicitly sanction exactly that construct ('it may happen that the group never had more than one member'). A and B both found and reasoned from t1806; C did not surface it despite searching closely adjacent territory (t1302, the Swiss-President E74-Group thread), and its 'high' confidence should be read against that gap. I could not fully adjudicate whether B's more conservative construction is actually the better real-world choice for a heritage project's 'unbroken chain' deliverable versus A/C's direct P107 membership list -- that is a live, expert-level judgment call the archive itself has not settled -- so the ranking leans on fidelity to what the current standard's text prescribes rather than on which architect's opinion is more persuasive; a re-read weighting B's rigor and A's caveat gap differently could plausibly swap the order of A and B. No illegal property domains/ranges or clear scope-note violations were found in any of the three answers under direct verification against data/ontology.json (E74, E85, E86, P107, P75, P105, P24, P134, E13, P12, I2/J4/J5 all checked out as declared)."
+}

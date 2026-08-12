@@ -1,0 +1,133 @@
+{
+  "question_id": "e27-site",
+  "question": "Why does the CIDOC CRM have the class E27 Site?",
+  "short_answer": "E27 Site exists because heritage documentation constantly needs to talk about a piece of land as a physical thing -- something you can excavate, own, photograph, damage or destroy -- and the CRM's class for locations, E53 Place, is deliberately pure geometry with no matter in it, so it can do none of those things. A site is filed under E26 Physical Feature rather than E53 Place because it is made of stuff, and under Feature rather than Physical Object because its boundaries are drawn by people rather than found in nature. The SIG considered moving it and decided instead to widen the definition of Feature so that it plainly covered pieces of ground (Issue 10, closed Monterey 2002).",
+  "explanation": "The CRM splits the world at a hard joint: E53 Place is an extent in space 'in the pure sense of physics: independent from temporal phenomena and matter'; E18 Physical Thing is matter. That split forces E27 Site to exist. Nearly everything recorded about a site is a statement about matter -- it can be composed of other things, measured, modified, destroyed, owned, subject to a legal right -- and those properties all hang off E18. E53 Place carries none of them; its own are purely topological. Model Knossos as an E53 Place and you can say where it is and nothing else.\n\nThe sharpest test the SIG used is destruction. Doerr, on English Heritage's landscape polygons in 2007: 'With a landslide or vulcano eruption a complete E27 Site may end to exist, but the polygons still mark an existing area = Place on the surface on earth.' The matter can cease; the extent cannot, so they cannot be one class. A second test is depiction: Issue 33 concluded that 'Places cannot be depicted' and such wording must say site instead -- a photograph shows matter, not geometry.\n\nWhy Feature and not Object? Issue 10 is that argument, and the challenge came from the opposite direction to what newcomers expect -- the case for promoting Site to an object: real estate is a legal object, 'a solid portion of ground with legally defined depth etc. Therefore it may be rather an object than a feature.' The SIG declined: 'Issue is basically withdrawn. Change the scope note of Physical Feature to include so-called fiat objects (objects with non-natural boundaries like seas etc.).' The criterion is boundaries. E19 Physical Object requires borders separating a thing 'completely in an objective way'; where Knossos stops is a decision, not a discovery. In Smith and Varzi's terms objects are bona fide, features are fiat, and a site is plainly fiat.\n\nSite and Place are wired together rather than merged: an E27 Site P156 occupies an E53 Place, which is P157 at rest relative to the Site. Where treating a feature as its own place was genuinely wanted -- in the extension CRMsci -- it was done explicitly, and only for features rigid enough to define an extent (S20 Rigid Physical Feature, subclass of E26 and E53). Issue 311 was opened because that dual parentage created 'inconsistency between CRMsci and CRMcore'; it was settled inside the extension, not by changing the core.",
+  "real_world_example": "Real, from the SIG's own list (thread t0334). In December 2006 Edmund Lee of English Heritage, then revising the UK MIDAS standard, asked what to do with Historic Landscape Characterisation: the whole landscape and sea-bed is cut into polygons, each described by its settlement pattern and the date and origin of its boundaries. He noted the polygons 'are not physical, like for example a building is physical'. The SIG's answer was E27 Site with a link to an E53 Place: the Site is the constellation of hedges, field systems, structures and ground; the polygon is only an identifier for the extent it sits on. Doerr then gave the case that separates the two -- a landslide or volcanic eruption can end the Site while the polygon still marks a perfectly good area of the Earth. The same argument reappeared in 2019 over islands: Doerr argued that 'all \"places\" defined by boundaries of geological features, such as islands, are Physical Features, typically E27 Site', since Crete was not an island five million years ago and was much larger in the last Ice Age. That list argument became Issue 432, and the SIG added 'the island of Crete' to E27's published examples at Heraklion in October 2019.",
+  "decision_status": "settled",
+  "issues": [
+    {
+      "id": 10,
+      "title": "Revise position of E27 Site",
+      "status": "Done (closed 2002-02-21, Monterey 21/2/2002)",
+      "outcome": "The proposal to move Site out of Feature -- motivated by real estate being a legal object, 'a solid portion of ground with legally defined depth' -- was withdrawn. Instead the SIG widened the scope note of E26 Physical Feature to cover 'fiat objects (objects with non-natural boundaries like seas etc.)', explicitly listing 'a real estate on the surface of earth, a landscape' as features. E27 Site therefore remains a subclass of E26."
+    },
+    {
+      "id": 33,
+      "title": "How to model the depiction of a place",
+      "status": "Done (closed 2001/2002, Barcelona 5/7/2001)",
+      "outcome": "'No action. Depiction of Sites is covered by the CRM.' The recorded proposal states that the wording 'needs to be modified to \"site\" - Places cannot be depicted'. This is the register's grounding for the contrast clause in E27's scope note about photographs, paintings and maps."
+    },
+    {
+      "id": 432,
+      "title": "add \"islands\" to E27 Site",
+      "status": "Done (closed 2019-10-25, 45th joint SIG meeting, Heraklion)",
+      "outcome": "Arising from the list discussion 'Place vs. SpaceTimeVolume', the SIG accepted Doerr's proposal that geological entities such as islands are Physical Features, not Places, and added 'the island of Crete' to the examples of E27 Site."
+    },
+    {
+      "id": 311,
+      "title": "CRMsci inconsistency: physical feature IsA Place",
+      "status": "Done (closed 2017-04-06; label change accepted at the 37th joint SIG meeting)",
+      "outcome": "CRMsci had made its physical-feature class a subclass of both E26 Physical Feature and E53 Place, which the SIG flagged as inconsistent with CRM core. Resolved by restricting and relabelling the extension class as S20 Rigid Physical Feature -- features stable enough in form to define a place -- and revising its scope note, rather than by making features places in the core model."
+    },
+    {
+      "id": 40,
+      "title": "Physical features should have location",
+      "status": "Done (closed 2001-10-18, Paris 18/10/2001)",
+      "outcome": "The location properties P53, P54 and P55, originally declared only for physical objects, were moved up to E18 Physical Thing so that features -- and hence sites -- could state where they are. This is the mechanism by which a Site points at a Place instead of being one."
+    },
+    {
+      "id": 8,
+      "title": "Do physical feature and its decomposition need to be more rigidly defined?",
+      "status": "Done (closed 2002-07-05, Barcelona 5/7/2001)",
+      "outcome": "'is composed of' was redirected from Physical Object to E18 Physical Thing 'in order to include E26 Physical Feature'. This gave sites their compositional structure -- the 'relatively immobile material items and features in a particular configuration' of E27's scope note."
+    }
+  ],
+  "threads": [
+    "t0334",
+    "t1243",
+    "t1002"
+  ],
+  "citations": [
+    {
+      "id": "crm732#E27",
+      "quote": "In contrast to the purely geometric notion of E53 Place"
+    },
+    {
+      "id": "crm732#E53",
+      "quote": "independent from temporal phenomena and matter"
+    },
+    {
+      "id": "crm732#E26",
+      "quote": "an area of property on the surface of the Earth, a landscape"
+    },
+    {
+      "id": "issue10#background-s0000",
+      "quote": "Therefore it may be rather an object than a feature"
+    },
+    {
+      "id": "issue10#current-s0000",
+      "quote": "Change the scope note of Physical Feature to include so-called fiat objects"
+    },
+    {
+      "id": "issue33#current-s0000",
+      "quote": "Places cannot be depicted"
+    },
+    {
+      "id": "t0334",
+      "quote": "E27 Site describes the material things, the landscape and built structures as features on the surface of earth"
+    },
+    {
+      "id": "t0334",
+      "quote": "the polygons still mark an existing area"
+    },
+    {
+      "id": "t1243",
+      "quote": "are Physical Features, typically E27 Site"
+    },
+    {
+      "id": "t1243",
+      "quote": "E53 Place\" is not a \"place\""
+    }
+  ],
+  "caveats": "The register does not record why E27 Site was created in the first place -- Issue 10 opens with the class already in the model and debates only where it belongs. The 'why not a Place' rationale is therefore reconstructed from three converging sources rather than one founding decision: the contrast clause the SIG wrote into E27's own scope note, Issue 33's ruling that places cannot be depicted, and the list arguments in t0334 and t1243. Issue 10 itself settles a different axis (Feature vs Object), and it is worth saying plainly that the challenge on record came from that side, not from Place. The destruction argument ('a landslide may end a Site while the polygon still marks an area') and the 'E53 Place is not a place' formulation are Martin Doerr's posts, not minuted SIG positions; the SIG position they support is the one minuted at Heraklion 2019 under Issue 432. The single mailing-list thread the register attaches to Issue 10, t0683, is a mis-linkage: it is FRBRoo Issue 10 about the scope note of F2 Expression and has nothing to do with Site. Likewise, the thread attached to Issue 311, t1002, is a single editorial message from Stephen Stead about the wording of one S20 paragraph, not the substantive debate. Whether the multiple inheritance S20 isA E53 was ultimately retained in the published CRMsci is confirmed only from the current CRMsci class declaration returned by 'concept S20', not from the closing text of Issue 311.",
+  "queries_run": [
+    "search.py issue 10",
+    "search.py concept E27",
+    "search.py concept E26",
+    "search.py concept E53",
+    "search.py concept S20",
+    "search.py issues \"E27 Site place physical feature\"",
+    "search.py issues \"Site is not a Place site occupies place distinction\"",
+    "search.py issues \"real estate legal object solid portion of ground legally defined depth\"",
+    "search.py issues \"why does E27 Site exist archaeological site monument documentation need\"",
+    "search.py issues \"physical feature is not a subclass of place inconsistency resolved property instead of isa\"",
+    "search.py issues \"Issue 311 outcome sig accepted S20 Rigid Physical Feature scope note meeting\"",
+    "search.py issues \"Issue 40 physical features location outcome P53 has former or current location\"",
+    "search.py issue 33",
+    "search.py issue 40",
+    "search.py issue 8",
+    "search.py issue 282",
+    "search.py issue 311",
+    "search.py issue 432",
+    "search.py thread t0334",
+    "search.py thread t0683",
+    "search.py thread t1002",
+    "search.py thread t1243",
+    "search.py threads \"site place distinction landscape excavation destroyed\"",
+    "search.py \"E27 Site why not a Place photographs maps depict\"",
+    "search.py docs \"E27 Site place matter photographs paintings maps\"",
+    "search.py docs \"Place independent of matter physical thing occupies place\" --kind narrative",
+    "search.py connect E27 E53",
+    "search.py quote crm732#E27 \"In contrast to the purely geometric notion of E53 Place\"",
+    "search.py quote crm732#E26 \"an area of property on the surface of the Earth, a landscape\"",
+    "search.py quote crm732#E53 \"independent from temporal phenomena and matter\"",
+    "search.py quote issue10#background-s0000 \"Therefore it may be rather an object than a feature\"",
+    "search.py quote issue10#current-s0000 \"Change the scope note of Physical Feature to include so-called fiat objects\"",
+    "search.py quote issue33#current-s0000 \"Places cannot be depicted\"",
+    "search.py quote t0334 \"the polygons still mark an existing area\"",
+    "search.py quote t0334 \"E27 Site describes the material things, the landscape and built structures as features on the surface of earth\"",
+    "search.py quote t1243 \"are Physical Features, typically E27 Site\"",
+    "search.py quote t1243 \"E53 Place\\\" is not a \\\"place\\\"\""
+  ]
+}

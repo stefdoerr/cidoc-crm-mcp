@@ -1,0 +1,108 @@
+{
+  "question_id": "e84-deprecated",
+  "question": "Why was E84 Information Carrier deprecated?",
+  "short_answer": "E84 Information Carrier was a class for objects deliberately made to hold information -- a book, a diskette, the Rosetta Stone. It was deleted by the CIDOC CRM SIG in January 2018 (Issue 295, Cologne) because by then it had nothing of its own left to do: the one relation it had been invented to carry, P128 carries, had been widened to apply to any physical thing at all, so E84 owned no property that its parent class did not already own. The reason the SIG minuted was that the class \"does not satisfy the requirements proposed on issue 340\", the parallel debate on whether the model should contain classes with no properties.",
+  "explanation": "E84 was created in 2002 to fix a real gap. Issue 7 records the SIG resolving \"by creating new entity: Information Carrier to replace Iconographic Object (E23) and to add a property 'is carrier of (is materialised by)' from Information Carrier to Information Object (E73)\" (Copenhagen, 2 July 2002). The model needed somewhere to hang the link between a physical thing and the text or image it bears, and E84 was that somewhere.\n\nTwo things then hollowed it out. First, the property migrated upward. E84's own scope note conceded that \"any E18 Physical Thing may carry information\", and Issue 259 (Heraklion, October 2014) resolved the resulting inconsistency by updating the domain of P128; in the current standard P128 carries runs from E18 Physical Thing, not from E84. Second, what remained of E84's definition was a statement about intent -- \"unless it was specifically designed for this purpose, it is not an Information Carrier\". That test is not a documentable fact about an object, and it left the class with no property that E22 did not already have.\n\nIn April 2017 Athanasios Velios circulated a list of CRM classes with no properties at all, and E84 was on it (t1003), against the model's own Minimality rule that \"a class is not declared unless it is required as the domain or range of a property not appropriate to its superclass\". That became Issue 340. At the 39th joint meeting the SIG followed Martin Doerr's proposal to remove E84 \"since it does not satisfy the requirements proposed on issue 340\"; at the 40th joint meeting (Cologne, January 2018) it decided \"delete E84 information carrier\", moved E84's examples to E24 Physical Man-Made Thing, extended E25 Man-Made Feature to cover \"the information encoding features on mechanical or digital carriers\", and added digital-library examples to E78 Curated Holding. Cleanup followed: Issue 416 (Paris, June 2019) rewrote the E34 Inscription scope note to stop referring to the deprecated class. The published migration instruction is: \"E84 Information Carrier | use E22 Human-Made Object, P2 has type: 'Information Carrier'\" -- the distinction survives as a type label rather than a class.",
+  "real_world_example": "Coins. In November 2014 the SIG list argued over whether a coin is an E84 Information Carrier (t0804). Christian-Emil Ore held that \"a coin is an information carrier and indeed is of the category of objects found and stored in a library\". Stephen Stead disagreed on exactly the point that E84's definition turned on -- intent: \"The intension of the coins creator is probably not to carry the immaterial object about, but to perform the function of enabling trade\", adding that a commemorative medal would qualify but a blank token would not, and that \"if we want to say that coins are E84 Information Carriers then we may need to revise the scope note.\" Nobody could settle it, because the class asked cataloguers to know what an ancient mint intended. Under the current model the question dissolves: the coin is an E22 Human-Made Object, P128 carries whatever symbolic object it bears, and if a cataloguer wants to call it an information carrier that is a P2 has type assertion they can be argued with about. (This exchange is a 2014 debate about the scope note, not the reason minuted in 2018 for the deletion -- see caveats.)",
+  "decision_status": "settled",
+  "issues": [
+    {
+      "id": 7,
+      "title": "How to model relation between physical carrier and conceptual objects",
+      "status": "Done",
+      "outcome": "Created Information Carrier in 2002 to replace E23 Iconographic Object and to hold a new 'is carrier of (is materialised by)' property to E73 Information Object. Accepted Copenhagen, 2 July 2002. This is the class's origin."
+    },
+    {
+      "id": 259,
+      "title": "E84 Information Carrier-scope note",
+      "status": "Done",
+      "outcome": "31st joint meeting, Heraklion, October 2014: revised the scope notes of P128 and E84 and updated the domain of P128, resolving the clash between E84's claim that carrying 'applies to E18 Physical Thing in general' and P128's narrower declared domain. The effect was to detach the carrying relation from E84."
+    },
+    {
+      "id": 340,
+      "title": "Classes without properties",
+      "status": "Done",
+      "outcome": "44th joint meeting, Paris, June 2019: reworked the Minimality section, listing when a CRM class may be declared -- when required as domain or range of a property not appropriate to its superclass, when it is a merging point of two branches via multiple IsA, or when useful as a leaf class for extensions. This is the requirement E84 was found not to satisfy."
+    },
+    {
+      "id": 295,
+      "title": "Digital Libraries as physical objects",
+      "status": "Done",
+      "outcome": "40th joint meeting, Cologne, January 2018: 'delete E84 information carrier'. Examples moved from E84 to E24 Physical Man-Made Thing; E25 Man-Made Feature scope note extended; new examples added to E78 Curated Holding. Issue closed. The 39th meeting had already accepted Martin Doerr's proposal to remove E84 as failing the Issue 340 requirements."
+    },
+    {
+      "id": 416,
+      "title": "Scope note of E34",
+      "status": "Done",
+      "outcome": "44th joint meeting, Paris, June 2019: e-vote corroborated (12 members, unanimous) to edit the E34 Inscription scope note so it no longer mentions the deprecated E84 Information Carrier. Downstream cleanup of the deletion."
+    },
+    {
+      "id": 345,
+      "title": "properties having domain or range deprecated classes",
+      "status": "Done",
+      "outcome": "Closed 28 November 2018. The general clean-up issue for properties left pointing at deprecated classes; discussed alongside the E84 removal."
+    }
+  ],
+  "threads": ["t1054", "t1003", "t0787", "t0804", "t1193"],
+  "citations": [
+    {
+      "id": "t1054",
+      "quote": "Following Martin's proposal to remove class E84 since it does not satisfy the requirements proposed on issue 340"
+    },
+    {
+      "id": "t1054",
+      "quote": "unless it was specifically designed for this purpose, it is not an Information Carrier"
+    },
+    {
+      "id": "t1054",
+      "quote": "the computer disk at ICS-FORTH that stores the canonical Definition of the CIDOC CRM"
+    },
+    {
+      "id": "t1003",
+      "quote": "A class is not declared unless it is required as the domain or range of a property not appropriate to its superclass"
+    },
+    {
+      "id": "t1003",
+      "quote": "E84_Information_Carrier"
+    },
+    {
+      "id": "t0804",
+      "quote": "The intension of the coins creator is probably not to carry the immaterial object about"
+    },
+    {
+      "id": "t0804",
+      "quote": "we may need to revise the scope note"
+    },
+    {
+      "id": "crm732#s0124",
+      "quote": "E84 Information Carrier | use E22 Human-Made Object"
+    }
+  ],
+  "caveats": "The register states the decision and names the criterion invoked ('does not satisfy the requirements proposed on issue 340') but never spells out, in one place, the full argument for why E84 failed that criterion. The chain given here -- P128's domain widening in 2014 leaving E84 propertyless, E84's appearance on Velios's April 2017 list of classes without properties, then the Issue 340 minimality rule -- is assembled from those sources rather than quoted from a single SIG statement. The intent-test objection (Stephen Stead on coins, t0804, November 2014; Ceri Binding on the P128 domain mismatch, t0787, September 2014) is the argument of individual participants in earlier threads; neither is cited by number in the Issue 295 resolution, and Stead's coin post is his own position, not a SIG position. Issue 295 was formally about digital libraries as physical objects, and the E84 deletion was decided within it; the SIG minuted at the 39th meeting that a separate issue should be created 'for covering the discussion about E84 staying or going', but the deletion was in fact resolved inside 295 at the 40th. Note also that the CRM deprecates rather than deletes: E84 remains in the standard's deprecation appendix with a migration path, and the FRBR/LRM side kept a related class, F54 Utilized Information Carrier, still under discussion in Issue 423 (Open).",
+  "queries_run": [
+    "search.py concept E84",
+    "search.py issues \"E84 Information Carrier deprecated\"",
+    "search.py issue 295",
+    "search.py issue 340",
+    "search.py issue 259",
+    "search.py issue 416",
+    "search.py issue 345",
+    "search.py issue 7",
+    "search.py thread t1054",
+    "search.py thread t1003",
+    "search.py thread t0787",
+    "search.py thread t0804",
+    "search.py thread t1193",
+    "search.py docs \"Deprecated Class Migration Instructions E84 Information Carrier\"",
+    "search.py docs \"Table 6 Deprecated Class Migration Instructions\"",
+    "search.py concept P128",
+    "search.py quote t1054 \"does not satisfy the requirements proposed on issue 340\"",
+    "search.py quote t1054 \"unless it was specifically designed for this purpose, it is not an Information Carrier\"",
+    "search.py quote t1054 \"the computer disk at ICS-FORTH that stores the canonical Definition\"",
+    "search.py quote t1003 \"A class is not declared unless it is required as the domain or range of a property not appropriate to its superclass\"",
+    "search.py quote t1003 \"E84_Information_Carrier\"",
+    "search.py quote t0804 \"The intension of the coins creator is probably not to carry the immaterial object about\"",
+    "search.py quote t0804 \"we may need to revise the scope note\"",
+    "search.py quote crm732#s0124 \"E84 Information Carrier | use E22 Human-Made Object\""
+  ]
+}

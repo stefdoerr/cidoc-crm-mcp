@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="crm.xsl"?>
+<CRMset>
+
+  <!-- ================================================================
+       1. THE OBJECT
+       ================================================================ -->
+
+  <CRM_Entity>Uffington White Horse
+    <in_class>E25: Human-Made Feature</in_class>
+
+    <is_identified_by>Uffington White Horse
+      <in_class>E41: Appellation</in_class>
+      <has_type>current name
+        <in_class>E55: Appellation Type</in_class>
+      </has_type>
+    </is_identified_by>
+    <is_identified_by>the White Horse
+      <in_class>E41: Appellation</in_class>
+      <has_type>short name
+        <in_class>E55: Appellation Type</in_class>
+      </has_type>
+    </is_identified_by>
+    <is_identified_by>Uffington Horse
+      <in_class>E41: Appellation</in_class>
+      <has_type>variant name
+        <in_class>E55: Appellation Type</in_class>
+      </has_type>
+    </is_identified_by>
+    <is_identified_by>National Heritage List for England entry 1008413
+      <in_class>E42: Identifier</in_class>
+      <has_type>NHLE list entry number
+        <in_class>E55: Identifier Type</in_class>
+      </has_type>
+      <has_symbolic_content>1008413
+        <in_class>E62: String</in_class>
+      </has_symbolic_content>
+      <has_note>Cited in the body of the article as "The White Horse hill figure 170 m NNE of Uffington Castle on Whitehorse Hill".
+        <has_type>Source note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_identified_by>
+    <is_identified_by>National Heritage List for England entry 1008412
+      <in_class>E42: Identifier</in_class>
+      <has_type>NHLE list entry number
+        <in_class>E55: Identifier Type</in_class>
+      </has_type>
+      <has_symbolic_content>1008412
+        <in_class>E62: String</in_class>
+      </has_symbolic_content>
+      <has_note>Given in the article's infobox as the scheduled-monument designation number. It contradicts the number 1008413 cited in the body of the same article. Both are recorded here; the article gives no basis for preferring either, so no instance of P48 has preferred identifier is asserted.
+        <has_type>Contested reading
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_identified_by>
+
+    <has_type>hill figure
+      <in_class>E55: Object Type</in_class>
+    </has_type>
+    <has_type>chalk figure
+      <in_class>E55: Object Type</in_class>
+    </has_type>
+    <has_type>scheduled monument
+      <in_class>E55: Legal Status Type</in_class>
+    </has_type>
+
+    <has_note>A prehistoric hill figure formed from deep trenches cut into the upper slopes of Whitehorse Hill and filled with crushed white chalk. It is the oldest of the British white horse hill figures.
+      <has_type>Description
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article records no burial, loss, concealment by deposition, excavation of the figure itself, findspot or rediscovery. The figure has been continuously visible since it was made, apart from the deliberate wartime covering recorded below, and it was therefore never lost and never found. Nothing is modelled for deposition or rediscovery of this object.
+      <has_type>Absence in source
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The article records no transfer of ownership and no transfer of custody: it states that the site is owned and managed by the National Trust, but never says from whom, when, or by what act the Trust acquired it. No instance of E8 Acquisition and no instance of E10 Transfer of Custody is therefore modelled.
+      <has_type>Absence in source
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+
+    <consists_of>chalk
+      <in_class>E57: Material</in_class>
+      <has_note>The trenches are filled with crushed white chalk; the hill itself is chalk.
+        <has_type>Description
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </consists_of>
+
+    <has_dimension>length of the Uffington White Horse (110 m)
+      <in_class>E54: Dimension</in_class>
+      <has_type>length
+        <in_class>E55: Dimension Type</in_class>
+      </has_type>
+      <has_value>110
+        <in_class>E60: Number</in_class>
+      </has_value>
+      <has_unit>metre
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+      <is_referred_to_by>Powell 2017
+        <in_class>E31: Document</in_class>
+        <has_note>Powell, Eric A., "White horse of the sun", Archaeology 70(5), Sep-Oct 2017, pp. 9-10.</has_note>
+      </is_referred_to_by>
+    </has_dimension>
+    <has_dimension>length of the Uffington White Horse (100 m)
+      <in_class>E54: Dimension</in_class>
+      <has_type>length
+        <in_class>E55: Dimension Type</in_class>
+      </has_type>
+      <has_value>100
+        <in_class>E60: Number</in_class>
+      </has_value>
+      <has_unit>metre
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+      <has_note>Given in the article's infobox. It contradicts the figure of 110 m given in the article's opening sentence and sourced there to Powell 2017. Both values are recorded, unreconciled.
+        <has_type>Contested reading
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_dimension>
+
+    <has_section>the trenches of the Uffington White Horse
+      <in_class>E53: Place</in_class>
+    </has_section>
+
+    <is_composed_of>the head of the Uffington White Horse
+      <in_class>E25: Human-Made Feature</in_class>
+    </is_composed_of>
+
+    <forms_part_of>Whitehorse Hill (site)
+      <in_class>E27: Site</in_class>
+    </forms_part_of>
+
+    <has_former_or_current_location>Whitehorse Hill (place)
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+
+    <has_current_owner>National Trust
+      <in_class>E74: Group</in_class>
+    </has_current_owner>
+    <has_former_or_current_owner>National Trust
+      <in_class>E74: Group</in_class>
+    </has_former_or_current_owner>
+    <has_current_keeper>National Trust
+      <in_class>E74: Group</in_class>
+      <has_note>The article says the site is "owned and managed" by the National Trust; management is read here as custody.
+        <has_type>Source note
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_current_keeper>
+
+    <is_subject_to>protection of the Uffington White Horse as a scheduled monument
+      <in_class>E30: Right</in_class>
+      <has_note>The article records the fact of scheduling and its date, but names neither the statute under which the figure is scheduled nor any actor holding the right, so no instance of P105 right held by is asserted.
+        <has_type>Absence in source
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </is_subject_to>
+    <is_listed_in>National Heritage List for England
+      <in_class>E32: Authority Document</in_class>
+    </is_listed_in>
+
+    <was_classified_by>the scheduling of the Uffington White Horse as a scheduled monument
+      <in_class>E17: Type Assignment</in_class>
+      <classified>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </classified>
+      <assigned>scheduled monument
+        <in_class>E55: Legal Status Type</in_class>
+      </assigned>
+      <has_time-span>1929
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1929
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>The article gives the designation date but not the designating body, so no instance of P14 carried out by is asserted.
+        <has_type>Absence in source
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>National Heritage List for England
+        <in_class>E32: Authority Document</in_class>
+      </is_documented_in>
+    </was_classified_by>
+
+    <shows_visual_item>the design of the Uffington White Horse
+      <in_class>E36: Visual Item</in_class>
+    </shows_visual_item>
+
+    <!-- = 2. THE MAKING = -->
+
+    <was_produced_by>the cutting of the Uffington White Horse
+      <in_class>E12: Production</in_class>
+      <has_produced>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_produced>
+      <took_place_on_or_within>Whitehorse Hill (site)
+        <in_class>E27: Site</in_class>
+      </took_place_on_or_within>
+      <took_place_at>Whitehorse Hill (place)
+        <in_class>E53: Place</in_class>
+      </took_place_at>
+      <used_general_technique>cutting of deep trenches into a hillside and filling them with crushed chalk
+        <in_class>E55: Technique Type</in_class>
+      </used_general_technique>
+      <employed>chalk
+        <in_class>E57: Material</in_class>
+      </employed>
+      <has_time-span>the time-span of the making of the Uffington White Horse
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1380 BC - 550 BC
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+        <has_note>An outer bound only. The article gives no narrower interval; the bracket is the optically stimulated luminescence result on the silt deposits, described in the article as the point at which "the figure's origin was finally settled". The article glosses the same bracket as "the late Bronze Age or early Iron Age".
+          <has_type>Statement
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+      </has_time-span>
+      <has_note>The article names nobody who made the figure. No instance of P14 carried out by is asserted on this production; every candidate maker the article reports is recorded below as somebody's attribution, not as a fact.
+        <has_type>Absence in source
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <has_note>The article observes that the Bronze Age date would place the making at the same time as Uffington Castle, in a period when the horse was transforming warfare in Britain.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+
+      <!-- contested datings and attributions of the making -->
+
+      <was_attributed_by>Aubrey's attribution of the White Horse to Hengist and Horsa
+        <in_class>E13: Attribute Assignment</in_class>
+        <assigned_attribute_to>the cutting of the Uffington White Horse
+          <in_class>E12: Production</in_class>
+        </assigned_attribute_to>
+        <assigned_property_of_type>carried out by
+          <in_class>E55: Property Type</in_class>
+        </assigned_property_of_type>
+        <assigned>Hengist
+          <in_class>E21: Person</in_class>
+        </assigned>
+        <assigned>Horsa
+          <in_class>E21: Person</in_class>
+        </assigned>
+        <carried_out_by>John Aubrey
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <has_time-span>the 17th century
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>1601 - 1700
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+        </has_time-span>
+        <is_documented_in>Schwyzer 1999
+          <in_class>E31: Document</in_class>
+          <has_note>Schwyzer, Philip, "The scouring of the White Horse: Archaeology, identity, and 'heritage' representations", Winter 1999, pp. 42-62, University of California Press.</has_note>
+        </is_documented_in>
+      </was_attributed_by>
+
+      <was_attributed_by>Aubrey's ascription of the White Horse to the British Celts
+        <in_class>E13: Attribute Assignment</in_class>
+        <assigned_attribute_to>the cutting of the Uffington White Horse
+          <in_class>E12: Production</in_class>
+        </assigned_attribute_to>
+        <assigned_property_of_type>carried out by
+          <in_class>E55: Property Type</in_class>
+        </assigned_property_of_type>
+        <assigned>the British Celts
+          <in_class>E74: Group</in_class>
+        </assigned>
+        <carried_out_by>John Aubrey
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <was_motivated_by>the design of the Uffington White Horse
+          <in_class>E36: Visual Item</in_class>
+        </was_motivated_by>
+        <has_note>Aubrey noted the similarity of the image to those found on native Iron Age coins. The article reports both this ascription and his attribution to Hengist and Horsa without saying which he preferred or whether he changed his mind; both are recorded, unreconciled.
+          <has_type>Contested reading
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+        <is_documented_in>Schwyzer 1999
+          <in_class>E31: Document</in_class>
+        </is_documented_in>
+      </was_attributed_by>
+
+      <was_attributed_by>Wise's attribution of the White Horse to Alfred the Great
+        <in_class>E13: Attribute Assignment</in_class>
+        <assigned_attribute_to>the cutting of the Uffington White Horse
+          <in_class>E12: Production</in_class>
+        </assigned_attribute_to>
+        <assigned_property_of_type>carried out by
+          <in_class>E55: Property Type</in_class>
+        </assigned_property_of_type>
+        <assigned>Alfred the Great
+          <in_class>E21: Person</in_class>
+        </assigned>
+        <carried_out_by>Francis Wise
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <has_type>speculation
+          <in_class>E55: Assertion Type</in_class>
+        </has_type>
+        <has_time-span>1742
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>1742
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+        </has_time-span>
+        <has_note>Wise speculated that Alfred created the figure to celebrate his victory at the Battle of Edington. The purpose is recorded here as a note rather than as P21 had general purpose on the production, because it is Wise's supposition about a production that, on the article's own dating, predates Alfred by some two thousand years.
+          <has_type>Contested reading
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+        <is_documented_in>Wise 1742
+          <in_class>E31: Document</in_class>
+          <has_note>Wise, Francis, Further Observations on the White Horse and other Antiquities in Berkshire, Oxford: Thomas Wood, 1742.</has_note>
+        </is_documented_in>
+      </was_attributed_by>
+
+      <was_attributed_by>Piggott's dating of the White Horse to circa 100 BC
+        <in_class>E13: Attribute Assignment</in_class>
+        <assigned_attribute_to>the cutting of the Uffington White Horse
+          <in_class>E12: Production</in_class>
+        </assigned_attribute_to>
+        <assigned_property_of_type>has time-span
+          <in_class>E55: Property Type</in_class>
+        </assigned_property_of_type>
+        <assigned>circa 100 BC
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>circa 100 BC
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+        </assigned>
+        <carried_out_by>Stuart Piggott
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <used_general_technique>comparative analysis of the design with numismatic and archaeological finds
+          <in_class>E55: Technique Type</in_class>
+        </used_general_technique>
+        <has_time-span>1931
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>1931
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+        </has_time-span>
+        <is_documented_in>Nash Ford, Dating the Horse
+          <in_class>E31: Document</in_class>
+          <has_note>Nash Ford, David, "Dating the Horse", The Uffington White Horse, Part 4, David Nash Ford's Royal Berkshire History.</has_note>
+        </is_documented_in>
+      </was_attributed_by>
+
+      <was_attributed_by>Marples' dating of the White Horse to the Bronze Age
+        <in_class>E13: Attribute Assignment</in_class>
+        <assigned_attribute_to>the cutting of the Uffington White Horse
+          <in_class>E12: Production</in_class>
+        </assigned_attribute_to>
+        <assigned_property_of_type>has time-span
+          <in_class>E55: Property Type</in_class>
+        </assigned_property_of_type>
+        <assigned>the Bronze Age
+          <in_class>E52: Time-Span</in_class>
+        </assigned>
+        <carried_out_by>Morris Marples
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <used_general_technique>comparison of the design with others throughout Europe and North Africa
+          <in_class>E55: Technique Type</in_class>
+        </used_general_technique>
+        <has_time-span>1949
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>1949
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+        </has_time-span>
+        <has_note>The article spells this name "Morris Marple" in the passage reporting the 1949 dating and "Marples, Morris" in its own bibliography for the same author's White Horses and Other Hill Figures (1949, repr. 1981). "Marples" is used here.
+          <has_type>Source note
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+        <is_documented_in>BritishFolklore.com, Uffington White Horse
+          <in_class>E31: Document</in_class>
+        </is_documented_in>
+      </was_attributed_by>
+
+      <was_attributed_by>the dating of the making of the White Horse to 1380-550 BC
+        <in_class>E13: Attribute Assignment</in_class>
+        <assigned_attribute_to>the cutting of the Uffington White Horse
+          <in_class>E12: Production</in_class>
+        </assigned_attribute_to>
+        <assigned_property_of_type>has time-span
+          <in_class>E55: Property Type</in_class>
+        </assigned_property_of_type>
+        <assigned>the time-span of the making of the Uffington White Horse
+          <in_class>E52: Time-Span</in_class>
+        </assigned>
+        <carried_out_by>Simon Palmer
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <carried_out_by>David Miles
+          <in_class>E21: Person</in_class>
+        </carried_out_by>
+        <was_motivated_by>the optically stimulated luminescence dating of the silt deposits
+          <in_class>E13: Attribute Assignment</in_class>
+        </was_motivated_by>
+        <has_note>The article treats this as settling the question, and as confirming the Uffington White Horse to be Britain's oldest chalk figure. It is nevertheless recorded as somebody's attribution, alongside the rival datings, because the figure of 1380-550 BC reaches the production only through the dating of the silt that accumulated in its trenches.
+          <has_type>Statement
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+        <is_documented_in>Darvill 1996
+          <in_class>E31: Document</in_class>
+          <has_note>Darvill, Timothy, Prehistoric Britain from the Air, Cambridge University Press, 1996, p. 223.</has_note>
+        </is_documented_in>
+        <is_documented_in>Miles et al. 2003
+          <in_class>E31: Document</in_class>
+          <has_note>Miles, D., Palmer, S., Lock, G., Gosden, C. and Cromarty, A. M., Uffington White Horse and its Landscape: Investigations at White Horse Hill, Uffington, 1989-95, and Tower Hill, Ashbury, 1993-4, Thames Valley Landscape Series 18, Oxford University School of Archaeology, 2003.</has_note>
+        </is_documented_in>
+      </was_attributed_by>
+
+      <was_attributed_by>the attribution of the Letcombe Bassett settlement to the community that created the White Horse
+        <in_class>E13: Attribute Assignment</in_class>
+        <assigned_attribute_to>the cutting of the Uffington White Horse
+          <in_class>E12: Production</in_class>
+        </assigned_attribute_to>
+        <assigned_property_of_type>carried out by
+          <in_class>E55: Property Type</in_class>
+        </assigned_property_of_type>
+        <assigned>the community of the settlement unearthed near Letcombe Bassett
+          <in_class>E74: Group</in_class>
+        </assigned>
+        <carried_out_by>archaeologists reported in 2019, unnamed
+          <in_class>E74: Group</in_class>
+        </carried_out_by>
+        <has_time-span>2019
+          <in_class>E52: Time-Span</in_class>
+          <at_some_time_within>2019
+            <in_class>E61: Time Primitive</in_class>
+          </at_some_time_within>
+        </has_time-span>
+        <has_note>In 2019 workers laying water pipes near Letcombe Bassett unearthed an almost 3,000-year-old settlement that archaeologists believe belonged to the same community involved in the creation of the Uffington White Horse. The settlement itself is outside the scope of this model and is not described here; it is recorded only as the ground of this claim about who made the figure.
+          <has_type>Statement
+            <in_class>E55: Note Type</in_class>
+          </has_type>
+        </has_note>
+      </was_attributed_by>
+
+      <has_note>The article also reports, without attributing it to anyone, that the notion of the figure being a post-Roman creation "remained popular", and that many antiquarians and scholars noted the design's similarity to the Celtic art on the coins of the Dobunni and Atrebates. No instance of E13 Attribute Assignment is created for an unattributed opinion.
+        <has_type>Contested reading
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </was_produced_by>
+
+    <!-- = 6. ALTERATION, RESTORATION, RECONSTRUCTION = -->
+
+    <was_modified_by>the scouring of the Uffington White Horse
+      <in_class>E11: Modification</in_class>
+    </was_modified_by>
+
+    <was_modified_by>the covering of the Uffington White Horse during the Second World War
+      <in_class>E11: Modification</in_class>
+      <has_modified>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_modified>
+      <has_type>concealment
+        <in_class>E55: Modification Type</in_class>
+      </has_type>
+      <employed>turf
+        <in_class>E57: Material</in_class>
+      </employed>
+      <employed>hedge trimmings
+        <in_class>E57: Material</in_class>
+      </employed>
+      <had_general_purpose>concealment from aerial navigation
+        <in_class>E55: Purpose Type</in_class>
+      </had_general_purpose>
+      <has_time-span>the Second World War
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1939 - 1945
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>The figure, easily recognisable from the air, was covered over so that Luftwaffe pilots could not use it for navigation during bombing raids. The article names nobody who carried this out.
+        <has_type>Description
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>Cleaver 2017
+        <in_class>E31: Document</in_class>
+        <has_note>Cleaver, Emily, "Against all odds, England's massive chalk horse has survived 3,000 years", Smithsonian, 6 July 2017.</has_note>
+      </is_documented_in>
+    </was_modified_by>
+
+    <was_modified_by>the uncovering of the Uffington White Horse after the Second World War
+      <in_class>E11: Modification</in_class>
+      <has_modified>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_modified>
+      <has_type>reversal of an earlier alteration
+        <in_class>E55: Modification Type</in_class>
+      </has_type>
+      <carried_out_by>William Francis Grimes
+        <in_class>E21: Person</in_class>
+      </carried_out_by>
+      <was_motivated_by>the covering of the Uffington White Horse during the Second World War
+        <in_class>E11: Modification</in_class>
+      </was_motivated_by>
+      <has_time-span>after the Second World War
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>after 1945
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>This is the one alteration in the article that is explicitly reversed. The CRM has no property meaning "undid"; the link back to the wartime covering is carried here by P17 was motivated by, which states only that the covering was the reason for the uncovering, and by this note.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>St. Clair 2016
+        <in_class>E31: Document</in_class>
+        <has_note>St. Clair, Kassia, The Secret Lives of Colour, London: John Murray, 2016, p. 57.</has_note>
+      </is_documented_in>
+    </was_modified_by>
+
+    <was_modified_by>the defacement of the Uffington White Horse with a rider and three dogs
+      <in_class>E12: Production</in_class>
+      <has_modified>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_modified>
+      <has_produced>the rider added to the Uffington White Horse in 2002
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_produced>
+      <has_produced>the three dogs added to the Uffington White Horse in 2002
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_produced>
+      <has_type>defacement
+        <in_class>E55: Modification Type</in_class>
+      </has_type>
+      <carried_out_by>Real Countryside Alliance
+        <in_class>E74: Group</in_class>
+      </carried_out_by>
+      <has_time-span>August 2002
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>2002-08
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>The act was denounced by the Countryside Alliance. The article does not record whether or when the rider and dogs were removed, so no removal is modelled.
+        <has_type>Absence in source
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>BBC News, White horses defaced by activists, 2002
+        <in_class>E31: Document</in_class>
+        <has_note>"White horses defaced by activists", BBC News, 28 August 2002.</has_note>
+      </is_documented_in>
+    </was_modified_by>
+
+    <was_modified_by>the addition of a jockey to the Uffington White Horse
+      <in_class>E12: Production</in_class>
+      <has_modified>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_modified>
+      <has_produced>the jockey added to the Uffington White Horse in 2012
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_produced>
+      <has_type>publicity stunt
+        <in_class>E55: Modification Type</in_class>
+      </has_type>
+      <carried_out_by>a bookmaker, unnamed
+        <in_class>E74: Group</in_class>
+      </carried_out_by>
+      <has_time-span>March 2012
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>2012-03
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>A large jockey was added to the figure as part of a pre-Cheltenham Festival publicity stunt. The article does not record its removal, so no removal is modelled.
+        <has_type>Absence in source
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>BBC News, Bookmaker adds jockey to Uffington Horse, 2012
+        <in_class>E31: Document</in_class>
+        <has_note>"Bookmaker adds jockey to Uffington Horse", BBC News, 9 March 2012.</has_note>
+      </is_documented_in>
+    </was_modified_by>
+
+    <was_modified_by>the restoration of the Uffington White Horse begun in 2024
+      <in_class>E11: Modification</in_class>
+      <has_modified>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_modified>
+      <has_type>restoration
+        <in_class>E55: Modification Type</in_class>
+      </has_type>
+      <carried_out_by>Oxford Archaeology
+        <in_class>E74: Group</in_class>
+      </carried_out_by>
+      <carried_out_by>National Trust
+        <in_class>E74: Group</in_class>
+      </carried_out_by>
+      <carried_out_by>English Heritage
+        <in_class>E74: Group</in_class>
+      </carried_out_by>
+      <had_participant>volunteers at the Uffington White Horse
+        <in_class>E74: Group</in_class>
+      </had_participant>
+      <had_general_purpose>restoration of the figure to its original position and shape
+        <in_class>E55: Purpose Type</in_class>
+      </had_general_purpose>
+      <has_time-span>from the summer of 2024
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>2024 - present
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>Begun in the summer of 2024 by Oxford Archaeology in partnership with the National Trust and English Heritage, with the help of many volunteers. The article does not say that this project executes the plan drawn up in 2023, and no link between the two is asserted here.
+        <has_type>Absence in source
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>English Heritage, The Uffington White Horse Project
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </was_modified_by>
+
+    <!-- = CONDITION = -->
+
+    <has_condition>the vegetation-free state of the Uffington White Horse
+      <in_class>E3: Condition State</in_class>
+      <has_type>clear of turf
+        <in_class>E55: Condition Type</in_class>
+      </has_type>
+      <has_time-span>the existence of the Uffington White Horse
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1380 BC - present
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>The article states that the figure has remained clear of turf throughout its long existence, except for the wartime covering, and that if regular cleaning is halted it quickly becomes obscured.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_condition>
+    <has_condition>the turfed-over state of the Uffington White Horse
+      <in_class>E3: Condition State</in_class>
+      <has_type>concealed under turf and hedge trimmings
+        <in_class>E55: Condition Type</in_class>
+      </has_type>
+      <has_time-span>the Second World War
+        <in_class>E52: Time-Span</in_class>
+      </has_time-span>
+    </has_condition>
+    <has_condition>the shrunken state of the Uffington White Horse
+      <in_class>E3: Condition State</in_class>
+      <has_type>reduced in extent
+        <in_class>E55: Condition Type</in_class>
+      </has_type>
+      <has_time-span>from the 1980s
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1980s - 2024
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>The article reports gradual shrinking of the horse since the 1980s, which the 2023 project was planned to quantify and reverse. No measurement of the loss is given.
+        <has_type>Description
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_condition>
+
+    <!-- = SOURCES BEARING ON THE OBJECT AS A WHOLE = -->
+
+    <is_referred_to_by>Llyfr Coch Hergest (Red Book of Hergest)
+      <in_class>E31: Document</in_class>
+      <has_note>The earliest reference to the site, 1375-1425.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>Plenderleath 1892
+      <in_class>E31: Document</in_class>
+      <has_note>Plenderleath, W. C., The White Horses of the West of England, London: Allen and Storr, 1892, p. 8.</has_note>
+    </is_referred_to_by>
+    <is_referred_to_by>Hughes 1859, The Scouring of the White Horse
+      <in_class>E31: Document</in_class>
+      <has_note>Hughes, Thomas, The Scouring of the White Horse, Boston: Ticknor and Fields, 1859. A semi-fictionalised recounting of the author's visit to the 1857 scouring festival.</has_note>
+    </is_referred_to_by>
+    <is_documented_in>Miles et al. 2003
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+
+  </CRM_Entity>
+
+
+  <!-- ================================================================
+       PARTS AND ADDITIONS
+       ================================================================ -->
+
+  <CRM_Entity>the head of the Uffington White Horse
+    <in_class>E25: Human-Made Feature</in_class>
+    <forms_part_of>Uffington White Horse
+      <in_class>E25: Human-Made Feature</in_class>
+    </forms_part_of>
+    <has_note>The only part of the figure the article names. It is named in an image caption ("The head of the horse, with sheep grazing around it"), not in the running text; the article gives it no dimensions, no separate history and no separate description.
+      <has_type>Source note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>the rider added to the Uffington White Horse in 2002
+    <in_class>E25: Human-Made Feature</in_class>
+    <was_produced_by>the defacement of the Uffington White Horse with a rider and three dogs
+      <in_class>E12: Production</in_class>
+    </was_produced_by>
+    <has_former_or_current_location>Whitehorse Hill (place)
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+  </CRM_Entity>
+
+  <CRM_Entity>the three dogs added to the Uffington White Horse in 2002
+    <in_class>E25: Human-Made Feature</in_class>
+    <was_produced_by>the defacement of the Uffington White Horse with a rider and three dogs
+      <in_class>E12: Production</in_class>
+    </was_produced_by>
+    <has_former_or_current_location>Whitehorse Hill (place)
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+  </CRM_Entity>
+
+  <CRM_Entity>the jockey added to the Uffington White Horse in 2012
+    <in_class>E25: Human-Made Feature</in_class>
+    <was_produced_by>the addition of a jockey to the Uffington White Horse
+      <in_class>E12: Production</in_class>
+    </was_produced_by>
+    <has_former_or_current_location>Whitehorse Hill (place)
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+  </CRM_Entity>
+
+
+  <!-- ================================================================
+       3. WHAT IT DEPICTS
+       ================================================================ -->
+
+  <CRM_Entity>the design of the Uffington White Horse
+    <in_class>E36: Visual Item</in_class>
+
+    <represents_instance_of_type>horse
+      <in_class>E55: Depicted Type</in_class>
+      <has_note>P199 represents instance of type is used, rather than P138 represents, because its scope note covers exactly the case where "the identity of the thing depicted is unknown or unrecorded, but is clearly a particular thing of that type". The same scope note says that a visual item depicting the concept rather than an instance should instead take P138 represents : E55 Type. If the readings recorded below are right and the figure is emblematic - a tribal symbol, or a solar horse - then P138 represents : E55 Type "horse" would be the correct property. The article does not settle this, and neither does this model.
+        <has_type>Contested reading
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </represents_instance_of_type>
+
+    <has_note>It has long been debated whether the figure was intended to represent a horse or some other animal, such as a dog or a sabre-toothed cat. The article attributes neither the dog reading nor the sabre-toothed cat reading to any named person, so neither is modelled as an assertion by anyone. It has been called a horse since the 11th century at least.
+      <has_type>Contested reading
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>The horse is thought to represent a tribal symbol, perhaps connected with the builders of Uffington Castle. The article gives no author for this reading.
+      <has_type>Contested reading
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <has_note>Some scholars have compared the figure to the Celtic goddess Epona, or the later Rhiannon of the Mabinogi. The article names none of them.
+      <has_type>Contested reading
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+
+    <was_classified_by>Pollard's interpretation of the figure as a solar horse
+      <in_class>E17: Type Assignment</in_class>
+      <classified>the design of the Uffington White Horse
+        <in_class>E36: Visual Item</in_class>
+      </classified>
+      <assigned>solar horse
+        <in_class>E55: Depicted Type</in_class>
+      </assigned>
+      <carried_out_by>Joshua Pollard
+        <in_class>E21: Person</in_class>
+      </carried_out_by>
+      <has_time-span>2017
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>2017
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>Pollard, of the University of Southampton, points to the figure's alignment with the sun, particularly in midwinter when the sun appears to overtake the horse, to argue that it was created as a depiction of a solar horse, reflecting mythological beliefs that the sun was carried across the sky on a horse or in a chariot.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>Pollard 2017
+        <in_class>E31: Document</in_class>
+        <has_note>Pollard, J., "The Uffington White Horse geoglyph as sun-horse", Antiquity 91(326), 2017, pp. 406-420.</has_note>
+      </is_documented_in>
+      <is_documented_in>Powell 2017
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </was_classified_by>
+
+    <shows_features_of>horse images on the Celtic coinage of the Dobunni and the Atrebates
+      <in_class>E36: Visual Item</in_class>
+      <has_note>The article asserts resemblance without asserting a direction of influence, and on its own dating the Uffington design is the earlier of the two. P130 shows features of is used here in the symmetric sense its scope note licenses for cases where no direction of influence can be established. The refining property P130.1 kind of similarity is not used: the published example format has no unambiguous way to write a property of a property, and the validator reports such an element as not a class link.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </shows_features_of>
+    <shows_features_of>Early Iron Age horse images on the Marlborough Bucket
+      <in_class>E36: Visual Item</in_class>
+      <has_note>An Iron Age burial bucket found at Marlborough, Wiltshire. The article quotes the Wiltshire Museum's exhibition label, which states that the resemblance was in the past used to date the Uffington Horse to the Iron Age, but that the figure was actually created much earlier and does not compare exactly to Iron Age representations of horses, which are often much curvier.
+        <has_type>Contested reading
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_referred_to_by>Wiltshire Museum, Early Iron Age horses on the Marlborough Bucket
+        <in_class>E31: Document</in_class>
+        <has_note>Exhibition label, Wiltshire Museum.</has_note>
+      </is_referred_to_by>
+    </shows_features_of>
+
+    <has_note>The article records no decoration of the figure, no inscription and no mark: the figure is itself the image, cut in chalk, and carries nothing further. Nothing is modelled for decoration.
+      <has_type>Absence in source
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+
+  <!-- ================================================================
+       6b. THE SCOURING - RECURRENT RESTORATION
+       ================================================================ -->
+
+  <CRM_Entity>the scouring of the Uffington White Horse
+    <in_class>E11: Modification</in_class>
+    <has_modified>Uffington White Horse
+      <in_class>E25: Human-Made Feature</in_class>
+    </has_modified>
+    <has_type>recurrent maintenance
+      <in_class>E55: Modification Type</in_class>
+    </has_type>
+    <used_general_technique>scouring, the clearing of vegetation and the replacement of chalk
+      <in_class>E55: Technique Type</in_class>
+    </used_general_technique>
+    <employed>chalk
+      <in_class>E57: Material</in_class>
+    </employed>
+    <has_time-span>the time-span of the scouring tradition
+      <in_class>E52: Time-Span</in_class>
+      <ongoing_throughout>1755 - present
+        <in_class>E61: Time Primitive</in_class>
+      </ongoing_throughout>
+      <at_some_time_within>time immemorial - present
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+      <has_note>Francis Wise wrote in 1736 that "the ceremony of scouring the Horse, from time immemorial, has been solemnized by a numerous concourse of people from all the villages roundabout", which is why the outer bound is left open at its start. The inner bound runs from the first festival known, in 1755, to the present.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+    </has_time-span>
+    <has_note>Modelled as one collective instance of E11 Modification decomposed by P9 consists of, because the article describes the scouring both as a single continuing practice and as a series of datable episodes. The maintenance is what has kept the figure in existence: if regular cleaning is halted, the figure quickly becomes obscured.
+      <has_type>Description
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+
+    <consists_of>the septennial scourings of the White Horse
+      <in_class>E11: Modification</in_class>
+      <has_modified>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_modified>
+      <has_time-span>until the late 19th century
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>time immemorial - 1899
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>Until the late 19th century the horse was scoured every seven years as part of a more general local fair held on the hill; after the work was done a rural festival was held, sponsored by the lord of the manor. The first such festival known took place in 1755 and they lasted until 1857, when 30,000 people turned up and were "too rowdy". The fair and its sports are reception rather than restoration and are recorded here only as the occasion of the work. The article does not say that the lord of the manor owned the figure, and no ownership is inferred from the sponsorship.
+        <has_type>Description
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>Cleaver 2017
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+      <is_documented_in>Morris 2009
+        <in_class>E31: Document</in_class>
+        <has_note>Morris, Steven, "Bank holiday grooming for Oxfordshire's White Horse", The Guardian, 22 May 2009.</has_note>
+      </is_documented_in>
+      <is_documented_in>Knight 1847
+        <in_class>E31: Document</in_class>
+        <has_note>Knight, Charles, The National Cyclopaedia of Useful Knowledge, vol. III, London, 1847, p. 225.</has_note>
+      </is_documented_in>
+    </consists_of>
+
+    <consists_of>the revived scouring of the White Horse, Spring Bank Holiday 2009
+      <in_class>E11: Modification</in_class>
+      <has_modified>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_modified>
+      <carried_out_by>National Trust
+        <in_class>E74: Group</in_class>
+      </carried_out_by>
+      <had_participant>volunteers at the Uffington White Horse
+        <in_class>E74: Group</in_class>
+      </had_participant>
+      <employed>freshly quarried chalk
+        <in_class>E57: Material</in_class>
+      </employed>
+      <has_time-span>Spring Bank Holiday weekend 2009
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>2009
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>The National Trust revived the tradition in 2009, with local volunteers replacing a layer of freshly quarried chalk.
+        <has_type>Description
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>Morris 2009
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </consists_of>
+
+    <consists_of>the continuing periodic scouring organised by the National Trust
+      <in_class>E11: Modification</in_class>
+      <has_modified>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </has_modified>
+      <carried_out_by>National Trust
+        <in_class>E74: Group</in_class>
+      </carried_out_by>
+      <had_participant>volunteers at the Uffington White Horse
+        <in_class>E74: Group</in_class>
+      </had_participant>
+      <used_object_of_type>hammer
+        <in_class>E55: Tool Type</in_class>
+      </used_object_of_type>
+      <used_object_of_type>bucket of chalk
+        <in_class>E55: Tool Type</in_class>
+      </used_object_of_type>
+      <used_object_of_type>kneepad
+        <in_class>E55: Tool Type</in_class>
+      </used_object_of_type>
+      <has_time-span>from 2009 to the present
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>2009 - present
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+      <has_note>The horse is annually re-chalked and restored by volunteers. On Chalking Day, volunteers with hammers, buckets of chalk and kneepads kneel and "smash the chalk to a paste, whitening the paths cut in the grass inch by inch".
+        <has_type>Description
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>Cleaver 2017
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </consists_of>
+  </CRM_Entity>
+
+
+  <!-- ================================================================
+       6c. THE 2023 PLAN
+       ================================================================ -->
+
+  <CRM_Entity>the planning of a project to reverse the shrinking of the White Horse
+    <in_class>E65: Creation</in_class>
+    <has_created>plan to quantify and reverse the shrinking of the Uffington White Horse
+      <in_class>E29: Design or Procedure</in_class>
+    </has_created>
+    <carried_out_by>National Trust
+      <in_class>E74: Group</in_class>
+    </carried_out_by>
+    <carried_out_by>Adrian Cox
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <has_time-span>August 2023
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>2023-08
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <has_note>In August 2023 a restoration project was planned by the National Trust and the archaeologist Adrian Cox to quantify and reverse the gradual shrinking of the horse since the 1980s. Only the planning is modelled as having happened: the article reports the project as planned, not as carried out, and does not connect it to the separate project begun in 2024.
+      <has_type>Absence in source
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>BBC News, Plans to fatten up shrinking Oxfordshire chalk figure, 2023
+      <in_class>E31: Document</in_class>
+      <has_note>"Uffington White Horse: Plans to fatten up shrinking Oxfordshire chalk figure", BBC News, 2 August 2023.</has_note>
+    </is_documented_in>
+  </CRM_Entity>
+
+
+  <!-- ================================================================
+       4. EXCAVATION AND THE DATED DEPOSIT
+       ================================================================ -->
+
+  <CRM_Entity>the archaeological excavation at White Horse Hill, 1990
+    <in_class>A9: Archaeological Excavation</in_class>
+    <investigated>Whitehorse Hill (site)
+      <in_class>E27: Site</in_class>
+    </investigated>
+    <carried_out_by>Oxford Archaeology
+      <in_class>E74: Group</in_class>
+    </carried_out_by>
+    <has_time-span>1990
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1990
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <has_note>The article dates the excavation to 1990; the title of the excavation report it cites describes investigations at White Horse Hill between 1989 and 1995. The excavation is what made the luminescence dating possible. It excavated the site, not the figure: no part of the figure was buried, lifted or removed.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>Miles et al. 2003
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </CRM_Entity>
+
+  <CRM_Entity>the silt deposits in the trenches of the Uffington White Horse
+    <in_class>A2: Stratigraphic Volume Unit</in_class>
+    <has_former_or_current_location>the trenches of the Uffington White Horse
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+    <has_note>The deposits whose luminescence date gives the figure its bracket of 1380-550 BC. They are related to the figure through the place they occupy - the cut trenches - rather than through P46 forms part of, because they are a later accumulation within the cut and not a constituent of the thing that was made.
+      <has_type>Statement
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <was_attributed_by>the optically stimulated luminescence dating of the silt deposits
+      <in_class>E13: Attribute Assignment</in_class>
+      <assigned_attribute_to>the silt deposits in the trenches of the Uffington White Horse
+        <in_class>A2: Stratigraphic Volume Unit</in_class>
+      </assigned_attribute_to>
+      <assigned_property_of_type>has time-span
+        <in_class>E55: Property Type</in_class>
+      </assigned_property_of_type>
+      <assigned>the time-span of the making of the Uffington White Horse
+        <in_class>E52: Time-Span</in_class>
+      </assigned>
+      <carried_out_by>Simon Palmer
+        <in_class>E21: Person</in_class>
+      </carried_out_by>
+      <carried_out_by>David Miles
+        <in_class>E21: Person</in_class>
+      </carried_out_by>
+      <used_general_technique>optically stimulated luminescence
+        <in_class>E55: Technique Type</in_class>
+      </used_general_technique>
+      <was_motivated_by>the archaeological excavation at White Horse Hill, 1990
+        <in_class>A9: Archaeological Excavation</in_class>
+      </was_motivated_by>
+      <has_note>Following the 1990 excavation, Simon Palmer and David Miles of the Oxford Archaeological Unit dated silt deposits to the period between 1380 BC and 550 BC. The article gives no date for the testing itself.
+        <has_type>Statement
+          <in_class>E55: Note Type</in_class>
+        </has_type>
+      </has_note>
+      <is_documented_in>Darvill 1996
+        <in_class>E31: Document</in_class>
+      </is_documented_in>
+    </was_attributed_by>
+  </CRM_Entity>
+
+  <CRM_Entity>the comparative analysis of the White Horse design by Ann Ross, 1967
+    <in_class>E7: Activity</in_class>
+    <carried_out_by>Ann Ross
+      <in_class>E21: Person</in_class>
+    </carried_out_by>
+    <used_specific_object>the design of the Uffington White Horse
+      <in_class>E36: Visual Item</in_class>
+    </used_specific_object>
+    <used_general_technique>comparative analysis of the design with numismatic and archaeological finds
+      <in_class>E55: Technique Type</in_class>
+    </used_general_technique>
+    <has_time-span>1967
+      <in_class>E52: Time-Span</in_class>
+      <at_some_time_within>1967
+        <in_class>E61: Time Primitive</in_class>
+      </at_some_time_within>
+    </has_time-span>
+    <has_note>The article records that Ann Ross conducted comparative analysis of the design in 1967, alongside Piggott's of 1931, but attributes a proposed date to Piggott alone. No instance of E13 Attribute Assignment is created for Ross, because the article records no assertion of hers to assign.
+      <has_type>Absence in source
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <is_documented_in>Nash Ford, Dating the Horse
+      <in_class>E31: Document</in_class>
+    </is_documented_in>
+  </CRM_Entity>
+
+
+  <!-- ================================================================
+       PLACE AND SITE
+       ================================================================ -->
+
+  <CRM_Entity>Whitehorse Hill (site)
+    <in_class>E27: Site</in_class>
+    <is_identified_by>Whitehorse Hill
+      <in_class>E41: Appellation</in_class>
+    </is_identified_by>
+    <is_identified_by>White Horse Hill
+      <in_class>E41: Appellation</in_class>
+    </is_identified_by>
+    <is_composed_of>Uffington White Horse
+      <in_class>E25: Human-Made Feature</in_class>
+    </is_composed_of>
+    <has_former_or_current_location>Whitehorse Hill (place)
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+    <consists_of>chalk
+      <in_class>E57: Material</in_class>
+    </consists_of>
+    <has_dimension>elevation of Whitehorse Hill
+      <in_class>E54: Dimension</in_class>
+      <has_type>elevation
+        <in_class>E55: Dimension Type</in_class>
+      </has_type>
+      <has_value>261
+        <in_class>E60: Number</in_class>
+      </has_value>
+      <has_unit>metre
+        <in_class>E58: Measurement Unit</in_class>
+      </has_unit>
+    </has_dimension>
+    <has_type>Site of Special Scientific Interest
+      <in_class>E55: Legal Status Type</in_class>
+    </has_type>
+    <was_investigated_by>the archaeological excavation at White Horse Hill, 1990
+      <in_class>A9: Archaeological Excavation</in_class>
+    </was_investigated_by>
+    <has_note>The figure is cut into the upper slopes of the hill, which forms part of the scarp of the Berkshire Downs and overlooks the Vale of White Horse to the north. Included only to place the figure.
+      <has_type>Description
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+    <is_referred_to_by>the cartulary of Abingdon Abbey
+      <in_class>E31: Document</in_class>
+      <has_note>Compiled between 1072 and 1084; refers to "mons albi equi" at Uffington, the White Horse Hill. Cited by the article as the evidence that the figure has been called a horse since the 11th century at least.</has_note>
+      <incorporates>mons albi equi
+        <in_class>E33: Linguistic Object</in_class>
+        <has_language>Latin
+          <in_class>E56: Language</in_class>
+        </has_language>
+        <has_symbolic_content>mons albi equi
+          <in_class>E62: String</in_class>
+        </has_symbolic_content>
+        <refers_to>Whitehorse Hill (site)
+          <in_class>E27: Site</in_class>
+        </refers_to>
+      </incorporates>
+      <is_referred_to_by>Plenderleath 1892
+        <in_class>E31: Document</in_class>
+      </is_referred_to_by>
+    </is_referred_to_by>
+  </CRM_Entity>
+
+  <CRM_Entity>Uffington Castle
+    <in_class>E27: Site</in_class>
+    <has_type>hillfort
+      <in_class>E55: Object Type</in_class>
+    </has_type>
+    <has_former_or_current_location>Whitehorse Hill (place)
+      <in_class>E53: Place</in_class>
+    </has_former_or_current_location>
+    <has_note>An Iron Age hillfort on higher ground atop a knoll above the White Horse, enclosing approximately 3 ha within a single well-preserved bank and ditch. Included only because the article uses it to place the figure - the NHLE entry locates the figure 170 m NNE of it - and because the figure is thought to be connected with its builders and, on the Bronze Age dating, contemporary with it.
+      <has_type>Description
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Whitehorse Hill (place)
+    <in_class>E53: Place</in_class>
+    <falls_within>Uffington, Oxfordshire
+      <in_class>E53: Place</in_class>
+      <falls_within>Oxfordshire
+        <in_class>E53: Place</in_class>
+        <falls_within>England
+          <in_class>E53: Place</in_class>
+        </falls_within>
+      </falls_within>
+    </falls_within>
+    <place_is_defined_by>51 34 39 N, 1 34 00 W
+      <in_class>E94: Space Primitive</in_class>
+    </place_is_defined_by>
+    <has_note>On the scarp of the Berkshire Downs, about 2.5 km south of Uffington, 8 km south of Faringdon, a similar distance west of Wantage and 16 km east of Swindon. The article's own categories place the site in Berkshire as well as Oxfordshire, reflecting the pre-1974 county boundary; no attempt is made here to reconcile the two.
+      <has_type>Description
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>the trenches of the Uffington White Horse
+    <in_class>E53: Place</in_class>
+    <falls_within>Whitehorse Hill (place)
+      <in_class>E53: Place</in_class>
+    </falls_within>
+    <has_note>The extent occupied by the deep cut trenches that form the figure and are filled with crushed white chalk.
+      <has_type>Description
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+
+  <!-- ================================================================
+       ACTORS
+       ================================================================ -->
+
+  <CRM_Entity>National Trust
+    <in_class>E74: Group</in_class>
+    <is_identified_by>National Trust
+      <in_class>E41: Appellation</in_class>
+    </is_identified_by>
+    <is_identified_by>National Trust for Places of Historic Interest or Natural Beauty
+      <in_class>E41: Appellation</in_class>
+    </is_identified_by>
+    <has_note>Modelled as an instance of E74 Group. E40 Legal Body, which earlier versions of the CRM would have used here and which the published examples' vintage predates, is deprecated; the migration instruction in the v7.3.2 appendix is to use E74 Group.
+      <has_type>Modelling note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Oxford Archaeology
+    <in_class>E74: Group</in_class>
+    <is_identified_by>Oxford Archaeology
+      <in_class>E41: Appellation</in_class>
+    </is_identified_by>
+    <is_identified_by>Oxford Archaeological Unit
+      <in_class>E41: Appellation</in_class>
+    </is_identified_by>
+    <has_current_or_former_member>Simon Palmer
+      <in_class>E21: Person</in_class>
+    </has_current_or_former_member>
+    <has_current_or_former_member>David Miles
+      <in_class>E21: Person</in_class>
+    </has_current_or_former_member>
+    <has_note>The article calls the body the Oxford Archaeological Unit in 1990 and Oxford Archaeology in 2024, and links both names to the same organisation; the two are treated here as appellations of one group on that authority.
+      <has_type>Source note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>English Heritage
+    <in_class>E74: Group</in_class>
+  </CRM_Entity>
+
+  <CRM_Entity>volunteers at the Uffington White Horse
+    <in_class>E74: Group</in_class>
+    <has_note>Unnamed local volunteers, recorded by the article as the people who re-chalk and restore the figure.
+      <has_type>Source note
+        <in_class>E55: Note Type</in_class>
+      </has_type>
+    </has_note>
+  </CRM_Entity>
+
+
+  <!-- ================================================================
+       7. SOURCES FOR CONTESTED POINTS
+       ================================================================ -->
+
+  <CRM_Entity>Llyfr Coch Hergest (Red Book of Hergest)
+    <in_class>E31: Document</in_class>
+    <documents>Uffington White Horse
+      <in_class>E25: Human-Made Feature</in_class>
+    </documents>
+    <was_created_by>the compilation of the Red Book of Hergest
+      <in_class>E65: Creation</in_class>
+      <has_time-span>1375 - 1425
+        <in_class>E52: Time-Span</in_class>
+        <at_some_time_within>1375 - 1425
+          <in_class>E61: Time Primitive</in_class>
+        </at_some_time_within>
+      </has_time-span>
+    </was_created_by>
+    <has_note>The earliest reference to the site, in medieval Welsh literature. The date of the manuscript is carried by its compilation, not by the document itself: P4 has time-span has E2 Temporal Entity for its domain, and an instance of E31 Document is not a temporal entity.</has_note>
+    <incorporates>Near to the town of Abinton there is a mountain with a figure of a stallion upon it
+      <in_class>E33: Linguistic Object</in_class>
+      <has_symbolic_content>Near to the town of Abinton there is a mountain with a figure of a stallion upon it, and it is white. Nothing grows upon it.
+        <in_class>E62: String</in_class>
+      </has_symbolic_content>
+      <refers_to>Uffington White Horse
+        <in_class>E25: Human-Made Feature</in_class>
+      </refers_to>
+    </incorporates>
+  </CRM_Entity>
+
+  <CRM_Entity>National Heritage List for England
+    <in_class>E32: Authority Document</in_class>
+    <lists>Uffington White Horse
+      <in_class>E25: Human-Made Feature</in_class>
+    </lists>
+  </CRM_Entity>
+
+  <CRM_Entity>Powell 2017
+    <in_class>E31: Document</in_class>
+    <documents>Uffington White Horse
+      <in_class>E25: Human-Made Feature</in_class>
+    </documents>
+    <has_note>Powell, Eric A., "White horse of the sun", Archaeology 70(5), Sep-Oct 2017, pp. 9-10. Cited by the article for the length of 110 m and for Pollard's solar-horse reading.</has_note>
+  </CRM_Entity>
+
+  <CRM_Entity>Miles et al. 2003
+    <in_class>E31: Document</in_class>
+    <documents>the archaeological excavation at White Horse Hill, 1990
+      <in_class>A9: Archaeological Excavation</in_class>
+    </documents>
+    <documents>Uffington White Horse
+      <in_class>E25: Human-Made Feature</in_class>
+    </documents>
+    <has_note>Miles, D., Palmer, S., Lock, G., Gosden, C. and Cromarty, A. M., Uffington White Horse and its Landscape: Investigations at White Horse Hill, Uffington, 1989-95, and Tower Hill, Ashbury, 1993-4, Thames Valley Landscape Series 18, Oxford University School of Archaeology, 2003. The excavation report.</has_note>
+  </CRM_Entity>
+
+</CRMset>

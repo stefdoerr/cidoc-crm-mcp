@@ -1,0 +1,62 @@
+{
+  "case_id": "classchoice-c3",
+  "answer": "Record the maker as the household's women taken collectively, i.e. as a single instance of E74 Group, carrying out (P14 carried out by) the E12 Production of the basket. This is the class the CRM builds for exactly this shape of fact: 'any gatherings ... of human individuals ... that act collectively ... [in] creating some common artifact' (E74 scope note), and E12 itself anticipates a single production event with a collective actor ('this entity can be collective: the printing of a thousand books ... would normally be considered a single event'). The diary is the primary evidence and it names the household, not individuals, as the maker unit -- an E74 Group is the class built to carry exactly that granularity of attribution (Issue 2's accepted scope note: 'Individual people should be documented as instances of E21 Person, whereas groups should be documented as instances of either E74 Group or its subclass E40 Legal Body'). Naming the three later-identified women as P14 carried-out-by makers would assert more than is known: the consultation places them at the work session, not at this basket, and the CRM's own SIG discussion of exactly this pattern (informal, unnamed-membership production groups, thread t1477) treats 'workshop of / circle of' cases -- 'we know that some member(s) of the group carried out the activity, but also that not all members of the group did it, and the group is not necessarily \"named\", rather constructed' -- as the right shape for a P14-carried-out-by Group, not for naming individuals. Falling back to an unspecified/generic actor would under-use what is actually known (a household, i.e. a family-based E74 Group, per the E74 scope note's explicit inclusion of family) and is not warranted once a more specific class fits the evidence. The three named women can still be recorded, without overclaiming: as P11 had participant in the broader communal work-session activity (which does not imply causal responsibility, unlike P14), keeping the object-level maker attribution (P14) confined to what the diary actually supports. The senior weaver's guidance role is a further nuance the case does not ask to resolve and is left out of the class/property recommendation.",
+  "classes_proposed": ["E74", "E12"],
+  "properties_proposed": ["P14", "P11"],
+  "rejected_alternatives": [
+    {
+      "option": "E21 (naming the three identified women as the makers)",
+      "why_not": "The case states the consultation could not confirm which of them, if any, handled this particular basket. Asserting them as P14 carried-out-by makers of this object would record more than the evidence supports; CRM's own discussion of similar 'workshop of' cases (thread t1477) treats unconfirmed-membership production as a Group attribution, not as naming individuals. Their attested presence at the work session is better carried by P11 had participant on the broader activity, which does not imply causal/legal responsibility, rather than P14 on the production of this specific object."
+    },
+    {
+      "option": "A broader, unspecified kind of actor (e.g. plain E39 Actor)",
+      "why_not": "The diary already identifies a specific, known collective -- one extended-family household -- which is squarely what E74 Group is for (its scope note explicitly includes family as 'a particular example of E74 Group'). Retreating to an unspecified E39 Actor would discard information actually in hand; Issue 2's accepted scope note draws the line as individuals -> E21, groups -> E74, leaving no gap that calls for the bare superclass."
+    }
+  ],
+  "citations": [
+    "E74",
+    "E12",
+    "E39",
+    "E21",
+    "P14",
+    "P11",
+    {"id": "crm732#E74", "quote": "creating some common artifact"},
+    {"id": "crm732#E12", "quote": "This entity can be collective: the printing of a thousand books, for example, would normally be considered a single event."},
+    {"id": "issue2#current-s0002", "quote": "Individual people should be documented as instances of E21 Person, whereas groups should be documented as instances of either E74 Group"},
+    {"id": "t1477", "quote": "the group is not necessarily \"named\", rather constructed"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E12",
+    "concept E39",
+    "concept E74",
+    "concept E21",
+    "docs \"group as maker of an object\" --kind narrative",
+    "docs \"uncertain attribution of production to an actor\" --kind narrative",
+    "docs \"disjunctive alternatives uncertain identity of actor\" --kind narrative",
+    "thread t0812",
+    "concept P14",
+    "concept P11",
+    "connect E12 E74",
+    "connect E12 E21",
+    "docs \"do not assert more than is known, adequate granularity of description\" --kind narrative",
+    "issues \"group collective maker uncertain identity\"",
+    "\"collective production of an object by unnamed group of women\"",
+    "threads \"workshop production multiple makers uncertain attribution\"",
+    "issue 542",
+    "issue 2",
+    "thread t1477",
+    "quote t1477 \"the group is not necessarily \\\"named\\\", rather constructed\"",
+    "quote P11 \"Collective actors, i.e. instances of E74 Group, may physically participate in events via their representing instances of E21 Persons only.\" (UNKNOWN SOURCE, not used)",
+    "quote E74 \"creating some common artifact\" (UNKNOWN SOURCE id, retried via chunk id)",
+    "issues \"Individual people should be documented as instances of E21 Person\" --json",
+    "quote issue2#current-s0002 \"Individual people should be documented as instances of E21 Person, whereas groups should be documented as instances of either E74 Group\"",
+    "docs \"This entity can be collective, printing of a thousand books\" --kind declaration --json",
+    "docs \"any gatherings or organizations of human individuals that act collectively\" --kind declaration --json",
+    "quote crm732#E12 \"This entity can be collective: the printing of a thousand books, for example, would normally be considered a single event.\"",
+    "quote crm732#E74 \"creating some common artifact\""
+  ],
+  "confidence": "medium",
+  "notes": "The strongest direct-precedent evidence is a mailing-list discussion (t1477, 'NEW ISSUE: Groups and carried out by') that is explicitly marked unresolved in its own episode summary, and the SIG issue it spawned (Issue 542) was closed in 2025 by discontinuing the CRMsoc work it depended on rather than by a substantive ruling -- so there is no clean SIG decision that E74 Group may be P14 carried-out-by for a constructed/unnamed-membership group. The recommendation rests on combining that discussion with the plain class/property definitions (E74, E12, Issue 2's accepted scope note) rather than on a single settled ruling, hence medium rather than high confidence."
+}

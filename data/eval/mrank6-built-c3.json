@@ -1,0 +1,38 @@
+{
+  "case_id": "built-c3",
+  "ranking": ["C", "A", "B"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 4,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "All four classes (E7 consultation, E29 unbuilt road scheme, E31 results report, E33 individual comments) are load-bearing and every property use checks out (P16/P17/E7->E29 confirmed via connect; P72 correctly supplied for E33's necessary property, unlike C). Its rejection of E54/E16/E74/I2 is demonstrated mechanically (connect E7 E54, connect E31 E54, Issue 247, Issue 580 all verified verbatim) and its t0483/E29-sibling history (an 'Activity Plan' proposed 2009, never adopted) is accurate. Weakest point: it never surfaces that E7 formally requires P7 took place at, and it says nothing about the fact that the consultation is explicitly online -- a gap it leaves unflagged where C addresses it directly."
+    },
+    {
+      "label": "B",
+      "class_count": 3,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "t1556 -- quoted accurately ('CRMbase is concerned with objective spatio-temporal facts', 'the social is grafted onto the spatio-temporal') but presented as if Francesco Beretta's framing 'makes the boundary explicit', when the same thread shows Martin Doerr immediately disputing that exact dichotomy ('I do not see ground in the CRMbase... to regard that facts which are described in the CRM are \"pure spatio-temporal\"... no extension can be characterized as \"opposed to\" another'). The quotes are real; the claim that they settle the boundary is not supported by the rest of the thread, which shows active disagreement, not consensus."
+      ],
+      "verdict": "Gets the top-level call right (record the episode, not the sentiment as structured fact) but is the thinnest of the three: it folds the case's several hundred free-text comments into the report's opaque content with no E33 treatment at all, so an individual comment is never typed even though the case calls it out as its own kind of data and CRM has a purpose-built class for exactly it. It also asserts P7 took place at the parkland for a consultation the case states is online, without ever noticing the tension. Its alternatives list (3 items) skips E74 and CRMinf entirely, near-misses the case was built to test."
+    },
+    {
+      "label": "C",
+      "class_count": 4,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Matches A's class set and, on the checklist, edges ahead: it is the only answer to notice that E7's necessary P7 took place at has no honest value for an online consultation and says so rather than asserting or silently dropping it; its CRMsoc history is the deepest of the three (Issue 338 -> Issue 359 -> Issue 419 -> Issue 580, all verified), and its notes explicitly name the supporting classes (E74 for the trust, Time-Span, Place) it declined to propose to avoid padding. Its own gap: E33 is proposed for the comments but P72 has language, necessary on that class, never appears in properties_proposed or the prose. Its in_scope:true is a defensible but debatable reading of the question -- it tracks the actual recommendation (episode/plan/report/comments are all instantiated) better than a bare false would, but arguably undersells that the specific 'aggregate results and sentiment' the question names is exactly what stays as free text."
+    }
+  ],
+  "decisive_difference": "All three converge on the same substantive model -- E7 for the consultation, E29 for the never-built road (scope note's own 'may have never been applied' clause), E31 for the results report with the percentages kept as P3/P190 free text rather than structured facts, and the same core rejections of E13/E16/E54/E74/CRMinf for the aggregate sentiment, each backed by real connect checks and verified quotes. B is separated from A and C by a genuine gap (no E33 for the free-text comments, which the case treats as a distinct payload) plus one citation (t1556) whose framing outruns what the thread actually shows -- Doerr disputes the very dichotomy B treats as settled. A and C are very close; C is placed first for explicitly confronting the P7/online tension that A leaves silent, and for the more thorough SIG-history trail (Issue 338/359/419) grounding 'this gap is deliberate.' A is placed second rather than tied because C's edge, while real, rests on comparatively small honesty/thoroughness margins rather than any error found in A.",
+  "confident": false,
+  "notes": "A vs C is a close call that could plausibly reorder on a re-read: neither has an illegal property, a scope-note violation, or a false citation, and both explicitly and correctly reject the same near-miss classes with mechanical checks. The tie-breakers used (C's P7/online honesty and deeper Issue chain, versus A's correctly-supplied P72 on E33) are both minor. in_scope disagreement (A/B: false, C: true-with-caveats) was not treated as an error for any of them since it is a defensible reading either way and each answer's substantive recommendation is nearly identical regardless of the flag. No provenance signal was pursued or noticed."
+}

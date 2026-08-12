@@ -1,0 +1,52 @@
+[
+  {
+    "question": "The scope note for the class covering transfer of custody of museum objects was found to contain an internal contradiction about whether it always covered physical possession. Was a fix accepted, and what was the reasoning behind it?",
+    "gold_answer": "Yes, the fix was accepted. The original wording described the class as being about transfer of physical custody, but a later paragraph in the same note allowed for transfers of only legal custody, contradicting the opening line. The proposed fix redefined the class to cover transfer of physical custody or of legal responsibility for custody, with the specific case (physical-only, legal-only, or both) to be expressed separately using the P2 has type property rather than being baked into the base definition. The e-vote passed with every respondent voting yes, several attaching minor editorial caveats (a missing verb, punctuation, and a request to clarify the examples), and those caveats were folded into a revised note read out at the following SIG meeting.",
+    "key_facts": [
+      "The e-vote to revise the Transfer of Custody scope note passed with unanimous yes votes, some with minor wording caveats",
+      "The fix redefined the class to cover transfer of physical custody or of legal responsibility for custody, rather than physical custody alone",
+      "The distinction between a physical-only, legal-only, or combined transfer is meant to be expressed using the P2 has type property, not stated directly in the base scope note"
+    ],
+    "gold_threads": ["t1394"],
+    "difficulty": "easy",
+    "why_this_is_hard": "The scope-note text alone doesn't say why the change was needed; the contradiction and the P2-has-type workaround are only explained in the proposal and vote discussion."
+  },
+  {
+    "question": "In CRMarchaeo, how did the classification of an 'embedding' (a physical thing being buried or set within surrounding matter) change, and what follow-on property problem did that change create?",
+    "gold_answer": "The SIG decided to reclassify embedding from a subclass of a generic condition-state class to a subclass of the Rigid Physical Feature class, following a proposal that the surrounding matter is itself often what is used to infer things like the time of deposition; this was backed despite an objection that embedding felt more immaterial than a physical feature and better suited to the condition-state framing. Once reclassified this way, the class's own temporal-bounds aspect effectively disappeared, since a Rigid Physical Feature's genesis event was expected to carry that information instead. That change then created a follow-on problem: the property linking an embedding to the stratigraphic unit that contains it was still restricted to a single kind of stratigraphic volume, but many excavation records only record embeddings loosely, without distinguishing an actual layer from a stratigraphic interface. One member proposed broadening that property's range to the shared parent class covering both, but this drew an objection that letting an embedding be 'in' an interface is conceptually odd since an interface is essentially two-dimensional; the counter-argument, using examples like a mass grave with bones embedded across multiple layers, was that embeddings spanning several layers and interfaces are real and should be representable, and by the end of the exchange the proposer of the range change had come around to supporting the broader range.",
+    "key_facts": [
+      "The SIG decided to make the embedding class a subclass of the Rigid Physical Feature class rather than keeping it under the generic condition-state class",
+      "This reclassification removed the class's own explicit temporal-bounds handling, since a Rigid Physical Feature's genesis event was expected to cover timing instead",
+      "The reclassification triggered a debate over widening the range of the 'is embedding in' property from a specific stratigraphic-layer class to the broader stratigraphic-unit class covering both layers and interfaces, to match how excavators often record finds without distinguishing the two",
+      "The objection to the broader range was that an embedding being 'in' an interface is conceptually odd because an interface is essentially two-dimensional; this was countered with real examples of embeddings spanning multiple layers"
+    ],
+    "gold_threads": ["t1431", "t1445"],
+    "difficulty": "hard",
+    "why_this_is_hard": "The decision is only stated in passing at the start of the second thread and its rationale has to be reconstructed from the full argument in the first thread; the follow-on property debate is a separate, later disagreement that depends on understanding why the first decision was made."
+  },
+  {
+    "question": "A modeller proposed a strict rule that any 'mark' applied to an object which is not also an inscription can never be treated as encoding actual language. Was that rule adopted, and separately, how was the disputed clause about the intent behind marks (indicating a creator, owner, dedication, etc.) eventually reworded?",
+    "gold_answer": "The strict rule was rejected. It was pointed out that just because inscriptions (marks known to carry language) are a subset of marks does not license the reverse closed-world claim that no other marks could also happen to carry language — doing so would conflict with the open-world assumption the model is built on. Other proposed relationships in the same discussion, such as marks being a kind of symbolic/information object and inscriptions being the subset of marks that are also linguistic objects, were accepted as correct. Separately, the scope note's language about intent was reworded after members objected that examples like a casual graffito or a warning sign didn't fit a definition requiring intent to indicate a creator, owner, dedication, or purpose. The fix loosened that clause from a defining condition into an illustration of typical use, ending up with wording to the effect that marks are applied 'often' to indicate such things, or more generally just to communicate information.",
+    "key_facts": [
+      "The proposed rule that non-inscription marks can never be linguistic objects was rejected as an inappropriate closed-world assumption",
+      "Other proposed class relationships from the same discussion (marks as symbolic/information objects, inscriptions as the linguistic-object subset of marks) were accepted as correct",
+      "The scope note's intent clause was reworded from a defining condition into an illustrative one, using wording like marks being applied 'often' to indicate a creator, owner, dedication or purpose, or more generally to communicate information"
+    ],
+    "gold_threads": ["t1300"],
+    "difficulty": "hard",
+    "why_this_is_hard": "The thread runs from January to June with several competing proposals in play at once; distinguishing which specific claims were accepted, which were rejected, and which wording actually ended up in the final revision requires tracking the whole exchange rather than any single message."
+  },
+  {
+    "question": "The community discussed extending the CRM so that non-human animals (for example, a bird building a nest) could be documented as having carried out an activity, the way a human actor would. Did the SIG settle on a new class structure for this, and if not, what was left unresolved?",
+    "gold_answer": "No, the SIG did not settle on or adopt any new class structure for non-human actors, despite substantial discussion. The case was raised using the example of a bird (or dinosaur) building a nest, for which the model had no adequate way to assign agency short of a weak 'occurred in the presence of' relation. Two members sketched a detailed proposal for a monotonic extension, introducing a sibling superclass to the human-actor class with parallel individual and collective biological-agent subclasses, and suggested eventually renaming the existing human-specific classes accordingly. However, another member consistently held that any such extension needed an established community documentation practice and willing domain experts first, neither of which existed yet, and separately drew a firm line that machines or robots should never count as actors regardless of their apparent agency, since they act on behalf of human instructions much like a trap does. A librarian on the list added that an analogous 'animal as agent' idea had already been proposed and rejected in the bibliographic (FRBR/LRM) community for similar reasons. The discussion ended with a proposal to document the debate itself as methodological material and the sharing of a real-world animal-tracking use case, but no class or property was ever adopted.",
+    "key_facts": [
+      "No new class or property for non-human actors was adopted; the discussion ended without the SIG reaching a decision",
+      "A detailed extension proposal was put forward (a sibling agent superclass with individual/collective biological-agent subclasses, and renaming existing human-actor classes), but it was not adopted",
+      "One member's stated position was that such an extension requires an established documentation practice and domain experts first, which the group had not yet found, and that machines/robots should never count as actors",
+      "A librarian noted that an analogous animal-as-agent proposal had already been considered and rejected in the FRBR/LRM bibliographic model for similar reasons"
+    ],
+    "gold_threads": ["t1500"],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "A fully worked, detailed proposal is on the table and reads as though it could have been adopted, so confirming that the SIG actually never ratified it (rather than assuming the proposal was the outcome) requires reading the whole exchange, including the later messages where the original proposer's own methodological objections remain unanswered."
+  }
+]

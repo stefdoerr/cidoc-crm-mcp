@@ -1,0 +1,39 @@
+{
+  "case_id": "intangible-c1",
+  "answer": "Catalogue the two recordings as distinct-but-related, not as two performances of one identical work. Model each sung lullaby as an E33 Linguistic Object (recorded speech/song content, which per its scope note may carry non-linguistic artistic content such as melody), carried (P128 carries) by its physical medium as an E22 Human-Made Object (the wax cylinder; the 2003 medium). Link the 2003 content to the 1952 content with P130 shows features of, directed from the 2003 recording (derivative) to the 1952 recording (source): P130's own scope note is built exactly for this situation -- it 'generalises the notions of copy of and similar to' and explicitly covers non-exact reproduction where a derivation is known but not causally detailed -- and its worked example (an audio recording showing features of a source text) is the same recording-derived-from-source shape. This is also the SIG's decided practice for near-identical variant content: in t1128, two texts with dropped/changed content were modelled with P130 (plus an E65 Creation that 'used specific object' the earlier text), which is the general-purpose mechanism available for 'has drifted from its source' relationships. I did not find any base-CRM construct that would let the archive assert the stronger claim 'same lullaby' as a single continuous work-identity across the two recordings. When the SIG itself discussed exactly this problem (Issue 527, thread t1475: 'provenance of intangible heritage' -- oral traditions, musical traditions), Martin Doerr explicitly named the need for a 'core-variant relation' or 'variant set' for music/oral transmission across variants, and the thread closed unresolved. Separately, in t1701 (documenting intangible heritage/Tango), Doerr rejected an ad hoc E7 Activity aggregate ('All Tango Performances') as a way to hold identity across variants, saying it 'virtually denies evolution and variation.' So the honest cataloguing answer is: relate the recordings with P130 (in scope, decided precedent), and do not assert work-identity via 'same lullaby' (the construct for that is an acknowledged, unresolved gap in the model).",
+  "classes_proposed": ["E33", "E22"],
+  "properties_proposed": ["P130", "P128"],
+  "rejected_alternatives": [
+    {
+      "option": "Asserting the 2003 recording is a performance of the same lullaby as the 1952 one (a work-identity/continuity claim spanning both)",
+      "why_not": "No class/property surfaced for asserting cross-variant work-identity. Thread t1475 (Issue 527, unresolved) has Martin Doerr stating musical/oral traditions need a 'core-variant relation' or 'variant set' that the SIG never resolved; asserting sameness would go beyond what the model provides."
+    },
+    {
+      "option": "E7 Activity as an aggregating construct for 'the lullaby tradition' with individual singings as parts (P9i forms part of)",
+      "why_not": "Proposed informally in t1701 for an analogous case (Tango) and explicitly rejected by Martin Doerr in the same thread: 'I cannot imagine how an \"All Tango Performances\" could be associated with a clear identity, unity and distinction from others... This model virtually denies evolution and variation.'"
+    },
+    {
+      "option": "FRBR R2 'is derivative of'",
+      "why_not": "Suggested as an alternative to P130 in t1128, but it is an FRBR(oo) property, not one of the 241 base CIDOC CRM classes/properties returned by `ontology`, so it falls outside what this search system indexes as the CRM proper."
+    }
+  ],
+  "citations": ["E33", "E22", "P130", "P128", "P16", "E73", "t1128", "t1475", "t1701"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E73",
+    "concept E33",
+    "concept P130",
+    "concept E7",
+    "thread t1701",
+    "thread t1128",
+    "docs \"intangible cultural heritage\"",
+    "docs \"identity of a work across different performances\" --kind narrative",
+    "threads \"oral tradition variant transmission\"",
+    "docs \"minimality principle\" --kind narrative",
+    "concept P16",
+    "thread t1475"
+  ],
+  "confidence": "medium",
+  "notes": "The dossier/thread pointers made it easy to jump straight to the two SIG discussions (t1128, t1475, t1701) that bear directly on this boundary, and P130's own scope note and worked example matched the case almost exactly. What was hard: there is no way to search for 'is there an unresolved issue about X' directly -- I only found the decisive t1475 (Issue 527) thread by guessing at 'oral tradition variant transmission' phrasing in `threads`; a more literal query on the case's own terms ('lullaby', 'song identity') would have missed it entirely, which matches the tool's warning that concrete nouns won't hit."
+}

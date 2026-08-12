@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <!--
+RDFs implementation of CRMba v1.4 April, 2016 (https://www.cidoc-crm.org/crmba/ModelVersion/version-1.4).
+
+Created by FORTH-ICS - February, 2024
+CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
+
+-->
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionInfo xml:lang="en">CRMba Ontology next version preparation (DRAFT). Based on version 1.4 (December 2015) that included references to Cidoc-CRM 6.2.1, CRMarchaeo 1.4 and CRMsci 1.2. Current encoding (February, 2024) references Cidoc-CRM 7.1.3, CRMarchaeo 2.0 and CRMsci 2.0 and can only be used as DRAFT.</owl:versionInfo>
+    <rdfs:comment xml:lang="en">The CRMba is an ontology and RDF Schema to encode metadata about the documentation of archaeological buildings (Ronzino 2015, Ronzino et al. 2015). The model was conceived to support the process of recording the evidences and the discontinuities of matter on archaeological buildings, in order to identify the evolution of the structure throughout the centuries and to record the relationships between each of the building components among them and with the building as a whole. It aims at expressing the semantic relations of the stratigraphic units of a standing building, taking into account the stratigraphic analysis theory of the standing buildings (Brogiolo 1988, Parenti 2002, Schuller 2002, Morriss 2004).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/B1_Built_Work">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Built Work</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises instances of man-made things such as freestanding buildings, components of buildings, and complexes of buildings. It refers to man-made environments, typically large enough for humans to enter, serving a practical purpose, being relatively permanent and stable (AAT). Instances of built works are composed of parts that share an aspect of role, which often perform a distinct function.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Human-Made_Thing"/>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E92_Spacetime_Volume"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Morphological Building Section</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises instances of man-made things that are considered functional units for the whole building (e.g. rooms, foundations, roof, and so forth). A B2 is a geometric feature with volume and is a Spacetime Volume (E92). A B2 is composed of (P46) parts that are completely filled with matter (B3 Filled Morphological Building Section), which confines (AP12) empty spaces (B4 Empty Morphological Building Section) that are the result of the intentional disposition of a set of B3.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B1_Built_Work"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/B3_Filled_Morphological_Building_Section">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Filled Morphological Building Section</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises instances of man-made things that are completely filled with matter. Instances of Filled Morphological Building Section are components of the functional units of a built work. These elements like walls, floors and ceilings have properties such as dimensions, material etc. The intentional disposition of a set of B3 defines portions of space that are completely void, e.g. a window, a doorway and so forth.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Human-Made_Thing"/>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/B4_Empty_Morphological_Building_Section">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Empty Morphological Building Section</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises identifiable features that are physically attached to particular physical objects. Instances of B4 Empty Morphological Building Section are components of the functional units that form a built work.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmsci/S20_Rigid_Physical_Feature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/B5_Stratigraphic_Building_Unit">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Stratigraphic Building Unit</rdfs:label>
+    <rdfs:comment xml:lang="en">This class comprises instances of physical things that represents the minimal construction unit of a built work. The B5 Stratigraphic Building Unit is a constituent part of a B2 Morphological Building Section. The Stratigraphic Building Unit (B5) represents a single evidence of human activity intentionally performed on the building: e.g. the presence of mortar, vestments or any of the discontinuities of matter that can be observed on a wall surface. The term constituency is used within the model with the meaning: “the status of being a constituent part”. Instances of Stratigraphic Building Unit are, for example, a single wall or the various architectonic components that constitute the Morphologic Building Section.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/A2_Stratigraphic_Volume_Unit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP1_is_section_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is section of</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to link the Morphological Building Sections that are part of a Built Work</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B1_Built_Work"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP1i_has_section"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP1i_has_section">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has section</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B1_Built_Work"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP1_is_section_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP2_is_constituent_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is constituent of</rdfs:label>
+    <rdfs:comment xml:lang="en">This property describes the relation between a Morphological Building Section (e.g. a wall) and any Stratigraphic Building Section. When the SBU and the MBS are equal we can use the shortcut: B5 SBU (BP2 is constituent of) B1 Built Work.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B5_Stratigraphic_Building_Unit"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B1_Built_Work"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP2i_is_constituted_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP2i_is_constituted_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is constituted by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B1_Built_Work"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B5_Stratigraphic_Building_Unit"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP2_is_constituent_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP3_is_spatial_temporary_equal_to">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is spatial temporary equal to</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to relate the Spacetime Volume of two entities (Morphological Building Units and Stratigraphic Building Section). When the two STV overlap, the two entities are equal.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E92_Spacetime_Volume"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E92_Spacetime_Volume"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP4_terminates_the_constituency">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">terminates the constituency</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to describe the constituency (being part of) of a Stratigraphic Building Section with a Filled Morphological Building Section. The constituency ends when an entity (FMBS) is diminished by matter.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E80_Part_Removal"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP4i_constituency_was_terminated_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP4i_constituency_was_terminated_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">constituency was terminated by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E80_Part_Removal"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP4_terminates_the_constituency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP5_initiates_the_constituency">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">initiates the constituency</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to describe the beginning of the constituency of a Stratigraphic Building Unit with a Morphological Building Section. This starts when substance is added to a Morphological Building Unit.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E79_Part_Addition"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP5i_constituency_was_initiated_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP5i_constituency_was_initiated_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">constituency was initiated by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E79_Part_Addition"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP5_initiates_the_constituency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP11_is_connected_to">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is connected to</rdfs:label>
+    <rdfs:comment xml:lang="en">This property identifies the instance of B2 Morphological Building Section which is connected to another instance of B2 Morphological Building Section. The instance of E24 Physical Man Made Thing through which the connection between the two instances of B2 Morphological Building Section is made, can be recorded using the property BP11.2 is connected through .</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B2_Morphological_Building_Section"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP13_used_specific_object">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">used specific object</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to describe an instance of a physical object that is used in the production of new substance that constitutes the Morphological Building Section (i.e. a Stratigraphic Building Section)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E12_Production"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B5_Stratigraphic_Building_Unit"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP13i_was_specific_object_used_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP13i_was_specific_object_used_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was specific object used by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B5_Stratigraphic_Building_Unit"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E12_Production"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP13_used_specific_object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP14_re-used_specific_object">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">re-used specific object</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to describe an instance of a physical object that is re-used in the production of new substance that constitutes the Morphological Building Section (i.e. a Stratigraphic Building Section)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E12_Production"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B5_Stratigraphic_Building_Unit"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP14i_was_specific_object_re-used_by"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP14i_was_specific_object_re-used_by">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">was specific object re-used by</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B5_Stratigraphic_Building_Unit"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E12_Production"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmba/BP14_re-used_specific_object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmba/BP15_is_equal_to">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">is equal to</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to relate a Stratigraphic Building Section with a Morphological Building Section when the former is equal to the latter.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B5_Stratigraphic_Building_Unit"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmba/B3_Filled_Morphological_Building_Section"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,36 @@
+{
+  "case_id": "classchoice-c2",
+  "ranking": ["A", "C", "B"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 4,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "E16+E54 for the trial, E17 for the 'fit for sea service' verdict, E31 for the certificate binding both: every class does work, and the split is grounded in verified, adopted SIG text (Issue 672's cardinality change, quoted verbatim from the 60th-meeting minutes, plus Issue 700's closed migration instruction, which prescribes exactly the E7-grouping-activity + P9 consists-of pattern A recommends for binding the two E13-subclass instances). A also independently caught and correctly discounted a real bug in the tool's rendering of P43's shortcut path (it prints 'P80 observed dimension' where P40 is meant)."
+    },
+    {
+      "label": "B",
+      "class_count": 3,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Correctly places the trial as E16 over E14, with accurate scope-note and thread support, but never commits a class for the certificate's declared 'fit for sea service' verdict or for the certificate itself -- E17 and E31 are floated as hedges in prose but absent from classes_proposed, so half of the question the case actually poses (how to document the fitness declaration) is left untyped rather than answered."
+    },
+    {
+      "label": "C",
+      "class_count": 4,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Reaches the same load-bearing four classes as A (E16, E54, E17, E31) with equally accurate scope-note reasoning, and adds real diligence A lacks: it flags a genuine v7.1.3-vs-v7.3.2 quantifier discrepancy on P40 (verified: concept dossier says 'many to many (1,n:0,n)', current docs say 'one to one, necessary (1,1:0,1)'), and it honestly labels its own 'E14 and E16 are uncovering facts about the world' quote as unadopted Plovdiv proposal text rather than settled doctrine (verified against issue672#current-s0003). Slightly more prone to tangents outside the question (an E10 Transfer of Custody aside it itself flags as out of scope)."
+    }
+  ],
+  "decisive_difference": "All three agree, correctly, that the eleven-day trial is E16 Measurement rather than E14 Condition Assessment (E14's necessary P35 has identified has no slot for a value+unit, and E3 Condition State would need a validity time-span the case does not supply). B stops there and never commits a class for the certificate's 'fit for sea service' verdict, leaving that half of the question unmodelled -- that is what puts it last. A and C both go further, correctly treating the question as a false dichotomy and splitting the trial (E16) from the verdict (E17) under one grouping activity, per Issue 672's tightened cardinalities. A edges out C narrowly because its central architectural move -- one E7 Activity grouping two E13-subclass instances via P9 consists of -- is grounded in Issue 700, a *closed* SIG migration instruction that matches A's proposed structure almost verbatim, whereas C's equivalent solution, though well-argued, rests on looser precedent. C partially offsets this with sharper, independently verified diligence elsewhere (the P40 version-split catch, and its honest labeling of a key quote as unadopted proposal text). A vs C is close enough that a re-read could plausibly flip it; B's last place is solid.",
+  "confident": false,
+  "notes": "A vs C came down to which piece of adopted-vs-draft SIG evidence better supports the shared architectural claim (two E13-subclass instances under one grouping E7 Activity); both answers are otherwise near-equal in correctness, citation accuracy, and honest treatment of E14 as the real rival. All quoted thread excerpts and property/class quantifications cited by all three answers were checked against search.py/data/documents.jsonl and found accurate, including a tool rendering bug A flagged (P43's shortcut full-path prints 'P80 observed dimension' where P40 is meant -- confirmed: P80 is 'end is qualified by', unrelated). No provenance leak toward any system/run was apparent from style or content."
+}

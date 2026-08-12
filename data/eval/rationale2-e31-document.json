@@ -1,0 +1,156 @@
+{
+  "question_id": "e31-document",
+  "question": "Why does the CIDOC CRM need the class E31 Document?",
+  "short_answer": "E31 Document is the CRM's name for an information object that is meant as a record of how things actually are -- a catalogue entry, a survey, a set of observations -- as opposed to any old identifiable piece of content, which is what its parent class E73 Information Object covers. The distinct property P70 documents exists so that a data provider can say 'this thing asserts something about that thing', rather than the weaker 'this thing merely mentions that thing' (P67 refers to). The boundary is genuinely thin, however, and the SIG is still arguing about it: at the 61st meeting in October 2025 the group accepted in its own minutes that the present scope note is 'too broad to be useful' and 'can't be semantically distinguished from its superclass'.",
+  "explanation": "The CRM separates the physical carrier of information from the information itself. E73 Information Object is the general bucket for the immaterial content -- poems, jokes, data sets, images, program code. E31 Document is the subclass reserved for content whose point is to record reality. The reason the distinction was drawn is documentary practice: museum, library and archive data is overwhelmingly *about* holdings, and a model that could not mark 'this record makes a claim about that object' would flatten evidence into mere mention. So the CRM gives E31 exactly one property of its own, P70 documents, and makes it mandatory -- a document that documents nothing is not a document.\n\nThe register settles two neighbouring boundaries but never the central one. Issue 6 (Done, Monterey 2002) decided that documentation databases are themselves instances of E31, not some new class -- 'no changes to the model are required'. Issue 101 (Done, Rethymnon 2002) added the routing sentence to E73's scope note: information objects 'of a documentary nature' belong in E31. Issue 181 (Done, Nuremberg 2010) answered Patrick Le Boeuf's blunt challenge -- 'Are these two classes redundant?' -- not by touching E31 at all but by widening E89 Propositional Object from 'propositions about real or *mental* things' to 'real or *imaginary* things', so that E31's restriction to reality became visible by contrast. Issue 362 (Done, Berlin 2018) then fixed the property side: P70 is preferred when the content 'is asserted to be true', P67 when the topic is fictional or no truth claim is made.\n\nWhat none of that settles is E31 versus E73 itself. Issue 707 is still Open. The 2025 minutes record the SIG conceding that both true and false propositions are 'about some aspect of reality', that a truth requirement would make E31 'a type of E73 Information Object' and so strip it of ontological standing, and that archival letters and reports -- written by people painting themselves in a good light -- would stop qualifying. Only the first two paragraphs of the proposed rewrite were accepted; the rest went back as homework.",
+  "real_world_example": "In June 2015 Daniel Riley of Verisart asked the list how to attach evidence to provenance events: a photograph showing the artist with the artwork, and a scanned receipt for a change of ownership. Christian-Emil Smith Ore answered that these are instances of E31 Document linked by P70 documents to the event, because 'there is an aspect of intentionality connected to instances of this class', and contrasted it with 'a similar property for visual objects not claiming documentation', E36 Visual Item's P138 represents. That is the whole distinction in one object: the same photograph, considered merely as an image, represents whatever is in the frame; considered as a document, it asserts that the production event happened that way, and can be cited as evidence. Regine Stein applied the same reading to map a LIDO resourceSet to E31 Document P70 documents E24. (The SIG's own canonical examples run the same way: the Encyclopaedia Britannica, the Domesday Book, and -- as the 2025 counter-examples of what must NOT be an E31 -- Leo Taxil's 1890 Freemasonry hoax and Mika Waltari's historical novel 'Sinuhe the Egyptian'.)",
+  "decision_status": "partly settled",
+  "issues": [
+    {
+      "id": 6,
+      "title": "How to model databases",
+      "status": "Done",
+      "outcome": "Databases are a special case of E31 Document; the scope note absorbs them and no new class is added. Monterey, 22/2/2002. The 2001 second joined meeting had already decided only that 'there is a need to model databases in the CRM'."
+    },
+    {
+      "id": 101,
+      "title": "Scope Note for E73 to contain Multimedia Objects",
+      "status": "Done",
+      "outcome": "E73's scope note gains the routing sentence 'Information objects of a documentary nature should be declared as instances of the E31 Document subclass', parallel to the existing one for E33 Linguistic Object. Rethymnon, 23/10/2002."
+    },
+    {
+      "id": 181,
+      "title": "Which are the differences between E31 and E89?",
+      "status": "Done",
+      "outcome": "Raised by Patrick Le Boeuf (Helsinki, 28/1/2010) as a redundancy challenge: 'Are these two classes redundant? If so, which one is really needed in the model?' The SIG kept both and instead widened E89 Propositional Object from 'propositions about real or mental things' to 'real or imaginary things'. The 22nd meeting minutes give the motive explicitly. Nuremberg, December 2010."
+    },
+    {
+      "id": 362,
+      "title": "P70 documents",
+      "status": "Done",
+      "outcome": "Revised P70 scope note by Stephen Stead accepted: P70 is preferred over its superproperty P67 refers to when the domain is an authoritative or other document whose content is asserted to be true; P67 is preferred when the topic is fictional or no truth claim is made. Berlin, November 2018."
+    },
+    {
+      "id": 707,
+      "title": "E31 Document -- scope note revision",
+      "status": "Open",
+      "outcome": "Martin Doerr's 2025 proposal to define E31 as non-fiction was only partly accepted at the 61st meeting (Heraklion, October 2025): the SIG substituted the first two paragraphs and sent the rest back to MD and PF. The minutes record the group agreeing that the existing scope note is too broad to be distinguished from E73, and record three arguments against a truth requirement. Rescheduled for discussion on 23 March 2026."
+    },
+    {
+      "id": 158,
+      "title": "Intermediate class between E28 Conceptual Object and E73 Information Object",
+      "status": "Done",
+      "outcome": "Created E89 Propositional Object above E73 (Crete, 12 May 2008), which is what made the later E31/E89 comparison in issue 181 possible at all."
+    },
+    {
+      "id": 53,
+      "title": "How to model digital surrogates",
+      "status": "Done",
+      "outcome": "The relationship between a digital surrogate and the object it stands for is modelled by P70 documents -- an early load-bearing use of the property."
+    }
+  ],
+  "threads": [
+    "t0530",
+    "t0872",
+    "t1842",
+    "t0381"
+  ],
+  "citations": [
+    {
+      "id": "issue181#background-s0000",
+      "quote": "Are these two classes redundant"
+    },
+    {
+      "id": "issue181#current-s0000",
+      "quote": "sets of propositions about real or imaginary things"
+    },
+    {
+      "id": "minutes:2010Dec-22nd-meeting-Minutes#s039",
+      "quote": "To make more clear the difference between E31 and E89 we changed the scope note of E89"
+    },
+    {
+      "id": "minutes:3rd_crm_meeting_minutes#s042",
+      "quote": "Databases are regarded as a special case of E31 Document"
+    },
+    {
+      "id": "minutes:crmsig_report_2001-10-1518#s006",
+      "quote": "There is a need to model databases in the CRM"
+    },
+    {
+      "id": "minutes:5th_CHIOS_Meeting_Minutes#s024",
+      "quote": "Information objects of a documentary nature should be declared as instances"
+    },
+    {
+      "id": "minutes:002_berlin_crm-sig_meeting_minutes#s077",
+      "quote": "P70 documents is to be preferred over its superproperty P67 refers to"
+    },
+    {
+      "id": "minutes:61st_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_minutes_i#s066",
+      "quote": "too broad to be useful and can"
+    },
+    {
+      "id": "minutes:61st_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_minutes_i#s066",
+      "quote": "it seems like a type-specification of an E73 Information Object"
+    },
+    {
+      "id": "minutes:61st_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_minutes_i#s066",
+      "quote": "both true and false propositions are essentially about some aspect of reality"
+    },
+    {
+      "id": "minutes:61st_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_minutes_i#s066",
+      "quote": "hence deprives the class of any ontological category status"
+    },
+    {
+      "id": "minutes:61st_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_minutes_i#s066",
+      "quote": "This proposal was accepted"
+    },
+    {
+      "id": "minutes:61st_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_minutes_i#s105",
+      "quote": "often called non-fiction"
+    },
+    {
+      "id": "issue707#background-s0002",
+      "quote": "the SIG resolved to substitute the scope note of E31 Document for the two first paragraphs"
+    },
+    {
+      "id": "t0872",
+      "quote": "There is an aspect of intentionality connected to instances of this class"
+    },
+    {
+      "id": "t1842",
+      "quote": "competing and contradictory interpretations"
+    }
+  ],
+  "caveats": "The archive contains no record of the original creation of E31 Document or P70 -- both predate the numbered issue register and the mailing list, so the founding rationale is not recoverable here; everything cited is later repair work on a class that already existed. Issue 181's mailing-list thread (t0530) is a meeting-scheduling exchange and carries no argument at all; the *reasoning* for 181 survives only as the issue page's one-line before/after diff plus a single sentence of motive in the 22nd meeting minutes -- enough to know what the SIG was trying to achieve, not enough to reconstruct the debate. The E31-versus-E73 boundary asked about here is, on the SIG's own 2025 record, not yet settled; issue 707 is Open and rescheduled for March 2026, so any statement that E31 is cleanly distinguished from E73 goes beyond what the register supports. Christian-Emil Smith Ore's E31/E36 and P70/P138 contrast in t0872 is one participant's answer on the list, endorsed by Regine Stein for LIDO but never voted; it is not a SIG decision. The reading that P70 is mandatory on E31 comes from the current specification's quantification ('necessary', 1,n:0,n), not from any recorded debate.",
+  "queries_run": [
+    "search.py issue 181",
+    "search.py issue 6",
+    "search.py issue 101",
+    "search.py issue 362",
+    "search.py issue 707",
+    "search.py concept E31",
+    "search.py concept E89",
+    "search.py concept P70",
+    "search.py thread t0530",
+    "search.py thread t0872",
+    "search.py thread t1842",
+    "search.py docs \"difference between E31 and E89\" --kind minutes",
+    "search.py docs \"E31 Document scope note propositions about reality\" --kind minutes",
+    "search.py docs \"E89 Propositional Object scope note changed real or imaginary things\" --kind minutes",
+    "search.py docs \"ISSUE 362 P70 documents revised scope note accepted\" --kind minutes",
+    "search.py docs \"Issue 6 Decision Databases are regarded as a special case of E31\" --kind minutes",
+    "search.py docs \"Issue 101 Scope note E73 to contain Multimedia Objects Decision\" --kind minutes",
+    "search.py docs \"Proposed scope note for E31 Document\" --kind minutes",
+    "search.py docs \"Issue 181 differences between E31 and E89 redundant scope note reworded\" --kind issue",
+    "search.py docs \"E89 Propositional Object scope note proposal real or imaginary things Nuremberg\" --kind issue",
+    "search.py issues \"E31 Document\"",
+    "search.py issues \"P70 documents property\"",
+    "search.py threads \"why E31 Document rather than E73 Information Object documents P70\"",
+    "search.py \"P70 documents versus P67 refers to distinction\"",
+    "search.py quote minutes:2010Dec-22nd-meeting-Minutes#s039 \"To make more clear the difference between E31 and E89 we changed the scope note of E89\"",
+    "search.py quote minutes:61st_joint_meeting_of_the_CIDOC_CRM_SIG_and_ISO_minutes_i#s066 \"too broad to be useful and can\"",
+    "search.py quote minutes:002_berlin_crm-sig_meeting_minutes#s077 \"P70 documents is to be preferred over its superproperty P67 refers to\"",
+    "search.py quote issue181#current-s0000 \"sets of propositions about real or imaginary things\"",
+    "search.py quote t0872 \"There is an aspect of intentionality connected to instances of this class\""
+  ]
+}

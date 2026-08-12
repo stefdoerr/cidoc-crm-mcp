@@ -1,0 +1,48 @@
+{
+  "case_id": "archives-c2",
+  "answer": "This is squarely a role/attribution problem, not a gap in the model. Model the letters' textual content as an E33 Linguistic Object, brought into being by an E65 Creation event (P94 has created). `connect E21 E33` and `connect E39 E31` both come back with no direct authorship property between a person and a document or its text -- confirming the CRM's rule that this link always runs through an event, never directly. On that E65 Creation, P14 carried out by names the participating actor(s); the CRM lets more than one actor be recorded on the same event, each qualified by the P14.1 in the role of qualifier (declared on P14 -- see the mailing list use in t0610), so you are not forced to choose a single 'author'. Record the clerk in a role such as 'drafted by'/'composed by' and the secretary in a role such as 'signed by'/'authorised by' on that same creation, rather than reassigning P94/P14 wholesale from one actor to the other. The clerk having no name anywhere in the collection does not block this: E21 Person's necessary properties (P152, P196, P45, P53) do not include P1 is identified by, so an unnamed instance -- 'the clerk who drafted these letters' -- is a perfectly ordinary CRM instance, identified only by its participation in the event, not by a name. For the uncertainty itself: the SIG has twice rejected inventing a bespoke certainty/confidence property for exactly this kind of doubt. In t0840 (fakes/false attributions) Martin says there must not be a property called 'isPhony', and in t0610 Vladimir Alexiev states plainly that CRM doesn't define a notion of uncertainty, with Martin's own answer being that the question mark can still be expressed in a note. The CRM-native way to carry that note in structured form is E13 Attribute Assignment: wrap the disputed P14 carried_out_by(clerk) statement in an E13 instance (P140 assigned attribute to the creation event or relation, P177 assigned property of type P14, P141 assigned the clerk) and put the cataloguer's reasoning (handwriting/letterhead comparison, no corroborating name) in a P3 has note on that assignment. E13's own scope note fits this exactly: it exists to mark that 'the maintaining team is in general neutral to the validity of the respective assertion, but registers someone else's opinion and how it came about' -- which is precisely the cataloguer's position here. One more thing worth flagging honestly: the SIG opened Issue 488, 'Modelling an Actor carrying out an action at the Behest of Another' -- a clerk drafting for a principal who signs is exactly this pattern -- and closed it in December 2022 without adopting a property, pending CRMsoc. So there is no ratified vocabulary for 'drafted at the behest of'; the role values on P14.1 above are a local choice, not a CRM-supplied term list. That is a real gap in the standard, not a flaw in this modelling approach.",
+  "classes_proposed": ["E65", "E33", "E21", "E13"],
+  "properties_proposed": ["P94", "P14", "P140", "P141", "P177", "P3"],
+  "rejected_alternatives": [
+    {"option": "A direct property from E21 Person to the letter/text (skipping an event)", "why_not": "connect E21 E33 and connect E39 E31 both returned no direct authorship property -- only P70 documents, P105/P129/P67/L54 -- none of which express 'composed the text'. Authorship has to route through E65 Creation (P94 has created + P14 carried out by), matching the guide's rule that an empty direct-connect result means the link runs through an event."},
+    {"option": "Keep crediting the letters solely to the secretary as sole author (status quo)", "why_not": "that discards the cataloguer's handwriting/letterhead evidence for no modelling reason -- P14 carried out by is many-to-many and P14.1 in the role of exists precisely so two actors can be recorded on one creation event in different capacities, so there is no need to pick only one."},
+    {"option": "Invent a certainty/confidence property (e.g. an 'isPhony' or 'was_performed_with_surety' flag) to mark the clerk attribution as doubtful", "why_not": "the SIG rejected this move twice on the mailing list: t0840 (Martin: no 'isPhony' property, uncertainty is an epistemological/knowledge-base problem, not an ontology one) and t0610 (Vladimir Alexiev: 'CRM doesn't define a notion of uncertainty'; Martin: put the question mark in a note instead)."},
+    {"option": "Wait for a dedicated 'acting at the behest of another' property before modelling the clerk/secretary relationship", "why_not": "Issue 488 addresses this exact pattern and was closed in Dec 2022 with a proposal to subtype P14.1 in the role of using speech-act patterns, but no property was adopted, pending CRMsoc -- there is nothing to wait for yet, so locally-typed P14.1 roles are the working solution now, not a placeholder for a future extension."}
+  ],
+  "citations": [
+    "E65", "E33", "E21", "E13", "P94", "P14", "P140", "P141", "P177", "P3", "P152", "P196", "P45", "P53",
+    "t0610", "t0840", "t1683", "Issue 488",
+    {"id": "t0610", "quote": "attributed to, possibly, in the style of, studio of, circle of, school of, after"},
+    {"id": "t0610", "quote": "CRM doesn't define a notion of uncertainty"},
+    {"id": "t0610", "quote": "The question mark can still be expressed in a note"},
+    {"id": "t0840", "quote": "There must not be a property \"isPhony\""}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E65",
+    "concept E33",
+    "thread t0840",
+    "thread t0610",
+    "docs \"in the role of\" --kind declaration",
+    "docs \"authorship attribution\" --kind narrative",
+    "issues \"authorship\"",
+    "issues \"attribution\"",
+    "issue 488",
+    "docs \"ghostwriter secretary scribe wrote on behalf of\" --kind narrative",
+    "thread t1683",
+    "concept E21",
+    "docs \"P14.1 in the role of type\" --kind declaration",
+    "connect E21 E33",
+    "connect E39 E31",
+    "concept E13",
+    "docs \"Pnn.1 in the role of properties of properties\" --kind declaration",
+    "quote t0610 \"attributed to, possibly, in the style of, studio of, circle of, school of, after\"",
+    "quote t0610 \"The question mark can still be expressed in a note\"",
+    "quote t0610 \"CRM doesn't define a notion of uncertainty\"",
+    "quote t0840 \"There must not be a property\"",
+    "quote t0840 \"There must not be a property \\\"isPhony\\\"\""
+  ],
+  "confidence": "medium",
+  "notes": "P14.1 in the role of never surfaced as its own declaration chunk in `docs --kind declaration` (two targeted queries missed it, likely because it is a property-of-a-property embedded inside the P14 record rather than indexed on its own) -- its existence and use is grounded instead through the mailing list (t0610, where Vladimir Alexiev explicitly maps an attribution-qualification use case onto P14.1) and Issue 488's own text ('a proposal about subtyping P14.1 in the role of'), not through a `concept`/`docs` hit on P14.1 itself. Flagging that as a retrieval gap rather than papering over it with recalled background knowledge."
+}

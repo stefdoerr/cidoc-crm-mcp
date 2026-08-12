@@ -1,0 +1,38 @@
+{
+  "case_id": "technical-c3",
+  "answer": "Yes: the personal dressing technique can be represented as a discrete thing distinct from each re-dressing, using E29 Design or Procedure. Model each re-cutting of the furrows as an E11 Modification (P31 has modified the millstone, an E22 Human-Made Object; P14 carried out by the miller). Link each of those E11 events to a single persisting E29 instance via P33 used specific technique (E7 -> E29) -- that E29 is 'the miller's personal dressing pattern/method', separate from any individual dressing event. E29's own scope note explicitly covers this: designs or procedures include 'a schema for the activities [they describe]' and can be an 'independent intellectual product'; the CRM's own SIG has confirmed (thread t0761) that an E29 need not be written down at all -- it can be undocumented 'tribal knowledge' that documenters recognise from the homogeneity of what it produces, without ever having 'a document that tells us how it is done'. That is exactly this case: no dressing manual exists, but the miller's recognisable, personal way of cutting furrows is still a legitimate singular methodology to model as one object of discourse. Because he 'adjusts it slightly each time', successive E29 instances (or revisions of one) can be chained with P69 has association with, which is how the visitors' question -- 'has the mill always ground the same way?' -- gets an actual answer: compare which E29 each re-dressing's P33 points to, rather than eyeballing a log of events. The general classification route, E55 Type via P32 used general technique, was considered and rejected (see below): it types a technique against a shared external vocabulary (e.g. 'hand dressing', the way the CRM's own example types 'blanket-stitch-with-core'), which is right for saying what broad category the miller's approach belongs to, but wrong for capturing that it is *his own*, non-standard, evolving method -- the thing this case actually wants held onto. E11 Modification's own scope note even carries a directly analogous example -- 'the last renewal of the gold coating of the Toshogu shrine' -- confirming recurring restorative craft work on a persistent object is squarely inside E11, not something the model treats as out of scope.",
+  "classes_proposed": ["E29", "E11", "E22"],
+  "properties_proposed": ["P33", "P31", "P14", "P69"],
+  "rejected_alternatives": [
+    {"option": "E55 Type via P32 used general technique", "why_not": "P32's domain/range (E7 -> E55) is for drawing the technique from an external, shared thesaurus of technique categories (P32's own CIDOC example types an endbanding technique as 'blanket-stitch-with-core'). Stephen Stead's clarification in t0761 is explicit that this is the wrong tool once 'we (as documenters) recognise the homogeneity of the resulting products and wish to characterise this as being caused by a singular methodology that is itself then a topic in our discourse' -- which is this case: a personal, non-shared, evolving technique, not a category term."},
+    {"option": "Leaving the technique implicit in the E11 Modification events only", "why_not": "That is the status quo the situation explicitly wants to move past ('not just log each re-dressing as an event'). Without a separate E29 that multiple E11 events point to via P33, there is no entity that persists across dressings for the 'always ground the same way' comparison to be made against."}
+  ],
+  "citations": ["E29", "E11", "E22", "P33", "P32", "P31", "P69", "E55", "t0761",
+    {"id": "t0761", "quote": "exist as a set of \"tribal knowledge\" in either the performers of the task or in the observers of the results of the task"},
+    {"id": "t0761", "quote": "we do not have a document that tells us how it is done"},
+    {"id": "t0761", "quote": "we (as documenters) recognise the homogeneity of the resulting products and wish to characterise this as being caused by a singular methodology"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E29",
+    "concept E55",
+    "thread t0761",
+    "thread t0916",
+    "thread t1763",
+    "docs \"technique\" --kind narrative",
+    "docs \"craft skill tacit knowledge\"",
+    "issues \"technique\"",
+    "issue 232",
+    "connect E21 E22",
+    "connect E7 E29",
+    "docs \"P32 used general technique\" --kind declaration",
+    "docs \"P33 used specific technique\" --kind declaration",
+    "quote t0761 \"exist as a set of \\\"tribal knowledge\\\" in either the performers of the task or in the observers of the results of the task\"",
+    "quote t0761 \"we do not have a document that tells us how it is done\"",
+    "quote t0761 \"we (as documenters) recognise the homogeneity of the resulting products and wish to characterise this as being caused by a singular methodology\"",
+    "concept E11"
+  ],
+  "confidence": "high",
+  "notes": "The wider question of whether 'intangible cultural heritage' generally falls under the CRM was debated at length in t0916 and remained largely unresolved/philosophical there. I did not rely on that thread for the answer -- the narrower, decided episode t0761 (2014-07-10, marked [decided] in the E29 concept dossier) directly answers this case's mechanism (undocumented personal technique as E29), so the answer rests on that rather than on the open-ended ICH debate."
+}

@@ -1,0 +1,42 @@
+{
+  "case_id": "archaeology-c1",
+  "ranking": ["A", "B", "C"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 6,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Types the deposit as A2 Stratigraphic Volume Unit (verified as the class AP19 is embedding in actually requires), instantiates the full AP18/AP19 embedding path instead of leaving AP21 as the only statement, and is the only answer that formally asserts the residuality relation (P183 between the axe's E12 Production and the deposit's A4 Stratigraphic Genesis) rather than just giving the two entities separate, unconnected dates. Its caveat that Ore's 2021 proposal to widen AP19's range to A8 (t1445) was raised and never adopted directly anticipates and rules out the exact move Answer C makes. All 6 classes, including E52 (explicitly typed for both the Neolithic and post-Roman dates), do real work; none are decorative."
+    },
+    {
+      "label": "B",
+      "class_count": 6,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [
+        "minutes:53rdCIDOC_CRM46thFRBRooMinutes_draft#s038 -- cited to support 'the 46th meeting decided that in the AP13 example \"earlier\" must be made explicit as an inferred relation,' but the actual chunk text is 'Issue 585: Example for A7 Embedding' (the Vesuvius ash/calcified-body example) and never mentions AP13 or an inferred relation at all. The claim itself is true, but its real source is a different, confusingly similarly-titled document: minutes:46th_joint_meeting_of_the_CIDOC_CRM_SIG_minutes_v1#s014, whose text reads almost verbatim: 'it must be made explicit that earlier is an inferred relation instantiating an AP13.1 property.'"
+      ],
+      "verdict": "Also correctly types the deposit as A2 and builds the same core AP18/AP19/A4/E12/P183 scaffold as A, plus a well-grounded S19 Encounter Event layer tied to the in-situ language in S19's own scope note. Two smaller flaws: classes_proposed omits E52 even though the prose relies on it twice for P4 has time-span (a labeling gap rather than a functional one, since P4's range is fixed); and one citation in the alternatives section points at a real chunk that does not say what the answer claims it says."
+    },
+    {
+      "label": "C",
+      "class_count": 5,
+      "breadth": "under-specified",
+      "illegal_properties": [
+        "AP19 is embedding in -- domain A7, range A2 Stratigraphic Volume Unit specifically. Confirmed via `connect A7 A2` ('declared on exactly this pair') versus `connect A7 A8` (AP19 does not appear in that pairing at all). Answer C types the colluvial deposit only as A8 Stratigraphic Unit, then routes AP19 from the A7 Embedding into that A8-typed deposit -- a use the model does not license, since A8 is the undifferentiated superclass and AP19 was never widened to it (that exact widening was proposed by Ore in 2021 in t1445 and left unresolved)."
+      ],
+      "scope_note_violations": [
+        "A8 -- the colluvial deposit is a connected, homogeneous body of sediment bounded by surfaces, which is precisely A2 Stratigraphic Volume Unit's scope note, the more specific class the CRM expects here (A8 is the shared superclass of A2/A3/A7 and carries no volume-specific semantics). C never even surfaces the A2-vs-A8 choice as a decision point, unlike A, which discusses AP19's A2-specific range explicitly."
+      ],
+      "unsupported_citations": [],
+      "verdict": "Gets the headline judgment right (do not double-instantiate the axe as a stratigraphic unit; give it its own E12 Production date) and lands a genuinely good, verified quotation from A7's own scope note about embeddings not being assumed to date from the genesis of the surrounding unit. But it types the deposit at the wrong level of specificity for the very property (AP19) it then uses on it, and it never asserts the residuality itself as a machine-checkable relation (no P183) -- it leaves two separately-dated entities for a human reader to compare rather than a relation a reasoner could act on. Only 2 alternatives considered, versus ~10 each for A and B, and neither engages the A2/A8 distinction that is exactly where this answer goes wrong."
+    }
+  ],
+  "decisive_difference": "All three correctly reject modelling the axe as an A8 Stratigraphic Unit and land on the same basic pattern (E22 axe + A7 Embedding + separately-dated E12 Production and A4 Stratigraphic Genesis). What separates them is precision at the exact point the case is testing. A and B both type the colluvial deposit as A2 Stratigraphic Volume Unit -- the class AP19 is embedding in is declared for -- and both go on to assert the residuality itself via P183. C types the deposit only as the generic A8 Stratigraphic Unit and then applies AP19 to it anyway, which `connect A7 A2` vs `connect A7 A8` confirms is not a legal use of that property's declared range; C also stops at giving the axe and the deposit separate dates without ever asserting their temporal order. Between A and B the gap is narrower: A explicitly types both time-spans as E52 and ties A4's genesis event to the A7 Embedding itself, grounded in Martin Doerr's own words at the 49th SIG meeting ('gave rise to whatever stratigraphic unit (A8)... one is interested in documenting' -- A7 being a subclass of A8); B leaves its two time-spans untyped in the classes_proposed list and carries one citation (t1592's sibling, the 53rd-meeting minutes chunk) that verifiably does not say what the answer attributes to it.",
+  "confident": true,
+  "notes": "The decisive fact for C was checked directly and mechanically: `connect A7 A2` lists AP19 as 'declared on exactly this pair,' while `connect A7 A8` omits it entirely; t1445 (Ore, 2021-03-26, 'CRMarcheo -embedding') shows the SIG discussing exactly this widening and leaving it unresolved, which is also the caveat Answer A raises by name. B's mis-cited chunk was checked by reading both the cited chunk (minutes:53rdCIDOC_CRM46thFRBRooMinutes_draft#s038, about the Vesuvius A7 example) and the actual matching text elsewhere in the archive (minutes:46th_joint_meeting_of_the_CIDOC_CRM_SIG_minutes_v1#s014) -- the claim is true, the citation is wrong, which is the 'real thread attached to a claim it does not support' failure mode the rubric warns is worse than an invented one. No provenance signal (phrasing, tool-quirk pattern, etc.) pointed to which system or run produced any answer. A vs B is a materially closer call than either vs C -- both are careful and correct on the core modelling, and A's edge is completeness/integration rather than any error found in B."
+}

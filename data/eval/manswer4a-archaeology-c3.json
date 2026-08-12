@@ -1,0 +1,59 @@
+{
+  "case_id": "archaeology-c3",
+  "answer": "Yes, keep it inside the CRM-based catalogue as data in its own right -- the model has a dedicated mechanism for exactly this. The grave cut is a physical feature that occupies (P156 occupies) an E53 Place; that E53 Place can then be given its exact geometry with P168 place is defined by, whose range is E94 Space Primitive -- 'instances of E59 Primitive Value for space ... to express geometries ... relevant to cultural and scientific documentation', with worked examples in the CIDOC CRM spec itself showing a WKT literal 'POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))'. This is not a workaround: E94/P168 exist specifically 'to link CIDOC CRM encoded data to the kinds of geometries used in maps or Geoinformation systems', and the mailing list (thread t1119) shows the SIG working through exactly this pattern in 2018, with Robert Sanderson's worked RDF example attaching a POLYGON(...) WKT literal directly via P168_place_is_defined_by to an E53 Place -- the same shape of fact as the surveyed grave-cut outline, just at building-plot rather than trench scale. So the outline is not a second, external artifact that merely gets pointed at; it is a value hung directly off the same E53 Place node that everything else about the cut's location already uses, satisfied inline, in the same record. Two things the CRM still expects of that E53 Place instance, regardless of how precise its geometry is: P157 is at rest relative to (necessary) -- some E18 physical frame of reference, e.g. the site grid or a site E27 -- and P89 falls within (necessary) -- containment within a broader place such as the trench or site. Do not skip these when instancing the Place; they are quantified as necessary on E53, not optional. If the CRMgeo extension is in use, the same thing can be phrased more explicitly with SP6 Declarative Place (a subclass of E53 whose extent is exactly geometry-defined) approximating a 'phenomenal' E53 Place standing for the real, fuzzy-edged cut -- but this is a refinement, not a requirement; plain E53 + P168 + E94 already does the job in CRMbase alone.",
+  "classes_proposed": ["E53", "E94"],
+  "properties_proposed": ["P168", "P156"],
+  "rejected_alternatives": [
+    {
+      "option": "Leave the outline out of the catalogue entirely, as an external linked file/dataset (e.g. a D1 Digital Object or E31 Document referenced via P70/P129) that the CRM record merely points to",
+      "why_not": "This is the status quo the archivist wants to avoid, and it is unnecessary: CRM already has a slot for the geometry itself as data (P168 place is defined by -> E94 Space Primitive), so there is no modelling reason to demote the outline to an external file rather than a value on the Place record."
+    },
+    {
+      "option": "E92 Spacetime Volume / P169 defines spacetime volume",
+      "why_not": "E92 machinery is for phenomena whose spatial extent varies over time (via E95 Spacetime Primitive and P196/P161). The grave cut's surveyed outline is a single fixed footprint at one point in the record -- it needs E53/E94's purely spatial P168, not the 4D spacetime path."
+    },
+    {
+      "option": "E36 Visual Item / P138 represents, treating the plan as a picture of the cut",
+      "why_not": "E36 covers the intellectual/pictorial content of an image (e.g. a scanned drawing). It has no mechanism for holding exact coordinate geometry for GIS computation of area/orientation, which is the actual requirement here -- that is what E94 Space Primitive is for, not E36."
+    }
+  ],
+  "citations": [
+    "E53",
+    "E94",
+    "P168",
+    "P156",
+    "P157",
+    "P89",
+    "SP6",
+    "Introduction to the basic concepts > Relations with Events > Spatial Relations",
+    "Issue 391",
+    "Issue 464",
+    "t1119",
+    {"id": "t1119", "quote": "E94 Space Primitive is not further elaborated upon within this model"},
+    {"id": "t1119", "quote": "SP6 provides the ability to have different approximations of that location"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E53",
+    "concept E94",
+    "docs \"exact geometry GIS coordinates place\" --kind narrative",
+    "docs \"declarative place geometric definition\" --kind narrative",
+    "connect E53 E94",
+    "concept SP5",
+    "concept SP6",
+    "threads \"excavation plan surveyed outline polygon GIS\"",
+    "\"surveyed outline of a feature stored as geometry\"",
+    "issues \"exact geometry place GIS coordinate\"",
+    "issue 391",
+    "issue 464",
+    "docs \"place is defined by\" --kind declaration",
+    "quote t1119 \"SP6 provides the ability to have different approximations of that location\"",
+    "quote t1119 \"E94 Space Primitive is not further elaborated upon within this model\"",
+    "thread t1119",
+    "concept D1",
+    "concept P156"
+  ],
+  "confidence": "high",
+  "notes": "E94's own scope note carries a WKT polygon example that is a near-literal match for an oval cut's surveyed outline, and thread t1119 shows the SIG working through a concrete RDF example (P168_place_is_defined_by holding a POLYGON literal) in 2018, so this case maps onto the model cleanly rather than needing an inferential stretch. The only friction was confirming SP6 (CRMgeo) is optional rather than required -- base CRM's E53+P168+E94 already suffices, which the concept dossier and t1119's own discussion of 'if only one approximation was needed, E53 and SP6 could be collapsed' both support."
+}

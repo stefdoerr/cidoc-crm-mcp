@@ -1,0 +1,55 @@
+{
+  "case_id": "archaeology-c1",
+  "answer": "Yes, the shortcut misrepresents the axe, and the CRM (via its CRMarchaeo extension) is built specifically to avoid it. Do not fold the find into the context as if it shared the context's identity or history. Model the axe as its own persistent physical thing (E22 Human-Made Object, produced Neolithic, long before the deposit existed) and model the colluvial deposit as its own A8 Stratigraphic Unit (specifically an A2 Stratigraphic Volume Unit, since it is a bulk soil layer, not a single-event cut/fill). Connect the two, not with a plain 'found in' link, but through A7 Embedding: a reified relation (A7 is itself declared a Rigid Physical Feature, per Issue 447's resolution) that carries property AP18 'is embedding of' to the axe (E18/E22) and AP19 'is embedding in' to the enclosing A2/A8. Because A7 is its own entity rather than a direct property between object and layer, it can carry a qualification that the direct link cannot: its own scope note explicitly anticipates that an embedding need not be contemporary with the genesis of the surrounding unit and that the expert may determine it has persisted for longer than the event that encountered it -- exactly the residual/washed-in case here. The SIG itself settled this exact question on the mailing list (thread t1123, Nov 2018): Christian-Emil Ore asked whether a find could be modelled as (i.e., double-instantiated with) the stratigraphic unit it came from. Martijn van Leusen answered that a find should NOT normally be modelled as a stratigraphic unit, because embedded objects are deposited together with soil as a single bulk deposit and do not constitute an A8 by themselves (reserving A8-for-a-find for rare cases like a single urn in a cremation grave, where deposition is its own distinguishable event). Martin Doerr confirmed: finds are described as objects embedded in Stratigraphic Units (A7 Embedding). Achille Felicetti agreed there is usually a clear, archaeologically operative distinction between object and stratigraphic unit, and recommended AP18 + A7 (or AP15 + S10 for more complex cases). So: keep the axe's own production history (E12 Production, Neolithic) entirely separate from the deposit's stratigraphic genesis; link the two only via the A7 Embedding relation, which is exactly the device the model provides for saying 'found here' without asserting 'belongs here' or 'as old as here'.",
+  "classes_proposed": ["E22", "A8", "A2", "A7"],
+  "properties_proposed": ["AP18", "AP19"],
+  "rejected_alternatives": [
+    {
+      "option": "Model the find as (or double-instantiate it with) the A8 Stratigraphic Unit itself -- i.e., treat 'came from this context' as identity with the context",
+      "why_not": "Explicitly rejected by the SIG in thread t1123: van Leusen says a find should not normally be modelled as a stratigraphic unit because embedded objects are deposited together with soil as a single bulk deposit; the A8-for-a-find exception (a single urn in a cremation grave) requires the deposition itself to be a separable event, which does not apply to a residual axe swept into a bulk colluvial layer with everything else."
+    },
+    {
+      "option": "Keep the existing shortcut: attach the axe straight to the context via an ordinary location/composition property (e.g. P53 has former or current location, P56 bears feature), the same as every other find",
+      "why_not": "`connect E19 A8` and `connect E22 A2` surface only generic location/composition properties (P53, P54, P55, P56, P59, P198, P46) for a direct E19/E22-to-A8/A2 link; none of these is the property the SIG actually specified for this situation (AP18+A7), and using them would reproduce the same flattening the case complains about -- it says nothing about whether the embedding is contemporary with, or far older than, the enclosing unit."
+    },
+    {
+      "option": "Use the direct shortcut property AP21 'contains (is contained in)' from A2 straight to the E18 object, skipping A7",
+      "why_not": "AP21 exists (surfaced by `connect E22 A2`) but is a bare spatial-containment shortcut with no room to qualify the age/recency mismatch. The SIG's own resolution of this exact case (t1123) and the subsequent Issue 447 update to A7 both deliberately route through the reified A7 Embedding class so that the relation itself -- not just the two endpoints -- can carry that qualification."
+    }
+  ],
+  "citations": [
+    "A8", "A2", "A7", "A9", "S19", "A5",
+    {"id": "t1123", "quote": "finds are described as objects embedded in Stratigraphic Units"},
+    {"id": "t1123", "quote": "a find should not normally be modeled as a stratigraphic unit"},
+    {"id": "t1123", "quote": "I would go for AP18 + A7 or AP15 + S10 in CRMarchaeo"},
+    "issue 447"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"stratigraphic unit\"",
+    "docs \"context find archaeological\" --kind narrative",
+    "concept A8",
+    "concept A9",
+    "concept S19",
+    "concept A5",
+    "concept A7",
+    "concept A2",
+    "\"residual\"",
+    "threads \"residual finds out of context stratigraphy\"",
+    "issues \"residual\"",
+    "docs \"intrusion embedding stratigraphic\" --kind narrative",
+    "thread t1123",
+    "connect E19 A8",
+    "connect E22 A2",
+    "issue 447",
+    "docs \"AP21 contains is contained in\" --kind declaration",
+    "docs \"AP18 is embedding of is embedded\" --kind declaration",
+    "quote t1123 \"finds are described as objects embedded in Stratigraphic Units\"",
+    "quote t1123 \"a find should not normally be modeled as a stratigraphic unit\"",
+    "quote t1123 \"I would go for AP18 + A7 or AP15 + S10 in CRMarchaeo\"",
+    "quote A7 \"the expert may only be able to decide that a particular embedding is not recent\" (unknown source id -- quote lookup only works on threads/messages/doc chunks, not concept ids)"
+  ],
+  "confidence": "high",
+  "notes": "The `docs` search (indexed on the 7.3.2 base reference model) did not surface CRMarchaeo declarations at all -- concept A7/A8/A2/A9/S19 and the mailing-list thread t1123 carried the whole answer, not docs. `quote` refused a concept id (A7) as a source, so the A7 scope-note point about embeddings persisting longer than the encountering activity is reported in my own words rather than as a verified quotation."
+}

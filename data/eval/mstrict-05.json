@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "propertychoice-c3",
+    "verdict": "unsupported",
+    "constraint_checked": "P22/P23 domain->range E8->E39 (many-to-many on the whole event) and P9 domain->range E4->E4 (E8 qualifies via E8<E7<E5<E4) -- both check out, so the two-E8-plus-P9-wrapper structure is technically valid.",
+    "better_modelling": "None needed for the structure; but drop the t1224 citation as support for 'rejected'. If a source is wanted, cite Doerr's general skepticism only as his personal position, not a SIG rejection.",
+    "evidence": ["P9", "P22", "P23", "E8", "t1224", "t0654"],
+    "reasoning": "t1224 is a 2019 CRMsoc thread about a contract/obligation container (mortgages, payments-over-time), not barter of goods; it has 3 messages, ends with Sanderson defending the proposal after Doerr's pushback, and the archive's own episode tag reads '[unresolved]'. The answer states it was 'explicitly ... rejected' and 'never entered base CRM' -- the second clause is true (verified: no Exchange/Barter class in the ontology) but the source does not show a rejection, only an open disagreement. t0654 ('dual events', Alexiev) is accurately used and does support the dual-E8 pattern."
+  },
+  {
+    "case_id": "technical-c1",
+    "verdict": "correct",
+    "constraint_checked": "E81 scope note requires 'simultaneous destruction ... and creation ... preserving recognizable substance and structure'; P123/P124 domain->range E81->E18 confirmed. Checked thread t1170 message [10] (Doerr, Issue 369) directly: he treats his own 'parts stored then reassembled after functionality lapsed' variant of Ship of Theseus as a NEW E19 instance, explicitly because 'the continuity of functionality is broken ... not temporarily on repair within an extended activity making use of it.'",
+    "better_modelling": "None found -- this is close to as strong a citation match as the archive offers; Doerr's own hypothetical is nearly isomorphic to the case (destroyed part, decades of total non-function, then rebuild).",
+    "evidence": ["E81", "E24", "P123", "P124", "t1170"],
+    "reasoning": "The case (boiler scrapped, frame/cylinders inert 50+ years, all-new boiler built to old drawings) matches Doerr's 'new object' branch more strongly than his 'gradual replacement while in service' branch, since here the destroyed part wasn't even preserved substance -- it's a stronger case for E81 than the SIG's own example. E24's scope note explicitly permits documenting such a production also as E81, and P46 explicitly allows a physical thing (frame/cylinders) to be shared between two wholes."
+  },
+  {
+    "case_id": "technical-c2",
+    "verdict": "correct",
+    "constraint_checked": "P110 augmented (E79->E18), P112 diminished (E80->E18), P111 added (E79->E18), P113 removed (E80->E18) domains/ranges all confirmed exact. P108/P110/P112 confirmed as siblings under P31 (has modified), keeping 'modified' and 'produced' as separate lanes as claimed.",
+    "better_modelling": "None found.",
+    "evidence": ["P108", "P110", "P111", "P112", "P113", "P31", "t0056"],
+    "reasoning": "t0056 (Doerr, Paris 2002) is precisely the proposal that created Part Addition/Removal 'for reasoning on the continuity of history of objects ... without affecting their internal identity over time' -- exactly the replace-one-part case here. The engine stayed continuously functional throughout (unlike c1), matching Doerr's t1170 remark that an object with parts replaced while coherence/function continue keeps its identity, so a single persisting E22 is correct and E81 is correctly rejected (no destruction of the whole occurred)."
+  },
+  {
+    "case_id": "technical-c3",
+    "verdict": "correct",
+    "constraint_checked": "P33 domain->range E7->E29 (confirmed, applies via E11<E7) vs P32 domain->range E7->E55 (confirmed, requires an external Type vocabulary term, not an individual's method). Read thread t0761 in full: Stephen Stead's message is verbatim 'these could be codified in a document or exist as a set of tribal knowledge ... even though we do not have a document that tells us how it is done,' directly distinguishing E29 from E55+P32 on exactly this undocumented/idiosyncratic-technique axis.",
+    "better_modelling": "None found; P69 (E29->E29, 'follows'/'has part'/inspired-by) is confirmed as the right link for chaining evolving/successor techniques.",
+    "evidence": ["E29", "P33", "P32", "P69", "t0761"],
+    "reasoning": "Every cited constraint (domains/ranges, E11's applicable-properties list carrying P33) checks out, and t0761 is an unusually precise, on-point match -- Stead's example (curators recognizing a homogeneous technique with no document behind it) is essentially the miller's case."
+  }
+]

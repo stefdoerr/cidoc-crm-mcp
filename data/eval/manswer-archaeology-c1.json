@@ -1,0 +1,33 @@
+{
+  "case_id": "archaeology-c1",
+  "answer": "Yes, a flat find->context link misrepresents this axe, and the core model has the machinery to fix it without inventing anything. Keep the axe as an E22 Human-Made Object and record its manufacture as a separate E12 Production (P108 has produced), with that Production's own P4 has time-span set to the Neolithic -- this is where its 'true' date lives, independent of where it ended up. For where it was found, do not rely on the plain shortcut alone: P53 has former or current location's own scope note says it 'does not allow any indication of the Time-Span during which the instance ... was located at this place', so even the ordinary find->context link the database already uses is not literally asserting contemporaneity -- but it also isn't recording the thing the excavators actually observed (that it arrived late, by erosion, not by use). The fully developed path P25i moved by / E9 Move / P26 moved to E53 Place (or, cleaner for a single observed fact with no implied agency, E93 Presence with P195 was a presence of the axe, P167 was within the deposit's Place, and P164 is temporally specified by a post-Roman Time-Span) lets you state explicitly: 'this object was present in this context during period Y', decoupled from 'this object was produced in period X'. Martin Doerr's own gloss on P53 (thread t0674) treats objects as being 'either where they were created ... or where they have been moved to, by man or nature' -- so a natural, non-intentional relocation (colluviation) is within how the SIG itself talks about this property, even though E9 Move sits under E7 Activity's actor-driven wording. Do not invent a 'residual find' class or property; Minimality forbids adding a class for what an existing property path already expresses, and no core class corresponds to an archaeological 'context'/stratigraphic unit at all -- that granularity belongs to the CRMarchaeo/CRMsci extensions (confirmed by the S19 Encounter Event / O19/O21 discussion in thread t1337, which are not in this corpus's 241-class core model), not the base CRM indexed here. So: keep recording the context link as before, but add the Production event with its own time-span so the two dates cannot be conflated by a reader -- that is the corrected practice, not a new class.",
+  "classes_proposed": ["E22", "E12", "E93", "E52", "E53"],
+  "properties_proposed": ["P108", "P4", "P195", "P164", "P167", "P53"],
+  "rejected_alternatives": [
+    {"option": "Rely on the plain find->context link (P53 has former or current location) as the whole record", "why_not": "P53's scope note explicitly disclaims any time-span assertion, so it neither confirms nor denies contemporaneity -- it silently leaves the residuality unrecorded rather than misrepresenting it, but it doesn't capture what the excavators actually know."},
+    {"option": "Model the deposit's period as the axe's E12 Production event", "why_not": "P108 has produced would then falsely date the axe's manufacture to the Roman/post-Roman deposit instead of the Neolithic, exactly the misrepresentation the excavators are worried about."},
+    {"option": "Add a bespoke 'residual find' class or property", "why_not": "Modelling principles > Minimality: the CRM does not add classes for cases already expressible via existing property paths (Production time-span vs. Presence/Move time-span)."}
+  ],
+  "citations": ["E22", "E12", "P108", "E93", "P195", "P164", "P167", "P53", "E9", "P25", "P26", "P27", "Modelling principles > Minimality", "Introduction to the basic concepts > Relations with Events > Spatiotemporal Relations", "t0674", "t1337"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"archaeological context stratigraphic deposit\"",
+    "docs \"residual find intrusive redeposited\" --kind narrative",
+    "concept E9",
+    "concept P53",
+    "concept E12",
+    "\"residual find intrusive stray find spot find unstratified\"",
+    "thread t0765",
+    "thread t1337",
+    "concept E7",
+    "thread t1034",
+    "thread t0674",
+    "concept E93",
+    "docs \"spacetime volume presence of an object within a place during a time-span\" --kind narrative",
+    "docs \"Minimality principle scope note new classes only if necessary\" --kind narrative",
+    "concept E22"
+  ],
+  "confidence": "medium",
+  "notes": "concept dossiers (siblings + FOL + linked threads) made the actor-vs-nature tension in E9 Move easy to spot and resolve via a real SIG quote; the mailing-list search for archaeology-specific vocabulary (residual, intrusive, spot find) returned nothing on-target and only worked once I searched CRM's own terms ('finding', 'find events'), which surfaced the S19/O19 CRMsci thread confirming the core model has no dedicated find/context class -- that redirection from concrete nouns to CRM's own vocabulary was the hard part, exactly as the method note warns."
+}

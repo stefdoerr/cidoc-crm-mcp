@@ -1,0 +1,127 @@
+{
+ "question_id": "e31-document",
+ "question": "Why does the CIDOC CRM need the class E31 Document?",
+ "short_answer": "E31 Document exists because a document is not merely a piece of content but a piece of content that asserts something about the real world, and the CRM needed somewhere to hang the property that says which real thing a record records. Its superclass E73 Information Object covers any identifiable immaterial content at all -- a poem, a joke, a computer program, a JPEG file -- and carries no commitment that the content is about anything. E31 is the subclass every instance of which must, by the model's own quantification, document at least one entity via P70 documents; that mandatory link is the whole reason the class is there.",
+ "explanation": "The CRM admits a class only if it has characteristic properties of its own, and the archive catches that rule being applied. Answering Issue 6 in January 2002, Martin Doerr asked whether databases deserved a class and found the only candidate properties were 'is composed of' and 'documents'; since he could 'hardly think of a database which does not document', databases were folded into E31 rather than given a class. The register closed Issue 6 at Monterey in February 2002 saying just that. What justifies E31 is therefore P70 documents, which the specification quantifies as 'necessary (1,n:0,n)': something is an E31 only if there is a thing it documents.\n\nE73 carries no such requirement, and the CRM says so in E73's own scope note. Issue 101, closed at Rethymnon in October 2002, added the sentence directing that 'Information objects of a documentary nature should be declared as instances of the E31 Document subclass' -- an explicit division of labour. E31's scope note also warns against the information-technology sense of 'document', a file, which is plain E73. Without that warning every scanned image in a museum system would count as a document merely by being a file.\n\nWhy 'documents' had to be its own property was settled in 2018. P70 is a subproperty of P67 refers to, available to any propositional object. Stephen Stead raised the issue in January 2018 because the scope note did not make clear that P70 carries a claim about reality, and the SIG closed Issue 362 in Berlin that November: P70 is preferred when the document's content is asserted to be true, P67 when the topic is fictional or no truth claim is made. So E31/P70 versus E73/P67 lets a catalogue that records a coin be told apart, in a query, from a novel that merely mentions one -- which is what makes provenance of knowledge expressible at all.\n\nThe boundary is still argued. Issue 707, opened August 2025 and Open, would found membership on the creator's intention, essentially library science's non-fiction; George Bruseker objected that this makes E31 'an epistemic rather than an ontological category' at odds with the CRM's neutral point of view, citing Crania Americana and Physica Subterranea as works intended as truth but now judged otherwise. Doerr deferred it to oral discussion. The class is not in doubt; its membership test is.",
+ "real_world_example": "The example the SIG itself used while arguing is the British Museum catalogue. Stephen Stead's January 2018 posting that became Issue 362 carried the line 'the British Museum catalogue (E31) documents the British Museum's Collection (E78)', and the current specification uses a sharpened version of it: the 'Catalogue of the Greek coins of Arabia, Mesopotamia and Persia' documents parts of the British Museum's Collection. The catalogue is an E31 because it claims that those coins exist and are as described; a novel mentioning a Greek coin is an E73 that refers to it and claims nothing. The 2025 debate supplies the deliberate near-miss: Mika Waltari's 'Sinuhe the Egyptian' (1945), a novel built out around one small genuine Egyptian text, which Doerr's draft explicitly excludes from E31 even though it contains real historical knowledge. A practical case from 2015: Regine Stein confirmed on the list that a LIDO resourceSet -- a surrogate image of an object -- maps to E31 Document with P70 documents pointing at the physical thing.",
+ "decision_status": "partly settled",
+ "issues": [
+  {
+   "id": 6,
+   "title": "How to model databases",
+   "status": "Done",
+   "outcome": "Monterey, 22 February 2002: 'Databases are regarded as a special case of E31 Document. This has to be included in the scope note. No changes to the model are required.' The list discussion behind it (t0055) shows the test being applied: a candidate class needs characteristic properties, and for databases the only one was 'documents', which E31 already provides."
+  },
+  {
+   "id": 101,
+   "title": "Scope Note for E73 to contain Multimedia Objects",
+   "status": "Done",
+   "outcome": "Rethymnon, 23 October 2002: proposal accepted, adding to E73's scope note the sentence 'Information objects of a documentary nature should be declared as instances of the E31 Document subclass.' This is the register stating the division of labour between E73 and E31."
+  },
+  {
+   "id": 158,
+   "title": "Intermediate class between E28 Conceptual Object and E73 Information Object",
+   "status": "Done",
+   "outcome": "Crete, 12 May 2008: E89 Propositional Object introduced above E73, with P67 refers to as the general 'makes a statement about' property and E31's P70 documents recorded as one of its subproperties. This is where the documentary link was formally placed under a general aboutness link."
+  },
+  {
+   "id": 181,
+   "title": "Which are the differences between E31 and E89?",
+   "status": "Done",
+   "outcome": "Nuremberg, December 2010: 'The proposal accepted.' Patrick Le Boeuf had asked whether E31 and E89 are redundant and, if so, which class is really needed. Both classes survived and E31 stayed a subclass of E73, but the register does not state the proposal or the argument, and the only thread linked to the issue (t0530) is the meeting agenda."
+  },
+  {
+   "id": 246,
+   "title": "example consistency",
+   "status": "Done",
+   "outcome": "Heraklion, October 2014: E31's second example was changed to 'the image content of the photo of the Allied Leaders at Yalta published by UPI, 1945', after a complaint that listing the photo itself under E31 made the class look material. Confirms E31 is the immaterial content, never the carrier."
+  },
+  {
+   "id": 362,
+   "title": "P70 documents",
+   "status": "Done",
+   "outcome": "Berlin, November 2018: revised scope note accepted. 'The new scope makes explicit that P70 documents is to be preferred over its superproperty P67 refers to, when the crm entity in its domain is some sort of authoritative (or other) document, the context of which is asserted to be true. The superproperty is to be preferred in case the topic referred to is fictional (or when no claims are made with respect to its truth).' This is the SIG's own statement of why 'documents' is a distinct notion from 'refers to'."
+  },
+  {
+   "id": 707,
+   "title": "E31 Document -- scope note revision",
+   "status": "Open",
+   "outcome": "No resolution. Doerr proposed (August 2025) to ground E31 in the creator's intention, following library science's non-fiction, because 'competing and contradictory interpretations about a supposed implied truthfulness' had grown up around the class, with knock-on effects in CRMdig, CRMsci and CRMpem. Bruseker argued the class is epistemic rather than ontological and that P2 has type or E13 Attribute Assignment would do the job neutrally; Oldman argued intention is empirically apparent from context; Eide asked only whether the simplification is useful and harmless. Doerr deferred to oral discussion at the next meeting."
+  }
+ ],
+ "threads": [
+  "t0055",
+  "t0152",
+  "t0530",
+  "t0872",
+  "t1064",
+  "t1842"
+ ],
+ "citations": [
+  {
+   "id": "t0055",
+   "quote": "The only properties I can think of is: \"is composed of\" \"documents\". I can hardly think of a database which does not document."
+  },
+  {
+   "id": "t0872",
+   "quote": "E31 Document is a subclass of E73 Information Object as shown below. There is an aspect of intentionality connected to instances of this class."
+  },
+  {
+   "id": "t0872",
+   "quote": "documentary character, in the scholarly or scientific sense"
+  },
+  {
+   "id": "t1064",
+   "quote": "the P70 documents examples and scope note do not highlight that any proposition about reality in any document can be represented by this path"
+  },
+  {
+   "id": "t1842",
+   "quote": "In the past. there had been competing and contradictory interpretations about a supposed implied truthfulness of the content of an E31 Document"
+  },
+  {
+   "id": "t1842",
+   "quote": "it is the implicit or explicitly expressed intention in the creation of the item that justifies the classification as an instance of E31 Document, which distinguishes it from other kinds, such as fiction or software, and not its claimed truthfulness with respect to reality"
+  },
+  {
+   "id": "issue707#background-s0000",
+   "quote": "E31 seems to be an epistemic rather than an ontological category",
+   "note": "corrected: the wording is real but appears in Issue 707's background text, not in thread t1842, which the answer originally cited"
+  }
+ ],
+ "caveats": "The archive does not contain the original creation rationale for E31: the class predates the crm-sig mailing list, so nothing here records the first decision to introduce it. What the archive records is the class being defended, bounded and repaired afterwards (issues 6, 101, 246, 362) and, most recently, questioned (707). Issue 181 -- the one place the SIG explicitly asked whether E31 is redundant against E89 Propositional Object -- is closed 'proposal accepted' at Nuremberg 2010 with no statement of the proposal and no substantive thread; the reasoning is not recorded, only the outcome that both classes were kept. The claim that P70 is mandatory on E31 is read off the specification's quantification 'many to many, necessary (1,n:0,n)', not off any debate; I did not find a thread arguing for that quantifier. The framing of E31 as non-fiction-by-intention is Doerr's 2025 proposal, not agreed SIG doctrine -- the current v7.1.3 and v7.3.2 scope note still says only 'identifiable immaterial items that make propositions about reality'. Bruseker's, Oldman's, Eide's and Kritsotaki's positions in t1842 are individual arguments, not SIG positions. [Verification note: one citation was corrected after the fact -- the 'epistemic rather than ontological' wording was attributed to thread t1842 but occurs in Issue 707's background text. The claim stands; the source id did not.]",
+ "queries_run": [
+  "search.py concept E31",
+  "search.py concept P70",
+  "search.py issues \"E31 Document\"",
+  "search.py issues \"difference between E31 Document and E89 Propositional Object redundant\"",
+  "search.py issues \"E31 Document scope note revision truthfulness propositions about reality\"",
+  "search.py issues \"E31 reworded scope note propositions about reality Nuremberg 2010 proposal accepted\"",
+  "search.py issue 6",
+  "search.py issue 101",
+  "search.py issue 158",
+  "search.py issue 181",
+  "search.py issue 246",
+  "search.py issue 362",
+  "search.py issue 707",
+  "search.py threads \"why E31 Document distinct from E73 Information Object\"",
+  "search.py \"E31 Document propositions about reality not the IT sense of document\"",
+  "search.py \"P70 documents documentary character scholarly scientific sense\" --before 2010",
+  "search.py \"E31 Document\" --before 2008",
+  "search.py thread t0055",
+  "search.py thread t0152",
+  "search.py thread t0530",
+  "search.py thread t0872",
+  "search.py thread t1064",
+  "search.py thread t1842",
+  "search.py docs \"P70 documents scope note authoritative document asserted true\"",
+  "search.py docs \"document non-fiction propositions about reality information object distinction\" --kind narrative",
+  "search.py quote t0055 \"The only properties I can think of is\"",
+  "search.py quote t0055 \"I can hardly think of a database which does not document\"",
+  "search.py quote t0872 \"There is an aspect of intentionality connected to instances of this class\"",
+  "search.py quote t0872 \"documentary character, in the scholarly or scientific sense\"",
+  "search.py quote t1064 \"do not highlight that any\"",
+  "search.py quote t1842 \"competing and contradictory interpretations\"",
+  "search.py quote t1842 \"which distinguishes it from other kinds, such as fiction or software\"",
+  "search.py quote t1842 \"E31 seems to be an\""
+ ]
+}

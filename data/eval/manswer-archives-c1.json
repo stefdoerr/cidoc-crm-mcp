@@ -1,0 +1,51 @@
+{
+  "case_id": "archives-c1",
+  "answer": "Record each handover as its own instance of E10 Transfer of Custody, not just the creator and the current holder. E10's scope note explicitly covers 'the transfer of custody (transfer from one custodian to the next)' and the archive has independent evidence for each move (a signed handover note), so each move -- overseer to council registry (1934), council to county record office (1988), county record office to the archive (2010) -- is a separate E10 event, linked via P28 custody surrendered by, P29 custody received by, and P30 transferred custody of the ledgers (E18/E22 physical thing). Collapsing to endpoints only would use the shortcut property P50 has current keeper, but P50's own definition shows it stands in for the full path 'E18 . P30i transferred through . E10 . P29 custody received by . E39' precisely when the intervening custodians are NOT separately recorded -- it is declared as a shortcut of that longer path, not a replacement for it when the path is actually known. Since each handover here is independently documented, using only P50 (plus P49 has former or current keeper for the creator) would discard evidenced facts the archive already holds, which is the opposite of what a shortcut is for. The 2010 'donation' step is worth flagging separately: if legal title (not just physical/custodial responsibility) passed to the archive then, that step may also warrant an E8 Acquisition alongside its E10, but that is a distinct question from the custody-chain granularity asked here.",
+  "classes_proposed": ["E10"],
+  "properties_proposed": ["P28", "P29", "P30", "P49", "P50"],
+  "rejected_alternatives": [
+    {
+      "option": "Record only creator + current keeper via P49/P50 shortcuts, with no per-handover E10 events",
+      "why_not": "P50's scope note and FOL gloss define it as a shortcut for the full E10 path, applicable when custody has not been separately tracked; using it alone here would throw away the fact that each of the four moves is independently evidenced by a signed handover note -- the opposite of the case the shortcut exists for."
+    },
+    {
+      "option": "E9 Move",
+      "why_not": "Listed as a sibling of E10 (both subclasses of E7). E9 covers change of physical location, not custodial/legal responsibility; the case is about who is answerable for the ledgers at each stage (parish, council, county office, archive), which is what E10 (not E9) is scoped for."
+    },
+    {
+      "option": "E8 Acquisition",
+      "why_not": "Also a sibling of E10 in the same list; E8 covers transfer of legal ownership. Nothing in the case establishes that title changed hands at the 1934 or 1988 moves (only custody/responsibility did), so E8 is not the general-purpose class for the chain -- though it may apply narrowly to the 2010 donation if ownership, not just custody, passed then."
+    }
+  ],
+  "citations": [
+    "E10",
+    "P28",
+    "P29",
+    "P30",
+    "P49",
+    "P50",
+    "E9",
+    "E8",
+    "Introduction > Applied Form > Shortcuts",
+    "t1394",
+    "t1469"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E10",
+    "ontology (grepped locally for \"custody\")",
+    "docs \"chain of custody\" --kind narrative",
+    "docs \"provenance\" --kind narrative",
+    "docs \"minimality\" --kind narrative",
+    "\"chain of custody archive handover\"",
+    "threads \"chain of custody every transfer necessary\"",
+    "thread t1469",
+    "docs \"shortcut properties path\" --kind narrative",
+    "concept P50",
+    "docs \"has current keeper shortcut\" --kind declaration",
+    "docs \"P30 has current keeper\" --kind declaration"
+  ],
+  "confidence": "high",
+  "notes": "concept E10 and concept P50 were the load-bearing calls -- the siblings block on E10 (vs. E9/E8) and P50's full-path/FOL gloss made the shortcut-vs-event boundary explicit without reading any source docs. Narrative docs search for 'chain of custody'/'provenance'/'minimality' mostly surfaced tangential terminology entries rather than a direct principle statement, so the strongest support for 'use the full path when it's known' came from P50's own declared semantics plus the Getty-provenance worked example (t1469), not from a narrative passage naming that principle outright."
+}

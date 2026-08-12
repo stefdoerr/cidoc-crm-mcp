@@ -1,0 +1,36 @@
+{
+  "case_id": "archaeology-c2",
+  "ranking": ["C", "A", "B"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 5,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Every property checks out legally (P1's shortcut path verified word-for-word via `connect A8 E42`; P37/P38/P140/P142/P48/P70/P190/P14/P4 all fit their declared domains/ranges) and every scope note is respected, including the A2/A3 caveat and the correct exclusion of A6/A10/A1/A7/E17/E33/E35. Its strongest single move is finding Issue 383 (Robert Sanderson vs. Martin Doerr, 'if the same string was used by different Symbolic Objects, then it seems like they would actually be the same symbolic object' / 'This is a long debated question') -- the most directly on-point precedent of any of the three answers for whether one duplicated string implies one or two identifiers, and it is quoted exactly as the archive has it. The only thing it leaves on the table is the shared numbering book: the case says both supervisors drew from 'the same book,' and A never models that shared scheme, so its 'one E42 or two' discussion floats without the E29 anchor that would ground it."
+    },
+    {
+      "label": "B",
+      "class_count": 6,
+      "breadth": "padding",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Reaches the right answer and its identity/identifier distinction is sound (E42's 'unique... within the context of one or more organisations' quote is accurate), but it never unfolds P1 into E15 Identifier Assignment -- so the two supervisors, the two 1978 dates and the two acts of numbering, which the case is actually about, are described in prose ('two supervisors... drew from the same numbering book') but never typed into the model. E41 sits in classes_proposed but does no work anywhere in the answer -- textbook padding. Its alternatives_considered (2, versus 10-11 for A and C) never engages A6 Group Declaration Event, CRMarchaeo's own class for the tempting merge-reading, even though its own second alternative is exactly that merge question. Its supporting citation (t0990, the E35 Title identity debate) is honestly flagged in its own notes as an analogy rather than a direct precedent, and confidence is self-rated medium."
+    },
+    {
+      "label": "C",
+      "class_count": 6,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Matches A's mechanism (A2/A3, E42/E15/E31, P140/P37/P142/P38 all verified legal and correctly cited, same correct rejections of A6/A7/A10/E17/E33/E35/E27/E62) and adds one genuinely load-bearing class A and B both omit: E29 Design or Procedure for the shared numbering book the case explicitly mentions ('drawing numbers from the same book'), tied to both E15 events via P33 used specific technique and backed by Issue 159's verified outcome ('this is covered by E29 Design or Procedure'). Its sibling claim for E42 (E35/E61/E94/E95) and its S20/A8 asymmetry note are both checked and exact. It misses A's Issue 383 find, so on citation depth for the 'one E42 or two' aside the two are about even; C's edge is that its extra class is answering a detail of this specific case rather than a general point about identifier philosophy."
+    }
+  ],
+  "decisive_difference": "All three give the same top-line answer (two records, not one) and none proposes an illegal property or a class that fails its own scope note. B is clearly last: it never unfolds P1 into E15 (the case is precisely about who assigned what, when -- prose that types no event), carries an unused E41 in classes_proposed, and its own notes admit its supporting citation is an analogy rather than a direct precedent. A and C are extremely close and share almost the entire model; C edges ahead only because it models the shared numbering book (E29, verified against Issue 159's outcome) as a direct response to a fact stated in the case, where A's comparably strong unique find (Issue 383's Sanderson/Doerr exchange, the single most on-point precedent among all three answers for duplicated-string identity) supports a secondary aside A itself says doesn't change the answer either way.",
+  "confident": false,
+  "notes": "A vs C is genuinely close and could plausibly reorder on a re-read -- both are excellent, near-identical in mechanism, and each found a real, verified citation the other missed (A: Issue 383; C: Issue 159/E29). B's third place is not in doubt. All quoted passages I checked (crm732#s0044, crm732#s0065, crm732#E42, crm732#P1, crm732#P48, t0633, t0990, t0154, t1729, issue103#outcome, issue159#outcome, issue383's Sanderson/Doerr exchange, the Heraklion 2016 and 49th-meeting minutes, E42's sibling list) matched the archive exactly for all three answers -- I found no fabricated or misrepresented citation in A, B, or C. I did not attempt to infer provenance/system identity from style and saw nothing that gave it away."
+}

@@ -1,0 +1,31 @@
+{
+  "case_id": "classchoice-c1",
+  "answer": "Record it as the wedding gown ending and a distinct christening gown coming into existence: an E81 Transformation, not an E11 Modification of the same object. The event is a physical decomposition (bodice unpicked) followed by recutting and restitching into a new garment, with the worn skirt fabric discarded outright -- the wedding gown does not survive as a continuing whole. E81's own scope note names exactly this test: 'substantial material changes should justify the documentation of the result as a new instance of E18 Physical Thing and not just the change of function.' There is both a substantial material change (unpicking, recutting, discarding part of the material) and a change of function (bridal gown for an adult bride -> christening gown for an infant), so this is not the 'change of use alone' that Issue 404's outcome says does NOT by itself warrant E81 -- the material change independently justifies it. Model the wedding gown and the christening gown as two E22 Human-Made Object instances connected by one E81 Transformation event: E81.P124 transformed the wedding gown (E22), E81.P123 resulted in the christening gown (E22). The photograph and the seamstress's fitting notes can separately document/evidence the transformation (P70i is documented in, etc.) but are not needed to decide the class question.",
+  "classes_proposed": ["E81", "E22"],
+  "properties_proposed": ["P124", "P123"],
+  "rejected_alternatives": [
+    {"option": "E11", "why_not": "E11's own scope note carves this exact case out of Modification: 'An event should also be documented using an instance of E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities.' That is precisely destruction (unpicking/discarding) plus production from the original's material (silk and lace panels)."},
+    {"option": "E80", "why_not": "E80 Part Removal's scope note explicitly excludes this situation: 'If the instance of E80 Part Removal results in the total decomposition of the original object into pieces, such that the whole ceases to exist, the activity should instead be modelled as an instance of E81 Transformation.' The bodice was fully unpicked and the wedding gown as a whole does not continue."},
+    {"option": "E79", "why_not": "E79 Part Addition requires 'the E18 Physical Thing being augmented' to already be an identifiable whole that continues as that whole after parts are added. There is no continuing wedding-gown whole here for panels to be added to -- the whole itself (the christening gown) is new."},
+    {"option": "E17", "why_not": "E81's scope note distinguishes itself from mere re-classification ('Instances of E81 Transformation are therefore distinct from re-classifications (documented using E17 Type Assignment)... that do not fundamentally change their nature or identity'). This case involves real recutting and restitching of the fabric, not just relabeling the same unchanged object."}
+  ],
+  "citations": ["E81", "E11", "E80", "E79", "E17", "E22", "P123", "P124", "issue 404", "t1396", "t0654"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E79",
+    "concept E80",
+    "docs \"transformation destruction production fundamentally different identity\" --kind narrative",
+    "thread t1396",
+    "thread t0654",
+    "concept E11",
+    "issue 404",
+    "docs \"repurposing\" --kind narrative",
+    "quote E11 \"the new items have separate identities\"",
+    "quote E80 \"the whole ceases to exist\"",
+    "quote t1396 \"does not count as an instance of E81 Transformation\""
+  ],
+  "confidence": "high",
+  "notes": "The two exact-fit sentences I most want to quote -- E11's carve-out for E81 and E80's carve-out for E81 -- live in the class scope notes returned by `concept`, which is not a quotable source for search.py quote (UNKNOWN SOURCE for both E11 and E80). I paraphrased them instead of quoting, and cited the class ids as plain existence citations rather than quoted claims. Issue 404's outcome text (change of use alone is not sufficient for E81) is quoted in my own words for the same reason -- the register's outcome field isn't a quotable message/chunk id either; verified its content by reading `issue 404` and thread t1396 directly instead."
+}

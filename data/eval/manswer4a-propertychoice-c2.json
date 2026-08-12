@@ -1,0 +1,34 @@
+{
+  "case_id": "propertychoice-c2",
+  "answer": "Title passes in a single step, directly from the engineer to the phone bidder. Model one E8 Acquisition (or, since a price was agreed and paid, its subclass E96 Purchase) with P23 transferred title from = the engineer and P22 transferred title to = the phone bidder, and P24 transferred title of = the instruments. Nothing in the facts makes the auction house a title-holder: it catalogued and sold on the consignor's behalf, held the money briefly, and controlled release of the goods, but never itself owned the lot. That two-step feel the case is testing for -- engineer to auction house, auction house to buyer -- is real, but it belongs to custody, not title: E10 Transfer of Custody. There are two such events here (engineer surrenders custody to the auction house so it can catalogue/hold the lot: P28 = engineer, P29 = auction house; then the auction house surrenders custody to the buyer's courier: P28 = auction house, P29 = buyer/courier), each with P30 transferred custody of = the instruments. This is exactly the pattern the SIG itself used when it added its own auction-house example to E10's scope note: a statue's owner transfers legal responsibility for custody to Sotheby's 'to facilitate its sale' (thread t1376) -- an auction house holding an item for sale is the SIG's own paradigm case for E10, not for E8. The record should therefore carry one E8/E96 title event plus two E10 custody events, not two E8 Acquisitions.",
+  "classes_proposed": ["E8", "E96", "E10"],
+  "properties_proposed": ["P22", "P23", "P24", "P28", "P29", "P30"],
+  "rejected_alternatives": [
+    {"option": "Two E8 Acquisition events (engineer -> auction house, auction house -> bidder)", "why_not": "Would require the auction house to have held legal ownership at some point. The case gives no such fact (no sale to the house, no title passing to it) -- only that it catalogued, sold on the consignor's behalf, held payment briefly, and controlled release of goods. E8's own scope note ties the class to transfers of legal ownership, not to holding money or controlling logistics. The SIG's own worked example of an auction house in this exact role (Sotheby's holding a consignor's statue 'to facilitate its sale') was written as an E10 Transfer of Custody, not an E8 Acquisition (thread t1376), which is direct precedent against modelling the auction house as a title party."},
+    {"option": "Model the whole thing as a single event with no custody intermediary recorded", "why_not": "Loses the documented fact that the auction house, not the engineer, controlled release of the goods and held the payment for ten days -- that operational reality is exactly what E10 Transfer of Custody exists to record separately from E8 Acquisition, per the CRM's own separation of legal ownership from physical/legal custody in the E8 scope note."}
+  ],
+  "citations": [
+    "E8", "E96", "E10", "P22", "P23", "P24", "P28", "P29", "P30",
+    {"id": "t1376", "quote": "The legal responsibility for physical custody of a large marble statue of Aphrodite"},
+    "t1376"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E8",
+    "concept E96",
+    "docs \"consignment auction agent title\" --kind narrative",
+    "docs \"acquisition through an agent\" --kind narrative",
+    "\"consignment auction\"",
+    "threads \"agent intermediary transfer of title\"",
+    "thread t1376",
+    "thread t1469",
+    "issue 475",
+    "issue 442",
+    "docs \"transfer of custody legal responsibility auction\" --kind declaration",
+    "quote t1376 \"The legal responsibility for physical custody of a large marble statue of Aphrodite\"",
+    "thread t1345"
+  ],
+  "confidence": "high",
+  "notes": "No thread argues this exact consignment-vs-title boundary in words; the strongest evidence is structural precedent -- the SIG's own E10 scope-note example (thread t1376) casts an auction house holding a consignor's item 'to facilitate its sale' as custody, not title. Thread t1345 (actor acting 'on behalf of' another) shows the CRM has no settled shortcut for 'agent acting on a principal's behalf' beyond P14/P28/P29, which supports keeping the auction house out of P22/P23 rather than inventing a construct for it."
+}

@@ -1,0 +1,26 @@
+{
+  "case_id": "classchoice-c1",
+  "answer": "Model the 1950s alteration as the wedding gown ceasing to exist and a distinct christening gown coming into existence, not as a modification of the same garment. The event destroyed one E22 Human-Made Object (worn skirt fabric discarded, bodice unpicked) while preserving recognizable substance and structure (the silk and lace panels) in a new object with a fundamentally different nature and identity (a christening gown, not a wedding gown). That is exactly the case E81 Transformation exists for: its scope note explicitly contrasts itself with E11 Modification, and E11's own scope note (and E12's) says an event must be documented as E81 rather than E11/E12 'if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities.' Use P124 transformed to link the E81 event to the wedding gown (which ceased to exist) and P123 resulted in to link it to the christening gown (E22) that came into existence; the seamstress's activity can additionally be typed E12 Production per the standard's own multi-instantiation pattern (e.g. mummification is both E81 and E12). The photograph and fitting notes are separate E22/E31-ish documentation, not part of the class choice itself, and were out of scope for this question.",
+  "classes_proposed": ["E81", "E22", "E12"],
+  "properties_proposed": ["P123", "P124"],
+  "rejected_alternatives": [
+    {"option": "E11 Modification (P31 has modified)", "why_not": "E11's own scope note says exactly this situation must be escalated to E81: 'An event should also be documented using an instance of E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities.' E11 is for changes that do not fundamentally change the object's nature or identity, which is not the case here (wedding gown -> christening gown)."},
+    {"option": "E17 Type Assignment (re-classification)", "why_not": "E81's scope note explicitly distinguishes true transformations from mere re-classifications, which apply when the object's nature/identity has not fundamentally changed -- not applicable since the skirt fabric was discarded and the garment's form and function changed."}
+  ],
+  "citations": ["E81", "E11", "E12", "P123", "P124", "t1396"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E81",
+    "concept E11",
+    "concept P123",
+    "concept P124",
+    "docs \"transformation identity new object from material\" --kind narrative",
+    "concept E12",
+    "docs \"recognizable substance and structure fundamentally different identity\" --kind narrative",
+    "threads \"reused material new object identity boundary modification transformation\"",
+    "thread t1396"
+  ],
+  "confidence": "high",
+  "notes": "The concept dossiers for E11 and E12 make the boundary easy: both scope notes point straight at E81 for this exact destruction+reuse-of-material pattern, so no guessing was needed. Thread t1396 (surfaced by name on the E81 concept card) had the closest real precedent -- SIG members arguing that a church merely repurposed is not E81 but a castrated/reframed satyr icon (spolia) reused into a new panel is -- which mirrors the gown case well; a keyword search for sewing/garment vocabulary would not have found it, since the CRM never names concrete objects."
+}

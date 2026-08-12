@@ -1,0 +1,38 @@
+[
+  {
+    "case_id": "archives-c2",
+    "verdict": "flawed",
+    "modelling_works": false,
+    "citations_support_claims": false,
+    "checked_threads": ["t1300", "t1345", "t1477"],
+    "reasoning": "The clerk/secretary split and E13-hedged uncertainty are sound, but the second E65 Creation/P94 event (secretary 'creating' the signature-inscription) is misapplied: P94's own scope note, which the answer quotes to justify the composition/carrier split, explicitly excludes 'the act of creating the first physical carrier ... not its commitment to paper' -- signing a sheet is exactly that act, not conceiving new intellectual content. E34's scope note ('not the idiosyncratic individual embodiment ... but the underlying prototype') further implies the secretary's habitual signature is one reused object, not freshly created per letter. t1345/t1477 are accurately characterized as raised-but-unresolved (verified: t1477 has only 2 messages, t1345 ends in Doerr proposing process, no adopted property).",
+    "what_is_wrong": ["P94/E65 used for the signing act, contradicted by the very P94 scope note cited to license the composition/carrier distinction"]
+  },
+  {
+    "case_id": "archives-c3",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t0483", "t0608", "t0603"],
+    "reasoning": "Christian-Emil Ore's 'CRM is defined to be retrospective and not talk about the future' is verbatim in t0483; t0608 confirms the planned-events extension idea stayed an open, unresolved use-case search; t0603 confirms Henttonen's records-management proposal was framed as an FRBRoo-like companion model, not a CRM extension. The retrospective E13 carve-out for the actual disposal decision is properly scoped (P17/P2 domain E7/E13 fits).",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "built-c1",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t0821", "t1396", "t1411"],
+    "reasoning": "t0821 contains Doerr's quote verbatim, given in reply to a colleague's example of a church physically moved by dollies -- a close real analogue to the barn. t1396 shows Doerr's own revision proposing exactly the E81+E12/P108-has-produced dual instantiation the answer uses. t1411 confirms the Dominicanenkerk case was pulled as 'rather an example for reuse than transformation' and swapped for Hephaisteion/Theseion, exactly as cited. E81 domain (E18) and E11/E81 contrast both check out.",
+    "what_is_wrong": []
+  },
+  {
+    "case_id": "built-c2",
+    "verdict": "sound",
+    "modelling_works": true,
+    "citations_support_claims": true,
+    "checked_threads": ["t1090", "t1243"],
+    "reasoning": "Both quotes are verbatim: t1090 'multiple inheritance yes, but with E92, not E53' and t1243's Czechoslovakia ruling ('It is correct to regard \"Extent of Czechoslovakia 2000\" as an instance of E53 ... wrong to regard [the unit] as an E53 ... the solution is E4'). The E4 scope note's Capital-of-Russia example is quoted accurately. P89 (E53->E53) and the Period-to-Place chain are used within their declared domains.",
+    "what_is_wrong": []
+  }
+]

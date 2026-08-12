@@ -1,0 +1,44 @@
+{
+  "case_id": "propertychoice-c3",
+  "answer": "There is no single-event trick for this: model the swap as TWO separate E8 Acquisition instances, not one Acquisition carrying both societies as both giver and receiver. E8's scope note does allow multiple actors on P22 (transferred title to) and P23 (transferred title from) within one instance, but that multiplicity is for joint donors/joint recipients moving in one direction (e.g. several heirs relinquishing jointly) -- it gives no way to pair a specific object, via P24 transferred title of, with a specific direction. If Society A and Society B were both listed as P22 and both as P23 on one Acquisition holding both the tokens and the medals, it would be undetermined which society gave which object and which received it -- the properties are declared at the event level, not per-object. So: Acquisition-1 has P23=Society A, P22=Society B, P24=the trade tokens; Acquisition-2 has P23=Society B, P22=Society A, P24=the medals. Each relation points unambiguously: 'from' is the party surrendering that particular object, 'to' is the party acquiring it, decided independently per Acquisition. The fact that both are one agreement, not two unrelated donations, is expressed by linking the two Acquisitions with P9 consists of (confirmed available between two E8 instances by `connect E8 E8`, inherited from E4 Period via E7 Activity/E5 Event) under a common enclosing E7 Activity representing the exchange agreement -- not by inventing a bundling 'Exchange' class. That is exactly the construction Martin Doerr argued for on the mailing list (thread t1224) when Robert Sanderson proposed a dedicated Exchange activity class: Doerr rejected the general class, holding that the individual Acquisitions/provisions are the primitives and P9 is 'sufficient for asserting that the different activities are part of the overall' transaction. The CRM-SIG's own issue register agrees: Issue 173 'Exchange transactions' was folded into Issue 420 'Social transactions and bonds', which lives in the CRMsoc extension, not CRMbase -- so CRMbase itself has never adopted a first-class bundling construct for exchanges; two linked E8 Acquisitions is the accepted base-model answer. E96 Purchase is ruled out for either half because its scope note requires the transferring party to be 'completely compensated by the payment of a monetary amount', and no money changed hands here.",
+  "classes_proposed": ["E8"],
+  "properties_proposed": ["P22", "P23", "P24", "P9"],
+  "rejected_alternatives": [
+    {"option": "One E8 Acquisition with both societies listed as both P22 and P23, and both object sets under P24", "why_not": "P22/P23 are declared at the Acquisition-event level; the scope note's 'one or more Actors to one or more other Actors' supports joint donors/recipients moving in a single direction, not disambiguating which object moved which way when two objects move in opposite directions inside the same event."},
+    {"option": "E96 Purchase", "why_not": "concept dossier's scope note requires the transferring party be 'completely compensated by the payment of a monetary amount'; no money changed hands in this exchange."},
+    {"option": "A dedicated CRMsoc-style 'Exchange' bundling class over the two Acquisitions", "why_not": "proposed by Robert Sanderson in thread t1224 and explicitly rejected by Martin Doerr ('I would question \"Exchange\" as a so general activity ... I think it is not necessary'); Issue 173 'Exchange transactions' was merged into Issue 420 'Social transactions and bonds', which sits in the CRMsoc extension model, not CRMbase -- so no such class exists in the base standard this case would use."}
+  ],
+  "citations": [
+    "E8", "P22", "P23", "P24",
+    {"id": "t1224", "quote": "I would question \"Exchange\" as a so general activity"},
+    "t1224",
+    "issue 173",
+    "issue 420"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E8",
+    "\"exchange\"",
+    "threads \"barter exchange swap gift reciprocal transfer\"",
+    "thread t1224",
+    "docs \"exchange of ownership between two parties\" --kind narrative",
+    "docs \"one or more instances of E39 Actor to one or more other instances\" --kind declaration",
+    "concept P22",
+    "concept P23",
+    "concept P24",
+    "connect E8 E39",
+    "connect E8 E8",
+    "issues \"barter exchange reciprocal gift swap\"",
+    "\"P22 P23 both directions same event donor recipient\"",
+    "issue 420",
+    "issue 173",
+    "issue 273",
+    "thread t1287",
+    "quote t1224 \"I would question \\\"Exchange\\\" as a so general activity\"",
+    "quote t1224 \"the title is either transferred to or from someone, or both\"",
+    "quote P22 \"In reality, the title is either transferred to or from someone, or both.\""
+  ],
+  "confidence": "high",
+  "notes": "The P22/P23 scope-note line 'In reality, the title is either transferred to or from someone, or both' (seen directly in `concept P22` output) is paraphrased rather than quoted, since `search.py quote` only checks threads/episodes/messages/doc chunks and rejected P22 as an unknown source id -- it cannot verify property-dossier prose. Thread t1287 (the tail of Issue 420) turned out to be about an unrelated E93 Presence shortcut and was not usable as evidence."
+}

@@ -1,0 +1,35 @@
+{
+  "case_id": "technical-c2",
+  "answer": "In scope, and the two options in the question are not exclusive -- CRM has a standard pattern for exactly this. Model the 1876 build as one E12 Production (P108 has produced -> the engine, an E22 Human-Made Object, carried out by the ironworks). For 1932, do not give the engine a second E12 Production -- P108 has produced is the property that asserts a thing came into existence through that activity, so reusing it in 1932 is precisely the 'built twice' reading the trust wants to avoid. Instead use the E80 Part Removal / E79 Part Addition pair (both subclasses of E11 Modification, siblings of E12 Production under E11): E80 Part Removal (P113 removed -> the old cast-iron beam, P112 diminished -> the engine) for detaching the cracked beam, and E79 Part Addition (P111 added -> the new steel beam, P110 augmented -> the engine) for fitting the replacement. P110 augmented and P112 diminished are both subproperties of P31 has modified, the same superproperty P108 has produced falls under -- so acting on the engine through P110/P112 keeps the 1932 event in the 'modified' branch, never re-triggering the 'produced' branch for the engine itself. This does not require pretending the new beam has no maker: the new steel beam can carry its own, separate E12 Production (P108 has produced -> beam, carried out by the second firm) without that production touching the engine's record at all -- the beam's P108 and the engine's P110/P112 are different property instances on different objects. The engine's continuous identity across the swap is exactly what CRM commits to: in thread t1170, discussing the Ship of Theseus, Martin Doerr states CRM identity for a physical object rests on continuity of coherence and functionality, not retained substance -- 'an instance of E19 with all parts replaced is identical' (as a physical object; not as an Amount of Matter). P46 is composed of can record the before/after part-whole state (engine composed of old beam vs. composed of new beam) if that level of detail is wanted.",
+  "classes_proposed": ["E22", "E12", "E79", "E80", "E11"],
+  "properties_proposed": ["P108", "P110", "P111", "P112", "P113", "P31", "P46"],
+  "rejected_alternatives": [
+    {"option": "A second E12 Production of the engine itself in 1932 (P108 has produced -> engine)", "why_not": "P108 has produced asserts the engine came into existence through that activity; asserting it again in 1932 is the exact 'whole engine built twice' implication the trust is trying to avoid."},
+    {"option": "E81 Transformation", "why_not": "E11's own scope note ties E81 to cases where the original object is destroyed and a new object with a separate identity is produced from its parts/material; here the engine is never destroyed, only one part is exchanged, so E81 does not fit."},
+    {"option": "Merging E79/E80 into one class, or requiring them to be paired as a single dual event", "why_not": "the SIG considered and rejected this: Issue 221 'Dual events' was closed not-accepted because there is no assumption that a removed part exists before and after removal, so Part Removal and Part Addition are correctly kept as independent, unpaired activities."}
+  ],
+  "citations": ["E11", "E12", "E79", "E80", "P31", "P46", "P108", "P110", "P111", "P112", "P113", "t0056", "Issue 221", {"id": "t1170", "quote": "We definitely regard that an instance of E19 with all parts replaced is identical"}],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E79",
+    "concept E80",
+    "docs \"replacing a part of an object\" --kind narrative",
+    "docs \"part addition part removal replacement\"",
+    "concept E11",
+    "docs \"distinction between modification and production\" --kind narrative",
+    "\"replacing a part while keeping identity of the whole\"",
+    "threads \"part replacement identity continuity\"",
+    "thread t1170",
+    "thread t0056",
+    "quote t1170 \"We definitely regard that an instance of E19 with all parts replaced is identical\"",
+    "connect E12 E22",
+    "connect E80 E22",
+    "issues \"identity part replacement\"",
+    "issue 221",
+    "quote t0056 \"replacing a part of an object\"",
+    "quote t0056 \"replace\""
+  ],
+  "confidence": "high",
+  "notes": "Checked a candidate phrase ('replacing a part of an object' attributed to t0056) with search.py quote before using it -- NOT FOUND, no form of 'replace' appears in that thread -- so I dropped it and described t0056's 2002 Part Addition/Removal proposal in my own words instead. This matches the exact fabrication pattern the answering guide warns about, caught only because quote-checking is mandatory."
+}

@@ -1,0 +1,46 @@
+{
+  "case_id": "archives-c3",
+  "answer": "The retention schedule and the disposal-review decision, as described (a next review date plus a rule for when the file comes up for review), are a plan for a not-yet-occurred event, not a record of something that happened. CIDOC CRM's own scope statement (Introduction > Scope of the CIDOC CRM) defines the model's coverage as 'curated, factual knowledge about the past at a human scale' -- it is retrospective by design. The SIG hit exactly this boundary itself: Issue 166 (New class 'Activity Plan') states plainly that 'dealing with instances of E4 in the future (if they exist at all) will be subject of extensions of the CRM, and not part of the scope of CRM,' and the mailing-list thread 'Retrospective and Planned Events' (t0608) shows Martin Doerr confirming years later that no such mechanism was ever adopted in CRMbase for lack of a concrete use case. When the SIG did eventually build a model for exactly this shape of thing -- a plan that foresees a future activity -- Issue 333 (Model for Plans, 2019) put it in CRMsoc as a new 'Activity Plan' / 'Event Specification (of future event)' pair, deliberately outside CRMbase. So: the retention schedule (the next-review-date, the rule that triggers it) belongs to a records-management/workflow system's data model, not to the file's CRM-documented history -- consistent with archives/records management having been raised on this list (t0603) as its own CRM-compatible-but-separate model, comparable to FRBRoo, rather than as part of CRM itself. Once a disposal review has actually taken place -- a records officer looked at the file on a given date and decided to keep or destroy it, for a stated reason -- that retrospective fact is a past event and CRM base classes could describe it after the fact (an E7 Activity/E13 Attribute Assignment for the decision, with P17 was motivated by the statutory-requirement-vs-historical-judgement reason, and E6 Destruction/P13 destroyed if disposal was carried out). But that is not what the case is asking to model: it is asking where the schedule and its future review date live, and the honest answer from the tools is that they do not live in CIDOC CRM's documented-history model.",
+  "classes_proposed": [],
+  "properties_proposed": [],
+  "rejected_alternatives": [
+    {"option": "E29 Design or Procedure", "why_not": "Its scope note covers documented plans for producing a result (schemas for activities/products), not a scheduling rule tied to calendar review dates; the SIG routed exactly this planning need (Activity Plan) to CRMsoc rather than treating E29 as sufficient (Issue 333)."},
+    {"option": "E13 Attribute Assignment", "why_not": "Fits a completed disposal decision (someone asserted keep/destroy on a date, for a reason) but cannot represent the schedule itself or a future review date, since it documents an act that already occurred."},
+    {"option": "E6 Destruction / P13 destroyed", "why_not": "Only applies once destruction has actually happened; the case is about the standing schedule and next review date, most of which precede any destruction event."},
+    {"option": "CRMsoc Activity Plan / Event Specification (of future event)", "why_not": "This is the SIG's own answer to modelling a plan for a future event (Issue 333), which confirms the need is real -- but it was placed in the CRMsoc extension, deliberately kept out of CRMbase, so it is not part of 'the CRM' as the case frames the question."}
+  ],
+  "citations": [
+    "Introduction > Scope of the CIDOC CRM",
+    "E29", "E13", "E6", "E87",
+    "t0603",
+    {"id": "t0608", "quote": "What we miss is a relevant use case, an existing practice of documenting planned events"},
+    {"id": "t0731", "quote": "the real scope the CRM ended up with is human activities and their products in the past and their current evidence"},
+    "Issue 166", "Issue 161", "Issue 333"
+  ],
+  "in_scope": false,
+  "queries_run": [
+    "ontology",
+    "retention schedule disposal",
+    "docs \"retention disposal review\" --kind narrative",
+    "thread t0608",
+    "disposal review appraisal records management",
+    "issues \"retention disposal appraisal\"",
+    "thread t0603",
+    "quote t0731 \"the real scope the CRM ended up with is human activities and their products in the past and their current evidence\"",
+    "concept E13",
+    "concept E87",
+    "docs \"future events not yet occurred planned\" --kind narrative",
+    "docs \"intended scope of the CIDOC CRM historical geographical\"",
+    "docs \"administrative business process workflow management system\" --kind narrative",
+    "quote \"Introduction > Scope of the CIDOC CRM\" \"curated, factual knowledge about the past at a human scale\" (failed: unknown source id, docs results expose no chunk id)",
+    "concept E29",
+    "quote t0608 \"What we miss is a relevant use case, an existing practice of documenting planned events\"",
+    "issues \"planned future events not yet occurred\"",
+    "concept E6",
+    "issue 166",
+    "issue 161",
+    "issue 333"
+  ],
+  "confidence": "high",
+  "notes": "The docs search's format_documents output never prints the underlying document chunk id (only heading/section_path/cite, and cite is just 'CIDOC CRM v7.3.2'), so search.py quote could not be run against the reference-model prose itself ('crm732#...' ids are needed but not surfaced) -- the scope statement is cited by section path only, unverified as a literal quote, and paraphrased in the answer rather than quoted verbatim. Mailing-list quotes (t0608, t0731) were both verified with search.py quote before use."
+}

@@ -1,0 +1,59 @@
+{
+  "case_id": "archaeology-c1",
+  "answer": "Keep linking the axe into the deposit, but not through the flat, undifferentiated 'came from this context' field you use for every other find, and not by conflating the axe with the layer. Model the colluvial deposit as A8 Stratigraphic Unit, model the axe itself as an E22 Human-Made Object, and connect the two through an A7 Embedding instance: AP18 'is embedding of' points from the A7 instance to the axe, AP19 'is embedding in' points from the same A7 instance into the surrounding deposit. This is exactly the pattern the SIG settled on when the identical question ('can a find be an A8 Stratigraphic Unit?') was raised on the list in Nov 2018: the consensus (Martin Doerr, Martijn van Leusen, Achille Felicetti) was that a find must not be double-instantiated as a Stratigraphic Unit -- A8 is reserved for chronologically distinguishable genesis processes (a cut, a fill, a deposit event), and an object incidentally caught up in a bulk deposit does not constitute one of those on its own. Crucially, A7 Embedding's own scope note already anticipates your exact worry: an embedding is not assumed to date from the genesis of the surrounding unit, and the expert may only be able to establish that it 'has been persisting for longer than the activity that encountered it' -- so recording the embedding does not, by the CRM's own semantics, assert contemporaneity. What actually prevents the misrepresentation is giving the axe its own E12 Production activity with its own P4 has time-span (Neolithic), independent of the deposit's own formation event (which could itself be modelled as A4 Stratigraphic Genesis with its own, Roman-period, time-span). Once the axe's date lives on its own production event rather than being inferred from the context it sits in, embedding it in the Roman-period deposit is simply a true statement about where it ended up, not a claim about when it was made or used. The one thing the CRM does not give you is a ready-made 'residual find' class -- that is a Minimality-principle case for P2 has type on the E22 (or on the A7 relation) with a project term such as 'residual'/'redeposited', not a new CRM class.",
+  "classes_proposed": ["E22", "A8", "A7", "E12", "A4"],
+  "properties_proposed": ["AP18", "AP19", "P108", "P4", "P2"],
+  "rejected_alternatives": [
+    {
+      "option": "Instantiate the axe itself as an A8 Stratigraphic Unit (double-instantiation of object and layer)",
+      "why_not": "Directly rejected by the SIG in the 2018-11-06/07 thread: van Leusen said 'a find should not normally be modeled as a stratigraphic unit' because A8 represents chronologically separable genesis processes like cutting and filling, and objects deposited together with soil as a bulk deposit do not constitute an A8 by themselves. Felicetti concurred, recommending AP18+A7 (or AP15+S10 for complex cases) instead."
+    },
+    {
+      "option": "Just record the current flat find-to-context link with no separate dating of the object",
+      "why_not": "This is the practice the excavators are already using and the one the case is questioning. It conflates 'where the object physically sits now' with 'when the object belongs', which is exactly what A7's own scope note warns against: embedding need not date from the genesis of the surrounding unit."
+    }
+  ],
+  "citations": [
+    "A7",
+    "A8",
+    "AP18",
+    "AP19",
+    "A4",
+    "E12",
+    "P108",
+    "P4",
+    "P2",
+    "Modelling principles > Minimality",
+    "t1123",
+    {"id": "t1123", "quote": "finds are described as objects embedded in"},
+    {"id": "t1123", "quote": "a find should not normally be modeled as a stratigraphic unit"},
+    {"id": "t1123", "quote": "I would go for AP18 + A7 or AP15 + S10"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"residual find out of context\" --kind narrative",
+    "docs \"stratigraphic unit context of finding\"",
+    "issues \"residual find intrusive context\"",
+    "threads \"residual find out of stratigraphic context\"",
+    "thread t1123",
+    "concept A7",
+    "concept A8",
+    "concept AP18",
+    "concept S19",
+    "concept A2",
+    "concept AP15",
+    "docs \"minimality principle new class or type\" --kind narrative",
+    "connect E19 A8",
+    "connect A7 E19",
+    "concept E12",
+    "issues \"reworked residual antique heirloom object older than layer\"",
+    "concept A4",
+    "quote A7 \"the expert may only be able to decide that a particular embedding is not recent\"",
+    "quote t1123 \"finds are described as objects embedded in\"",
+    "quote t1123 \"a find should not normally be modeled as a stratigraphic unit\"",
+    "quote t1123 \"I would go for AP18 + A7 or AP15 + S10\""
+  ],
+  "confidence": "high",
+  "notes": "The A7 Embedding scope note text I wanted to quote verbatim ('the expert may only be able to decide that a particular embedding is not recent...') could not be checked by `quote`, since a class id like A7 is not a valid quote source (only thread/message/doc-chunk ids are) -- the tool returned UNKNOWN SOURCE. I therefore cited A7 as a plain identifier (paraphrasing its content) rather than as a verified direct quotation. Thread t1123 itself is oddly composed: the archive groups a real CRMarcheo discussion (finds vs. stratigraphic units, messages [24] and [26]-[31]) inside a much longer thread whose surrounding messages are an unrelated debate about E90/rdfs:label symbolic content -- the `threads` summary's date range (2018-11-06..07) picks out only the relevant sub-episode, so reading the thread head-on required searching within it for the right message numbers."
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "question": "Can the printed or spoken content of a mass-produced published work (the text of a book, song lyrics, film dialogue, on-screen subtitles) be recorded as an 'inscription' in the CIDOC CRM / LIDO sense?",
+    "gold_answer": "No. Both the LIDO Inscriptions element and the CRM's E34 Inscription class are defined as physical lettering or markings affixed to a specific physical carrier, not as the abstract textual content shared by a whole class of mass-produced items. When this was asked about a FRBRoo Manifestation Product Type (which is itself a conceptual, not physical, object), the LIDO co-chair replied that an inscription must be bound to a physical carrier, and that this kind of descriptive or quoted textual content belongs instead in lido:objectDescriptionSet, typed as needed. The exchange also surfaced the questioner's own doubt about whether a conceptual Manifestation Product Type should be described with item-level physical attributes at all, but that side issue was not settled.",
+    "key_facts": [
+      "LIDO's Inscriptions element and the CRM's E34 Inscription are defined as physical lettering/markings affixed to a physical carrier",
+      "The LIDO co-chair's answer was that such textual content should go in lido:objectDescriptionSet rather than Inscriptions",
+      "The object in question was a FRBRoo Manifestation Product Type, a conceptual (not physical) object, which is why treating it as having a physical inscription was questioned"
+    ],
+    "gold_threads": ["t0615"],
+    "difficulty": "easy",
+    "why_this_is_hard": "requires connecting the LIDO spec wording to CRM's E34 physical-carrier requirement and the FRBRoo conceptual/physical distinction, not just quoting one line."
+  },
+  {
+    "question": "A book-industry data specialist wanted to map commercial publishing metadata (ONIX) into the museum-oriented LIDO schema. What objections were raised against this, and what range of positions did SIG members take on whether and how it could be done?",
+    "gold_answer": "Michael Hopwood (representing EDItEUR and the Linked Heritage project) proposed mapping ONIX for Books into LIDO, which required treating a generic manifestation/product as though it were a unique physical item and treating printed text as a kind of 'inscription'; he justified this by the project's mandate to feed book/music/AV data into Europeana. Patrick Le Boeuf objected that the mapping was conceptually impossible, since ONIX describes abstract publications while LIDO is designed for unique physical objects, and argued that stretching 'manifestation as item' or 'text as inscription' was not helpful; he suggested FRBRoo was the correct target instead. Martin Doerr agreed LIDO was not intended for this material and that real interoperability should come from mapping everything to RDF under CRM/FRBRoo rather than repurposing LIDO. Regine Stein took a middle position: she agreed LIDO was not meant to hold this data, but argued the crosswalk exercise was still valuable as an analysis of where LIDO's schema does and doesn't fit bibliographic data, useful for practitioners feeding data to Europeana, provided it stayed grounded in the schemas' proper definitions (e.g., inscriptions bound to a physical carrier).",
+    "key_facts": [
+      "Michael Hopwood proposed mapping ONIX for Books to LIDO for the Linked Heritage project, including modelling a manifestation/product as if it were a unique item",
+      "Patrick Le Boeuf called the mapping impossible in principle because ONIX describes abstractions and LIDO describes unique physical objects, and recommended FRBRoo as the proper target instead",
+      "Martin Doerr agreed LIDO was not designed for this and argued interoperability should come from mapping to CRM/FRBRoo-based RDF, not from repurposing LIDO",
+      "Regine Stein took a middle position, endorsing the crosswalk as a useful analysis of LIDO's fit and limits without endorsing using LIDO to store this data"
+    ],
+    "gold_threads": ["t0628", "t0630"],
+    "difficulty": "hard",
+    "why_this_is_hard": "the disagreement runs across two linked threads (the subject line changed mid-discussion) with four participants holding at least three distinguishable positions, none of which is a simple yes/no."
+  },
+  {
+    "question": "The SIG discussed how to represent uncertainty about where an archaeological find or activity took place (e.g. 'found near Ankara'). What approaches were proposed for expressing that kind of uncertainty, and which approach did the SIG actually recommend going forward?",
+    "gold_answer": "The original question proposed reifying the location statement with an E13 Attribute Assignment plus an ad hoc certainty flag. One respondent, drawing on ResearchSpace's practice, argued that E13/P141 lacked precision for annotating a specific statement and described instead using plain RDF reification (rdf:Statement/subject/property/object) combined with the OAC annotation ontology, which had the advantage of letting the object be omitted to talk about a role in general. Martin Doerr explained that P141's range was never defined as 'Property' simply for lack of implementation support at the time, noted that E13/P140/P2/P141 is isomorphic to RDF reification, and said he now regards Named Graphs as a cleaner mechanism than reification for grouping statements together - but stressed that provenance-of-statement machinery like reification or named graphs is a heavy-handed way to express mere certainty/uncertainty. His actual recommendation for uncertainty going forward was not reification or named graphs, but to systematically give CRM properties explicit 'possibly' counterparts (e.g. treating P7_took_place_at as a subproperty of a P7_possibly_took_place_at), guided by a 'recall first' principle so queries still return possibly-correct results instead of nothing under strict open-world semantics.",
+    "key_facts": [
+      "The original proposal was to reify P7_took_place_at via an E13 Attribute Assignment with a custom surety/certainty flag",
+      "An alternative described (from ResearchSpace practice) used plain RDF reification (rdf:Statement) combined with the OAC annotation ontology rather than E13, so the object could be omitted to discuss a role generically",
+      "Martin Doerr's actual recommendation for uncertainty was to supertype/subtype CRM properties with explicit 'possibly' variants (e.g. a P7_possibly_took_place_at), not reification or named graphs",
+      "Martin explicitly distinguished uncertainty/modality from provenance-of-statements, treating reification/named graphs as suited to the latter, not the former"
+    ],
+    "gold_threads": ["t0610"],
+    "difficulty": "hard",
+    "why_this_is_hard": "requires tracking three distinct technical proposals across the thread and separating the reification/named-graph machinery Martin describes from the 'possibly' supertyping he actually recommends for uncertainty."
+  },
+  {
+    "question": "CIDOC CRM has a shortcut property letting a physical object 'depict' something directly, bypassing the conceptual image or inscription it carries. Was a parallel proposal to add equivalent shortcuts for physical objects that merely 'refer to' or are 'about' something (rather than depict it) accepted by the SIG?",
+    "gold_answer": "No resolution is recorded. A member proposed adding physical-domain siblings of the existing depiction shortcut, so a physical object could state a 'refers to' or 'is about' relationship directly instead of first creating an empty conceptual node just to carry that property. Several members supplied real-world examples meant to establish practice (CRM's usual bar for adding constructs): a gravestone epitaph, a blue plaque referring to both a person and a building, and a museum drawing whose documentation names a play and its scriptwriter. Two members initially argued that in every example the 'aboutness' really belongs to an intermediate conceptual object (such as an inscription) being carried by the physical object, so no new shortcut was needed; the proposer countered that this same argument, if valid, would equally invalidate the existing depiction shortcut, so it could not be used selectively against the new proposal. Martin Doerr laid out CRM's general principle that shortcuts over information-bearing intermediate objects are usually avoided because they can work against information integration, but acknowledged the examples were new evidence CRM-SIG would need to take up at a future meeting. The thread ends with the proposer asking whether the issue had even been logged on the CRM issues list, and no reply on the matter appears in the record - the proposal was left open, neither accepted nor rejected.",
+    "key_facts": [
+      "A member proposed new physical-domain shortcut properties, siblings of the existing 'depicts' shortcut, to avoid creating an empty conceptual node just to carry a 'refers to'/'is about' statement",
+      "Two other members argued the 'aboutness' in the examples given (gravestone epitaph, blue plaque, museum drawing referencing a scriptwriter) belongs to an intermediate conceptual object carried by the physical object, not the physical object itself",
+      "Martin Doerr said the examples counted as new evidence that CRM-SIG would need to take up at a future meeting, per CRM's practice-based justification principle",
+      "The thread ends with no confirmation that the proposal was logged, accepted, or rejected"
+    ],
+    "gold_threads": ["t0630"],
+    "difficulty": "unresolved",
+    "why_this_is_hard": "the thread contains a live technical disagreement with examples and counter-arguments on both sides and simply stops without a recorded outcome, so a system must recognize the absence of resolution rather than inventing one from the debate."
+  }
+]

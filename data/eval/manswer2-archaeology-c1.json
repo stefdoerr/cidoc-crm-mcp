@@ -1,0 +1,43 @@
+{
+  "case_id": "archaeology-c1",
+  "answer": "Do not link the axe fragment straight to the context with the same flat relation used for every other find in that layer -- that shortcut asserts a simple containment that reads as unremarkable, when the whole point is that this find is anomalous. CRMarchaeo already has machinery for exactly this distinction. The axe fragment is an E22 Human-Made Object. The colluvial deposit is an A2 Stratigraphic Volume Unit (a subclass of A8 Stratigraphic Unit). The relation between them should be mediated by an A7 Embedding instance, not a direct property: AP18 'is embedding of' links the A7 Embedding to the E22 physical thing, and AP19 'is embedding in' links that same A7 Embedding to the A2 deposit it sits within. The A7 Embedding class's own scope note builds in the caveat this case needs: an embedding is 'normally expected to have been stable from the time of generation of the first instance of A2... However, it may also be due to later intrusion. As an empirical fact, the expert may only be able to decide that a particular embedding is not recent, i.e. has been persisting for longer than the activity that encountered it.' That is precisely the residuality judgement here (an object persisting from long before the deposit that came to surround it), and CRMsci's S19 Encounter Event scope note names the same concern directly: whether an object's embedding 'supports the assumption that the object was not moved since the archaeologically relevant deposition event' -- i.e. whether it is in situ. So: model the axe as embedded in the deposit via A7/AP18/AP19, and use that layer to carry the excavators' note that this embedding is not contemporary with the deposit's formation, rather than collapsing the fact of 'found in' onto an assumption of contemporaneity. On the SIG list itself, when Christian-Emil Ore asked in 2018 whether a find could instead be modelled as its own A8 Stratigraphic Unit, both Martijn van Leusen and Achille Felicetti rejected that: a find is not chronologically a genesis event/process the way a stratigraphic unit is, and the right route is the object embedded in the unit (A7), not the object as a unit.",
+  "classes_proposed": ["E22", "A2", "A7"],
+  "properties_proposed": ["AP18", "AP19"],
+  "rejected_alternatives": [
+    {"option": "A8 (modelling the find itself as its own Stratigraphic Unit)", "why_not": "In thread t1123, Christian-Emil Ore asked exactly this; Martijn van Leusen answered that 'a find should not normally be modeled as a stratigraphic unit, because the latter is intended to represent chronologically separable processes such as cutting and filling,' and Achille Felicetti agreed there is 'usually a clear distinction... between the object and the stratigraphic unit in which the object itself is embedded.'"},
+    {"option": "AP15 + S10 (Material Substantial route)", "why_not": "Felicetti offered this as the alternative pairing for amorphous remains/material substances, not for a discrete formed object like a polished stone axe; AP15's domain/range is A2 -> S10, which fits residue or substance, not a shaped E22 Human-Made Object."},
+    {"option": "A flat 'found in context' link with no A7 Embedding mediation", "why_not": "This is the status quo the case describes ('the same as everything else pulled from it'), and it is exactly what the A7 Embedding scope note is designed to avoid conflating: embedding duration is explicitly independent of the age of the surrounding A2 unit, and CRM gives no other class for holding that distinction if the axe is linked to the context directly."}
+  ],
+  "citations": [
+    "A7", "A2", "AP18", "AP19", "E22", "A8", "S19",
+    {"id": "t1123", "quote": "a find should not normally be modeled as a stratigraphic unit"},
+    {"id": "t1123", "quote": "finds are described as objects embedded in Stratigraphic Units"},
+    {"id": "t1123", "quote": "AP18 + A7 or AP15 + S10"}
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept A2",
+    "docs \"stratigraphic unit\" --kind narrative",
+    "docs \"residual find out of context\"",
+    "issues \"residual find\"",
+    "issues \"intrusive find stratigraphy\"",
+    "concept A7",
+    "concept AP15",
+    "thread t1123",
+    "issue 585",
+    "issue 447",
+    "concept AP18",
+    "concept A8",
+    "concept AP19",
+    "docs \"embedding\" --kind narrative",
+    "thread t0957",
+    "concept E22",
+    "concept S19",
+    "quote t1123 \"should not normally be modeled as a stratigraphic unit\"",
+    "quote t1123 \"finds are described as objects embedded in Stratigraphic Units\"",
+    "quote t1123 \"AP18 + A7 or AP15 + S10\""
+  ],
+  "confidence": "high",
+  "notes": "The base 'docs --kind narrative' search over the 7.3.2 specification text never surfaces CRMarchaeo content (A7/A2/AP18/AP19 are not mentioned in the base narrative), so the real evidence for this case came entirely from 'concept' dossiers and the mailing-list thread t1123, which happens to contain almost the identical question (find vs. stratigraphic unit) already argued out by the SIG in 2018."
+}

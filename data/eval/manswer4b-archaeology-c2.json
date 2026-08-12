@@ -1,0 +1,42 @@
+{
+  "case_id": "archaeology-c2",
+  "answer": "Two records, not one. Under CRMarchaeo, a 'context' is an A8 Stratigraphic Unit -- a physical feature tied to a single genesis event, with P53 has former or current location, P89 falls within, P196 defines (an E92 spacetime volume) and P45 consists of all quantified as necessary on A8 or its parent S20 Rigid Physical Feature. A posthole cut in Trench 3 and a pit fill in Trench 7 cannot share one location, one genesis event or one matter-extent, so they cannot be a single A8 instance that 'turns out' to be two features -- that would break A8's own required properties, not just a naming convention. The right model is two separate stratigraphic-unit instances (the pit fill as A2 Stratigraphic Volume Unit; the posthole, depending on whether the sheet records the cut or the fill, as A3 Stratigraphic Interface or A2), each independently identified. The number clash is then purely an E42 Identifier problem, not an entity-identity problem: E42's own scope note frames uniqueness as holding 'within the context of one or more organisations' -- an organisational convention, not an ontological guarantee -- and P48 has preferred identifier is quantified (0,1:0,n), meaning the model does not forbid one identifier value being P48/P1-linked from more than one E1 entity. So keep both A8-subclass instances, give each P1/P48 '56', and if it helps, record the two original E15 Identifier Assignment acts (by the two supervisors) to document the clash itself rather than silently normalising it away. L54 is same as would be the wrong tool here: it asserts two records are the same real thing, and the trench/feature-type evidence says these are not.",
+  "classes_proposed": ["A8", "A2", "A3"],
+  "properties_proposed": ["P1", "P48", "P53"],
+  "rejected_alternatives": [
+    {"option": "Single A8 instance representing both the posthole and the pit fill", "why_not": "A8's necessary properties (P53 has former or current location -> E53, P89 falls within -> E53, P196 defines -> E92, P45 consists of -> E57) and its scope note tying an instance to one genesis event mean one instance cannot coherently hold two locations, two trenches and two genesis processes."},
+    {"option": "E53 Place / E26 Physical Feature (generic)", "why_not": "Too generic -- S20 Rigid Physical Feature (A8's parent) is subclass of both E26 and E53 specifically to add the single-genesis matter semantics that make A8 the right specialization for a 'context'; plain E53/E26 would drop that."},
+    {"option": "L54 is same as, to reconcile the two card records as one entity", "why_not": "L54 asserts two records co-refer to one real thing. Here the evidence (different trench, different feature type) says they are two distinct physical things that merely share a clerical number -- asserting sameness would misrepresent the record."}
+  ],
+  "citations": ["A8", "A2", "A3", "A7", "S20", "E26", "E53", "E42", "P48", "P1", "L54",
+    "Modelling principles > Reality, Knowledge Bases and CIDOC CRM",
+    "Introduction to the basic concepts",
+    "Issue 427",
+    {"id": "t1227", "quote": "I also support there not being reuse of numbers. There is no end of numbers to choose from."}],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "docs \"stratigraphic unit context\"",
+    "concept A8",
+    "concept A2",
+    "docs \"identifier assigned to more than one\" --kind narrative",
+    "concept A3",
+    "concept E42",
+    "docs \"same identifier used for two different things\" --kind narrative",
+    "\"duplicate context number\"",
+    "thread t1227",
+    "docs \"notion of identity is key\" --kind narrative",
+    "issues \"duplicate identifier same number\"",
+    "docs \"single context recording excavation\"",
+    "connect A8 E42",
+    "quote \"Modelling principles > Reality, Knowledge Bases and CIDOC CRM\" \"unique names, titles or constructed identifiers\" (failed: unknown source id)",
+    "concept A7",
+    "concept P48",
+    "quote t1227 \"I also support there not being reuse of numbers\" (FOUND, message [4], George Bruseker)",
+    "quote E42 \"in order to identify them uniquely and permanently within the context of one or more organisations\" (failed: unknown source id)",
+    "concept S20",
+    "issue 427"
+  ],
+  "confidence": "high",
+  "notes": "No thread or SIG issue addresses archaeological duplicate context numbers directly; the two-records conclusion rests on A8's own required properties, E42's scope note on organisational (not global) uniqueness, and P48's (0,1:0,n) quantification, plus the loosely analogous Issue 427 / thread t1227 precedent against identifier duplication/reuse in the CRM's own numbering (not excavation data -- cited only as an analogous stance, not a ruling on this case)."
+}

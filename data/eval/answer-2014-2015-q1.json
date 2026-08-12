@@ -1,0 +1,13 @@
+{
+  "question_id": "2014-2015-q1",
+  "answer": "In the September 2014 thread 'More subclasses for E33_Linguistic_Object?', Dan Matei asked how to apply P72 has_language to E49 Time Appellation, E48 Place Name, and E75 Conceptual Object Appellation, and proposed making those classes subclasses of E33 Linguistic Object. Martin Doerr recommended against this: use multiple instantiation instead (e.g. an instance can be declared simultaneously as E49 Time Appellation and E33 Linguistic Object) rather than subclassing. He argued that most appellations (most place names, etc.) do not have a language at all, so making Linguistic Object a superclass of Appellation just because the property sometimes applies would violate the principles of generalization and break the small, clean class hierarchy of the CRM. Stephen Stead agreed explicitly: 'Not all are [linguistic objects], so making them sub-classes is a lie. In those cases where they are, then multiple instantiation is the correct solution.' The episode index confirms this as a 'decided' outcome for the thread.",
+  "found": true,
+  "cited_threads": ["t0785"],
+  "queries_run": [
+    "search \"language of place names calendar period names\" -k 10",
+    "thread t0785",
+    "concept E33"
+  ],
+  "confidence": "high",
+  "notes": "First hybrid search surfaced thread t0785 directly (hits on E33 place-name language discussion from 2014). Reading the full thread and cross-checking the E33 concept chronology (which marks the 2014-09-13 episode on this exact question as 'decided') confirmed the recommendation: use multiple instantiation instead of subclassing E48/E49/E75 under E33 Linguistic Object."
+}

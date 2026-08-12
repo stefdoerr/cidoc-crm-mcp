@@ -1,0 +1,21 @@
+{
+  "question_id": "2014-2015-q4",
+  "answer": "Not settled with a single universal yes/no. Martin Doerr opened ISSUE 'Shortcut semantics' in Aug 2014 (thread t0780), noting that while the full event path always implies the shortcut, only in a few cases (e.g. 'rights held by') does the shortcut logically imply the intermediate path exists. Vladimir Alexiev argued a shortcut should never infer a long path (Skolemization/YAGNI concerns); Doerr, Detlev Balzer and Christian-Emil Ore argued the intermediate node's existence can be logically inferred even if not materialized. No consensus was reached in that thread. As homework, Ore then produced a classification (May 2015, thread t0855) sorting individual shortcuts into 'strong' (shortcut implies the full path/intermediate node exists, e.g. P105 right held by, P56 bears feature, P107 has current or former member, P49-P52 keeper/owner) versus 'weak' (does not imply it, e.g. P53/P55 location, P59 has section, P152 has parent) -- explicitly noting the classification depends on 'ontological commitment', i.e. it is property-specific, not a single rule. The SIG kept revisiting this for years: in the Oct 2019 homework for ISSUE 357 (thread t1268), Ore adopted the pragmatic simplification of 'defining all shortcuts as weak' in the formal FOL spec text, and in Nov 2019 (ISSUE 420, thread t1287) stated 'in general, we don't describe the CRM shortcuts as strong', treating strong shortcuts as rare exceptions found case by case. The topic resurfaced again in 2022 under ISSUE 613 ('weak inverse shortcuts'), where the group found even that term 'opaque'/'problematic'. So the SIG never closed this with one general logical rule -- they settled instead on a per-property, case-by-case classification (strong vs weak) that was still being refined a decade later.",
+  "found": true,
+  "cited_threads": ["t0780", "t0855", "t1268", "t1287", "t1636"],
+  "queries_run": [
+    "search \"shortcut property implies event path\" -k 10",
+    "thread t0780",
+    "search \"shortcut semantics decision closed issue\" -k 10 --after 2014 --before 2016",
+    "thread t0855",
+    "search \"P108 has produced produced by shortcut strong weak\" -k 10",
+    "search \"strong shortcut weak shortcut\" -k 10 --after 2015",
+    "thread t1287",
+    "thread t1268",
+    "search \"P108 produced by strong weak shortcut production event\" -k 10",
+    "search \"produced by shortcut production event implies\" -k 10 --mode bm25",
+    "concept P108"
+  ],
+  "confidence": "high",
+  "notes": "No CRM property is literally called 'produced by' as a bare shortcut (P108 has produced already sits between E12 Production and E24, it is not itself the shortcut); the question's example is illustrative of the general shortcut/full-path debate, which the archive covers extensively and by exact name ('ISSUE: Shortcut semantics', 'strong/weak shortcuts'). All key threads (t0780, t0855) fall precisely in the 2014-2015 window named by the question_id."
+}

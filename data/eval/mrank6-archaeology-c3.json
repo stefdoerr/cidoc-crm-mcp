@@ -1,0 +1,41 @@
+{
+  "case_id": "archaeology-c3",
+  "ranking": ["B", "C", "A"],
+  "per_answer": [
+    {
+      "label": "A",
+      "class_count": 2,
+      "breadth": "under-specified",
+      "illegal_properties": [],
+      "scope_note_violations": [
+        "E53 (as used) / P168 -- E94's own scope note (confirmed verbatim via `search.py concept E94` and issue390#outcome) says 'using an instance of E94 Space Primitive for approximating the actual extent of some place always defines a (declarative) instance of E53 Place in its own right,' and Issue 391 states 'If a place is defined by P168, it can only be declarative' (issue391#current-s0006). Answer A explicitly rejects this: it hangs P168 'directly off the same E53 Place node' obtained via P156 occupies -- i.e. it equates the phenomenal place of the cut with the declarative geometry-place, which the model's own notes forbid. It also never types the cut more specifically than the domain of P156 (E18), missing CRMarchaeo's A3 Stratigraphic Interface, the most specific applicable class -- a correct-but-too-general defect."
+      ],
+      "unsupported_citations": [
+        "t1119 -- Answer A claims 'Robert Sanderson's worked RDF example attach[es] a POLYGON(...) WKT literal directly via P168_place_is_defined_by to an E53 Place -- the same shape of fact ... hung directly off the same E53 Place node.' Checked in full: Sanderson's actual worked example (message [3], 2018-08-03) attaches P168_place_is_defined_by to a newly-minted SP6_Declarative_Place instance reached from the phenomenal E53 ('Rangiora') via q11i_approximated_by -- i.e. exactly the separate-node pattern B and C use, and the opposite of what A cites it for.",
+        "t1119 -- Answer A's notes lean on Sanderson's aside 'if only one approximation was needed, E53 and SP6 could be collapsed' as support for treating the declarative/phenomenal split as an optional CRMgeo refinement. The full sentence continues '... as SP6 is a subclass of E53. (Though that doesn't seem like a good idea...)' -- Sanderson immediately disavows the collapse A quotes him for."
+      ],
+      "verdict": "Central move (reuse the phenomenal Place node itself as the P168 target) is a direct, verifiable scope-note violation, and the one thread A leans on to justify it (t1119) actually shows the opposite pattern when read in full, twice. Also never reaches CRMarchaeo's A3, the specific class the case calls for."
+    },
+    {
+      "label": "B",
+      "class_count": 4,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Correctly mints a new declarative E53 via P168/E94, keeps A3 Stratigraphic Interface (verified as the most specific fit -- its scope note names surfaces 'formed by the removal or destruction of existing stratifications') as the phenomenal place, and joins them with P189, explicitly warning that connect A3 E94 will offer P168 straight on the cut and that this must be refused. Adds S23 Position Determination/O30 for survey provenance -- checked against S23's scope note (theodolite, 'more than one dimension', 'outer walls of an excavated settlement' all verified verbatim) -- which is load-bearing, not decorative: it answers the actual reason people externalize geometry (no typing/provenance on a bare literal, per Sanderson in t1119). Flags P157's necessity on E53 (confirmed required on E53 itself) and conditionally flags A10 Excavation Interface rather than falsely dismissing it. One open thread (P168's FOL exclusion clauses) is honestly marked unresolved rather than overclaimed."
+    },
+    {
+      "label": "C",
+      "class_count": 3,
+      "breadth": "neither",
+      "illegal_properties": [],
+      "scope_note_violations": [],
+      "unsupported_citations": [],
+      "verdict": "Same correct core pattern as B (E94/P168 -> new declarative E53 -> P189 -> A3), stated more tightly, with the sharpest version of the decisive warning: 'connect A3 E94 will happily offer you P168 directly on the cut ... Do not take it,' including the consequence that a re-survey would otherwise produce a second, contradictory definition of the cut's identity. All citations checked (issue391#current-s0006, issue390#background-s0000, crm732#s0074, t1119) are accurate and support the claims made. Slightly thinner than B: does not mention P157's necessity on the new declarative Place and skips the A10 Excavation Interface caveat, but nothing it says is wrong."
+    }
+  ],
+  "decisive_difference": "All three converge on 'keep it inside,' but A instantiates that answer wrongly: it hangs the E94 geometry directly on the same E53 Place node already reached via P156 occupies, which contradicts E94's own scope note ('always defines a (declarative) instance of E53 Place in its own right') and Issue 391 ('If a place is defined by P168, it can only be declarative'). A's own cited support for this move (thread t1119) was checked and found to show the opposite pattern -- Sanderson's actual worked example puts P168 on a separate SP6 node, not the phenomenal place -- so the citation is not just unhelpful but contradicts the claim it is attached to. B and C both correctly mint a new declarative Place, tie it to A3 Stratigraphic Interface (the specific CRMarchaeo class for a grave cut) via P189, and both explicitly flag and reject the trap of putting P168 straight on the cut despite the tool offering it. Between B and C the gap is thin: B additionally covers survey provenance (S23/O30), P157's necessity, and a conditional A10 caveat, giving marginally more complete coverage without any padding; C is tighter and states the central trap slightly more sharply. A is decisively last; B over C is a close call.",
+  "confident": false,
+  "notes": "The B-vs-C order rests on a thin margin (B's extra, verified-load-bearing S23/O30 provenance layer and its mention of P157's necessity vs. C's greater concision) and could plausibly flip on a re-read; I would not call that gap decisive. The A-vs-{B,C} gap is solid and independently verified against the ontology, the E94/P168 scope notes, Issue 390/391 text, and a full read of thread t1119 -- A's key citation for its central claim actually contradicts that claim. No provenance leakage noticed; I did not attempt to guess which system produced which answer."
+}

@@ -1,0 +1,36 @@
+{
+  "case_id": "classchoice-c3",
+  "answer": "Record the basket's E12 Production as carried out (P14) by an E74 Group representing 'the women of [the named household]' -- the field diary's own account, and E74's scope note gives 'family' and household-like collectives as canonical instances of the class ('Married couples and other concepts of family are regarded as particular examples of E74 Group'), so this is not a stretch of the model. Do not name the three later-identified women as makers of this basket via P14/E21 Person: the community consultation explicitly could not confirm that any of them handled this particular object, so attaching named individuals to this specific production would assert participation the source does not support -- exactly the 'workshop of Rembrandt' pattern the SIG itself flagged in thread t1477: 'some member(s) of the group carried out the activity, but also that not all members of the group did it, and the group is not necessarily \"named\", rather constructed.' Collapsing to a bare, unspecified E39 Actor is also wrong in the other direction: it would throw away information the diary actually gives (a specific, identifiable household), when E74 Group documents that directly. The senior weaver's directing role can be carried by the same P14 statement with a P14.1 'in the role of' qualifier (e.g. 'senior weaver') on the Group's production, without inventing a separate named E21 Person the source never identifies. The three named women, if worth recording at all, belong with the broader communal work session as P11 had participant, not as makers of this specific basket.",
+  "classes_proposed": ["E12", "E74"],
+  "properties_proposed": ["P14"],
+  "rejected_alternatives": [
+    {"option": "E21 Person (name the three later-identified women as makers)", "why_not": "The case states the consultation could not confirm which of the three, if any, handled this particular basket. P14 to named E21 Person instances would assert a specific-individual attribution the source explicitly withholds; thread t1477 (Groups and carried out by) describes this exact trap -- a group activity where 'not all members of the group did it' and we don't know which ones."},
+    {"option": "Generic, unspecified E39 Actor", "why_not": "E39 is the superclass of E74 Group and E21 Person and is the right range for P14 in general, but instantiating the maker as bare E39 (rather than E74) would discard information actually in hand -- the diary identifies a specific household, which is exactly what E74's scope note is for. Issue 2 (Make the scope note for Actor more explicit) records the SIG's own guidance that individuals go to E21 and groups go to E74, not that uncertain cases default to unspecified E39."}
+  ],
+  "citations": ["E39", "E74", "E12", "P14",
+    {"id": "t1477", "quote": "some member(s) of the group carried out the activity, but also that not all members of the group did it"},
+    "2"
+  ],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E39",
+    "concept E74",
+    "docs \"uncertain attribution of production\" --kind narrative",
+    "docs \"maker unknown group of people\" --kind narrative",
+    "docs \"group of people acting collectively production\"",
+    "docs \"P14 carried out by\" --kind declaration",
+    "\"production carried out by a group when individual makers are unknown\"",
+    "\"workshop production several makers uncertain individual\"",
+    "issues \"group as maker uncertain individual production\"",
+    "issues \"P14 carried out by group of unnamed individuals\"",
+    "thread t1477",
+    "issue 2",
+    "quote t1477 \"some member(s) of the group carried out the activity, but also that not all members of the group did it\"",
+    "quote 2 \"Individual people should be documented as instances of E21 Person, whereas groups should be documented as instances of\" (UNKNOWN SOURCE -- quote tool only accepts thread/episode/message/doc-chunk ids, not issue numbers)",
+    "quote issue2 ... (UNKNOWN SOURCE, same reason)",
+    "quote Issue-2 ... (UNKNOWN SOURCE, same reason)"
+  ],
+  "confidence": "medium",
+  "notes": "search.py quote does not accept issue-register ids, so Issue 2's outcome text ('Individual people should be documented as instances of E21 Person, whereas groups should be documented as instances of E74 Group') is cited by issue number only and paraphrased in the answer, never put in quotation marks. The t1477 quote was verified FOUND before use."
+}

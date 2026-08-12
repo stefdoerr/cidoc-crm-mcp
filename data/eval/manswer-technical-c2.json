@@ -1,0 +1,31 @@
+{
+  "case_id": "technical-c2",
+  "answer": "This is in scope, and the question poses a false choice: CRM lets you do both at once. Record the 1876 construction as one E12 Production (P108 has produced -> the engine, an E22 Human-Made Object) carried out by the ironworks. For 1932, do NOT model it as a second E12 Production of the engine -- that is exactly what would wrongly imply the whole engine was built twice, since P108 has produced is the property that asserts a thing came into existence via that activity. Instead use the Part Addition/Part Removal pair, which the CRM-SIG designed in 2002 (thread t0056) precisely for 'replacing a part of an object': an E80 Part Removal (P113 removed: old cast-iron beam, P112 diminished: the engine) and an E79 Part Addition (P111 added: new steel beam, P110 augmented: the engine). Critically, P110 augmented and P112 diminished are siblings of P108 has produced under the same superproperty P31 has modified (was modified by), not siblings of each other under production -- so acting on the engine through P110/P112 keeps the engine's own history in the 'modified' lane, never the 'produced' lane, a second time. The engine's identity is unaffected: Martin Doerr's own position in thread t1170 (on E19's identity criteria, discussing the Ship of Theseus) is that CRM identity for a physical object rests on continuity of coherence and functionality, not on retained substance -- an object with all its parts replaced is still regarded as identical. So the engine (E22) persists as one continuously-identified thing across 1876-1932; only P46 is composed of (engine, beam) changes. You can still record that the new beam was itself produced by the different firm (a second, separate E12 Production, P108 has produced -> new beam) if you want that provenance -- that detail is orthogonal and does not leak into the engine's own record, exactly the outcome the ironworks trust wants. If you don't even need the beam's separate maker/production recorded, the plainest option is a single E11 Modification with P31 has modified -> the engine (the same idiom used in the CRM's own worked example: 'The rebuilding of the German Reichstag in Berlin (E11) has modified the Reichstag in Berlin (E24)') -- but given the case explicitly wants the different firm and material noted, the Part Addition/Removal route is the more informative and still-correct path.",
+  "classes_proposed": ["E22", "E12", "E79", "E80", "E11"],
+  "properties_proposed": ["P108", "P111", "P110", "P113", "P112", "P31", "P46"],
+  "rejected_alternatives": [
+    {"option": "E12 Production applied a second time to the engine itself (P108 has produced -> engine, dated 1932)", "why_not": "P108 has produced asserts the engine came into existence via that activity; using it again for 1932 is precisely the 'engine built twice' implication the trust wants to avoid."},
+    {"option": "E81 Transformation", "why_not": "E81's own scope note (seen via the E11/E12 concept dossiers) requires the destruction of the original whole and simultaneous production of a new whole preserving its substance -- the engine is never destroyed here, only one part is swapped, so E81 doesn't fit."}
+  ],
+  "citations": ["E11", "E12", "E79", "E80", "P31", "P108", "P110", "P111", "P112", "P113", "t0056", "t1170"],
+  "in_scope": true,
+  "queries_run": [
+    "ontology",
+    "concept E11",
+    "concept E79",
+    "concept E80",
+    "docs \"replacing a part of an object without destroying its identity\" --kind narrative",
+    "docs \"part addition part removal whole identity\" --kind narrative",
+    "\"ship of theseus part replacement identity\"",
+    "thread t1170",
+    "thread t0056",
+    "thread t0654",
+    "concept E12",
+    "concept P31",
+    "docs \"modification versus production of the same thing\" --kind narrative",
+    "concept P110",
+    "concept P112"
+  ],
+  "confidence": "high",
+  "notes": "The concept dossier's siblings block (P110/P112 as siblings of P108 under P31) made the key structural point trivial to see once I looked -- exactly the intended workflow. The mailing-list search surfaced the 2002 Paris scope-note thread (t0056) and Doerr's Ship-of-Theseus identity remark (t1170) unprompted, which were the strongest citations; without full-text search over the archive I would not have found either by guessing keywords."
+}

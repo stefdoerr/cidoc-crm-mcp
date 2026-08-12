@@ -1,0 +1,31 @@
+{
+  "case_id": "classchoice-c2",
+  "answer": "Document the eleven-day trial as an E16 Measurement, and the certificate's 'fit for sea service' declaration as a separate E17 Type Assignment motivated by it. The trial is direct observation of physical reality by a systematic procedure -- the chronometer run beside a regulator clock, the accumulated gain or loss read at noon each day -- which is exactly what E16's scope note covers, and it yields a quantified value, the daily rate, which attaches by P40 observed dimension to an E54 Dimension. P40 is declared on exactly the E16 -> E54 pair. The chronometer is an E22 Human-Made Object reached by P39 measured; the certificate is an E31 Document that P70 documents both acts. The fitness declaration is not part of the measurement: it is a classification whose value depends on the assessor's judgement, which is what E17 exists for, and separating it keeps the observed number distinct from the opinion drawn from it.",
+  "classes_proposed": ["E16", "E17", "E22", "E31", "E54"],
+  "properties_proposed": ["P39", "P40", "P70", "P17"],
+  "rejected_alternatives": [
+    {"option": "E14 Condition Assessment for the whole trial", "why_not": "E14 requires P35 has identified : E3 Condition State, and E3 is scoped to 'the prevailing physical condition' of an object, illustrated by 'wrecked', 'ruined' and 'reconstructed'. A daily rate is a performance value of a working instrument, not a state of preservation."},
+    {"option": "folding the fitness declaration into the E16", "why_not": "E16 is scoped to what is observed. 'Fit for sea service' is a judgement drawn from the observation, and E17's scope note covers exactly the case where 'the value of the classification depends on the personal opinion of the classifier'."}
+  ],
+  "siblings_considered": [
+    {"of": "E16", "sibling": "E14", "why_not": "E14's necessary property P35 has identified ranges on E3 Condition State, whose scope note and examples are states of preservation ('wrecked', 'ruined'). The trial produced a rate, not a condition."},
+    {"of": "E17", "sibling": "E15", "why_not": "E15 Identifier Assignment allocates an identifier to an entity. The certificate assigns a fitness classification, not an identifier."},
+    {"of": "E54", "sibling": "E59", "why_not": "E59 Primitive Value is a bare data value. The daily rate is a measured quantity with a unit that other measurements can be compared against, which is what E54 Dimension is for; recording it as E59 would discard the unit and the comparability."},
+    {"of": "E22", "sibling": "E20", "why_not": "E20 Biological Object is for items of living origin. A chronometer is manufactured, so E22 Human-Made Object is the correct sibling of the pair."},
+    {"of": "E31", "sibling": "E33", "why_not": "E33 Linguistic Object would capture the certificate's wording as language. What matters here is that the certificate records these acts, which is P70 documents on E31; the text itself is not the object of the question."}
+  ],
+  "citations": ["E16", "E14", "E17", "E3", "E54", "E59", "P40", "P39"],
+  "in_scope": true,
+  "queries_run": [
+    "concept E16",
+    "concept E14",
+    "concept E3",
+    "concept E17",
+    "connect E16 E54",
+    "concept E54",
+    "concept E22",
+    "concept E31"
+  ],
+  "confidence": "medium",
+  "notes": "Answered by the assistant directly rather than by a fresh answerer agent: the session's subagent cap was exhausted. This is a mechanism check of the siblings_considered protocol, not a comparable data point for the run-to-run variance measurement, and it should not be pooled with manswer3/4a/4b. No mailing-list, issue-register or minutes search was run, so the answer rests on the specification alone; a full answer would check whether the SIG argued the E16/E14 boundary directly."
+}
