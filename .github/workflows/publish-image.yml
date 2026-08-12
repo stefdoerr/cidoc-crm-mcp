@@ -18,13 +18,19 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Tag to publish (default: latest only)"
+        description: "Version to publish, e.g. v0.2.0 (blank: :latest only)"
         required: false
         default: ""
 
 env:
   REGISTRY: ghcr.io
   IMAGE: ${{ github.repository }}
+  # What this run calls itself: the dispatch input if one was given, else the
+  # name of the pushed tag, else `dev`. Both jobs need it -- `build` stamps it
+  # into an image label, `manifest` turns it into image tags -- and a
+  # workflow-level env is the one place both can read it without threading a
+  # job output between them.
+  VERSION: ${{ github.event.inputs.tag || (github.ref_type == 'tag' && github.ref_name) || 'dev' }}
 
 jobs:
   build:
@@ -46,6 +52,18 @@ jobs:
       packages: write
 
     steps:
+      # A malformed version should cost seconds, not the 40 minutes it takes
+      # to reach `imagetools create` with the wheels and the corpus already
+      # built. A leading `v` is optional; the tags in `manifest` strip it.
+      - name: Check the version
+        if: env.VERSION != 'dev'
+        run: |
+          echo "publishing VERSION=$VERSION"
+          [[ "$VERSION" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+([-+.].*)?$ ]] || {
+            echo "::error::'$VERSION' is not a semver version (want e.g. v0.2.0)"
+            exit 1
+          }
+
       - uses: actions/checkout@v4
 
       # The runner has ~14GB free and this build wants most of it: 1.4GB of
@@ -77,7 +95,7 @@ jobs:
           platforms: ${{ matrix.platform }}
           build-args: |
             VCS_REF=${{ github.sha }}
-            VERSION=${{ github.ref_type == 'tag' && github.ref_name || 'dev' }}
+            VERSION=${{ env.VERSION }}
           # Registry cache, not type=gha: the GitHub Actions cache is capped
           # at 10GB per repository and these layers alone would thrash it,
           # evicting the 876MB corpus layer that is the whole reason to cache.
@@ -133,13 +151,18 @@ jobs:
         id: meta
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
-          # An immutable version tag plus a moving :latest. `type=raw` is
-          # unconditional on purpose: a manual run with no version tag must
-          # still produce at least one tag, or `imagetools create` is handed
-          # an empty -t list and fails at the last step of a 40-minute build.
+          # An immutable version tag plus a moving :latest. `value=` is what
+          # makes the dispatch path work: left to itself `type=semver` reads
+          # the git ref, which on a manual run is a branch, so the version the
+          # operator typed was accepted and then silently ignored.
+          #
+          # `type=raw` stays unconditional on purpose: a manual run with no
+          # version must still produce at least one tag, or `imagetools
+          # create` is handed an empty -t list and fails at the last step of a
+          # 40-minute build.
           tags: |
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{version}},value=${{ env.VERSION }},enable=${{ env.VERSION != 'dev' }}
+            type=semver,pattern={{major}}.{{minor}},value=${{ env.VERSION }},enable=${{ env.VERSION != 'dev' }}
             type=raw,value=latest
 
       - name: Create the manifest list
