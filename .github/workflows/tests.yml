@@ -36,7 +36,11 @@ jobs:
       # store the whole ~5GB download (the lock pins the CUDA torch build, so
       # that includes the nvidia/* wheels) against a 10GB per-repository
       # budget. Several GB to save a few seconds is the wrong trade.
-      - uses: astral-sh/setup-uv@v10
+      # An exact version, not a floating `@v10`: setup-uv stopped
+      # publishing moving major tags at v8 ("immutable releases and
+      # secure tags"), so `@v10` does not resolve and the job fails at
+      # Set up job. Every other action here still has its major tag.
+      - uses: astral-sh/setup-uv@v10.1.0
         with:
           enable-cache: false
 
