@@ -392,9 +392,13 @@ def stage_fetch(cfg: dict, repo: str, vectors: bool) -> None:
     need for torch or an embedding model at all. Hybrid and vector search
     need the rest.
 
-    Verifies rather than trusts. Each store records the embedding model it
-    was built with, and a store embedded with one model and queried with
-    another returns confident nonsense rather than an error.
+    Prints each store's recorded embedding model, because a store embedded
+    with one model and queried with another returns confident nonsense
+    rather than an error. This is a report, not a check: the binding that
+    actually enforces it is in `Retriever._chroma`, which reads the model
+    out of each store's own meta.json at query time rather than out of
+    config. Nothing here can verify it, because at fetch time there is no
+    query side to compare against.
     """
     from huggingface_hub import snapshot_download
 

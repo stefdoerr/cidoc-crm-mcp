@@ -116,7 +116,7 @@ def apply_quote_rules(
 
     # Thin-reply guard: "I agree" is unretrievable and unsummarizable alone.
     counts["thin_reply_context"] = 1
-    context = [_MARK + q for q in quoted[:context_lines] if q or True][:context_lines]
+    context = [_MARK + q for q in quoted[:context_lines]]
     kept = context + ([""] if context and content else []) + content
     spans = [(0, len(context) - 1)] if context else []
     return kept, spans, counts

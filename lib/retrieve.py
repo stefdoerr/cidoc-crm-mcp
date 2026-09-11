@@ -641,7 +641,6 @@ class Retriever:
                 docs = store.similarity_search(vector_query, k=k_each)
                 rankings.append([d.metadata["chunk_id"] for d in docs])
                 weights.append(vector_weight_for(query))
-                self._chunk_meta = {d.metadata["chunk_id"]: d for d in docs}
             return rrf_fuse(rankings, weights=weights)
 
         def build_results(fused: list[tuple[str, float]]) -> list[dict]:
@@ -811,13 +810,12 @@ class Retriever:
             kind = set(SPEC_KINDS)
         if isinstance(kind, str):
             kind = {kind}
-        if kind is not None:
-            unknown = kind - _DOCUMENT_KINDS
-            if unknown:
-                raise ValueError(
-                    f"Unknown document kind(s) {sorted(unknown)}; "
-                    f"expected any of {sorted(_DOCUMENT_KINDS)}"
-                )
+        unknown = kind - _DOCUMENT_KINDS
+        if unknown:
+            raise ValueError(
+                f"Unknown document kind(s) {sorted(unknown)}; "
+                f"expected any of {sorted(_DOCUMENT_KINDS)}"
+            )
 
         fts_path = self.document_store_dir / "fts.sqlite3"
         asked = {m.group(1).upper() for m in _QUERY_ID.finditer(query)}
@@ -872,7 +870,8 @@ class Retriever:
                 and rec.get("concept_id") in asked
                 and not (kind and rec.get("kind") not in kind)
             ]
-            order = promoted + [cid for cid, _ in fused if cid not in set(promoted)]
+            already = set(promoted)
+            order = promoted + [cid for cid, _ in fused if cid not in already]
             results = []
             for chunk_id in order:
                 rec = self.documents.get(chunk_id)

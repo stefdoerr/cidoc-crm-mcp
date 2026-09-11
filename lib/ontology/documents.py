@@ -367,7 +367,6 @@ def crm_example_class_uses(xml_path: str | Path) -> list[dict]:
         repeated = Counter(c.tag for c in node)
         seen: Counter = Counter()
         for child in node:
-            text = (child.findtext("in_class") or "").strip() if len(child) else ""
             if child.tag == "in_class" and (child.text or "").strip():
                 raw = child.text.strip()
                 found = _IN_CLASS.match(raw)
@@ -388,7 +387,7 @@ def validate_class_labels(onto: dict, uses: list[dict]) -> list[dict]:
     Three outcomes, kept apart:
       * `malformed`   -- no identifier could be read at all ("E:55")
       * `unknown_class` -- the id resolves to nothing
-      * `stale_label` -- the id is real and the label is not the current one
+      * `label_mismatch` -- the id is real and the label is not the current one
 
     A stale label is reported, not corrected: it is usually a name the
     standard used to carry, and the reader has to decide whether they are
