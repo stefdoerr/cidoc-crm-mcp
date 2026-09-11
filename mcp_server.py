@@ -706,7 +706,7 @@ def build_server(archive: bool = True) -> MCPServer:
     is for the genuine "data is missing" case, and a caller who explicitly
     asked for the layer off already knows why it is off.
     """
-    server = MCPServer(name="cidoc-crm", instructions=INSTRUCTIONS, version="0.1.1")
+    server = MCPServer(name="cidoc-crm", instructions=INSTRUCTIONS, version="0.1.2")
 
     @server.tool(description="Look up one CIDOC CRM identifier or label: "
                              "definition, hierarchy, domain/range, siblings, "
