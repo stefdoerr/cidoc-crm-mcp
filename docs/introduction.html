@@ -262,21 +262,12 @@ is not a CRM property at all. Not a sample, and not only the links somebody
 thought to doubt. Measured on this build: a 10,000-object export — 30,000
 links — checked in <b>eight seconds</b>.</p>
 
-<p>Two things make that trustworthy rather than merely fast.</p>
-
-<p>The first is that the validator reads the file, and not the assistant's
-account of the file. That sounds like a quibble and is not. An assistant asked
-to check its own work will start by extracting what it believes it wrote, and
-the extraction is where an error quietly disappears. One run pulled a hundred
-shapes out of its own finished XML, resolving each name to an identifier on the
-way — so <code>changed_ownership_by</code>, which is not a CRM label at all,
-reached the validator already turned into P24. It passed, and shipped four
-times. An earlier attempt with no validator, checking the names by hand against
-real labels, had caught that same string. Having a validator had made the
-checking narrower, and reading the artifact is what fixes that.</p>
-
-<p>The second is that every finding names the record it came from, so a report
-on a hundred thousand objects is a worklist rather than a verdict.</p>
+<p>Two things make that trustworthy rather than merely fast. The validator
+reads the file itself, not the assistant's account of it — an assistant asked
+to check its own work extracts what it believes it wrote first, and that
+extraction is where an error disappears. And every finding names the record it
+came from, so a report on a hundred thousand objects is a worklist rather than
+a verdict.</p>
 
 <h3>Asking the model questions</h3>
 
