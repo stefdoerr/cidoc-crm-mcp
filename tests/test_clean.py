@@ -109,6 +109,32 @@ def test_clean_message_tags_quoted_entities_separately(cfg, onto):
     assert "E22" in rec["entities_quoted"]
 
 
+def test_a_quoted_id_is_attributed_the_same_way_whether_or_not_it_is_current(cfg, onto):
+    """E84 is deprecated and E22 is not; neither is this author's assertion.
+
+    `entities_historical` used to fold the quoted region in while `entities`
+    left it out, and both `search --entity` and the mention count on
+    `concept` read the two concatenated -- so a message that merely quoted
+    someone else was reachable by the deprecated id and not by the current
+    one. 349 of 5,400 messages carry a current id only in quoted text.
+    """
+    raw = (
+        "Message-ID: <q@y>\nFrom: a@b.org\nSubject: t\n\n"
+        "> E22 and E84 are both the issue\n"
+        "I disagree.\n"
+        "> and E41 too\n"
+        "So does P2.\n"
+    )
+    rec = clean_message(email.message_from_string(raw), 0, cfg, onto)
+    assert "E22" in rec["entities_quoted"]
+    assert "E22" not in rec["entities"]
+    assert "E84" not in rec["entities_historical"]
+
+    # What `--entity` and the mention count actually read.
+    reachable = rec["entities"] + rec["entities_historical"]
+    assert "E22" not in reachable and "E84" not in reachable
+
+
 def test_record_is_json_serializable(cfg, onto):
     raw = "Message-ID: <j@y>\nFrom: a@b.org\nSubject: t\n\nbody\n"
     rec = clean_message(email.message_from_string(raw), 0, cfg, onto)

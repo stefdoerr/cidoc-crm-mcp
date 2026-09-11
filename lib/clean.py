@@ -80,7 +80,7 @@ def clean_message(msg, index: int, cfg: dict, onto: dict) -> dict:
     own_text = "\n".join(ln for ln in kept if not ln.startswith("| "))
     subject = decode_header_value(msg.get("Subject"))
     entities_body, hist_body = extract_entities(own_text, pattern, onto)
-    entities_quoted, hist_quoted = extract_entities(quoted_text, pattern, onto)
+    entities_quoted, _hist_quoted = extract_entities(quoted_text, pattern, onto)
     entities_subject, hist_subject = extract_entities(subject, pattern, onto)
 
     # Subject-line ids fold into `entities`, not `entities_quoted`. Even on a
@@ -91,8 +91,21 @@ def clean_message(msg, index: int, cfg: dict, onto: dict) -> dict:
     # discussion itself lives only in a quoted block this message stripped:
     # a thread titled "NEW ISSUE ... E55" is about E55 regardless of where
     # the word last appeared verbatim.
+    #
+    # The same three regions feed both fields, deliberately.
+    # `entities_historical` used to fold the quoted region in while
+    # `entities` left it out, so a deprecated id quoted from someone else
+    # counted as this message's own and a current one did not. Both
+    # `search --entity` and the mention count on `concept` read the two
+    # fields concatenated, so one message was reachable by E84 and not by
+    # E22. 349 of 5,400 messages carry a current id only in quoted text;
+    # there is no reason the deprecated ones should behave differently.
+    #
+    # Quoted current ids survive in `entities_quoted`. Quoted historical
+    # ones are dropped rather than given a fifth field, because nothing
+    # reads one -- if that changes, extract_entities already returns them.
     entities = sorted(set(entities_body) | set(entities_subject))
-    entities_historical = sorted(set(hist_body) | set(hist_quoted) | set(hist_subject))
+    entities_historical = sorted(set(hist_body) | set(hist_subject))
 
     message_id = (msg.get("Message-ID") or f"__no_id_{index}").strip()
     name, addr = split_from(msg.get("From"))
