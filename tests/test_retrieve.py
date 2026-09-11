@@ -58,11 +58,20 @@ class _FakeEmbeddings:
 
 
 def _make_fake_chroma(calls: dict):
+    class _FakeEmbeddings:
+        def embed_query(self, text):
+            return [0.0, 1.0]
+
     class _FakeChroma:
+        # `embeddings` and the by-vector search, because retrieval embeds the
+        # query once itself and then searches by that vector -- see
+        # test_widening_the_pool_does_not_re_embed_the_query.
+        embeddings = _FakeEmbeddings()
+
         def __init__(self, **kwargs):
             calls["n"] += 1
 
-        def similarity_search(self, query, k):
+        def similarity_search_by_vector(self, embedding, k=4, **kwargs):
             return []
 
     return _FakeChroma
@@ -492,3 +501,62 @@ def test_the_build_side_uses_the_same_rule():
     import lib.index
 
     assert "model_kwargs_for(device)" in inspect.getsource(lib.index._build_embeddings)
+
+
+def test_widening_the_pool_does_not_re_embed_the_query(tmp_path, monkeypatch):
+    """A filtered search widens by re-running both retrievers at a larger k.
+    The query text is identical every round -- only k changes -- so the vector
+    is computed once.
+
+    It used to be computed per round, which `crm_docs` pays four times over:
+    its default `kind` keeps the 374 specification chunks out of a
+    7,086-chunk store, so a fixed window starves and the loop always runs. On
+    a CPU, where the embedding is nearly the whole cost of a search, that was
+    four forward passes to answer one question -- 22s of the 22.1s `crm_docs`
+    took on an ARM host.
+    """
+    import json
+
+    import langchain_chroma
+    import langchain_huggingface
+
+    from lib.retrieve import Retriever
+
+    store = tmp_path / "crm-sig-docs"
+    store.mkdir()
+    (store / "meta.json").write_text(
+        json.dumps({"embedding_model": "stub/model", "normalize": True}),
+        encoding="utf-8")
+
+    embedded = []
+
+    class _Embeddings:
+        def __init__(self, **kw):
+            pass
+
+        def embed_query(self, text):
+            embedded.append(text)
+            return [0.0, 1.0]
+
+    class _Store:
+        embeddings = _Embeddings()
+
+        def similarity_search_by_vector(self, embedding, k=4, **kw):
+            return []
+
+        @property
+        def _collection(self):
+            raise AttributeError  # send _pool_ceiling down its fallback
+
+    monkeypatch.setattr(langchain_huggingface, "HuggingFaceEmbeddings", _Embeddings)
+    monkeypatch.setattr(langchain_chroma, "Chroma", lambda **kw: _Store())
+
+    r = Retriever()
+    monkeypatch.setattr(r, "document_store_dir", store)
+    # vector mode so the check needs no FTS file on disk; `kind` filters, so
+    # the widen loop runs, and nothing ever satisfies it so it runs to the
+    # ceiling.
+    r.search_documents("a query that finds nothing", top_k=10, mode="vector",
+                       kind="declaration")
+
+    assert len(embedded) <= 1, f"embedded {len(embedded)} times: {embedded}"

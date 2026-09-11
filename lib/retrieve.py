@@ -355,6 +355,20 @@ def _is_apparatus(rec: dict) -> bool:
     return any(marker in lowered for marker in _APPARATUS_MARKERS)
 
 
+# A widen loop re-runs both retrievers at a larger k, and the dense side of
+# that used to mean re-embedding the same query string every round. The text
+# never changes between rounds -- only k does -- so the vector is computed
+# once and reused. On a CPU where embedding is the expensive part this is the
+# difference between one forward pass and four: `crm_docs` fires the loop
+# four times by default, because its `kind` filter keeps the 374 specification
+# chunks out of a 7,086-chunk store and a fixed window starves.
+def _query_vector(store, text: str, _cache: dict) -> list[float]:
+    """Embed `text` once per search, however many times the pool widens."""
+    if text not in _cache:
+        _cache[text] = store.embeddings.embed_query(text)
+    return _cache[text]
+
+
 class Retriever:
     def __init__(self, archive: str = "crm-sig") -> None:
         self.cfg = load_config(archive)
@@ -708,6 +722,8 @@ class Retriever:
                 return False
             return True
 
+        vector_cache: dict[str, list[float]] = {}
+
         def fused_candidates(k_each: int) -> list[tuple[str, float]]:
             rankings: list[list[str]] = []
             weights: list[float] = []
@@ -721,7 +737,8 @@ class Retriever:
             if mode in ("hybrid", "vector"):
                 vector_query = query + ((" " + " ".join(added)) if added else "")
                 store = self._chroma(self.store_dir)
-                docs = store.similarity_search(vector_query, k=k_each)
+                docs = store.similarity_search_by_vector(
+                    _query_vector(store, vector_query, vector_cache), k=k_each)
                 rankings.append([d.metadata["chunk_id"] for d in docs])
                 weights.append(vector_weight_for(query))
             return rrf_fuse(rankings, weights=weights)
@@ -828,6 +845,7 @@ class Retriever:
             raise ValueError(f"Unknown mode {mode!r}; expected one of {_VALID_MODES}")
 
         fts_path = self.episode_store_dir / "fts.sqlite3"
+        vector_cache: dict[str, list[float]] = {}
 
         def fused_candidates(k_each: int) -> list[tuple[str, float]]:
             rankings: list[list[str]] = []
@@ -837,7 +855,8 @@ class Retriever:
                 )
             if mode in ("hybrid", "vector"):
                 store = self._chroma(self.episode_store_dir)
-                docs = store.similarity_search(query, k=k_each)
+                docs = store.similarity_search_by_vector(
+                    _query_vector(store, query, vector_cache), k=k_each)
                 rankings.append([d.metadata["episode_id"] for d in docs])
             return rrf_fuse(rankings)
 
@@ -921,6 +940,8 @@ class Retriever:
                     ceilings.append(_FALLBACK_POOL_CEILING)
             return max(ceilings, default=0)
 
+        vector_cache: dict[str, list[float]] = {}
+
         def fused_candidates(k_each: int) -> list[tuple[str, float]]:
             rankings: list[list[str]] = []
             weights: list[float] = []
@@ -931,7 +952,8 @@ class Retriever:
                 weights.append(1.0)
             if mode in ("hybrid", "vector"):
                 store = self._chroma(self.document_store_dir)
-                docs = store.similarity_search(query, k=k_each)
+                docs = store.similarity_search_by_vector(
+                    _query_vector(store, query, vector_cache), k=k_each)
                 rankings.append([d.metadata["chunk_id"] for d in docs])
                 # Declarations run to 7,405 chars and BM25 normalises hard by
                 # length, so on a conceptual question the short discursive
