@@ -436,3 +436,59 @@ def test_concurrent_searches_load_one_embedding_model(tmp_path, monkeypatch):
     assert not errors, errors
     assert len(built) == 1, f"loaded the embedding model {len(built)} times"
     assert len(got) == 4 and all(g is got[0] for g in got)
+
+
+def test_cpu_loads_the_model_in_float32(tmp_path, monkeypatch):
+    """The check that would have caught a 76x slowdown in five seconds.
+
+    gte-modernbert-base publishes `torch_dtype: float16`. A CPU with no
+    native fp16 matmul emulates it: on an Ampere A1 one query embedding took
+    5,318ms in fp16 and 70ms in fp32, which was `crm_search` at 4.7s and
+    `crm_docs` at 22s. Asserted at the real call site, not on the helper
+    alone, because the helper being right is not the part that broke.
+    """
+    import json
+
+    import langchain_chroma
+    import langchain_huggingface
+
+    from lib.retrieve import Retriever
+
+    store = tmp_path / "store"
+    store.mkdir()
+    (store / "meta.json").write_text(
+        json.dumps({"embedding_model": "stub/model", "normalize": True}),
+        encoding="utf-8")
+
+    seen = {}
+
+    class _Embeddings:
+        def __init__(self, **kw):
+            seen.update(kw)
+
+    monkeypatch.setattr(langchain_huggingface, "HuggingFaceEmbeddings", _Embeddings)
+    monkeypatch.setattr(langchain_chroma, "Chroma", lambda **kw: object())
+    monkeypatch.setattr("lib.retrieve.pick_device", lambda: "cpu")
+
+    Retriever()._chroma(store)
+    assert seen["model_kwargs"]["model_kwargs"]["torch_dtype"] == "float32", seen
+
+
+def test_cuda_is_left_in_the_model_s_own_dtype():
+    """fp16 is native on a GPU, faster there, and halves resident memory --
+    so the CPU workaround must not follow the model onto CUDA."""
+    from lib.config import model_kwargs_for
+
+    assert model_kwargs_for("cuda") == {"device": "cuda"}
+    assert "model_kwargs" not in model_kwargs_for("cuda")
+
+
+def test_the_build_side_uses_the_same_rule():
+    """Query and build construct embeddings in two different modules. They
+    used to carry two copies of the kwargs; one rule now, so a CPU build
+    cannot quietly keep embedding in fp16."""
+    import inspect
+
+    import lib.index
+
+    assert "model_kwargs_for(device)" in inspect.getsource(lib.index._build_embeddings)

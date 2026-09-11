@@ -55,3 +55,35 @@ def pick_device() -> str:
     except ImportError:
         return "cpu"
     return "cuda" if torch.cuda.is_available() else "cpu"
+
+
+def model_kwargs_for(device: str) -> dict:
+    """`model_kwargs` for HuggingFaceEmbeddings on this device.
+
+    float32 on CPU, deliberately. gte-modernbert-base publishes
+    `torch_dtype: float16`, so transformers loads it in fp16 -- and a CPU
+    with no native fp16 matmul emulates every one of the 88 matmuls the
+    model runs per forward. Measured on an Ampere A1 (Neoverse-N1, ARMv8.2;
+    fp16 matmul arrived with V1/N2), the same [11,768]@[768,2304]:
+
+        fp16   83.74ms        one query embedding, fp16   5,318ms
+        fp32    0.50ms        one query embedding, fp32      70ms
+
+    End to end that was `crm_search` at 4.7s and `crm_docs` at 22s against
+    roughly 0.2s and 0.4s. x86 is emulated too, just far less visibly.
+
+    Left alone on CUDA, where fp16 is native, fast, and halves resident
+    memory.
+
+    The dtype does not change what comes back. Four queries across the
+    message and document stores returned identical, identically ordered
+    chunk ids under fp16 and fp32 -- against stores whose vectors were
+    embedded elsewhere -- so this needs no rebuild and no re-embedding.
+    """
+    kwargs: dict = {"device": device}
+    if device == "cpu":
+        # Nested on purpose: sentence-transformers forwards its own
+        # `model_kwargs` to AutoModel.from_pretrained, and that is the one
+        # that decides the dtype.
+        kwargs["model_kwargs"] = {"torch_dtype": "float32"}
+    return kwargs

@@ -9,7 +9,8 @@ import threading
 from functools import cached_property
 from pathlib import Path
 
-from lib.config import DATA_DIR, STORES_DIR, load_config, pick_device
+from lib.config import (DATA_DIR, STORES_DIR, load_config,
+                        model_kwargs_for, pick_device)
 from lib.expand import build_lexicon, expand_query
 from lib.fts import search_fts
 
@@ -603,7 +604,7 @@ class Retriever:
         if embeddings is None:
             embeddings = HuggingFaceEmbeddings(
                 model_name=key[0],
-                model_kwargs={"device": key[2]},
+                model_kwargs=model_kwargs_for(key[2]),
                 encode_kwargs={"normalize_embeddings": key[1]},
             )
             self._embedder_cache[key] = embeddings

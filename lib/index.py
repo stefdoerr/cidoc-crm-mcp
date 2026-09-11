@@ -12,7 +12,8 @@ from pathlib import Path
 
 from langchain_core.embeddings import Embeddings
 
-from lib.config import DATA_DIR, PROJECT_ROOT, STORES_DIR, pick_device
+from lib.config import (DATA_DIR, PROJECT_ROOT, STORES_DIR,
+                        model_kwargs_for, pick_device)
 from lib.fts import build_fts
 
 
@@ -96,7 +97,7 @@ def _build_embeddings(embedding_model: str, device: str, batch_size: int):
 
     return HuggingFaceEmbeddings(
         model_name=embedding_model,
-        model_kwargs={"device": device},
+        model_kwargs=model_kwargs_for(device),
         encode_kwargs={"normalize_embeddings": True, "batch_size": batch_size},
     )
 
