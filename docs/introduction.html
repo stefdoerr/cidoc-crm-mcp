@@ -456,9 +456,23 @@ contentious it was, not how important it is.</p>
 <!-- ==================================================================== -->
 <section>
 <h2><span class="num">4</span>Two kinds of search, and why one is not enough</h2>
-<p class="lede">The tools search everything twice, by two methods that fail in
-opposite directions, and combine the results. This is the one piece of
-machinery worth understanding.</p>
+<p class="lede">Only two of the twelve tools search at all. Those two search
+everything twice, by methods that fail in opposite directions, and combine the
+results.</p>
+
+<p>It is worth being exact about which half this concerns, because it is the
+sharpest difference between the two. <b>The normative half does not search.</b>
+When <code>crm_connect</code> tells you which properties join an E21 to an E53,
+it has not looked for likely-seeming ones: it has walked the class hierarchy and
+tested every property's declared domain and range. The answer is computed, and
+it is the same answer every time. There is no ranking, nothing was nearly
+included, and no passage had to be found.</p>
+
+<p>Searching belongs to the other two tools — <code>crm_search</code> over the
+mailing list, and <code>crm_docs</code> over the reference documents. (The
+second of those searches the specification's own text as well as the issue
+register and the minutes; it is retrieval either way, which is what puts it on
+this side of the line.) What follows is about those two.</p>
 
 <p>Suppose you want the discussion about controlled vocabularies. There are two
 ways a computer can find it, and each has a blind spot the other covers.</p>
@@ -514,8 +528,10 @@ positions instead means there is no weighting to tune, and no number anyone had
 to pick.</figcaption>
 </figure>
 
-<p>This is why an identifier and a paraphrase both work, and why you do not
-have to know which kind of question you are asking.</p>
+<p>This is why, when you search, an identifier and a paraphrase both work, and
+why you do not have to know which kind of question you are asking. It is also
+why a search result and a validator's verdict should not be read the same way.
+One is the best of what was found; the other is what the standard says.</p>
 
 <h3>Where the material came from</h3>
 <p>The normative half is built from the CIDOC CRM's own published files — the
