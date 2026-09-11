@@ -86,6 +86,30 @@ async def test_validate_rdf_requires_exactly_one_source():
 
 
 @pytest.mark.asyncio
+@pytest.mark.parametrize("tool,args", [
+    # Malformed Turtle, which is what a model that just wrote some produces.
+    ("crm_validate_rdf", {"content": "@prefix crm: <http://www.cidoc-crm.org/"
+                                     "cidoc-crm/> .\nex:p a crm:E12_Production\n"}),
+    # rdflib answers this one with a bare IndexError, not a parser exception.
+    ("crm_validate_rdf", {"content": "<root><CRM_Entity></root>"}),
+    ("crm_validate_xml", {"content": "<root><CRM_Entity></root>"}),
+    ("crm_validate_rdf", {"path": "/nonexistent/missing.ttl"}),
+    ("crm_validate_xml", {"path": "/nonexistent/missing.xml"}),
+])
+async def test_an_unreadable_document_is_reported_not_raised(tool, args):
+    """The failure this guards is the whole call dying, not a wrong verdict.
+
+    `await _call` goes through the real tool boundary, so an exception that
+    escapes fails this test by raising rather than by asserting -- which is
+    what it did before `_unreadable` existed.
+    """
+    text = await _call(tool, args)
+    assert "could not read" in text
+    # Never let an unread document read as a pass.
+    assert "PASSED" not in text
+
+
+@pytest.mark.asyncio
 async def test_the_schema_marks_the_right_arguments_required():
     by = {t.name: t for t in await _server().list_tools()}
     assert by["crm_concept"].input_schema["required"] == ["identifier"]

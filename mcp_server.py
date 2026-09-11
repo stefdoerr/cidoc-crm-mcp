@@ -220,6 +220,29 @@ def _resolve_source(
     return fh.name, True
 
 
+def _unreadable(tool: str, is_temp: bool, exc: Exception) -> str:
+    """A document that could not be read, as text rather than as a raise.
+
+    Every other miss in this module returns text because a raise out of
+    `@server.tool` is an uncaught `ToolError` that kills the call (see
+    `_SourceError`) -- and then the two validators left the likeliest input
+    of all unguarded: a model that has just written some Turtle and got a
+    dot wrong. Measured: malformed Turtle raises, malformed XML raises, a
+    `path` that does not exist raises.
+
+    Broad `except`, deliberately. rdflib answers bad Turtle with `BadSyntax`
+    in one place and a bare `IndexError` in another, so an enumeration of
+    parser exceptions would keep finding new ways to be incomplete -- the
+    same reasoning `decode_header_value` already applies to 1999-era mail
+    headers. The exception TYPE is named in the message so a genuine bug in
+    this code is still identifiable rather than disguised as a bad document.
+    """
+    where = "the content supplied" if is_temp else "the file at `path`"
+    return (f"{tool}: could not read {where} -- "
+            f"{type(exc).__name__}: {exc}\n\n"
+            "Nothing was validated. No verdict below should be read as a pass.")
+
+
 # ---- crm_concept ------------------------------------------------------------
 
 
@@ -434,6 +457,8 @@ def _crm_validate_rdf(content: str | None = None, path: str | None = None,
             "--rdf` exits 0 on)."
         )
         return f"{text}\n\nVerdict: {verdict}"
+    except Exception as exc:
+        return _unreadable("crm_validate_rdf", is_temp, exc)
     finally:
         if is_temp:
             Path(resolved).unlink(missing_ok=True)
@@ -494,6 +519,8 @@ def _crm_validate_xml(content: str | None = None, path: str | None = None,
             "`search.py validate --xml` exits 0 on)."
         )
         return f"{text}\n\nVerdict: {verdict}"
+    except Exception as exc:
+        return _unreadable("crm_validate_xml", is_temp, exc)
     finally:
         if is_temp:
             Path(resolved).unlink(missing_ok=True)
