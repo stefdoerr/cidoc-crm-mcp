@@ -85,7 +85,7 @@
   section > h2 { break-after: avoid; }
   h2 + .lede { break-after: avoid; }
   h3 { break-after: avoid; }
-  figure, table, .box, dl, pre { break-inside: avoid; }
+  figure, table, .box, .use, dl, pre { break-inside: avoid; }
   p { margin: .62rem 0; orphans: 2; widows: 2; }
 
   .lede {
@@ -161,6 +161,24 @@
     padding-top: .5rem;
     line-height: 1.45;
   }
+
+  .use {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: .7rem .9rem;
+    margin: .65rem 0;
+  }
+  .use .n {
+    font-family: ui-monospace, "DejaVu Sans Mono", monospace;
+    font-size: 7.6pt;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: .25rem;
+  }
+  .use b { font-weight: normal; font-style: italic; }
+  .use p { margin: .35rem 0 0; }
 
   .box {
     border: 1px solid var(--rule);
@@ -246,6 +264,37 @@ twelve specific services to an assistant that asks. Look up a class. List
 every identifier in CRMsci. Find every property that can legally join an
 E21 Person to an E53 Place. Check whether this RDF file is legal CRM. Search
 twenty-six years of what the CRM Special Interest Group actually said.</p>
+
+<h3>Two things people use it for</h3>
+
+<div class="use">
+<span class="n">One &nbsp;·&nbsp; asking what the model says, and why</span>
+<p>Which class is right for this, and what is the difference between it and
+the one next to it? Can this property legally join these two classes? Is what
+I have written legal CRM? And then the question the specification cannot
+answer at all — <b>why is it like this?</b> Why is production an event rather
+than a property of the object, what was proposed instead, who objected, and
+was it ever settled. That reasoning exists, in twenty-six years of committee
+argument, and this is the half that quotes it with names and dates.</p>
+</div>
+
+<div class="use">
+<span class="n">Two &nbsp;·&nbsp; turning what you already have into CIDOC CRM</span>
+<p>A drawer of accession records, a collections database export, excavation
+reports, a pile of wiki articles — free text or somebody else's schema — that
+has to come out the other side as CRM. The assistant does the mapping; what
+this adds is that <b>every link it writes can be checked before you believe
+it</b>. Hand the validator the whole document, not a summary of it, and it
+answers for every triple: legal, illegal, or a name that is not a CRM property
+at all.</p>
+<p>That check is what makes volume survivable. You can read ten converted
+records by eye; you cannot read ten thousand. And the commonest error is not
+an exotic one — it is a plausible-looking class name the standard renamed
+years ago, which reads perfectly well and is wrong in every record it touches.</p>
+</div>
+
+<p>The two uses run together more often than not: a conversion stalls on a
+question about the model, and the answer to that question is in the archive.</p>
 
 <h3>What an MCP server is</h3>
 <p>MCP stands for <b>Model Context Protocol</b>. It is an agreed way for an AI
@@ -334,6 +383,13 @@ from, and you can go and read that section.</p>
 production is an event rather than a property, what happened to E84 — the
 assistant reaches into the other half: the mailing list, where that was argued
 out, often at length, sometimes twice.</p>
+
+<p>A conversion looks different only in scale. You hand over a batch of
+records, agree a mapping on the first few, and then the work becomes
+mechanical: for each record the assistant writes the RDF and submits the whole
+document to the validator, which answers for every triple rather than for the
+ones anybody thought to doubt. What comes back to you is the conversion plus a
+list of what did not pass — which is the part you actually have to read.</p>
 </section>
 
 <!-- ==================================================================== -->
