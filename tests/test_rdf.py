@@ -1321,3 +1321,25 @@ def test_a_validation_parses_the_document_once(tmp_path, monkeypatch):
         "</has_produced></CRM_Entity></CRMset>", encoding="utf-8")
     mcp_server._crm_validate_xml(path=str(xml), completeness=True)
     assert counts["xml"] == 1, counts
+
+
+@pytest.mark.parametrize("flag,name,body", [
+    ("--rdf", "m.ttl", "@prefix crm: <http://x/> .\nex:p a crm:E12\n"),
+    ("--xml", "m.xml", "<root><CRM_Entity></root>"),
+])
+def test_the_cli_says_why_a_document_would_not_parse(tmp_path, flag, name, body):
+    """The MCP tools stopped raising on this; the CLI still printed a
+    20-line traceback, which reads as "the tool is broken" rather than "your
+    file has a typo". Exit status is unchanged -- SystemExit with a string
+    still exits 1 -- so nothing scripted around the old behaviour moves.
+    """
+    import subprocess
+    import sys
+
+    f = tmp_path / name
+    f.write_text(body, encoding="utf-8")
+    r = subprocess.run([sys.executable, "search.py", "validate", flag, str(f)],
+                       capture_output=True, text=True)
+    assert r.returncode == 1
+    assert "could not read" in r.stderr
+    assert "Traceback" not in r.stderr

@@ -269,6 +269,20 @@ def format_issue(issue: dict) -> str:
     return "\n".join(lines)
 
 
+def _unreadable_document(path: str, exc: Exception) -> str:
+    """A document the validator could not parse, said in one line.
+
+    Same bargain the MCP tools make (see mcp_server._unreadable): the
+    likeliest thing anyone hands a validator is a document that does not
+    parse, and a 20-line traceback about it says "this tool is broken" rather
+    than "your file has a typo on line 2". Exit status is unchanged -- a
+    SystemExit carrying a string still exits 1 -- so nothing scripted around
+    the old behaviour moves. The exception type is named so a genuine bug
+    here stays identifiable rather than disguised as a bad document.
+    """
+    return f"could not read {path}: {type(exc).__name__}: {exc}"
+
+
 def _property_of_property_hint(identifier: str) -> str:
     """The one miss worth explaining: a dotted id against an ontology.json
     built before the propertyOfProperty parser existed."""
@@ -1178,7 +1192,10 @@ def main() -> None:
                                       document_failures, load_xml,
                                       validate_class_labels, validate_document)
 
-            tree = load_xml(args.xml)
+            try:
+                tree = load_xml(args.xml)
+            except Exception as exc:
+                raise SystemExit(_unreadable_document(args.xml, exc))
             xml_links = crm_example_links(tree)
             report = validate_document(r.ontology, xml_links)
             report["class_labels"] = validate_class_labels(
@@ -1227,7 +1244,10 @@ def main() -> None:
             # already checked true by crm_inverse_claims, never an unchecked
             # one -- get its predicate read as the CRM property it names,
             # so `validate --rdf` honours bridges with no flag of its own.
-            graph = load_rdf(args.rdf)
+            try:
+                graph = load_rdf(args.rdf)
+            except Exception as exc:
+                raise SystemExit(_unreadable_document(args.rdf, exc))
             claims = crm_inverse_claims(graph, r.ontology)
             rdf_links = crm_rdf_links(graph, r.ontology, aliases=claims)
             report = validate_document(r.ontology, rdf_links)
