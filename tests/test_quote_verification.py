@@ -21,6 +21,8 @@ import pytest
 from lib.config import PROJECT_ROOT
 from lib.retrieve import Retriever
 
+from tests.conftest import needs_corpus
+
 
 def _fake_retriever(threads=None, by_hash=None, episodes=None, documents=None) -> Retriever:
     r = Retriever()
@@ -224,6 +226,7 @@ def real_retriever():
     return Retriever()
 
 
+@needs_corpus
 class TestKnownFailures:
     def test_t1022_never_says_no_property_for_transferring_a_right(self, real_retriever):
         """t1022 ('Passive Activities' -- Sanderson, Beretta, Bruseker) was
@@ -256,6 +259,7 @@ class TestKnownFailures:
         assert result["author"] == "Francesco Beretta"
 
 
+@needs_corpus
 class TestSpaceBeforePunctuation:
     """A stray space before a full stop is a typo in the source, not a
     difference in wording, and it is pervasive here: 21% of messages and 38%

@@ -12,6 +12,8 @@ from lib.ontology import (
 from lib.retrieve import Retriever
 from search import concept_chronology, format_concept
 
+from tests.conftest import needs_corpus
+
 
 @pytest.fixture(scope="module")
 def onto():
@@ -312,6 +314,7 @@ def test_format_concept_for_declared_extension_property_shows_domain_and_range(r
     assert "triggered" in out.lower()
 
 
+@needs_corpus
 def test_format_concept_for_archive_only_extension_has_no_label_and_does_not_crash(real_ontology):
     # Pick a real archive-only extension id: known only to this archive, not
     # to the model's current declarations, so label is None.
@@ -412,6 +415,7 @@ def test_format_concept_caps_siblings_and_reports_elided_count():
     assert "3 more" in out  # cap is 10, so 13 - 10 = 3 elided
 
 
+@needs_corpus
 def test_format_concept_omits_siblings_section_for_historical_and_extensions(real_ontology):
     hist_entry = dict(real_ontology["historical"]["E84"], bucket="historical")
     out = format_concept(hist_entry, [], mentions=52, siblings=[])

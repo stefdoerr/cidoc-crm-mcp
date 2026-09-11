@@ -12,6 +12,8 @@ from lib.ontology import (
     strip_html,
 )
 
+from tests.conftest import needs_corpus
+
 XML = PROJECT_ROOT / "sources" / "cidoc_crm_v7.1.3.xml"
 
 
@@ -368,6 +370,7 @@ def test_full_listing_rows_share_one_key_set():
     assert len(keysets) == 1, f"{len(keysets)} differing row shapes"
 
 
+@needs_corpus
 def test_full_listing_carries_the_inverse_property_name():
     """The inverse was in the data and only the renderer dropped it. The
     published CRM example encodings use property labels as XML element names
@@ -527,6 +530,7 @@ def test_validate_link_refuses_to_judge_a_property_of_property():
     assert "not_a_class_link" in r["candidates"][0]["reason"]
 
 
+@needs_corpus
 def test_spec_additions_are_current_not_historical():
     """7.3.2 added E100, P199 and P200; the v7.1.3 XML never carried them, so
     add_historical used to sweep them into the deprecated bucket and
@@ -538,6 +542,7 @@ def test_spec_additions_are_current_not_historical():
     assert onto["properties"]["P200"]["source"] == "CIDOC CRM v7.3.2"
 
 
+@needs_corpus
 def test_spec_additions_take_the_property_parent_not_the_domain_class():
     """A property states its parent as a full path -- "E90 Symbolic Object.
     P128i is carried by (carries): E18 Physical Thing" -- whose first
@@ -549,6 +554,7 @@ def test_spec_additions_take_the_property_parent_not_the_domain_class():
     assert onto["classes"]["E100"]["sub_class_of"] == ["E73"]
 
 
+@needs_corpus
 def test_spec_additions_are_usable_by_the_graph_machinery():
     """Folded into classes/properties rather than a bucket of their own, so
     validate/connect/the closure get them without knowing they exist."""
@@ -904,6 +910,7 @@ def test_resolve_uri_returns_none_rather_than_guessing():
     assert resolve_uri(onto, "rdfs:label") == (None, False)
 
 
+@needs_corpus
 def test_uri_index_covers_every_identifier():
     """Anything `concept <id>` resolves must be addressable from RDF, or a
     correct document reports unknown identifiers."""

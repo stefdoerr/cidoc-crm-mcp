@@ -4,6 +4,8 @@ import pytest
 
 from lib.retrieve import Retriever, rrf_fuse
 
+from tests.conftest import needs_corpus
+
 
 def test_single_ranking_preserves_order():
     assert [d for d, _ in rrf_fuse([["a", "b", "c"]])] == ["a", "b", "c"]
@@ -288,6 +290,7 @@ def real_retriever():
     return Retriever()
 
 
+@needs_corpus
 def test_narrow_after_filter_still_fills_a_full_page(real_retriever):
     results = real_retriever.search("scope note", top_k=10, after=2024)
     assert len(results) == 10
@@ -295,6 +298,7 @@ def test_narrow_after_filter_still_fills_a_full_page(real_retriever):
         assert int((r["date"] or "0")[:4]) >= 2024
 
 
+@needs_corpus
 def test_every_returned_hit_satisfies_the_entity_filter(real_retriever):
     results = real_retriever.search("issue", top_k=10, entity="E84")
     assert len(results) > 0
@@ -303,6 +307,7 @@ def test_every_returned_hit_satisfies_the_entity_filter(real_retriever):
         assert "E84" in (rec.get("entities", []) + rec.get("entities_historical", []))
 
 
+@needs_corpus
 def test_widen_loop_terminates_when_the_filter_has_no_matches(real_retriever):
     # The archive runs through 2026 (see meta.json); nothing satisfies
     # after=2027. If widening weren't capped at the corpus ceiling, this

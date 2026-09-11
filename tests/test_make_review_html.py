@@ -11,6 +11,8 @@ import re
 
 from tools.make_review_html import ident_names, ident_title, marked
 
+from tests.conftest import needs_corpus
+
 
 def test_class_and_property_titles_carry_the_full_name():
     assert ident_title("E12") == "E12 Production"
@@ -33,6 +35,7 @@ def test_property_of_property_names_its_parent():
     assert "P14" in title
 
 
+@needs_corpus
 def test_historical_identifier_says_it_is_deprecated_not_unknown():
     assert "deprecated" in ident_title("E84")
 
@@ -76,6 +79,7 @@ def test_marked_still_escapes_the_body_text():
     assert "<tagged>" not in out
 
 
+@needs_corpus
 def test_every_title_is_attribute_safe():
     """No title may contain a raw double quote once escaped into the page."""
     for ident in ("E12", "P108", "P108i", "P14.1", "E84", "S13"):
@@ -84,6 +88,7 @@ def test_every_title_is_attribute_safe():
         assert re.fullmatch(r'<code title="[^"]*">[^<]+</code>', out), out
 
 
+@needs_corpus
 def test_the_lookup_covers_all_five_ontology_buckets():
     names = ident_names()
     assert len(names) > 500
@@ -116,6 +121,7 @@ def test_longest_match_wins_so_dotted_and_inverse_ids_survive():
     assert '>P14</code>' in marked("P14 alone")
 
 
+@needs_corpus
 def test_concepts_new_in_7_3_2_still_get_a_name():
     """data/ontology.json is built from the v7.1.3 XML, which never carried
     E100, P199 or P200. An answer citing one is correct, so it must not be the
