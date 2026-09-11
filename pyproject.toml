@@ -1,6 +1,6 @@
 [project]
 name = "cidoc-crm-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "CIDOC CRM modelling tools: ontology lookup, model validation, and 26 years of CRM-SIG discussion, over MCP"
 requires-python = ">=3.11"
 # huggingface_hub is core, not part of the `archive` extra: `build.py
