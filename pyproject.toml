@@ -1,7 +1,7 @@
 [project]
 name = "cidoc-crm-mcp"
 version = "0.1.1"
-description = "CIDOC CRM modelling tools: ontology lookup, model validation, and 26 years of CRM-SIG discussion, over MCP"
+description = "Convert a collection to CIDOC CRM and validate every triple of it, ask the model questions, and read 26 years of CRM-SIG discussion — over MCP"
 requires-python = ">=3.11"
 # huggingface_hub is core, not part of the `archive` extra: `build.py
 # fetch --no-vectors` exists so the archive can be had without torch or

@@ -1,9 +1,16 @@
 # cidoc-crm-mcp
 
-CIDOC CRM modelling tools over MCP: look up a concept, check whether a link
-is legal, validate a model in four RDF syntaxes, and search 26 years of
-CRM-SIG mailing-list discussion for how the committee actually settled a
-question.
+CIDOC CRM as twelve tools an assistant can call, so a collection can be
+converted to CRM and *checked* rather than trusted: settle the mapping
+against the specification instead of from memory, write it with the
+identifiers the standard actually uses, then validate the whole export —
+every triple, not a sample. Measured on this build, a 10,000-object export
+is 30,000 links checked in eight seconds.
+
+The same tools answer the everyday questions one at a time — what does this
+class mean, can this property join these two, is what I wrote legal — and
+behind them sits 26 years of CRM-SIG mailing-list discussion for the ones the
+specification does not settle.
 
 Twelve tools in two layers. The ontology half answers from the normative
 RDFS; the archive half quotes people arguing, including people who turned

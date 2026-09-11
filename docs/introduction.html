@@ -85,7 +85,7 @@
   section > h2 { break-after: avoid; }
   h2 + .lede { break-after: avoid; }
   h3 { break-after: avoid; }
-  figure, table, .box, .use, dl, pre { break-inside: avoid; }
+  figure, table, .box, dl, pre { break-inside: avoid; }
   p { margin: .62rem 0; orphans: 2; widows: 2; }
 
   .lede {
@@ -162,24 +162,6 @@
     line-height: 1.45;
   }
 
-  .use {
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    padding: .7rem .9rem;
-    margin: .65rem 0;
-  }
-  .use .n {
-    font-family: ui-monospace, "DejaVu Sans Mono", monospace;
-    font-size: 7.6pt;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: block;
-    margin-bottom: .25rem;
-  }
-  .use b { font-weight: normal; font-style: italic; }
-  .use p { margin: .35rem 0 0; }
-
   .box {
     border: 1px solid var(--rule);
     border-left-width: 2px;
@@ -243,63 +225,69 @@ COMPANION TO <span style="text-transform:none">docs/how-it-works.html</span></p>
 
 <!-- ==================================================================== -->
 <section>
-<h2><span class="num">1</span>What it is, and how you use it</h2>
-<p class="lede">You do not use this software directly. Your AI assistant does,
-on your behalf, while you carry on asking questions in ordinary language.</p>
+<h2><span class="num">1</span>What it is</h2>
+<p class="lede">Two things become practical when an assistant can look the CRM
+up instead of recalling it. The larger one is converting a collection — not one
+object, all of them.</p>
 
-<p>If you have asked a chat assistant a CIDOC CRM question, you will know the
-failure. It answers immediately and fluently. It names a class. The class is
-plausible. Sometimes it is right; sometimes the property it suggests has a
-domain that forbids exactly the thing you asked about; sometimes it cites a
-class the standard retired years ago. Nothing in the answer tells you which
-of those you are looking at.</p>
+<p>Ask a chat assistant a CIDOC CRM question today and the answer comes back
+immediately and fluently. It names a class, and the class is plausible.
+Sometimes it is right; sometimes the property it suggests has a domain that
+forbids the very thing you asked about; sometimes it names a class the standard
+retired years ago. Nothing in the answer tells you which of those you have.</p>
 
-<p>The problem is not that the assistant is careless. It is that nothing
-<em>authorises</em> its answer. It is recalling the CRM from memory, the way
-you might recall a scope note you last read in 2019.</p>
+<p>The problem is not carelessness. It is that nothing <em>authorises</em> the
+answer — the assistant is recalling the CRM the way you might recall a scope
+note you last read in 2019. This gives it somewhere to look instead: twelve
+tools, each wired to a source you can go and read.</p>
 
-<p>This project gives the assistant somewhere to look instead. It is a small
-program that runs on a computer — yours, or your institution's — and offers
-twelve specific services to an assistant that asks. Look up a class. List
-every identifier in CRMsci. Find every property that can legally join an
-E21 Person to an E53 Place. Check whether this RDF file is legal CRM. Search
-twenty-six years of what the CRM Special Interest Group actually said.</p>
+<h3>Converting a collection</h3>
 
-<h3>Two things people use it for</h3>
+<p>A museum catalogue, an excavation archive, a card index typed up in 1994, a
+shelf of wiki articles. Somebody has to decide that this field is an E22, that
+this date is an E52 Time-Span reached through P4, that the maker is an E21
+joined to the object by an E12 Production — and then do it for every record in
+the collection.</p>
 
-<div class="use">
-<span class="n">One &nbsp;·&nbsp; asking what the model says, and why</span>
-<p>Which class is right for this, and what is the difference between it and
-the one next to it? Can this property legally join these two classes? Is what
-I have written legal CRM? And then the question the specification cannot
-answer at all — <b>why is it like this?</b> Why is production an event rather
-than a property of the object, what was proposed instead, who objected, and
-was it ever settled. That reasoning exists, in twenty-six years of committee
-argument, and this is the half that quotes it with names and dates.</p>
-</div>
+<p>The deciding was always expert work. The <em>doing</em> is what turned a
+task into a project, and the bottleneck was never writing the RDF. It was
+knowing whether what you had written was right, with no way to find out except
+an expert reading it, record by record.</p>
 
-<div class="use">
-<span class="n">Two &nbsp;·&nbsp; turning what you already have into CIDOC CRM</span>
-<p>A drawer of accession records, a collections database export, excavation
-reports, a pile of wiki articles — free text or somebody else's schema — that
-has to come out the other side as CRM.</p>
-<p>Settling the mapping is the first use again, asked once per kind of
-record: what does this class mean, how does it differ from the one beside it,
-and which property can legally carry this source field from that class to this
-one. Writing the result then needs exact spellings —
-<code>E22_Human-Made_Object</code>, <code>P4i_is_time-span_of</code> —
-thousands of times without drift, so one of the twelve tools does nothing but
-list every identifier in a model with the RDF name to write.</p>
-<p>The validator is what makes the volume survivable. You can read ten
-converted records by eye; you cannot read ten thousand. Hand it the whole
-document and it answers for every triple, not only the ones somebody thought
-to doubt. The commonest error is not an exotic one: a plausible-looking class
-name the standard renamed years ago, which reads perfectly well and is wrong
-in every record it touches.</p>
-</div>
+<p>That is the part that changes. An assistant with these tools settles the
+mapping against the specification rather than from memory, writes the RDF with
+the exact identifiers the standard uses, and then submits the whole export to a
+validator that answers for <b>every</b> triple: legal, illegal, or a name that
+is not a CRM property at all. Not a sample, and not only the links somebody
+thought to doubt. Measured on this build: a 10,000-object export — 30,000
+links — checked in <b>eight seconds</b>.</p>
 
-<p>The two uses run together more often than not: a conversion stalls on a
-question about the model, and the answer to that question is in the archive.</p>
+<p>Two details decide whether that is trustworthy at volume. The validator
+reads the document itself, not a description of it: an assistant asked to check
+its own work will summarise it first, and the summary is exactly where an error
+goes missing — one such run quietly corrected a mistyped property name on its
+way into the summary and validated the correction, four times over. And every
+finding names the record it came from, so a report on a hundred thousand
+objects is a worklist rather than a verdict.</p>
+
+<h3>Asking the model questions</h3>
+
+<p>The everyday use, and the one that keeps interrupting the other. What does
+this class actually mean, and how does it differ from the one beside it? Which
+property can legally join these two? Is the thing I just wrote legal CRM, and
+if not, which part of it is not? These are answered by computing over the
+standard's own machine-readable definition, so they come back the same every
+time, with no ranking and nothing nearly included.</p>
+
+<h3>And, underneath both, the reasoning</h3>
+
+<p>A scope note says what a class is. It rarely says what it is <em>for</em>,
+which of two plausible classes the committee actually intends, or what was
+tried and rejected on the way to the current wording. That reasoning exists, in
+twenty-six years of CRM-SIG mailing list argument, and it is here too — so when
+a mapping stalls on a question the specification does not settle, the answer
+can be quoted with a name and a date attached rather than invented. It is the
+part of this that has no substitute anywhere else.</p>
 
 <h3>What an MCP server is</h3>
 <p>MCP stands for <b>Model Context Protocol</b>. It is an agreed way for an AI
@@ -422,12 +410,6 @@ issue register, and the meeting minutes. This half does not tell you what is
 correct. It tells you <em>who said what, and when</em> — including people who
 turned out to be wrong, which is exactly why the attribution matters.</p>
 </div>
-
-<p>A scope note tells you what a class <em>is</em>. It rarely tells you what it
-is <em>for</em>, which of two plausible classes the committee actually intends,
-or what was tried and rejected on the way to the current wording. That
-reasoning exists, but it exists in the archive rather than in the
-specification.</p>
 
 <p>The temptation is to merge the two into a single confident answer. The
 tools refuse to. A claim from the normative half and a claim from the archive
