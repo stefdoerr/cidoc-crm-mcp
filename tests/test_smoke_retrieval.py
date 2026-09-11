@@ -12,8 +12,11 @@ CASES = yaml.safe_load(
 )
 
 pytestmark = pytest.mark.skipif(
-    not (STORES_DIR / "crm-sig" / "meta.json").exists(),
-    reason="index not built; run `uv run python build.py index` first",
+    not (STORES_DIR / "crm-sig" / "chroma.sqlite3").exists(),
+    reason="vectors not built; run `build.py index`, or `build.py fetch` "
+           "without --no-vectors. These cases exercise hybrid ranking, so "
+           "meta.json alone is not enough -- `fetch --no-vectors` leaves it "
+           "behind (it carries the model binding) with no vectors beside it.",
 )
 
 
@@ -60,7 +63,7 @@ def test_bare_stop_word_query_is_not_flooded(retriever):
 
 
 docs_built = pytest.mark.skipif(
-    not (STORES_DIR / "crm-sig-docs" / "meta.json").exists(),
+    not (STORES_DIR / "crm-sig-docs" / "chroma.sqlite3").exists(),
     reason="document index not built; run `uv run python build.py docs && build.py index`",
 )
 
@@ -127,7 +130,7 @@ def test_declarations_are_not_buried_by_short_discursive_sections(retriever):
 
 
 episodes_built = pytest.mark.skipif(
-    not (STORES_DIR / "crm-sig-episodes" / "meta.json").exists(),
+    not (STORES_DIR / "crm-sig-episodes" / "chroma.sqlite3").exists(),
     reason="episode index not built; run `uv run python build.py index`",
 )
 

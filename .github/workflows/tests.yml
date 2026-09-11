@@ -1,0 +1,46 @@
+# Run the test suite. Nothing did, until this file existed.
+#
+# The corpus is the complication. `data/` and `stores/` are git-ignored and
+# shipped out of band, and 19 of the tests read them without a skip guard --
+# so a bare clone fails rather than skips. `fetch --no-vectors` is the cheap
+# way to satisfy them: 95MB of text and full-text indexes against 919MB for
+# the whole corpus, and it needs no embedding model.
+#
+# What that leaves out is the retrieval regression gate in
+# test_smoke_retrieval.py, which asserts hybrid ranking and skips itself when
+# there are no vectors. It is a local-before-you-push check, not a CI one:
+# CI covers the ontology half, both validators, the readers and the BM25
+# path, and running it against 824MB of vectors on every push would not be
+# worth the minutes.
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      # The dev group pulls the archive extra, and so torch: ~5GB installed,
+      # which is why the cache above is not optional. The lock pins the CUDA
+      # build; a CPU-only resolve would be smaller but would mean CI running
+      # against a different lockfile than anyone's laptop.
+      - run: uv sync
+
+      # Before `ontology`, not after. The ontology stage folds in whatever the
+      # corpus contributes -- mention counts, the archive-only family ids, the
+      # three concepts only 7.3.2 declares -- and silently skips that material
+      # when the files are absent. The other order builds a smaller ontology
+      # and fails the tests that check for those additions.
+      - run: uv run python build.py fetch --no-vectors
+      - run: uv run python build.py ontology
+
+      - run: uv run pytest -q
