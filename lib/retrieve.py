@@ -370,6 +370,50 @@ class Retriever:
         return build_lexicon(self.ontology, self.cfg["ontology"]["stop_labels"])
 
     @cached_property
+    def label_index(self) -> dict[str, list[str]]:
+        """Every label -> every identifier carrying it. For LOOKUP, not for
+        query expansion, which is why it is not `lexicon["label_to_ids"]`.
+
+        The two want opposite things from the same data. Expansion must not
+        let the English word "type" in a sentence pull E55 into the query, so
+        `build_lexicon` drops single-word common-English labels from its
+        label->id direction. A lookup wants precisely that: `concept Type` is
+        a deliberate request for E55, not an accident of prose.
+
+        get_concept used to paper over the difference with a second, weaker
+        scan of `classes` and `properties`. It returned the FIRST hit and
+        threw the rest away -- the exact behaviour the block above it goes to
+        trouble to avoid, three lines below the comment explaining why ("a
+        silently-chosen wrong answer is the failure mode this codebase keeps
+        rediscovering"). It also read `entry["label"]`, which properties do
+        not carry, and never looked at the extensions at all: `Place` answered
+        E53 with no sign of FRBRoo F9, and `Event` answered E5 over F8.
+
+        Ordered classes, properties, then the rest, so the first match stays
+        the one CRMbase declares and the family extensions ride along in
+        `also_matches` rather than displacing it.
+        """
+        index: dict[str, list[str]] = {}
+
+        def put(ident: str, *labels: str | None) -> None:
+            for label in labels:
+                key = (label or "").strip().lower()
+                if key and ident not in index.setdefault(key, []):
+                    index[key].append(ident)
+
+        onto = self.ontology
+        for cid, entry in (onto.get("classes") or {}).items():
+            put(cid, entry.get("label"))
+        for pid, entry in (onto.get("properties") or {}).items():
+            put(pid, entry.get("direct_name"), entry.get("inverse_name"))
+        for bucket in ("extensions", "historical", "property_of_property"):
+            for ident, entry in (onto.get(bucket) or {}).items():
+                if isinstance(entry, dict):
+                    put(ident, entry.get("label"),
+                        entry.get("direct_name"), entry.get("inverse_name"))
+        return index
+
+    @cached_property
     def messages(self) -> dict[str, dict]:
         # clean.jsonl is the cleaned mbox: 143MB, gitignored, shipped out of
         # band from this repository. A fresh clone -- the environment this
@@ -936,19 +980,13 @@ class Retriever:
         # almost certainly wants, also matched. A silently-chosen wrong answer
         # is the failure mode this codebase keeps rediscovering, so the other
         # candidates ride along on the entry and the caller shows them.
-        matches = self.lexicon["label_to_ids"].get(ident.lower(), [])
+        matches = self.label_index.get(ident.lower(), [])
         if matches:
             entry = self.get_concept(matches[0])
             if entry is not None and len(matches) > 1:
                 entry = {**entry, "also_matches": list(matches[1:]),
                          "matched_label": ident}
             return entry
-        for bucket in ("classes", "properties"):
-            for entry in onto[bucket].values():
-                if entry.get("label", "").lower() == ident.lower():
-                    out = dict(entry)
-                    out["bucket"] = bucket
-                    return out
         return None
 
     # ---- concept dossier enrichment (Task 19) ------------------------------

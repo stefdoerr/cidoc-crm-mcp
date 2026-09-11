@@ -506,8 +506,10 @@ def test_get_concept_returns_none_not_keyerror_on_a_stale_four_bucket_ontology(t
 #
 # get_declaration, concept_siblings and concept_narratives read data/
 # documents.jsonl and data/ontology.json directly and need no vector store,
-# but Retriever() is gated on a built store regardless, matching
-# tests/test_smoke_retrieval.py's policy for constructing one at all.
+# so this gates on meta.json -- "the corpus was fetched" -- and not on
+# chroma.sqlite3, which is what test_smoke_retrieval.py checks because its
+# cases genuinely exercise hybrid ranking. `fetch --no-vectors` satisfies
+# this one and correctly skips that one.
 
 retriever_built = pytest.mark.skipif(
     not (STORES_DIR / "crm-sig" / "meta.json").exists(),
@@ -644,3 +646,43 @@ def test_applicable_rows_say_which_direction_they_are_read_in(onto):
     table = applicable_properties(onto, "E22")
     assert all(r["inverse"] is True for r in table["incoming"])
     assert all(r["inverse"] is False for r in table["outgoing"])
+
+
+@retriever_built
+def test_a_stop_label_reports_every_concept_that_carries_it(dossier_retriever):
+    """`Place` is E53 -- and FRBRoo F9, which the reader was never told.
+
+    build_lexicon drops single-word common-English labels from its label->id
+    direction so query expansion cannot turn the word "place" in a sentence
+    into E53. get_concept then fell through to a second, weaker scan that
+    returned the first hit and discarded the rest -- the behaviour the block
+    above it exists to prevent, and which its own comment calls "the failure
+    mode this codebase keeps rediscovering".
+    """
+    for label, primary, other in (("Place", "E53", "F9"), ("Event", "E5", "F8")):
+        entry = dossier_retriever.get_concept(label)
+        assert entry is not None and entry["id"] == primary, label
+        assert other in (entry.get("also_matches") or []), (label, entry)
+
+
+@retriever_built
+def test_a_family_label_resolves_at_all(dossier_retriever):
+    """The old scan read `entry["label"]` over `classes` and `properties`
+    only, so no extension term was reachable by name -- 484 of them."""
+    entry = dossier_retriever.get_concept("amount of matter")
+    assert entry is not None and entry["id"] == "S11", entry
+
+
+@retriever_built
+def test_crmbase_still_wins_the_primary_slot(dossier_retriever):
+    """Widening the index must not let an extension displace a base answer.
+
+    The index is ordered classes, then properties, then the rest, so a family
+    id can only ever ride along in `also_matches`.
+    """
+    onto = dossier_retriever.ontology
+    base = set(onto["classes"]) | set(onto["properties"])
+    for label, ids in dossier_retriever.label_index.items():
+        if any(i in base for i in ids):
+            entry = dossier_retriever.get_concept(label)
+            assert entry["id"] in base, (label, entry["id"], ids)
