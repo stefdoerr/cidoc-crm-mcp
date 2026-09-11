@@ -23,15 +23,24 @@ jobs:
   pytest:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: astral-sh/setup-uv@v5
+      # enable-cache off, deliberately, and explicitly rather than by omission:
+      # the default is `auto`, which caches on a hosted runner for push and
+      # pull_request, so leaving it out would keep the cache rather than drop
+      # it.
+      #
+      # Measured on the first green run: `uv sync` cold takes 12s of an 81s
+      # job, and the cache setup-uv saved was pruned to 1.4KB -- it bought
+      # nothing. From v9 `prune-cache` defaults to false, which would instead
+      # store the whole ~5GB download (the lock pins the CUDA torch build, so
+      # that includes the nvidia/* wheels) against a 10GB per-repository
+      # budget. Several GB to save a few seconds is the wrong trade.
+      - uses: astral-sh/setup-uv@v10
         with:
-          enable-cache: true
+          enable-cache: false
 
-      # The dev group pulls the archive extra, and so torch: ~5GB installed,
-      # which is why the cache above is not optional. The lock pins the CUDA
-      # build; a CPU-only resolve would be smaller but would mean CI running
+      # A CPU-only resolve would be far smaller, but would mean CI running
       # against a different lockfile than anyone's laptop.
       - run: uv sync
 
