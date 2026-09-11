@@ -10,6 +10,13 @@ RDFS; the archive half quotes people arguing, including people who turned
 out to be wrong, and its value is that it says who and when. The tools keep
 the two apart rather than blending them into one confident answer.
 
+**[docs/cidoc-crm-mcp-introduction.pdf](docs/cidoc-crm-mcp-introduction.pdf)**
+is the place to start if you model in CIDOC CRM and have never had to care
+what an MCP server is: eight pages on what this is, how you use it (your
+assistant consults it; you do not), what is inside, and what not to trust it
+for. Rebuild it with `uv run python tools/make_pdf.py docs/introduction.html`
+after editing [docs/introduction.html](docs/introduction.html).
+
 **[docs/how-it-works.html](docs/how-it-works.html)** is the guide: what each
 of the twelve tools answers, a real question worked through, where the
 material comes from, and what not to trust it for. It is a standalone page —

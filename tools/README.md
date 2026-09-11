@@ -45,6 +45,7 @@ build — they hit the network.
 | `read_thread.py` | a mailing-list thread, for reading outside the CLI |
 | `render_crm_models.py` | the tracked `models/crm_*.xml` → `crm_models_review.html` (git-ignored; regenerate rather than commit) |
 | `make_review_html.py` | the modelling evaluation → a standalone human review sheet |
+| `make_pdf.py` | `docs/*.html` → a PDF, via Chrome's own print engine (tracked; regenerate when the page changes) |
 
 ## Scoring an evaluation
 
