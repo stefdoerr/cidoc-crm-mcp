@@ -372,3 +372,62 @@ def test_vector_search_without_the_extra_says_what_to_do(tmp_path, monkeypatch):
     # Either remedy is acceptable depending on which is missing here; both
     # are one line and the message must carry the one that applies.
     assert "--extra archive" in message or "build.py fetch" in message
+
+
+def test_concurrent_searches_load_one_embedding_model(tmp_path, monkeypatch):
+    """Two threads missing the store cache must not both load the model.
+
+    mcp 2.0 runs a sync tool through anyio.to_thread.run_sync and every tool
+    shares one module-level Retriever, so concurrent calls genuinely land in
+    different threads on one instance. Before the lock both would miss, both
+    would spend ~9.5s loading, and the container would hold two ~0.5GB models
+    against its 2GB limit to reach the same answer.
+
+    Needs no corpus: _chroma only requires a meta.json to read the model
+    binding out of, and the two libraries are imported inside the function,
+    so replacing the module attributes is enough to count constructions.
+    """
+    import json
+    import threading
+    import time
+
+    import langchain_chroma
+    import langchain_huggingface
+
+    from lib.retrieve import Retriever
+
+    store = tmp_path / "store"
+    store.mkdir()
+    (store / "meta.json").write_text(
+        json.dumps({"embedding_model": "stub/model", "normalize": True}),
+        encoding="utf-8")
+
+    built = []
+
+    class _Embeddings:
+        def __init__(self, **kw):
+            built.append(kw)
+            time.sleep(0.05)      # widen the window the race needs
+
+    monkeypatch.setattr(langchain_huggingface, "HuggingFaceEmbeddings", _Embeddings)
+    monkeypatch.setattr(langchain_chroma, "Chroma",
+                        lambda **kw: ("store", kw["persist_directory"]))
+
+    r = Retriever()
+    got, errors = [], []
+
+    def call():
+        try:
+            got.append(r._chroma(store))
+        except Exception as exc:       # surfaced below rather than swallowed
+            errors.append(exc)
+
+    threads = [threading.Thread(target=call) for _ in range(4)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    assert not errors, errors
+    assert len(built) == 1, f"loaded the embedding model {len(built)} times"
+    assert len(got) == 4 and all(g is got[0] for g in got)

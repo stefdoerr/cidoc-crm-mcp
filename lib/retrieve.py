@@ -5,6 +5,7 @@ import difflib
 import json
 import re
 import sqlite3
+import threading
 from functools import cached_property
 from pathlib import Path
 
@@ -374,6 +375,17 @@ class Retriever:
         # meta.json -- the binding that keeps query-time and build-time from
         # drifting is upstream of this cache, not bypassed by it.
         self._embedder_cache: dict[tuple, object] = {}
+        # The two caches above are filled check-then-act, and this instance is
+        # shared: mcp 2.0 dispatches a sync tool through
+        # anyio.to_thread.run_sync, so two concurrent searches land in
+        # different threads on one Retriever. Both would miss, both would
+        # spend ~9.5s loading, and the container would hold two ~0.5GB
+        # embedding models against a 2GB limit -- to arrive at the same
+        # answer. Held across the whole load, so the second thread waits for
+        # the first's result rather than starting its own. Reentrant because
+        # a lock around a method that may grow a nested call is a deadlock
+        # waiting to be written; it costs nothing here.
+        self._store_lock = threading.RLock()
 
     # ---- lazily-loaded data ------------------------------------------------
 
@@ -520,9 +532,19 @@ class Retriever:
         # and opens the Chroma client, ~6-12s. Without the cache, every
         # hybrid/vector search() call on a long-lived instance (an MCP
         # server, a smoke-test suite) would pay that cost again.
+        #
+        # Read outside the lock, because the hit is the overwhelmingly common
+        # case and a dict read is atomic. A miss re-checks under the lock: by
+        # then another thread may have filled it (see _store_lock).
         if store_dir in self._chroma_cache:
             return self._chroma_cache[store_dir]
+        with self._store_lock:
+            if store_dir in self._chroma_cache:
+                return self._chroma_cache[store_dir]
+            return self._load_chroma(store_dir)
 
+    def _load_chroma(self, store_dir: Path):
+        """The slow half of `_chroma`, always called holding `_store_lock`."""
         # Quiet the load before it happens. Importing these configures
         # logging handlers that emit at INFO on first use, and the result --
         # measured at 218 lines for one `docs` query, mostly httpx HEAD
