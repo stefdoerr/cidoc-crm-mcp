@@ -60,6 +60,8 @@ from lib.ontology import (
     crm_rdf_class_uses,
     crm_rdf_links,
     full_listing,
+    load_rdf,
+    load_xml,
     resolve_uri,
     validate_class_labels,
     validate_document,
@@ -405,14 +407,15 @@ def _crm_validate_rdf(content: str | None = None, path: str | None = None,
         return str(e)
     try:
         onto = _RETRIEVER.ontology
-        claims = crm_inverse_claims(resolved, onto)
-        report = validate_document(onto, crm_rdf_links(resolved, onto, aliases=claims))
-        report["class_labels"] = crm_rdf_class_uses(resolved, onto)
+        graph = load_rdf(resolved)
+        claims = crm_inverse_claims(graph, onto)
+        links = crm_rdf_links(graph, onto, aliases=claims)
+        report = validate_document(onto, links)
+        report["class_labels"] = crm_rdf_class_uses(graph, onto)
         report["structural_elements_skipped"] = []
         report["inverse_claims"] = claims
         if completeness:
-            report["completeness"] = document_completeness(
-                onto, crm_rdf_links(resolved, onto, aliases=claims))
+            report["completeness"] = document_completeness(onto, links)
         text = format_document_validation(report)
 
         failures = document_failures(report, "rdf")
@@ -462,12 +465,13 @@ def _crm_validate_xml(content: str | None = None, path: str | None = None,
         return str(e)
     try:
         onto = _RETRIEVER.ontology
-        report = validate_document(onto, crm_example_links(resolved))
+        tree = load_xml(resolved)
+        links = crm_example_links(tree)
+        report = validate_document(onto, links)
         report["class_labels"] = validate_class_labels(
-            onto, crm_example_class_uses(resolved))
+            onto, crm_example_class_uses(tree))
         if completeness:
-            report["completeness"] = document_completeness(
-                onto, crm_example_links(resolved))
+            report["completeness"] = document_completeness(onto, links)
         text = format_document_validation(report)
 
         failures = document_failures(report, "xml")

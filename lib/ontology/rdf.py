@@ -36,7 +36,7 @@ def _quiet_literal_warnings():
         logging.getLogger(name).setLevel(logging.ERROR)
 
 
-def crm_rdf_class_uses(path: str | Path, onto: dict) -> list[dict]:
+def crm_rdf_class_uses(source, onto: dict) -> list[dict]:
     """Every `rdf:type` in the document, checked as a class name.
 
     `crm_rdf_links` keeps the types that resolve and drops the rest, so a
@@ -66,13 +66,10 @@ def crm_rdf_class_uses(path: str | Path, onto: dict) -> list[dict]:
     `format_document_validation` renders both without knowing which reader
     produced them.
     """
-    from rdflib import Graph, URIRef
+    from rdflib import URIRef
     from rdflib.term import BNode
 
-    path = Path(path)
-    graph = Graph()
-    _quiet_literal_warnings()
-    graph.parse(str(path), format=_RDF_FORMATS.get(path.suffix.lower()))
+    graph = _as_graph(source)
     classes, properties = _model_view(onto)
     owned = _owned_namespaces(onto)
     pop = onto.get("property_of_property") or {}
@@ -114,7 +111,33 @@ _RDF_FORMATS = {".ttl": "turtle", ".turtle": "turtle", ".n3": "n3",
                 ".jsonld": "json-ld", ".json": "json-ld"}
 
 
-def crm_rdf_links(path: str | Path, onto: dict,
+def load_rdf(path: str | Path):
+    """Parse one RDF document, once.
+
+    The three readers below each used to parse the file themselves, so a
+    single `validate --rdf --completeness` run put the same document through
+    rdflib four times: once for the inverse claims, once for the links, once
+    for the rdf:type assertions, and once more for completeness. Each accepts
+    an already-parsed graph in place of a path, so a caller that needs more
+    than one of them parses here and hands the graph round.
+    """
+    from rdflib import Graph
+
+    path = Path(path)
+    graph = Graph()
+    _quiet_literal_warnings()
+    graph.parse(str(path), format=_RDF_FORMATS.get(path.suffix.lower()))
+    return graph
+
+
+def _as_graph(source):
+    """`source` is a path to parse or a graph already parsed."""
+    from rdflib import Graph
+
+    return source if isinstance(source, Graph) else load_rdf(source)
+
+
+def crm_rdf_links(source, onto: dict,
                   aliases: list[dict] | None = None) -> list[dict]:
     """Every triple in an RDF document, as the link records the checker takes.
 
@@ -164,13 +187,10 @@ def crm_rdf_links(path: str | Path, onto: dict,
     validator whose findings reorder between two runs of the same input
     cannot be diffed -- the same reason `full_listing` sorts its rows.
     """
-    from rdflib import Graph, URIRef
+    from rdflib import URIRef
     from rdflib.term import BNode, Literal
 
-    path = Path(path)
-    graph = Graph()
-    _quiet_literal_warnings()
-    graph.parse(str(path), format=_RDF_FORMATS.get(path.suffix.lower()))
+    graph = _as_graph(source)
 
     # A `bridge` claim from crm_inverse_claims tells us how the document
     # means its own predicate to be read, and honouring it is what lets this
@@ -256,7 +276,7 @@ def _not_invertible_cause(onto: dict, classes: dict, ident: str) -> str:
     return f"{ident} is not a property with an inverse"  # unreached in practice
 
 
-def crm_inverse_claims(path: str | Path, onto: dict) -> list[dict]:
+def crm_inverse_claims(source, onto: dict) -> list[dict]:
     """Every `owl:inverseOf` triple, checked against what the CRM says.
 
     A document can assert what a property's inverse IS. Until this existed
@@ -285,12 +305,9 @@ def crm_inverse_claims(path: str | Path, onto: dict) -> list[dict]:
     so a future caller of `crm_rdf_links` on its own must re-supply this
     function itself, not assume the skip is free.
     """
-    from rdflib import Graph, URIRef
+    from rdflib import URIRef
 
-    path = Path(path)
-    graph = Graph()
-    _quiet_literal_warnings()
-    graph.parse(str(path), format=_RDF_FORMATS.get(path.suffix.lower()))
+    graph = _as_graph(source)
     classes, properties = _model_view(onto)
 
     claims = []

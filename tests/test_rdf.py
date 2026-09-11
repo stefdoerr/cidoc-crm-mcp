@@ -1276,3 +1276,48 @@ def test_an_unknown_reader_is_refused():
 
     with pytest.raises(ValueError):
         document_failures({"counts": {}}, "turtle")
+
+
+def test_a_validation_parses_the_document_once(tmp_path, monkeypatch):
+    """Each reader used to parse the file itself, so one `--completeness`
+    run put the same document through rdflib four times (three for XML).
+
+    Guarded by counting rather than by timing: the readers still accept a
+    path and still parse when handed one, so nothing stops a future caller
+    from reintroducing the extra passes -- except this.
+    """
+    import xml.etree.ElementTree as ET
+
+    import rdflib
+
+    import mcp_server
+
+    counts = {"rdf": 0, "xml": 0}
+    real_graph_parse, real_et_parse = rdflib.Graph.parse, ET.parse
+
+    def counted_graph(self, *a, **kw):
+        counts["rdf"] += 1
+        return real_graph_parse(self, *a, **kw)
+
+    def counted_et(*a, **kw):
+        counts["xml"] += 1
+        return real_et_parse(*a, **kw)
+
+    monkeypatch.setattr(rdflib.Graph, "parse", counted_graph)
+    monkeypatch.setattr(ET, "parse", counted_et)
+
+    ttl = tmp_path / "m.ttl"
+    ttl.write_text(
+        "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n"
+        "<urn:p> a crm:E12_Production ; crm:P108_has_produced <urn:o> .\n"
+        "<urn:o> a crm:E22_Human-Made_Object .\n", encoding="utf-8")
+    mcp_server._crm_validate_rdf(path=str(ttl), completeness=True)
+    assert counts["rdf"] == 1, counts
+
+    xml = tmp_path / "m.xml"
+    xml.write_text(
+        "<CRMset><CRM_Entity><in_class>E12: Production</in_class>"
+        "<has_produced><in_class>E22: Human-Made Object</in_class>"
+        "</has_produced></CRM_Entity></CRMset>", encoding="utf-8")
+    mcp_server._crm_validate_xml(path=str(xml), completeness=True)
+    assert counts["xml"] == 1, counts

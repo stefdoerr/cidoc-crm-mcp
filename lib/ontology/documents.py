@@ -44,6 +44,22 @@ _STRUCTURAL_ELEMENTS = frozenset({"CRM_Entity", "in_class", "value", "unit"})
 _IN_CLASS = re.compile(r"\s*([A-Za-z]+\d+(?:\.\d)?)\s*[:.]")
 
 
+def load_xml(xml_path: str | Path) -> ET.Element:
+    """Parse one example-format document, once.
+
+    Both readers below used to call `ET.parse` themselves, so validating a
+    document with `--completeness` walked the same file three times. Each
+    takes an already-parsed root element in place of a path, so a caller
+    needing more than one parses here.
+    """
+    return ET.parse(str(xml_path)).getroot()
+
+
+def _as_root(source) -> ET.Element:
+    """`source` is a path to parse or a root element already parsed."""
+    return source if isinstance(source, ET.Element) else load_xml(source)
+
+
 def _indexed_children(node: ET.Element):
     """(child, index suffix) for each child, indexed only where its tag
     repeats among its siblings -- so a tag that appears once keeps the bare
@@ -62,7 +78,7 @@ def _indexed_children(node: ET.Element):
         yield child, (f"[{seen[child.tag]}]" if repeated[child.tag] > 1 else "")
 
 
-def crm_example_links(xml_path: str | Path) -> list[dict]:
+def crm_example_links(source) -> list[dict]:
     """Every parent-class / element-name / child-class link in a document
     written in the published CIDOC CRM example format.
 
@@ -73,7 +89,7 @@ def crm_example_links(xml_path: str | Path) -> list[dict]:
     and the only way to know which property an element means is to look at
     the classes on either side of it.
     """
-    root = ET.parse(str(xml_path)).getroot()
+    root = _as_root(source)
 
     def class_of(node: ET.Element) -> str | None:
         text = node.findtext("in_class")
@@ -432,7 +448,7 @@ def document_completeness(onto: dict, links: list[dict]) -> list[dict]:
     return findings
 
 
-def crm_example_class_uses(xml_path: str | Path) -> list[dict]:
+def crm_example_class_uses(source) -> list[dict]:
     """Every `in_class` declaration in the document, id AND label.
 
     `crm_example_links` reads only the identifier out of these and throws the
@@ -443,7 +459,7 @@ def crm_example_class_uses(xml_path: str | Path) -> list[dict]:
     and a modeller following them propagates names the standard dropped,
     silently, because the id is right and the id is all anything checked.
     """
-    root = ET.parse(str(xml_path)).getroot()
+    root = _as_root(source)
     uses: list[dict] = []
 
     def walk(node: ET.Element, path: str) -> None:

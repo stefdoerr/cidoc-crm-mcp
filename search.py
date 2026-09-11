@@ -1175,13 +1175,14 @@ def main() -> None:
         # what a validator is for.
         if args.xml:
             from lib.ontology import (crm_example_class_uses, crm_example_links,
-                                      document_failures, validate_class_labels,
-                                      validate_document)
+                                      document_failures, load_xml,
+                                      validate_class_labels, validate_document)
 
-            xml_links = crm_example_links(args.xml)
+            tree = load_xml(args.xml)
+            xml_links = crm_example_links(tree)
             report = validate_document(r.ontology, xml_links)
             report["class_labels"] = validate_class_labels(
-                r.ontology, crm_example_class_uses(args.xml))
+                r.ontology, crm_example_class_uses(tree))
             # Opt-in and computed from the same links already read above --
             # never from a fresh parse, and never touching `report["counts"]`
             # or `report["class_labels"]`, which is what the exit-code
@@ -1207,7 +1208,7 @@ def main() -> None:
         if args.rdf:
             from lib.ontology import (crm_inverse_claims, crm_rdf_class_uses,
                                       crm_rdf_links, document_failures,
-                                      validate_document)
+                                      load_rdf, validate_document)
 
             # RDF addresses everything by URI, so three of the XML format's
             # defects cannot occur here at all: a property label cannot be
@@ -1226,8 +1227,9 @@ def main() -> None:
             # already checked true by crm_inverse_claims, never an unchecked
             # one -- get its predicate read as the CRM property it names,
             # so `validate --rdf` honours bridges with no flag of its own.
-            claims = crm_inverse_claims(args.rdf, r.ontology)
-            rdf_links = crm_rdf_links(args.rdf, r.ontology, aliases=claims)
+            graph = load_rdf(args.rdf)
+            claims = crm_inverse_claims(graph, r.ontology)
+            rdf_links = crm_rdf_links(graph, r.ontology, aliases=claims)
             report = validate_document(r.ontology, rdf_links)
             # RDF has no prose class labels -- a class arrives as an
             # rdf:type URI. But blanking the key on that reasoning left
@@ -1237,7 +1239,7 @@ def main() -> None:
             # and the document exited 0 having reported nothing about the
             # one error an LLM is likeliest to make. Same slot, same
             # renderer, class URIs instead of class labels.
-            report["class_labels"] = crm_rdf_class_uses(args.rdf, r.ontology)
+            report["class_labels"] = crm_rdf_class_uses(graph, r.ontology)
             # validate_document always fills this with the four XML
             # example-format element names (CRM_Entity/in_class/unit/value),
             # because it has no way to know which reader produced the links

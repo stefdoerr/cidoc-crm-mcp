@@ -88,10 +88,12 @@ from .documents import (
     crm_example_links,
     document_completeness,
     document_failures,
+    load_xml,
     validate_class_labels,
     validate_document,
 )
 from .rdf import (
+    load_rdf,
     _OWL_INVERSE_OF,
     _RDF_FORMATS,
     _RDF_TYPE,
