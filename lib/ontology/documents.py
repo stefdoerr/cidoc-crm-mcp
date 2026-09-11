@@ -44,6 +44,24 @@ _STRUCTURAL_ELEMENTS = frozenset({"CRM_Entity", "in_class", "value", "unit"})
 _IN_CLASS = re.compile(r"\s*([A-Za-z]+\d+(?:\.\d)?)\s*[:.]")
 
 
+def _indexed_children(node: ET.Element):
+    """(child, index suffix) for each child, indexed only where its tag
+    repeats among its siblings -- so a tag that appears once keeps the bare
+    path it always had.
+
+    Shared by both walkers below because they describe the same tree. Each
+    used to carry its own copy of this rule, and the copies disagreed: one
+    counted `in_class` among the siblings and the other did not, and they
+    rooted their walks in two different places entirely, so a class-label
+    finding and a link finding on the same element could never be matched up.
+    """
+    repeated = Counter(c.tag for c in node)
+    seen: Counter = Counter()
+    for child in node:
+        seen[child.tag] += 1
+        yield child, (f"[{seen[child.tag]}]" if repeated[child.tag] > 1 else "")
+
+
 def crm_example_links(xml_path: str | Path) -> list[dict]:
     """Every parent-class / element-name / child-class link in a document
     written in the published CIDOC CRM example format.
@@ -66,27 +84,15 @@ def crm_example_links(xml_path: str | Path) -> list[dict]:
 
     def walk(node: ET.Element, parent_class: str | None, path: str,
              parent_property: str | None = None) -> None:
-        # An occurrence index, but only where a tag repeats among its
-        # siblings. This format nests by element name, so eight <has_dimension>
-        # children of one node all produced the string
-        # ".../is_composed_of/is_composed_of/has_dimension" -- one path for
-        # eight different nodes. A reader told a link is wrong "at
-        # .../has_dimension" could not tell which of the eight, the same
-        # unfollowable-advice failure this codebase has fixed twice
-        # elsewhere; and `document_completeness`, which uses `path` as node
-        # identity, counted the eight as one and reported "1 of 1" where the
-        # truth was "8 of 8".
-        #
-        # Indexed only when ambiguous, so a tag that appears once keeps the
-        # path it always had. Most paths are unaffected.
-        repeated = Counter(c.tag for c in node if c.tag != "in_class")
-        seen: Counter = Counter()
-        for child in node:
+        # `path` is node IDENTITY, not decoration: document_completeness
+        # counts instances by it, and a finding names the element by it. This
+        # format nests by element name, so eight <has_dimension> children of
+        # one node all produced one string and were counted as one node --
+        # "1 of 1" where the truth was "8 of 8". See _indexed_children.
+        for child, nth in _indexed_children(node):
             if child.tag == "in_class":
                 continue
             child_class = class_of(child)
-            seen[child.tag] += 1
-            nth = f"[{seen[child.tag]}]" if repeated[child.tag] > 1 else ""
             here = f"{path}/{child.tag}{nth}"
             if child.tag not in _STRUCTURAL_ELEMENTS:
                 links.append({"subject": parent_class, "name": child.tag,
@@ -110,8 +116,15 @@ def crm_example_links(xml_path: str | Path) -> list[dict]:
                 child.tag if child.tag not in _STRUCTURAL_ELEMENTS else parent_property)
             walk(child, child_class or parent_class, here, nested_property)
 
-    for record in root.findall("CRM_Entity"):
-        walk(record, class_of(record), f"CRM_Entity[{class_of(record)}]")
+    # From the root, not once per `root.findall("CRM_Entity")`. That loop
+    # rooted every record at `CRM_Entity[<its class>]` with no occurrence
+    # index, so a document holding several records of one class gave them all
+    # the same path -- and with it the same node identity. Six of the eight
+    # models in this repository do that; crm_houmuwu.xml has fourteen E31
+    # records that counted as one. CRM_Entity is a structural element, so
+    # walking it emits no link of its own; a root child that is NOT one is now
+    # walked and reported rather than silently skipped.
+    walk(root, None, "")
     return links
 
 
@@ -360,21 +373,15 @@ def crm_example_class_uses(xml_path: str | Path) -> list[dict]:
     uses: list[dict] = []
 
     def walk(node: ET.Element, path: str) -> None:
-        # Indexed the same way crm_example_links indexes, and it has to be
-        # the same rule: both walkers describe the same tree, and a reader
-        # who sees a class-label finding at one path and a link finding at
-        # another has no way to tell they are the same element.
-        repeated = Counter(c.tag for c in node)
-        seen: Counter = Counter()
-        for child in node:
+        # Literally the same rule as crm_example_links, now that both call
+        # _indexed_children -- see there for what two copies of it cost.
+        for child, nth in _indexed_children(node):
             if child.tag == "in_class" and (child.text or "").strip():
                 raw = child.text.strip()
                 found = _IN_CLASS.match(raw)
                 label = raw[found.end():].strip() if found else ""
                 uses.append({"id": found.group(1) if found else None,
                              "label": label, "raw": raw, "path": path})
-            seen[child.tag] += 1
-            nth = f"[{seen[child.tag]}]" if repeated[child.tag] > 1 else ""
             walk(child, f"{path}/{child.tag}{nth}")
 
     walk(root, "")

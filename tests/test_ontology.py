@@ -1360,3 +1360,59 @@ def test_the_listing_without_an_ontology_still_renders():
     text = search.format_ontology(full_listing(onto))
     assert "Human-Made Object" in text
     assert "Namespaces" not in text
+
+
+def test_sibling_records_of_one_class_are_separate_nodes(tmp_path):
+    """`path` is node identity, so two E12 records must not share one.
+
+    They did: crm_example_links rooted every record at `CRM_Entity[<class>]`
+    with no occurrence index. document_completeness then counted the pair as
+    a single instance and reported "1 of 1" -- the very failure its sibling
+    comment says was fixed for repeated NESTED elements, still live one level
+    up. Six of the eight models in this repository hold duplicate top-level
+    classes; crm_houmuwu.xml has fourteen E31 records.
+    """
+    from lib.ontology import crm_example_links, document_completeness
+
+    f = tmp_path / "two.xml"
+    f.write_text(
+        "<CRMset>"
+        "<CRM_Entity><in_class>E12: Production</in_class>"
+        "<has_title><in_class>E35: Title</in_class><value>a</value></has_title>"
+        "</CRM_Entity>"
+        "<CRM_Entity><in_class>E12: Production</in_class>"
+        "<has_title><in_class>E35: Title</in_class><value>b</value></has_title>"
+        "</CRM_Entity></CRMset>", encoding="utf-8")
+
+    links = crm_example_links(f)
+    assert len({l["path"] for l in links}) == len(links), \
+        [l["path"] for l in links]
+
+    # P108 has produced is `necessary` on E12 and neither record states it.
+    produced = [r for r in document_completeness(_onto(), links)
+                if r["property_id"] == "P108"]
+    assert produced and produced[0]["instances"] == 2, produced
+    assert produced[0]["missing"] == 2, produced
+
+
+def test_the_two_xml_readers_agree_on_paths():
+    """A class-label finding and a link finding on the same element have to
+    carry the same path, or a reader cannot tell they are the same element.
+
+    They never did -- one reader rooted at `CRM_Entity[E22]` and the other at
+    `/CRM_Entity[1]`, while a comment in the second insisted they used the
+    same rule. Checked on the real models rather than a fixture, because the
+    disagreement only showed up on a document with more than one record.
+    """
+    from lib.config import PROJECT_ROOT
+    from lib.ontology import crm_example_class_uses, crm_example_links
+
+    for name in ("crm_houmuwu", "crm_bayeux", "crm_uffington", "crm_da_yu_ding"):
+        model = PROJECT_ROOT / "models" / f"{name}.xml"
+        declared = {u["path"] for u in crm_example_class_uses(model)}
+        # A link naming an object class came from an element with an
+        # in_class, so that element must appear in the class-use walk too.
+        # (A literal-valued property has no in_class and correctly has none.)
+        orphans = [l["path"] for l in crm_example_links(model)
+                   if l.get("object") and l["path"] not in declared]
+        assert not orphans, (name, orphans[:5])
