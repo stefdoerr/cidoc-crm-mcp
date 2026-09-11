@@ -1181,7 +1181,8 @@ def main() -> None:
         # what a validator is for.
         if args.xml:
             from lib.ontology import (crm_example_class_uses, crm_example_links,
-                                      validate_class_labels, validate_document)
+                                      document_failures, validate_class_labels,
+                                      validate_document)
 
             xml_links = crm_example_links(args.xml)
             report = validate_document(r.ontology, xml_links)
@@ -1204,21 +1205,15 @@ def main() -> None:
                 print(json.dumps(report, ensure_ascii=False, indent=2))
             else:
                 print(format_document_validation(report))
-            raise SystemExit(0 if not (report["counts"].get("unknown_name", 0)
-                                       or report["counts"].get("illegal", 0)
-                                       or report["counts"].get("unknown_class", 0)
-                                       or report["counts"].get("malformed", 0)
-                                       # unlike ambiguity, this one is
-                                       # actionable: the assertion is false
-                                       # and dropping it is a real fix
-                                       or report["counts"].get("attached_to_property", 0)
-                                       or any(f["verdict"] != "label_mismatch"
-                                              for f in report["class_labels"]))
-                             else 1)
+            # The rule itself lives beside validate_document, so this exit
+            # code and the two verdict lines in mcp_server.py cannot drift
+            # apart again -- see document_failures for what fails and why.
+            raise SystemExit(1 if document_failures(report, "xml") else 0)
 
         if args.rdf:
             from lib.ontology import (crm_inverse_claims, crm_rdf_class_uses,
-                                      crm_rdf_links, validate_document)
+                                      crm_rdf_links, document_failures,
+                                      validate_document)
 
             # RDF addresses everything by URI, so three of the XML format's
             # defects cannot occur here at all: a property label cannot be
@@ -1271,40 +1266,11 @@ def main() -> None:
                 print(json.dumps(report, ensure_ascii=False, indent=2))
             else:
                 print(format_document_validation(report))
-            # `not_crm` and `unchecked` do not fail: a document may carry
-            # vocabulary the CRM says nothing about, and an untyped subject is
-            # unexamined rather than wrong. A false owl:inverseOf claim DOES
-            # fail: `contradicted` and `not_invertible` are both a document
-            # asserting something the CRM does not say, the same standing as
-            # an illegal link -- and Task 6 needs this checked before it can
-            # honour `bridge` claims for predicate aliasing without letting a
-            # document define its way out of any other error.
-            claims = report["inverse_claims"]
-            wrong = [c for c in claims
-                     if c["verdict"] in ("contradicted", "not_invertible")]
-            # `not_a_class_link` fails here and not under --xml, and the
-            # difference is the point. It means a property-of-property was
-            # used as if it joined two classes. The house XML format has no
-            # way to write one, so reporting it there names a limitation of
-            # the format that the author cannot fix. RDF can write one --
-            # it is an ordinary triple -- so in RDF the same finding is a
-            # plain modelling error with a fix available, and a check that
-            # exits 0 on it is not checking. It was omitted from this rule
-            # only because the verdict predates the rule.
-            # Class findings are not in `counts` -- that counts link verdicts,
-            # and an rdf:type is not a link. Counted separately rather than
-            # folded in, so the two halves of a triple stay distinguishable
-            # in the report. `not_crm` is excluded on the same reasoning it
-            # is for predicates: a foreign type is not ours to reject.
-            bad_types = [f for f in report["class_labels"]
-                         if f["verdict"] in ("unknown_class", "not_a_class")]
-            raise SystemExit(1 if (report["counts"].get("illegal", 0)
-                                   or report["counts"].get("unknown_name", 0)
-                                   or report["counts"].get("unknown_class", 0)
-                                   or report["counts"].get("not_a_class_link", 0)
-                                   or bad_types
-                                   or wrong)
-                             else 0)
+            # Same rule, other reader: the RDF/XML difference is one
+            # verdict (`not_a_class_link`) and document_failures carries it,
+            # along with why a false owl:inverseOf claim fails and a
+            # `not_crm` predicate or type does not.
+            raise SystemExit(1 if document_failures(report, "rdf") else 0)
 
         if args.file:
             raw = json.loads(Path(args.file).read_text(encoding="utf-8"))

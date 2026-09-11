@@ -87,6 +87,7 @@ from .documents import (
     crm_example_class_uses,
     crm_example_links,
     document_completeness,
+    document_failures,
     validate_class_labels,
     validate_document,
 )

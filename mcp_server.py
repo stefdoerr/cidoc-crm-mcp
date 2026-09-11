@@ -53,6 +53,7 @@ from lib.config import DATA_DIR
 from lib.ontology import (
     connecting_properties,
     document_completeness,
+    document_failures,
     crm_example_class_uses,
     crm_example_links,
     crm_inverse_claims,
@@ -437,20 +438,11 @@ def _crm_validate_rdf(content: str | None = None, path: str | None = None,
                 onto, crm_rdf_links(resolved, onto, aliases=claims))
         text = format_document_validation(report)
 
-        counts = report["counts"]
-        bad_types = [f for f in report["class_labels"]
-                     if f["verdict"] in ("unknown_class", "not_a_class")]
-        wrong_claims = [c for c in claims
-                       if c["verdict"] in ("contradicted", "not_invertible")]
-        failed = bool(counts.get("illegal", 0) or counts.get("unknown_name", 0)
-                     or counts.get("unknown_class", 0)
-                     or counts.get("not_a_class_link", 0)
-                     or bad_types or wrong_claims)
+        failures = document_failures(report, "rdf")
         verdict = (
-            "FAILED -- at least one illegal or unresolved link, an unknown or "
-            "mistyped class, or a false owl:inverseOf claim (the conditions "
-            "`search.py validate --rdf` exits 1 on)."
-            if failed else
+            f"FAILED -- {'; '.join(failures)} (the conditions `search.py "
+            "validate --rdf` exits 1 on)."
+            if failures else
             "PASSED -- every link resolves within its declared domain and "
             "range, every rdf:type is a class this model declares, and every "
             "owl:inverseOf claim holds (the conditions `search.py validate "
@@ -501,19 +493,11 @@ def _crm_validate_xml(content: str | None = None, path: str | None = None,
                 onto, crm_example_links(resolved))
         text = format_document_validation(report)
 
-        counts = report["counts"]
-        failed = bool(
-            counts.get("unknown_name", 0) or counts.get("illegal", 0)
-            or counts.get("unknown_class", 0) or counts.get("malformed", 0)
-            or counts.get("attached_to_property", 0)
-            or any(f["verdict"] != "label_mismatch" for f in report["class_labels"])
-        )
+        failures = document_failures(report, "xml")
         verdict = (
-            "FAILED -- at least one unresolved name, illegal link, unknown "
-            "class, malformed class label, or property nested inside a "
-            "literal-valued one (the conditions `search.py validate --xml` "
-            "exits 1 on)."
-            if failed else
+            f"FAILED -- {'; '.join(failures)} (the conditions `search.py "
+            "validate --xml` exits 1 on)."
+            if failures else
             "PASSED -- every element name resolves to a legal link and every "
             "in_class label is one the model currently uses (the conditions "
             "`search.py validate --xml` exits 0 on)."

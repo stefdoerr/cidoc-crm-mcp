@@ -274,6 +274,80 @@ def validate_document(onto: dict, links: list[dict]) -> dict:
             "structural_elements_skipped": sorted(_STRUCTURAL_ELEMENTS)}
 
 
+# ---- does this document pass? ---------------------------------------------
+#
+# One rule, in one place. It used to be written out four times -- the two
+# exit-code expressions in search.py and the two verdict lines in
+# mcp_server.py -- and they had already drifted once: `not_a_class_link` was
+# missing from the RDF rule, and the comment recording the repair says it
+# "was omitted from this rule only because the verdict predates the rule".
+# Four copies is how a verdict predates a rule.
+
+_FAILING_LINKS = {
+    # Wrong wherever it appears.
+    "both": ("illegal", "unknown_name", "unknown_class"),
+    # RDF addresses everything by URI, so a class label cannot be malformed
+    # and a property-of-property cannot be smuggled in by nesting.
+    "xml": ("malformed", "attached_to_property"),
+    # The house XML format cannot WRITE a property-of-property link, so
+    # failing a document for one names a limitation of the format that its
+    # author cannot fix. RDF can write one -- it is an ordinary triple -- so
+    # there the same finding is a plain modelling error with a fix available,
+    # and a check that exits 0 on it is not checking.
+    "rdf": ("not_a_class_link",),
+}
+
+# Neither of these fails a document, and for the same reason in both halves
+# of a triple: `not_crm` is a foreign term this validator has no standing
+# over, and `label_mismatch` is a retired name or a role qualifier, which the
+# tool cannot tell apart and must not fail on. Everything else in
+# `class_labels` is a class the document got wrong.
+_TOLERATED_CLASS_VERDICTS = frozenset({"label_mismatch", "not_crm"})
+
+# A claim the CRM does not make. `bridge` and `foreign` are a document
+# declaring its own vocabulary and are not ours to reject.
+_FAILING_CLAIMS = frozenset({"contradicted", "not_invertible"})
+
+
+def document_failures(report: dict, reader: str) -> list[str]:
+    """Why this document fails, phrased for a reader; empty means it passes.
+
+    `reader` is "xml" or "rdf" and decides exactly one thing -- whether
+    `not_a_class_link` fails -- for the reason given on `_FAILING_LINKS`.
+    Everything else is shared, including both halves of the triple: link
+    verdicts live in `counts`, class verdicts in `class_labels` (an rdf:type
+    is not a link and is counted separately), and `owl:inverseOf` claims in
+    `inverse_claims`, which only an RDF report carries.
+
+    `not_crm` and `unchecked` appear in no list here, deliberately. They mean
+    "not examined", not "fine": a foreign predicate is outside this
+    validator's authority, and an untyped subject was never checked at all,
+    which is a different thing from having been checked and found legal.
+    Neither is the document's error to answer for.
+    """
+    if reader not in ("xml", "rdf"):
+        raise ValueError(f"reader must be 'xml' or 'rdf', not {reader!r}")
+
+    counts = report.get("counts") or {}
+    reasons = []
+    for verdict in _FAILING_LINKS["both"] + _FAILING_LINKS[reader]:
+        if counts.get(verdict):
+            reasons.append(f"{counts[verdict]} {verdict.replace('_', ' ')}")
+
+    bad_classes = [f for f in report.get("class_labels") or []
+                   if f["verdict"] not in _TOLERATED_CLASS_VERDICTS]
+    if bad_classes:
+        reasons.append(f"{len(bad_classes)} bad class "
+                       f"({', '.join(sorted({f['verdict'] for f in bad_classes}))})")
+
+    bad_claims = [c for c in report.get("inverse_claims") or []
+                  if c["verdict"] in _FAILING_CLAIMS]
+    if bad_claims:
+        reasons.append(f"{len(bad_claims)} false owl:inverseOf claim "
+                       f"({', '.join(sorted({c['verdict'] for c in bad_claims}))})")
+    return reasons
+
+
 def document_completeness(onto: dict, links: list[dict]) -> list[dict]:
     """What the CRM expects a typed node to carry, that this document omits.
 

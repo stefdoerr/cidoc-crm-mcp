@@ -1214,3 +1214,65 @@ def test_a_genuine_syntax_error_still_raises(tmp_path):
                  encoding="utf-8")
     with pytest.raises(Exception):
         crm_rdf_links(f, _onto())
+
+
+# ---- the pass/fail rule, in one place ---------------------------------------
+
+
+def test_the_two_readers_differ_on_exactly_one_verdict():
+    """`not_a_class_link` fails under --rdf and not under --xml.
+
+    That is the whole XML/RDF difference in the rule, and it is deliberate: a
+    property-of-property used as a class link is a plain modelling error in
+    RDF, where it is an ordinary triple with a fix available, and a
+    limitation of the house XML format, which cannot write one at all.
+
+    It is also the difference that went missing. The rule used to be written
+    out four times -- two exit codes in search.py, two verdict lines in
+    mcp_server.py -- and the comment recording its repair says it "was
+    omitted from this rule only because the verdict predates the rule".
+    """
+    from lib.ontology import document_failures
+
+    report = {"counts": {"not_a_class_link": 1}, "class_labels": []}
+    assert document_failures(report, "rdf")
+    assert document_failures(report, "xml") == []
+
+
+def test_not_examined_is_not_a_failure():
+    """`not_crm` and `unchecked` mean "not examined", not "fine" -- and
+    neither is the document's error to answer for. Same for a class: a
+    foreign rdf:type is not ours to reject, and a label_mismatch is a retired
+    name or a role qualifier the tool cannot tell apart."""
+    from lib.ontology import document_failures
+
+    report = {
+        "counts": {"not_crm": 4, "unchecked": 7, "ok": 2, "ambiguous": 1},
+        "class_labels": [{"verdict": "not_crm"}, {"verdict": "label_mismatch"}],
+        "inverse_claims": [{"verdict": "bridge"}, {"verdict": "foreign"},
+                           {"verdict": "ok"}],
+    }
+    for reader in ("xml", "rdf"):
+        assert document_failures(report, reader) == [], reader
+
+
+def test_a_failure_names_itself():
+    """The verdict line quotes these, so they have to read as reasons rather
+    than as verdict slugs."""
+    from lib.ontology import document_failures
+
+    reasons = document_failures(
+        {"counts": {"illegal": 2, "unknown_name": 1},
+         "class_labels": [{"verdict": "not_a_class"}],
+         "inverse_claims": [{"verdict": "contradicted"}]},
+        "rdf")
+    joined = "; ".join(reasons)
+    assert "2 illegal" in joined and "1 unknown name" in joined
+    assert "bad class" in joined and "owl:inverseOf" in joined
+
+
+def test_an_unknown_reader_is_refused():
+    from lib.ontology import document_failures
+
+    with pytest.raises(ValueError):
+        document_failures({"counts": {}}, "turtle")
