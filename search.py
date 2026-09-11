@@ -11,7 +11,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from lib.retrieve import Retriever
+from lib.retrieve import Retriever, concept_chronology
 
 
 def _day(date: str | None) -> str:
@@ -269,20 +269,14 @@ def format_issue(issue: dict) -> str:
     return "\n".join(lines)
 
 
-def concept_chronology(episodes: list[dict], ident: str) -> list[dict]:
-    """Episodes touching this concept, oldest first.
-
-    Matches entities, entities_historical AND entities_extension: 135 episodes
-    carry only a family id (FRBRoo, CRMsci, ...), never a core CRMbase one, so
-    without the third field their chronologies would be empty.
-    """
-    matched = [
-        ep for ep in episodes
-        if ident in (ep.get("entities") or [])
-        or ident in (ep.get("entities_historical") or [])
-        or ident in (ep.get("entities_extension") or [])
-    ]
-    return sorted(matched, key=lambda e: e.get("date_start") or "")
+def _property_of_property_hint(identifier: str) -> str:
+    """The one miss worth explaining: a dotted id against an ontology.json
+    built before the propertyOfProperty parser existed."""
+    if "." not in identifier:
+        return ""
+    return ("\n(This looks like a property of a property. If "
+            "data/ontology.json predates the propertyOfProperty parser, "
+            "rebuild it: uv run python build.py ontology)")
 
 
 def _format_siblings(entry: dict, siblings: list[dict], cap: int = 10) -> list[str]:
@@ -1393,31 +1387,15 @@ def main() -> None:
     if args.query == "concept" and args.target:
         from lib.ontology import applicable_properties
 
-        entry = r.get_concept(args.target)
-        if entry is None:
-            hint = ""
-            if "." in args.target:
-                hint = ("\n(This looks like a property of a property. If "
-                        "data/ontology.json predates the propertyOfProperty "
-                        "parser, rebuild it: uv run python build.py ontology)")
-            raise SystemExit(f"No such concept: {args.target}{hint}")
-        chrono = concept_chronology(r.episodes, entry["id"])
-        if entry.get("bucket") == "extensions":
-            # Messages are never tagged with entities_extension (only
-            # episodes are) so there is nothing to recount here; the
-            # mention count ontology.json already carries IS the count.
-            mentions = entry.get("mentions", 0)
-        elif entry.get("bucket") == "property_of_property":
-            # Never counted: format_concept explains why on screen.
-            mentions = 0
-        else:
-            mentions = sum(
-                1 for rec in r.messages.values()
-                if entry["id"] in rec.get("entities", []) + rec.get("entities_historical", [])
-            )
-        siblings = r.concept_siblings(entry["id"])
-        declaration = r.get_declaration(entry["id"])
-        narratives = r.concept_narratives(entry["id"])
+        dossier = r.concept_dossier(args.target)
+        if dossier is None:
+            raise SystemExit(
+                f"No such concept: {args.target}{_property_of_property_hint(args.target)}")
+        entry, chrono, mentions = (dossier["concept"], dossier["chronology"],
+                                   dossier["mentions"])
+        siblings, declaration, narratives = (dossier["siblings"],
+                                             dossier["declaration"],
+                                             dossier["narratives"])
         if args.json:
             applicable = (applicable_properties(r.ontology, entry["id"])
                           if _is_class_like(entry) else None)

@@ -109,6 +109,33 @@ async def test_an_unreadable_document_is_reported_not_raised(tool, args):
     assert "PASSED" not in text
 
 
+@pytest.mark.parametrize("identifier", [
+    "E22",          # an ordinary class
+    "P108",         # a property
+    "P14.1",        # a property of a property, never mention-counted
+    "E84",          # historical
+    "S19",          # a family extension, counted from ontology.json
+    "Place",        # a stop label, and ambiguous with FRBRoo F9
+    "E999",         # a miss
+])
+def test_the_tool_and_the_cli_say_the_same_thing(identifier):
+    """What the "mirrors search.py exactly" prose was asking for, asserted.
+
+    The two used to assemble the dossier separately -- 18 of 23 lines
+    identical -- and a step dropped from one copy is invisible from the
+    other. They now share Retriever.concept_dossier; this is the check that
+    they have not been pulled apart again.
+    """
+    import subprocess
+    import sys
+
+    from mcp_server import _crm_concept
+
+    cli = subprocess.run([sys.executable, "search.py", "concept", identifier],
+                         capture_output=True, text=True)
+    assert (cli.stdout or cli.stderr).strip() == _crm_concept(identifier).strip()
+
+
 @pytest.mark.asyncio
 async def test_the_schema_marks_the_right_arguments_required():
     by = {t.name: t for t in await _server().list_tools()}

@@ -67,7 +67,7 @@ from lib.ontology import (
 )
 from lib.retrieve import Retriever
 from search import (
-    concept_chronology,
+    _property_of_property_hint,
     format_concept,
     format_connect,
     format_document_chunk,
@@ -248,49 +248,26 @@ def _unreadable(tool: str, is_temp: bool, exc: Exception) -> str:
 
 
 def _crm_concept(identifier: str) -> str:
-    """Mirrors `search.py main()`'s `concept` branch exactly (the entry
-    lookup, the mention count's three-way bucket split, siblings,
-    declaration and narratives, in that order) rather than reconstructing
-    any of it from `format_concept`'s docstring -- see the module docstring
-    on `search.py` concept_chronology and the CLI branch it comes from for
-    why each of those five pieces is gathered before formatting at all.
+    """The `concept` verb. Shares the CLI's assembly rather than mirroring
+    it: both call `Retriever.concept_dossier`, so the two cannot disagree.
 
-    Returns "No such concept: <identifier>" text instead of the CLI's
-    `SystemExit` for an unknown id: a tool has no exit code to carry that
-    signal, and swallowing it (returning nothing, or an empty string) would
-    be silent in exactly the way the source material has been repeatedly
-    burned by. Mention counting iterates `r.messages`, which is `{}` in a
-    checkout with no archive (Task 1) -- so a mention count of 0 there is
-    the true count, not a stand-in for "couldn't check archive".
+    They used to be two copies, 18 of 23 lines identical, kept in step by a
+    docstring asking the next editor to do it by hand. A test now asserts
+    what that prose was for -- the CLI and this tool return the same text.
+
+    The one difference that remains is the miss: "No such concept: <id>" as
+    text rather than the CLI's `SystemExit`, because a tool has no exit code
+    to carry the signal and returning nothing would be silent in exactly the
+    way this codebase keeps getting burned by.
     """
-    entry = _RETRIEVER.get_concept(identifier)
-    if entry is None:
-        hint = ""
-        if "." in identifier:
-            hint = ("\n(This looks like a property of a property. If "
-                    "data/ontology.json predates the propertyOfProperty "
-                    "parser, rebuild it: uv run python build.py ontology)")
-        return f"No such concept: {identifier}{hint}"
-    chrono = concept_chronology(_RETRIEVER.episodes, entry["id"])
-    if entry.get("bucket") == "extensions":
-        # Messages are never tagged with entities_extension (only episodes
-        # are), so there is nothing to recount here -- the mention count
-        # ontology.json already carries IS the count.
-        mentions = entry.get("mentions", 0)
-    elif entry.get("bucket") == "property_of_property":
-        # Never counted: format_concept explains why on screen (the entity
-        # index records the parent property, not the .N suffix).
-        mentions = 0
-    else:
-        mentions = sum(
-            1 for rec in _RETRIEVER.messages.values()
-            if entry["id"] in rec.get("entities", []) + rec.get("entities_historical", [])
-        )
-    siblings = _RETRIEVER.concept_siblings(entry["id"])
-    declaration = _RETRIEVER.get_declaration(entry["id"])
-    narratives = _RETRIEVER.concept_narratives(entry["id"])
-    return format_concept(entry, chrono, mentions, _RETRIEVER.ontology,
-                          siblings, declaration, narratives)
+    dossier = _RETRIEVER.concept_dossier(identifier)
+    if dossier is None:
+        return (f"No such concept: {identifier}"
+                f"{_property_of_property_hint(identifier)}")
+    return format_concept(
+        dossier["concept"], dossier["chronology"], dossier["mentions"],
+        _RETRIEVER.ontology, dossier["siblings"], dossier["declaration"],
+        dossier["narratives"])
 
 
 # ---- crm_list ---------------------------------------------------------------

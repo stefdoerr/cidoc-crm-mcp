@@ -13,6 +13,22 @@ from lib.expand import build_lexicon, expand_query
 from lib.fts import search_fts
 
 
+def concept_chronology(episodes: list[dict], ident: str) -> list[dict]:
+    """Episodes touching this concept, oldest first.
+
+    Matches entities, entities_historical AND entities_extension: 135 episodes
+    carry only a family id (FRBRoo, CRMsci, ...), never a core CRMbase one, so
+    without the third field their chronologies would be empty.
+    """
+    matched = [
+        ep for ep in episodes
+        if ident in (ep.get("entities") or [])
+        or ident in (ep.get("entities_historical") or [])
+        or ident in (ep.get("entities_extension") or [])
+    ]
+    return sorted(matched, key=lambda e: e.get("date_start") or "")
+
+
 def rrf_fuse(rankings: list[list[str]], k: int = 60,
              weights: list[float] | None = None) -> list[tuple[str, float]]:
     """Reciprocal Rank Fusion.
@@ -1079,6 +1095,52 @@ class Retriever:
                 r["chunk_id"],
             ),
         )
+
+
+    def concept_dossier(self, identifier: str) -> dict | None:
+        """Everything the `concept` verb shows, assembled once.
+
+        The CLI branch and the MCP tool used to assemble this separately --
+        18 of 23 lines identical, including the three-way mention split and
+        its comments -- under a docstring asking the next editor to keep the
+        copies in step by hand. That is the arrangement whose failure the
+        module already records four times over ("a step silently dropped"),
+        so the assembly lives here and both callers read it.
+
+        Returns None for an unknown identifier. Every other miss is a real
+        answer and not an error: a concept with no siblings, no 7.3.2
+        declaration or no narrative mentions is still a concept, and a
+        mention count of 0 in a checkout with no archive is the true count of
+        what is there rather than a stand-in for "could not check".
+        """
+        entry = self.get_concept(identifier)
+        if entry is None:
+            return None
+        bucket = entry.get("bucket")
+        if bucket == "extensions":
+            # Messages are never tagged with entities_extension (only
+            # episodes are), so there is nothing to recount: the count
+            # ontology.json already carries IS the count.
+            mentions = entry.get("mentions", 0)
+        elif bucket == "property_of_property":
+            # Never counted; format_concept explains why on screen (the
+            # entity index records the parent property, not the .N suffix).
+            mentions = 0
+        else:
+            mentions = sum(
+                1 for rec in self.messages.values()
+                if entry["id"] in rec.get("entities", [])
+                + rec.get("entities_historical", [])
+            )
+        return {
+            "concept": entry,
+            "chronology": concept_chronology(self.episodes, entry["id"]),
+            "mentions": mentions,
+            "siblings": self.concept_siblings(entry["id"]),
+            "declaration": self.get_declaration(entry["id"]),
+            "narratives": self.concept_narratives(entry["id"]),
+        }
+
 
     # ---- quote verification -------------------------------------------------
     #
