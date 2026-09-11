@@ -25,6 +25,20 @@ than rendering it.
 
 ## Run it
 
+There is a hosted instance at `https://cidoc.stefdoerr.com/mcp`. It needs an
+access token, sent out by mail; with one, connecting takes a line and nothing
+is installed locally:
+
+```
+claude mcp add --transport http cidoc-crm https://cidoc.stefdoerr.com/mcp \
+  --header "Authorization: Bearer YOUR_TOKEN_HERE"
+```
+
+The token is shared across everyone testing and is the only thing standing in
+front of the archive, so keep it out of repositories, issues and screenshots.
+
+To run your own instead — no token, because loopback is the protection:
+
 ```
 docker run -d -p 127.0.0.1:8000:8000 ghcr.io/stefdoerr/cidoc-crm-mcp:latest
 ```

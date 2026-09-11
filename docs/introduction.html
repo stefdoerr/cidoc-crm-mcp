@@ -649,36 +649,55 @@ reports its own provenance:</p>
 <pre><code>docker run --rm ghcr.io/stefdoerr/cidoc-crm-mcp:latest cat /app/corpus-provenance.json</code></pre>
 
 <h3>There is no authentication</h3>
-<p>The server has no logins and no access control, by design — it is meant to
-run on your own machine and be reachable only from it. Anyone who can reach the
-port can search the whole archive. If you ever move it off loopback, put a
-proxy with a token in front of it first.</p>
+<p>The server itself has no logins and no access control, by design — a copy
+running on your own machine is reachable only from it, and that is the whole
+protection. Anyone who can reach the port can search the whole archive. So a
+copy put anywhere reachable needs a gate in front of it: the hosted instance
+in section 6 sits behind a proxy that checks a token and refuses everything
+else, which is what makes an address on the open internet safe to hand out.</p>
 </section>
 
 <!-- ==================================================================== -->
 <section>
 <h2><span class="num">6</span>Trying it</h2>
-<p class="lede">One command to run it, one block of configuration to connect it.
-Nothing to install, no corpus to download, no Python.</p>
+<p class="lede">Two routes: use the hosted instance with a token, or run the
+whole thing yourself. Either way it is one line of configuration and there is
+nothing to install.</p>
 
-<p>Everything — the code, the ontology and the whole corpus — ships in a single
-container image. Start it:</p>
-<pre><code>docker run -d -p 127.0.0.1:8000:8000 ghcr.io/stefdoerr/cidoc-crm-mcp:latest</code></pre>
+<h3>The hosted instance</h3>
+<p>If you have been sent an access token, everything is already running and
+you need nothing on your own machine. In Claude Code it is one line — put the
+token from your invitation in place of the placeholder:</p>
+<pre><code>claude mcp add --transport http cidoc-crm https://cidoc.stefdoerr.com/mcp \
+  --header "Authorization: Bearer YOUR_TOKEN_HERE"</code></pre>
 
-<p>Then tell your assistant it exists. Most tools take a block like this:</p>
+<p>Assistants that take a configuration file want the same three things —
+the address, the transport, and the token:</p>
 <pre><code>{
   "mcpServers": {
     "cidoc-crm": {
       "type": "http",
-      "url": "http://127.0.0.1:8000/mcp"
+      "url": "https://cidoc.stefdoerr.com/mcp",
+      "headers": { "Authorization": "Bearer YOUR_TOKEN_HERE" }
     }
   }
 }</code></pre>
 
-<p>That is the whole setup. The <code>127.0.0.1</code> is doing real work: it
-publishes the port to your machine only, which is the arrangement section 5
-describes. In Claude Code the same thing is one line:</p>
-<pre><code>claude mcp add --transport http cidoc-crm http://127.0.0.1:8000/mcp</code></pre>
+<p>The token is what the server checks before it answers anything, and it is
+shared by everyone testing: treat it like a door key rather than a password.
+Keep it out of anything public — a repository, an issue, a screenshot, a
+pasted config in a chat. Without it every request is refused.</p>
+
+<h3>Or run your own</h3>
+<p>Everything — the code, the ontology and the whole corpus — ships in a single
+container image, for Intel and Apple Silicon alike. Start it:</p>
+<pre><code>docker run -d -p 127.0.0.1:8000:8000 ghcr.io/stefdoerr/cidoc-crm-mcp:latest
+claude mcp add --transport http cidoc-crm http://127.0.0.1:8000/mcp</code></pre>
+
+<p>No token here, and none needed: the <code>127.0.0.1</code> is doing real
+work, publishing the port to your own machine only. That is the arrangement
+section 5 describes, and the reason your own copy needs no key is that nothing
+else can reach it.</p>
 
 <p>Ask your assistant a CRM question afterwards and you should see it consult
 the tools before it answers.</p>
